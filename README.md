@@ -33,7 +33,7 @@ Material Design for Bootstrap provides some additional stuff to get the best fro
 
 ### Buttons:
 
-Add `.btn-flat` to a button to make it flat, without shadows.
+Add `.btn-flat` to a button to make it flat, without shadows.  
 Add `.btn-raised` to a butto to add a permanent shadow to it.
 
 ### Inputs:
