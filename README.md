@@ -25,3 +25,28 @@ Currently supported elements:
 - Jumbotron
 - Wells
 - Dialogs
+
+
+# Documentation
+
+Material Design for Bootstrap provides some additional stuff to get the best from Material Design.
+
+### Buttons:
+
+Add `.btn-flat` to a button to make it flat, without shadows.
+Add `.btn-raised` to a butto to add a permanent shadow to it.
+
+### Inputs:
+
+Add `.floating-label` to an input field with a `placeholder` to transform the placeholder in a floating label.
+
+Remember to use the proper HTML markup to get radio and checkboxes styled correctly (choose between *radio* or *checkbox*):
+
+    <div class="radio/checkbox radio-primary">
+        <label>
+            <input type="radio/checkbox" checked>
+            Option one is this
+        </label>
+    </div>
+
+
