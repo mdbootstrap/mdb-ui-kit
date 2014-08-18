@@ -6,6 +6,8 @@ Just include the theme right after the Bootstrap CSS and include the javascript 
 
 This theme is in early developement and is not ready for production.
 
+Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/).
+
 
 Currently supported elements:
 
