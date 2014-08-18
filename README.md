@@ -34,7 +34,7 @@ Material Design for Bootstrap provides some additional stuff to get the best fro
 ### Buttons:
 
 Add `.btn-flat` to a button to make it flat, without shadows.  
-Add `.btn-raised` to a butto to add a permanent shadow to it.
+Add `.btn-raised` to a button to add a permanent shadow to it.
 
 ### Inputs:
 
@@ -49,4 +49,8 @@ Remember to use the proper HTML markup to get radio and checkboxes styled correc
         </label>
     </div>
 
+
+# Compatibility
+
+Currently Material Design for Bootstrap supports only Google Chrome, my aim is to support Firefox, Internet Explorer 11, Safari and all major mobile browsers.
 
