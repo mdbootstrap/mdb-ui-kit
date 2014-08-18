@@ -1,0 +1,65 @@
+// main: material.less
+
+.form-horizontal .checkbox {
+    padding-top: 15px;
+}
+.checkbox {
+    label {
+        cursor: pointer;
+        padding-left: 45px;
+        position: relative;
+        span {
+            display: block;
+            position: absolute;
+            left: 10px;
+            transition-duration: 0.2s;
+        }
+        .bubble {
+            background: @input-unchecked;
+            left: 0;
+            top: -10px;
+            height: 40px;
+            width: 40px;
+            border-radius: 100%;
+            transform: scale(0);
+            transition: transform .1s, opacity 0.2s 0.4s;
+            z-index: 1;
+            &.animate {
+                transform: scale(1);
+                opacity: 0;
+            }
+        }
+        .box {
+            border: 2px solid #5A5F5A;
+            height: 20px;
+            width: 20px;
+            transition-delay: 0.2s;
+        }
+        .check         {
+            top: -4px;
+            left: 16px;
+            width: 12px;
+            height: 24px;
+            border: 2px solid #0F9D58;
+            border-top: none;
+            border-left: none;
+            opacity: 0;
+            z-index: 888;
+            transform: rotate(45deg);
+            transition-delay: 0.2s;
+        }
+
+    }
+    input[type=checkbox] { display: none; }
+    input[type=checkbox]:checked ~ .box {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+    }
+    input[type=checkbox]:checked ~ .bubble {
+        background: @input-checked;
+    }
+    input[type=checkbox]:checked ~ .check {
+        opacity: 1;
+        transform: scale(1) rotate(45deg);
+    }
+}

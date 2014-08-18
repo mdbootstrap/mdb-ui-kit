@@ -1,0 +1,115 @@
+// out: material.css
+// Material Theme 0.0.1
+// -----------------------------------------------------
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300|Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic);
+
+@import "variables.less";
+@import "animations.less";
+@import "shadows.less";
+
+body {
+    background-color: #EEEEEE;
+}
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+// Buttons
+@import "buttons.less";
+
+// Ripple effect
+@import "ripple.less";
+
+// Checkboxes
+@import "checkboxes.less";
+
+// Radios
+@import "radios.less";
+
+// Text inputs
+@import "inputs.less";
+
+
+.container {
+    .well, .jumbotron {
+        background-color: #fff;
+        .shadow-z-2();
+        border-radius: 2px;
+        p {
+            font-weight: 300;
+        }
+    }
+}
+
+.modal-content {
+    .shadow-z-2();
+    border-radius: 0;
+    border: 0;
+    .modal-header {
+        border-bottom: 0;
+    }
+    .modal-footer {
+        border-top: 0;
+        .btn+.btn {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.list-group {
+    .shadow-z-2();
+    border-radius: 2px;
+    .list-group-item:last-child {
+        border-bottom-right-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+    .list-group-item:first-child {
+        border-top-right-radius: 2px;
+        boborder-top-right-radius: 2px;
+    }
+}
+
+// Navbar
+@import "navbar.less";
+
+.dropdown-menu {
+    border: 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    .divider {
+        background-color: rgba(229, 229, 229, 0.12);
+    }
+    li {
+        overflow: hidden;
+        position: relative;
+        a:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+// Alerts
+@import "alerts.less";
+
+// Progress bar
+@import "progress.less";
+
+// Typography
+.text-warning {
+    color: @btn-warning;
+}
+.text-primary {
+    color: @btn-primary;
+}
+.text-danger {
+    color: @btn-danger;
+}
+.text-success {
+    color: @btn-success;
+}
+.text-info {
+    color: @btn-info;
+}
+
+@import "tabs.less";

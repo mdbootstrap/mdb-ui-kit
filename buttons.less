@@ -1,0 +1,109 @@
+// main: material.less
+
+.btn-shadow() {
+    .shadow-z-2();
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    &:active:not(.btn-link) {
+        .shadow-z-3();
+    }
+}
+
+.btn {
+    position: relative;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover:not(.btn-link) {
+        .shadow-z-2-hover();
+    }
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    &:active:not(.btn-link) {
+        .shadow-z-3();
+    }
+    outline: none !important;
+}
+.btn-raised {
+    .btn-shadow();
+}
+.btn-default {
+    &, &:hover, &:active, &:focus {
+        background-color: @btn-default;
+        color: @btn-default-text;
+    }
+    &:hover {
+        background-color: #FFFFFF;
+    }
+}
+.btn-primary {
+    &, &:hover, &:active, &:focus {
+        background-color: @btn-primary;
+        color: @btn-primary-text;
+    }
+}
+.btn-success {
+    &, &:hover, &:active, &:focus {
+        background-color: @btn-success;
+        color: @btn-success-text;
+    }
+}
+.btn-info {
+    &, &:hover, &:active, &:focus {
+        background-color: @btn-info;
+        color: @btn-info-text;
+    }
+}
+.btn-warning {
+    &, &:hover, &:active, &:focus {
+        background-color: @btn-warning;
+        color: @btn-warning-text;
+    }
+}
+.btn-danger {
+    &, &:hover, &:active, &:focus {
+        background-color: @btn-danger;
+        color: @btn-danger-text;
+    }
+}
+
+.open > .dropdown-toggle.btn {
+    &-default { background-color: @btn-default; }
+    &-primary { background-color: @btn-primary; }
+    &-success { background-color: @btn-success; }
+    &-info { background-color: @btn-info; }
+    &-warning { background-color: @btn-warning; }
+    &-danger { background-color: @btn-danger; }
+}
+.btn-flat {
+    box-shadow: none !important;
+    &.btn-default:hover {
+        background: none;
+    }
+}
+
+.btn-group, .btn-group-vertical {
+    position: relative;
+    border-radius: 4px;
+    margin: 10px 1px;
+
+    .btn-shadow();
+    &.open .dropdown-toggle {
+        box-shadow: none;
+    }
+    &.btn-group-raised {
+        .btn-shadow();
+    }
+    .btn, .btn:active, .btn-group {
+        box-shadow: none !important;
+        margin: 0;
+    }
+    .btn:active .caret { margin-left: -1px; }
+}
+.btn-group-flat {
+    box-shadow: none !important;
+}

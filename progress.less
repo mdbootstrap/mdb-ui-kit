@@ -1,0 +1,23 @@
+// main: material.less
+
+.progress {
+    height: 4px;
+    border-radius: 0;
+    box-shadow: none;
+    background: #c8c8c8;
+    .progress-bar {
+        box-shadow: none;
+        &, &-info {
+            background-color: @progress-info;
+        }
+        &-warning {
+            background-color: @progress-warning;
+        }
+        &-danger {
+            background-color: @progress-danger;
+        }
+        &-success {
+            background-color: @progress-success;
+        }
+    }
+}

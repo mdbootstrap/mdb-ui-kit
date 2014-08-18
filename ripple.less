@@ -1,0 +1,34 @@
+// main: material.less
+
+.ripple-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 2px;
+}
+.ripple {
+    fill: black;
+    fill-opacity: 0.05;
+    stroke: none;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50%;
+    -ms-transform-origin: 50%;
+    transform-origin: 50%;
+    opacity: 0;
+}
+.ripple.ripple-on {
+  transition: opacity 0.15s ease-in 0s -webkit-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  -webkit-transition: opacity 0.15s ease-in 0s, -webkit-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  opacity: 1;
+}
+.ripple.ripple-out {
+    -webkit-transition: opacity 0.2s linear 0s !important;
+    transition: opacity 0.2s linear 0s !important;
+    opacity: 0;
+}
