@@ -1,29 +1,26 @@
 /* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
 
 $(function (){
+    // with ripple elements
+    var withRipple = ".btn:not('.btn-link'), .navbar a, .nav-tabs a";
+
     // Add ripple elements to material buttons
-    $(".btn:not('.btn-link'), .navbar a").each( function(){
-        $(this).append("<svg class=ripple-wrapper><defs></defs><g><ellipse rx=20 ry=20 class=ripple></ellipse></g></svg>");
-    });
+    $(withRipple).append("<svg class=ripple-wrapper><defs></defs><g><ellipse rx=20 ry=20 class=ripple></ellipse></g></svg>");
 
     // Add fake-checkbox to material checkboxes
-    $(".checkbox label input").each( function() {
-        $(this).after("<span class=\"bubble\"></span><span class=\"check\"></span><span class=\"box\"></span>");
-    });
+    $(".checkbox label input").after("<span class=\"bubble\"></span><span class=\"check\"></span><span class=\"box\"></span>");
 
     // Add fake-radio to material radios
-    $(".radio label input").each( function() {
-        $(this).after("<span class=\"bubble\"></span><span class=\"circle\"></span><span class=\"check\"></span>");
-    });
+    $(".radio label input").after("<span class=\"bubble\"></span><span class=\"circle\"></span><span class=\"check\"></span>");
 
     // Add elements for material inputs
     $("input.form-control, textarea.form-control").each( function() {
-        $(this).wrap("<div class=\"form-control-wrapper\"></div>");
-        $(this).after("<span class=\"form-control-highlight\"></span><span class=\"form-control-bar\"></span>");
+        $(this).wrap("<div class=form-control-wrapper></div>");
+        $(this).after("<span class=material-input></span>");
         if ($(this).hasClass("floating-label")) {
-            $(this)
-            .removeClass("floating-label")
-            .after("<span class=\"floating-label\">" + $(this).attr("placeholder") + "</span>").attr("placeholder", null);
+            var placeholder = $(this).attr("placeholder");
+            $(this).attr("placeholder", null).removeClass("floating-label");
+            $(this).after("<div class=floating-label>" + placeholder + "</div>");
         }
         if ($(this).val() === "") {
             $(this).addClass("empty");
@@ -39,7 +36,7 @@ $(function (){
     });
 
     // Material buttons engine
-    $(document).on("mousedown", ".btn:not('.btn-link'), .navbar a", function(e){
+    $(document).on("mousedown", withRipple, function(e){
         // Cache elements
         var $self           = $(this),
             $rippleWrapper  = $self.find(".ripple-wrapper"),
@@ -64,7 +61,7 @@ $(function (){
             $rippleWrapper.attr("class", "ripple-wrapper").data("animating", false).trigger("rippleEnd");
         }, 500);
     })
-    .on("rippleEnd", ".btn:not('.btn-link'), .navbar a",  function() {
+    .on("rippleEnd", withRipple,  function() {
         if (!mouseDown) {
             var $self           = $(this),
                 $rippleWrapper  = $self.find(".ripple-wrapper"),
@@ -73,7 +70,7 @@ $(function (){
             rippleOut($ripple, $rippleWrapper);
         }
     })
-    .on("mouseup", ".btn:not('.btn-link'), .navbar a",  function() {
+    .on("mouseup", withRipple,  function() {
         var $self           = $(this),
             $rippleWrapper  = $self.find(".ripple-wrapper"),
             $ripple         = $self.find(".ripple");
