@@ -3,7 +3,7 @@ $(function (){
     var withRipple = ".btn:not('.btn-link'), .navbar a, .nav-tabs a";
 
     // Add ripple elements to material buttons
-    $(withRipple).append("<svg class=ripple-wrapper><defs></defs><g><ellipse rx=20 ry=20 class=ripple></ellipse></g></svg>");
+    $(withRipple).append("<div class=ripple-wrapper><div class=ripple></div></div>");
 
     // Add fake-checkbox to material checkboxes
     $(".checkbox label input").after("<span class=\"bubble\"></span><span class=\"check\"></span><span class=\"box\"></span>");
@@ -12,7 +12,7 @@ $(function (){
     $(".radio label input").after("<span class=\"bubble\"></span><span class=\"circle\"></span><span class=\"check\"></span>");
 
     // Add elements for material inputs
-    $("input.form-control, textarea.form-control").each( function() {
+    $("input.form-control, textarea.form-control, select.form-control").each( function() {
         $(this).wrap("<div class=form-control-wrapper></div>");
         $(this).after("<span class=material-input></span>");
         if ($(this).hasClass("floating-label")) {
@@ -50,11 +50,17 @@ $(function (){
         var relY = e.pageY - parentOffset.top;
 
         // Move ripple to the click position
-        $ripple.attr({"cy":relY, "cx": relX});
+        $ripple.attr({"style": "top: " + relY + "px; left:" + relX + "px"});
 
         // Start the animation
         $rippleWrapper.attr("class", "ripple-wrapper").data("animating", true);
-        $ripple.attr("class", "ripple ripple-on").css("transform", "scale(" + $rippleWrapper.width() / 20 + ")");
+        var scaleVal = "scale(" + Math.round($rippleWrapper.width() / 10) + ")";
+        $ripple.attr("class", "ripple ripple-on").css({
+            "-ms-transform": scaleVal,
+            "-moz-transform": scaleVal,
+            "-webkit-transform": scaleVal,
+            "transform": scaleVal
+        });
         setTimeout(function() {
             $rippleWrapper.attr("class", "ripple-wrapper").data("animating", false).trigger("rippleEnd");
         }, 500);
