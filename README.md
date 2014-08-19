@@ -52,5 +52,5 @@ Remember to use the proper HTML markup to get radio and checkboxes styled correc
 
 # Compatibility
 
-Currently Material Design for Bootstrap supports only Google Chrome, my aim is to support Firefox, Internet Explorer 11, Safari and all major mobile browsers.
+Currently Material Design for Bootstrap supports Google Chrome (tested v37+), Mozilla Firefox (tested 30+), Internet Explorer (tested 11+). Mobile browsers are not currently tested but may works.
 
