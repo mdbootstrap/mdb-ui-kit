@@ -225,9 +225,13 @@ h6,
   border-radius: 2px;
 }
 .ripple {
-  fill: black;
-  fill-opacity: 0.05;
-  stroke: none;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
@@ -237,8 +241,10 @@ h6,
   opacity: 0;
 }
 .ripple.ripple-on {
-  transition: opacity 0.15s ease-in 0s -webkit-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
   -webkit-transition: opacity 0.15s ease-in 0s, -webkit-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  -ms-transition: opacity 0.15s ease-in 0s, -ms-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  -moz-transition: opacity 0.15s ease-in 0s, -moz-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  transition: opacity 0.15s ease-in 0s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
   opacity: 1;
 }
 .ripple.ripple-out {
@@ -469,6 +475,12 @@ h6,
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
+.form-control-wrapper select ~ .material-input:before {
+  bottom: 1px;
+}
+.form-control-wrapper select ~ .material-input:after {
+  display: none;
+}
 .form-group.has-warning .material-input:before,
 .form-group.has-warning input.form-control:focus ~ .material-input:after {
   background: #ff5722;
@@ -524,6 +536,9 @@ select.form-control {
 select.form-control:focus {
   box-shadow: none;
   border-color: #757575;
+}
+legend {
+  border-bottom: 0;
 }
 .container .well,
 .container .jumbotron {
@@ -818,4 +833,29 @@ fieldset[disabled] .navbar .btn-link:focus {
 }
 .text-info {
   color: #3498db;
+}
+.nav-tabs {
+  background: #4285f4;
+}
+.nav-tabs > li > a {
+  color: #FFFFFF;
+  border: 0;
+  margin: 0;
+}
+.nav-tabs > li > a:hover {
+  background: transparent;
+  border: 0;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.open > a,
+.nav-tabs > li.open > a:hover {
+  background: transparent !important;
+  border: 0 !important;
+  color: #FFFFFF !important;
+  font-weight: 500;
+}
+.nav-tabs > li.disabled > a,
+.nav-tabs > li.disabled > a:hover {
+  color: rgba(255, 255, 255, 0.5);
 }
