@@ -18,7 +18,11 @@
     border-radius: 4px;
     text-transform: uppercase;
     text-decoration: none;
+    color: @darkbg-text;
 
+    &:hover {
+        color: @darkbg-text;
+    }
     &:hover:not(.btn-link) {
         .shadow-z-2-hover();
     }
@@ -27,57 +31,29 @@
         .shadow-z-3();
     }
     outline: none !important;
+
+    .variations(~":not(.btn-link)", background-color, @btn-default);
+
 }
-.btn-raised {
-    .btn-shadow();
-}
-.btn-default {
-    &, &:hover, &:active, &:focus {
-        background-color: @btn-default;
-        color: @btn-default-text;
-    }
+// This is needed to style buttons which has not a variation suffix (they must stiled as btn-default)
+.btn-link, .btn:not([class^="btn btn-"]), .btn-default {
+    color: @lightbg-text;
     &:hover {
-        background-color: #FFFFFF;
+        color: @lightbg-text;
     }
 }
-.btn-primary {
-    &, &:hover, &:active, &:focus {
-        background-color: @btn-primary;
-        color: @btn-primary-text;
-    }
-}
-.btn-success {
-    &, &:hover, &:active, &:focus {
-        background-color: @btn-success;
-        color: @btn-success-text;
-    }
-}
-.btn-info {
-    &, &:hover, &:active, &:focus {
-        background-color: @btn-info;
-        color: @btn-info-text;
-    }
-}
-.btn-warning {
-    &, &:hover, &:active, &:focus {
-        background-color: @btn-warning;
-        color: @btn-warning-text;
-    }
-}
-.btn-danger {
-    &, &:hover, &:active, &:focus {
-        background-color: @btn-danger;
-        color: @btn-danger-text;
+.btn:not([class^="btn btn-"]), .btn-default {
+    &:hover {
+        background-color: rgba(255,255,255,0.5);
     }
 }
 
+.btn-raised {
+    .btn-shadow();
+}
+
 .open > .dropdown-toggle.btn {
-    &-default { background-color: @btn-default; }
-    &-primary { background-color: @btn-primary; }
-    &-success { background-color: @btn-success; }
-    &-info { background-color: @btn-info; }
-    &-warning { background-color: @btn-warning; }
-    &-danger { background-color: @btn-danger; }
+    .variations(~"", background-color, @btn-default);
 }
 .btn-flat {
     box-shadow: none !important;

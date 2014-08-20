@@ -1,26 +1,18 @@
 // main: material.less
 
-.alert, .alert-success, .alert-info, .alert-warning, .alert-danger {
+.alert {
     border: 0px;
     border-radius: 0;
     a, .alert-link {
         color: #FFFFFF;
     }
-}
-
-.alert-success {
-    color: #FFFFFF;
-    background-color: @alert-success;
-}
-.alert-info {
-    color: #FFFFFF;
-    background-color: @alert-info;
-}
-.alert-warning {
-    color: #FFFFFF;
-    background-color: @alert-warning;
-}
-.alert-danger {
-    color: #FFFFFF;
-    background-color: @alert-danger;
+    .variations(~"", background-color, #FFFFFF);
+    &-info, &-danger, &-warning, &-success {
+        color: #FFFFFF;
+    }
+    &-default {
+        a, .alert-link {
+            color: #000000;
+        }
+    }
 }

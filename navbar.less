@@ -65,7 +65,7 @@
 
     .navbar-collapse,
     .navbar-form {
-        border-color: darken(@navbar-default-bg, 7%);
+        border-color: rgba(0,0,0,0.1);
     }
 
     // Dropdowns
@@ -154,27 +154,9 @@
         ::-moz-placeholder { color: @navbar-border; };
         :-ms-input-placeholder { color: @navbar-border; };
     }
-}
 
-.navbar {
-    &-primary {
-        background-color: @navbar-default-bg;
-        .navbar-collapse, .navbar-form { border-color: darken(@navbar-default-bg, 7%); }
-    }
-    &-success {
-        background-color: @navbar-success-bg;
-        .navbar-collapse, .navbar-form { border-color: darken(@navbar-success-bg, 7%); }
-    }
-    &-info { background-color: @navbar-info-bg;
-        .navbar-collapse, .navbar-form { border-color: darken(@navbar-info-bg, 7%); }
-    }
-    &-warning { background-color: @navbar-warning-bg;
-        .navbar-collapse, .navbar-form { border-color: darken(@navbar-warning-bg, 7%); }
-    }
-    &-danger { background-color: @navbar-danger-bg;
-        .navbar-collapse, .navbar-form { border-color: darken(@navbar-danger-bg, 7%); }
-    }
-    &-inverse { background-color: @navbar-inverse-bg;
-        .navbar-collapse, .navbar-form { border-color: darken(@navbar-inverse-bg, 7%); }
+    .variations(~"", background-color, @primary);
+    &-inverse {
+        background-color: @indigo;
     }
 }

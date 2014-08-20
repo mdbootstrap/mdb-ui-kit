@@ -15,8 +15,8 @@
             top: 2px;
             transition-duration: 0.2s;
         }
-        .bubble {
-            background: @input-unchecked;
+        .ripple {
+            background-color: @lightbg-text;
             left: 0;
             top: -8px;
             height: 34px;
@@ -25,13 +25,15 @@
             transform: scale(0);
             transition: transform .1s, opacity 0.2s 0.4s;
             z-index: 1;
+            opacity: 0.2;
+            margin: 0;
             &.animate {
                 transform: scale(1);
                 opacity: 0;
             }
         }
         .circle {
-            border: 2px solid #5A5F5A;
+            border: 2px solid @lightbg-text;
             height: 15px;
             width: 15px;
             border-radius: 100%;
@@ -44,21 +46,23 @@
             transform: scale(0);
         }
     }
-    &.radio {
-        &-default .check { background-color: @radio-default; }
-        &-primary .check { background-color: @radio-primary; }
-        &-success .check { background-color: @radio-success; }
-        &-info { background-color: @radio-info; }
-        &-warning .check { background-color: @radio-warning; }
-        &-danger .check { background-color: @radio-danger; }
+    .variations(~" input[type=radio]:checked ~ .check", background-color, @radio-default);
+    .variations(~" input[type=radio]:checked ~ .circle", border-color, @radio-default);
+
+    input[type=radio][disabled] ~ .check,
+    input[type=radio][disabled] ~ .circle {
+        opacity: 0.5;
     }
+
     input[type=radio] { display: none; }
     input[type=radio]:checked ~ .check {
-        transform: scale(1);
+        transform: scale(0.55);
     }
-    input[type=radio]:checked ~ .circle {
-        transform: scale(1);
-        border: 1px;
+    input[type=radio][disabled] ~ .circle {
+        border-color: @lightbg-text;
+    }
+    input[type=radio][disabled] ~ .check {
+        background-color: @lightbg-text;
     }
 
 }
