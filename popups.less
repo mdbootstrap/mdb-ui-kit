@@ -1,0 +1,49 @@
+// main: material.less
+
+.popover, .tooltip-inner {
+    background: #323232;
+    color: #FFF;
+    border-radius: 2px;
+
+}
+
+.tooltip, .tooltip.in {
+    opacity: 1;
+}
+
+.popover, .tooltip {
+    &.left .arrow:after, &.left .tooltip-arrow {
+        border-left-color: #323232;
+    }
+    &.right .arrow:after, &.right .tooltip-arrow {
+        border-right-color: #323232;
+    }
+    &.top .arrow:after, &.top .tooltip-arrow {
+        border-top-color: #323232;
+    }
+    &.bottom .arrow:after, &.bottom .tooltip-arrow {
+        border-bottom-color: #323232;
+    }
+}
+
+// Support for toastr plugin (in material they are snackbars)
+// http://codeseven.github.io/toastr/
+
+#toast-container > div {
+    background-color: #323232;
+    .shadow-z-1;
+    border-radius: 2px;
+    opacity: 1;
+    color: @darkbg-text;
+}
+.toast-close-button:hover, .toast-close-button:focus {
+    color: @darkbg-text;
+    opacity: 1;
+}
+#toast-container.toast-top-full-width > div, #toast-container.toast-bottom-full-width > div {
+    width: 100%;
+    border-radius: 0;
+}
+#toast-container.rounded > div {
+    border-radius: 200px;
+}

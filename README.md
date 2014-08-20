@@ -61,7 +61,16 @@ Remember to use the proper HTML markup to get radio and checkboxes styled correc
             Option one is this
         </label>
     </div>
+    
+# Plugins
 
+Material Design for Bootstrap comes with styling support for various Bootstrap plugins, at the moment only one plugin is supported but others will come:
+
+### Toastr
+
+Create snackbars and toasts with Toastr plugin, the default toast style is the squared one (snackbar style), if you like to use the rounded style (toast style) please add the `rounded` class to the `positionClass` option of Toastr.
+
+![toastr](screenshots/toastr-preview.jpg)
 
 # Compatibility
 
