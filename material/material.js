@@ -8,10 +8,10 @@ $(function (){
     $(withRipple).append("<div class=ripple-wrapper><div class=ripple></div></div>");
 
     // Add fake-checkbox to material checkboxes
-    $(".checkbox label input").after("<span class=\"bubble\"></span><span class=\"check\"></span><span class=\"box\"></span>");
+    $(".checkbox label input").after("<span class=ripple></span><span class=check></span><span class=box></span>");
 
     // Add fake-radio to material radios
-    $(".radio label input").after("<span class=\"bubble\"></span><span class=\"circle\"></span><span class=\"check\"></span>");
+    $(".radio label input").after("<span class=ripple></span><span class=circle></span><span class=check></span>");
 
     // Add elements for material inputs
     $("input.form-control, textarea.form-control, select.form-control").each( function() {
@@ -76,7 +76,7 @@ $(function (){
             rippleOut($ripple, $rippleWrapper);
         }
     })
-    .on("mouseup", withRipple,  function() {
+    .on("mouseup mouseleave", withRipple,  function() {
         var $self           = $(this),
             $rippleWrapper  = $self.find(".ripple-wrapper"),
             $ripple         = $self.find(".ripple");
@@ -89,23 +89,23 @@ $(function (){
 
     var rippleOut = function($ripple, $rippleWrapper) {
         $ripple.attr("class", "ripple ripple-on ripple-out");
-        $rippleWrapper.fadeOut(200, function() {
+        $rippleWrapper.fadeOut(800, function() {
             $rippleWrapper.attr("class", "ripple-wrapper").attr("style", "");
             $ripple.attr("class", "ripple").attr("style", "");
         });
     };
 
-    // Material inputs engine (bubble effect)
+    // Material inputs engine (ripple effect)
     $(document).on("click", ".checkbox label, .radio label", function() {
-        var $bubble     = $(this).find(".bubble"),
+        var $ripple     = $(this).find(".ripple"),
             timestamp   = "t" + new Date().getTime();
-        $bubble.attr("class", "bubble");
-        $bubble.addClass("animate").addClass(timestamp);
+        $ripple.attr("class", "ripple");
+        $ripple.addClass("animate").addClass(timestamp);
         setTimeout(function() {
-            if ($bubble.hasClass(timestamp)) {
-                $bubble.removeClass("animate").removeClass(timestamp);
+            if ($ripple.hasClass(timestamp)) {
+                $ripple.removeClass("animate").removeClass(timestamp);
             }
-        }, 200);
+        }, 800);
     });
 
     $(document).on("change", ".form-control", function() {
