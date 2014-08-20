@@ -29,21 +29,38 @@
 // Support for toastr plugin (in material they are snackbars)
 // http://codeseven.github.io/toastr/
 
-#toast-container > div {
+.snackbar {
+    display: inline-block;
+    position: fixed;
+    z-index: 99999;
+    left: 20px;
+    bottom: 0;
+    min-width: 288px;
+    max-width: 568px;
+    padding: 14px 15px;
+    margin-bottom: 20px;
+
+    color: @darkbg-text;
+    font-size: 14px;
     background-color: #323232;
-    .shadow-z-1;
     border-radius: 2px;
+    .shadow-z-1;
+
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in;
+
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
+
+}
+
+.snackbar.snackbar-opened {
     opacity: 1;
-    color: @darkbg-text;
+    -webkit-transform: none;
+    transform: none;
 }
-.toast-close-button:hover, .toast-close-button:focus {
-    color: @darkbg-text;
-    opacity: 1;
-}
-#toast-container.toast-top-full-width > div, #toast-container.toast-bottom-full-width > div {
-    width: 100%;
-    border-radius: 0;
-}
-#toast-container.rounded > div {
+
+.snackbar.toast {
     border-radius: 200px;
 }
