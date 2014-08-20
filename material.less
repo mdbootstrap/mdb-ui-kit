@@ -5,11 +5,18 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300|Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic);
 
 @import "variables.less";
+@import "mixins.less";
 @import "animations.less";
 @import "shadows.less";
 
 body {
     background-color: #EEEEEE;
+    &.inverse {
+        background: #333333;
+        &, .form-control {
+            color: @darkbg-text;
+        }
+    }
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -31,8 +38,11 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 // Text inputs
 @import "inputs.less";
 
+legend {
+    border-bottom: 0;
+}
 
-.container {
+.container, .container-fluid {
     .well, .jumbotron {
         background-color: #fff;
         .shadow-z-2();

@@ -93,6 +93,14 @@
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
     }
+
+    select ~ .material-input:before {
+        bottom: 1px;
+    }
+    select ~ .material-input:after {
+        display: none;
+    }
+
 }
 
 .form-group {
@@ -128,6 +136,10 @@
             color: @input-info;
         }
     }
+    .variations(~" .material-input:before", background-color, @lightbg-text);
+    .variations(~" input.form-control:focus ~ .material-input:after", background-color, @lightbg-text);
+    .variations(~" .control-label", color, @lightbg-text);
+    .variations(~" input.form-control:focus ~ .floating-label", color, @lightbg-text);
 
 }
 
