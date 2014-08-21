@@ -119,7 +119,7 @@ h6,
   background-color: #0f9d58;
 }
 .btn-info:not(.btn-link) {
-  background-color: #3498db;
+  background-color: #03a9f4;
 }
 .btn-warning:not(.btn-link) {
   background-color: #ff5722;
@@ -210,7 +210,7 @@ h6,
   background-color: #0f9d58;
 }
 .open > .dropdown-toggle.btn-info {
-  background-color: #3498db;
+  background-color: #03a9f4;
 }
 .open > .dropdown-toggle.btn-warning {
   background-color: #ff5722;
@@ -415,7 +415,7 @@ h6,
   color: #0f9d58;
 }
 .checkbox-info .check {
-  color: #3498db;
+  color: #03a9f4;
 }
 .checkbox-warning .check {
   color: #ff5722;
@@ -499,7 +499,7 @@ h6,
   background-color: #0f9d58;
 }
 .checkbox-info input[type=checkbox]:checked ~ .ripple {
-  background-color: #3498db;
+  background-color: #03a9f4;
 }
 .checkbox-warning input[type=checkbox]:checked ~ .ripple {
   background-color: #ff5722;
@@ -621,7 +621,7 @@ h6,
   background-color: #0f9d58;
 }
 .radio-info input[type=radio]:checked ~ .check {
-  background-color: #3498db;
+  background-color: #03a9f4;
 }
 .radio-warning input[type=radio]:checked ~ .check {
   background-color: #ff5722;
@@ -691,7 +691,7 @@ h6,
   border-color: #0f9d58;
 }
 .radio-info input[type=radio]:checked ~ .circle {
-  border-color: #3498db;
+  border-color: #03a9f4;
 }
 .radio-warning input[type=radio]:checked ~ .circle {
   border-color: #ff5722;
@@ -888,15 +888,15 @@ h6,
 }
 .form-group.has-info .material-input:before,
 .form-group.has-info input.form-control:focus ~ .material-input:after {
-  background: #3498db;
+  background: #03a9f4;
 }
 .form-group.has-info .control-label,
 .form-group.has-info input.form-control:focus ~ .floating-label {
-  color: #3498db;
+  color: #03a9f4;
 }
 .form-group .material-input:before,
 .form-group-default .material-input:before {
-  background-color: #4d4d4d;
+  background-color: #3f51b5;
 }
 .form-group-primary .material-input:before {
   background-color: #4285f4;
@@ -905,7 +905,7 @@ h6,
   background-color: #0f9d58;
 }
 .form-group-info .material-input:before {
-  background-color: #3498db;
+  background-color: #03a9f4;
 }
 .form-group-warning .material-input:before {
   background-color: #ff5722;
@@ -966,7 +966,7 @@ h6,
 }
 .form-group input.form-control:focus ~ .material-input:after,
 .form-group-default input.form-control:focus ~ .material-input:after {
-  background-color: #4d4d4d;
+  background-color: #3f51b5;
 }
 .form-group-primary input.form-control:focus ~ .material-input:after {
   background-color: #4285f4;
@@ -975,7 +975,7 @@ h6,
   background-color: #0f9d58;
 }
 .form-group-info input.form-control:focus ~ .material-input:after {
-  background-color: #3498db;
+  background-color: #03a9f4;
 }
 .form-group-warning input.form-control:focus ~ .material-input:after {
   background-color: #ff5722;
@@ -1045,7 +1045,7 @@ h6,
   color: #0f9d58;
 }
 .form-group-info .control-label {
-  color: #3498db;
+  color: #03a9f4;
 }
 .form-group-warning .control-label {
   color: #ff5722;
@@ -1106,7 +1106,7 @@ h6,
 }
 .form-group input.form-control:focus ~ .floating-label,
 .form-group-default input.form-control:focus ~ .floating-label {
-  color: #4d4d4d;
+  color: #3f51b5;
 }
 .form-group-primary input.form-control:focus ~ .floating-label {
   color: #4285f4;
@@ -1115,7 +1115,7 @@ h6,
   color: #0f9d58;
 }
 .form-group-info input.form-control:focus ~ .floating-label {
-  color: #3498db;
+  color: #03a9f4;
 }
 .form-group-warning input.form-control:focus ~ .floating-label {
   color: #ff5722;
@@ -1381,7 +1381,7 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #0f9d58;
 }
 .navbar-info {
-  background-color: #3498db;
+  background-color: #03a9f4;
 }
 .navbar-warning {
   background-color: #ff5722;
@@ -1476,7 +1476,7 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #0f9d58;
 }
 .alert-info {
-  background-color: #3498db;
+  background-color: #03a9f4;
 }
 .alert-warning {
   background-color: #ff5722;
@@ -1565,7 +1565,7 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #0f9d58;
 }
 .progress .progress-bar-info {
-  background-color: #3498db;
+  background-color: #03a9f4;
 }
 .progress .progress-bar-warning {
   background-color: #ff5722;
@@ -1637,7 +1637,7 @@ fieldset[disabled] .navbar .btn-link:focus {
   color: #0f9d58;
 }
 .text-info {
-  color: #3498db;
+  color: #03a9f4;
 }
 .nav-tabs {
   background: #4285f4;
@@ -1663,4 +1663,63 @@ fieldset[disabled] .navbar .btn-link:focus {
 .nav-tabs > li.disabled > a,
 .nav-tabs > li.disabled > a:hover {
   color: rgba(255, 255, 255, 0.5);
+}
+.popover,
+.tooltip-inner {
+  background: #323232;
+  color: #FFF;
+  border-radius: 2px;
+}
+.tooltip,
+.tooltip.in {
+  opacity: 1;
+}
+.popover.left .arrow:after,
+.tooltip.left .arrow:after,
+.popover.left .tooltip-arrow,
+.tooltip.left .tooltip-arrow {
+  border-left-color: #323232;
+}
+.popover.right .arrow:after,
+.tooltip.right .arrow:after,
+.popover.right .tooltip-arrow,
+.tooltip.right .tooltip-arrow {
+  border-right-color: #323232;
+}
+.popover.top .arrow:after,
+.tooltip.top .arrow:after,
+.popover.top .tooltip-arrow,
+.tooltip.top .tooltip-arrow {
+  border-top-color: #323232;
+}
+.popover.bottom .arrow:after,
+.tooltip.bottom .arrow:after,
+.popover.bottom .tooltip-arrow,
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #323232;
+}
+.snackbar {
+  background-color: #323232;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  height: 0;
+  -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  -moz-transform: translateY(200%);
+  -webkit-transform: translateY(200%);
+  transform: translateY(200%);
+}
+.snackbar.snackbar-opened {
+  padding: 14px 15px;
+  margin-bottom: 20px;
+  height: auto;
+  -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+  -moz-transform: none;
+  -webkit-transform: none;
+  transform: none;
 }
