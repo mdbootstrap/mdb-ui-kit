@@ -26,41 +26,38 @@
     }
 }
 
-// Support for toastr plugin (in material they are snackbars)
-// http://codeseven.github.io/toastr/
+// Support for SnackbarJS plugin
+// https://github.com/FezVrasta/snackbarjs
 
 .snackbar {
-    display: inline-block;
-    position: fixed;
-    z-index: 99999;
-    left: 20px;
-    bottom: 0;
-    min-width: 288px;
-    max-width: 568px;
-    padding: 14px 15px;
-    margin-bottom: 20px;
-
+    // Style
+    background-color: #323232;
     color: @darkbg-text;
     font-size: 14px;
-    background-color: #323232;
     border-radius: 2px;
     .shadow-z-1;
 
-    opacity: 0;
-    -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in;
-    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in;
-
+    // Animation
+    height: 0;
+    -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+    -moz-transform: translateY(200%);
     -webkit-transform: translateY(200%);
     transform: translateY(200%);
-
 }
 
 .snackbar.snackbar-opened {
-    opacity: 1;
+    // Style
+    padding: 14px 15px;
+    margin-bottom: 20px;
+
+    // Animation
+    height: auto;
+    -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+    -moz-transform: none;
     -webkit-transform: none;
     transform: none;
-}
-
-.snackbar.toast {
-    border-radius: 200px;
 }
