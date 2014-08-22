@@ -1,7 +1,7 @@
 Material Design for Bootstrap
 =========================
 
-This Bootstrap theme is an easy way to use the new Material Design guide-lines by Google in your Bootstrap 3 based application.
+This Bootstrap theme is an easy way to use the new Material Design guide-lines by Google in your Bootstrap 3 based application.  
 Just include the theme right after the Bootstrap CSS and include the javascript at the end of your document, everything will be converted to Material Design (paper) style.
 
 This theme is in early developement and is not ready for production.
@@ -39,7 +39,7 @@ Material Design for Bootstrap provides some additional stuff to get the best fro
 
 ### Variations:
 
-There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progess bars and more.
+There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progess bars and more.  
 They can be used adding to the desired element the class suffix `-material-color` replacing `color` with the desired one.
 
 Example:
@@ -52,7 +52,7 @@ These colors are took from the Material Design color palette and are reported be
 
 ### Buttons:
 
-Add `.btn-flat` to a button to make it flat, without shadows.
+Add `.btn-flat` to a button to make it flat, without shadows.  
 Add `.btn-raised` to a button to add a permanent shadow to it.
 
 ### Inputs:
