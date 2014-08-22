@@ -1,7 +1,7 @@
 Material Design for Bootstrap
 =========================
 
-This Bootstrap theme is an easy way to use the new Material Design guide-lines by Google in your Bootstrap 3 based application.  
+This Bootstrap theme is an easy way to use the new Material Design guide-lines by Google in your Bootstrap 3 based application.
 Just include the theme right after the Bootstrap CSS and include the javascript at the end of your document, everything will be converted to Material Design (paper) style.
 
 This theme is in early developement and is not ready for production.
@@ -26,6 +26,12 @@ Currently supported elements:
 - Wells
 - Dialogs
 
+# Support me
+
+If you like this project you may support me donating something on Gittip, starring this repository or reporting bugs and ideas in the issue section.
+
+[![gittip](screenshots/gittip-button.jpg)](https://www.gittip.com/FezVrasta/)
+[![issues](screenshots/issues-button.jpg)](/FezVrasta/bootstrap-material-design)
 
 # Documentation
 
@@ -33,7 +39,7 @@ Material Design for Bootstrap provides some additional stuff to get the best fro
 
 ### Variations:
 
-There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progess bars and more.  
+There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progess bars and more.
 They can be used adding to the desired element the class suffix `-material-color` replacing `color` with the desired one.
 
 Example:
@@ -46,7 +52,7 @@ These colors are took from the Material Design color palette and are reported be
 
 ### Buttons:
 
-Add `.btn-flat` to a button to make it flat, without shadows.  
+Add `.btn-flat` to a button to make it flat, without shadows.
 Add `.btn-raised` to a button to add a permanent shadow to it.
 
 ### Inputs:
@@ -61,7 +67,7 @@ Remember to use the proper HTML markup to get radio and checkboxes styled correc
             Option one is this
         </label>
     </div>
-    
+
 # Plugins
 
 Material Design for Bootstrap comes with styling support for various Bootstrap plugins, at the moment only one plugin is supported but others will come:
