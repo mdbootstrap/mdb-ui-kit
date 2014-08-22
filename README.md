@@ -31,7 +31,7 @@ Currently supported elements:
 If you like this project you may support me donating something on Gittip, starring this repository or reporting bugs and ideas in the issue section.
 
 [![gittip](screenshots/gittip-button.jpg)](https://www.gittip.com/FezVrasta/)
-[![issues](screenshots/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design)
+[![issues](screenshots/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design/issues)
 
 # Documentation
 
