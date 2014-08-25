@@ -96,15 +96,15 @@ var ripples = {
         // init RippleJS and start ripple effect on mousedown
         bind("mousedown", withRipple, rippleInit);
         // start ripple effect on mousedown
-        bind("mousedown", ".ripple-wrapper, .ripple", rippleStart);
+        bind("mousedown", ".ripple-wrapper, .ripple-wrapper .ripple", rippleStart);
         // if animation ends and user is not holding mouse then destroy the ripple
-        bind("rippleEnd", ".ripple-wrapper, .ripple", function(e, $ripple) {
+        bind("rippleEnd", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
             if (!mouseDown) {
                 rippleOut($ripple);
             }
         });
         // Destroy ripple when mouse is not holded anymore if the ripple still exists
-        bind("mouseup", ".ripple-wrapper, .ripple", function(e, $ripple) {
+        bind("mouseup", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
             if ($ripple.dataset.animating != 1) {
                 rippleOut($ripple);
             }
