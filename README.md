@@ -70,11 +70,16 @@ Remember to use the proper HTML markup to get radio and checkboxes styled correc
 
 # Plugins
 
-Material Design for Bootstrap comes with styling support for various Bootstrap plugins, at the moment only one plugin is supported but others will come:
+Material Design for Bootstrap comes with styling support for various external scripts, at the moment only two scripts are supported but others will come:
 
 ### SnackbarJS
 
 Create snackbars and toasts with [SnackbarJS plugin](https://github.com/FezVrasta/snackbarjs), the default toast style is the squared one (snackbar style), if you like to use the rounded style (toast style) please add the `toast` class to the `style` option of SnackbarJS.
+
+### RipplesJS
+
+This is part of Material Design for Bootstrap project and is a plain Javascript script which creates the ripple effect on click of the defined elements.  
+At the moment RipplesJS has not an own repository but probably in future it will have one.
 
 
 # Compatibility

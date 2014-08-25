@@ -1,9 +1,8 @@
-$(function (){
-    // with ripple elements
-    var withRipple = ".btn:not('.btn-link'), .navbar a, .nav-tabs a";
+/* globals ripples */
 
-    // Add ripple elements to material buttons
-    $(withRipple).append("<div class=ripple-wrapper><div class=ripple></div></div>");
+$(function (){
+
+    ripples.init(".btn:not(.btn-link), .navbar a, .nav-tabs a, .withripple");
 
     // Add fake-checkbox to material checkboxes
     $(".checkbox label input").after("<span class=ripple></span><span class=check></span><span class=box></span>");
@@ -24,74 +23,6 @@ $(function (){
             $(this).addClass("empty");
         }
     });
-
-
-    var mouseDown = false;
-    $(document).mousedown(function() {
-        mouseDown = true;
-    }).mouseup(function() {
-        mouseDown = false;
-    });
-
-    // Material buttons engine
-    $(document).on("mousedown", withRipple, function(e){
-        // Cache elements
-        var $self           = $(this),
-            $rippleWrapper  = $self.find(".ripple-wrapper"),
-            $ripple         = $self.find(".ripple");
-
-        // Remove previous animation
-        $ripple.attr("class", "ripple");
-        $rippleWrapper.stop(true, true);
-
-        // Get mouse position
-        var parentOffset = $self.offset();
-        var relX = e.pageX - parentOffset.left;
-        var relY = e.pageY - parentOffset.top;
-
-        // Move ripple to the click position
-        $ripple.attr({"style": "top: " + relY + "px; left:" + relX + "px"});
-
-        // Start the animation
-        $rippleWrapper.attr("class", "ripple-wrapper").data("animating", true);
-        var scaleVal = "scale(" + Math.round($rippleWrapper.width() / 10) + ")";
-        $ripple.attr("class", "ripple ripple-on").css({
-            "-ms-transform": scaleVal,
-            "-moz-transform": scaleVal,
-            "-webkit-transform": scaleVal,
-            "transform": scaleVal
-        });
-        setTimeout(function() {
-            $rippleWrapper.attr("class", "ripple-wrapper").data("animating", false).trigger("rippleEnd");
-        }, 500);
-    })
-    .on("rippleEnd", withRipple,  function() {
-        if (!mouseDown) {
-            var $self           = $(this),
-                $rippleWrapper  = $self.find(".ripple-wrapper"),
-                $ripple         = $self.find(".ripple");
-
-            rippleOut($ripple, $rippleWrapper);
-        }
-    })
-    .on("mouseup mouseleave", withRipple,  function() {
-        var $self           = $(this),
-            $rippleWrapper  = $self.find(".ripple-wrapper"),
-            $ripple         = $self.find(".ripple");
-
-        if (!$rippleWrapper.data("animating")) {
-            rippleOut($ripple, $rippleWrapper);
-        }
-
-    });
-
-    var rippleOut = function($ripple, $rippleWrapper) {
-        $ripple.attr("class", "ripple ripple-on ripple-out");
-        $rippleWrapper.fadeOut(800, function() {
-            $rippleWrapper.attr("class", "ripple-wrapper").attr("style", "");
-            $ripple.attr("class", "ripple").attr("style", "");
-        });
-    };
 
     // Material inputs engine (ripple effect)
     $(document).on("click", ".checkbox label, .radio label", function() {
