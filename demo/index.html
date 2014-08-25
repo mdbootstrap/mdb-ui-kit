@@ -333,6 +333,11 @@
                             <a href="javascript:void(0)" class="btn btn-primary btn-xs">Mini button</a>
                         </p>
 
+                        <h3>Floating action buttons</h3>
+                        <p class="bs-component">
+
+                        </p>
+
                     </div>
                     <div class="col-lg-6">
 
@@ -1299,10 +1304,15 @@
             (function(){
 
                 var $button = $("<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>").click(function(){
-                    var html = $(this).parent().html();
-                    html = cleanSource(html);
-                    $("#source-modal pre").text(html);
-                    $("#source-modal").modal();
+                    var index =  $('.bs-component').index( $(this).parent() );
+                    console.log(index);
+                    $.get(window.location.href, function(data){
+                        var html = $(data).find('.bs-component').eq(index).html();
+                        html = cleanSource(html);
+                        $("#source-modal pre").text(html);
+                        $("#source-modal").modal();
+                    })
+
                 });
 
                 $('.bs-component [data-toggle="popover"]').popover();
