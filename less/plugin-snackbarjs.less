@@ -1,0 +1,42 @@
+// main: material.less
+
+// Support for SnackbarJS plugin
+// https://github.com/FezVrasta/snackbarjs
+
+.snackbar {
+    // Style
+    background-color: #323232;
+    color: @darkbg-text;
+    font-size: 14px;
+    border-radius: 2px;
+    .shadow-z-1;
+
+    // Animation
+    height: 0;
+    -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+    -moz-transform: translateY(200%);
+    -webkit-transform: translateY(200%);
+    transform: translateY(200%);
+}
+
+.snackbar.snackbar-opened {
+    // Style
+    padding: 14px 15px;
+    margin-bottom: 20px;
+
+    // Animation
+    height: auto;
+    -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+    -moz-transform: none;
+    -webkit-transform: none;
+    transform: none;
+}
+
+// Variations
+.snackbar.toast {
+    border-radius: 200px;
+}
