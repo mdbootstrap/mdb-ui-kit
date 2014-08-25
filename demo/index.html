@@ -1001,6 +1001,25 @@
                 </div>
             </div>
 
+            <!-- Sliders (noUiSlider)
+================================================== -->
+
+            <div class="bs-docs-section">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="page-header">
+                            <h1 id="slider">Sliders <span style="font-size: 50%">(with noUiSlider)</span></h1>
+                        </div>
+                        <div class="bs-component">
+                            <div class="slider"></div>
+                            <div class="slider slider-success"></div>
+                            <div class="slider slider-material-pink"></div>
+                        </div>
+                        <p>Read more about <a href="http://refreshless.com/nouislider/">noUiSlider here</a>.</p>
+                    </div>
+                </div>
+            </div>
+
             <!-- Containers
 ================================================== -->
             <div class="bs-docs-section">
@@ -1324,5 +1343,19 @@
         <script src="../scripts/ripples.js"></script>
         <script src="../scripts/material.js"></script>
         <script src="//fezvrasta.github.io/snackbarjs/dist/snackbar.min.js"></script>
+
+
+        <script src="http://refreshless.com/nouislider/source/jquery.nouislider.min.js"></script>
+        <script>
+            $(function() {
+                $(".slider").noUiSlider({
+                    start: 40,
+                    range: {
+                        min: 0,
+                        max: 100
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

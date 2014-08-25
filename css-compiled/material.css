@@ -1687,3 +1687,304 @@ fieldset[disabled] .navbar .btn-link:focus {
 .snackbar.toast {
   border-radius: 200px;
 }
+.noUi-target,
+.noUi-target * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -ms-touch-action: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.noUi-base {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.noUi-origin {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+.noUi-handle {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.noUi-stacking .noUi-handle {
+  z-index: 10;
+}
+.noUi-stacking + .noUi-origin {
+  *z-index: -1;
+}
+.noUi-state-tap .noUi-origin {
+  -webkit-transition: left 0.3s, top 0.3s;
+  transition: left 0.3s, top 0.3s;
+}
+.noUi-state-drag * {
+  cursor: inherit !important;
+}
+.noUi-horizontal {
+  height: 10px;
+}
+.noUi-horizontal .noUi-handle {
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  left: -10px;
+  top: -5px;
+}
+.noUi-horizontal.noUi-extended {
+  padding: 0 15px;
+}
+.noUi-horizontal.noUi-extended .noUi-origin {
+  right: -15px;
+}
+.noUi-background {
+  height: 2px;
+  margin: 20px 0;
+}
+.noUi-origin {
+  border-radius: 0;
+  height: 2px;
+  background: #c8c8c8;
+}
+.noUi-origin[style^="left: 0"] .noUi-handle {
+  background-color: #fff;
+  border: 2px solid #c8c8c8;
+}
+.noUi-origin[style^="left: 0"] .noUi-handle:active {
+  border-width: 1px;
+}
+.noUi-target {
+  border-radius: 2px;
+}
+.noUi-handle {
+  border-radius: 100%;
+  cursor: default;
+  transition: all 0.2s ease-out;
+  border: 1px solid;
+}
+.noUi-horizontal .noUi-handle:active {
+  transform: scale(2.5);
+}
+[disabled].noUi-slider {
+  opacity: 0.5;
+}
+[disabled] .noUi-handle {
+  cursor: not-allowed;
+}
+.slider .noUi-handle,
+.slider-default .noUi-handle {
+  background-color: #4285f4;
+}
+.slider-primary .noUi-handle {
+  background-color: #4285f4;
+}
+.slider-success .noUi-handle {
+  background-color: #0f9d58;
+}
+.slider-info .noUi-handle {
+  background-color: #03a9f4;
+}
+.slider-warning .noUi-handle {
+  background-color: #ff5722;
+}
+.slider-danger .noUi-handle {
+  background-color: #f44336;
+}
+.slider-material-red .noUi-handle {
+  background-color: #f44336;
+}
+.slider-material-pink .noUi-handle {
+  background-color: #e91e63;
+}
+.slider-material-purple .noUi-handle {
+  background-color: #9c27b0;
+}
+.slider-material-deeppurple .noUi-handle {
+  background-color: #673ab7;
+}
+.slider-material-indigo .noUi-handle {
+  background-color: #3f51b5;
+}
+.slider-material-lightblue .noUi-handle {
+  background-color: #03a9f4;
+}
+.slider-material-cyan .noUi-handle {
+  background-color: #00bcd4;
+}
+.slider-material-teal .noUi-handle {
+  background-color: #009688;
+}
+.slider-material-lightgreen .noUi-handle {
+  background-color: #8bc34a;
+}
+.slider-material-lime .noUi-handle {
+  background-color: #cddc39;
+}
+.slider-material-lightyellow .noUi-handle {
+  background-color: #ffeb3b;
+}
+.slider-material-orange .noUi-handle {
+  background-color: #ff9800;
+}
+.slider-material-deeporange .noUi-handle {
+  background-color: #ff5722;
+}
+.slider-material-grey .noUi-handle {
+  background-color: #9e9e9e;
+}
+.slider-material-bluegrey .noUi-handle {
+  background-color: #607d8b;
+}
+.slider-material-brown .noUi-handle {
+  background-color: #795548;
+}
+.slider-material-lightgrey .noUi-handle {
+  background-color: #ececec;
+}
+.slider .noUi-handle,
+.slider-default .noUi-handle {
+  border-color: #4285f4;
+}
+.slider-primary .noUi-handle {
+  border-color: #4285f4;
+}
+.slider-success .noUi-handle {
+  border-color: #0f9d58;
+}
+.slider-info .noUi-handle {
+  border-color: #03a9f4;
+}
+.slider-warning .noUi-handle {
+  border-color: #ff5722;
+}
+.slider-danger .noUi-handle {
+  border-color: #f44336;
+}
+.slider-material-red .noUi-handle {
+  border-color: #f44336;
+}
+.slider-material-pink .noUi-handle {
+  border-color: #e91e63;
+}
+.slider-material-purple .noUi-handle {
+  border-color: #9c27b0;
+}
+.slider-material-deeppurple .noUi-handle {
+  border-color: #673ab7;
+}
+.slider-material-indigo .noUi-handle {
+  border-color: #3f51b5;
+}
+.slider-material-lightblue .noUi-handle {
+  border-color: #03a9f4;
+}
+.slider-material-cyan .noUi-handle {
+  border-color: #00bcd4;
+}
+.slider-material-teal .noUi-handle {
+  border-color: #009688;
+}
+.slider-material-lightgreen .noUi-handle {
+  border-color: #8bc34a;
+}
+.slider-material-lime .noUi-handle {
+  border-color: #cddc39;
+}
+.slider-material-lightyellow .noUi-handle {
+  border-color: #ffeb3b;
+}
+.slider-material-orange .noUi-handle {
+  border-color: #ff9800;
+}
+.slider-material-deeporange .noUi-handle {
+  border-color: #ff5722;
+}
+.slider-material-grey .noUi-handle {
+  border-color: #9e9e9e;
+}
+.slider-material-bluegrey .noUi-handle {
+  border-color: #607d8b;
+}
+.slider-material-brown .noUi-handle {
+  border-color: #795548;
+}
+.slider-material-lightgrey .noUi-handle {
+  border-color: #ececec;
+}
+.slider,
+.slider-default {
+  background-color: #4285f4;
+}
+.slider-primary {
+  background-color: #4285f4;
+}
+.slider-success {
+  background-color: #0f9d58;
+}
+.slider-info {
+  background-color: #03a9f4;
+}
+.slider-warning {
+  background-color: #ff5722;
+}
+.slider-danger {
+  background-color: #f44336;
+}
+.slider-material-red {
+  background-color: #f44336;
+}
+.slider-material-pink {
+  background-color: #e91e63;
+}
+.slider-material-purple {
+  background-color: #9c27b0;
+}
+.slider-material-deeppurple {
+  background-color: #673ab7;
+}
+.slider-material-indigo {
+  background-color: #3f51b5;
+}
+.slider-material-lightblue {
+  background-color: #03a9f4;
+}
+.slider-material-cyan {
+  background-color: #00bcd4;
+}
+.slider-material-teal {
+  background-color: #009688;
+}
+.slider-material-lightgreen {
+  background-color: #8bc34a;
+}
+.slider-material-lime {
+  background-color: #cddc39;
+}
+.slider-material-lightyellow {
+  background-color: #ffeb3b;
+}
+.slider-material-orange {
+  background-color: #ff9800;
+}
+.slider-material-deeporange {
+  background-color: #ff5722;
+}
+.slider-material-grey {
+  background-color: #9e9e9e;
+}
+.slider-material-bluegrey {
+  background-color: #607d8b;
+}
+.slider-material-brown {
+  background-color: #795548;
+}
+.slider-material-lightgrey {
+  background-color: #ececec;
+}
