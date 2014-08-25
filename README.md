@@ -81,6 +81,11 @@ Create snackbars and toasts with [SnackbarJS plugin](https://github.com/FezVrast
 This is part of Material Design for Bootstrap project and is a plain Javascript script which creates the ripple effect on click of the defined elements.  
 At the moment RipplesJS has not an own repository but probably in future it will have one.
 
+### noUiSlider
+
+Make cross-browser sliders and get them styled with Material Design thanks to the support provided by this theme.  
+Read more about [noUiSlider here](refreshless.com/nouislider/)
+
 
 # Compatibility
 
