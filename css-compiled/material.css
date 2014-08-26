@@ -1659,6 +1659,76 @@ fieldset[disabled] .navbar .btn-link:focus {
 .tooltip.bottom .tooltip-arrow {
   border-bottom-color: #323232;
 }
+.icon,
+.icon-default {
+  color: #4d4d4d;
+}
+.icon-primary {
+  color: #4285f4;
+}
+.icon-success {
+  color: #0f9d58;
+}
+.icon-info {
+  color: #03a9f4;
+}
+.icon-warning {
+  color: #ff5722;
+}
+.icon-danger {
+  color: #f44336;
+}
+.icon-material-red {
+  color: #f44336;
+}
+.icon-material-pink {
+  color: #e91e63;
+}
+.icon-material-purple {
+  color: #9c27b0;
+}
+.icon-material-deeppurple {
+  color: #673ab7;
+}
+.icon-material-indigo {
+  color: #3f51b5;
+}
+.icon-material-lightblue {
+  color: #03a9f4;
+}
+.icon-material-cyan {
+  color: #00bcd4;
+}
+.icon-material-teal {
+  color: #009688;
+}
+.icon-material-lightgreen {
+  color: #8bc34a;
+}
+.icon-material-lime {
+  color: #cddc39;
+}
+.icon-material-lightyellow {
+  color: #ffeb3b;
+}
+.icon-material-orange {
+  color: #ff9800;
+}
+.icon-material-deeporange {
+  color: #ff5722;
+}
+.icon-material-grey {
+  color: #9e9e9e;
+}
+.icon-material-bluegrey {
+  color: #607d8b;
+}
+.icon-material-brown {
+  color: #795548;
+}
+.icon-material-lightgrey {
+  color: #ececec;
+}
 .snackbar {
   background-color: #323232;
   color: #ffffff;
