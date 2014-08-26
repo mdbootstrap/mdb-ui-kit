@@ -67,6 +67,18 @@ Remember to use the proper HTML markup to get radio and checkboxes styled correc
             Option one is this
         </label>
     </div>
+    
+### Icons:
+
+Material Design for Bootstrap includes 490 original Material Design icons!  
+These icons are extracted from the original Google sources and are licensed under BSD license.
+Them are provided as an iconic font easy to use.
+
+Variations are available for every icon, included for the original Bootstrap icons.
+
+The syntax to add a Material icon is:
+
+     <i class="icon icon-material-favorite"></i>
 
 # Plugins
 
