@@ -838,18 +838,20 @@ h6,
 .radio input[type=radio][disabled] ~ .check {
   background-color: rgba(0, 0, 0, 0.84);
 }
-.form-control-wrapper {
-  position: relative;
-  /* active state */
-}
 .form-control-wrapper .form-control,
-.form-control-wrapper .form-control:focus {
+.form-control,
+.form-control-wrapper .form-control:focus,
+.form-control:focus {
   float: none;
   border: 0;
   box-shadow: none;
   border-radius: 0;
   background: transparent;
   border-bottom: 1px solid #757575;
+}
+.form-control-wrapper {
+  position: relative;
+  /* active state */
 }
 .form-control-wrapper .form-control:focus {
   outline: none;
@@ -1707,7 +1709,8 @@ fieldset[disabled] .navbar .btn-link:hover,
 fieldset[disabled] .navbar .btn-link:focus {
   color: #e5e5e5;
 }
-.navbar .navbar-form .form-control-wrapper .form-control {
+.navbar .navbar-form .form-control-wrapper .form-control,
+.navbar .navbar-form .form-control {
   border-color: rgba(255, 255, 255, 0.84);
   color: rgba(255, 255, 255, 0.84);
 }
