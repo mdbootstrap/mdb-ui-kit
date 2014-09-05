@@ -44,9 +44,12 @@ legend {
         background-color: #fff;
         .shadow-z-2();
         border-radius: 2px;
+        border: 0;
         p {
             font-weight: 300;
         }
+        .variations(~"", background-color, #FFF);
+        .variations(~"", color, @lightbg-text);
     }
 }
 
