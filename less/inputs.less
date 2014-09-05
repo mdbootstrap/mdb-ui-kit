@@ -1,8 +1,7 @@
 // main: material.less
 
-.form-control-wrapper {
-    position: relative;
-    .form-control, .form-control:focus {
+.form-control-wrapper .form-control, .form-control {
+    &, &:focus {
         float: none;
         border: 0;
         box-shadow: none;
@@ -10,6 +9,11 @@
         background: transparent;
         border-bottom: 1px solid #757575;
     }
+}
+
+.form-control-wrapper {
+    position: relative;
+
     .form-control:focus {
         outline: none;
     }
