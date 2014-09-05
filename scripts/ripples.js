@@ -3,6 +3,12 @@ var ripples = {
     init : function(withRipple) {
         "use strict";
 
+        // Cross browser matches function
+        function matchesSelector(dom_element, selector) {
+            var matches = dom_element.matches || dom_element.matchesSelector || dom_element.webkitMatchesSelector || dom_element.mozMatchesSelector || dom_element.msMatchesSelector || dom_element.oMatchesSelector;
+            return matches.call(dom_element, selector);
+        }
+
         // animations time
         var rippleOutTime = 100,
             rippleStartTime = 500;
@@ -12,7 +18,7 @@ var ripples = {
             document.addEventListener(event, function(e) {
                 var target = (typeof e.detail !== "number") ? e.detail : e.target;
 
-                if (target.matches(selector)) {
+                if (matchesSelector(target, selector)) {
                     callback(e, target);
                 }
             });
@@ -21,7 +27,7 @@ var ripples = {
         var rippleStart = function(e, target) {
 
             // Init variables
-            var $rippleWrapper  = (target.matches(".ripple-wrapper")) ? target : target.parentNode,
+            var $rippleWrapper  = (matchesSelector(target, ".ripple-wrapper")) ? target : target.parentNode,
                 $el             = $rippleWrapper.parentNode,
                 $ripple         = document.createElement("div"),
                 elPos           = $el.getBoundingClientRect(),
