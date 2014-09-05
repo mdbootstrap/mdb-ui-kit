@@ -140,11 +140,11 @@
     }
 
     .navbar-form {
+        .form-control-wrapper .form-control, .form-control {
+            border-color: @navbar-border;
+            color: @navbar-border;
+        }
         .form-control-wrapper {
-            .form-control {
-                border-color: @navbar-border;
-                color: @navbar-border;
-            }
             .material-input:before, input:focus ~ .material-input:after {
                 background-color: @navbar-border;
             }
