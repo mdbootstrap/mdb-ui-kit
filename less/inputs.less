@@ -15,6 +15,14 @@
         }
     }
 }
+select.form-control {
+    height: 23px;
+}
+select[multiple].form-control {
+    &, &:focus {
+        height: 85px;
+    }
+}
 
 .form-control-wrapper {
     position: relative;
@@ -28,15 +36,10 @@
         font-size: 14px;
         position: absolute;
         pointer-events: none;
-        left: 12px;
-        top: 7px;
+        left: 0px;
+        top: 5px;
         transition: 0.2s ease all;
         opacity: 0;
-    }
-    .form-control:focus ~ .floating-label {
-        top: -10px;
-        font-size: 10px;
-        color: @input-default;
     }
     .form-control:not(.empty) ~ .floating-label {
         top: -10px;
@@ -115,7 +118,7 @@
         .material-input:before, input.form-control:focus ~ .material-input:after {
             background: @input-warning;
         }
-        .control-label, input.form-control:focus ~ .floating-label {
+        .control-label, input.form-control:not(.empty) ~ .floating-label {
             color: @input-warning;
         }
     }
@@ -123,7 +126,7 @@
         .material-input:before, input.form-control:focus ~ .material-input:after {
             background: @input-danger;
         }
-        .control-label, input.form-control:focus ~ .floating-label {
+        .control-label, input.form-control:not(.empty) ~ .floating-label {
             color: @input-danger;
         }
     }
@@ -131,7 +134,7 @@
         .material-input:before, input.form-control:focus ~ .material-input:after {
             background: @input-success;
         }
-        .control-label, input.form-control:focus ~ .floating-label {
+        .control-label, input.form-control:not(.empty) ~ .floating-label {
             color: @input-success;
         }
     }
@@ -139,14 +142,14 @@
         .material-input:before, input.form-control:focus ~ .material-input:after {
             background: @input-info;
         }
-        .control-label, input.form-control:focus ~ .floating-label {
+        .control-label, input.form-control:not(.empty) ~ .floating-label {
             color: @input-info;
         }
     }
     .variations(~" .material-input:before", background-color, @indigo);
     .variations(~" input.form-control:focus ~ .material-input:after", background-color, @indigo);
     .variations(~" .control-label", color, @lightbg-text);
-    .variations(~" input.form-control:focus ~ .floating-label", color, @indigo);
+    .variations(~" input.form-control:not(.empty) ~ .floating-label", color, @indigo);
 
 }
 
