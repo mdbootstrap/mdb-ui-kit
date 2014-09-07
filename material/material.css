@@ -682,40 +682,6 @@ h6,
     border-top-color: #5a5a5a;
   }
 }
-.keyframe-check 100% {
-  top: -3px;
-  left: 17px;
-  width: 10px;
-  height: 21px;
-  transform: rotate(45deg);
-  border-color: #0f9d58;
-  border-left-color: transparent;
-  border-top-color: transparent;
-}
-.keyframe-check 51% {
-  border-left: transparent;
-  border-top-color: transparent;
-}
-.keyframe-check 50% {
-  top: 14px;
-  left: 17px;
-  width: 4px;
-  height: 4px;
-  transform: rotate(45deg);
-  border-color: #5a5a5a;
-  border-left-color: #5a5a5a;
-  border-top-color: #5a5a5a;
-}
-.keyframe-check 0% {
-  top: 1px;
-  left: 12px;
-  width: 18px;
-  height: 18px;
-  transform: rotate(0deg);
-  border-color: #5a5a5a;
-  border-left-color: #5a5a5a;
-  border-top-color: #5a5a5a;
-}
 @-webkit-keyframes check {
   100% {
     top: -3px;
@@ -895,15 +861,6 @@ h6,
     border-left-color: #5a5a5a;
     border-top-color: #5a5a5a;
   }
-}
-.ripple 0% {
-  opacity: 0;
-}
-.ripple 50% {
-  opacity: 0.2;
-}
-.ripple 100% {
-  opacity: 0;
 }
 @-webkit-keyframes rippleOn {
   0% {
@@ -1220,6 +1177,8 @@ h6,
 .form-control,
 .form-control-wrapper .form-control:focus,
 .form-control:focus {
+  height: 28px;
+  padding: 0;
   float: none;
   border: 0;
   box-shadow: none;
@@ -1298,6 +1257,7 @@ h6,
   left: 0;
   pointer-events: none;
   opacity: 0.9;
+  transform-origin: left;
 }
 .form-control-wrapper .input-lg ~ .material-input:after {
   height: 26px;
@@ -1313,6 +1273,7 @@ h6,
   animation: input-highlight 0.3s ease;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  opacity: 0;
 }
 .form-control-wrapper select ~ .material-input:before {
   bottom: 1px;
@@ -1655,6 +1616,76 @@ select.form-control {
 select.form-control:focus {
   box-shadow: none;
   border-color: #757575;
+}
+@-webkit-keyframes input-highlight {
+  0% {
+    left: 20%;
+    transform: scaleX(20%);
+  }
+  99% {
+    transform: scaleX(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes input-highlight {
+  0% {
+    left: 20%;
+    transform: scaleX(20%);
+  }
+  99% {
+    transform: scaleX(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-ms-keyframes input-highlight {
+  0% {
+    left: 20%;
+    transform: scaleX(20%);
+  }
+  99% {
+    transform: scaleX(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes input-highlight {
+  0% {
+    left: 20%;
+    transform: scaleX(20%);
+  }
+  99% {
+    transform: scaleX(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes input-highlight {
+  0% {
+    left: 20%;
+    transform: scaleX(20%);
+  }
+  99% {
+    transform: scaleX(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 legend {
   border-bottom: 0;
