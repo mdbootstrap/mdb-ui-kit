@@ -8,6 +8,9 @@
         border-radius: 0;
         background: transparent;
         border-bottom: 1px solid #757575;
+        &:disabled {
+            border-style: dashed;
+        }
     }
 }
 
@@ -16,10 +19,6 @@
 
     .form-control:focus {
         outline: none;
-    }
-
-    .material-input:after {
-
     }
 
     .floating-label {
