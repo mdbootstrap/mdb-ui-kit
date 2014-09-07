@@ -24,7 +24,7 @@ $(function (){
         }
     });
 
-    $(document).on("change", ".form-control", function() {
+    $(document).on("keyup", ".form-control", function() {
         if ($(this).val() !== "") {
             $(this).removeClass("empty");
         } else {
