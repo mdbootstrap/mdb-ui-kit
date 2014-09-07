@@ -27,6 +27,17 @@ Currently supported elements:
 - Dialogs
 - Lists
 
+Todo elements:
+
+- Morphing icons
+- [Icons/grids/chips to card/fullscreen transitions](http://www.polymer-project.org/components/core-animated-pages/demo.html)
+- [Headers](http://www.polymer-project.org/components/core-header-panel/demo.html)
+- [Icon button](http://www.polymer-project.org/components/paper-icon-button/demo.html)
+- [Tabs](http://www.polymer-project.org/components/paper-tabs/demo.html)
+- [Toggle buttons](http://www.polymer-project.org/components/paper-toggle-button/demo.html)
+
+I'll try to write every component without need of Javascript but just CSS, and use JS only if strictly needed.
+
 # Support me
 
 If you like this project you may support me donating something on Gittip, starring this repository or reporting bugs and ideas in the issue section.
