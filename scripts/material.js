@@ -25,17 +25,17 @@ $(function (){
     });
 
     // Material inputs engine (ripple effect)
-    $(document).on("click", ".checkbox label, .radio label", function() {
-        var $ripple     = $(this).find(".ripple"),
-            timestamp   = "t" + new Date().getTime();
-        $ripple.attr("class", "ripple");
-        $ripple.addClass("animate").addClass(timestamp);
-        setTimeout(function() {
-            if ($ripple.hasClass(timestamp)) {
-                $ripple.removeClass("animate").removeClass(timestamp);
-            }
+    /*$(document).on("mouseup", ".checkbox label, .radio label", function() {
+        console.log("click");
+        var $ripple = $(this).find(".ripple");
+
+        $ripple.addClass("animate");
+        var timer = setTimeout(function() {
+            console.log("out");
+            clearTimeout(timer);
+            $ripple.removeClass("animate");
         }, 800);
-    });
+    });*/
 
     $(document).on("change", ".form-control", function() {
         if ($(this).val() !== "") {

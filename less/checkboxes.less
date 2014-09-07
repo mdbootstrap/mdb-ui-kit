@@ -16,62 +16,165 @@
         }
         .ripple {
             background-color: @lightbg-text;
-            left: 0;
-            top: -10px;
-            height: 40px;
-            width: 40px;
+            left: -5px;
+            top: -15px;
+            height: 50px;
+            width: 50px;
             border-radius: 100%;
-            transform: scale(0);
-            transition: transform .1s, opacity 0.2s 0.4s;
             z-index: 1;
-            opacity: 0.2;
+            opacity: 0;
             margin: 0;
-            &.animate {
-                transform: scale(1);
-                opacity: 0;
-            }
         }
         .box {
             border: 2px solid @lightbg-text;
             height: 20px;
             width: 20px;
-            transition-delay: 0.2s;
-        }
-        .check         {
-            top: -4px;
-            left: 16px;
-            width: 12px;
-            height: 24px;
-            border: 2px solid;
-            border-top: none;
-            border-left: none;
-            opacity: 0;
-            z-index: 888;
-            transform: rotate(45deg);
-            transition-delay: 0.2s;
+            .transition-delay(0.2s);
         }
     }
+
+    // Variations
     .variations(~" .check", color, @success);
 
-    input[type=checkbox][disabled]:checked ~ .check,
+    // Hide native checkbox
+    input[type=checkbox] { display: none; }
+
+    input[type=checkbox] ~ .box {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 18px;
+        height: 18px;
+        border: solid 2px;
+        border-color: #5a5a5a;
+        .animation(uncheck 300ms ease-out forwards);
+    }
+
+    input[type=checkbox]:checked ~ .box {
+        .animation(check 300ms ease-out forwards);
+    }
+
+    // Ripple effect on click
+    input[type=checkbox]:not(:checked) ~ .ripple {
+        .animation(rippleOff 500ms);
+    }
+    input[type=checkbox]:checked ~ .ripple {
+        .animation(rippleOn 500ms);
+    }
+
+    // Style for disabled inputs
     input[type=checkbox][disabled]:not(:checked) ~ .box {
         opacity: 0.5;
     }
     input[type=checkbox][disabled] ~ .ripple {
-        opacity: 0.1;
-    }
-    input[type=checkbox] { display: none; }
-    input[type=checkbox]:checked ~ .box {
-        opacity: 0;
-        transform: scale(0) rotate(-180deg);
-    }
-    .variations(~" input[type=checkbox]:checked ~ .ripple", background-color, @success);
-    input[type=checkbox]:checked ~ .check {
-        opacity: 1;
-        transform: scale(1) rotate(45deg);
-    }
-
-    input[type=checkbox][disabled] ~ .ripple {
         background-color: @lightbg-text;
     }
+
+
+    .variations(~" input[type=checkbox]:checked ~ .ripple", background-color, @success);
 }
+
+
+@-webkit-keyframes uncheck {
+    0% {
+        top: -3px;
+        left: 17px;
+        width: 10px;
+        height: 21px;
+        border-color: #0f9d58;
+        border-left-color: transparent;
+        border-top-color: transparent;
+        transform: rotate(45deg);
+    }
+    50% {
+        top: 14px;
+        left: 17px;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+        border-color: #0f9d58;
+        border-left-color: transparent;
+        border-top-color: transparent;
+    }
+    51% {
+        border-color: #5a5a5a;
+        border-left-color: #5a5a5a;
+        border-top-color: #5a5a5a;
+    }
+    100% {
+        top: 1px;
+        left: 12px;
+        width: 18px;
+        height: 18px;
+        transform: rotate(0deg);
+        border-color: #5a5a5a;
+        border-left-color: #5a5a5a;
+        border-top-color: #5a5a5a;
+    }
+}
+
+.keyframe-check {
+    100% {
+        top: -3px;
+        left: 17px;
+        width: 10px;
+        height: 21px;
+        transform: rotate(45deg);
+        border-color: #0f9d58;
+        border-left-color: transparent;
+        border-top-color: transparent;
+    }
+    51% {
+        border-left: transparent;
+        border-top-color: transparent;
+    }
+    50% {
+        top: 14px;
+        left: 17px;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+        border-color: #5a5a5a;
+        border-left-color: #5a5a5a;
+        border-top-color: #5a5a5a;
+    }
+    0% {
+        top: 1px;
+        left: 12px;
+        width: 18px;
+        height: 18px;
+        transform: rotate(0deg);
+        border-color: #5a5a5a;
+        border-left-color: #5a5a5a;
+        border-top-color: #5a5a5a;
+    }
+}
+@-webkit-keyframes check {.keyframe-check()}
+@-moz-keyframes check {.keyframe-check()}
+@-ms-keyframes check {.keyframe-check()}
+@-o-keyframes check {.keyframe-check()}
+@keyframes check {.keyframe-check()}
+
+.ripple{
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes rippleOn {.ripple()}
+@-moz-keyframes rippleOn {.ripple()}
+@-ms-keyframes rippleOn {.ripple()}
+@-o-keyframes rippleOn {.ripple()}
+@keyframes rippleOn {.ripple()}
+
+@-webkit-keyframes rippleOff {.ripple()}
+@-moz-keyframes rippleOff {.ripple()}
+@-ms-keyframes rippleOn {.ripple()}
+@-o-keyframes rippleOff {.ripple()}
+@keyframes rippleOff {.ripple()}
