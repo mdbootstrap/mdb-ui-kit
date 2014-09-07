@@ -5,7 +5,7 @@ $(function (){
     ripples.init(".btn:not(.btn-link), .navbar a, .nav-tabs a, .withripple");
 
     // Add fake-checkbox to material checkboxes
-    $(".checkbox label input").after("<span class=ripple></span><span class=check></span><span class=box></span>");
+    $(".checkbox label input").after("<span class=ripple></span><span class=check></span>");
 
     // Add fake-radio to material radios
     $(".radio label input").after("<span class=ripple></span><span class=circle></span><span class=check></span>");
@@ -22,19 +22,6 @@ $(function (){
         if ($(this).val() === "") {
             $(this).addClass("empty");
         }
-    });
-
-    // Material inputs engine (ripple effect)
-    $(document).on("click", ".checkbox label, .radio label", function() {
-        var $ripple     = $(this).find(".ripple"),
-            timestamp   = "t" + new Date().getTime();
-        $ripple.attr("class", "ripple");
-        $ripple.addClass("animate").addClass(timestamp);
-        setTimeout(function() {
-            if ($ripple.hasClass(timestamp)) {
-                $ripple.removeClass("animate").removeClass(timestamp);
-            }
-        }, 800);
     });
 
     $(document).on("change", ".form-control", function() {
