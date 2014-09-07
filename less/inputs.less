@@ -80,6 +80,7 @@
         left: 0;
         pointer-events: none;
         opacity: 0.9;
+        transform-origin: left;
     }
     .input-lg ~ .material-input:after {
         height: 26px;
@@ -95,6 +96,7 @@
         animation: input-highlight 0.3s ease;
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
+        opacity: 0;
     }
 
     select ~ .material-input:before {
@@ -173,3 +175,25 @@ select.form-control {
         border-color: #757575;
     }
 }
+
+
+.keyframe-input-highlight() {
+    0% {
+        left: 20%;
+        transform: scaleX(20%);
+    }
+    99% {
+        transform: scaleX(0);
+        left: 0;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes input-highlight {.keyframe-input-highlight()}
+@-moz-keyframes input-highlight {.keyframe-input-highlight()}
+@-ms-keyframes input-highlight {.keyframe-input-highlight()}
+@-o-keyframes input-highlight {.keyframe-input-highlight()}
+@keyframes input-highlight {.keyframe-input-highlight()}
