@@ -1,7 +1,7 @@
 Material Design for Bootstrap
 =========================
 
-This Bootstrap theme is an easy way to use the new Material Design guide-lines by Google in your Bootstrap 3 based application.  
+This Bootstrap theme is an easy way to use the new Material Design guide-lines by Google in your Bootstrap 3 based application.
 Just include the theme right after the Bootstrap CSS and include the javascript at the end of your document, everything will be converted to Material Design (paper) style.
 
 This theme is in early developement and is not ready for production.
@@ -25,6 +25,7 @@ Currently supported elements:
 - Jumbotron
 - Wells
 - Dialogs
+- Lists
 
 # Support me
 
@@ -39,7 +40,7 @@ Material Design for Bootstrap provides some additional stuff to get the best fro
 
 ### Variations:
 
-There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progess bars and more.  
+There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progess bars and more.
 They can be used adding to the desired element the class suffix `-material-color` replacing `color` with the desired one.
 
 Example:
@@ -52,7 +53,7 @@ These colors are took from the Material Design color palette and are reported be
 
 ### Buttons:
 
-Add `.btn-flat` to a button to make it flat, without shadows.  
+Add `.btn-flat` to a button to make it flat, without shadows.
 Add `.btn-raised` to a button to add a permanent shadow to it.
 
 ### Inputs:
@@ -67,10 +68,10 @@ Remember to use the proper HTML markup to get radio and checkboxes styled correc
             Option one is this
         </label>
     </div>
-    
+
 ### Icons:
 
-Material Design for Bootstrap includes 490 original Material Design icons!  
+Material Design for Bootstrap includes 490 original Material Design icons!
 These icons are extracted from the original Google sources and are licensed under BSD license.
 Them are provided as an iconic font easy to use.
 
@@ -90,12 +91,12 @@ Create snackbars and toasts with [SnackbarJS plugin](https://github.com/FezVrast
 
 ### RipplesJS
 
-This is part of Material Design for Bootstrap project and is a plain Javascript script which creates the ripple effect on click of the defined elements.  
+This is part of Material Design for Bootstrap project and is a plain Javascript script which creates the ripple effect on click of the defined elements.
 At the moment RipplesJS has not an own repository but probably in future it will have one.
 
 ### noUiSlider
 
-Make cross-browser sliders and get them styled with Material Design thanks to the support provided by this theme.  
+Make cross-browser sliders and get them styled with Material Design thanks to the support provided by this theme.
 Read more about [noUiSlider here](refreshless.com/nouislider/)
 
 
