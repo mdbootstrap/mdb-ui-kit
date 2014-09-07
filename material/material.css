@@ -14,6 +14,20 @@
     opacity: 0;
   }
 }
+@-moz-keyframes input-highlight {
+  0% {
+    left: 20%;
+    width: 20%;
+  }
+  99% {
+    width: 0;
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @keyframes input-highlight {
   0% {
     left: 20%;
@@ -81,8 +95,7 @@ h6,
   text-transform: uppercase;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.84);
-  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
 }
 .btn:hover {
@@ -180,8 +193,7 @@ h6,
 }
 .btn-raised {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-raised:active:not(.btn-link) {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -268,8 +280,7 @@ h6,
   border-radius: 4px;
   margin: 10px 1px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group:active:not(.btn-link),
 .btn-group-vertical:active:not(.btn-link) {
@@ -282,8 +293,7 @@ h6,
 .btn-group.btn-group-raised,
 .btn-group-vertical.btn-group-raised {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group.btn-group-raised:active:not(.btn-link),
 .btn-group-vertical.btn-group-raised:active:not(.btn-link) {
@@ -428,53 +438,28 @@ h6,
   display: block;
   position: absolute;
   left: 10px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 .checkbox label .ripple {
   background-color: rgba(0, 0, 0, 0.84);
-  left: 0;
-  top: -10px;
-  height: 40px;
-  width: 40px;
+  left: -5px;
+  top: -15px;
+  height: 50px;
+  width: 50px;
   border-radius: 100%;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: -webkit-transform .1s, opacity 0.2s 0.4s;
-          transition: transform .1s, opacity 0.2s 0.4s;
   z-index: 1;
-  opacity: 0.2;
-  margin: 0;
-}
-.checkbox label .ripple.animate {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
   opacity: 0;
+  margin: 0;
 }
 .checkbox label .box {
   border: 2px solid rgba(0, 0, 0, 0.84);
   height: 20px;
   width: 20px;
   -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
-}
-.checkbox label .check {
-  top: -4px;
-  left: 16px;
-  width: 12px;
-  height: 24px;
-  border: 2px solid;
-  border-top: none;
-  border-left: none;
-  opacity: 0;
-  z-index: 888;
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-  -webkit-transition-delay: 0.2s;
-          transition-delay: 0.2s;
+  -moz-transition-delay: 0.2s;
+  -o-transition-delay: 0.2s;
+  -ms-transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 .checkbox .check,
 .checkbox-default .check {
@@ -546,21 +531,49 @@ h6,
 .checkbox-material-lightgrey .check {
   color: #ececec;
 }
-.checkbox input[type=checkbox][disabled]:checked ~ .check,
+.checkbox input[type=checkbox] {
+  display: none;
+}
+.checkbox input[type=checkbox] ~ .box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 18px;
+  height: 18px;
+  border: solid 2px;
+  border-color: #5a5a5a;
+  -webkit-animation: uncheck 300ms ease-out forwards;
+  -moz-animation: uncheck 300ms ease-out forwards;
+  -ms-animation: uncheck 300ms ease-out forwards;
+  -o-animation: uncheck 300ms ease-out forwards;
+  animation: uncheck 300ms ease-out forwards;
+}
+.checkbox input[type=checkbox]:checked ~ .box {
+  -webkit-animation: check 300ms ease-out forwards;
+  -moz-animation: check 300ms ease-out forwards;
+  -ms-animation: check 300ms ease-out forwards;
+  -o-animation: check 300ms ease-out forwards;
+  animation: check 300ms ease-out forwards;
+}
+.checkbox input[type=checkbox]:not(:checked) ~ .ripple {
+  -webkit-animation: rippleOff 500ms;
+  -moz-animation: rippleOff 500ms;
+  -ms-animation: rippleOff 500ms;
+  -o-animation: rippleOff 500ms;
+  animation: rippleOff 500ms;
+}
+.checkbox input[type=checkbox]:checked ~ .ripple {
+  -webkit-animation: rippleOn 500ms;
+  -moz-animation: rippleOn 500ms;
+  -ms-animation: rippleOn 500ms;
+  -o-animation: rippleOn 500ms;
+  animation: rippleOn 500ms;
+}
 .checkbox input[type=checkbox][disabled]:not(:checked) ~ .box {
   opacity: 0.5;
 }
 .checkbox input[type=checkbox][disabled] ~ .ripple {
-  opacity: 0.1;
-}
-.checkbox input[type=checkbox] {
-  display: none;
-}
-.checkbox input[type=checkbox]:checked ~ .box {
-  opacity: 0;
-  -webkit-transform: scale(0) rotate(-180deg);
-      -ms-transform: scale(0) rotate(-180deg);
-          transform: scale(0) rotate(-180deg);
+  background-color: rgba(0, 0, 0, 0.84);
 }
 .checkbox input[type=checkbox]:checked ~ .ripple,
 .checkbox-default input[type=checkbox]:checked ~ .ripple {
@@ -632,14 +645,375 @@ h6,
 .checkbox-material-lightgrey input[type=checkbox]:checked ~ .ripple {
   background-color: #ececec;
 }
-.checkbox input[type=checkbox]:checked ~ .check {
-  opacity: 1;
-  -webkit-transform: scale(1) rotate(45deg);
-      -ms-transform: scale(1) rotate(45deg);
-          transform: scale(1) rotate(45deg);
+@-webkit-keyframes uncheck {
+  0% {
+    top: -3px;
+    left: 17px;
+    width: 10px;
+    height: 21px;
+    border-color: #0f9d58;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    transform: rotate(45deg);
+  }
+  50% {
+    top: 14px;
+    left: 17px;
+    width: 4px;
+    height: 4px;
+    transform: rotate(45deg);
+    border-color: #0f9d58;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+  51% {
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+  100% {
+    top: 1px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    transform: rotate(0deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
 }
-.checkbox input[type=checkbox][disabled] ~ .ripple {
-  background-color: rgba(0, 0, 0, 0.84);
+.keyframe-check 100% {
+  top: -3px;
+  left: 17px;
+  width: 10px;
+  height: 21px;
+  transform: rotate(45deg);
+  border-color: #0f9d58;
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+.keyframe-check 51% {
+  border-left: transparent;
+  border-top-color: transparent;
+}
+.keyframe-check 50% {
+  top: 14px;
+  left: 17px;
+  width: 4px;
+  height: 4px;
+  transform: rotate(45deg);
+  border-color: #5a5a5a;
+  border-left-color: #5a5a5a;
+  border-top-color: #5a5a5a;
+}
+.keyframe-check 0% {
+  top: 1px;
+  left: 12px;
+  width: 18px;
+  height: 18px;
+  transform: rotate(0deg);
+  border-color: #5a5a5a;
+  border-left-color: #5a5a5a;
+  border-top-color: #5a5a5a;
+}
+@-webkit-keyframes check {
+  100% {
+    top: -3px;
+    left: 17px;
+    width: 10px;
+    height: 21px;
+    transform: rotate(45deg);
+    border-color: #0f9d58;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+  51% {
+    border-left: transparent;
+    border-top-color: transparent;
+  }
+  50% {
+    top: 14px;
+    left: 17px;
+    width: 4px;
+    height: 4px;
+    transform: rotate(45deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+  0% {
+    top: 1px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    transform: rotate(0deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+}
+@-moz-keyframes check {
+  100% {
+    top: -3px;
+    left: 17px;
+    width: 10px;
+    height: 21px;
+    transform: rotate(45deg);
+    border-color: #0f9d58;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+  51% {
+    border-left: transparent;
+    border-top-color: transparent;
+  }
+  50% {
+    top: 14px;
+    left: 17px;
+    width: 4px;
+    height: 4px;
+    transform: rotate(45deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+  0% {
+    top: 1px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    transform: rotate(0deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+}
+@-ms-keyframes check {
+  100% {
+    top: -3px;
+    left: 17px;
+    width: 10px;
+    height: 21px;
+    transform: rotate(45deg);
+    border-color: #0f9d58;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+  51% {
+    border-left: transparent;
+    border-top-color: transparent;
+  }
+  50% {
+    top: 14px;
+    left: 17px;
+    width: 4px;
+    height: 4px;
+    transform: rotate(45deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+  0% {
+    top: 1px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    transform: rotate(0deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+}
+@-o-keyframes check {
+  100% {
+    top: -3px;
+    left: 17px;
+    width: 10px;
+    height: 21px;
+    transform: rotate(45deg);
+    border-color: #0f9d58;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+  51% {
+    border-left: transparent;
+    border-top-color: transparent;
+  }
+  50% {
+    top: 14px;
+    left: 17px;
+    width: 4px;
+    height: 4px;
+    transform: rotate(45deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+  0% {
+    top: 1px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    transform: rotate(0deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+}
+@keyframes check {
+  100% {
+    top: -3px;
+    left: 17px;
+    width: 10px;
+    height: 21px;
+    transform: rotate(45deg);
+    border-color: #0f9d58;
+    border-left-color: transparent;
+    border-top-color: transparent;
+  }
+  51% {
+    border-left: transparent;
+    border-top-color: transparent;
+  }
+  50% {
+    top: 14px;
+    left: 17px;
+    width: 4px;
+    height: 4px;
+    transform: rotate(45deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+  0% {
+    top: 1px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    transform: rotate(0deg);
+    border-color: #5a5a5a;
+    border-left-color: #5a5a5a;
+    border-top-color: #5a5a5a;
+  }
+}
+.ripple 0% {
+  opacity: 0;
+}
+.ripple 50% {
+  opacity: 0.2;
+}
+.ripple 100% {
+  opacity: 0;
+}
+@-webkit-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-ms-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-ms-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-o-keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .form-horizontal .radio {
   margin-bottom: 10px;
@@ -654,8 +1028,7 @@ h6,
   position: absolute;
   left: 10px;
   top: 2px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 .radio label .ripple {
   background-color: rgba(0, 0, 0, 0.84);
@@ -664,19 +1037,14 @@ h6,
   height: 34px;
   width: 34px;
   border-radius: 100%;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: -webkit-transform .1s, opacity 0.2s 0.4s;
-          transition: transform .1s, opacity 0.2s 0.4s;
+  transform: scale(0);
+  transition: transform .1s, opacity 0.2s 0.4s;
   z-index: 1;
   opacity: 0.2;
   margin: 0;
 }
 .radio label .ripple.animate {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
   opacity: 0;
 }
 .radio label .circle {
@@ -690,9 +1058,7 @@ h6,
   width: 15px;
   border-radius: 100%;
   background-color: rgba(0, 0, 0, 0.84);
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
 }
 .radio input[type=radio]:checked ~ .check,
 .radio-default input[type=radio]:checked ~ .check {
@@ -842,9 +1208,7 @@ h6,
   display: none;
 }
 .radio input[type=radio]:checked ~ .check {
-  -webkit-transform: scale(0.55);
-      -ms-transform: scale(0.55);
-          transform: scale(0.55);
+  transform: scale(0.55);
 }
 .radio input[type=radio][disabled] ~ .circle {
   border-color: rgba(0, 0, 0, 0.84);
@@ -852,18 +1216,26 @@ h6,
 .radio input[type=radio][disabled] ~ .check {
   background-color: rgba(0, 0, 0, 0.84);
 }
-.form-control-wrapper {
-  position: relative;
-  /* active state */
-}
 .form-control-wrapper .form-control,
-.form-control-wrapper .form-control:focus {
+.form-control,
+.form-control-wrapper .form-control:focus,
+.form-control:focus {
   float: none;
   border: 0;
   box-shadow: none;
   border-radius: 0;
   background: transparent;
   border-bottom: 1px solid #757575;
+}
+.form-control-wrapper .form-control:disabled,
+.form-control:disabled,
+.form-control-wrapper .form-control:focus:disabled,
+.form-control:focus:disabled {
+  border-style: dashed;
+}
+.form-control-wrapper {
+  position: relative;
+  /* active state */
 }
 .form-control-wrapper .form-control:focus {
   outline: none;
@@ -875,8 +1247,7 @@ h6,
   pointer-events: none;
   left: 12px;
   top: 7px;
-  -webkit-transition: 0.2s ease all;
-          transition: 0.2s ease all;
+  transition: 0.2s ease all;
   opacity: 0;
 }
 .form-control-wrapper .form-control:focus ~ .floating-label {
@@ -910,18 +1281,12 @@ h6,
   height: 2px;
   background-color: #5264ae;
   bottom: -1px;
-  -webkit-transform: scaleX(0);
-      -ms-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transition: -webkit-transform 0s;
-          transition: transform 0s;
+  transform: scaleX(0);
+  transition: transform 0s;
 }
 .form-control-wrapper .form-control:focus ~ .material-input:before {
-  -webkit-transform: scaleX(1);
-      -ms-transform: scaleX(1);
-          transform: scaleX(1);
-  -webkit-transition: -webkit-transform 0.2s ease-out;
-          transition: transform 0.2s ease-out;
+  transform: scaleX(1);
+  transition: transform 0.2s ease-out;
 }
 .form-control-wrapper .material-input:after {
   content: "";
@@ -1728,7 +2093,8 @@ fieldset[disabled] .navbar .btn-link:hover,
 fieldset[disabled] .navbar .btn-link:focus {
   color: #e5e5e5;
 }
-.navbar .navbar-form .form-control-wrapper .form-control {
+.navbar .navbar-form .form-control-wrapper .form-control,
+.navbar .navbar-form .form-control {
   border-color: rgba(255, 255, 255, 0.84);
   color: rgba(255, 255, 255, 0.84);
 }
@@ -2153,21 +2519,23 @@ fieldset[disabled] .navbar .btn-link:focus {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   height: 0;
+  -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
   -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  -moz-transform: translateY(200%);
   -webkit-transform: translateY(200%);
-  -ms-transform: translateY(200%);
-      transform: translateY(200%);
+  transform: translateY(200%);
 }
 .snackbar.snackbar-opened {
   padding: 14px 15px;
   margin-bottom: 20px;
   height: auto;
+  -moz-transition: -moz-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
   -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+  -moz-transform: none;
   -webkit-transform: none;
-  -ms-transform: none;
-      transform: none;
+  transform: none;
 }
 .snackbar.toast {
   border-radius: 200px;
@@ -2197,8 +2565,7 @@ fieldset[disabled] .navbar .btn-link:focus {
 .noUi-handle {
   position: relative;
   z-index: 1;
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
 .noUi-stacking .noUi-handle {
@@ -2218,8 +2585,7 @@ fieldset[disabled] .navbar .btn-link:focus {
   height: 10px;
 }
 .noUi-horizontal .noUi-handle {
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
   width: 12px;
   height: 12px;
   left: -10px;
@@ -2253,14 +2619,11 @@ fieldset[disabled] .navbar .btn-link:focus {
 .noUi-handle {
   border-radius: 100%;
   cursor: default;
-  -webkit-transition: all 0.2s ease-out;
-          transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   border: 1px solid;
 }
 .noUi-horizontal .noUi-handle:active {
-  -webkit-transform: scale(2.5);
-      -ms-transform: scale(2.5);
-          transform: scale(2.5);
+  transform: scale(2.5);
 }
 [disabled].noUi-slider {
   opacity: 0.5;
