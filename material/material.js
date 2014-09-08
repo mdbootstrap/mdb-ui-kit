@@ -1,4 +1,4 @@
-/* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
+/* globals ripples */
 
 $(function (){
 
@@ -24,12 +24,14 @@ $(function (){
         }
     });
 
-    $(document).on("keyup", ".form-control", function() {
+    $(document).on("keyup change", ".form-control", function() {
         if ($(this).val() !== "") {
             $(this).removeClass("empty");
         } else {
             $(this).addClass("empty");
         }
     });
+    $(document).on("keydown", ".form-control", function() {
+        $(this).removeClass("empty");
+    });
 });
-
