@@ -1,0 +1,39 @@
+@import "variables.less";
+
+.color(@default) {
+    &-default {
+        color: @default;
+    }
+    &-primary {
+        color: @primary;
+    }
+    &-success {
+        color: @success;
+    }
+    // etc
+}
+.btn {
+    .color(black);
+}
+
+.background(@default) {
+    &-default {
+        color: @default;
+    }
+    &-primary {
+        color: @primary;
+    }
+    &-success {
+        color: @success;
+    }
+}
+
+.variations(@extra, @property) {
+    &-default@{extra}  { &:extend(.@{property}-default); }
+    &-primary@{extra}  { &:extend(.@{property}-primary); }
+// etc
+}
+
+.label {
+    .variations(~"", btn);
+}

@@ -1176,7 +1176,9 @@ h6,
 .form-control-wrapper .form-control,
 .form-control,
 .form-control-wrapper .form-control:focus,
-.form-control:focus {
+.form-control:focus,
+.form-control-wrapper .form-control.focus,
+.form-control.focus {
   height: 28px;
   padding: 0;
   float: none;
@@ -1189,21 +1191,25 @@ h6,
 .form-control-wrapper .form-control:disabled,
 .form-control:disabled,
 .form-control-wrapper .form-control:focus:disabled,
-.form-control:focus:disabled {
+.form-control:focus:disabled,
+.form-control-wrapper .form-control.focus:disabled,
+.form-control.focus:disabled {
   border-style: dashed;
 }
 select.form-control {
   height: 23px;
 }
 select[multiple].form-control,
-select[multiple].form-control:focus {
+select[multiple].form-control:focus,
+select[multiple].form-control.focus {
   height: 85px;
 }
 .form-control-wrapper {
   position: relative;
   /* active state */
 }
-.form-control-wrapper .form-control:focus {
+.form-control-wrapper .form-control:focus,
+.form-control-wrapper .form-control.focus {
   outline: none;
 }
 .form-control-wrapper .floating-label {
@@ -1221,14 +1227,18 @@ select[multiple].form-control:focus {
   font-size: 10px;
   opacity: 1;
 }
-.form-control-wrapper .form-control:focus:invalid ~ .floating-label {
+.form-control-wrapper .form-control:focus:invalid ~ .floating-label,
+.form-control-wrapper .form-control.focus:invalid ~ .floating-label {
   color: #f44336;
 }
-.form-control-wrapper .form-control:focus ~ .material-input:after {
+.form-control-wrapper .form-control:focus ~ .material-input:after,
+.form-control-wrapper .form-control.focus ~ .material-input:after {
   background-color: #5264ae;
 }
 .form-control-wrapper .form-control:focus:invalid ~ .material-input:before,
-.form-control-wrapper .form-control:focus:invalid ~ .material-input:after {
+.form-control-wrapper .form-control.focus:invalid ~ .material-input:before,
+.form-control-wrapper .form-control:focus:invalid ~ .material-input:after,
+.form-control-wrapper .form-control.focus:invalid ~ .material-input:after {
   background-color: #f44336;
 }
 .form-control-wrapper .form-control.empty ~ .floating-label {
@@ -1245,7 +1255,8 @@ select[multiple].form-control:focus {
   transform: scaleX(0);
   transition: transform 0s;
 }
-.form-control-wrapper .form-control:focus ~ .material-input:before {
+.form-control-wrapper .form-control:focus ~ .material-input:before,
+.form-control-wrapper .form-control.focus ~ .material-input:before {
   transform: scaleX(1);
   transition: transform 0.2s ease-out;
 }
@@ -1270,7 +1281,8 @@ select[multiple].form-control:focus {
 .form-control-wrapper textarea ~ .form-control-highlight {
   margin-top: -11px;
 }
-.form-control-wrapper .form-control:focus ~ .material-input:after {
+.form-control-wrapper .form-control:focus ~ .material-input:after,
+.form-control-wrapper .form-control.focus ~ .material-input:after {
   -webkit-animation: input-highlight 0.3s ease;
   animation: input-highlight 0.3s ease;
   -webkit-animation-fill-mode: forwards;
@@ -1284,7 +1296,8 @@ select[multiple].form-control:focus {
   display: none;
 }
 .form-group.has-warning .material-input:before,
-.form-group.has-warning input.form-control:focus ~ .material-input:after {
+.form-group.has-warning input.form-control:focus ~ .material-input:after,
+.form-group.has-warning input.form-control.focus ~ .material-input:after {
   background: #ff5722;
 }
 .form-group.has-warning .control-label,
@@ -1292,7 +1305,8 @@ select[multiple].form-control:focus {
   color: #ff5722;
 }
 .form-group.has-error .material-input:before,
-.form-group.has-error input.form-control:focus ~ .material-input:after {
+.form-group.has-error input.form-control:focus ~ .material-input:after,
+.form-group.has-error input.form-control.focus ~ .material-input:after {
   background: #f44336;
 }
 .form-group.has-error .control-label,
@@ -1300,7 +1314,8 @@ select[multiple].form-control:focus {
   color: #f44336;
 }
 .form-group.has-success .material-input:before,
-.form-group.has-success input.form-control:focus ~ .material-input:after {
+.form-group.has-success input.form-control:focus ~ .material-input:after,
+.form-group.has-success input.form-control.focus ~ .material-input:after {
   background: #0f9d58;
 }
 .form-group.has-success .control-label,
@@ -1308,7 +1323,8 @@ select[multiple].form-control:focus {
   color: #0f9d58;
 }
 .form-group.has-info .material-input:before,
-.form-group.has-info input.form-control:focus ~ .material-input:after {
+.form-group.has-info input.form-control:focus ~ .material-input:after,
+.form-group.has-info input.form-control.focus ~ .material-input:after {
   background: #03a9f4;
 }
 .form-group.has-info .control-label,
@@ -1453,6 +1469,76 @@ select[multiple].form-control:focus {
   background-color: #795548;
 }
 .form-group-material-lightgrey input.form-control:focus ~ .material-input:after {
+  background-color: #ececec;
+}
+.form-group input.form-control.focus ~ .material-input:after,
+.form-group-default input.form-control.focus ~ .material-input:after {
+  background-color: #3f51b5;
+}
+.form-group-primary input.form-control.focus ~ .material-input:after {
+  background-color: #4285f4;
+}
+.form-group-success input.form-control.focus ~ .material-input:after {
+  background-color: #0f9d58;
+}
+.form-group-info input.form-control.focus ~ .material-input:after {
+  background-color: #03a9f4;
+}
+.form-group-warning input.form-control.focus ~ .material-input:after {
+  background-color: #ff5722;
+}
+.form-group-danger input.form-control.focus ~ .material-input:after {
+  background-color: #f44336;
+}
+.form-group-material-red input.form-control.focus ~ .material-input:after {
+  background-color: #f44336;
+}
+.form-group-material-pink input.form-control.focus ~ .material-input:after {
+  background-color: #e91e63;
+}
+.form-group-material-purple input.form-control.focus ~ .material-input:after {
+  background-color: #9c27b0;
+}
+.form-group-material-deeppurple input.form-control.focus ~ .material-input:after {
+  background-color: #673ab7;
+}
+.form-group-material-indigo input.form-control.focus ~ .material-input:after {
+  background-color: #3f51b5;
+}
+.form-group-material-lightblue input.form-control.focus ~ .material-input:after {
+  background-color: #03a9f4;
+}
+.form-group-material-cyan input.form-control.focus ~ .material-input:after {
+  background-color: #00bcd4;
+}
+.form-group-material-teal input.form-control.focus ~ .material-input:after {
+  background-color: #009688;
+}
+.form-group-material-lightgreen input.form-control.focus ~ .material-input:after {
+  background-color: #8bc34a;
+}
+.form-group-material-lime input.form-control.focus ~ .material-input:after {
+  background-color: #cddc39;
+}
+.form-group-material-lightyellow input.form-control.focus ~ .material-input:after {
+  background-color: #ffeb3b;
+}
+.form-group-material-orange input.form-control.focus ~ .material-input:after {
+  background-color: #ff9800;
+}
+.form-group-material-deeporange input.form-control.focus ~ .material-input:after {
+  background-color: #ff5722;
+}
+.form-group-material-grey input.form-control.focus ~ .material-input:after {
+  background-color: #9e9e9e;
+}
+.form-group-material-bluegrey input.form-control.focus ~ .material-input:after {
+  background-color: #607d8b;
+}
+.form-group-material-brown input.form-control.focus ~ .material-input:after {
+  background-color: #795548;
+}
+.form-group-material-lightgrey input.form-control.focus ~ .material-input:after {
   background-color: #ececec;
 }
 .form-group .control-label,
@@ -1615,7 +1701,8 @@ select.form-control {
   border-bottom: 1px solid #757575;
   border-radius: 0;
 }
-select.form-control:focus {
+select.form-control:focus,
+select.form-control.focus {
   box-shadow: none;
   border-color: #757575;
 }
