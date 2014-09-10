@@ -536,8 +536,8 @@ h6,
 }
 .checkbox input[type=checkbox] ~ .check {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 2px;
+  left: 11px;
   width: 18px;
   height: 18px;
   border: solid 2px;
