@@ -1173,10 +1173,13 @@ h6,
 .radio input[type=radio][disabled] ~ .check {
   background-color: rgba(0, 0, 0, 0.84);
 }
+fieldset[disabled] .form-control,
 .form-control-wrapper .form-control,
 .form-control,
+fieldset[disabled] .form-control:focus,
 .form-control-wrapper .form-control:focus,
 .form-control:focus,
+fieldset[disabled] .form-control.focus,
 .form-control-wrapper .form-control.focus,
 .form-control.focus {
   height: 28px;
@@ -1188,10 +1191,13 @@ h6,
   background: transparent;
   border-bottom: 1px solid #757575;
 }
+fieldset[disabled] .form-control:disabled,
 .form-control-wrapper .form-control:disabled,
 .form-control:disabled,
+fieldset[disabled] .form-control:focus:disabled,
 .form-control-wrapper .form-control:focus:disabled,
 .form-control:focus:disabled,
+fieldset[disabled] .form-control.focus:disabled,
 .form-control-wrapper .form-control.focus:disabled,
 .form-control.focus:disabled {
   border-style: dashed;
