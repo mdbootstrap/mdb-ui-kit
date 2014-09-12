@@ -2,7 +2,9 @@
 
 fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-control {
     &, &:focus, &.focus {
-        height: 28px;
+        &:not(textarea), &:not(select) {
+            height: 28px;
+        }
         padding: 0;
         float: none;
         border: 0;
