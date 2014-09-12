@@ -1182,7 +1182,6 @@ fieldset[disabled] .form-control:focus,
 fieldset[disabled] .form-control.focus,
 .form-control-wrapper .form-control.focus,
 .form-control.focus {
-  height: 28px;
   padding: 0;
   float: none;
   border: 0;
@@ -1190,6 +1189,26 @@ fieldset[disabled] .form-control.focus,
   border-radius: 0;
   background: transparent;
   border-bottom: 1px solid #757575;
+}
+fieldset[disabled] .form-control:not(textarea),
+.form-control-wrapper .form-control:not(textarea),
+.form-control:not(textarea),
+fieldset[disabled] .form-control:focus:not(textarea),
+.form-control-wrapper .form-control:focus:not(textarea),
+.form-control:focus:not(textarea),
+fieldset[disabled] .form-control.focus:not(textarea),
+.form-control-wrapper .form-control.focus:not(textarea),
+.form-control.focus:not(textarea),
+fieldset[disabled] .form-control:not(select),
+.form-control-wrapper .form-control:not(select),
+.form-control:not(select),
+fieldset[disabled] .form-control:focus:not(select),
+.form-control-wrapper .form-control:focus:not(select),
+.form-control:focus:not(select),
+fieldset[disabled] .form-control.focus:not(select),
+.form-control-wrapper .form-control.focus:not(select),
+.form-control.focus:not(select) {
+  height: 28px;
 }
 fieldset[disabled] .form-control:disabled,
 .form-control-wrapper .form-control:disabled,
