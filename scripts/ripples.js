@@ -1,3 +1,4 @@
+/* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
 /* globals CustomEvent */
 var ripples = {
     init : function(withRipple) {
@@ -72,6 +73,7 @@ var ripples = {
 
             // Let ripple fade out (with CSS)
             setTimeout(function() {
+                $ripple.parentNode.parentNode.click();
                 $ripple.remove();
             }, rippleOutTime);
         };
