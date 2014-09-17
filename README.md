@@ -8,6 +8,12 @@ This theme is in early developement and is not ready for production.
 
 Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/).
 
+## How to install
+
+    bower install bootstrap-material-design --save
+
+
+## Features
 
 Currently supported elements:
 

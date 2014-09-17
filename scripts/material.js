@@ -5,10 +5,10 @@ $(function (){
     ripples.init(".btn:not(.btn-link), .navbar a, .nav-tabs a, .withripple");
 
     // Add fake-checkbox to material checkboxes
-    $(".checkbox label input").after("<span class=ripple></span><span class=check></span>");
+    $(".checkbox > label > input").after("<span class=ripple></span><span class=check></span>");
 
     // Add fake-radio to material radios
-    $(".radio label input").after("<span class=ripple></span><span class=circle></span><span class=check></span>");
+    $(".radio > label > input").after("<span class=ripple></span><span class=circle></span><span class=check></span>");
 
     // Add elements for material inputs
     $("input.form-control, textarea.form-control, select.form-control").each( function() {
@@ -24,12 +24,15 @@ $(function (){
         }
     });
 
-    $(document).on("keyup", ".form-control", function() {
+    $(document).on("keyup change", ".form-control", function() {
         if ($(this).val() !== "") {
             $(this).removeClass("empty");
         } else {
             $(this).addClass("empty");
         }
+    });
+    $(document).on("keydown", ".form-control", function() {
+        $(this).removeClass("empty");
     });
 });
 

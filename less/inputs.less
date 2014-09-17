@@ -1,8 +1,10 @@
 // main: material.less
 
-.form-control-wrapper .form-control, .form-control {
-    &, &:focus {
-        height: 28px;
+fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-control {
+    &, &:focus, &.focus {
+        &:not(textarea):not(select) {
+            height: 28px;
+        }
         padding: 0;
         float: none;
         border: 0;
@@ -19,7 +21,7 @@ select.form-control {
     height: 23px;
 }
 select[multiple].form-control {
-    &, &:focus {
+    &, &:focus, &.focus {
         height: 85px;
     }
 }
@@ -27,7 +29,7 @@ select[multiple].form-control {
 .form-control-wrapper {
     position: relative;
 
-    .form-control:focus {
+    .form-control:focus, .form-control.focus {
         outline: none;
     }
 
@@ -46,13 +48,13 @@ select[multiple].form-control {
         font-size: 10px;
         opacity: 1;
     }
-    .form-control:focus:invalid ~ .floating-label {
+    .form-control:focus:invalid ~ .floating-label, .form-control.focus:invalid ~ .floating-label {
         color: @input-danger;
     }
-    .form-control:focus ~ .material-input:after {
+    .form-control:focus ~ .material-input:after, .form-control.focus ~ .material-input:after {
         background-color: @input-default;
     }
-    .form-control:focus:invalid ~ .material-input {
+    .form-control:focus:invalid ~ .material-input, .form-control.focus:invalid ~ .material-input {
         &:before, &:after  {
             background-color: @input-danger;
         }
@@ -71,7 +73,7 @@ select[multiple].form-control {
         transform: scaleX(0);
         transition: transform 0s;
     }
-    .form-control:focus  ~ .material-input:before {
+    .form-control:focus  ~ .material-input:before, .form-control.focus  ~ .material-input:before {
         transform: scaleX(1);
         transition: transform 0.2s ease-out;
     }
@@ -96,7 +98,7 @@ select[multiple].form-control {
     }
 
     /* active state */
-    .form-control:focus ~ .material-input:after {
+    .form-control:focus ~ .material-input:after, .form-control.focus ~ .material-input:after {
         -webkit-animation: input-highlight 0.3s ease;
         animation: input-highlight 0.3s ease;
         -webkit-animation-fill-mode: forwards;
@@ -115,7 +117,7 @@ select[multiple].form-control {
 
 .form-group {
     &.has-warning {
-        .material-input:before, input.form-control:focus ~ .material-input:after {
+        .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
             background: @input-warning;
         }
         .control-label, input.form-control:not(.empty) ~ .floating-label {
@@ -123,7 +125,7 @@ select[multiple].form-control {
         }
     }
     &.has-error {
-        .material-input:before, input.form-control:focus ~ .material-input:after {
+        .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
             background: @input-danger;
         }
         .control-label, input.form-control:not(.empty) ~ .floating-label {
@@ -131,7 +133,7 @@ select[multiple].form-control {
         }
     }
     &.has-success {
-        .material-input:before, input.form-control:focus ~ .material-input:after {
+        .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
             background: @input-success;
         }
         .control-label, input.form-control:not(.empty) ~ .floating-label {
@@ -139,7 +141,7 @@ select[multiple].form-control {
         }
     }
     &.has-info {
-        .material-input:before, input.form-control:focus ~ .material-input:after {
+        .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
             background: @input-info;
         }
         .control-label, input.form-control:not(.empty) ~ .floating-label {
@@ -148,6 +150,7 @@ select[multiple].form-control {
     }
     .variations(~" .material-input:before", background-color, @indigo);
     .variations(~" input.form-control:focus ~ .material-input:after", background-color, @indigo);
+    .variations(~" input.form-control.focus ~ .material-input:after", background-color, @indigo);
     .variations(~" .control-label", color, @lightbg-text);
     .variations(~" input.form-control:not(.empty) ~ .floating-label", color, @indigo);
 
@@ -175,7 +178,7 @@ select.form-control {
     box-shadow: none;
     border-bottom: 1px solid #757575;
     border-radius: 0;
-    &:focus {
+    &:focus, &.focus {
         box-shadow: none;
         border-color: #757575;
     }
