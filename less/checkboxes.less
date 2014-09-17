@@ -11,10 +11,13 @@
         span {
             display: block;
             position: absolute;
-            left: 10px;
+            left: 0px;
             transition-duration: 0.2s;
         }
-        .ripple {
+        .check:after {
+            display: block;
+            position: absolute;
+            content: "";
             background-color: @lightbg-text;
             left: -5px;
             top: -15px;
@@ -25,7 +28,9 @@
             opacity: 0;
             margin: 0;
         }
-        .check {
+        .check:before {
+            display: block;
+            content: "";
             border: 2px solid @lightbg-text;
             height: 20px;
             width: 20px;
@@ -39,7 +44,7 @@
     // Hide native checkbox
     input[type=checkbox] { display: none; }
 
-    input[type=checkbox] ~ .check {
+    input[type=checkbox] ~ .check:before {
         position: absolute;
         top: 2px;
         left: 11px;
@@ -50,27 +55,28 @@
         .animation(uncheck 300ms ease-out forwards);
     }
 
-    input[type=checkbox]:checked ~ .check {
+    input[type=checkbox]:checked ~ .check:before {
         .animation(check 300ms ease-out forwards);
     }
 
     // Ripple effect on click
-    input[type=checkbox]:not(:checked) ~ .ripple {
+    input[type=checkbox]:not(:checked) ~ .check:after {
         .animation(rippleOff 500ms);
     }
-    input[type=checkbox]:checked ~ .ripple {
+    input[type=checkbox]:checked ~ .check:after {
         .animation(rippleOn 500ms);
     }
 
     // Style for disabled inputs
-    input[type=checkbox][disabled]:not(:checked) ~ .check {
+    input[type=checkbox][disabled]:not(:checked) ~ .check:before {
         opacity: 0.5;
     }
-    input[type=checkbox][disabled] ~ .ripple {
+    input[type=checkbox][disabled] ~ .check:after {
         background-color: @lightbg-text;
+        transform: rotate(-45deg);
     }
 
-    .variations(~" input[type=checkbox]:checked ~ .ripple", background-color, @success);
+    .variations(~" input[type=checkbox]:checked ~ .check:after", background-color, @success);
 }
 
 
