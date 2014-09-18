@@ -70,6 +70,11 @@ var ripples = {
 
             }, rippleStartTime);
 
+            if (target.tagName == 'A' || target.parentNode.tagName == 'A') {
+                if (e.buttons == 1) {
+                    target.click();
+                }
+            }
         };
 
         var rippleOut = function($ripple) {
