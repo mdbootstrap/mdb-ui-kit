@@ -34,7 +34,6 @@ var ripples = {
                 elPos           = $el.getBoundingClientRect(),
                 mousePos        = {x: e.clientX - elPos.left, y: e.clientY - elPos.top},
                 scale           = "transform:scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
-                rippleEnd       = new CustomEvent("rippleEnd", {detail: $ripple}),
                 refreshElementStyle;
 
             // Set ripple class
@@ -66,7 +65,7 @@ var ripples = {
 
                 // Let know to other functions that this element has finished the animation
                 $ripple.dataset.animating = 0;
-                document.dispatchEvent(rippleEnd);
+                rippleOut($ripple);
 
             }, rippleStartTime);
 
@@ -110,12 +109,7 @@ var ripples = {
 
         // start ripple effect on mousedown
         bind("mousedown", ".ripple-wrapper, .ripple-wrapper .ripple", rippleStart);
-        // if animation ends and user is not holding mouse then destroy the ripple
-        bind("rippleEnd", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
-            if (!mouseDown) {
-                rippleOut($ripple);
-            }
-        });
+
         // Destroy ripple when mouse is not holded anymore if the ripple still exists
         bind("mouseup", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
             if ($ripple.dataset.animating != 1) {
