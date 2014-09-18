@@ -2510,6 +2510,40 @@ fieldset[disabled] .navbar .btn-link:focus {
 .navbar-inverse {
   background-color: #3f51b5;
 }
+.navbar-material-white {
+  background-color: #FFF;
+}
+.navbar-material-white .navbar-brand,
+.navbar-material-white .navbar-brand:hover,
+.navbar-material-white .navbar-brand:focus {
+  color: rgba(0, 0, 0, 0.84);
+}
+.navbar-material-white .navbar-nav > li > a {
+  color: rgba(0, 0, 0, 0.84);
+}
+.navbar-material-white .navbar-nav > li > a:hover,
+.navbar-material-white .navbar-nav > li > a:focus {
+  color: rgba(0, 0, 0, 0.84);
+  background-color: transparent;
+}
+.navbar-material-white .navbar-nav > .active > a,
+.navbar-material-white .navbar-nav > .active > a:hover,
+.navbar-material-white .navbar-nav > .active > a:focus {
+  color: rgba(0, 0, 0, 0.84);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.navbar-material-white .navbar-nav > .disabled > a,
+.navbar-material-white .navbar-nav > .disabled > a:hover,
+.navbar-material-white .navbar-nav > .disabled > a:focus {
+  color: rgba(0, 0, 0, 0.84);
+  background-color: transparent;
+}
+.navbar-material-white .navbar-nav > .open > a,
+.navbar-material-white .navbar-nav > .open > a:hover,
+.navbar-material-white .navbar-nav > .open > a:focus {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.84);
+}
 .dropdown-menu {
   border: 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);

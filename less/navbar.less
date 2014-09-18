@@ -159,4 +159,47 @@
     &-inverse {
         background-color: @indigo;
     }
+    &-material-white {
+        background-color: #FFF;
+        .navbar-brand, .navbar-brand:hover, .navbar-brand:focus {
+            color: @lightbg-text;
+        }
+        .navbar-nav {
+            & > li > a {
+                color: @lightbg-text;
+
+                &:hover,
+                &:focus {
+                    color: @lightbg-text;
+                    background-color: @navbar-link-hover-bg;
+                }
+            }
+            & > .active > a {
+                &,
+                &:hover,
+                &:focus {
+                    color: @lightbg-text;
+                    background-color: @navbar-link-active-bg;
+                }
+            }
+            & > .disabled > a {
+                &,
+                &:hover,
+                &:focus {
+                    color: @lightbg-text;
+                    background-color: @navbar-link-disabled-bg;
+                }
+            }
+
+            & > .open > a {
+                &,
+                &:hover,
+                &:focus {
+                    background-color: @navbar-link-active-bg;
+                    color: @lightbg-text;
+                }
+            }
+
+        }
+    }
 }
