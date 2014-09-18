@@ -1,5 +1,5 @@
 /* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
-/* globals CustomEvent */
+/* globals CustomEvent, navigator */
 var ripples = {
     init : function(withRipple) {
         "use strict";
@@ -56,6 +56,11 @@ var ripples = {
             $ripple.className = "ripple ripple-on";
             $ripple.setAttribute("style", $ripple.getAttribute("style") + ["-ms-" + scale,"-moz-" + scale,"-webkit-" + scale,scale].join(";"));
 
+            // Dirty fix for Firefox... seems like absolute elements inside <A> tags do not trigger the "click" event
+            if (/firefox/i.test(navigator.userAgent)) {
+                $el.click();
+            }
+
             // This function is called when the animation is finished
             setTimeout(function() {
 
@@ -73,7 +78,6 @@ var ripples = {
 
             // Let ripple fade out (with CSS)
             setTimeout(function() {
-                $ripple.parentNode.parentNode.click();
                 $ripple.remove();
             }, rippleOutTime);
         };
@@ -103,6 +107,7 @@ var ripples = {
         // Events handler
         // init RippleJS and start ripple effect on mousedown
         bind("mousedown", withRipple, rippleInit);
+
         // start ripple effect on mousedown
         bind("mousedown", ".ripple-wrapper, .ripple-wrapper .ripple", rippleStart);
         // if animation ends and user is not holding mouse then destroy the ripple
