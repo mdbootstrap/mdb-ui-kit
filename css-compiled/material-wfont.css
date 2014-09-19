@@ -1684,6 +1684,7 @@ body .well,
 body .jumbotron,
 .container .jumbotron,
 .container-fluid .jumbotron {
+  color: rgba(0, 0, 0, 0.84);
   background-color: #fff;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 2px;
@@ -1890,7 +1891,7 @@ body .jumbotron-material-lightgrey,
 body [class^="well well-material"],
 .container [class^="well well-material"],
 .container-fluid [class^="well well-material"] {
-  color: #FFF;
+  color: rgba(255, 255, 255, 0.84);
 }
 .modal-content {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
