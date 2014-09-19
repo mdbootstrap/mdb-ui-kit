@@ -418,6 +418,10 @@ h6,
 .form-horizontal .checkbox {
   padding-top: 15px;
 }
+.checkbox {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
 .checkbox label {
   cursor: pointer;
   padding-left: 45px;
@@ -559,7 +563,6 @@ h6,
 .checkbox input[type=checkbox][disabled] ~ .check:after {
   background-color: rgba(0, 0, 0, 0.84);
   -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 .checkbox input[type=checkbox]:checked ~ .check:after,
@@ -717,8 +720,7 @@ h6,
     left: 17px;
     width: 10px;
     height: 21px;
-    -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
+    transform: rotate(45deg);
     border-color: #0f9d58;
     border-left-color: transparent;
     border-top-color: transparent;
@@ -732,8 +734,7 @@ h6,
     left: 17px;
     width: 4px;
     height: 4px;
-    -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
+    transform: rotate(45deg);
     border-color: #5a5a5a;
     border-left-color: #5a5a5a;
     border-top-color: #5a5a5a;
@@ -743,8 +744,7 @@ h6,
     left: 12px;
     width: 18px;
     height: 18px;
-    -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
+    transform: rotate(0deg);
     border-color: #5a5a5a;
     border-left-color: #5a5a5a;
     border-top-color: #5a5a5a;
@@ -879,7 +879,6 @@ h6,
   width: 34px;
   border-radius: 100%;
   -webkit-transform: scale(0);
-      -ms-transform: scale(0);
           transform: scale(0);
   -webkit-transition: -webkit-transform .1s, opacity 0.2s 0.4s;
           transition: transform .1s, opacity 0.2s 0.4s;
@@ -889,7 +888,6 @@ h6,
 }
 .radio label .ripple.animate {
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
           transform: scale(1);
   opacity: 0;
 }
@@ -905,7 +903,6 @@ h6,
   border-radius: 100%;
   background-color: rgba(0, 0, 0, 0.84);
   -webkit-transform: scale(0);
-      -ms-transform: scale(0);
           transform: scale(0);
 }
 .radio input[type=radio]:checked ~ .check,
@@ -1057,7 +1054,6 @@ h6,
 }
 .radio input[type=radio]:checked ~ .check {
   -webkit-transform: scale(0.55);
-      -ms-transform: scale(0.55);
           transform: scale(0.55);
 }
 .radio input[type=radio][disabled] ~ .circle {
@@ -1163,7 +1159,6 @@ select[multiple].form-control.focus {
   background-color: #5264ae;
   bottom: -1px;
   -webkit-transform: scaleX(0);
-      -ms-transform: scaleX(0);
           transform: scaleX(0);
   -webkit-transition: -webkit-transform 0s;
           transition: transform 0s;
@@ -1171,7 +1166,6 @@ select[multiple].form-control.focus {
 .form-control-wrapper .form-control:focus ~ .material-input:before,
 .form-control-wrapper .form-control.focus ~ .material-input:before {
   -webkit-transform: scaleX(1);
-      -ms-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transition: -webkit-transform 0.2s ease-out;
           transition: transform 0.2s ease-out;
@@ -1187,7 +1181,6 @@ select[multiple].form-control.focus {
   pointer-events: none;
   opacity: 0.9;
   -webkit-transform-origin: left;
-      -ms-transform-origin: left;
           transform-origin: left;
 }
 .form-control-wrapper .input-lg ~ .material-input:after {
@@ -1643,12 +1636,10 @@ select.form-control.focus {
 @-ms-keyframes input-highlight {
   0% {
     left: 20%;
-    -ms-transform: scaleX(20%);
-        transform: scaleX(20%);
+    transform: scaleX(20%);
   }
   99% {
-    -ms-transform: scaleX(0);
-        transform: scaleX(0);
+    transform: scaleX(0);
     left: 0;
     opacity: 1;
   }
@@ -2764,8 +2755,7 @@ fieldset[disabled] .navbar .btn-link:focus {
   -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
   -webkit-transform: translateY(200%);
-  -ms-transform: translateY(200%);
-      transform: translateY(200%);
+  transform: translateY(200%);
 }
 .snackbar.snackbar-opened {
   padding: 14px 15px;
@@ -2774,8 +2764,7 @@ fieldset[disabled] .navbar .btn-link:focus {
   -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s;
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
   -webkit-transform: none;
-  -ms-transform: none;
-      transform: none;
+  transform: none;
 }
 .snackbar.toast {
   border-radius: 200px;
@@ -2867,7 +2856,6 @@ fieldset[disabled] .navbar .btn-link:focus {
 }
 .noUi-horizontal .noUi-handle:active {
   -webkit-transform: scale(2.5);
-      -ms-transform: scale(2.5);
           transform: scale(2.5);
 }
 [disabled].noUi-slider {
