@@ -34,7 +34,11 @@ var ripples = {
                 elPos           = $el.getBoundingClientRect(),
                 mousePos        = {x: e.clientX - elPos.left, y: e.clientY - elPos.top},
                 scale           = "transform:scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
+                rippleEnd       = new CustomEvent("rippleEnd", {detail: $ripple}),
                 refreshElementStyle;
+
+            // Clear all previous ripple animations
+            $rippleWrapper.innerHTML = "";
 
             // Set ripple class
             $ripple.className = "ripple";
@@ -56,7 +60,7 @@ var ripples = {
             $ripple.setAttribute("style", $ripple.getAttribute("style") + ["-ms-" + scale,"-moz-" + scale,"-webkit-" + scale,scale].join(";"));
 
             // Dirty fix for Firefox... seems like absolute elements inside <A> tags do not trigger the "click" event
-            if (/firefox/i.test(navigator.userAgent)) {
+            if (e.buttons == 1 && /firefox/i.test(navigator.userAgent)) {
                 $el.click();
             }
 
@@ -65,7 +69,7 @@ var ripples = {
 
                 // Let know to other functions that this element has finished the animation
                 $ripple.dataset.animating = 0;
-                rippleOut($ripple);
+                document.dispatchEvent(rippleEnd);
 
             }, rippleStartTime);
 
@@ -109,7 +113,12 @@ var ripples = {
 
         // start ripple effect on mousedown
         bind("mousedown", ".ripple-wrapper, .ripple-wrapper .ripple", rippleStart);
-
+        // if animation ends and user is not holding mouse then destroy the ripple
+        bind("rippleEnd", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
+            if (!mouseDown) {
+                rippleOut($ripple);
+            }
+        });
         // Destroy ripple when mouse is not holded anymore if the ripple still exists
         bind("mouseup", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
             if ($ripple.dataset.animating != 1) {
