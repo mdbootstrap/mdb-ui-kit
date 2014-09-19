@@ -37,6 +37,9 @@ var ripples = {
                 rippleEnd       = new CustomEvent("rippleEnd", {detail: $ripple}),
                 refreshElementStyle;
 
+            // Clear all previous ripple animations
+            $rippleWrapper.innerHTML = "";
+
             // Set ripple class
             $ripple.className = "ripple";
 
@@ -57,7 +60,7 @@ var ripples = {
             $ripple.setAttribute("style", $ripple.getAttribute("style") + ["-ms-" + scale,"-moz-" + scale,"-webkit-" + scale,scale].join(";"));
 
             // Dirty fix for Firefox... seems like absolute elements inside <A> tags do not trigger the "click" event
-            if (/firefox/i.test(navigator.userAgent)) {
+            if (e.buttons == 1 && /firefox/i.test(navigator.userAgent)) {
                 $el.click();
             }
 
