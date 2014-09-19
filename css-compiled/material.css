@@ -3086,3 +3086,9 @@ fieldset[disabled] .navbar .btn-link:focus {
 .slider-material-lightgrey {
   background-color: #ececec;
 }
+
+.checkbox {
+  -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+      transform: rotate(0deg); 
+}
