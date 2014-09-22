@@ -31,14 +31,14 @@ $(function (){
     });
 
     $(document).on("keyup change", ".form-control", function() {
-        if ($(this).val() !== "") {
-            $(this).removeClass("empty");
-        } else {
-            $(this).addClass("empty");
-        }
-    });
-    $(document).on("keydown change", ".form-control", function() {
-        $(this).removeClass("empty");
+        var self = $(this);
+        setTimeout(function() {
+            if (self.val() === "") {
+                self.addClass("empty");
+            } else {
+                self.removeClass("empty");
+            }
+        }, 1);
     });
     $(document)
     .on("focus", ".form-control-wrapper.fileinput", function() {
