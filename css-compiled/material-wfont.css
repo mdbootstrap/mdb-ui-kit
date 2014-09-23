@@ -2070,7 +2070,10 @@ body [class^="well well-material"],
 .container-fluid [class^="well well-material"],
 body [class^="well well-material"] .form-control,
 .container [class^="well well-material"] .form-control,
-.container-fluid [class^="well well-material"] .form-control {
+.container-fluid [class^="well well-material"] .form-control,
+body [class^="well well-material"] .floating-label,
+.container [class^="well well-material"] .floating-label,
+.container-fluid [class^="well well-material"] .floating-label {
   color: rgba(255, 255, 255, 0.84);
 }
 body [class^="well well-material"] .form-control,
