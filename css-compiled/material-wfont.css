@@ -1201,9 +1201,6 @@ select[multiple].form-control.focus {
   animation-fill-mode: forwards;
   opacity: 0;
 }
-.form-control-wrapper select ~ .material-input:before {
-  bottom: 1px;
-}
 .form-control-wrapper select ~ .material-input:after {
   display: none;
 }
@@ -1890,8 +1887,21 @@ body .jumbotron-material-lightgrey,
 }
 body [class^="well well-material"],
 .container [class^="well well-material"],
-.container-fluid [class^="well well-material"] {
+.container-fluid [class^="well well-material"],
+body [class^="well well-material"] .form-control,
+.container [class^="well well-material"] .form-control,
+.container-fluid [class^="well well-material"] .form-control {
   color: rgba(255, 255, 255, 0.84);
+}
+body [class^="well well-material"] .form-control,
+.container [class^="well well-material"] .form-control,
+.container-fluid [class^="well well-material"] .form-control {
+  border-bottom-color: rgba(255, 255, 255, 0.84);
+}
+body [class^="well well-material"] .option,
+.container [class^="well well-material"] .option,
+.container-fluid [class^="well well-material"] .option {
+  color: rgba(0, 0, 0, 0.84);
 }
 .modal-content {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
