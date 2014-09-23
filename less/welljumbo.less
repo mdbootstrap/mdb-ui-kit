@@ -1,10 +1,33 @@
 // main: material.less
 body, .container, .container-fluid {
-    [class^="well-material"] {
+
+    .well, .well:not([class^="well well-material-"]) {
+        &, .form-control, .floating-label {
+            color: @lightbg-text;
+        }
+        .form-control {
+            border-bottom-color: @lightbg-text;
+            &::-webkit-input-placeholder {
+                color: @lightbg-text;
+            }
+            &::-moz-placeholder {
+                color: @lightbg-text;
+                opacity: 1;
+            }
+            &:-ms-input-placeholder {
+                color: @lightbg-text;
+            }
+        }
+        .option, .create {
+            color: @lightbg-text;
+        }
+    }
+
+    [class^="well well-material-"] {
         &, .form-control, .floating-label {
             color: @darkbg-text;
         }
-        .form-control {
+       .form-control {
             border-bottom-color: @darkbg-text;
             &::-webkit-input-placeholder {
                 color: @darkbg-text;
@@ -23,30 +46,7 @@ body, .container, .container-fluid {
         }
     }
 
-    [class="well"], [class^="well "], [class="jumbotron"], [class^="jumbotron "] {
-        &, .form-control, .floating-label {
-            color: @lightbg-text;
-        }
-        .form-control {
-            border-bottom-color: #757575;
-            &::-webkit-input-placeholder {
-                color: @lightbg-text;
-            }
-            &::-moz-placeholder {
-                color: @lightbg-text;
-                opacity: 1;
-            }
-            &:-ms-input-placeholder {
-                color: @lightbg-text;
-            }
-        }
-        // Rule to fix selectize plugin
-        .option, .create {
-            color: @lightbg-text;
-        }
-    }
-
-    .well, .jumbotron, [class^="well-material"] {
+    .well, .jumbotron {
 
         background-color: #fff;
         padding: 19px;
@@ -57,8 +57,7 @@ body, .container, .container-fluid {
         p {
             font-weight: 300;
         }
-    }
-    .well {
+
         .variations(~"", background-color, #FFF);
     }
 }
