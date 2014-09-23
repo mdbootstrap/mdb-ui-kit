@@ -4,7 +4,7 @@ $(function (){
 
     ripples.init(".btn:not(.btn-link), .navbar a, .nav-tabs a, .withripple");
 
-    $(document).bind("DOMSubtreeModified", function(){
+    var initInputs = function() {
         // Add fake-checkbox to material checkboxes
         $(".checkbox > label > input").not(".bs-material").addClass("bs-material").after("<span class=check></span>");
 
@@ -12,7 +12,7 @@ $(function (){
         $(".radio > label > input").not(".bs-material").addClass("bs-material").after("<span class=circle></span><span class=check></span>");
 
         // Add elements for material inputs
-        $("input.form-control, textarea.form-control, select.form-control").each( function() {
+        $("input.form-control, textarea.form-control, select.form-control").not(".bs-material").each( function() {
             if ($(this).is(".bs-material")) { return; }
             $(this).wrap("<div class=form-control-wrapper></div>");
             $(this).after("<span class=material-input></span>");
@@ -32,8 +32,17 @@ $(function (){
             }
         });
 
-    }).trigger("DOMSubtreeModified");
+    };
+    initInputs();
 
+    // Support for "arrive.js" to dynamically detect creation of elements
+    // include it before this script to take advantage of this feature
+    // https://github.com/uzairfarooq/arrive/
+    if (document.arrive) {
+        document.arrive("input, textarea, select", function() {
+            initInputs();
+        });
+    }
 
     $(document).on("keyup change", ".form-control", function() {
         var self = $(this);
@@ -67,4 +76,3 @@ $(function (){
         $(this).prev().val(value);
     });
 });
-
