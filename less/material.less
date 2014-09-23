@@ -22,6 +22,9 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+// Well and Jumbotrons
+@import "welljumbo.less";
+
 // Buttons
 @import "buttons.less";
 
@@ -36,33 +39,6 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 legend {
     border-bottom: 0;
-}
-
-body, .container, .container-fluid {
-    .well, .jumbotron {
-        color: @lightbg-text;
-        background-color: #fff;
-        .shadow-z-2();
-        border-radius: 2px;
-        border: 0;
-        p {
-            font-weight: 300;
-        }
-        .variations(~"", background-color, #FFF);
-    }
-    [class^="well well-material"] {
-        &, .form-control, .floating-label {
-            color: @darkbg-text;
-        }
-        .form-control {
-            border-bottom-color: @darkbg-text;
-        }
-        // Rule to fix selectize plugin
-        .option, .create {
-            color: @lightbg-text;
-        }
-
-    }
 }
 
 .modal-content {
