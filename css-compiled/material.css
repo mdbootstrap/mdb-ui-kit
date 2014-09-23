@@ -70,124 +70,6 @@ h6,
 .h6 {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-body .well,
-.container .well,
-.container-fluid .well,
-body .well-default,
-.container .well-default,
-.container-fluid .well-default {
-  background-color: #ffffff;
-}
-body .well-primary,
-.container .well-primary,
-.container-fluid .well-primary {
-  background-color: #4285f4;
-}
-body .well-success,
-.container .well-success,
-.container-fluid .well-success {
-  background-color: #0f9d58;
-}
-body .well-info,
-.container .well-info,
-.container-fluid .well-info {
-  background-color: #03a9f4;
-}
-body .well-warning,
-.container .well-warning,
-.container-fluid .well-warning {
-  background-color: #ff5722;
-}
-body .well-danger,
-.container .well-danger,
-.container-fluid .well-danger {
-  background-color: #f44336;
-}
-body .well-material-red,
-.container .well-material-red,
-.container-fluid .well-material-red {
-  background-color: #f44336;
-}
-body .well-material-pink,
-.container .well-material-pink,
-.container-fluid .well-material-pink {
-  background-color: #e91e63;
-}
-body .well-material-purple,
-.container .well-material-purple,
-.container-fluid .well-material-purple {
-  background-color: #9c27b0;
-}
-body .well-material-deeppurple,
-.container .well-material-deeppurple,
-.container-fluid .well-material-deeppurple {
-  background-color: #673ab7;
-}
-body .well-material-indigo,
-.container .well-material-indigo,
-.container-fluid .well-material-indigo {
-  background-color: #3f51b5;
-}
-body .well-material-lightblue,
-.container .well-material-lightblue,
-.container-fluid .well-material-lightblue {
-  background-color: #03a9f4;
-}
-body .well-material-cyan,
-.container .well-material-cyan,
-.container-fluid .well-material-cyan {
-  background-color: #00bcd4;
-}
-body .well-material-teal,
-.container .well-material-teal,
-.container-fluid .well-material-teal {
-  background-color: #009688;
-}
-body .well-material-lightgreen,
-.container .well-material-lightgreen,
-.container-fluid .well-material-lightgreen {
-  background-color: #8bc34a;
-}
-body .well-material-lime,
-.container .well-material-lime,
-.container-fluid .well-material-lime {
-  background-color: #cddc39;
-}
-body .well-material-lightyellow,
-.container .well-material-lightyellow,
-.container-fluid .well-material-lightyellow {
-  background-color: #ffeb3b;
-}
-body .well-material-orange,
-.container .well-material-orange,
-.container-fluid .well-material-orange {
-  background-color: #ff9800;
-}
-body .well-material-deeporange,
-.container .well-material-deeporange,
-.container-fluid .well-material-deeporange {
-  background-color: #ff5722;
-}
-body .well-material-grey,
-.container .well-material-grey,
-.container-fluid .well-material-grey {
-  background-color: #9e9e9e;
-}
-body .well-material-bluegrey,
-.container .well-material-bluegrey,
-.container-fluid .well-material-bluegrey {
-  background-color: #607d8b;
-}
-body .well-material-brown,
-.container .well-material-brown,
-.container-fluid .well-material-brown {
-  background-color: #795548;
-}
-body .well-material-lightgrey,
-.container .well-material-lightgrey,
-.container-fluid .well-material-lightgrey {
-  background-color: #ececec;
-}
 body [class^="well-material"],
 .container [class^="well-material"],
 .container-fluid [class^="well-material"],
@@ -227,20 +109,6 @@ body [class^="well-material"] .create,
 .container [class^="well-material"] .create,
 .container-fluid [class^="well-material"] .create {
   color: rgba(0, 0, 0, 0.84);
-}
-body [class="well"],
-.container [class="well"],
-.container-fluid [class="well"],
-body [class^="well "],
-.container [class^="well "],
-.container-fluid [class^="well "],
-body [class="jumbotron"],
-.container [class="jumbotron"],
-.container-fluid [class="jumbotron"],
-body [class^="jumbotron "],
-.container [class^="jumbotron "],
-.container-fluid [class^="jumbotron "] {
-  background-color: #fff;
 }
 body [class="well"],
 .container [class="well"],
@@ -372,6 +240,7 @@ body .jumbotron,
 body [class^="well-material"],
 .container [class^="well-material"],
 .container-fluid [class^="well-material"] {
+  background-color: #fff;
   padding: 19px;
   margin-bottom: 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -388,6 +257,124 @@ body [class^="well-material"] p,
 .container [class^="well-material"] p,
 .container-fluid [class^="well-material"] p {
   font-weight: 300;
+}
+body .well,
+.container .well,
+.container-fluid .well,
+body .well-default,
+.container .well-default,
+.container-fluid .well-default {
+  background-color: #ffffff;
+}
+body .well-primary,
+.container .well-primary,
+.container-fluid .well-primary {
+  background-color: #4285f4;
+}
+body .well-success,
+.container .well-success,
+.container-fluid .well-success {
+  background-color: #0f9d58;
+}
+body .well-info,
+.container .well-info,
+.container-fluid .well-info {
+  background-color: #03a9f4;
+}
+body .well-warning,
+.container .well-warning,
+.container-fluid .well-warning {
+  background-color: #ff5722;
+}
+body .well-danger,
+.container .well-danger,
+.container-fluid .well-danger {
+  background-color: #f44336;
+}
+body .well-material-red,
+.container .well-material-red,
+.container-fluid .well-material-red {
+  background-color: #f44336;
+}
+body .well-material-pink,
+.container .well-material-pink,
+.container-fluid .well-material-pink {
+  background-color: #e91e63;
+}
+body .well-material-purple,
+.container .well-material-purple,
+.container-fluid .well-material-purple {
+  background-color: #9c27b0;
+}
+body .well-material-deeppurple,
+.container .well-material-deeppurple,
+.container-fluid .well-material-deeppurple {
+  background-color: #673ab7;
+}
+body .well-material-indigo,
+.container .well-material-indigo,
+.container-fluid .well-material-indigo {
+  background-color: #3f51b5;
+}
+body .well-material-lightblue,
+.container .well-material-lightblue,
+.container-fluid .well-material-lightblue {
+  background-color: #03a9f4;
+}
+body .well-material-cyan,
+.container .well-material-cyan,
+.container-fluid .well-material-cyan {
+  background-color: #00bcd4;
+}
+body .well-material-teal,
+.container .well-material-teal,
+.container-fluid .well-material-teal {
+  background-color: #009688;
+}
+body .well-material-lightgreen,
+.container .well-material-lightgreen,
+.container-fluid .well-material-lightgreen {
+  background-color: #8bc34a;
+}
+body .well-material-lime,
+.container .well-material-lime,
+.container-fluid .well-material-lime {
+  background-color: #cddc39;
+}
+body .well-material-lightyellow,
+.container .well-material-lightyellow,
+.container-fluid .well-material-lightyellow {
+  background-color: #ffeb3b;
+}
+body .well-material-orange,
+.container .well-material-orange,
+.container-fluid .well-material-orange {
+  background-color: #ff9800;
+}
+body .well-material-deeporange,
+.container .well-material-deeporange,
+.container-fluid .well-material-deeporange {
+  background-color: #ff5722;
+}
+body .well-material-grey,
+.container .well-material-grey,
+.container-fluid .well-material-grey {
+  background-color: #9e9e9e;
+}
+body .well-material-bluegrey,
+.container .well-material-bluegrey,
+.container-fluid .well-material-bluegrey {
+  background-color: #607d8b;
+}
+body .well-material-brown,
+.container .well-material-brown,
+.container-fluid .well-material-brown {
+  background-color: #795548;
+}
+body .well-material-lightgrey,
+.container .well-material-lightgrey,
+.container-fluid .well-material-lightgrey {
+  background-color: #ececec;
 }
 .btn {
   position: relative;
