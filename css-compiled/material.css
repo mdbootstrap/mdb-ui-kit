@@ -2082,7 +2082,10 @@ body [class^="well well-material"] .form-control,
 }
 body [class^="well well-material"] .option,
 .container [class^="well well-material"] .option,
-.container-fluid [class^="well well-material"] .option {
+.container-fluid [class^="well well-material"] .option,
+body [class^="well well-material"] .create,
+.container [class^="well well-material"] .create,
+.container-fluid [class^="well well-material"] .create {
   color: rgba(0, 0, 0, 0.84);
 }
 .modal-content {
