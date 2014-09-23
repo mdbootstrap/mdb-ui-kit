@@ -12,8 +12,8 @@ $(function (){
         $(".radio > label > input").not(".bs-material").addClass("bs-material").after("<span class=circle></span><span class=check></span>");
 
         // Add elements for material inputs
-        $("input.form-control, textarea.form-control, select.form-control").not(".bs-material").each( function() {
-            $(this).addClass("bs-material");
+        $("input.form-control, textarea.form-control, select.form-control").each( function() {
+            if ($(this).is(".bs-material")) { return; }
             $(this).wrap("<div class=form-control-wrapper></div>");
             $(this).after("<span class=material-input></span>");
             if ($(this).hasClass("floating-label")) {
