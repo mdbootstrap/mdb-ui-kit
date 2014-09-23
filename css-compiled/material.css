@@ -81,14 +81,16 @@ body .well .form-control,
 .container-fluid .well .form-control,
 body .well:not([class^="well well-material-"]) .form-control,
 .container .well:not([class^="well well-material-"]) .form-control,
-.container-fluid .well:not([class^="well well-material-"]) .form-control,
+.container-fluid .well:not([class^="well well-material-"]) .form-control {
+  color: rgba(0, 0, 0, 0.84);
+}
 body .well .floating-label,
 .container .well .floating-label,
 .container-fluid .well .floating-label,
 body .well:not([class^="well well-material-"]) .floating-label,
 .container .well:not([class^="well well-material-"]) .floating-label,
 .container-fluid .well:not([class^="well well-material-"]) .floating-label {
-  color: rgba(0, 0, 0, 0.84);
+  color: #7e7e7e;
 }
 body .well .form-control,
 .container .well .form-control,
@@ -96,7 +98,7 @@ body .well .form-control,
 body .well:not([class^="well well-material-"]) .form-control,
 .container .well:not([class^="well well-material-"]) .form-control,
 .container-fluid .well:not([class^="well well-material-"]) .form-control {
-  border-bottom-color: rgba(0, 0, 0, 0.84);
+  border-bottom-color: #7e7e7e;
 }
 body .well .form-control::-webkit-input-placeholder,
 .container .well .form-control::-webkit-input-placeholder,
@@ -104,7 +106,7 @@ body .well .form-control::-webkit-input-placeholder,
 body .well:not([class^="well well-material-"]) .form-control::-webkit-input-placeholder,
 .container .well:not([class^="well well-material-"]) .form-control::-webkit-input-placeholder,
 .container-fluid .well:not([class^="well well-material-"]) .form-control::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.84);
+  color: #7e7e7e;
 }
 body .well .form-control::-moz-placeholder,
 .container .well .form-control::-moz-placeholder,
@@ -112,7 +114,7 @@ body .well .form-control::-moz-placeholder,
 body .well:not([class^="well well-material-"]) .form-control::-moz-placeholder,
 .container .well:not([class^="well well-material-"]) .form-control::-moz-placeholder,
 .container-fluid .well:not([class^="well well-material-"]) .form-control::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.84);
+  color: #7e7e7e;
   opacity: 1;
 }
 body .well .form-control:-ms-input-placeholder,
@@ -121,7 +123,7 @@ body .well .form-control:-ms-input-placeholder,
 body .well:not([class^="well well-material-"]) .form-control:-ms-input-placeholder,
 .container .well:not([class^="well well-material-"]) .form-control:-ms-input-placeholder,
 .container-fluid .well:not([class^="well well-material-"]) .form-control:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.84);
+  color: #7e7e7e;
 }
 body .well .option,
 .container .well .option,
