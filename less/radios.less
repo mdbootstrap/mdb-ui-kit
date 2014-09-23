@@ -15,23 +15,6 @@
             top: 2px;
             transition-duration: 0.2s;
         }
-        .ripple {
-            background-color: @lightbg-text;
-            left: 0;
-            top: -8px;
-            height: 34px;
-            width: 34px;
-            border-radius: 100%;
-            transform: scale(0);
-            transition: transform .1s, opacity 0.2s 0.4s;
-            z-index: 1;
-            opacity: 0.2;
-            margin: 0;
-            &.animate {
-                transform: scale(1);
-                opacity: 0;
-            }
-        }
         .circle {
             border: 2px solid @lightbg-text;
             height: 15px;
@@ -45,6 +28,28 @@
             background-color: @radio-default;
             transform: scale(0);
         }
+        .check:after {
+            display: block;
+            position: absolute;
+            content: "";
+            background-color: @lightbg-text;
+            left: -18px;
+            top: -18px;
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            z-index: 1;
+            opacity: 0;
+            margin: 0;
+            transform: scale(1.5);
+        }
+        input[type=radio]:not(:checked) ~ .check:after {
+            .animation(rippleOff 500ms);
+        }
+        input[type=radio]:checked ~ .check:after {
+            .animation(rippleOn 500ms);
+        }
+
     }
     .variations(~" input[type=radio]:checked ~ .check", background-color, @radio-default);
     .variations(~" input[type=radio]:checked ~ .circle", border-color, @radio-default);
@@ -66,3 +71,27 @@
     }
 
 }
+
+.ripple() {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes rippleOn {.ripple()}
+@-moz-keyframes rippleOn {.ripple()}
+@-ms-keyframes rippleOn {.ripple()}
+@-o-keyframes rippleOn {.ripple()}
+@keyframes rippleOn {.ripple()}
+
+@-webkit-keyframes rippleOff {.ripple()}
+@-moz-keyframes rippleOff {.ripple()}
+@-ms-keyframes rippleOn {.ripple()}
+@-o-keyframes rippleOff {.ripple()}
+@keyframes rippleOff {.ripple()}
