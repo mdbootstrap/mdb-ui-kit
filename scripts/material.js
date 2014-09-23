@@ -8,7 +8,7 @@ $(function (){
     $(".checkbox > label > input").after("<span class=check></span>");
 
     // Add fake-radio to material radios
-    $(".radio > label > input").after("<span class=ripple></span><span class=circle></span><span class=check></span>");
+    $(".radio > label > input").after("<span class=circle></span><span class=check></span>");
 
     // Add elements for material inputs
     $("input.form-control, textarea.form-control, select.form-control").each( function() {

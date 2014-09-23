@@ -800,8 +800,26 @@ h6,
   100% {
     opacity: 0;
   }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @-ms-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
   0% {
     opacity: 0;
   }
@@ -822,8 +840,26 @@ h6,
   100% {
     opacity: 0;
   }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @-webkit-keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
   0% {
     opacity: 0;
   }
@@ -844,8 +880,26 @@ h6,
   100% {
     opacity: 0;
   }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
   0% {
     opacity: 0;
   }
@@ -872,26 +926,6 @@ h6,
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
 }
-.radio label .ripple {
-  background-color: rgba(0, 0, 0, 0.84);
-  left: 0;
-  top: -8px;
-  height: 34px;
-  width: 34px;
-  border-radius: 100%;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: -webkit-transform .1s, opacity 0.2s 0.4s;
-          transition: transform .1s, opacity 0.2s 0.4s;
-  z-index: 1;
-  opacity: 0.2;
-  margin: 0;
-}
-.radio label .ripple.animate {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  opacity: 0;
-}
 .radio label .circle {
   border: 2px solid rgba(0, 0, 0, 0.84);
   height: 15px;
@@ -905,6 +939,32 @@ h6,
   background-color: rgba(0, 0, 0, 0.84);
   -webkit-transform: scale(0);
           transform: scale(0);
+}
+.radio label .check:after {
+  display: block;
+  position: absolute;
+  content: "";
+  background-color: rgba(0, 0, 0, 0.84);
+  left: -18px;
+  top: -18px;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  z-index: 1;
+  opacity: 0;
+  margin: 0;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+.radio label input[type=radio]:not(:checked) ~ .check:after {
+  -webkit-animation: rippleOff 500ms;
+  -ms-animation: rippleOff 500ms;
+  animation: rippleOff 500ms;
+}
+.radio label input[type=radio]:checked ~ .check:after {
+  -webkit-animation: rippleOn 500ms;
+  -ms-animation: rippleOn 500ms;
+  animation: rippleOn 500ms;
 }
 .radio input[type=radio]:checked ~ .check,
 .radio-default input[type=radio]:checked ~ .check {
@@ -1062,6 +1122,126 @@ h6,
 }
 .radio input[type=radio][disabled] ~ .check {
   background-color: rgba(0, 0, 0, 0.84);
+}
+@-webkit-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-ms-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-ms-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 fieldset[disabled] .form-control,
 .form-control-wrapper .form-control,
