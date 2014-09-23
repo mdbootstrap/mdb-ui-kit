@@ -32,7 +32,7 @@ $(function (){
             }
         });
 
-    });
+    }).trigger("DOMSubtreeModified");
 
 
     $(document).on("keyup change", ".form-control", function() {
