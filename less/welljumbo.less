@@ -2,20 +2,23 @@
 body, .container, .container-fluid {
 
     .well, .well:not([class^="well well-material-"]) {
-        &, .form-control, .floating-label {
+        &, .form-control {
             color: @lightbg-text;
         }
+        .floating-label {
+            color: #7e7e7e;
+        }
         .form-control {
-            border-bottom-color: @lightbg-text;
+            border-bottom-color: #7e7e7e;
             &::-webkit-input-placeholder {
-                color: @lightbg-text;
+                color: #7e7e7e;
             }
             &::-moz-placeholder {
-                color: @lightbg-text;
+                color: #7e7e7e;
                 opacity: 1;
             }
             &:-ms-input-placeholder {
-                color: @lightbg-text;
+                color: #7e7e7e;
             }
         }
         .option, .create {
