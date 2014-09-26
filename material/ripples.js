@@ -57,7 +57,7 @@ var ripples = {
             $ripple.setAttribute("style", $ripple.getAttribute("style") + ["-ms-" + scale,"-moz-" + scale,"-webkit-" + scale,scale].join(";"));
 
             // Dirty fix for Firefox... seems like absolute elements inside <A> tags do not trigger the "click" event
-            if (/firefox|crios|(safari(?!chrome))|ip(ad|hone|od)/i.test(navigator.userAgent)) {
+            if (/firefox|crios|(^(?!.*chrome).*safari)|ip(ad|hone|od)/i.test(navigator.userAgent)) {
                 $el.click();
             }
 
