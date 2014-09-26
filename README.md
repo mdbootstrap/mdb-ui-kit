@@ -1,10 +1,10 @@
 Material Design for Bootstrap
 =========================
 
-This Bootstrap theme is an easy way to use the new Material Design guide-lines by Google in your Bootstrap 3 based application.
+This Bootstrap theme is an easy way to use the new Material Design guidelines by Google in your Bootstrap 3 based application.
 Just include the theme right after the Bootstrap CSS and include the javascript at the end of your document, everything will be converted to Material Design (paper) style.
 
-This theme is in early developement and is not ready for production.
+This theme is in early development and is not ready for production.
 
 Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/).
 
@@ -42,11 +42,11 @@ Todo elements:
 - [Tabs](http://www.polymer-project.org/components/paper-tabs/demo.html)
 - [Toggle buttons](http://www.polymer-project.org/components/paper-toggle-button/demo.html)
 
-I'll try to write every component without need of Javascript but just CSS, and use JS only if strictly needed.
+I'll try to write every component without the need of Javascript but just CSS, and use JS only if strictly needed.
 
 # Support me
 
-If you like this project you may support me donating something on Gittip, starring this repository or reporting bugs and ideas in the issue section.
+If you like this project you may support me by donating something on Gittip, starring this repository or reporting bugs and ideas in the issue section.
 
 [![gittip](screenshots/gittip-button.jpg)](https://www.gittip.com/FezVrasta/)
 [![issues](screenshots/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design/issues)
@@ -57,14 +57,14 @@ Material Design for Bootstrap provides some additional stuff to get the best fro
 
 ### Variations:
 
-There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progess bars and more.
-They can be used adding to the desired element the class suffix `-material-color` replacing `color` with the desired one.
+There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progress bars and more.
+They can be used by adding the class suffix `-material-color` to the desired element and replacing `color` with the desired one.
 
 Example:
 
     <button class="btn btn-material-deeppurple">Deep purple button</button>
 
-These colors are took from the Material Design color palette and are reported below:
+These colors are taken from the Material Design color palette and are reported below:
 
 ![palette](screenshots/palette.jpg)
 
@@ -89,10 +89,10 @@ Remember to use the proper HTML markup to get radio and checkboxes styled correc
 ### Icons:
 
 Material Design for Bootstrap includes 490 original Material Design icons!
-These icons are extracted from the original Google sources and are licensed under BSD license.
-Them are provided as an iconic font easy to use.
+These icons are extracted from the original Google sources and are licensed under the BSD license.
+They are provided as an iconic and easy to use font.
 
-Variations are available for every icon, included for the original Bootstrap icons.
+Variations are available for every icon, including the original Bootstrap icons.
 
 The syntax to add a Material icon is:
 
@@ -100,16 +100,16 @@ The syntax to add a Material icon is:
 
 # Plugins
 
-Material Design for Bootstrap comes with styling support for various external scripts, at the moment only two scripts are supported but others will come:
+Material Design for Bootstrap comes with styling support for various external scripts. At the moment only two scripts are supported but others will come:
 
 ### SnackbarJS
 
-Create snackbars and toasts with [SnackbarJS plugin](https://github.com/FezVrasta/snackbarjs), the default toast style is the squared one (snackbar style), if you like to use the rounded style (toast style) please add the `toast` class to the `style` option of SnackbarJS.
+Create snackbars and toasts with [SnackbarJS plugin](https://github.com/FezVrasta/snackbarjs). The default toast style is the squared one (snackbar style). If you like to use the rounded style (toast style), please add the `toast` class to the `style` option of SnackbarJS.
 
 ### RipplesJS
 
 This is part of Material Design for Bootstrap project and is a plain Javascript script which creates the ripple effect on click of the defined elements.
-At the moment RipplesJS has not an own repository but probably in future it will have one.
+At the moment RipplesJS does not have its own repository but it will probably have one in the future.
 
 ### noUiSlider
 
@@ -119,5 +119,5 @@ Read more about [noUiSlider here](refreshless.com/nouislider/)
 
 # Compatibility
 
-Currently Material Design for Bootstrap supports Google Chrome (tested v37+), Mozilla Firefox (tested 30+), Internet Explorer (tested 11+). Mobile browsers are not currently tested but may works.
+Currently Material Design for Bootstrap supports Google Chrome (tested v37+), Mozilla Firefox (tested 30+), and Internet Explorer (tested 11+). Mobile browsers are not currently tested but it may work.
 
