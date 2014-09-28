@@ -12,7 +12,7 @@ var ripples = {
 
         // animations time
         var rippleOutTime = 100,
-            rippleStartTime = 500;
+            rippleStartTime = 400;
 
         // Helper to bind events on dynamically created elements
         var bind = function(event, selector, callback) {
