@@ -115,7 +115,7 @@ var ripples = {
                 rippleOut($ripple);
             }
         });
-        // Destroy ripple when mouse is not holded anymore if the ripple still exists
+        // Destroy ripple when mouse is not held anymore if the ripple still exists
         bind("mouseup", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
             if ($ripple.dataset.animating != 1) {
                 rippleOut($ripple);
