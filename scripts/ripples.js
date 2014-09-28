@@ -107,7 +107,6 @@ var ripples = {
         // Events handler
         // init RippleJS and start ripple effect on mousedown
         bind("mousedown", withRipple, rippleInit);
-
         // start ripple effect on mousedown
         bind("mousedown", ".ripple-wrapper, .ripple-wrapper .ripple", rippleStart);
         // if animation ends and user is not holding mouse then destroy the ripple
