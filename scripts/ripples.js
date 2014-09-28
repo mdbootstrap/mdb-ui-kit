@@ -61,7 +61,10 @@ var ripples = {
 
             // Dirty fix for Firefox... seems like absolute elements inside <A> tags do not trigger the "click" event
             if (/firefox|crios|(^(?!.*chrome).*safari)|ip(ad|hone|od)/i.test(navigator.userAgent)) {
-                $el.click();
+            	var button = e.which || e.button;
+    			if (button == 1) {
+    				$el.click();
+    			}                
             }
 
             // This function is called when the animation is finished
