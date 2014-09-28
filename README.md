@@ -114,7 +114,7 @@ At the moment RipplesJS does not have its own repository but it will probably ha
 ### noUiSlider
 
 Make cross-browser sliders and get them styled with Material Design thanks to the support provided by this theme.
-Read more about [noUiSlider here](refreshless.com/nouislider/)
+Read more about [noUiSlider here](http://refreshless.com/nouislider/)
 
 
 # Compatibility
