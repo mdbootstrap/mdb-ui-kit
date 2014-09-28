@@ -37,6 +37,9 @@ var ripples = {
                 rippleEnd       = new CustomEvent("rippleEnd", {detail: $ripple}),
                 refreshElementStyle;
 
+            // remove old ripples
+            $($rippleWrapper).find(".ripple").remove();
+
             // Set ripple class
             $ripple.className = "ripple";
 
@@ -78,7 +81,7 @@ var ripples = {
 
             // Let ripple fade out (with CSS)
             setTimeout(function() {
-                $ripple.remove();
+                $ripple.remove();                
             }, rippleOutTime);
         };
 
