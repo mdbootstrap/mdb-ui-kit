@@ -78,7 +78,8 @@ var ripples = {
 
             // Let ripple fade out (with CSS)
             setTimeout(function() {
-                $ripple.remove();
+
+                $('.ripple').remove();
             }, rippleOutTime);
         };
 
