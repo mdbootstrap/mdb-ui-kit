@@ -2,7 +2,9 @@
 
 $(function (){
 
-    ripples.init(".btn:not(.btn-link), .navbar a, .nav-tabs a, .withripple");
+    if (ripples) {
+        ripples.init(".btn:not(.btn-link), .navbar a, .nav-tabs a, .withripple");
+    }
 
     var initInputs = function() {
         // Add fake-checkbox to material checkboxes
@@ -43,6 +45,10 @@ $(function (){
             initInputs();
         });
     }
+
+    $(document).on("change", ".checkbox input", function() {
+        $(this).blur();
+    });
 
     $(document).on("keyup change", ".form-control", function() {
         var self = $(this);
