@@ -35,10 +35,7 @@ var ripples = {
                 mousePos        = {x: e.clientX - elPos.left, y: e.clientY - elPos.top},
                 scale           = "transform:scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
                 rippleEnd       = new CustomEvent("rippleEnd", {detail: $ripple}),
-                refreshElementStyle;
-
-            // remove old ripples
-            $($rippleWrapper).find(".ripple").remove();
+                refreshElementStyle;            
 
             // Set ripple class
             $ripple.className = "ripple";
@@ -117,7 +114,7 @@ var ripples = {
         bind("mousedown", ".ripple-wrapper, .ripple-wrapper .ripple", rippleStart);
         // if animation ends and user is not holding mouse then destroy the ripple
         bind("rippleEnd", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
-            if (!mouseDown) {
+            if (!mouseDown || !$($ripple).is(":first-child")) {
                 rippleOut($ripple);
             }
         });
