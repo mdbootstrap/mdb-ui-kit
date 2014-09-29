@@ -2118,36 +2118,6 @@ select.form-control.focus {
   box-shadow: none;
   border-color: #757575;
 }
-@-webkit-keyframes input-highlight {
-  0% {
-    left: 20%;
-    -webkit-transform: scaleX(20%);
-            transform: scaleX(20%);
-  }
-  99% {
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
-    left: 0;
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-ms-keyframes input-highlight {
-  0% {
-    left: 20%;
-    transform: scaleX(20%);
-  }
-  99% {
-    transform: scaleX(0);
-    left: 0;
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 @keyframes input-highlight {
   0% {
     left: 20%;
@@ -2393,6 +2363,9 @@ fieldset[disabled] .navbar .btn-link:hover,
 .navbar .btn-link[disabled]:focus,
 fieldset[disabled] .navbar .btn-link:focus {
   color: #e5e5e5;
+}
+.navbar .navbar-form {
+  margin-top: 16px;
 }
 .navbar .navbar-form .form-control-wrapper .form-control,
 .navbar .navbar-form .form-control {
