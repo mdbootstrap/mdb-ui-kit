@@ -61,6 +61,7 @@
     margin: 20px 0;
 }
 .noUi-origin {
+    margin: 0;
     border-radius: 0;
     height: 2px;
     background: #c8c8c8;
@@ -81,6 +82,10 @@
     transition: all 0.2s ease-out;
     border: 1px solid;
 }
+.noUi-horizontal {
+    height: 2px;
+    margin: 15px 0;
+}
 .noUi-horizontal .noUi-handle:active {
     transform: scale(2.5);
 }
@@ -92,7 +97,11 @@
 }
 
 .slider {
+    background: #c8c8c8;
+}
+
+.slider {
+    .variations(~" .noUi-connect", background-color, @primary);
     .variations(~" .noUi-handle", background-color, @primary);
     .variations(~" .noUi-handle", border-color, @primary);
-    .variations(~"", background-color, @primary);
 }
