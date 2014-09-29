@@ -849,7 +849,7 @@ body .jumbotron-material-lightgrey,
   color: #ececec;
 }
 .checkbox input[type=checkbox] {
-  display: none;
+  opacity: 0;
 }
 .checkbox input[type=checkbox] ~ .check:before {
   position: absolute;
@@ -862,6 +862,9 @@ body .jumbotron-material-lightgrey,
   -webkit-animation: uncheck 300ms ease-out forwards;
   -ms-animation: uncheck 300ms ease-out forwards;
   animation: uncheck 300ms ease-out forwards;
+}
+.checkbox input[type=checkbox]:focus ~ .check:after {
+  opacity: 0.2;
 }
 .checkbox input[type=checkbox]:checked ~ .check:before {
   -webkit-animation: check 300ms ease-out forwards;
