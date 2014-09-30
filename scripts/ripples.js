@@ -1,5 +1,6 @@
 /* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
-/* globals CustomEvent, navigator */
+/* globals CustomEvent */
+
 var ripples = {
     init : function(withRipple) {
         "use strict";
@@ -28,7 +29,7 @@ var ripples = {
         var rippleStart = function(e, target) {
 
             // Init variables
-            var $rippleWrapper  = (matchesSelector(target, ".ripple-wrapper")) ? target : target.parentNode,
+            var $rippleWrapper  = target,
                 $el             = $rippleWrapper.parentNode,
                 $ripple         = document.createElement("div"),
                 elPos           = $el.getBoundingClientRect(),
@@ -36,6 +37,8 @@ var ripples = {
                 scale           = "transform:scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
                 rippleEnd       = new CustomEvent("rippleEnd", {detail: $ripple}),
                 refreshElementStyle;
+
+            $ripplecache = $ripple;
 
             // Set ripple class
             $ripple.className = "ripple";
@@ -56,11 +59,6 @@ var ripples = {
             $ripple.className = "ripple ripple-on";
             $ripple.setAttribute("style", $ripple.getAttribute("style") + ["-ms-" + scale,"-moz-" + scale,"-webkit-" + scale,scale].join(";"));
 
-            // Dirty fix for Firefox... seems like absolute elements inside <A> tags do not trigger the "click" event
-            if (/firefox|crios|(^(?!.*chrome).*safari)|ip(ad|hone|od)/i.test(navigator.userAgent)) {
-                $el.click();
-            }
-
             // This function is called when the animation is finished
             setTimeout(function() {
 
@@ -73,6 +71,7 @@ var ripples = {
         };
 
         var rippleOut = function($ripple) {
+            console.log($ripple);
             // Clear previous animation
             $ripple.className = "ripple ripple-on ripple-out";
 
@@ -99,25 +98,29 @@ var ripples = {
                 var $rippleWrapper = document.createElement("div");
                 $rippleWrapper.className = "ripple-wrapper";
                 target.appendChild($rippleWrapper);
-                rippleStart(e, $rippleWrapper);
             }
 
         };
 
+
+        var $ripplecache;
+
         // Events handler
         // init RippleJS and start ripple effect on mousedown
-        bind("mousedown", withRipple, rippleInit);
+        bind("mouseover", withRipple, rippleInit);
 
+        console.log(withRipple);
         // start ripple effect on mousedown
-        bind("mousedown", ".ripple-wrapper, .ripple-wrapper .ripple", rippleStart);
+        bind("mousedown", ".ripple-wrapper", rippleStart);
         // if animation ends and user is not holding mouse then destroy the ripple
-        bind("rippleEnd", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
+        bind("rippleEnd", ".ripple-wrapper .ripple", function(e, $ripple) {
             if (!mouseDown) {
                 rippleOut($ripple);
             }
         });
         // Destroy ripple when mouse is not holded anymore if the ripple still exists
-        bind("mouseup", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
+        bind("mouseup", ".ripple-wrapper", function() {
+            var $ripple = $ripplecache;
             if ($ripple.dataset.animating != 1) {
                 rippleOut($ripple);
             }
