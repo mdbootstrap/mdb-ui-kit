@@ -12,7 +12,7 @@ var ripples = {
 
         // animations time
         var rippleOutTime = 100,
-            rippleStartTime = 500;
+            rippleStartTime = 400;
 
         // Helper to bind events on dynamically created elements
         var bind = function(event, selector, callback) {
@@ -35,7 +35,7 @@ var ripples = {
                 mousePos        = {x: e.clientX - elPos.left, y: e.clientY - elPos.top},
                 scale           = "transform:scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
                 rippleEnd       = new CustomEvent("rippleEnd", {detail: $ripple}),
-                refreshElementStyle;
+                refreshElementStyle;            
 
             // Set ripple class
             $ripple.className = "ripple";
@@ -58,7 +58,10 @@ var ripples = {
 
             // Dirty fix for Firefox... seems like absolute elements inside <A> tags do not trigger the "click" event
             if (/firefox|crios|(^(?!.*chrome).*safari)|ip(ad|hone|od)/i.test(navigator.userAgent)) {
-                $el.click();
+            	var button = e.which || e.button;
+    			if (button == 1) {
+    				$el.click();
+    			}                
             }
 
             // This function is called when the animation is finished
@@ -78,7 +81,7 @@ var ripples = {
 
             // Let ripple fade out (with CSS)
             setTimeout(function() {
-                $ripple.remove();
+                $ripple.remove();                
             }, rippleOutTime);
         };
 
@@ -107,16 +110,15 @@ var ripples = {
         // Events handler
         // init RippleJS and start ripple effect on mousedown
         bind("mousedown", withRipple, rippleInit);
-
         // start ripple effect on mousedown
         bind("mousedown", ".ripple-wrapper, .ripple-wrapper .ripple", rippleStart);
         // if animation ends and user is not holding mouse then destroy the ripple
         bind("rippleEnd", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
-            if (!mouseDown) {
+            if (!mouseDown || !$($ripple).is(":first-child")) {
                 rippleOut($ripple);
             }
         });
-        // Destroy ripple when mouse is not holded anymore if the ripple still exists
+        // Destroy ripple when mouse is not held anymore if the ripple still exists
         bind("mouseup", ".ripple-wrapper, .ripple-wrapper .ripple", function(e, $ripple) {
             if ($ripple.dataset.animating != 1) {
                 rippleOut($ripple);

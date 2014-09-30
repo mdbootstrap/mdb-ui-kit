@@ -29,14 +29,18 @@
   opacity: 0;
 }
 .ripple.ripple-on {
-  -webkit-transition: opacity 0.15s ease-in 0s, -webkit-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
-  -ms-transition: opacity 0.15s ease-in 0s, -ms-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
-  -moz-transition: opacity 0.15s ease-in 0s, -moz-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
-  transition: opacity 0.15s ease-in 0s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  visibility: visible;
   opacity: 1;
+  -webkit-transition: opacity 0.15s ease-in 0s, -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+  -ms-transition: opacity 0.15s ease-in 0s, -ms-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+  -moz-transition: opacity 0.15s ease-in 0s, -moz-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
+  transition: opacity 0.15s ease-in 0s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.05s;
 }
 .ripple.ripple-out {
-  -webkit-transition: opacity 0.1s linear 0s !important;
-  transition: opacity 0.1s linear 0s !important;
+  visibility: hidden;
   opacity: 0;
+  -webkit-transition: visibility 0s 0.1s, opacity 0.1s linear !important;
+  -ms-transition: opacity 0s 0.1s, opacity 0.1s linear !important;
+  -moz-transition: visibility 0s 0.1s, opacity 0.1s linear !important;
+  transition: visibility 0s 0.1s, opacity 0.1s linear !important;
 }
