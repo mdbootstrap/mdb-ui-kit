@@ -85,7 +85,7 @@
 }
 
 
-@-webkit-keyframes uncheck {
+.keyframe-uncheck() {
     0% {
         top: -3px;
         left: 17px;
@@ -159,6 +159,12 @@
         border-top-color: #5a5a5a;
     }
 }
+@-webkit-keyframes uncheck {.keyframe-uncheck()}
+@-moz-keyframes uncheck {.keyframe-uncheck()}
+@-ms-keyframes uncheck {.keyframe-uncheck()}
+@-o-keyframes uncheck {.keyframe-uncheck()}
+@keyframes uncheck {.keyframe-uncheck()}
+
 @-webkit-keyframes check {.keyframe-check()}
 @-moz-keyframes check {.keyframe-check()}
 @-ms-keyframes check {.keyframe-check()}
