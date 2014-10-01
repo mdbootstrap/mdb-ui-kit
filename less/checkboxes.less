@@ -66,10 +66,17 @@
 
     // Ripple effect on click
     input[type=checkbox]:not(:checked) ~ .check:after {
-        .animation(rippleOff 500ms);
+        .animation(rippleOff 500ms linear forwards);
     }
     input[type=checkbox]:checked ~ .check:after {
-        .animation(rippleOn 500ms);
+        .animation(rippleOn 500ms linear forwards);
+    }
+
+    // Make animate quickly when not hover
+    &:not(:hover) input[type=checkbox] ~ .check {
+         &:before, &:after {
+             .animation-duration(1ms);
+         }
     }
 
     // Style for disabled inputs
