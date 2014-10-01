@@ -12,6 +12,11 @@ Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-
 
     bower install bootstrap-material-design --save
 
+## Getting started
+
+Navigate to the `template/` folder in this repository, and you will see the `index.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
+
+You need to copy the `material/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
 
 ## Features
 
