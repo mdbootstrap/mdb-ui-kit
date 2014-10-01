@@ -1,0 +1,26 @@
+{
+  "name": "bootstrap-material",
+  "version": "1.0.0",
+  "description": "Material Design for Bootstrap\r =========================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://FezVrasta:phoebe92fez@github.com/FezVrasta/bootstrap-material-design.git"
+  },
+  "author": "Federico Zivolo",
+  "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/FezVrasta/bootstrap-material-design/issues"
+  },
+  "homepage": "https://github.com/FezVrasta/bootstrap-material-design",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^1.0.1",
+    "grunt-contrib-copy": "^0.6.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-less": "^0.11.4"
+  }
+}

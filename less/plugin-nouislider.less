@@ -2,11 +2,8 @@
 .noUi-target,
 .noUi-target * {
     -webkit-touch-callout: none;
-    -webkit-user-select: none;
     -ms-touch-action: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -moz-box-sizing: border-box;
+    user-select: none;
     box-sizing: border-box;
 }
 .noUi-base {
@@ -25,7 +22,6 @@
     position: relative;
     z-index: 1;
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
 }
 .noUi-stacking .noUi-handle {
     z-index: 10;
@@ -34,7 +30,6 @@
     *z-index: -1;
 }
 .noUi-state-tap .noUi-origin {
-    -webkit-transition: left 0.3s, top 0.3s;
     transition: left 0.3s, top 0.3s;
 }
 .noUi-state-drag * {
