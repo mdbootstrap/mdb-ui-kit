@@ -35,7 +35,7 @@
             border: 2px solid @lightbg-text;
             height: 20px;
             width: 20px;
-            .transition-delay(0.2s);
+            transition-delay: 0.2s;
         }
     }
 
@@ -53,7 +53,7 @@
         height: 18px;
         border: solid 2px;
         border-color: #5a5a5a;
-        .animation(uncheck 300ms ease-out forwards);
+        animation: uncheck 300ms ease-out forwards;
     }
 
     input[type=checkbox]:focus ~ .check:after {
@@ -61,22 +61,22 @@
     }
 
     input[type=checkbox]:checked ~ .check:before {
-        .animation(check 300ms ease-out forwards);
+        animation: check 300ms ease-out forwards;
     }
 
     // Ripple effect on click
     input[type=checkbox]:not(:checked) ~ .check:after {
-        .animation(rippleOff 500ms linear forwards);
+        animation: rippleOff 500ms linear forwards;
     }
     input[type=checkbox]:checked ~ .check:after {
-        .animation(rippleOn 500ms linear forwards);
+        animation: rippleOn 500ms linear forwards;
     }
 
     // Make animate quickly when not hover
     &:not(:hover) input[type=checkbox] ~ .check {
-         &:before, &:after {
-             .animation-duration(1ms);
-         }
+        &:before, &:after {
+            animation-duration: 1ms;
+        }
     }
 
     // Style for disabled inputs
@@ -91,8 +91,7 @@
     .variations(~" input[type=checkbox]:checked ~ .check:after", background-color, @success);
 }
 
-
-.keyframe-uncheck() {
+@keyframes uncheck {
     0% {
         top: -3px;
         left: 17px;
@@ -130,7 +129,7 @@
     }
 }
 
-.keyframe-check() {
+@keyframes check {
     100% {
         top: -3px;
         left: 17px;
@@ -166,19 +165,8 @@
         border-top-color: #5a5a5a;
     }
 }
-@-webkit-keyframes uncheck {.keyframe-uncheck()}
-@-moz-keyframes uncheck {.keyframe-uncheck()}
-@-ms-keyframes uncheck {.keyframe-uncheck()}
-@-o-keyframes uncheck {.keyframe-uncheck()}
-@keyframes uncheck {.keyframe-uncheck()}
 
-@-webkit-keyframes check {.keyframe-check()}
-@-moz-keyframes check {.keyframe-check()}
-@-ms-keyframes check {.keyframe-check()}
-@-o-keyframes check {.keyframe-check()}
-@keyframes check {.keyframe-check()}
-
-.ripple() {
+@keyframes rippleOn {
     0% {
         opacity: 0;
     }
@@ -190,14 +178,14 @@
     }
 }
 
-@-webkit-keyframes rippleOn {.ripple()}
-@-moz-keyframes rippleOn {.ripple()}
-@-ms-keyframes rippleOn {.ripple()}
-@-o-keyframes rippleOn {.ripple()}
-@keyframes rippleOn {.ripple()}
-
-@-webkit-keyframes rippleOff {.ripple()}
-@-moz-keyframes rippleOff {.ripple()}
-@-ms-keyframes rippleOn {.ripple()}
-@-o-keyframes rippleOff {.ripple()}
-@keyframes rippleOff {.ripple()}
+@keyframes rippleOff {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}

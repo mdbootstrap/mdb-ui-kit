@@ -71,7 +71,6 @@ var ripples = {
         };
 
         var rippleOut = function($ripple) {
-            console.log($ripple);
             // Clear previous animation
             $ripple.className = "ripple ripple-on ripple-out";
 
@@ -109,12 +108,14 @@ var ripples = {
         // init RippleJS and start ripple effect on mousedown
         bind("mouseover", withRipple, rippleInit);
 
-        console.log(withRipple);
         // start ripple effect on mousedown
         bind("mousedown", ".ripple-wrapper", rippleStart);
         // if animation ends and user is not holding mouse then destroy the ripple
         bind("rippleEnd", ".ripple-wrapper .ripple", function(e, $ripple) {
-            if (!mouseDown) {
+
+            var $ripples = $ripple.parentNode.getElementsByClassName("ripple");
+
+            if (!mouseDown || ( $ripples[0] == $ripple && $ripples.length > 1)) {
                 rippleOut($ripple);
             }
         });

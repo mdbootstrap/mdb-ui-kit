@@ -56,6 +56,10 @@ If you like this project you may support me by donating something on Gittip, sta
 [![gittip](screenshots/gittip-button.jpg)](https://www.gittip.com/FezVrasta/)
 [![issues](screenshots/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design/issues)
 
+# Contribute
+
+Please see the [contrib](CONTRIBUTING.md) file.
+
 # Documentation
 
 Material Design for Bootstrap provides some additional stuff to get the best from Material Design.

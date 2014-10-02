@@ -55,7 +55,8 @@
 
     // Darken the responsive nav toggle
     .navbar-toggle {
-        border-color: @navbar-toggle-border-color;
+        margin-top: 13px;
+        border-color: transparent;
         &:hover,
         &:focus {
             background-color: @navbar-toggle-hover-bg;
@@ -63,6 +64,11 @@
         .icon-bar {
             background-color: @navbar-toggle-icon-bar-bg;
         }
+    }
+
+    .navbar-default .navbar-toggle,
+    .navbar-inverse .navbar-toggle {
+        border-color: transparent;
     }
 
     .navbar-collapse,
