@@ -1976,8 +1976,14 @@ legend {
   color: #e5e5e5;
   background-color: transparent;
 }
-.navbar .navbar-toggle {
-  border-color: rgba(255, 255, 255, 0.84);
+.navbar-toggle {
+  margin-top: 13px;
+}
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+.navbar-inverse .navbar-toggle {
+  border-color: transparent;
 }
 .navbar .navbar-toggle:hover,
 .navbar .navbar-toggle:focus {
