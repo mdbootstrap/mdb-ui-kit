@@ -44,10 +44,10 @@
             transform: scale(1.5);
         }
         input[type=radio]:not(:checked) ~ .check:after {
-            .animation(rippleOff 500ms);
+            animation: rippleOff 500ms;
         }
         input[type=radio]:checked ~ .check:after {
-            .animation(rippleOn 500ms);
+            animation: rippleOn 500ms;
         }
 
     }
@@ -72,7 +72,7 @@
 
 }
 
-.ripple() {
+@keyframes rippleOn {
     0% {
         opacity: 0;
     }
@@ -84,14 +84,14 @@
     }
 }
 
-@-webkit-keyframes rippleOn {.ripple()}
-@-moz-keyframes rippleOn {.ripple()}
-@-ms-keyframes rippleOn {.ripple()}
-@-o-keyframes rippleOn {.ripple()}
-@keyframes rippleOn {.ripple()}
-
-@-webkit-keyframes rippleOff {.ripple()}
-@-moz-keyframes rippleOff {.ripple()}
-@-ms-keyframes rippleOn {.ripple()}
-@-o-keyframes rippleOff {.ripple()}
-@keyframes rippleOff {.ripple()}
+@keyframes rippleOff {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}
