@@ -1,0 +1,97 @@
+// main: material.less
+
+.form-horizontal .radio {
+    margin-bottom: 10px;
+}
+.radio {
+    label {
+        cursor: pointer;
+        padding-left: 45px;
+        position: relative;
+        span {
+            display: block;
+            position: absolute;
+            left: 10px;
+            top: 2px;
+            transition-duration: 0.2s;
+        }
+        .circle {
+            border: 2px solid @lightbg-text;
+            height: 15px;
+            width: 15px;
+            border-radius: 100%;
+        }
+        .check {
+            height: 15px;
+            width: 15px;
+            border-radius: 100%;
+            background-color: @radio-default;
+            transform: scale(0);
+        }
+        .check:after {
+            display: block;
+            position: absolute;
+            content: "";
+            background-color: @lightbg-text;
+            left: -18px;
+            top: -18px;
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            z-index: 1;
+            opacity: 0;
+            margin: 0;
+            transform: scale(1.5);
+        }
+        input[type=radio]:not(:checked) ~ .check:after {
+            animation: rippleOff 500ms;
+        }
+        input[type=radio]:checked ~ .check:after {
+            animation: rippleOn 500ms;
+        }
+
+    }
+    .variations(~" input[type=radio]:checked ~ .check", background-color, @radio-default);
+    .variations(~" input[type=radio]:checked ~ .circle", border-color, @radio-default);
+
+    input[type=radio][disabled] ~ .check,
+    input[type=radio][disabled] ~ .circle {
+        opacity: 0.5;
+    }
+
+    input[type=radio] { display: none; }
+    input[type=radio]:checked ~ .check {
+        transform: scale(0.55);
+    }
+    input[type=radio][disabled] ~ .circle {
+        border-color: @lightbg-text;
+    }
+    input[type=radio][disabled] ~ .check {
+        background-color: @lightbg-text;
+    }
+
+}
+
+@keyframes rippleOn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes rippleOff {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}

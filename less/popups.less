@@ -1,0 +1,27 @@
+// main: material.less
+
+.popover, .tooltip-inner {
+    background: #323232;
+    color: #FFF;
+    border-radius: 2px;
+
+}
+
+.tooltip, .tooltip.in {
+    opacity: 1;
+}
+
+.popover, .tooltip {
+    &.left .arrow:after, &.left .tooltip-arrow {
+        border-left-color: #323232;
+    }
+    &.right .arrow:after, &.right .tooltip-arrow {
+        border-right-color: #323232;
+    }
+    &.top .arrow:after, &.top .tooltip-arrow {
+        border-top-color: #323232;
+    }
+    &.bottom .arrow:after, &.bottom .tooltip-arrow {
+        border-bottom-color: #323232;
+    }
+}

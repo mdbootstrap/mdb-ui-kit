@@ -1,0 +1,191 @@
+// main: material.less
+
+.form-horizontal .checkbox {
+    padding-top: 15px;
+}
+.checkbox {
+    transform: rotate(0deg);
+    label {
+        cursor: pointer;
+        padding-left: 45px;
+        position: relative;
+        span {
+            display: block;
+            position: absolute;
+            left: 0px;
+            transition-duration: 0.2s;
+        }
+        .check:after {
+            display: block;
+            position: absolute;
+            content: "";
+            background-color: @lightbg-text;
+            left: -5px;
+            top: -15px;
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            z-index: 1;
+            opacity: 0;
+            margin: 0;
+        }
+        .check:before {
+            display: block;
+            content: "";
+            border: 2px solid @lightbg-text;
+            height: 20px;
+            width: 20px;
+            transition-delay: 0.2s;
+        }
+    }
+
+    // Variations
+    .variations(~" .check", color, @success);
+
+    // Hide native checkbox
+    input[type=checkbox] { opacity: 0; }
+
+    input[type=checkbox] ~ .check:before {
+        position: absolute;
+        top: 2px;
+        left: 11px;
+        width: 18px;
+        height: 18px;
+        border: solid 2px;
+        border-color: #5a5a5a;
+        animation: uncheck 300ms ease-out forwards;
+    }
+
+    input[type=checkbox]:focus ~ .check:after {
+        opacity: 0.2;
+    }
+
+    input[type=checkbox]:checked ~ .check:before {
+        animation: check 300ms ease-out forwards;
+    }
+
+    // Ripple effect on click
+    input[type=checkbox]:not(:checked) ~ .check:after {
+        animation: rippleOff 500ms linear forwards;
+    }
+    input[type=checkbox]:checked ~ .check:after {
+        animation: rippleOn 500ms linear forwards;
+    }
+
+    // Make animate quickly when not hover
+    &:not(:hover) input[type=checkbox] ~ .check {
+        &:before, &:after {
+            animation-duration: 1ms;
+        }
+    }
+
+    // Style for disabled inputs
+    input[type=checkbox][disabled]:not(:checked) ~ .check:before {
+        opacity: 0.5;
+    }
+    input[type=checkbox][disabled] ~ .check:after {
+        background-color: @lightbg-text;
+        transform: rotate(-45deg);
+    }
+
+    .variations(~" input[type=checkbox]:checked ~ .check:after", background-color, @success);
+}
+
+@keyframes uncheck {
+    0% {
+        top: -3px;
+        left: 17px;
+        width: 10px;
+        height: 21px;
+        border-color: #0f9d58;
+        border-left-color: transparent;
+        border-top-color: transparent;
+        transform: rotate(45deg);
+    }
+    50% {
+        top: 14px;
+        left: 17px;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+        border-color: #0f9d58;
+        border-left-color: transparent;
+        border-top-color: transparent;
+    }
+    51% {
+        border-color: #5a5a5a;
+        border-left-color: #5a5a5a;
+        border-top-color: #5a5a5a;
+    }
+    100% {
+        top: 1px;
+        left: 12px;
+        width: 18px;
+        height: 18px;
+        transform: rotate(0deg);
+        border-color: #5a5a5a;
+        border-left-color: #5a5a5a;
+        border-top-color: #5a5a5a;
+    }
+}
+
+@keyframes check {
+    100% {
+        top: -3px;
+        left: 17px;
+        width: 10px;
+        height: 21px;
+        transform: rotate(45deg);
+        border-color: #0f9d58;
+        border-left-color: transparent;
+        border-top-color: transparent;
+    }
+    51% {
+        border-left: transparent;
+        border-top-color: transparent;
+    }
+    50% {
+        top: 14px;
+        left: 17px;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+        border-color: #5a5a5a;
+        border-left-color: #5a5a5a;
+        border-top-color: #5a5a5a;
+    }
+    0% {
+        top: 1px;
+        left: 12px;
+        width: 18px;
+        height: 18px;
+        transform: rotate(0deg);
+        border-color: #5a5a5a;
+        border-left-color: #5a5a5a;
+        border-top-color: #5a5a5a;
+    }
+}
+
+@keyframes rippleOn {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes rippleOff {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,110 @@
+// Material Theme 0.0.1
+// -----------------------------------------------------
+
+@import "variables.less";
+@import "mixins.less";
+@import "animations.less";
+@import "shadows.less";
+
+body {
+    background-color: #EEEEEE;
+    &.inverse {
+        background: #333333;
+        &, .form-control {
+            color: @darkbg-text;
+        }
+    }
+}
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+// Well and Jumbotrons
+@import "welljumbo.less";
+
+// Buttons
+@import "buttons.less";
+
+// Checkboxes
+@import "checkboxes.less";
+
+// Radios
+@import "radios.less";
+
+// Text inputs
+@import "inputs.less";
+
+legend {
+    border-bottom: 0;
+}
+
+.modal-content {
+    .shadow-z-2();
+    border-radius: 0;
+    border: 0;
+    .modal-header {
+        border-bottom: 0;
+    }
+    .modal-footer {
+        border-top: 0;
+        .btn+.btn {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// Lists
+@import "lists.less";
+
+// Navbar
+@import "navbar.less";
+
+.dropdown-menu {
+    border: 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    .divider {
+        background-color: rgba(229, 229, 229, 0.12);
+    }
+    li {
+        overflow: hidden;
+        position: relative;
+        a:hover {
+            background: rgba(0,0,0,0.08);
+        }
+    }
+}
+
+// Alerts
+@import "alerts.less";
+
+// Progress bar
+@import "progress.less";
+
+// Typography
+.text-warning {
+    color: @btn-warning;
+}
+.text-primary {
+    color: @btn-primary;
+}
+.text-danger {
+    color: @btn-danger;
+}
+.text-success {
+    color: @btn-success;
+}
+.text-info {
+    color: @btn-info;
+}
+
+@import "tabs.less";
+
+@import "popups.less";
+
+@import "icons.less";
+
+
+// External plugins
+@import "plugin-snackbarjs.less";
+@import "plugin-nouislider.less";

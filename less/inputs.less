@@ -1,0 +1,209 @@
+// main: material.less
+
+fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-control {
+    &, &:focus, &.focus {
+        &:not(textarea):not(select) {
+            height: 28px;
+        }
+        padding: 0;
+        float: none;
+        border: 0;
+        box-shadow: none;
+        border-radius: 0;
+        background: transparent;
+        border-bottom: 1px solid #757575;
+        &:disabled {
+            border-style: dashed;
+        }
+    }
+}
+select.form-control {
+    height: 23px;
+}
+select[multiple].form-control {
+    &, &:focus, &.focus {
+        height: 85px;
+    }
+}
+
+.form-control-wrapper {
+    position: relative;
+
+    .form-control:focus, .form-control.focus {
+        outline: none;
+    }
+
+    .floating-label {
+        color: #7E7E7E;
+        font-size: 14px;
+        position: absolute;
+        pointer-events: none;
+        left: 0px;
+        top: 5px;
+        transition: 0.2s ease all;
+        opacity: 0;
+    }
+    .form-control:not(.empty) ~ .floating-label {
+        top: -10px;
+        font-size: 10px;
+        opacity: 1;
+    }
+    .form-control:focus:invalid ~ .floating-label, .form-control.focus:invalid ~ .floating-label {
+        color: @input-danger;
+    }
+    .form-control:focus ~ .material-input:after, .form-control.focus ~ .material-input:after {
+        background-color: @input-default;
+    }
+    .form-control:focus:invalid ~ .material-input, .form-control.focus:invalid ~ .material-input {
+        &:before, &:after  {
+            background-color: @input-danger;
+        }
+    }
+    .form-control.empty ~ .floating-label {
+        opacity: 1;
+    }
+    .material-input:before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        left: 0;
+        height: 2px;
+        background-color: @input-default;
+        bottom: -1px;
+        transform: scaleX(0);
+        transition: transform 0s;
+    }
+    .form-control:focus  ~ .material-input:before, .form-control.focus  ~ .material-input:before {
+        transform: scaleX(1);
+        transition: transform 0.2s ease-out;
+    }
+    .material-input:after {
+        content: "";
+        position: absolute;
+        height: 18px;
+        width: 100px;
+        margin-top: -1px;
+        top: 7px;
+        left: 0;
+        pointer-events: none;
+        opacity: 0.9;
+        transform-origin: left;
+    }
+    .input-lg ~ .material-input:after {
+        height: 26px;
+    }
+    textarea { resize: none; }
+    textarea ~ .form-control-highlight {
+        margin-top: -11px;
+    }
+
+    /* active state */
+    .form-control:focus ~ .material-input:after, .form-control.focus ~ .material-input:after {
+        animation: input-highlight 0.3s ease;
+        animation-fill-mode: forwards;
+        opacity: 0;
+    }
+
+    select ~ .material-input:after {
+        display: none;
+    }
+
+}
+
+.form-group {
+    &.has-warning {
+        .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
+            background: @input-warning;
+        }
+        .control-label, input.form-control:not(.empty) ~ .floating-label {
+            color: @input-warning;
+        }
+    }
+    &.has-error {
+        .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
+            background: @input-danger;
+        }
+        .control-label, input.form-control:not(.empty) ~ .floating-label {
+            color: @input-danger;
+        }
+    }
+    &.has-success {
+        .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
+            background: @input-success;
+        }
+        .control-label, input.form-control:not(.empty) ~ .floating-label {
+            color: @input-success;
+        }
+    }
+    &.has-info {
+        .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
+            background: @input-info;
+        }
+        .control-label, input.form-control:not(.empty) ~ .floating-label {
+            color: @input-info;
+        }
+    }
+    .variations(~" .material-input:before", background-color, @indigo);
+    .variations(~" input.form-control:focus ~ .material-input:after", background-color, @indigo);
+    .variations(~" input.form-control.focus ~ .material-input:after", background-color, @indigo);
+    .variations(~" .control-label", color, @lightbg-text);
+    .variations(~" input.form-control:not(.empty) ~ .floating-label", color, @indigo);
+
+}
+
+.input-group {
+    .form-control-wrapper {
+        .form-control {
+            float: none;
+        }
+        margin-right: 5px;
+        margin-left: 5px;
+        bottom: -10px;
+    }
+    .input-group-addon {
+        border: 0;
+    }
+    .input-group-btn .btn {
+        border-radius: 4px;
+    }
+}
+
+select.form-control {
+    border: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #757575;
+    border-radius: 0;
+    &:focus, &.focus {
+        box-shadow: none;
+        border-color: #757575;
+    }
+}
+
+
+@keyframes input-highlight {
+    0% {
+        left: 20%;
+        transform: scaleX(20%);
+    }
+    99% {
+        transform: scaleX(0);
+        left: 0;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+// Input files (kinda hack)
+.form-control-wrapper input[type=file] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}

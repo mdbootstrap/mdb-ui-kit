@@ -1,0 +1,103 @@
+// main: material.less
+.noUi-target,
+.noUi-target * {
+    -webkit-touch-callout: none;
+    -ms-touch-action: none;
+    user-select: none;
+    box-sizing: border-box;
+}
+.noUi-base {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.noUi-origin {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+.noUi-handle {
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.noUi-stacking .noUi-handle {
+    z-index: 10;
+}
+.noUi-stacking + .noUi-origin {
+    *z-index: -1;
+}
+.noUi-state-tap .noUi-origin {
+    transition: left 0.3s, top 0.3s;
+}
+.noUi-state-drag * {
+    cursor: inherit !important;
+}
+.noUi-horizontal {
+    height: 10px;
+}
+.noUi-horizontal .noUi-handle {
+    box-sizing: border-box;
+    width: 12px;
+    height: 12px;
+    left: -10px;
+    top: -5px;
+}
+.noUi-horizontal.noUi-extended {
+    padding: 0 15px;
+}
+.noUi-horizontal.noUi-extended .noUi-origin  {
+    right: -15px;
+}
+.noUi-background {
+    height: 2px;
+    margin: 20px 0;
+}
+.noUi-origin {
+    margin: 0;
+    border-radius: 0;
+    height: 2px;
+    background: #c8c8c8;
+    &[style^="left: 0"] .noUi-handle {
+        background-color: #fff;
+        border: 2px solid #c8c8c8;
+        &.noUi-active {
+            border-width: 1px;
+        }
+    }
+}
+.noUi-target {
+    border-radius: 2px;
+}
+.noUi-handle {
+    border-radius: 100%;
+    cursor: default;
+    transition: all 0.2s ease-out;
+    border: 1px solid;
+}
+.noUi-horizontal {
+    height: 2px;
+    margin: 15px 0;
+}
+.noUi-horizontal .noUi-handle.noUi-active {
+    transform: scale(2.5);
+}
+[disabled].noUi-slider{
+    opacity: 0.5;
+}
+[disabled] .noUi-handle {
+    cursor: not-allowed;
+}
+
+.slider {
+    background: #c8c8c8;
+}
+
+.slider {
+    .variations(~".noUi-connect", background-color, @primary);
+    .variations(~" .noUi-connect", background-color, @primary);
+    .variations(~" .noUi-handle", background-color, @primary);
+    .variations(~" .noUi-handle", border-color, @primary);
+}

@@ -1,0 +1,26 @@
+// main: material.less
+
+.nav-tabs {
+    background: @navbar-default-bg;
+    > li {
+        > a {
+            color: #FFFFFF;
+            border: 0;
+            margin: 0;
+            &:hover {
+                background: transparent;
+                border: 0;
+            }
+        }
+        &.active > a, &.active > a:hover, &.open > a, &.open > a:hover {
+            background: transparent !important;
+            border: 0 !important;
+            color: #FFFFFF !important;
+            font-weight: 500;
+        }
+        &.disabled > a, &.disabled > a:hover {
+            color: rgba(255,255,255,0.5);
+        }
+    }
+
+}

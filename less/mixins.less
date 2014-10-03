@@ -1,0 +1,78 @@
+// main: material.less
+
+// usage: .variations(~" .check", color, transparent);
+.variations(@extra, @property, @default) {
+    // Bootstrap shades
+    &@{extra}, &-default@{extra} {
+        @{property}: @default;
+    }
+    &-primary@{extra} {
+        @{property}: @primary;
+    }
+    &-success@{extra} {
+        @{property}: @success;
+    }
+    &-info@{extra} {
+        @{property}: @info;
+    }
+    &-warning@{extra} {
+        @{property}: @warning;
+    }
+    &-danger@{extra} {
+        @{property}: @danger;
+    }
+    // Material shades
+    &-material-red@{extra} {
+        @{property}: @red;
+    }
+    &-material-pink@{extra} {
+        @{property}: @pink;
+    }
+    &-material-purple@{extra} {
+        @{property}: @purple;
+    }
+    &-material-deeppurple@{extra} {
+        @{property}: @deeppurple;
+    }
+    &-material-indigo@{extra} {
+        @{property}: @indigo;
+    }
+    &-material-lightblue@{extra} {
+        @{property}: @lightblue;
+    }
+    &-material-cyan@{extra} {
+        @{property}: @cyan;
+    }
+    &-material-teal@{extra} {
+        @{property}: @teal;
+    }
+    &-material-lightgreen@{extra} {
+        @{property}: @lightgreen;
+    }
+    &-material-lime@{extra} {
+        @{property}: @lime;
+    }
+    &-material-lightyellow@{extra} {
+        @{property}: @lightyellow;
+    }
+    &-material-orange@{extra} {
+        @{property}: @orange;
+    }
+    &-material-deeporange@{extra} {
+        @{property}: @deeporange;
+    }
+    &-material-grey@{extra} {
+        @{property}: @grey;
+    }
+    &-material-bluegrey@{extra} {
+        @{property}: @bluegrey;
+    }
+    &-material-brown@{extra} {
+        @{property}: @brown;
+    }
+    &-material-lightgrey@{extra} {
+        @{property}: @lightgrey;
+    }
+}
+
+@all-variations: ~"-default, -primary, -info, -success, -warning, -danger";
