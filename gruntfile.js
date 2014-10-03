@@ -17,6 +17,16 @@ module.exports = function(grunt) {
             }
         },
 
+        sass: {
+            production: {
+                files: {
+                    "css-compiled/material.css": "sass/material.scss",
+                    "css-compiled/material-wfont.css": "sass/material-wfont.scss",
+                    "css-compiled/ripples.css": "sass/ripples.scss"
+                }
+            }
+        },
+
         autoprefixer: {
             options: {
                 browsers: ["last 3 versions", "ie 8", "ie 9", "ie 10", "ie 11"]
@@ -54,8 +64,10 @@ module.exports = function(grunt) {
 
     });
     grunt.loadNpmTasks("grunt-contrib-less");
+    grunt.loadNpmTasks("grunt-contrib-sass");
     grunt.loadNpmTasks("grunt-autoprefixer");
     grunt.loadNpmTasks("grunt-contrib-cssmin");
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "copy"]);
+    grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "copy"]);
 };
