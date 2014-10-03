@@ -2,7 +2,7 @@
 
 $(function (){
 
-    if (ripples) {
+    if (typeof ripples == "object") {
         ripples.init(".btn:not(.btn-link), .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple");
     }
 
