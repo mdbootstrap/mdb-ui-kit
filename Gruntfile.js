@@ -1,8 +1,7 @@
 module.exports = function(grunt) {
-
     "use strict";
 
-    require('load-grunt-tasks')(grunt);
+    require("load-grunt-tasks")(grunt);
 
     grunt.initConfig({
 
@@ -62,10 +61,115 @@ module.exports = function(grunt) {
                 dest: "template/material/"
             }
 
+        },
+
+        connect: {
+            options: {
+                port: 8040,
+                hostname: "localhost",
+                livereload: 35740,
+                keepalive: true
+
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    base: "."
+                }
+            },
+            test: {
+                options: {
+                    port: 8041,
+                    open: 'http://localhost:8041/SpecRunner.html',
+                    base: [
+                        "scripts",
+                        "test"
+                    ]
+                }
+            }
+        },
+
+        jasmine: {
+            src: 'scripts/**/*.js',
+            options: {
+                specs: 'test/*Spec.js',
+                helpers: 'test/*Helper.js',
+                vendor: [
+                    'https://code.jquery.com/jquery-1.10.2.min.js',
+                    'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
+                ]
+            }
+        },
+
+        jshint: {
+            options: {
+                jshintrc: ".jshintrc",
+                reporter: require("jshint-stylish")
+            },
+            all: [
+                "Gruntfile.js",
+                "scripts/**/*.js",
+                "template/**/*.js",
+                "test/**/*.js"
+            ],
+            test: {
+                options: {
+                    jshintrc: "test/.jshintrc",
+                    src: ["test/**/*.js"]
+                }
+            }
+        },
+
+        watch: {
+            js: {
+                files: ["Gruntfile.js", "scripts/**/*.js", "template/**/*.js"],
+                tasks: ["newer:jshint:all"]
+            },
+            jsTest: {
+                files: ["test/**/*.js"],
+                tasks: ["newer:jshint:test", "jasmine"]
+            },
+            livereload: {
+                options: {
+                    livereload: "<%= connect.options.livereload %>"
+                },
+                files: [
+                    'index.html',
+                    'css-compiled/**/*.css',
+                    '**/*.{png,jpg,jpeg,gif,webp,svg}'
+                ]
+            }
         }
 
     });
 
     grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "copy"]);
+
     grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "copy"]);
+
+    grunt.registerTask("build", function(target) {
+        var buildType = "default";
+        if (target && target === "scss") {
+            buildType = "scss";
+        }
+
+        grunt.task.run(["newer:jshint", "test", buildType]);
+    });
+
+    grunt.registerTask("test", [
+        "connect:test",
+        "jasmine"
+    ]);
+
+    grunt.registerTask("serve", function(target){
+        var buildTarget = "default";
+        if(target && target === "scss") {
+            buildTarget = "scss";
+        }
+        grunt.task.run([
+            "build:"+ buildTarget,
+            "connect:livereload",
+            "watch"
+        ])
+    });
 };
