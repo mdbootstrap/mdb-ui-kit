@@ -6,11 +6,11 @@ window.ripples = {
         "use strict";
 
         // Cross browser matches function
-        function matchesSelector(dom_element, selector) {
-            var matches = dom_element.matches || dom_element.matchesSelector || dom_element.webkitMatchesSelector ||
-                dom_element.mozMatchesSelector ||
-                    dom_element.msMatchesSelector || dom_element.oMatchesSelector;
-            return matches.call(dom_element, selector);
+        function matchesSelector(domElement, selector) {
+            var matches = domElement.matches || domElement.matchesSelector || domElement.webkitMatchesSelector ||
+                domElement.mozMatchesSelector ||
+                    domElement.msMatchesSelector || domElement.oMatchesSelector;
+            return matches.call(domElement, selector);
         }
 
         // animations time
