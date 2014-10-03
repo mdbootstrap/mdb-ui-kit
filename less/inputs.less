@@ -180,7 +180,7 @@ select.form-control {
 }
 
 
-.keyframe-input-highlight() {
+@keyframes input-highlight {
     0% {
         left: 20%;
         transform: scaleX(20%);
@@ -194,9 +194,6 @@ select.form-control {
         opacity: 0;
     }
 }
-
-@keyframes input-highlight {.keyframe-input-highlight()}
-
 
 // Input files (kinda hack)
 .form-control-wrapper input[type=file] {
