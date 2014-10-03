@@ -1,0 +1,82 @@
+// main: _material.scss
+
+.icon {}
+
+// Navbar alternate
+// --------------------------------------------------
+
+.icon-default {
+  @include icon-variant($lightbg-text);
+}
+.icon-primary {
+  @include icon-variant($primary);
+}
+// Success appears as green
+.icon-success {
+  @include icon-variant($success);
+}
+// Info appears as blue-green
+.icon-info {
+  @include icon-variant($info);
+}
+// Warning appears as orange
+.icon-warning {
+  @include icon-variant($warning);
+}
+// Danger and error appear as red
+.icon-danger {
+  @include icon-variant($danger);
+}
+
+// Material shades
+.icon-material-red {
+    @include icon-variant($red)
+}
+.icon-material-pink {
+    @include icon-variant($pink);
+}
+.icon-material-purple {
+    @include icon-variant($purple);
+}
+.icon-material-deeppurple {
+    @include icon-variant($deeppurple);
+}
+.icon-material-indigo {
+    @include icon-variant($indigo);
+}
+.icon-material-lightblue {
+    @include icon-variant($lightblue);
+}
+.icon-material-cyan {
+    @include icon-variant($cyan);
+}
+.icon-material-teal {
+    @include icon-variant($teal);
+}
+.icon-material-lightgreen {
+    @include icon-variant($lightgreen);
+}
+.icon-material-lime {
+    @include icon-variant($lime);
+}
+.icon-material-lightyellow {
+    @include icon-variant($lightyellow);
+}
+.icon-material-orange {
+    @include icon-variant($orange);
+}
+.icon-material-deeporange {
+    @include icon-variant($deeporange);
+}
+.icon-material-grey {
+    @include icon-variant($grey);
+}
+.icon-material-bluegrey {
+    @include icon-variant($bluegrey);
+}
+.icon-material-brown {
+    @include icon-variant($brown);
+}
+.icon-material-lightgrey {
+    @include icon-variant($lightgrey);
+}

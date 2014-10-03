@@ -1,0 +1,113 @@
+// Material Theme 0.0.1
+// -----------------------------------------------------
+
+@import "_variables.scss";
+@import "_mixins.scss";
+@import "_animations.scss";
+@import "_shadows.scss";
+
+body {
+    background-color: #EEEEEE;
+    &.inverse {
+        background: #333333;
+        &, .form-control {
+            color: $darkbg-text;
+        }
+    }
+}
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+// Well and Jumbotrons
+@import "_welljumbo.scss";
+
+// Buttons
+@import "_buttons.scss";
+
+// Checkboxes
+@import "_checkboxes.scss";
+
+// Radios
+@import "_radios.scss";
+
+// Text inputs
+@import "_inputs.scss";
+
+legend {
+    border-bottom: 0;
+}
+
+.modal-content {
+    @extend .shadow-z-2;
+    border-radius: 0;
+    border: 0;
+    .modal-header {
+        border-bottom: 0;
+    }
+    .modal-footer {
+        border-top: 0;
+        .btn+.btn {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// Lists
+@import "_lists.scss";
+
+// Navbar
+@import "_navbar.scss";
+
+.dropdown-menu {
+    border: 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    .divider {
+        background-color: rgba(229, 229, 229, 0.12);
+    }
+    li {
+        overflow: hidden;
+        position: relative;
+        a:hover {
+            background: rgba(0,0,0,0.08);
+        }
+    }
+}
+
+// Alerts
+@import "_alerts.scss";
+
+// Progress bar
+@import "_progress.scss";
+
+// Panels
+@import "_cards.scss";
+
+// Typography
+.text-warning {
+    color: $btn-warning;
+}
+.text-primary {
+    color: $btn-primary;
+}
+.text-danger {
+    color: $btn-danger;
+}
+.text-success {
+    color: $btn-success;
+}
+.text-info {
+    color: $btn-info;
+}
+
+@import "_tabs.scss";
+
+@import "_popups.scss";
+
+@import "_icons.scss";
+
+
+// External plugins
+@import "_plugin-snackbarjs.scss";
+@import "_plugin-nouislider.scss";

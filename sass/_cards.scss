@@ -1,0 +1,130 @@
+//
+// Cards
+// http://www.google.com/design/spec/components/cards.html#cards-usage
+//
+.card {
+  @extend .shadow-z-1;
+
+  border-radius: 2px;
+  margin-bottom: 20px; // Same as panel margins
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 100;
+    margin: 10px 0;
+  }
+
+  .card-body {
+    padding: 15px;
+  }
+
+  .card-actions {
+    padding: 15px;
+    text-transform: uppercase;
+    .main { font-weight: bold; }
+    a {
+      font-size: 15px;
+      margin: 0 15px 0 0;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+  }
+
+  img {
+    max-width:100%;
+    max-height:100%;
+  }
+
+  .card-footer {
+    padding: 15px;
+    border-top: 1px solid;
+    border-color: $lightgrey;
+
+    .icon {
+      font-size: 25px;
+      transition: ease transform 0.5s;
+      &:hover { text-decoration: none; transform: transform3d(0, 0, 0, -1px)}
+    }
+  }
+
+}
+
+// Alert buttons
+// --------------------------------------------------
+
+.card-default {
+  @include card-variant($btn-default, #000, darken($btn-default, 10%));
+}
+.card-primary {
+  @include card-variant($primary, #FFFFFF, $lightgrey);
+}
+// Success appears as green
+.card-success {
+  @include card-variant($success, #FFFFFF, darken($success, 10%));
+}
+// Info appears as blue-green
+.card-info {
+  @include card-variant($info, #FFFFFF, darken($info, 10%));
+}
+// Warning appears as orange
+.card-warning {
+  @include card-variant($warning, #FFFFFF, lighten($warning, 10%));
+}
+// Danger and error appear as red
+.card-danger {
+  @include card-variant($danger, #FFFFFF, darken($danger, 10%));
+}
+
+// Material shades
+.card-material-red {
+    @include card-variant($red, #FFFFFF, lighten($red, 10%))
+}
+.card-material-pink {
+    @include card-variant($pink, #FFFFFF, darken($pink, 10%));
+}
+.card-material-purple {
+    @include card-variant($purple, #FFFFFF, darken($purple, 10%));
+}
+.card-material-deeppurple {
+    @include card-variant($deeppurple, #FFFFFF, lighten($deeppurple, 10%));
+}
+.card-material-indigo {
+    @include card-variant($indigo, #FFFFFF, lighten($indigo, 10%));
+}
+.card-material-lightblue {
+    @include card-variant($lightblue, #fff, darken($lightblue, 10%));
+}
+.card-material-cyan {
+    @include card-variant($cyan, #FFFFFF, darken($cyan, 10%));
+}
+.card-material-teal {
+    @include card-variant($teal, #FFFFFF, darken($teal, 10%));
+}
+.card-material-lightgreen {
+    @include card-variant($lightgreen, #FFFFFF, darken($lightgreen, 10%));
+}
+.card-material-lime {
+    @include card-variant($lime, #FFFFFF, darken($lime, 10%));
+}
+.card-material-lightyellow {
+    @include card-variant($lightyellow, darken($lightyellow, 60%), darken($lightyellow, 10%));
+}
+.card-material-orange {
+    @include card-variant($orange, #FFFFFF, darken($orange, 10%));
+}
+.card-material-deeporange {
+    @include card-variant($deeporange, #FFFFFF, darken($deeporange, 10%));
+}
+.card-material-grey {
+    @include card-variant($grey, #FFFFFF, darken($grey, 10%));
+}
+.card-material-bluegrey {
+    @include card-variant($bluegrey, #FFFFFF, darken($bluegrey, 10%));
+}
+.card-material-brown {
+    @include card-variant($brown, #FFFFFF, lighten($brown, 10%));
+}
+.card-material-lightgrey {
+    @include card-variant($lightgrey, darken(#FFFFFF, 10%), darken($lightgrey, 10%));
+}
