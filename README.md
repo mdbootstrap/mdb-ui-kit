@@ -6,39 +6,23 @@ Just include the theme right after the Bootstrap CSS and include the javascript 
 
 This theme is in early development and is not ready for production.
 
-Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/).
+Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/) (could be not even with the master branch).
 
 ## How to install
 
-    bower install bootstrap-material-design --save
+    BOWER (LESS):       bower install bootstrap-material-design --save
+    BOWER (SASS):       bower install bootstrap-material-design-sass --save
+    NPM (SASS):         npm install bootstrap-material-sass --save
+    GEMS (LESS):        gem install bootstrap-material-design
+    
+**NB**: the only official repository is the BOWER (LESS) one, the others could (but should not) be outdated.
 
 ## Getting started
 
-Navigate to the `template/` folder in this repository, and you will see the `index.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
-
+Navigate to the `template/` folder in this repository, and you will see the `index.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.  
 You need to copy the `material/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
 
-## Features
-
-Currently supported elements:
-
-- Input fields (text, numeric, email, etc)
-- Textarea
-- Buttons (ripple effect working)
-- Select
-- Navbar
-- Button groups
-- Input groups
-- Checkbox
-- Radio
-- Alerts
-- Progress bars
-- Jumbotron
-- Wells
-- Dialogs
-- Lists
-
-Todo elements:
+## Todo
 
 - Morphing icons
 - [Icons/grids/chips to card/fullscreen transitions](http://www.polymer-project.org/components/core-animated-pages/demo.html)
@@ -47,18 +31,20 @@ Todo elements:
 - [Tabs](http://www.polymer-project.org/components/paper-tabs/demo.html)
 - [Toggle buttons](http://www.polymer-project.org/components/paper-toggle-button/demo.html)
 
-I'll try to write every component without the need of Javascript but just CSS, and use JS only if strictly needed.
+I'll try to write every component without the need of Javascript but just CSS, and use JS only if strictly needed.  
+More "todo" things can be found in the ISSUES of this repository.
 
 # Support me
 
 If you like this project you may support me by donating something on Gittip, starring this repository or reporting bugs and ideas in the issue section.
 
-[![gittip](screenshots/gittip-button.jpg)](https://www.gittip.com/FezVrasta/)
+[![gittip](screenshots/gittip-button.jpg)](https://www.gratipay.com/FezVrasta/)
 [![issues](screenshots/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design/issues)
 
 # Contribute
 
 Please see the [contrib](CONTRIBUTING.md) file.
+
 
 # Documentation
 
