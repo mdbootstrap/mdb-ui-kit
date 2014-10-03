@@ -67,8 +67,7 @@ module.exports = function(grunt) {
             options: {
                 port: 8040,
                 hostname: "localhost",
-                livereload: 35740,
-                keepalive: true
+                livereload: 35741
 
             },
             livereload: {
@@ -126,6 +125,14 @@ module.exports = function(grunt) {
                 files: ["test/**/*.js"],
                 tasks: ["newer:jshint:test", "jasmine"]
             },
+            less: {
+                files:["less/**/*.less"],
+                tasks: ["default"]
+            },
+            sass: {
+                files: ["sass/**/*.scss", "sass/**/*.sass"],
+                tasks: ["scss"]
+            },
             livereload: {
                 options: {
                     livereload: "<%= connect.options.livereload %>"
@@ -155,7 +162,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask("test", [
         "jasmine:scripts:build",
-        "connect:test"
+        "connect:test:keepalive"
     ]);
 
     grunt.registerTask("serve", function(target){

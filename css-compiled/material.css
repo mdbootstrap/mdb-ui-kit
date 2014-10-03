@@ -2364,6 +2364,9 @@ fieldset[disabled] .navbar .btn-link:focus {
 .dropdown-menu li a:hover {
   background: rgba(0, 0, 0, 0.08);
 }
+div {
+  background-color: black;
+}
 .alert {
   border: 0px;
   border-radius: 0;
