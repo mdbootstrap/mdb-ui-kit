@@ -80,18 +80,16 @@ module.exports = function(grunt) {
             test: {
                 options: {
                     port: 8041,
-                    open: 'http://localhost:8041/SpecRunner.html',
-                    base: [
-                        "scripts",
-                        "test"
-                    ]
+                    open: 'http://localhost:8041/_SpecRunner.html',
+                    base: "."
                 }
             }
         },
 
         jasmine: {
-            src: 'scripts/**/*.js',
+            scripts: 'scripts/**/*.js',
             options: {
+                build: true,
                 specs: 'test/*Spec.js',
                 helpers: 'test/*Helper.js',
                 vendor: [
@@ -153,12 +151,12 @@ module.exports = function(grunt) {
             buildType = "scss";
         }
 
-        grunt.task.run(["newer:jshint", "test", buildType]);
+        grunt.task.run(["newer:jshint", "jasmine:scripts", buildType]);
     });
 
     grunt.registerTask("test", [
-        "connect:test",
-        "jasmine"
+        "jasmine:scripts:build",
+        "connect:test"
     ]);
 
     grunt.registerTask("serve", function(target){
