@@ -3,7 +3,7 @@
 $(function (){
 
     if (ripples) {
-        ripples.init(".btn:not(.btn-link), .navbar a, .nav-tabs a, .withripple");
+        ripples.init(".btn:not(.btn-link), .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple");
     }
 
     var initInputs = function() {
