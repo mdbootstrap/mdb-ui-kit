@@ -19,8 +19,8 @@
 
     .navbar-text {
         color: @navbar-color;
-		margin-top: 20px;
-		margin-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .navbar-nav {
@@ -209,6 +209,22 @@
                 }
             }
 
+        }
+    }
+
+    @media (max-width: 1199px) {
+
+        .navbar-brand {
+            height: 50px;
+            padding: 10px 15px;
+        }
+        .navbar-form {
+            margin-top: 10px;
+        }
+
+        .navbar-nav > li > a {
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
     }
 }
