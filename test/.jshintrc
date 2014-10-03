@@ -39,6 +39,9 @@
         "brackets": true,
         "define": true,
         "Mustache": true,
-        "window": true
+        "window": true,
+        "expect": true,
+        "describe": true,
+        "it": true
     }
 }

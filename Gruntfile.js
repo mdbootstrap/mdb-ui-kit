@@ -80,21 +80,21 @@ module.exports = function(grunt) {
             test: {
                 options: {
                     port: 8041,
-                    open: 'http://localhost:8041/_SpecRunner.html',
+                    open: "http://localhost:8041/_SpecRunner.html",
                     base: "."
                 }
             }
         },
 
         jasmine: {
-            scripts: 'scripts/**/*.js',
+            scripts: "scripts/**/*.js",
             options: {
                 build: true,
-                specs: 'test/*Spec.js',
-                helpers: 'test/*Helper.js',
+                specs: "test/*Spec.js",
+                helpers: "test/*Helper.js",
                 vendor: [
-                    'https://code.jquery.com/jquery-1.10.2.min.js',
-                    'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
+                    "https://code.jquery.com/jquery-1.10.2.min.js",
+                    "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
                 ]
             }
         },
@@ -107,8 +107,7 @@ module.exports = function(grunt) {
             all: [
                 "Gruntfile.js",
                 "scripts/**/*.js",
-                "template/**/*.js",
-                "test/**/*.js"
+                "template/**/*.js"
             ],
             test: {
                 options: {
@@ -132,9 +131,9 @@ module.exports = function(grunt) {
                     livereload: "<%= connect.options.livereload %>"
                 },
                 files: [
-                    'index.html',
-                    'css-compiled/**/*.css',
-                    '**/*.{png,jpg,jpeg,gif,webp,svg}'
+                    "index.html",
+                    "css-compiled/**/*.css",
+                    "**/*.{png,jpg,jpeg,gif,webp,svg}"
                 ]
             }
         }
@@ -168,6 +167,6 @@ module.exports = function(grunt) {
             "build:"+ buildTarget,
             "connect:livereload",
             "watch"
-        ])
+        ]);
     });
 };
