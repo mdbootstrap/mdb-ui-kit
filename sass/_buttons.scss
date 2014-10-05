@@ -1,0 +1,189 @@
+// main: _material.scss
+
+@mixin btn-shadow(){
+    @extend .shadow-z-2;
+    transition: box-shadow transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    &:active:not(.btn-link) {
+        @extend .shadow-z-3;
+    }
+
+    &:hover {
+        @extend .shadow-z-5;
+    }
+
+}
+
+.btn {
+    position: relative;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $darkbg-text;
+
+    &:hover {
+        color: $darkbg-text;
+    }
+    &:hover:not(.btn-link) {
+        @extend .shadow-z-2-hover;
+    }
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    &:active:not(.btn-link) {
+        @extend .shadow-z-3;
+    }
+    outline: none !important;
+}
+// This is needed to style buttons which has not a variation suffix (they must stiled as btn-default)
+.btn-link, .btn:not([class^="btn btn-"]), .btn-default {
+    color: $lightbg-text;
+    &:hover {
+        color: $lightbg-text;
+    }
+}
+.btn:not([class^="btn btn-"]), .btn-default {
+    &:hover {
+        background-color: rgba(255,255,255,0.5);
+    }
+}
+
+.btn-raised {
+    @include btn-shadow();
+}
+
+.open > .dropdown-toggle.btn {
+    //.variations(#{""}, background-color, $btn-default);
+}
+.btn-flat {
+    box-shadow: none !important;
+    &.btn-default:hover {
+        background: none;
+    }
+}
+
+.btn-group, .btn-group-vertical {
+    position: relative;
+    border-radius: 4px;
+    margin: 10px 1px;
+
+    @include btn-shadow();
+    &.open .dropdown-toggle {
+        box-shadow: none;
+    }
+    &.btn-group-raised {
+        @include btn-shadow();
+    }
+    .btn, .btn:active, .btn-group {
+        box-shadow: none !important;
+        margin: 0;
+    }
+    .btn:active .caret { margin-left: -1px; }
+}
+.btn-group-flat {
+    box-shadow: none !important;
+}
+
+// Floating Action Button (FAB)
+
+.btn-fab {
+    margin: 0;
+    padding: 15px;
+    font-size: 26px;
+    width: 56px;
+    height: 56px;
+    &, &:hover {
+        //.variations(#{""}, background-color, transparent);
+    }
+    &, .ripple-wrapper {
+        border-radius: 100%;
+    }
+    &.btn-mini {
+        width: 40px;
+        height: 40px;
+        padding: 13px;
+        font-size: 15px;
+    }
+}
+
+// Alert buttons
+// --------------------------------------------------
+
+.btn-default {
+  @include button-variant($btn-default);
+}
+.btn-primary {
+  @include button-variant($primary);
+}
+// Success appears as green
+.btn-success {
+  @include button-variant($success);
+}
+// Info appears as blue-green
+.btn-info {
+  @include button-variant($info);
+}
+// Warning appears as orange
+.btn-warning {
+  @include button-variant($warning);
+}
+// Danger and error appear as red
+.btn-danger {
+  @include button-variant($danger);
+}
+
+// Material shades
+.btn-material-red {
+    @include button-variant($red)
+}
+.btn-material-pink {
+    @include button-variant($pink);
+}
+.btn-material-purple {
+    @include button-variant($purple);
+}
+.btn-material-deeppurple {
+    @include button-variant($deeppurple);
+}
+.btn-material-indigo {
+    @include button-variant($indigo);
+}
+.btn-material-lightblue {
+    @include button-variant($lightblue);
+}
+.btn-material-cyan {
+    @include button-variant($cyan);
+}
+.btn-material-teal {
+    @include button-variant($teal);
+}
+.btn-material-lightgreen {
+    @include button-variant($lightgreen);
+}
+.btn-material-lime {
+    @include button-variant($lime);
+}
+.btn-material-lightyellow {
+    @include button-variant($lightyellow);
+}
+.btn-material-orange {
+    @include button-variant($orange);
+}
+.btn-material-deeporange {
+    @include button-variant($deeporange);
+}
+.btn-material-grey {
+    @include button-variant($grey);
+}
+.btn-material-bluegrey {
+    @include button-variant($bluegrey);
+}
+.btn-material-brown {
+    @include button-variant($brown);
+}
+.btn-material-lightgrey {
+    @include button-variant($lightgrey);
+}
+

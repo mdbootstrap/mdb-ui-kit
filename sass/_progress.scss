@@ -1,0 +1,91 @@
+// main: _material.scss
+
+.progress {
+    height: 4px;
+    border-radius: 0;
+    box-shadow: none;
+    background: #c8c8c8;
+    .progress-bar {
+        box-shadow: none;
+    }
+
+    // Alert buttons
+    // --------------------------------------------------
+
+    .progress-bar-default {
+      @include progress-bar-variant($primary);
+    }
+    .progress-bar-primary {
+      @include progress-bar-variant($primary);
+    }
+    // Success appears as green
+    .progress-bar-success {
+      @include progress-bar-variant($success);
+    }
+    // Info appears as blue-green
+    .progress-bar-info {
+      @include progress-bar-variant($info);
+    }
+    // Warning appears as orange
+    .progress-bar-warning {
+      @include progress-bar-variant($warning);
+    }
+    // Danger and error appear as red
+    .progress-bar-danger {
+      @include progress-bar-variant($danger);
+    }
+
+    // Material shades
+    .progress-bar-material-red {
+        @include progress-bar-variant($red)
+    }
+    .progress-bar-material-pink {
+        @include progress-bar-variant($pink);
+    }
+    .progress-bar-material-purple {
+        @include progress-bar-variant($purple);
+    }
+    .progress-bar-material-deeppurple {
+        @include progress-bar-variant($deeppurple);
+    }
+    .progress-bar-material-indigo {
+        @include progress-bar-variant($indigo);
+    }
+    .progress-bar-material-lightblue {
+        @include progress-bar-variant($lightblue);
+    }
+    .progress-bar-material-cyan {
+        @include progress-bar-variant($cyan);
+    }
+    .progress-bar-material-teal {
+        @include progress-bar-variant($teal);
+    }
+    .progress-bar-material-lightgreen {
+        @include progress-bar-variant($lightgreen);
+    }
+    .progress-bar-material-lime {
+        @include progress-bar-variant($lime);
+    }
+    .progress-bar-material-lightyellow {
+        @include progress-bar-variant($lightyellow);
+    }
+    .progress-bar-material-orange {
+        @include progress-bar-variant($orange);
+    }
+    .progress-bar-material-deeporange {
+        @include progress-bar-variant($deeporange);
+    }
+    .progress-bar-material-grey {
+        @include progress-bar-variant($grey);
+    }
+    .progress-bar-material-bluegrey {
+        @include progress-bar-variant($bluegrey);
+    }
+    .progress-bar-material-brown {
+        @include progress-bar-variant($brown);
+    }
+    .progress-bar-material-lightgrey {
+        @include progress-bar-variant($lightgrey);
+    }
+
+}

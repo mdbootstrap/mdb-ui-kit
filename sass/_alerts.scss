@@ -1,0 +1,98 @@
+// main: _material.scss
+
+.alert {
+    border: 0px;
+    border-radius: 0;
+    a, .alert-link {
+        color: #FFFFFF;
+    }
+}
+
+
+// Alert buttons
+// --------------------------------------------------
+
+.alert-default {
+  @include alert-variant(#FFFFFF);
+    a, .alert-link {
+        color: #000000;
+    }
+}
+
+.alert-primary {
+  color: #FFFFFF;
+  @include alert-variant($primary);
+}
+// Success appears as green
+.alert-success {
+  color: #FFFFFF;
+  @include alert-variant($success);
+}
+// Info appears as blue-green
+.alert-info {
+  color: #FFFFFF;
+  @include alert-variant($info);
+}
+// Warning appears as orange
+.alert-warning {
+  color: #FFFFFF;
+  @include alert-variant($warning);
+}
+// Danger and error appear as red
+.alert-danger {
+  @include alert-variant($danger);
+}
+
+// Material shades
+.alert-material-red {
+    @include alert-variant($red)
+}
+.alert-material-pink {
+    @include alert-variant($pink);
+}
+.alert-material-purple {
+    @include alert-variant($purple);
+}
+.alert-material-deeppurple {
+    @include alert-variant($deeppurple);
+}
+.alert-material-indigo {
+    @include alert-variant($indigo);
+}
+.alert-material-lightblue {
+    @include alert-variant($lightblue);
+}
+.alert-material-cyan {
+    @include alert-variant($cyan);
+}
+.alert-material-teal {
+    @include alert-variant($teal);
+}
+.alert-material-lightgreen {
+    @include alert-variant($lightgreen);
+}
+.alert-material-lime {
+    @include alert-variant($lime);
+}
+.alert-material-lightyellow {
+    @include alert-variant($lightyellow);
+}
+.alert-material-orange {
+    @include alert-variant($orange);
+}
+.alert-material-deeporange {
+    @include alert-variant($deeporange);
+}
+.alert-material-grey {
+    @include alert-variant($grey);
+}
+.alert-material-bluegrey {
+    @include alert-variant($bluegrey);
+}
+.alert-material-brown {
+    @include alert-variant($brown);
+}
+.alert-material-lightgrey {
+    @include alert-variant($lightgrey);
+}
+

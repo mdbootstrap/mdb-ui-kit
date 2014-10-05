@@ -1,5 +1,4 @@
-Material Design for Bootstrap
-=========================
+[![banner](demo/imgs/banner.jpg)](#)
 
 This Bootstrap theme is an easy way to use the new Material Design guidelines by Google in your Bootstrap 3 based application.
 Just include the theme right after the Bootstrap CSS and include the javascript at the end of your document, everything will be converted to Material Design (paper) style.
@@ -10,16 +9,20 @@ Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-
 
 ## How to install
 
-    BOWER (LESS):       bower install bootstrap-material-design --save
-    BOWER (SASS):       bower install bootstrap-material-design-sass --save
-    NPM (SASS):         npm install bootstrap-material-sass --save
-    GEMS (LESS):        gem install bootstrap-material-design
-    
-**NB**: the only official repository is the BOWER (LESS) one, the others could (but should not) be outdated.
+    BOWER:       bower install bootstrap-material-design --save
+    GEMS:        gem install bootstrap-material-design
+
+### LESS & SASS
+
+We decided to merge the SASS fork in to the main repository instead of having two seperate ones, [#40](https://github.com/FezVrasta/bootstrap-material-design/issues/40). The default grunt
+task will compile the LESS source. To use the SASS base use the SCSS task ```grunt scss```.
+
+**NB** The LESS and SASS bases should reflect each other, right now this project is unstable and under heavy development
+so this might not be true before the first stable release.
 
 ## Getting started
 
-Navigate to the `template/` folder in this repository, and you will see the `index.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.  
+Navigate to the `template/` folder in this repository, and you will see the `index.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
 You need to copy the `material/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
 
 ## Todo
@@ -31,7 +34,7 @@ You need to copy the `material/` folder to the root of your project, ensuring th
 - [Tabs](http://www.polymer-project.org/components/paper-tabs/demo.html)
 - [Toggle buttons](http://www.polymer-project.org/components/paper-toggle-button/demo.html)
 
-I'll try to write every component without the need of Javascript but just CSS, and use JS only if strictly needed.  
+I'll try to write every component without the need of Javascript but just CSS, and use JS only if strictly needed.
 More "todo" things can be found in the ISSUES of this repository.
 
 # Support me
@@ -95,7 +98,7 @@ The syntax to add a Material icon is:
 
 # Plugins
 
-Material Design for Bootstrap comes with styling support for various external scripts. At the moment only two scripts are supported but others will come:
+Material Design for Bootstrap comes with styling support for various external scripts:
 
 ### SnackbarJS
 
@@ -110,6 +113,11 @@ At the moment RipplesJS does not have its own repository but it will probably ha
 
 Make cross-browser sliders and get them styled with Material Design thanks to the support provided by this theme.
 Read more about [noUiSlider here](http://refreshless.com/nouislider/)
+
+### Selectize.js
+
+Transform select and multi select inputs in advanced text inputs. Material Design for BS provides a fulle replacement of the plugin's CSS, don't include it so.
+Read more about [selectize.js](http://brianreavis.github.io/selectize.js/)
 
 
 # Compatibility

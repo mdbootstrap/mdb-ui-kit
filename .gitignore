@@ -2,6 +2,9 @@
 # https://help.github.com/articles/ignoring-files
 # Example .gitignore files: https://github.com/github/gitignore
 
+*.log
+.sass-cache
 Thumbs.db
 .DS_Store
 /node_modules/
+.grunt/

@@ -1,18 +1,17 @@
 // Material Theme 0.0.1
 // -----------------------------------------------------
 
-@import "_variables.less";
-@import "_mixins.less";
-@import "_icons-material-design.less";
-@import "_animations.less";
-@import "_shadows.less";
+@import "_variables.scss";
+@import "_mixins.scss";
+@import "_animations.scss";
+@import "_shadows.scss";
 
 body {
     background-color: #EEEEEE;
     &.inverse {
         background: #333333;
         &, .form-control {
-            color: @darkbg-text;
+            color: $darkbg-text;
         }
     }
 }
@@ -22,26 +21,26 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 // Well and Jumbotrons
-@import "_welljumbo.less";
+@import "_welljumbo.scss";
 
 // Buttons
-@import "_buttons.less";
+@import "_buttons.scss";
 
 // Checkboxes
-@import "_checkboxes.less";
+@import "_checkboxes.scss";
 
 // Radios
-@import "_radios.less";
+@import "_radios.scss";
 
 // Text inputs
-@import "_inputs.less";
+@import "_inputs.scss";
 
 legend {
     border-bottom: 0;
 }
 
 .modal-content {
-    .shadow-z-2();
+    @extend .shadow-z-2;
     border-radius: 0;
     border: 0;
     .modal-header {
@@ -56,10 +55,10 @@ legend {
 }
 
 // Lists
-@import "_lists.less";
+@import "_lists.scss";
 
 // Navbar
-@import "_navbar.less";
+@import "_navbar.scss";
 
 .dropdown-menu {
     border: 0;
@@ -77,36 +76,38 @@ legend {
 }
 
 // Alerts
-@import "_alerts.less";
+@import "_alerts.scss";
 
 // Progress bar
-@import "_progress.less";
+@import "_progress.scss";
+
+// Panels
+@import "_cards.scss";
 
 // Typography
 .text-warning {
-    color: @btn-warning;
+    color: $btn-warning;
 }
 .text-primary {
-    color: @btn-primary;
+    color: $btn-primary;
 }
 .text-danger {
-    color: @btn-danger;
+    color: $btn-danger;
 }
 .text-success {
-    color: @btn-success;
+    color: $btn-success;
 }
 .text-info {
-    color: @btn-info;
+    color: $btn-info;
 }
 
-@import "_tabs.less";
+@import "_tabs.scss";
 
-@import "_popups.less";
+@import "_popups.scss";
 
-@import "_icons.less";
+@import "_icons.scss";
 
 
 // External plugins
-@import "_plugin-snackbarjs.less";
-@import "_plugin-nouislider.less";
-@import "_plugin-selectize.less";
+@import "_plugin-snackbarjs.scss";
+@import "_plugin-nouislider.scss";

@@ -1,0 +1,66 @@
+// main: _material.scss
+body, .container, .container-fluid {
+
+    .well, .well:not([class^="well well-material-"]) {
+        &, .form-control {
+            color: $lightbg-text;
+        }
+        .floating-label {
+            color: #7e7e7e;
+        }
+        .form-control {
+            border-bottom-color: #7e7e7e;
+            &::-webkit-input-placeholder {
+                color: #7e7e7e;
+            }
+            &::-moz-placeholder {
+                color: #7e7e7e;
+                opacity: 1;
+            }
+            &:-ms-input-placeholder {
+                color: #7e7e7e;
+            }
+        }
+        .option, .create {
+            color: $lightbg-text;
+        }
+    }
+
+    [class^="well well-material-"] {
+        &, .form-control, .floating-label {
+            color: $darkbg-text;
+        }
+       .form-control {
+            border-bottom-color: $darkbg-text;
+            &::-webkit-input-placeholder {
+                color: $darkbg-text;
+            }
+            &::-moz-placeholder {
+                color: $darkbg-text;
+                opacity: 1;
+            }
+            &:-ms-input-placeholder {
+                color: $darkbg-text;
+            }
+        }
+        // Rule to fix selectize plugin
+        .option, .create {
+            color: $lightbg-text;
+        }
+    }
+
+    .well, .jumbotron {
+
+        background-color: #fff;
+        padding: 19px;
+        margin-bottom: 20px;
+        @extend .shadow-z-2;
+        border-radius: 2px;
+        border: 0;
+        p {
+            font-weight: 300;
+        }
+
+//        .variations(#{""}, background-color, #FFF);
+    }
+}
