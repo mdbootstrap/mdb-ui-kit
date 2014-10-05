@@ -1,191 +1,227 @@
 // main: material.less
 
-.form-horizontal .checkbox {
-    padding-top: 15px;
-}
+// Sizes
+@checkbox-size: 20px;
+
 .checkbox {
-    transform: rotate(0deg);
+    min-height: 24px; // clear the floating input if there is no label text
+    position: relative;
+    cursor: pointer;
+
     label {
-        cursor: pointer;
-        padding-left: 45px;
         position: relative;
-        span {
-            display: block;
-            position: absolute;
-            left: 0px;
-            transition-duration: 0.2s;
+        padding-left: 30px;
+    }
+
+    input[type=checkbox] {
+        opacity: 0;
+
+        // Here are our placeholder
+        // The Material Design skin occours right here ;-)
+        &+ .check {
+            left: 0;
+            width: @checkbox-size;
+            height: @checkbox-size;
+            border-radius: 2px;
+            border-width: 2px;
+            border-style: solid;
+            animation: checkbox-bg-off .25s linear forwards;
+
+            &, &:after, &:before {
+              position: absolute;
+              content: " ";
+            }
+
+            &:after, &:before {
+                top: 50%;
+                left: 50%;
+            }
+
+            // Marker
+            // The Checked Marker (✓);
+            // I`ve used the after selector to prevent bloated code
+            &:after {
+                margin-left: -7px;
+                margin-top: -6px;
+                width: 14px;
+                height: 8px;
+                border-color: transparent;
+                border-width: 0 0 2px 2px;
+                border-style: solid;
+                animation: checkbox-marker-off .2s linear forwards;
+                transform: rotate(-45deg);
+            }
+
+            // Accessibility check
+            // This is visible when you focus/click the input element
+            &:before {
+                margin-left: -1px;
+                margin-top: -1px;
+                width: 2px;
+                height: 2px;
+                border-radius: 50%;
+                opacity: 0;
+                transition: all .1s;
+            }
         }
-        .check:after {
-            display: block;
-            position: absolute;
-            content: "";
-            background-color: @lightbg-text;
-            left: -5px;
-            top: -15px;
-            height: 50px;
-            width: 50px;
-            border-radius: 100%;
-            z-index: 1;
-            opacity: 0;
-            margin: 0;
+        // Disabled Status
+        &:disabled + .check {
+            cursor: not-allowed;
         }
-        .check:before {
-            display: block;
-            content: "";
-            border: 2px solid @lightbg-text;
-            height: 20px;
-            width: 20px;
-            transition-delay: 0.2s;
+        // Focus Status
+        &:focus + .check {
+            // Remember, this is the accessibility check
+            &:before {
+                height: 50px;
+                margin-left: -25px;
+                margin-top: -25px;
+                width: 50px;
+                opacity: .08;
+            }
+        }
+        // Checked Status
+        &:checked + .check {
+            border-width: 10px;
+            animation: checkbox-bg-on .1s linear forwards;
+            // The ✓
+            &:after {
+                animation: checkbox-marker-on .15s linear forwards;
+            }
+        }
+        // Checked & Focus Status
+        &:checked:focus + .check {
+            &:before {
+                opacity: .2;
+            }
+        }
+    }
+
+    & + .check {
+        margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
+    }
+
+    // Make animate quickly when not hover
+    &:not(:hover) input[type=checkbox] ~ .check {
+        &, &:after {
+            animation-duration: 1ms;
         }
     }
 
     // Variations
     .variations(~" .check", color, @success);
 
-    // Hide native checkbox
-    input[type=checkbox] { opacity: 0; }
-
-    input[type=checkbox] ~ .check:before {
-        position: absolute;
-        top: 2px;
-        left: 11px;
-        width: 18px;
-        height: 18px;
-        border: solid 2px;
-        border-color: #5a5a5a;
-        animation: uncheck 300ms ease-out forwards;
+    &.checkbox-inline {
+        margin-top: 0;
     }
+}
 
-    input[type=checkbox]:focus ~ .check:after {
-        opacity: 0.2;
+.input-group-addon {
+    .checkbox {
+        margin: 0;
+        padding: 0;
     }
+}
 
-    input[type=checkbox]:checked ~ .check:before {
-        animation: check 300ms ease-out forwards;
-    }
-
-    // Ripple effect on click
-    input[type=checkbox]:not(:checked) ~ .check:after {
-        animation: rippleOff 500ms linear forwards;
-    }
-    input[type=checkbox]:checked ~ .check:after {
-        animation: rippleOn 500ms linear forwards;
-    }
-
-    // Make animate quickly when not hover
-    &:not(:hover) input[type=checkbox] ~ .check {
-        &:before, &:after {
-            animation-duration: 1ms;
+// Default Theme
+.checkbox {
+    input[type="checkbox"] {
+        & + .check {
+            border-color: @lightbg-text;
+            &:before {
+                background-color: @lightbg-text;
+            }
+        }
+        &:checked + .check {
+            &:hover {
+                border-color: @success;
+            }
+            &:after {
+                border-color: @darkbg-text;
+            }
+        }
+        &:disabled + .check {
+            &, &:hover {
+                border-color: lighten(@lightbg-text, 60%);
+            }
+        }
+        &:checked:focus + .check {
+            border-color: @success;
+            &:before {
+                background-color: lighten(@success, 35%);
+            }
         }
     }
-
-    // Style for disabled inputs
-    input[type=checkbox][disabled]:not(:checked) ~ .check:before {
-        opacity: 0.5;
-    }
-    input[type=checkbox][disabled] ~ .check:after {
-        background-color: @lightbg-text;
-        transform: rotate(-45deg);
-    }
-
-    .variations(~" input[type=checkbox]:checked ~ .check:after", background-color, @success);
 }
 
-@keyframes uncheck {
+// Checkbox: Background OFF
+@keyframes checkbox-bg-off {
+    0% { border-width: 10px; }
+    50% { border-width: 10px; }
+    100% { border-width: 2px; }
+}
+// Checkbox: Background ON
+@keyframes checkbox-bg-on {
+    from { border-width: 2px; }
+    to { border-width: 10px; }
+}
+
+/* Checkbox: Marker default/out */
+@keyframes checkbox-marker-off {
     0% {
-        top: -3px;
-        left: 17px;
-        width: 10px;
-        height: 21px;
-        border-color: #0f9d58;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        transform: rotate(45deg);
+        border-width: 0 0 2px 2px;
+        height: 8px;
+        margin-left: -7px;
+        margin-top: -6px;
+        width: 14px;
     }
-    50% {
-        top: 14px;
-        left: 17px;
-        width: 4px;
-        height: 4px;
-        transform: rotate(45deg);
-        border-color: #0f9d58;
-        border-left-color: transparent;
-        border-top-color: transparent;
+    40% {
+        border-color: #fff;
+        border-width: 0 0 2px 0;
+        height: 0;
+        margin-left: -4px;
+        margin-top: -1px;
+        width: 14px;
     }
-    51% {
-        border-color: #5a5a5a;
-        border-left-color: #5a5a5a;
-        border-top-color: #5a5a5a;
+    70% {
+        border-color: #fff;
+        border-width: 0 0 2px 0;
+        height: 0;
+        margin-left: 6px;
+        margin-top: -5px;
+        width: 0;
     }
     100% {
-        top: 1px;
-        left: 12px;
-        width: 18px;
-        height: 18px;
-        transform: rotate(0deg);
-        border-color: #5a5a5a;
-        border-left-color: #5a5a5a;
-        border-top-color: #5a5a5a;
+        border-color: #fff;
+        border-width: 0;
+        height: 0;
+        width: 0;
     }
 }
 
-@keyframes check {
-    100% {
-        top: -3px;
-        left: 17px;
-        width: 10px;
-        height: 21px;
-        transform: rotate(45deg);
-        border-color: #0f9d58;
-        border-left-color: transparent;
-        border-top-color: transparent;
-    }
-    51% {
-        border-left: transparent;
-        border-top-color: transparent;
-    }
-    50% {
-        top: 14px;
-        left: 17px;
-        width: 4px;
-        height: 4px;
-        transform: rotate(45deg);
-        border-color: #5a5a5a;
-        border-left-color: #5a5a5a;
-        border-top-color: #5a5a5a;
-    }
+/* Checkbox: Marker in */
+@keyframes checkbox-marker-on {
     0% {
-        top: 1px;
-        left: 12px;
-        width: 18px;
-        height: 18px;
-        transform: rotate(0deg);
-        border-color: #5a5a5a;
-        border-left-color: #5a5a5a;
-        border-top-color: #5a5a5a;
+        border-width: 0;
+        height: 0;
+        width: 0;
     }
-}
-
-@keyframes rippleOn {
-    0% {
-        opacity: 0;
+    40% {
+        border-width: 0;
+        height: 0;
+        width: 0;
     }
-    50% {
-        opacity: 0.2;
+    70% {
+        border-width: 0 0 0 2px;
+        height: 8px;
+        margin-left: -6px;
+        margin-top: -2px;
+        width: 0;
     }
     100% {
-        opacity: 0;
-    }
-}
-
-@keyframes rippleOff {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.2;
-    }
-    100% {
-        opacity: 0;
+        border-width: 0 0 2px 2px;
+        height: 8px;
+        margin-left: -7px;
+        margin-top: -6px;
+        width: 14px;
     }
 }
