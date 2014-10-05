@@ -176,4 +176,6 @@ module.exports = function(grunt) {
             "watch"
         ]);
     });
+
+    grunt.registerTask('cibuild',["newer:jshint", "jasmine:scripts"]);
 };
