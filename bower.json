@@ -7,8 +7,20 @@
   ],
   "description": "Material Design theme for Bootstrap 3",
   "main": [
-      "dist/css/material.css",
-      "dist/js/material.js"
+    "dist/css/material.css",
+    "dist/js/material.js"
+  ],
+  "ignore": [
+    "test",
+    "screenshots",
+    "demo",
+    ".editorconfig",
+    ".gitignore",
+    ".jshintrc",
+    ".travis.yml",
+    "CONTRIBUTING.md",
+    "Gruntfile.json",
+    "index.html"
   ],
   "keywords": [
     "material",
