@@ -177,5 +177,5 @@ module.exports = function(grunt) {
         ]);
     });
 
-    grunt.registerTask('cibuild',["newer:jshint", "jasmine:scripts"]);
+    grunt.registerTask("cibuild",["newer:jshint", "jasmine:scripts"]);
 };
