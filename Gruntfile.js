@@ -61,12 +61,10 @@ module.exports = function(grunt) {
         },
 
         copy: {
-            tplcss: {
-                src: "dist/css/*.min.css",
-                dest: "template/material/"
-            },
-            tpljs: {
-                src: "dist/css/*.js",
+            tpl: {
+                expand: true,
+                cwd: "dist/",
+                src: "**",
                 dest: "template/material/"
             },
             distjs: {
