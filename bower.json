@@ -6,7 +6,10 @@
     "Federico Zivolo <info@mywebexpression.com>"
   ],
   "description": "Material Design theme for Bootstrap 3",
-  "main": "css-compiled/material.css",
+  "main": [
+      "dist/css/material.css",
+      "dist/js/material.js"
+  ],
   "keywords": [
     "material",
     "design",
