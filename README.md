@@ -98,7 +98,7 @@ The syntax to add a Material icon is:
 
 # Plugins
 
-Material Design for Bootstrap comes with styling support for various external scripts. At the moment only two scripts are supported but others will come:
+Material Design for Bootstrap comes with styling support for various external scripts:
 
 ### SnackbarJS
 
@@ -113,6 +113,11 @@ At the moment RipplesJS does not have its own repository but it will probably ha
 
 Make cross-browser sliders and get them styled with Material Design thanks to the support provided by this theme.
 Read more about [noUiSlider here](http://refreshless.com/nouislider/)
+
+### Selectize.js
+
+Transform select and multi select inputs in advanced text inputs. Material Design for BS provides a fulle replacement of the plugin's CSS, don't include it so.
+Read more about [selectize.js](http://brianreavis.github.io/selectize.js/)
 
 
 # Compatibility
