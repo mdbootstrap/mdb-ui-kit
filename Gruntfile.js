@@ -128,7 +128,8 @@ module.exports = function(grunt) {
             all: [
                 "Gruntfile.js",
                 "scripts/**/*.js",
-                "template/**/*.js"
+                "template/**/*.js",
+                "!template/**/*.min.js"
             ],
             test: {
                 options: {
