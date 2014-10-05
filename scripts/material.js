@@ -39,22 +39,22 @@ $(function (){
 
     // Detect animationend event name.
     var ANIMATION_END_EVENT = (function() {
-      var eventName,
-        ANIMATION_END_EVENT_NAMES = {
-          "animation":         "animationend",
-          "-o-animation":      "oAnimationEnd",
-          "-moz-animation":    "animationend",
-          "-webkit-animation": "webkitAnimationEnd",
-          "-ms-animation":     "animationend"
-        },
-        animateFakeEl = document.createElement("animatefakeelement");
+        var eventName,
+            ANIMATION_END_EVENT_NAMES = {
+                "animation":         "animationend",
+                "-o-animation":      "oAnimationEnd",
+                "-moz-animation":    "animationend",
+                "-webkit-animation": "webkitAnimationEnd",
+                "-ms-animation":     "animationend"
+            },
+            animateFakeEl = document.createElement("animatefakeelement");
 
-      for (eventName in ANIMATION_END_EVENT_NAMES) {
-        if (typeof(animateFakeEl.style[eventName]) !== "undefined") {
-          return ANIMATION_END_EVENT_NAMES[eventName];
+        for (eventName in ANIMATION_END_EVENT_NAMES) {
+            if (typeof(animateFakeEl.style[eventName]) !== "undefined") {
+                return ANIMATION_END_EVENT_NAMES[eventName];
+            }
         }
-      }
-      return null;
+        return null;
     })();
 
     // Support for "arrive.js" to dynamically detect creation of elements
@@ -69,7 +69,7 @@ $(function (){
     $(document).on("change", ".checkbox input", function() {
         // safari cannot auto focus when click.
         var $checkbox = $(this).focus();
-        $checkbox.find("+ .check").one(ANIMATION_END_EVENT, function () {
+        $checkbox.find("+ .check").one(ANIMATION_END_EVENT, function() {
             $checkbox.blur();
         });
     });
