@@ -111,7 +111,12 @@ window.ripples = {
         bind("mouseover", withRipple, rippleInit);
 
         // start ripple effect on mousedown
-        bind("mousedown", ".ripple-wrapper", rippleStart);
+        bind("mousedown", ".ripple-wrapper", function(e, $ripple) {
+            // Start ripple only on left or middle mouse click
+            if (e.which === 1 || e.which === 2) {
+                rippleStart(e, $ripple);
+            }
+        });
         // if animation ends and user is not holding mouse then destroy the ripple
         bind("rippleEnd", ".ripple-wrapper .ripple", function(e, $ripple) {
 
