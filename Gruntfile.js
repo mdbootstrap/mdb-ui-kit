@@ -6,24 +6,24 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         less: {
-            production: {
+            compileless: {
                 options: {
                     paths: ["less"]
                 },
                 files: {
-                    "css-compiled/material.css": "less/material.less",
-                    "css-compiled/material-wfont.css": "less/material-wfont.less",
-                    "css-compiled/ripples.css": "less/ripples.less"
+                    "dist/css/material.css": "less/material.less",
+                    "dist/css/material-wfont.css": "less/material-wfont.less",
+                    "dist/css/ripples.css": "less/ripples.less"
                 }
             }
         },
 
         sass: {
-            production: {
+            compilesass: {
                 files: {
-                    "css-compiled/material.css": "sass/material.scss",
-                    "css-compiled/material-wfont.css": "sass/material-wfont.scss",
-                    "css-compiled/ripples.css": "sass/ripples.scss"
+                    "dist/css/material.css": "sass/material.scss",
+                    "dist/css/material-wfont.css": "sass/material-wfont.scss",
+                    "dist/css/ripples.css": "sass/ripples.scss"
                 }
             }
         },
@@ -32,35 +32,57 @@ module.exports = function(grunt) {
             options: {
                 browsers: ["last 3 versions", "ie 8", "ie 9", "ie 10", "ie 11"]
             },
-            dist: {
+            prefix: {
                 files: {
-                    "css-compiled/material.css": "css-compiled/material.css",
-                    "css-compiled/material-wfont.css": "css-compiled/material-wfont.css",
-                    "css-compiled/ripples.css": "css-compiled/ripples.css"
+                    "dist/css/material.css": "dist/css/material.css",
+                    "dist/css/material-wfont.css": "dist/css/material-wfont.css",
+                    "dist/css/ripples.css": "dist/css/ripples.css"
                 }
             }
         },
 
         cssmin: {
-            minify: {
+            minifycss: {
                 expand: true,
-                cwd: "css-compiled/",
+                cwd: "dist/css/",
                 src: ["*.css", "!*.min.css"],
-                dest: "css-compiled/",
+                dest: "dist/css/",
                 ext: ".min.css"
             }
         },
 
+        uglify: {
+            minifyjs: {
+                files: {
+                    "dist/js/material.min.js": "scripts/material.js",
+                    "dist/js/ripples.min.js": "scripts/ripples.js"
+                }
+            }
+        },
+
         copy: {
-            css: {
-                src: "css-compiled/*.min.css",
+            tpl: {
+                expand: true,
+                cwd: "dist/",
+                src: "**",
                 dest: "template/material/"
             },
-            js: {
-                src: "scripts/*.js",
-                dest: "template/material/"
+            distjs: {
+                expand: true,
+                cwd: "scripts/",
+                src: "**",
+                dest: "dist/js/",
+                flatten: true,
+                filter: "isFile"
+            },
+            distfonts: {
+                expand: true,
+                cwd: "fonts/",
+                src: "**",
+                dest: "dist/fonts/",
+                flatten: true,
+                filter: "isFile"
             }
-
         },
 
         connect: {
@@ -106,7 +128,8 @@ module.exports = function(grunt) {
             all: [
                 "Gruntfile.js",
                 "scripts/**/*.js",
-                "template/**/*.js"
+                "template/**/*.js",
+                "!template/**/*.min.js"
             ],
             test: {
                 options: {
@@ -139,7 +162,7 @@ module.exports = function(grunt) {
                 },
                 files: [
                     "index.html",
-                    "css-compiled/**/*.css",
+                    "dist/css/**/*.css",
                     "**/*.{png,jpg,jpeg,gif,webp,svg}"
                 ]
             }
@@ -147,9 +170,9 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "copy"]);
+    grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "uglify", "copy"]);
 
-    grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "copy"]);
+    grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "uglify", "copy"]);
 
     grunt.registerTask("build", function(target) {
         var buildType = "default";
