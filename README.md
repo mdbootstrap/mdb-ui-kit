@@ -1,3 +1,5 @@
+[![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
+
 [![banner](demo/imgs/banner.jpg)](#)
 
 This Bootstrap theme is an easy way to use the new Material Design guidelines by Google in your Bootstrap 3 based application.
