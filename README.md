@@ -1,11 +1,11 @@
 [![banner](demo/imgs/banner.jpg)](#)
 
-This Bootstrap theme is an easy way to use the new Material Design guidelines by Google in your Bootstrap 3 based application.
-Just include the theme right after the Bootstrap CSS and include the javascript at the end of your document, everything will be converted to Material Design (paper) style.
+This Bootstrap theme is an easy way to use the new [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) in your Bootstrap 3 based application.
+Just include the theme, after the Bootstrap CSS and include the javascript at the end of your document (Just before the end of the `<body>` tag), and everything will be converted to Material Design (paper) style.
 
-This theme is in early development and is not ready for production.
+**Note:**This theme is in early development and is not ready for production.
 
-Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/) (could be not even with the master branch).
+Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/) (This demo may not be even with the master branch.)
 
 ## How to install
 
