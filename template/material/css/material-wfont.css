@@ -1564,6 +1564,22 @@ h6,
 .h6 {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+body .well.well-sm,
+.container .well.well-sm,
+.container-fluid .well.well-sm,
+body .well:not([class^="well well-material-"]).well-sm,
+.container .well:not([class^="well well-material-"]).well-sm,
+.container-fluid .well:not([class^="well well-material-"]).well-sm {
+  padding: 9px;
+}
+body .well.well-lg,
+.container .well.well-lg,
+.container-fluid .well.well-lg,
+body .well:not([class^="well well-material-"]).well-lg,
+.container .well:not([class^="well well-material-"]).well-lg,
+.container-fluid .well:not([class^="well well-material-"]).well-lg {
+  padding: 24px;
+}
 body .well,
 .container .well,
 .container-fluid .well,

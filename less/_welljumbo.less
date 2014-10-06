@@ -2,6 +2,13 @@
 body, .container, .container-fluid {
 
     .well, .well:not([class^="well well-material-"]) {
+
+        &.well-sm {
+            padding: 9px;
+        }
+        &.well-lg {
+            padding: 24px;
+        }
         &, .form-control {
             color: @lightbg-text;
         }
@@ -30,7 +37,7 @@ body, .container, .container-fluid {
         &, .form-control, .floating-label {
             color: @darkbg-text;
         }
-       .form-control {
+        .form-control {
             border-bottom-color: @darkbg-text;
             &::-webkit-input-placeholder {
                 color: @darkbg-text;
