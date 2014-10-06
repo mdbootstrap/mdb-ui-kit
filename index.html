@@ -2062,7 +2062,7 @@
                 </div>
             </div>
 
-            <div id="source-modal" class="modal fade">
+            <div id="source-modal" class="modal fade" tabindex="-1">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -2085,7 +2085,6 @@
 
                 var $button = $("<div id='source-button' class='btn btn-primary btn-xs'>&lt; &gt;</div>").click(function(){
                     var index =  $('.bs-component').index( $(this).parent() );
-                    console.log(index);
                     $.get(window.location.href, function(data){
                         var html = $(data).find('.bs-component').eq(index).html();
                         html = cleanSource(html);
