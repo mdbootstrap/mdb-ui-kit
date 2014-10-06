@@ -27,6 +27,17 @@ so this might not be true before the first stable release.
 Navigate to the `template/` folder in this repository, and you will see the `index.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
 You need to copy the `material/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
 
+## Development
+
+We are using grunt to automate the workflow and build process. Ensure you have nodejs installed and grunt-cli installed globally.
+After cloning the repo, run `npm install` to ensure you have all dev dependencies.
+
+Run the `grunt build` command to run the tests and compile the less/sass. See Gruntfile.js for details on targets.
+
+Run the `grunt test` command for browser based jasmine unit tests.
+
+Run the `grunt serve` command to build and fire up a http server with live-reload and a watch for development purposes.
+
 ## Todo
 
 - Morphing icons
