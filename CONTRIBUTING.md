@@ -9,3 +9,7 @@ It already includes every needed dependency and is based on the latest version o
 ## Grunt
 
 **Grunt!** Ok... when you edit something please run `grunt` to compile CSS and copy stuff in the correct folders. Thanks!
+
+## Before send a Pull Request
+
+We are developing in the `develop` branch, please send any PR to this branch.
