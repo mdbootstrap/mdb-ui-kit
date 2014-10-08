@@ -20,10 +20,10 @@
     text-decoration: none;
     color: @darkbg-text;
 
-    &:hover, &:focus {
+    &:hover {
         color: @darkbg-text;
     }
-    &:hover:not(.btn-link), &:focus:not(.btn-link) {
+    &:hover:not(.btn-link) {
         .shadow-z-2-hover();
     }
     transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -38,12 +38,12 @@
 // This is needed to style buttons which has not a variation suffix (they must stiled as btn-default)
 .btn-link, .btn:not([class^="btn btn-"]), .btn-default {
     color: @lightbg-text;
-    &:hover, &:focus {
+    &:hover {
         color: @lightbg-text;
     }
 }
 .btn:not([class^="btn btn-"]), .btn-default {
-    &:hover, &:focus {
+    &:hover {
         background-color: rgba(255,255,255,0.5);
     }
 }
@@ -57,7 +57,7 @@
 }
 .btn-flat {
     box-shadow: none !important;
-    &.btn-default:hover, &.btn-default:focus {
+    &.btn-default:hover {
         background: none;
     }
 }
@@ -92,7 +92,7 @@
     font-size: 26px;
     width: 56px;
     height: 56px;
-    &, &:hover, &:focus {
+    &, &:hover {
         .variations(~"", background-color, transparent);
     }
     &, .ripple-wrapper {
