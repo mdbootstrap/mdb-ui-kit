@@ -8,7 +8,9 @@
   "description": "Material Design theme for Bootstrap 3",
   "main": [
     "dist/css/material.css",
-    "dist/js/material.js"
+    "dist/js/material.js",
+    "dist/css/ripples.css",
+    "dist/js/ripples.js"
   ],
   "ignore": [
     "test",
