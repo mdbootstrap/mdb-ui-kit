@@ -129,7 +129,7 @@ Read more about [noUiSlider here](http://refreshless.com/nouislider/)
 
 ### Selectize.js
 
-Transform select and multi select inputs in advanced text inputs. Material Design for BS provides a fulle replacement of the plugin's CSS, don't include it so.
+Transform select and multi select inputs in advanced text inputs. Material Design for BS provides a full replacement of the plugin's CSS, so don't include it.
 Read more about [selectize.js](http://brianreavis.github.io/selectize.js/)
 
 
