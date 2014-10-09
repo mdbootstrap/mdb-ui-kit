@@ -3,30 +3,30 @@
 
 
 // Material colors palette
-$red: #F44336;
-$pink: #E91E63;
-$purple: #9C27B0;
-$deeppurple: #673AB7;
-$indigo: #3F51B5;
-$lightblue: #03A9F4;
-$cyan: #00BCD4;
-$teal: #009688;
-$lightgreen: #8BC34A;
-$lime: #CDDC39;
-$lightyellow: #FFEB3B;
-$orange: #FF9800;
-$deeporange: #FF5722;
-$grey: #9E9E9E;
-$bluegrey: #607D8B;
-$brown: #795548;
-$lightgrey: #ECECEC;
+$red: #F44336 !default;
+$pink: #E91E63 !default;
+$purple: #9C27B0 !default;
+$deeppurple: #673AB7 !default;
+$indigo: #3F51B5 !default;
+$lightblue: #03A9F4 !default;
+$cyan: #00BCD4 !default;
+$teal: #009688 !default;
+$lightgreen: #8BC34A !default;
+$lime: #CDDC39 !default;
+$lightyellow: #FFEB3B !default;
+$orange: #FF9800 !default;
+$deeporange: #FF5722 !default;
+$grey: #9E9E9E !default;
+$bluegrey: #607D8B !default;
+$brown: #795548 !default;
+$lightgrey: #ECECEC !default;
 
 // Bootstrap shades
-$primary: #4285F4;
-$success: #0F9D58;
-$info: $lightblue;
-$warning: $deeporange;
-$danger: $red;
+$primary: #4285F4 !default;
+$success: #0F9D58 !default;
+$info: $lightblue !default;
+$warning: $deeporange !default;
+$danger: $red !default;
 
 // Typography elements for Material
 $darkbg-text: rgba(255,255,255,0.84);
