@@ -4063,14 +4063,14 @@ fieldset[disabled] .navbar .btn-link:focus {
   margin: 0;
 }
 .nav-tabs > li > a:hover {
-  background: transparent;
+  background-color: transparent;
   border: 0;
 }
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.open > a,
-.nav-tabs > li.open > a:hover {
-  background: transparent !important;
+.nav-tabs > li.open > .nav-tabs > li:hover {
+  background-color: transparent !important;
   border: 0 !important;
   color: #FFFFFF !important;
   font-weight: 500;

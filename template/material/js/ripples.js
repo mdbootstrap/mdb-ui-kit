@@ -50,11 +50,11 @@ window.ripples = {
             // Move ripple to the mouse position            
             $ripple.setAttribute("style", "left:" + mousePos.x + "px; top:" + mousePos.y + "px;");
                          
-            // Get the clicked targets text color, this will be applied to the ripple.
+            // Get the clicked targets text color, this will be applied to the ripple as background-color.
             targetColor = window.getComputedStyle($el).color;            
 
             
-            // This changes the last value of the rgba value (opacity) to the constant __rippleOpacity__
+            // This changes the alpha value of the rgba (opacity) to the constant __rippleOpacity__
             // Not sure if regexp is quicker... 
             rgbArr = targetColor.split(',');                        
             rgbArr.pop();
