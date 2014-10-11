@@ -1,6 +1,6 @@
 .withripple {
-  position: relative; }
-
+  position: relative;
+}
 .ripple-wrapper {
   position: absolute;
   top: 0;
@@ -9,8 +9,8 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 2px; }
-
+  border-radius: 2px;
+}
 .ripple {
   position: absolute;
   width: 20px;
@@ -26,14 +26,15 @@
       -ms-transform-origin: 50%;
           transform-origin: 50%;
   opacity: 0;
-  pointer-events: none; }
-
+  pointer-events: none;
+}
 .ripple.ripple-on {
   -webkit-transition: opacity 0.15s ease-in 0s, -webkit-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
           transition: opacity 0.15s ease-in 0s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
-  opacity: 1; }
-
+  opacity: 1;
+}
 .ripple.ripple-out {
   -webkit-transition: opacity 0.1s linear 0s !important;
           transition: opacity 0.1s linear 0s !important;
-  opacity: 0; }
+  opacity: 0;
+}
