@@ -1,6 +1,6 @@
 /* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
 /* globals CustomEvent */
-
+/*jshint maxlen: 500 */
 window.ripples = {
     init : function(withRipple) {
         "use strict";
@@ -56,10 +56,10 @@ window.ripples = {
             
             // This changes the alpha value of the rgba (opacity) to the constant __rippleOpacity__
             // Not sure if regexp is quicker... 
-            rgbArr = targetColor.split(',');                        
+            rgbArr = targetColor.split(",");                        
             rgbArr.pop();
-            rgbArr.push(" " + __rippleOpacity__ + ")")            
-            targetColor = rgbArr.join(',');
+            rgbArr.push(" " + __rippleOpacity__ + ")");
+            targetColor = rgbArr.join(",");
             
 
             // Insert new ripple into ripple wrapper
