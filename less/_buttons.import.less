@@ -15,7 +15,7 @@
     margin: 10px 1px;
 
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 2px;
     text-transform: uppercase;
     text-decoration: none;
     color: @darkbg-text;
@@ -64,7 +64,7 @@
 
 .btn-group, .btn-group-vertical {
     position: relative;
-    border-radius: 4px;
+    border-radius: 2px;
     margin: 10px 1px;
 
     .btn-shadow();
@@ -93,6 +93,7 @@
     width: 56px;
     height: 56px;
     &, &:hover {
+        .shadow-z-1();
         .variations(~"", background-color, transparent);
     }
     &, .ripple-wrapper {
