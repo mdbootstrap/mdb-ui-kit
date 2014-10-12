@@ -3,7 +3,11 @@
 $(function (){
 
     if (typeof ripples == "object") {
-        ripples.init(".btn:not(.btn-link), .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple");
+        ripples.init( ".btn:not(.btn-link)," +
+                      ".card-image img," + // XXX Not sure why this doesn't work
+                      ".navbar a:not(.withoutripple)," +
+                      ".nav-tabs a:not(.withoutripple)," +
+                      ".withripple" );
     }
 
     var initInputs = function() {
