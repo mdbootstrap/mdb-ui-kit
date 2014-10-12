@@ -4191,6 +4191,62 @@ fieldset[disabled] .navbar .btn-link:focus {
 .icon-material-lightgrey {
   color: #ececec;
 }
+.card {
+  /***** Make height equal to width (http://stackoverflow.com/a/6615994) ****/
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  /**************************************************************************/
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.84);
+  background: #ffffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.card .card-height-indicator {
+  margin-top: 100%;
+}
+.card .card-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.card .card-image {
+  height: 60%;
+  position: relative;
+  overflow: hidden;
+}
+.card .card-image img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.card .card-image .card-image-headline {
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+  color: #ffffff;
+  font-size: 2em;
+}
+.card .card-body {
+  height: 30%;
+  padding: 18px;
+}
+.card .card-footer {
+  height: 10%;
+  padding: 18px;
+}
+.card .card-footer button {
+  margin: 0 !important;
+  position: relative;
+  bottom: 25px;
+  width: auto;
+}
+.card .card-footer button:first-child {
+  left: -15px;
+}
 .snackbar {
   background-color: #323232;
   color: rgba(255, 255, 255, 0.84);
