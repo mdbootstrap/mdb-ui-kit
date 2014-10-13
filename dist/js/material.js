@@ -4,7 +4,7 @@ $(function (){
 
     if (typeof ripples == "object") {
         ripples.init( ".btn:not(.btn-link)," +
-                      ".card-image img," + // XXX Not sure why this doesn't work
+                      ".card-image," +
                       ".navbar a:not(.withoutripple)," +
                       ".nav-tabs a:not(.withoutripple)," +
                       ".withripple" );
