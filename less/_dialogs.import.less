@@ -1,0 +1,38 @@
+.modal-content {
+    .shadow-z-5();
+    margin-top: 10em; //XXX TODO Need a better way to vertically position the dialog
+    border-radius: 2px;
+    border: none;
+    .modal-header {
+        border-bottom: none;
+        padding: 24px;
+        padding-bottom: 0;
+    }
+    .modal-body {
+        padding: 24px;
+        padding-bottom: 0;
+    }
+    .modal-footer {
+        border-top: none;
+        padding: 24px;
+        button {
+            margin: 0;
+            padding-left: 16px;
+            padding-right: 16px;
+            width: auto;
+            &.pull-left {
+                padding-left: 5px;
+                padding-right: 5px;
+                position: relative;
+                left: -5px;
+            }
+        }
+        button+button {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.modal-backdrop {
+    display: none;
+}
