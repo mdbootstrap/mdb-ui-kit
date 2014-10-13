@@ -31,35 +31,50 @@ window.ripples = {
         var rippleStart = function(e, target) {
 
             // Init variables
-            var $rippleWrapper  = target,
-                $el             = $rippleWrapper.parentNode,
-                $ripple         = document.createElement("div"),
-                elPos           = $el.getBoundingClientRect(),
-                mousePos        = {x: e.clientX - elPos.left, y: e.clientY - elPos.top},
-                scale           = "transform:scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
-                rippleEnd       = new CustomEvent("rippleEnd", {detail: $ripple}),
+            var $rippleWrapper        = target,
+                $el                   = $rippleWrapper.parentNode,                
+                $ripple               = document.createElement("div"),                
+                elPos                 = $el.getBoundingClientRect(),
+                mousePos              = {x: e.clientX - elPos.left, y: e.clientY - elPos.top},
+                scale                 = "transform:scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
+                rippleEnd             = new CustomEvent("rippleEnd", {detail: $ripple}),
+                __rippleOpacity__     = 0.05,
+                targetColor,
+                rgbArr,
                 refreshElementStyle;
 
             $ripplecache = $ripple;
 
             // Set ripple class
-            $ripple.className = "ripple";
-
-            // Move ripple to the mouse position
+            $ripple.className = "ripple";            
+            // Move ripple to the mouse position            
             $ripple.setAttribute("style", "left:" + mousePos.x + "px; top:" + mousePos.y + "px;");
+                         
+            // Get the clicked targets text color, this will be applied to the ripple as background-color.
+            targetColor = window.getComputedStyle($el).color;            
+
+            
+            // This changes the alpha value of the rgba (opacity) to the constant __rippleOpacity__
+            // Not sure if regexp is quicker... 
+            rgbArr = targetColor.split(',');                        
+            rgbArr.pop();
+            rgbArr.push(" " + __rippleOpacity__ + ")")            
+            targetColor = rgbArr.join(',');
+            
 
             // Insert new ripple into ripple wrapper
-            $rippleWrapper.appendChild($ripple);
+            $rippleWrapper.appendChild($ripple);    
 
             // Make sure the ripple has the class applied (ugly hack but it works)
             refreshElementStyle = window.getComputedStyle($ripple).opacity;
 
             // Let other funtions know that this element is animating
             $ripple.dataset.animating = 1;
-
-            // Set scale value to ripple and animate it
+                // + "background-color: " + targetColor + ";" 
+            // Set scale value, background-color and opacity to ripple and animate it
             $ripple.className = "ripple ripple-on";
-            $ripple.setAttribute("style", $ripple.getAttribute("style") + ["-ms-" + scale,"-moz-" + scale,"-webkit-" + scale,scale].join(";"));
+            $ripple.setAttribute("style", $ripple.getAttribute("style") + "background-color: " + targetColor + ";" + ["-ms-" + scale,"-moz-" + scale,"-webkit-" + scale,scale].join(";"));
+
 
             // This function is called when the animation is finished
             setTimeout(function() {
