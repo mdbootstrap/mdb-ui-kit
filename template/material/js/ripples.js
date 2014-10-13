@@ -20,28 +20,42 @@ window.ripples = {
             rippleStartTime = 500;
 
         // Helper to bind events on dynamically created elements
-        var bind = function(event, selector, callback) {
-            document.addEventListener(event, function(e) {
-                var target = (typeof e.detail !== "number") ? e.detail : e.target;
+        var bind = function(events, selector, callback) {
+            if (typeof events === "string") {
+                events = [events];
+            }
+            events.forEach(function(event) {
+                document.addEventListener(event, function(e) {
+                    var target = (typeof e.detail !== "number") ? e.detail : e.target;
 
-                if (matchesSelector(target, selector)) {
-                    callback(e, target);
-                }
+                    if (matchesSelector(target, selector)) {
+                        callback(e, target);
+                    }
+                });
             });
         };
 
-        var rippleStart = function(e, target) {
+        var rippleStart = function(e, target, callback) {
 
             // Init variables
             var $rippleWrapper      = target,
                 $el                 = $rippleWrapper.parentNode,
                 $ripple             = document.createElement("div"),
                 elPos               = $el.getBoundingClientRect(),
-                mousePos            = {x: e.clientX - elPos.left, y: e.clientY - elPos.top},
+                // Mouse pos in most cases
+                mousePos            = {x: e.clientX - elPos.left, y: ((window.ontouchstart) ? e.clientY - window.scrollY: e.clientY) - elPos.top},
                 scale               = "scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
                 rippleEnd           = new CustomEvent("rippleEnd", {detail: $ripple}),
                 _rippleOpacity      = 0.1,
                 refreshElementStyle;
+
+
+            // If multitouch is detected or some other black magic suff is happening...
+            if (e.touches) {
+                mousePos  = {x: e.touches[0].clientX - elPos.left, y:  e.touches[0].clientY - elPos.top};
+            }
+
+            console.log(mousePos);
 
             $ripplecache = $ripple;
 
@@ -88,6 +102,9 @@ window.ripples = {
                 // Let know to other functions that this element has finished the animation
                 $ripple.dataset.animating = 0;
                 document.dispatchEvent(rippleEnd);
+                if (callback) {
+                    callback();
+                }
 
             }, rippleStartTime);
 
@@ -105,12 +122,12 @@ window.ripples = {
 
         // Helper, need to know if mouse is up or down
         var mouseDown = false;
-        document.body.onmousedown = function() {
+        bind(["mousedown", "touchstart"], "*", function() {
             mouseDown = true;
-        };
-        document.body.onmouseup = function() {
+        });
+        bind(["mouseup", "touchend"], "*", function() {
             mouseDown = false;
-        };
+        });
 
         // Append ripple wrapper if not exists already
         var rippleInit = function(e, target) {
@@ -119,20 +136,25 @@ window.ripples = {
                 var $rippleWrapper = document.createElement("div");
                 $rippleWrapper.className = "ripple-wrapper";
                 target.appendChild($rippleWrapper);
+                if (window.ontouchstart === null) {
+                    rippleStart(e, $rippleWrapper, function() {
+                        // FIXME: ugly fix for first touchstart event on mobile devices...
+                        $rippleWrapper.getElementsByClassName("ripple")[0].remove();
+                    });
+                }
             }
         };
-
 
         var $ripplecache;
 
         // Events handler
         // init RippleJS and start ripple effect on mousedown
-        bind("mouseover", withRipple, rippleInit);
+        bind(["mouseover", "touchstart"], withRipple, rippleInit);
 
         // start ripple effect on mousedown
-        bind("mousedown", ".ripple-wrapper", function(e, $ripple) {
-            // Start ripple only on left or middle mouse click
-            if (e.which === 1 || e.which === 2) {
+        bind(["mousedown", "touchstart"], ".ripple-wrapper", function(e, $ripple) {
+            // Start ripple only on left or middle mouse click and touch click
+            if (e.which === 0 || e.which === 1 || e.which === 2) {
                 rippleStart(e, $ripple);
             }
         });
@@ -148,7 +170,7 @@ window.ripples = {
         });
 
         // Destroy ripple when mouse is not holded anymore if the ripple still exists
-        bind("mouseup", ".ripple-wrapper", function() {
+        bind(["mouseup", "touchend"], ".ripple-wrapper", function() {
             var $ripple = $ripplecache;
             if ($ripple && $ripple.dataset.animating != 1) {
                 rippleOut($ripple);
