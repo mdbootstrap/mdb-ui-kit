@@ -1,3 +1,6 @@
+[![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
+[![ghat status](http://mywebexpression.com:3001/status/initial/badge.png)](http://mywebexpression.com:3001/) (click to chat)
+
 [![banner](demo/imgs/banner.jpg)](#)
 
 This Bootstrap theme is an easy way to use the new [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) in your Bootstrap 3 based application.
@@ -24,6 +27,17 @@ so this might not be true before the first stable release.
 
 Navigate to the `template/` folder in this repository, and you will see the `index.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
 You need to copy the `material/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
+
+## Development
+
+We are using grunt to automate the workflow and build process. Ensure you have nodejs installed and grunt-cli installed globally.
+After cloning the repo, run `npm install` to ensure you have all dev dependencies.
+
+Run the `grunt build` command to run the tests and compile the less/sass. See Gruntfile.js for details on targets.
+
+Run the `grunt test` command for browser based jasmine unit tests.
+
+Run the `grunt serve` command to build and fire up a http server with live-reload and a watch for development purposes.
 
 ## Todo
 
@@ -116,7 +130,7 @@ Read more about [noUiSlider here](http://refreshless.com/nouislider/)
 
 ### Selectize.js
 
-Transform select and multi select inputs in advanced text inputs. Material Design for BS provides a fulle replacement of the plugin's CSS, don't include it so.
+Transform select and multi select inputs in advanced text inputs. Material Design for BS provides a full replacement of the plugin's CSS, so don't include it.
 Read more about [selectize.js](http://brianreavis.github.io/selectize.js/)
 
 
