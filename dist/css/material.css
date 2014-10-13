@@ -3522,20 +3522,6 @@ select.form-control.focus {
 legend {
   border-bottom: 0;
 }
-.modal-content {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  border-radius: 0;
-  border: 0;
-}
-.modal-content .modal-header {
-  border-bottom: 0;
-}
-.modal-content .modal-footer {
-  border-top: 0;
-}
-.modal-content .modal-footer .btn + .btn {
-  margin-bottom: 10px;
-}
 .list-group {
   border-radius: 0;
 }
@@ -4213,6 +4199,43 @@ fieldset[disabled] .navbar .btn-link:focus {
 }
 .icon-material-lightgrey {
   color: #ececec;
+}
+.modal-content {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  margin-top: 10em;
+  border-radius: 2px;
+  border: none;
+}
+.modal-content .modal-header {
+  border-bottom: none;
+  padding: 24px;
+  padding-bottom: 0;
+}
+.modal-content .modal-body {
+  padding: 24px;
+  padding-bottom: 0;
+}
+.modal-content .modal-footer {
+  border-top: none;
+  padding: 24px;
+}
+.modal-content .modal-footer button {
+  margin: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  width: auto;
+}
+.modal-content .modal-footer button.pull-left {
+  padding-left: 5px;
+  padding-right: 5px;
+  position: relative;
+  left: -5px;
+}
+.modal-content .modal-footer button + button {
+  margin-bottom: 16px;
+}
+.modal-backdrop {
+  display: none;
 }
 .snackbar {
   background-color: #323232;
