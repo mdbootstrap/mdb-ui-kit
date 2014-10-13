@@ -1,15 +1,17 @@
 /* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
 /* globals CustomEvent */
-/*jshint maxlen: 500 */
 window.ripples = {
     init : function(withRipple) {
         "use strict";
 
         // Cross browser matches function
         function matchesSelector(domElement, selector) {
-            var matches = domElement.matches || domElement.matchesSelector || domElement.webkitMatchesSelector ||
+            var matches = domElement.matches ||
+                domElement.matchesSelector ||
+                domElement.webkitMatchesSelector ||
                 domElement.mozMatchesSelector ||
-                    domElement.msMatchesSelector || domElement.oMatchesSelector;
+                domElement.msMatchesSelector ||
+                domElement.oMatchesSelector;
             return matches.call(domElement, selector);
         }
 
@@ -31,36 +33,29 @@ window.ripples = {
         var rippleStart = function(e, target) {
 
             // Init variables
-            var $rippleWrapper        = target,
-                $el                   = $rippleWrapper.parentNode,                
-                $ripple               = document.createElement("div"),                
-                elPos                 = $el.getBoundingClientRect(),
-                mousePos              = {x: e.clientX - elPos.left, y: e.clientY - elPos.top},
-                scale                 = "transform:scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
-                rippleEnd             = new CustomEvent("rippleEnd", {detail: $ripple}),
-                __rippleOpacity__     = 0.05,
-                targetColor,
-                rgbArr,
+            var $rippleWrapper      = target,
+                $el                 = $rippleWrapper.parentNode,
+                $ripple             = document.createElement("div"),
+                elPos               = $el.getBoundingClientRect(),
+                mousePos            = {x: e.clientX - elPos.left, y: e.clientY - elPos.top},
+                scale               = "scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
+                rippleEnd           = new CustomEvent("rippleEnd", {detail: $ripple}),
+                _rippleOpacity      = 0.1,
                 refreshElementStyle;
 
             $ripplecache = $ripple;
 
             // Set ripple class
-            $ripple.className = "ripple";            
+            $ripple.className = "ripple";
+
             // Move ripple to the mouse position            
             $ripple.setAttribute("style", "left:" + mousePos.x + "px; top:" + mousePos.y + "px;");
-                         
-            // Get the clicked targets text color, this will be applied to the ripple as background-color.
-            targetColor = window.getComputedStyle($el).color;            
 
-            
-            // This changes the alpha value of the rgba (opacity) to the constant __rippleOpacity__
-            // Not sure if regexp is quicker... 
-            rgbArr = targetColor.split(",");                        
-            rgbArr.pop();
-            rgbArr.push(" " + __rippleOpacity__ + ")");
-            targetColor = rgbArr.join(",");
-            
+            // Get the clicked target's text color, this will be applied to the ripple as background-color.
+            var targetColor = window.getComputedStyle($el).color;
+
+            // Convert the rgb color to an rgba color with opacity set to __rippleOpacity__
+            targetColor = targetColor.replace("rgb", "rgba").replace(")",  ", " + _rippleOpacity + ")");
 
             // Insert new ripple into ripple wrapper
             $rippleWrapper.appendChild($ripple);    
@@ -70,11 +65,22 @@ window.ripples = {
 
             // Let other funtions know that this element is animating
             $ripple.dataset.animating = 1;
-                // + "background-color: " + targetColor + ";" 
+
             // Set scale value, background-color and opacity to ripple and animate it
             $ripple.className = "ripple ripple-on";
-            $ripple.setAttribute("style", $ripple.getAttribute("style") + "background-color: " + targetColor + ";" + ["-ms-" + scale,"-moz-" + scale,"-webkit-" + scale,scale].join(";"));
 
+            // Prepare the style of the ripple
+            var rippleStyle = [
+                $ripple.getAttribute("style"),
+                "background-color: " + targetColor,
+                "-ms-transform: " + scale,
+                "-moz-transform" + scale,
+                "-webkit-transform" + scale,
+                "transform: " + scale
+            ];
+
+            // Apply the style
+            $ripple.setAttribute("style", rippleStyle.join(";"));
 
             // This function is called when the animation is finished
             setTimeout(function() {
@@ -108,14 +114,12 @@ window.ripples = {
 
         // Append ripple wrapper if not exists already
         var rippleInit = function(e, target) {
-
             if (target.getElementsByClassName("ripple-wrapper").length === 0) {
                 target.className += " withripple";
                 var $rippleWrapper = document.createElement("div");
                 $rippleWrapper.className = "ripple-wrapper";
                 target.appendChild($rippleWrapper);
             }
-
         };
 
 
@@ -132,6 +136,7 @@ window.ripples = {
                 rippleStart(e, $ripple);
             }
         });
+
         // if animation ends and user is not holding mouse then destroy the ripple
         bind("rippleEnd", ".ripple-wrapper .ripple", function(e, $ripple) {
 
@@ -141,6 +146,7 @@ window.ripples = {
                 rippleOut($ripple);
             }
         });
+
         // Destroy ripple when mouse is not holded anymore if the ripple still exists
         bind("mouseup", ".ripple-wrapper", function() {
             var $ripple = $ripplecache;
