@@ -30,3 +30,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 This license could be edited in any moment without alert.
+
+Here are listed the authorized individuals and companies and the specific of their licenses:
+
+- **A*Star Education Ltd**: unlimited usage for websites and webapplications of the company.
