@@ -1,0 +1,128 @@
+// main: material.less
+
+.btn {
+    position: relative;
+    padding: 8px 30px;
+    border: 0;
+    margin: 10px 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: @darkbg-text;
+
+    &:hover:not(.btn-link):not(.btn-flat) {
+        .shadow-z-2-hover();
+    }
+    &:active:not(.btn-link):not(.btn-flat) {
+        .shadow-z-3();
+    }
+    &:disabled:not(.btn-link):not(.btn-flat) {
+        color: @text-disabled !important;
+        background-color: @background-disabled !important;
+        box-shadow: none;
+    }
+
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none !important;
+
+    .variations(~":not(.btn-link)", background-color, @btn-default);
+
+    &.btn-flat {
+        background: none;
+        box-shadow: none;
+        font-weight: 500;
+        &:disabled {
+            color: @text-disabled !important;
+        }
+        &.btn-primary {
+            color: @primary;
+        }
+        &.btn-success {
+            color: @success;
+        }
+        &.btn-info {
+            color: @info;
+        }
+        &.btn-warning {
+            color: @warning;
+        }
+        &.btn-danger {
+            color: @danger;
+        }
+    }
+
+    &.btn-raised {
+        .btn-shadow();
+    }
+
+    &.btn-fab {
+        margin: 0;
+        padding: 15px;
+        font-size: 26px;
+        width: 56px;
+        height: 56px;
+        &, &:hover {
+            .shadow-z-1();
+            .variations(~"", background-color, transparent);
+        }
+        &, .ripple-wrapper {
+            border-radius: 100%;
+        }
+        &.btn-fab-mini {
+            width: 40px;
+            height: 40px;
+            padding: 13px;
+            font-size: 15px;
+        }
+        i {
+            position: relative;
+            top: -5px;
+        }
+    }
+}
+
+// This is needed to style buttons which has not a variation suffix (they must stiled as btn-default)
+.btn-link, .btn:not([class^="btn btn-"]), .btn-default {
+    color: @lightbg-text;
+    &:hover {
+        color: @lightbg-text;
+    }
+}
+.btn:not([class^="btn btn-"]), .btn-default {
+    &:hover {
+        background-color: rgba(255,255,255,0.5);
+    }
+}
+.open > .dropdown-toggle.btn {
+    .variations(~"", background-color, @btn-default);
+}
+.btn-group, .btn-group-vertical {
+    position: relative;
+    border-radius: 2px;
+    margin: 10px 1px;
+
+    .btn-shadow();
+    &.open .dropdown-toggle {
+        box-shadow: none;
+    }
+    &.btn-group-raised {
+        .btn-shadow();
+    }
+    .btn, .btn:active, .btn-group {
+        box-shadow: none !important;
+        margin: 0;
+    }
+    .btn:active .caret { margin-left: -1px; }
+}
+.btn-group-flat {
+    box-shadow: none !important;
+}
+
+.btn-shadow() {
+    .shadow-z-2();
+    transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    &:active:not(.btn-link) {
+        .shadow-z-3();
+    }
+}
