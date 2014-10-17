@@ -25,7 +25,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
 h5, h6{
     font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    
+
 }
 
 // Well and Jumbotrons
@@ -63,9 +63,11 @@ legend {
         overflow: hidden;
         position: relative;
         a:hover {
-            background: rgba(0,0,0,0.08);
+            background-color: transparent;
+            color: @primary;
         }
     }
+    .variations(~" li a:hover", color, @primary);
 }
 
 // Alerts

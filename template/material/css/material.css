@@ -3887,7 +3887,78 @@ fieldset[disabled] .navbar .btn-link:focus {
   position: relative;
 }
 .dropdown-menu li a:hover {
-  background: rgba(0, 0, 0, 0.08);
+  background-color: transparent;
+  color: #4285f4;
+}
+.dropdown-menu li a:hover,
+.dropdown-menu-default li a:hover {
+  color: #4285f4;
+}
+.dropdown-menu-primary li a:hover {
+  color: #4285f4;
+}
+.dropdown-menu-success li a:hover {
+  color: #0f9d58;
+}
+.dropdown-menu-info li a:hover {
+  color: #03a9f4;
+}
+.dropdown-menu-warning li a:hover {
+  color: #ff5722;
+}
+.dropdown-menu-danger li a:hover {
+  color: #f44336;
+}
+.dropdown-menu-material-red li a:hover {
+  color: #f44336;
+}
+.dropdown-menu-material-pink li a:hover {
+  color: #e91e63;
+}
+.dropdown-menu-material-purple li a:hover {
+  color: #9c27b0;
+}
+.dropdown-menu-material-deeppurple li a:hover {
+  color: #673ab7;
+}
+.dropdown-menu-material-indigo li a:hover {
+  color: #3f51b5;
+}
+.dropdown-menu-material-lightblue li a:hover {
+  color: #03a9f4;
+}
+.dropdown-menu-material-cyan li a:hover {
+  color: #00bcd4;
+}
+.dropdown-menu-material-teal li a:hover {
+  color: #009688;
+}
+.dropdown-menu-material-lightgreen li a:hover {
+  color: #8bc34a;
+}
+.dropdown-menu-material-lime li a:hover {
+  color: #cddc39;
+}
+.dropdown-menu-material-lightyellow li a:hover {
+  color: #ffeb3b;
+}
+.dropdown-menu-material-orange li a:hover {
+  color: #ff9800;
+}
+.dropdown-menu-material-deeporange li a:hover {
+  color: #ff5722;
+}
+.dropdown-menu-material-grey li a:hover {
+  color: #9e9e9e;
+}
+.dropdown-menu-material-bluegrey li a:hover {
+  color: #607d8b;
+}
+.dropdown-menu-material-brown li a:hover {
+  color: #795548;
+}
+.dropdown-menu-material-lightgrey li a:hover {
+  color: #ececec;
 }
 .alert {
   border: 0px;
