@@ -2241,6 +2241,20 @@
 .mdi-toggle-radio-button-on:before {
   content: "\e8e4";
 }
+@-webkit-keyframes input-highlight {
+  0% {
+    left: 20%;
+    width: 20%;
+  }
+  99% {
+    width: 0;
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @keyframes input-highlight {
   0% {
     left: 20%;
@@ -2632,7 +2646,8 @@ body .jumbotron-material-lightgrey,
   text-transform: uppercase;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.84);
-  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
 }
 .btn:hover:not(.btn-link):not(.btn-flat) {
@@ -2741,7 +2756,8 @@ body .jumbotron-material-lightgrey,
 }
 .btn.btn-raised {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn.btn-raised:active:not(.btn-link) {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -2955,7 +2971,8 @@ body .jumbotron-material-lightgrey,
   border-radius: 2px;
   margin: 10px 1px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group:active:not(.btn-link),
 .btn-group-vertical:active:not(.btn-link) {
@@ -2968,7 +2985,8 @@ body .jumbotron-material-lightgrey,
 .btn-group.btn-group-raised,
 .btn-group-vertical.btn-group-raised {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group.btn-group-raised:active:not(.btn-link),
 .btn-group-vertical.btn-group-raised:active:not(.btn-link) {
@@ -3002,7 +3020,8 @@ body .jumbotron-material-lightgrey,
   display: block;
   position: absolute;
   left: 0px;
-  transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
 }
 .checkbox label .check {
   display: inline-block;
@@ -3032,7 +3051,9 @@ body .jumbotron-material-lightgrey,
 .checkbox label .check:before {
   position: absolute;
   content: "";
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
   display: block;
   margin-top: -4px;
   margin-left: 6px;
@@ -3045,7 +3066,8 @@ body .jumbotron-material-lightgrey,
                 0 0 0 0,
                 0 0 0 0,
                 0px 0px 0 0px inset;
-  animation: checkbox-off 0.3s linear forwards;
+  -webkit-animation: checkbox-off 0.3s linear forwards;
+          animation: checkbox-off 0.3s linear forwards;
 }
 .checkbox input[type=checkbox] {
   opacity: 0;
@@ -3055,24 +3077,30 @@ body .jumbotron-material-lightgrey,
 }
 .checkbox input[type=checkbox]:checked ~ .check:before {
   box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
-  animation: checkbox-on 0.3s linear forwards;
+  -webkit-animation: checkbox-on 0.3s linear forwards;
+          animation: checkbox-on 0.3s linear forwards;
 }
 .checkbox input[type=checkbox]:not(:checked) ~ .check:after {
-  animation: rippleOff 500ms linear forwards;
+  -webkit-animation: rippleOff 500ms linear forwards;
+          animation: rippleOff 500ms linear forwards;
 }
 .checkbox input[type=checkbox]:checked ~ .check:after {
-  animation: rippleOn 500ms linear forwards;
+  -webkit-animation: rippleOn 500ms linear forwards;
+          animation: rippleOn 500ms linear forwards;
 }
 .checkbox:not(:hover) input[type=checkbox] ~ .check:before,
 .checkbox:not(:hover) input[type=checkbox] ~ .check:after {
-  animation-duration: 1ms;
+  -webkit-animation-duration: 1ms;
+          animation-duration: 1ms;
 }
 .checkbox input[type=checkbox][disabled]:not(:checked) ~ .check:before {
   opacity: 0.5;
 }
 .checkbox input[type=checkbox][disabled] ~ .check:after {
   background-color: rgba(0, 0, 0, 0.84);
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 .checkbox input[type=checkbox]:checked ~ .check:after,
 .checkbox-default input[type=checkbox]:checked ~ .check:after {
@@ -3284,6 +3312,17 @@ body .jumbotron-material-lightgrey,
 .checkbox-material-lightgrey input[type=checkbox]:checked ~ .check {
   color: #ececec;
 }
+@-webkit-keyframes checkbox-on {
+  0% {
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
+  }
+  50% {
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;
+  }
+  100% {
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
+  }
+}
 @keyframes checkbox-on {
   0% {
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
@@ -3295,7 +3334,7 @@ body .jumbotron-material-lightgrey,
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
   }
 }
-@keyframes checkbox-off {
+@-webkit-keyframes checkbox-off {
   0% {
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
   }
@@ -3303,7 +3342,8 @@ body .jumbotron-material-lightgrey,
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
   }
   50% {
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
     margin-top: -4px;
     margin-left: 6px;
     width: 0px;
@@ -3311,7 +3351,8 @@ body .jumbotron-material-lightgrey,
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;
   }
   51% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
     margin-top: -2px;
     margin-left: -2px;
     width: 20px;
@@ -3325,7 +3366,55 @@ body .jumbotron-material-lightgrey,
             0px 0px 0 10px inset;
   }
   100% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    margin-top: -2px;
+    margin-left: -2px;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 0 0,
+            0 0 0 0,
+            0 0 0 0,
+            0 0 0 0,
+            0 0 0 0,
+            0 0 0 0,
+            0px 0px 0 0px inset;
+  }
+}
+@keyframes checkbox-off {
+  0% {
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
+  }
+  25% {
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
+  }
+  50% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    margin-top: -4px;
+    margin-left: 6px;
+    width: 0px;
+    height: 0px;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;
+  }
+  51% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    margin-top: -2px;
+    margin-left: -2px;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 0 0,
+            0 0 0 0,
+            0 0 0 0,
+            0 0 0 0,
+            0 0 0 0,
+            0 0 0 0,
+            0px 0px 0 10px inset;
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
     margin-top: -2px;
     margin-left: -2px;
     width: 20px;
@@ -3352,7 +3441,8 @@ body .jumbotron-material-lightgrey,
   position: absolute;
   left: 10px;
   top: 2px;
-  transition-duration: 0.2s;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
 }
 .radio label .circle {
   border: 2px solid rgba(0, 0, 0, 0.84);
@@ -3365,7 +3455,9 @@ body .jumbotron-material-lightgrey,
   width: 15px;
   border-radius: 100%;
   background-color: rgba(0, 0, 0, 0.84);
-  transform: scale(0);
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
 }
 .radio label .check:after {
   display: block;
@@ -3380,13 +3472,17 @@ body .jumbotron-material-lightgrey,
   z-index: 1;
   opacity: 0;
   margin: 0;
-  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+          transform: scale(1.5);
 }
 .radio label input[type=radio]:not(:checked) ~ .check:after {
-  animation: rippleOff 500ms;
+  -webkit-animation: rippleOff 500ms;
+          animation: rippleOff 500ms;
 }
 .radio label input[type=radio]:checked ~ .check:after {
-  animation: rippleOn 500ms;
+  -webkit-animation: rippleOn 500ms;
+          animation: rippleOn 500ms;
 }
 .radio input[type=radio]:checked ~ .check,
 .radio-default input[type=radio]:checked ~ .check {
@@ -3536,7 +3632,9 @@ body .jumbotron-material-lightgrey,
   display: none;
 }
 .radio input[type=radio]:checked ~ .check {
-  transform: scale(0.55);
+  -webkit-transform: scale(0.55);
+      -ms-transform: scale(0.55);
+          transform: scale(0.55);
 }
 .radio input[type=radio][disabled] ~ .circle {
   border-color: rgba(0, 0, 0, 0.84);
@@ -3544,7 +3642,29 @@ body .jumbotron-material-lightgrey,
 .radio input[type=radio][disabled] ~ .check {
   background-color: rgba(0, 0, 0, 0.84);
 }
+@-webkit-keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes rippleOff {
   0% {
     opacity: 0;
   }
@@ -3628,7 +3748,8 @@ select[multiple].form-control.focus {
   pointer-events: none;
   left: 0px;
   top: 5px;
-  transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+          transition: 0.2s ease all;
   opacity: 0;
 }
 .form-control-wrapper .form-control:not(.empty) ~ .floating-label {
@@ -3661,13 +3782,19 @@ select[multiple].form-control.focus {
   height: 2px;
   background-color: #5264ae;
   bottom: -1px;
-  transform: scaleX(0);
-  transition: transform 0s;
+  -webkit-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0s;
+          transition: transform 0s;
 }
 .form-control-wrapper .form-control:focus ~ .material-input:before,
 .form-control-wrapper .form-control.focus ~ .material-input:before {
-  transform: scaleX(1);
-  transition: transform 0.2s ease-out;
+  -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+          transition: transform 0.2s ease-out;
 }
 .form-control-wrapper .material-input:after {
   content: "";
@@ -3679,7 +3806,9 @@ select[multiple].form-control.focus {
   left: 0;
   pointer-events: none;
   opacity: 0.9;
-  transform-origin: left;
+  -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+          transform-origin: left;
 }
 .form-control-wrapper .input-lg ~ .material-input:after {
   height: 26px;
@@ -3692,8 +3821,10 @@ select[multiple].form-control.focus {
 }
 .form-control-wrapper .form-control:focus ~ .material-input:after,
 .form-control-wrapper .form-control.focus ~ .material-input:after {
-  animation: input-highlight 0.3s ease;
-  animation-fill-mode: forwards;
+  -webkit-animation: input-highlight 0.3s ease;
+          animation: input-highlight 0.3s ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
 }
 .form-control-wrapper select ~ .material-input:after {
@@ -4113,10 +4244,12 @@ select.form-control.focus {
 @keyframes input-highlight {
   0% {
     left: 20%;
-    transform: scaleX(20%);
+    -webkit-transform: scaleX(20%);
+            transform: scaleX(20%);
   }
   99% {
-    transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
     left: 0;
     opacity: 1;
   }
@@ -4988,15 +5121,21 @@ fieldset[disabled] .navbar .btn-link:focus {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   height: 0;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
-  transform: translateY(200%);
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  -webkit-transform: translateY(200%);
+      -ms-transform: translateY(200%);
+          transform: translateY(200%);
 }
 .snackbar.snackbar-opened {
   padding: 14px 15px;
   margin-bottom: 20px;
   height: auto;
-  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
-  transform: none;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
 }
 .snackbar.toast {
   border-radius: 200px;
@@ -5005,7 +5144,10 @@ fieldset[disabled] .navbar .btn-link:focus {
 .noUi-target * {
   -webkit-touch-callout: none;
   -ms-touch-action: none;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   box-sizing: border-box;
 }
 .noUi-base {
@@ -5032,7 +5174,8 @@ fieldset[disabled] .navbar .btn-link:focus {
   *z-index: -1;
 }
 .noUi-state-tap .noUi-origin {
-  transition: left 0.3s, top 0.3s;
+  -webkit-transition: left 0.3s, top 0.3s;
+          transition: left 0.3s, top 0.3s;
 }
 .noUi-state-drag * {
   cursor: inherit !important;
@@ -5076,7 +5219,8 @@ fieldset[disabled] .navbar .btn-link:focus {
 .noUi-handle {
   border-radius: 100%;
   cursor: default;
-  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+          transition: all 0.2s ease-out;
   border: 1px solid;
 }
 .noUi-horizontal {
@@ -5084,7 +5228,9 @@ fieldset[disabled] .navbar .btn-link:focus {
   margin: 15px 0;
 }
 .noUi-horizontal .noUi-handle.noUi-active {
-  transform: scale(2.5);
+  -webkit-transform: scale(2.5);
+      -ms-transform: scale(2.5);
+          transform: scale(2.5);
 }
 [disabled].noUi-slider {
   opacity: 0.5;

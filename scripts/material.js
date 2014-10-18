@@ -4,10 +4,10 @@ $(function (){
 
     if (typeof ripples == "object") {
         ripples.init( ".btn:not(.btn-link)," +
-                      ".card-image," +
-                      ".navbar a:not(.withoutripple)," +
-                      ".nav-tabs a:not(.withoutripple)," +
-                      ".withripple" );
+                     ".card-image," +
+                     ".navbar a:not(.withoutripple)," +
+                     ".nav-tabs a:not(.withoutripple)," +
+                     ".withripple" );
     }
 
     var initInputs = function() {
@@ -54,16 +54,20 @@ $(function (){
         $(this).blur();
     });
 
-    $(document).on("keyup change", ".form-control", function() {
-        var self = $(this);
-        setTimeout(function() {
-            if (self.val() === "") {
-                self.addClass("empty");
-            } else {
-                self.removeClass("empty");
-            }
-        }, 1);
+    $(document).on("focus change", ".form-control", function() {
+        var $this = $(this);
+        if($this.val() === "") {
+            $this.removeClass("empty");
+        }
     });
+
+    $(document).on("blur", ".form-control", function() {
+        var $this = $(this);
+        if($this.val() === "") {
+            $this.addClass("empty");
+        }
+    });
+
     $(document)
     .on("focus", ".form-control-wrapper.fileinput", function() {
         $(this).find("input").addClass("focus");
