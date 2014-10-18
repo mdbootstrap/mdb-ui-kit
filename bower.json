@@ -1,6 +1,6 @@
 {
   "name": "Material Design for Bootstrap",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "homepage": "http://fezvrasta.github.io/bootstrap-material-design",
   "authors": [
     "Federico Zivolo <info@mywebexpression.com>"
@@ -8,7 +8,9 @@
   "description": "Material Design theme for Bootstrap 3",
   "main": [
     "dist/css/material.css",
-    "dist/js/material.js"
+    "dist/js/material.js",
+    "dist/css/ripples.css",
+    "dist/js/ripples.js"
   ],
   "ignore": [
     "test",
