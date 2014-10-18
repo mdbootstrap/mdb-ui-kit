@@ -2,6 +2,15 @@
 
 $(function (){
 
+    function isChar(evt) {
+        if (typeof evt.which == "undefined") {
+            return true;
+        } else if (typeof evt.which == "number" && evt.which > 0) {
+            return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8;
+        }
+        return false;
+    }
+
     if (typeof ripples == "object") {
         ripples.init( ".btn:not(.btn-link)," +
                      ".card-image," +
@@ -54,14 +63,13 @@ $(function (){
         $(this).blur();
     });
 
-    $(document).on("focus change", ".form-control", function() {
+    $(document).on("keydown", ".form-control", function(e) {
         var $this = $(this);
-        if($this.val() === "") {
+        if(isChar(e)) {
             $this.removeClass("empty");
         }
     });
-
-    $(document).on("blur", ".form-control", function() {
+    $(document).on("keyup", ".form-control", function() {
         var $this = $(this);
         if($this.val() === "") {
             $this.addClass("empty");
