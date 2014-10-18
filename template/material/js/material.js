@@ -65,9 +65,13 @@ $(function (){
 
     $(document).on("keydown", ".form-control", function(e) {
         var $this = $(this);
-        if($this.val() !== "" || isChar(e)) {
+        if(isChar(e)) {
             $this.removeClass("empty");
-        } else  {
+        }
+    });
+    $(document).on("keyup", ".form-control", function() {
+        var $this = $(this);
+        if($this.val() === "") {
             $this.addClass("empty");
         }
     });
