@@ -1,10 +1,10 @@
 // Material Theme 0.0.1
 // -----------------------------------------------------
 
-@import "_variables.scss";
-@import "_mixins.scss";
-@import "_animations.scss";
-@import "_shadows.scss";
+@import "_variables.import.scss";
+@import "_mixins.import.scss";
+@import "_animations.import.scss";
+@import "_shadows.import.scss";
 
 body {
     background-color: #EEEEEE;
@@ -17,23 +17,23 @@ body {
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Roboto Condensed", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 // Well and Jumbotrons
-@import "_welljumbo.scss";
+@import "_welljumbo.import.scss";
 
 // Buttons
-@import "_buttons.scss";
+@import "_buttons.import.scss";
 
 // Checkboxes
-@import "_checkboxes.scss";
+@import "_checkboxes.import.scss";
 
 // Radios
-@import "_radios.scss";
+@import "_radios.import.scss";
 
 // Text inputs
-@import "_inputs.scss";
+@import "_inputs.import.scss";
 
 legend {
     border-bottom: 0;
@@ -55,10 +55,10 @@ legend {
 }
 
 // Lists
-@import "_lists.scss";
+@import "_lists.import.scss";
 
 // Navbar
-@import "_navbar.scss";
+@import "_navbar.import.scss";
 
 .dropdown-menu {
     border: 0;
@@ -76,13 +76,13 @@ legend {
 }
 
 // Alerts
-@import "_alerts.scss";
+@import "_alerts.import.scss";
 
 // Progress bar
-@import "_progress.scss";
+@import "_progress.import.scss";
 
 // Panels
-@import "_cards.scss";
+@import "_cards.import.scss";
 
 // Typography
 .text-warning {
@@ -101,13 +101,13 @@ legend {
     color: $btn-info;
 }
 
-@import "_tabs.scss";
+@import "_tabs.import.scss";
 
-@import "_popups.scss";
+@import "_popups.import.scss";
 
-@import "_icons.scss";
+@import "_icons.import.scss";
 
 
 // External plugins
-@import "_plugin-snackbarjs.scss";
-@import "_plugin-nouislider.scss";
+@import "_plugin-snackbarjs.import.scss";
+@import "_plugin-nouislider.import.scss";

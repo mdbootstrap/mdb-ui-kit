@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-material",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Material Design for Bootstrap",
   "main": "index.js",
   "scripts": {
@@ -28,6 +28,7 @@
     "grunt-contrib-sass": "^0.8.1",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-githooks": "^0.3.1",
     "grunt-newer": "^0.7.0",
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^0.6.0"
