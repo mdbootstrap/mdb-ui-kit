@@ -5097,7 +5097,6 @@ fieldset[disabled] .navbar .btn-link:focus {
 }
 .modal-content .modal-body {
   padding: 24px;
-  padding-bottom: 0;
 }
 .modal-content .modal-footer {
   border-top: none;
@@ -5117,6 +5116,9 @@ fieldset[disabled] .navbar .btn-link:focus {
 }
 .modal-content .modal-footer button + button {
   margin-bottom: 16px;
+}
+.modal-content .modal-body + .modal-footer {
+  padding-top: 0;
 }
 .modal-backdrop {
   display: none;
