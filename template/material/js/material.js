@@ -108,6 +108,3 @@
         }
     };
 })(jQuery);
-
-//$.material.init();
-
