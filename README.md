@@ -112,11 +112,11 @@ This plugin exposes some functions, them are:
 
 ### Apply Material.js only to specific elements:
 
-  Every function expects an optional value that will be used as selector for the function, for example
+Every function expects an optional value that will be used as selector for the function, for example
   `$.material.ripples("#selector, #foobar")` will apply Ripples.js only to `#selector` and `#foobar`.  
-  The functions that allows an optional selector are `$.material.ripples`, `$.material.input`, `$.material.checkbox` and `$.material.radio`.  
+The functions that allows an optional selector are `$.material.ripples`, `$.material.input`, `$.material.checkbox` and `$.material.radio`.  
   
-  You can even override the default values using the `$.material.options` function, the default values are:
+You can even override the default values using the `$.material.options` function, the default values are:
   
     $.material.options = {
         "withRipples": ".btn:not(.btn-link), .card-image, .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple",
@@ -125,7 +125,10 @@ This plugin exposes some functions, them are:
         "radioElements": ".radio > label > input[type=radio]"
     }
     
+### Arrive.js support
 
+If you need to dynamically add elements to your DOM then you may need to include Arrive.js before Material.js, this will automatically apply Material.js to every new element added by you using JS.
+    
 
 # Plugins
 
