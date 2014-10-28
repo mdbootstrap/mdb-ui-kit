@@ -26,7 +26,9 @@
     transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none !important;
 
-    .variations(~":not(.btn-link)", background-color, @btn-default);
+    .variations(~":not(.btn-link):not(.btn-flat)", background-color, @btn-default);
+
+    .variations(~".btn-flat:not(.btn-link)", color, @lightbg-text);
 
     &.btn-flat {
         background: none;
@@ -34,21 +36,6 @@
         font-weight: 500;
         &:disabled {
             color: @text-disabled !important;
-        }
-        &.btn-primary {
-            color: @primary;
-        }
-        &.btn-success {
-            color: @success;
-        }
-        &.btn-info {
-            color: @info;
-        }
-        &.btn-warning {
-            color: @warning;
-        }
-        &.btn-danger {
-            color: @danger;
         }
     }
 
@@ -82,15 +69,15 @@
     }
 }
 
-// This is needed to style buttons which has not a variation suffix (they must stiled as btn-default)
+// This is needed to style buttons which has not a variation suffix (they must be stiled as btn-default)
 .btn-link, .btn:not([class^="btn btn-"]), .btn-default {
     color: @lightbg-text;
     &:hover {
         color: @lightbg-text;
     }
 }
-.btn:not([class^="btn btn-"]), .btn-default {
-    &:hover {
+.btn:not([class^="btn btn-"]), .btn-default, .btn-flat:not(.btn-link) {
+    &:hover, &.active {
         background-color: rgba(255,255,255,0.5);
     }
 }

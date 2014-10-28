@@ -46,7 +46,7 @@ window.ripples = {
                 mousePos            = {x: e.clientX - elPos.left, y: ((window.ontouchstart) ? e.clientY - window.scrollY: e.clientY) - elPos.top},
                 scale               = "scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
                 rippleEnd           = new CustomEvent("rippleEnd", {detail: $ripple}),
-                _rippleOpacity      = 0.1,
+                _rippleOpacity      = 0.3,
                 refreshElementStyle;
 
 

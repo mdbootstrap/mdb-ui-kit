@@ -1,6 +1,5 @@
 .modal-content {
     .shadow-z-5();
-    margin-top: 10em; //XXX TODO Need a better way to vertically position the dialog
     border-radius: 2px;
     border: none;
     .modal-header {
@@ -10,7 +9,6 @@
     }
     .modal-body {
         padding: 24px;
-        padding-bottom: 0;
     }
     .modal-footer {
         border-top: none;
@@ -30,6 +28,9 @@
         button+button {
             margin-bottom: 16px;
         }
+    }
+    .modal-body + .modal-footer {
+        padding-top: 0;
     }
 }
 
