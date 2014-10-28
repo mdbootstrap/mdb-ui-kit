@@ -5167,7 +5167,6 @@ icon-material-lightgrey {
 }
 .modal-content {
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  margin-top: 10em;
   border-radius: 2px;
   border: none;
 }
