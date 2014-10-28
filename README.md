@@ -25,8 +25,8 @@ so this might not be true before the first stable release.
 
 ## Getting started
 
-Navigate to the `template/` folder in this repository, and you will see the `index.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
-You need to copy the `material/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
+Navigate to the `dist/` folder in this repository, and you will see the `test.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
+You need to copy the `dist/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
 
 ## Development
 
@@ -109,7 +109,7 @@ Variations are available for every icon, including the original Bootstrap icons.
 The syntax to add a Material icon is:
 
      <i class="icon icon-material-favorite"></i>
-     
+
 # Material.js
 
 Material.js is a jQuery plugin that add some magic to your markup and allows Material Design for Bootstrap to style some elements like inputs, checkboxes, radios etc.
@@ -118,31 +118,31 @@ Material.js is a jQuery plugin that add some magic to your markup and allows Mat
 
 This plugin exposes some functions, them are:
 
-`$.material.inits` is a shortcut to run all the following commands.  
-`$.material.ripples()` will apply ripples.js to the default elements.  
-`$.material.input()` will enable the MD style to the text inputs, and other kind of inputs (number, email, file etc).  
-`$.material.checkbox():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the Inputs chapter.  
-`$.material.radio():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the Inputs chapter. 
+`$.material.inits` is a shortcut to run all the following commands.
+`$.material.ripples()` will apply ripples.js to the default elements.
+`$.material.input()` will enable the MD style to the text inputs, and other kind of inputs (number, email, file etc).
+`$.material.checkbox():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the Inputs chapter.
+`$.material.radio():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the Inputs chapter.
 
 ### Apply Material.js only to specific elements:
 
 Every function expects an optional value that will be used as selector for the function, for example
-  `$.material.ripples("#selector, #foobar")` will apply Ripples.js only to `#selector` and `#foobar`.  
-The functions that allows an optional selector are `$.material.ripples`, `$.material.input`, `$.material.checkbox` and `$.material.radio`.  
-  
+  `$.material.ripples("#selector, #foobar")` will apply Ripples.js only to `#selector` and `#foobar`.
+The functions that allows an optional selector are `$.material.ripples`, `$.material.input`, `$.material.checkbox` and `$.material.radio`.
+
 You can even override the default values using the `$.material.options` function, the default values are:
-  
+
     $.material.options = {
         "withRipples": ".btn:not(.btn-link), .card-image, .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple",
         "inputElements": "input.form-control, textarea.form-control, select.form-control",
         "checkboxElements": ".checkbox > label > input[type=checkbox]",
         "radioElements": ".radio > label > input[type=radio]"
     }
-    
+
 ### Arrive.js support
 
 If you need to dynamically add elements to your DOM then you may need to include Arrive.js before Material.js, this will automatically apply Material.js to every new element added by you using JS.
-    
+
 
 # Plugins
 
