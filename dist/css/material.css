@@ -2892,7 +2892,9 @@ body .jumbotron-material-lightgrey,
   color: rgba(0, 0, 0, 0.84);
 }
 .btn:not([class^="btn btn-"]):hover,
-.btn-default:hover {
+.btn-default:hover,
+.btn:not([class^="btn btn-"]).active,
+.btn-default.active {
   background-color: rgba(255, 255, 255, 0.5);
 }
 .open > .dropdown-toggle.btn,
