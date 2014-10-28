@@ -46,7 +46,7 @@ window.ripples = {
                 mousePos            = {x: e.clientX - elPos.left, y: ((window.ontouchstart) ? e.clientY - window.scrollY: e.clientY) - elPos.top},
                 scale               = "scale(" + Math.round($rippleWrapper.offsetWidth / 5) + ")",
                 rippleEnd           = new CustomEvent("rippleEnd", {detail: $ripple}),
-                _rippleOpacity      = 0.1,
+                _rippleOpacity      = 0.3,
                 refreshElementStyle;
 
 
@@ -62,7 +62,7 @@ window.ripples = {
             // Set ripple class
             $ripple.className = "ripple";
 
-            // Move ripple to the mouse position            
+            // Move ripple to the mouse position
             $ripple.setAttribute("style", "left:" + mousePos.x + "px; top:" + mousePos.y + "px;");
 
             // Get the clicked target's text color, this will be applied to the ripple as background-color.
@@ -72,7 +72,7 @@ window.ripples = {
             targetColor = targetColor.replace("rgb", "rgba").replace(")",  ", " + _rippleOpacity + ")");
 
             // Insert new ripple into ripple wrapper
-            $rippleWrapper.appendChild($ripple);    
+            $rippleWrapper.appendChild($ripple);
 
             // Make sure the ripple has the class applied (ugly hack but it works)
             refreshElementStyle = window.getComputedStyle($ripple).opacity;
