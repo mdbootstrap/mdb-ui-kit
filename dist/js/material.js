@@ -111,6 +111,39 @@
                     $.material.init();
                 });
             }
+
+            // Detect autofill
+            (function() {
+                // This part of code will detect autofill when the page is loading (username and password inputs for example)
+                var loading = setInterval(function() {
+                    $("input").each(function() {
+                        if ($(this).val() !== $(this).attr("value")) {
+                            $(this).trigger("change");
+                        }
+                    });
+                }, 100);
+                // After 10 seconds we are quite sure all the needed inputs are autofilled then we can stop checking them
+                setTimeout(function() {
+                    clearInterval(loading);
+                }, 10000);
+                // Now we just listen on inputs of the focused form (because user can select from the autofill dropdown only when the input has focus)
+                var focused;
+                $(document)
+                .on("focus", "input", function() {
+                    var $inputs = $(this).parents("form").find("input");
+                    focused = setInterval(function() {
+                        $inputs.each(function() {
+                            if ($(this).val() !== $(this).attr("value")) {
+                                $(this).trigger("change");
+                            }
+                        });
+                    }, 100);
+                })
+                .on("blur", "input", function() {
+                    clearInterval(focused);
+                });
+
+            })();
         }
     };
 
