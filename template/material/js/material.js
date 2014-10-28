@@ -105,6 +105,13 @@
             this.input();
             this.checkbox();
             this.radio();
+
+            if (document.arrive) {
+                document.arrive("input, textarea, select", function() {
+                    $.material.init();
+                });
+            }
         }
     };
+
 })(jQuery);
