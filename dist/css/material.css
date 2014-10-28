@@ -5009,74 +5009,103 @@ fieldset[disabled] .navbar .btn-link:focus {
 .tooltip.bottom .tooltip-arrow {
   border-bottom-color: #323232;
 }
-.icon,
-.icon-default {
+.mdi,
+icon {
+  line-height: inherit;
+  vertical-align: bottom;
+}
+.mdi,
+icon,
+.mdi-default,
+icon-default {
   color: rgba(0, 0, 0, 0.84);
 }
-.icon-primary {
+.mdi-primary,
+icon-primary {
   color: #4285f4;
 }
-.icon-success {
+.mdi-success,
+icon-success {
   color: #0f9d58;
 }
-.icon-info {
+.mdi-info,
+icon-info {
   color: #03a9f4;
 }
-.icon-warning {
+.mdi-warning,
+icon-warning {
   color: #ff5722;
 }
-.icon-danger {
+.mdi-danger,
+icon-danger {
   color: #f44336;
 }
-.icon-material-red {
+.mdi-material-red,
+icon-material-red {
   color: #f44336;
 }
-.icon-material-pink {
+.mdi-material-pink,
+icon-material-pink {
   color: #e91e63;
 }
-.icon-material-purple {
+.mdi-material-purple,
+icon-material-purple {
   color: #9c27b0;
 }
-.icon-material-deeppurple {
+.mdi-material-deeppurple,
+icon-material-deeppurple {
   color: #673ab7;
 }
-.icon-material-indigo {
+.mdi-material-indigo,
+icon-material-indigo {
   color: #3f51b5;
 }
-.icon-material-lightblue {
+.mdi-material-lightblue,
+icon-material-lightblue {
   color: #03a9f4;
 }
-.icon-material-cyan {
+.mdi-material-cyan,
+icon-material-cyan {
   color: #00bcd4;
 }
-.icon-material-teal {
+.mdi-material-teal,
+icon-material-teal {
   color: #009688;
 }
-.icon-material-lightgreen {
+.mdi-material-lightgreen,
+icon-material-lightgreen {
   color: #8bc34a;
 }
-.icon-material-lime {
+.mdi-material-lime,
+icon-material-lime {
   color: #cddc39;
 }
-.icon-material-lightyellow {
+.mdi-material-lightyellow,
+icon-material-lightyellow {
   color: #ffeb3b;
 }
-.icon-material-orange {
+.mdi-material-orange,
+icon-material-orange {
   color: #ff9800;
 }
-.icon-material-deeporange {
+.mdi-material-deeporange,
+icon-material-deeporange {
   color: #ff5722;
 }
-.icon-material-grey {
+.mdi-material-grey,
+icon-material-grey {
   color: #9e9e9e;
 }
-.icon-material-bluegrey {
+.mdi-material-bluegrey,
+icon-material-bluegrey {
   color: #607d8b;
 }
-.icon-material-brown {
+.mdi-material-brown,
+icon-material-brown {
   color: #795548;
 }
-.icon-material-lightgrey {
+.mdi-material-lightgrey,
+icon-material-lightgrey {
   color: #ececec;
 }
 .card {
