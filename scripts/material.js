@@ -61,7 +61,6 @@
                     $this.after("<div class=floating-label>" + placeholder + "</div>");
                 }
                 if ($this.val() === null || $this.val() == "undefined" || $this.val() === "") {
-                    console.log("enter empty");
                     $this.addClass("empty");
                 }
                 if ($this.parent().next().is("[type=file]")) {
@@ -82,6 +81,8 @@
                 var $this = $(this);
                 if($this.val() === "") {
                     $this.addClass("empty");
+                } else {
+                    $this.removeClass("empty");
                 }
             })
             .on("focus", ".form-control-wrapper.fileinput", function() {
