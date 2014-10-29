@@ -48,16 +48,8 @@ select[multiple].form-control {
         font-size: 10px;
         opacity: 1;
     }
-    .form-control:focus:invalid ~ .floating-label, .form-control.focus:invalid ~ .floating-label {
-        color: @input-danger;
-    }
     .form-control:focus ~ .material-input:after, .form-control.focus ~ .material-input:after {
         background-color: @input-default;
-    }
-    .form-control:focus:invalid ~ .material-input, .form-control.focus:invalid ~ .material-input {
-        &:before, &:after  {
-            background-color: @input-danger;
-        }
     }
     .form-control.empty ~ .floating-label {
         opacity: 1;
