@@ -104,7 +104,7 @@ Material.js is a jQuery plugin that add some magic to your markup and allows Mat
 
 This plugin exposes some functions, them are:
 
-`$.material.inits` is a shortcut to run all the following commands.
+`$.material.init()` is a shortcut to run all the following commands.
 `$.material.ripples()` will apply ripples.js to the default elements.
 `$.material.input()` will enable the MD style to the text inputs, and other kind of inputs (number, email, file etc).
 `$.material.checkbox():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the Inputs chapter.
