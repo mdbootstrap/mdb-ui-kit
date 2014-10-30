@@ -72,7 +72,7 @@
 
             $(document)
             .on("change", ".checkbox input", function() { $(this).blur(); })
-            .on("keydown", ".form-control", function(e) {
+            .on("keydown paste", ".form-control", function(e) {
                 if(_isChar(e)) {
                     $(this).removeClass("empty");
                 }
