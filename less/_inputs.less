@@ -143,11 +143,11 @@ select[multiple].form-control {
             color: @input-info;
         }
     }
-    .variations(~" .material-input:before", background-color, @indigo);
-    .variations(~" input.form-control:focus ~ .material-input:after", background-color, @indigo);
-    .variations(~" input.form-control.focus ~ .material-input:after", background-color, @indigo);
+    .variations(~" .material-input:before", background-color, @input-default);
+    .variations(~" input.form-control:focus ~ .material-input:after", background-color, @input-default);
+    .variations(~" input.form-control.focus ~ .material-input:after", background-color, @input-default);
     .variations(~" .control-label", color, @lightbg-text);
-    .variations(~" input.form-control:not(.empty) ~ .floating-label", color, @indigo);
+    .variations(~" input.form-control:not(.empty) ~ .floating-label", color, @input-default);
 
 }
 
