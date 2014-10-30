@@ -38,7 +38,7 @@
             $((selector) ? selector : this.options.checkboxElements)
             .filter(":notmdproc")
             .data("mdproc", true)
-            .after("<span class=check></span>");
+            .after("<span class=ripple></span><span class=check></span>");
         },
         "radio": function(selector) {
             // Add fake-radio to material radios
