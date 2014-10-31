@@ -2628,11 +2628,6 @@ body .jumbotron-material-lightgrey,
 .btn:active:not(.btn-link):not(.btn-flat) {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
-.btn:disabled:not(.btn-link):not(.btn-flat) {
-  color: #a8a8a8 !important;
-  background-color: #eaeaea !important;
-  box-shadow: none;
-}
 .btn:not(.btn-link):not(.btn-flat),
 .btn-default:not(.btn-link):not(.btn-flat) {
   background-color: transparent;
@@ -4510,7 +4505,6 @@ legend {
   background-color: transparent;
 }
 .navbar .navbar-toggle {
-  margin-top: 13px;
   border-color: transparent;
 }
 .navbar .navbar-toggle:hover,
