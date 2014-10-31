@@ -14,7 +14,7 @@ Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-
 
 ## Use our CDN
 
-You can find the CDN of this library at [CDNJS.com](https://cdnjs.com/libraries/bootstrap-material-design)
+You can find the CDN of this library at [CDNJS.com](https://cdnjs.com/libraries/bootstrap-material-design) and at [JSDelivr.com](http://www.jsdelivr.com/#!bootstrap.material-design)
 
 ### LESS & SASS
 
