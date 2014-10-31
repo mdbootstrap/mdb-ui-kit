@@ -1,4 +1,4 @@
-[![banner](demo/imgs/banner.jpg)](#)
+[![banner](demo/imgss/banner.jpg)](#)
 
 This Bootstrap theme is an easy way to use the new Material Design guidelines by Google in your Bootstrap 3 based application.
 Just include the theme right after the Bootstrap CSS and include the javascript at the end of your document, everything will be converted to Material Design (paper) style.
@@ -41,8 +41,8 @@ More "todo" things can be found in the ISSUES of this repository.
 
 If you like this project you may support me by donating something on Gittip, starring this repository or reporting bugs and ideas in the issue section.
 
-[![gittip](screenshots/gittip-button.jpg)](https://www.gratipay.com/FezVrasta/)
-[![issues](screenshots/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design/issues)
+[![gittip](demo/imgs/gittip-button.jpg)](https://www.gratipay.com/FezVrasta/)
+[![issues](demo/imgs/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design/issues)
 
 # Contribute
 
@@ -64,7 +64,7 @@ Example:
 
 These colors are taken from the Material Design color palette and are reported below:
 
-![palette](screenshots/palette.jpg)
+![palette](demo/imgs/palette.jpg)
 
 ### Buttons:
 

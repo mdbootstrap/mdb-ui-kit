@@ -51,14 +51,6 @@ module.exports = function(grunt) {
             }
         },
 
-        clean: {
-            css: [
-                "dist/css/material.css",
-                "dist/css/material-wfont.css",
-                "dist/css/ripples.css"
-            ]
-        },
-
         uglify: {
             minifyjs: {
                 files: {
@@ -72,7 +64,7 @@ module.exports = function(grunt) {
             distjs: {
                 expand: true,
                 cwd: "scripts/",
-                src: "**.min.js",
+                src: "**",
                 dest: "dist/js/",
                 flatten: true,
                 filter: "isFile"
@@ -172,9 +164,9 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "uglify", "clean", "copy"]);
+    grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "uglify", "copy"]);
 
-    grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "uglify", "clean", "copy"]);
+    grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "uglify", "copy"]);
 
     grunt.registerTask("build", function(target) {
         var buildType = "default";
