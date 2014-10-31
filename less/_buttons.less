@@ -1,5 +1,3 @@
-// main: material.less
-
 .btn {
     position: relative;
     padding: 8px 30px;
@@ -17,12 +15,6 @@
     &:active:not(.btn-link):not(.btn-flat) {
         .shadow-z-3();
     }
-    &:disabled:not(.btn-link):not(.btn-flat) {
-        color: @text-disabled !important;
-        background-color: @background-disabled !important;
-        box-shadow: none;
-    }
-
     transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none !important;
 

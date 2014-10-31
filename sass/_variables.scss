@@ -1,6 +1,5 @@
-// main: _material.scss
-
-
+// material icons path
+$material-font-path: "../fonts";
 
 // Material colors palette
 $red: #F44336 !default;
@@ -64,7 +63,7 @@ $radio-warning: $warning;
 $radio-danger:  $danger;
 
 $input-danger: $danger;
-$input-default: #5264AE;
+$input-default: $primary;
 $input-warning: $warning;
 $input-success: $success;
 $input-info:    $info;

@@ -1,5 +1,3 @@
-// main: _material.scss
-
 @mixin btn-shadow(){
     @extend .shadow-z-2;
     transition: box-shadow transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);

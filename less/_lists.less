@@ -1,4 +1,3 @@
-// main: material.less
 .list-group {
     border-radius: 0;
     .list-group-item {
@@ -68,6 +67,16 @@
             font-size: 20px;
             line-height: 29px;
         }
+    }
+    .list-group-item.active {
+        &:hover, &:focus {
+            background: rgba(0,0,0,.15);
+            outline: 10px solid rgba(0,0,0,.15);
+        }
+        .list-group-item-heading, .list-group-item-text {
+            color: @lightbg-text;
+        }
+
     }
     .list-group-separator {
         clear: both;
