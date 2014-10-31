@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 [![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
 [![ghat status](http://mywebexpression.com:3001/status/initial/badge.png)](http://mywebexpression.com:3001/) (click to chat)
 
 [![banner](demo/imgs/banner.jpg)](#)
-=======
-[![banner](demo/imgss/banner.jpg)](#)
->>>>>>> develop
 
 This Bootstrap theme is an easy way to use the new [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) in your Bootstrap 3 based application.
 Just include the theme, after the Bootstrap CSS and include the javascript at the end of your document (Just before the end of the `<body>` tag), and everything will be converted to Material Design (paper) style.
@@ -31,7 +27,6 @@ so this might not be true before the first stable release.
 
 Navigate to the `dist/` folder in this repository, and you will see the `test.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
 You need to copy the `dist/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
-<<<<<<< HEAD
 
 ## Development
 
@@ -43,8 +38,6 @@ Run the `grunt build` command to run the tests and compile the less/sass. See Gr
 Run the `grunt test` command for browser based jasmine unit tests.
 
 Run the `grunt serve` command to build and fire up a http server with live-reload and a watch for development purposes.
-=======
->>>>>>> develop
 
 ## Todo
 
