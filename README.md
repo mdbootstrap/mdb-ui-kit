@@ -15,6 +15,10 @@ Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-
     BOWER:       bower install bootstrap-material-design --save
     GEMS:        gem install bootstrap-material-design
 
+## Use our CDN
+
+You can find the CDN of this library at [CDNJS.com](https://cdnjs.com/libraries/bootstrap-material-design) and at [JSDelivr.com](http://www.jsdelivr.com/#!bootstrap.material-design)
+
 ### LESS & SASS
 
 We decided to merge the SASS fork in to the main repository instead of having two seperate ones, [#40](https://github.com/FezVrasta/bootstrap-material-design/issues/40). The default grunt
