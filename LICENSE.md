@@ -13,14 +13,9 @@ You can edit and/or redistribute this software only providing a copy
 of this license with it.
 
 You cannot sell this software, any change to the software must be
-published under the same license of the original software, in case you
-don't want to publish your changes you can use a different license.
-It will be valid only if your changes are not published but
-keep private for personal projects or closed-source projects, in case
-you want to publish your changes you must switch again to the original
-license provided with the software.
+published under the same license of the original software.
 
-This software can be sold if used inside a software which uses it as
+This software may be sold if used inside a software which uses it as
 dependency, in any case, this license must be included in the
 software.
 
@@ -30,7 +25,3 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 This license could be edited in any moment without alert.
-
-Here are listed the authorized individuals and companies and the specific of their licenses:
-
-- **A*Star Education Ltd**: unlimited usage for websites and webapplications of the company.
