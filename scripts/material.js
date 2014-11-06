@@ -71,7 +71,7 @@
             });
 
             $(document)
-            .on("change", ".checkbox input", function() { $(this).blur(); })
+            .on("change", ".checkbox input[type=checkbox]", function() { $(this).blur(); })
             .on("keydown paste", ".form-control", function(e) {
                 if(_isChar(e)) {
                     $(this).removeClass("empty");
