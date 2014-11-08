@@ -62,13 +62,13 @@
 }
 
 // This is needed to style buttons which has not a variation suffix (they must be stiled as btn-default)
-.btn-link, .btn:not([class^="btn btn-"]), .btn-default {
+.btn-link, .btn:not([class*="btn btn-"]), .btn-default {
     color: @lightbg-text;
     &:hover {
         color: @lightbg-text;
     }
 }
-.btn:not([class^="btn btn-"]), .btn-default, .btn-flat:not(.btn-link) {
+.btn:not([class*="btn btn-"]), .btn-default, .btn-flat:not(.btn-link) {
     &:hover, &.active {
         background-color: rgba(255,255,255,0.5);
     }
