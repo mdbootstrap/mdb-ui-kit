@@ -8,12 +8,28 @@ module.exports = function(grunt) {
         less: {
             compileless: {
                 options: {
-                    paths: ["less"]
+                    paths: ["less"],
+                    sourceMap: true,
+                    sourceMapFilename: 'dist/css/less.map',
+                    sourceMapURL: 'less.map',
+                    sourceMapRootpath: '/'
                 },
                 files: {
                     "dist/css/material.css": "less/material.less",
                     "dist/css/material-wfont.css": "less/material-wfont.less",
                     "dist/css/ripples.css": "less/ripples.less"
+                }
+            },
+            mapped: {
+                options: {
+                    paths: ["less"],
+                    sourceMap: true,
+                    sourceMapFilename: 'dist/css/styles.map',
+                    sourceMapURL: 'styles.map',
+                    sourceMapRootpath: '/'
+                },
+                files: {
+                    "dist/css/styles.css": "less/styles.less"
                 }
             }
         },

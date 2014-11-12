@@ -8,3 +8,5 @@ Thumbs.db
 .DS_Store
 /node_modules/
 .grunt/
+.idea
+_SpecRunner.html

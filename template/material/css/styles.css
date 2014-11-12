@@ -1,4 +1,38 @@
 @import url(//fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,700,300|Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic);
+.withripple {
+  position: relative;
+}
+.ripple-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: scale(1);
+  transform-origin: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+.ripple.ripple-on {
+  transition: opacity 0.15s ease-in 0s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  opacity: 1;
+}
+.ripple.ripple-out {
+  transition: opacity 0.1s linear 0s !important;
+  opacity: 0;
+}
 @font-face {
   font-family: "Material-Design";
   src: url("../fonts/Material-Design.eot?2u7a7w");
@@ -4586,4 +4620,4 @@ fieldset[disabled] .navbar .btn-link:focus {
 .selectize-control.multi .dropdown-active ~ .selectize-dropdown {
   display: block;
 }
-/*# sourceMappingURL=less.map */
+/*# sourceMappingURL=styles.map */
