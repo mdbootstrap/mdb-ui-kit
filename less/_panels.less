@@ -1,0 +1,106 @@
+// main: material.less
+
+// Panels mixins
+
+.panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
+  border-color: @border;
+
+  & > .panel-heading {
+    color: @heading-text-color;
+    background-color: @heading-bg-color;
+    border-color: @heading-border;
+
+    + .panel-collapse > .panel-body {
+      border-top-color: @border;
+    }
+    .badge {
+      color: @heading-bg-color;
+      background-color: @heading-text-color;
+    }
+  }
+  & > .panel-footer {
+    + .panel-collapse > .panel-body {
+      border-bottom-color: @border;
+    }
+  }
+}
+
+
+
+// Contextual variations
+.panel-material-red{
+.panel-variant((darken(spin(@red, -10), 5%)); @darkbg-text; @red; (darken(spin(@red, -10), 5%)));
+}
+
+.panel-material-pink{
+.panel-variant((darken(spin(@pink, -10), 5%)); @darkbg-text; @pink; (darken(spin(@pink, -10), 5%)));
+}
+
+.panel-material-purple{
+.panel-variant((darken(spin(@purple, -10), 5%)); @darkbg-text; @purple; (darken(spin(@purple, -10), 5%)));
+}
+
+.panel-material-deeppurple{
+.panel-variant((darken(spin(@deeppurple, -10), 5%)); @darkbg-text; @deeppurple; (darken(spin(@deeppurple, -10), 5%)));
+}
+
+.panel-material-indigo{
+.panel-variant((darken(spin(@indigo, -10), 5%)); @darkbg-text; @indigo; (darken(spin(@indigo, -10), 5%)));
+}
+
+.panel-material-blue{
+.panel-variant((darken(spin(@blue, -10), 5%)); @darkbg-text; @blue; (darken(spin(@blue, -10), 5%)));
+}
+
+.panel-material-lightblue{
+.panel-variant((darken(spin(@lightblue, -10), 5%)); @darkbg-text; @lightblue; (darken(spin(@lightblue, -10), 5%)));
+}
+
+.panel-material-cyan{
+.panel-variant((darken(spin(@cyan, -10), 5%)); @darkbg-text; @cyan; (darken(spin(@cyan, -10), 5%)));
+}
+
+.panel-material-teal{
+.panel-variant((darken(spin(@teal, -10), 5%)); @darkbg-text; @teal; (darken(spin(@teal, -10), 5%)));
+}
+
+.panel-material-green{
+.panel-variant((darken(spin(@green, -10), 5%)); @darkbg-text; @green; (darken(spin(@green, -10), 5%)));
+}
+
+.panel-material-lightgreen{
+.panel-variant((darken(spin(@lightgreen, -10), 5%)); @darkbg-text; @lightgreen; (darken(spin(@lightgreen, -10), 5%)));
+}
+
+.panel-material-lime{
+.panel-variant((darken(spin(@lime, -10), 5%)); @lightbg-text; @lime; (darken(spin(@lime, -10), 5%)));
+}
+
+.panel-material-lightyellow{
+.panel-variant((darken(spin(@lightyellow, -10), 5%)); @lightbg-text; @lightyellow; (darken(spin(@lightyellow, -10), 5%)));
+}
+
+.panel-material-amber{
+.panel-variant((darken(spin(@amber, -10), 5%)); @lightbg-text; @amber; (darken(spin(@amber, -10), 5%)));
+}
+
+.panel-material-orange{
+.panel-variant((darken(spin(@orange, -10), 5%)); @lightbg-text; @orange; (darken(spin(@orange, -10), 5%)));
+}
+
+.panel-material-deeporange{
+.panel-variant((darken(spin(@deeporange, -10), 5%)); @darkbg-text; @deeporange; (darken(spin(@deeporange, -10), 5%)));
+}
+
+.panel-material-brown{
+.panel-variant((darken(spin(@brown, -10), 5%)); @darkbg-text; @brown; (darken(spin(@brown, -10), 5%)));
+}
+
+.panel-material-grey{
+.panel-variant((darken(spin(@grey, -10), 5%)); @lightbg-text; @grey; (darken(spin(@grey, -10), 5%)));
+}
+
+.panel-material-bluegrey{
+.panel-variant((darken(spin(@bluegrey, -10), 5%)); @darkbg-text; @bluegrey; (darken(spin(@bluegrey, -10), 5%)));
+}
+
