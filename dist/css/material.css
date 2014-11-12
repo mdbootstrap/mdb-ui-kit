@@ -3699,7 +3699,6 @@ select[multiple].form-control.focus {
 }
 .form-control-wrapper {
   position: relative;
-  /* active state */
 }
 .form-control-wrapper .form-control:focus,
 .form-control-wrapper .form-control.focus {
@@ -3779,6 +3778,15 @@ select[multiple].form-control.focus {
   animation: input-highlight 0.3s ease;
   animation-fill-mode: forwards;
   opacity: 0;
+}
+.form-control-wrapper .hint {
+  position: absolute;
+  font-size: 80%;
+  display: none;
+}
+.form-control-wrapper .form-control:focus ~ .hint,
+.form-control-wrapper .form-control.focus ~ .hint {
+  display: block;
 }
 .form-control-wrapper select ~ .material-input:after {
   display: none;
