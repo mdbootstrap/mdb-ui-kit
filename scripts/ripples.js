@@ -75,8 +75,13 @@ window.ripples = {
             var targetColor = window.getComputedStyle($el).color;
 
             // Convert the rgb color to an rgba color with opacity set to __rippleOpacity__
-            targetColor = targetColor.replace("rgb", "rgba").replace(")",  ", " + _rippleOpacity + ")");
-
+            if ( targetColor.indexOf("rgba") >= 0 ) {
+                var alphaPosition = targetColor.lastIndexOf(",") + 1;
+                targetColor = targetColor.substring(0, alphaPosition) + _rippleOpacity + ")";
+            } else {
+                targetColor = targetColor.replace("rgb", "rgba").replace(")", ", " + _rippleOpacity + ")");
+            }
+            
             // Insert new ripple into ripple wrapper
             $rippleWrapper.appendChild($ripple);
 
