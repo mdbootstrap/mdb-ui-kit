@@ -5389,12 +5389,21 @@ icon-material-lightgrey {
 .noUi-horizontal {
   height: 10px;
 }
-.noUi-horizontal .noUi-handle {
+.noUi-handle {
   box-sizing: border-box;
   width: 12px;
   height: 12px;
   left: -10px;
   top: -5px;
+  cursor: ew-resize;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease-out;
+          transition: all 0.2s ease-out;
+  border: 1px solid;
+}
+.noUi-vertical .noUi-handle {
+  margin-left: 5px;
+  cursor: ns-resize;
 }
 .noUi-horizontal.noUi-extended {
   padding: 0 15px;
@@ -5422,18 +5431,17 @@ icon-material-lightgrey {
 .noUi-target {
   border-radius: 2px;
 }
-.noUi-handle {
-  border-radius: 100%;
-  cursor: default;
-  -webkit-transition: all 0.2s ease-out;
-          transition: all 0.2s ease-out;
-  border: 1px solid;
-}
 .noUi-horizontal {
   height: 2px;
   margin: 15px 0;
 }
-.noUi-horizontal .noUi-handle.noUi-active {
+.noUi-vertical {
+  height: 100%;
+  width: 2px;
+  margin: 0 15px;
+  display: inline-block;
+}
+.noUi-handle.noUi-active {
   -webkit-transform: scale(2.5);
       -ms-transform: scale(2.5);
           transform: scale(2.5);
