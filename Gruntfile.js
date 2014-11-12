@@ -6,13 +6,39 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         less: {
-            compileless: {
+            material: {
                 options: {
-                    paths: ["less"]
+                    paths: ["less"],
+                    sourceMap: true,
+                    sourceMapRootpath: "/",
+                    sourceMapFilename: "dist/css/material.css.map",
+                    sourceMapURL: "material.css.map"
                 },
                 files: {
-                    "dist/css/material.css": "less/material.less",
-                    "dist/css/material-wfont.css": "less/material-wfont.less",
+                    "dist/css/material.css": "less/material.less"
+                }
+            },
+            materialwfont: {
+                options: {
+                    paths: ["less"],
+                    sourceMap: true,
+                    sourceMapRootpath: "/",
+                    sourceMapFilename: "dist/css/material-wfont.css.map",
+                    sourceMapURL: "material-wfont.css.map"
+                },
+                files: {
+                    "dist/css/material-wfont.css": "less/material-wfont.less"
+                }
+            },
+            ripples: {
+                options: {
+                    paths: ["less"],
+                    sourceMap: true,
+                    sourceMapRootpath: "/",
+                    sourceMapFilename: "dist/css/ripples.css.map",
+                    sourceMapURL: "ripples.css.map"
+                },
+                files: {
                     "dist/css/ripples.css": "less/ripples.less"
                 }
             }
@@ -30,6 +56,7 @@ module.exports = function(grunt) {
 
         autoprefixer: {
             options: {
+                map: true,
                 browsers: ["last 3 versions", "ie 8", "ie 9", "ie 10", "ie 11"]
             },
             prefix: {
@@ -51,14 +78,6 @@ module.exports = function(grunt) {
             }
         },
 
-        clean: {
-            css: [
-                "dist/css/material.css",
-                "dist/css/material-wfont.css",
-                "dist/css/ripples.css"
-            ]
-        },
-
         uglify: {
             minifyjs: {
                 files: {
@@ -69,10 +88,16 @@ module.exports = function(grunt) {
         },
 
         copy: {
+            tpl: {
+                expand: true,
+                cwd: "dist/",
+                src: "**",
+                dest: "template/material/"
+            },
             distjs: {
                 expand: true,
                 cwd: "scripts/",
-                src: "**.min.js",
+                src: "**",
                 dest: "dist/js/",
                 flatten: true,
                 filter: "isFile"
@@ -172,9 +197,10 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "uglify", "clean", "copy"]);
+    grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "uglify", "copy"]);
+    //grunt.registerTask("default", ["less", "cssmin", "uglify", "copy"]);
 
-    grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "uglify", "clean", "copy"]);
+    grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "uglify", "copy"]);
 
     grunt.registerTask("build", function(target) {
         var buildType = "default";

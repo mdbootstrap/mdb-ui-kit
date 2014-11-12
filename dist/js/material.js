@@ -55,14 +55,25 @@
                 var $this = $(this);
                 $this.wrap("<div class=form-control-wrapper></div>");
                 $this.after("<span class=material-input></span>");
+
+                // Add floating label if required
                 if ($this.hasClass("floating-label")) {
                     var placeholder = $this.attr("placeholder");
                     $this.attr("placeholder", null).removeClass("floating-label");
                     $this.after("<div class=floating-label>" + placeholder + "</div>");
                 }
+
+                // Add hint label if required
+                if ($this.attr("data-hint")) {
+                    $this.after("<div class=hint>" + $this.attr("data-hint") + "</div>");
+                }
+
+                // Set as empty if is empty (damn I must improve this...)
                 if ($this.val() === null || $this.val() == "undefined" || $this.val() === "") {
                     $this.addClass("empty");
                 }
+
+                // Support for file input
                 if ($this.parent().next().is("[type=file]")) {
                     $this.parent().addClass("fileinput");
                     var $input = $this.parent().next().detach();
@@ -71,7 +82,7 @@
             });
 
             $(document)
-            .on("change", ".checkbox input", function() { $(this).blur(); })
+            .on("change", ".checkbox input[type=checkbox]", function() { $(this).blur(); })
             .on("keydown paste", ".form-control", function(e) {
                 if(_isChar(e)) {
                     $(this).removeClass("empty");

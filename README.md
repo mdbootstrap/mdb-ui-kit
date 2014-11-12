@@ -93,6 +93,8 @@ Add `.btn-raised` to a button to add a permanent shadow to it.
 
 Add `.floating-label` to an input field with a `placeholder` to transform the placeholder in a floating label.
 
+Add `data-hint="some hint"` to show an hint under the input when the user focus it.
+
 Remember to use the proper HTML markup to get radio and checkboxes styled correctly (choose between *radio* or *checkbox*):
 
     <div class="radio/checkbox radio-primary">
