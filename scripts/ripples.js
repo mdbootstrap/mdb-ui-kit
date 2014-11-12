@@ -1,8 +1,16 @@
 /* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
 /* globals CustomEvent */
 window.ripples = {
+    done: false,
     init : function(withRipple) {
         "use strict";
+
+        if (this.done) {
+            return console.log("Ripples.js was already initialzied.");
+        }
+
+        this.done = true;
+
 
         // Cross browser matches function
         function matchesSelector(domElement, selector) {
