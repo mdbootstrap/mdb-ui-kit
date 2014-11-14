@@ -2618,8 +2618,7 @@ body .jumbotron-material-lightgrey,
   text-transform: uppercase;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.84);
-  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
 }
 .btn:hover:not(.btn-link):not(.btn-flat) {
@@ -2778,8 +2777,7 @@ body .jumbotron-material-lightgrey,
 }
 .btn.btn-raised {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
-  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn.btn-raised:active:not(.btn-link) {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
@@ -2997,8 +2995,7 @@ body .jumbotron-material-lightgrey,
   border-radius: 2px;
   margin: 10px 1px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
-  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group:active:not(.btn-link),
 .btn-group-vertical:active:not(.btn-link) {
@@ -3011,8 +3008,7 @@ body .jumbotron-material-lightgrey,
 .btn-group.btn-group-raised,
 .btn-group-vertical.btn-group-raised {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
-  -webkit-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group.btn-group-raised:active:not(.btn-link),
 .btn-group-vertical.btn-group-raised:active:not(.btn-link) {
@@ -3046,8 +3042,7 @@ body .jumbotron-material-lightgrey,
   display: block;
   position: absolute;
   left: 0px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 .checkbox label .ripple {
   display: block;
@@ -3535,8 +3530,7 @@ body .jumbotron-material-lightgrey,
   position: absolute;
   left: 10px;
   top: 2px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 .radio label .circle {
   border: 2px solid rgba(0, 0, 0, 0.84);
@@ -3819,8 +3813,7 @@ select[multiple].form-control.focus {
   pointer-events: none;
   left: 0px;
   top: 5px;
-  -webkit-transition: 0.2s ease all;
-          transition: 0.2s ease all;
+  transition: 0.2s ease all;
   opacity: 0;
 }
 .form-control-wrapper .form-control:not(.empty) ~ .floating-label {
@@ -3856,16 +3849,16 @@ select[multiple].form-control.focus {
   -webkit-transform: scaleX(0);
       -ms-transform: scaleX(0);
           transform: scaleX(0);
-  -webkit-transition: -webkit-transform 0s;
-          transition: transform 0s;
+  transition: -webkit-transform 0s;
+  transition: transform 0s;
 }
 .form-control-wrapper .form-control:focus ~ .material-input:before,
 .form-control-wrapper .form-control.focus ~ .material-input:before {
   -webkit-transform: scaleX(1);
       -ms-transform: scaleX(1);
           transform: scaleX(1);
-  -webkit-transition: -webkit-transform 0.2s ease-out;
-          transition: transform 0.2s ease-out;
+  transition: -webkit-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
 }
 .form-control-wrapper .material-input:after {
   content: "";
@@ -5413,8 +5406,8 @@ icon-material-lightgrey {
   border-radius: 2px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
   height: 0;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
-          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
   -webkit-transform: translateY(200%);
       -ms-transform: translateY(200%);
           transform: translateY(200%);
@@ -5423,8 +5416,8 @@ icon-material-lightgrey {
   padding: 14px 15px;
   margin-bottom: 20px;
   height: auto;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
-          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+  transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
   -webkit-transform: none;
       -ms-transform: none;
           transform: none;
@@ -5466,8 +5459,7 @@ icon-material-lightgrey {
   *z-index: -1;
 }
 .noUi-state-tap .noUi-origin {
-  -webkit-transition: left 0.3s, top 0.3s;
-          transition: left 0.3s, top 0.3s;
+  transition: left 0.3s, top 0.3s;
 }
 .noUi-state-drag * {
   cursor: inherit !important;
@@ -5483,8 +5475,7 @@ icon-material-lightgrey {
   top: -5px;
   cursor: ew-resize;
   border-radius: 100%;
-  -webkit-transition: all 0.2s ease-out;
-          transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   border: 1px solid;
 }
 .noUi-vertical .noUi-handle {
