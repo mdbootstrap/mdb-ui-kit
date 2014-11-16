@@ -136,8 +136,8 @@
             (function() {
                 // This part of code will detect autofill when the page is loading (username and password inputs for example)
                 var loading = setInterval(function() {
-                    $("input").each(function() {
-                        if ($(this).val() !== $(this).attr("value")) {
+                    $("input[type!=checkbox]").each(function() {
+                        if ($(this).val() && $(this).val() !== $(this).attr("value")) {
                             $(this).trigger("change");
                         }
                     });
