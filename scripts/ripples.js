@@ -147,12 +147,6 @@ window.ripples = {
                 var $rippleWrapper = document.createElement("div");
                 $rippleWrapper.className = "ripple-wrapper";
                 target.appendChild($rippleWrapper);
-                if ("ontouchstart" in window) {
-                    rippleStart(e, $rippleWrapper, function() {
-                        // FIXME: ugly fix for first touchstart event on mobile devices...
-                        $rippleWrapper.getElementsByClassName("ripple")[0].remove();
-                    });
-                }
             }
         };
 
@@ -160,7 +154,10 @@ window.ripples = {
 
         // Events handler
         // init RippleJS and start ripple effect on mousedown
-        bind(["mouseover", "touchstart"], withRipple, rippleInit);
+        bind(["mouseover"], withRipple, rippleInit);
+
+        // Init if the device is touch screen
+        bind(["touchstart"], withRipple, rippleInit);
 
         // start ripple effect on mousedown
         bind(["mousedown", "touchstart"], ".ripple-wrapper", function(e, $ripple) {
