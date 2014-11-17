@@ -81,7 +81,7 @@ window.ripples = {
             } else {
                 targetColor = targetColor.replace("rgb", "rgba").replace(")", ", " + _rippleOpacity + ")");
             }
-            
+
             // Insert new ripple into ripple wrapper
             $rippleWrapper.appendChild($ripple);
 
@@ -147,7 +147,7 @@ window.ripples = {
                 var $rippleWrapper = document.createElement("div");
                 $rippleWrapper.className = "ripple-wrapper";
                 target.appendChild($rippleWrapper);
-                if (window.ontouchstart === null) {
+                if ("ontouchstart" in window) {
                     rippleStart(e, $rippleWrapper, function() {
                         // FIXME: ugly fix for first touchstart event on mobile devices...
                         $rippleWrapper.getElementsByClassName("ripple")[0].remove();
