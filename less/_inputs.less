@@ -95,11 +95,21 @@ select[multiple].form-control {
         margin-top: -11px;
     }
 
-    /* active state */
+    // active state
     .form-control:focus ~ .material-input:after, .form-control.focus ~ .material-input:after {
         animation: input-highlight 0.3s ease;
         animation-fill-mode: forwards;
         opacity: 0;
+    }
+
+    // Hints
+    .hint {
+        position: absolute;
+        font-size: 80%;
+        display: none;
+    }
+    .form-control:focus ~ .hint, .form-control.focus ~ .hint {
+        display: block;
     }
 
     select ~ .material-input:after {
