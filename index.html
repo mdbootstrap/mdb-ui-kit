@@ -1521,6 +1521,10 @@
                             </div>
 
                             <div class="form-group">
+                                <input class="form-control floating-label" id="focusedInput" type="text" placeholder="Focus to show the hint" data-hint="You should really write something here">
+                            </div>
+
+                            <div class="form-group">
                                 <label class="control-label" for="disabledInput">Disabled input</label>
                                 <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
                             </div>
@@ -1895,9 +1899,16 @@
                             <h1 id="slider">Sliders <span style="font-size: 50%">(with noUiSlider)</span></h1>
                         </div>
                         <div class="bs-component">
-                            <div class="slider"></div>
-                            <div class="slider slider-success"></div>
-                            <div class="slider slider-material-pink"></div>
+                            <div class="col-sm-6">
+                                <div class="slider shor"></div>
+                                <div class="slider shor slider-success"></div>
+                                <div class="slider shor slider-material-pink"></div>
+                            </div>
+                            <div class="col-sm-6" style="height: 150px">
+                                <div class="slider svert"></div>
+                                <div class="slider svert slider-success"></div>
+                                <div class="slider svert slider-material-pink"></div>
+                            </div>
                         </div>
                         <p>Read more about <a href="http://refreshless.com/nouislider/">noUiSlider here</a>.</p>
                     </div>
@@ -2310,7 +2321,17 @@
         <script>
             $(function() {
                 $.material.init();
-                $(".slider").noUiSlider({
+                $(".shor").noUiSlider({
+                    start: 40,
+                    connect: "lower",
+                    range: {
+                        min: 0,
+                        max: 100
+                    }
+                });
+
+                $(".svert").noUiSlider({
+                    orientation: "vertical",
                     start: 40,
                     connect: "lower",
                     range: {

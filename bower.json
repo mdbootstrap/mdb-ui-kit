@@ -37,5 +37,8 @@
     "google",
     "android"
   ],
-  "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md"
+  "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md",
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
 }
