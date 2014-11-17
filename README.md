@@ -1,18 +1,14 @@
-<<<<<<< HEAD
 [![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
 [![ghat status](http://mywebexpression.com:3001/status/initial/badge.png)](http://mywebexpression.com:3001/) (click to chat)
 
 [![banner](demo/imgs/banner.jpg)](#)
-=======
-[![banner](demo/imgss/banner.jpg)](#)
->>>>>>> develop
 
 This Bootstrap theme is an easy way to use the new [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) in your Bootstrap 3 based application.
 Just include the theme, after the Bootstrap CSS and include the javascript at the end of your document (Just before the end of the `<body>` tag), and everything will be converted to Material Design (paper) style.
 
-**Note:**This theme is in early development and is not ready for production.
+**NOTE**: This theme is in early development and is not ready for production.
 
-Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/) (This demo may not be even with the master branch.)
+Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/) (this demo may not be even with the `master` branch).
 
 ## How to install
 
@@ -35,20 +31,17 @@ so this might not be true before the first stable release.
 
 Navigate to the `dist/` folder in this repository, and you will see the `test.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
 You need to copy the `dist/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
-<<<<<<< HEAD
 
 ## Development
 
 We are using grunt to automate the workflow and build process. Ensure you have nodejs installed and grunt-cli installed globally.
 After cloning the repo, run `npm install` to ensure you have all dev dependencies.
 
-Run the `grunt build` command to run the tests and compile the less/sass. See Gruntfile.js for details on targets.
+Run the `grunt build` command to run the tests and compile the less/sass. See [Gruntfile.js](Gruntfile.js) for details on targets.
 
 Run the `grunt test` command for browser based jasmine unit tests.
 
 Run the `grunt serve` command to build and fire up a http server with live-reload and a watch for development purposes.
-=======
->>>>>>> develop
 
 ## Todo
 
@@ -71,8 +64,7 @@ If you like this project you may support me by donating something on Gittip, sta
 
 # Contribute
 
-Please see the [contrib](CONTRIBUTING.md) file.
-
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 # Documentation
 
@@ -100,8 +92,6 @@ Add `.btn-raised` to a button to add a permanent shadow to it.
 
 Add `.floating-label` to an input field with a `placeholder` to transform the placeholder in a floating label.
 
-Add `data-hint="some hint"` to show an hint under the input when the user focus it.
-
 Remember to use the proper HTML markup to get radio and checkboxes styled correctly (choose between *radio* or *checkbox*):
 
     <div class="radio/checkbox radio-primary">
@@ -125,7 +115,7 @@ The syntax to add a Material icon is:
 
 # Material.js
 
-Material.js is a jQuery plugin that add some magic to your markup and allows Material Design for Bootstrap to style some elements like inputs, checkboxes, radios etc.
+`Material.js` is a jQuery plugin that add some magic to your markup and allows Material Design for Bootstrap to style some elements like inputs, checkboxes, radios etc.
 
 ### Functions:
 
@@ -154,8 +144,7 @@ You can even override the default values using the `$.material.options` function
 
 ### Arrive.js support
 
-If you need to dynamically add elements to your DOM then you may need to include Arrive.js before Material.js, this will automatically apply Material.js to every new element added by you using JS.
-
+If you need to dynamically add elements to your DOM then you may need to include `Arrive.js` before `Material.js`, this will automatically apply `Material.js` to every new element added by you using JS.
 
 # Plugins
 
@@ -180,8 +169,6 @@ Read more about [noUiSlider here](http://refreshless.com/nouislider/)
 Transform select and multi select inputs in advanced text inputs. Material Design for BS provides a full replacement of the plugin's CSS, so don't include it.
 Read more about [selectize.js](http://brianreavis.github.io/selectize.js/)
 
-
 # Compatibility
 
 Currently Material Design for Bootstrap supports Google Chrome (tested v37+), Mozilla Firefox (tested 30+), and Internet Explorer (tested 11+). Mobile browsers are not currently tested but it may work.
-
