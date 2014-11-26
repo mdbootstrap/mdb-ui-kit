@@ -5412,6 +5412,9 @@ icon-material-lightgrey {
 .panel-footer {
   background-color: #ececec;
 }
+.modal {
+  background: rgba(0, 0, 0, 0.3);
+}
 .snackbar {
   background-color: #323232;
   color: rgba(255, 255, 255, 0.84);
