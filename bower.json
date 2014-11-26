@@ -7,10 +7,10 @@
   ],
   "description": "Material Design theme for Bootstrap 3",
   "main": [
-    "dist/css/material.min.css",
-    "dist/js/material.min.js",
-    "dist/css/ripples.min.css",
-    "dist/js/ripples.min.js"
+    "dist/css/material.css",
+    "dist/js/material.js",
+    "dist/css/ripples.css",
+    "dist/js/ripples.js"
   ],
   "ignore": [
     "test",
