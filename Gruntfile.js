@@ -52,10 +52,13 @@ module.exports = function(grunt) {
         },
 
         uglify: {
+            options: {
+              sourceMap: true
+            },
             minifyjs: {
                 files: {
-                    "dist/js/material.min.js": "scripts/material.js",
-                    "dist/js/ripples.min.js": "scripts/ripples.js"
+                    "dist/js/material.min.js": "dist/js/material.js",
+                    "dist/js/ripples.min.js": "dist/js/ripples.js"
                 }
             }
         },
@@ -164,9 +167,9 @@ module.exports = function(grunt) {
 
     });
 
-    grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "uglify", "copy"]);
+    grunt.registerTask("default", ["less", "autoprefixer", "cssmin", "copy", "uglify"]);
 
-    grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "uglify", "copy"]);
+    grunt.registerTask("scss", ["sass", "autoprefixer", "cssmin", "copy", "uglify"]);
 
     grunt.registerTask("build", function(target) {
         var buildType = "default";
