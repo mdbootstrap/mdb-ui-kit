@@ -99,8 +99,8 @@ window.ripples = {
                 $ripple.getAttribute("style"),
                 "background-color: " + targetColor,
                 "-ms-transform: " + scale,
-                "-moz-transform" + scale,
-                "-webkit-transform" + scale,
+                "-moz-transform:" + scale,
+                "-webkit-transform:" + scale,
                 "transform: " + scale
             ];
 
