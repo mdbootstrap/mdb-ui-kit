@@ -64,7 +64,7 @@ module.exports = function(grunt) {
             distjs: {
                 expand: true,
                 cwd: "scripts/",
-                src: "**.min.js",
+                src: "**.js",
                 dest: "dist/js/",
                 flatten: true,
                 filter: "isFile"
