@@ -3033,10 +3033,6 @@ body .jumbotron-material-lightgrey,
   box-shadow: none !important;
   margin: 0;
 }
-.btn-group .btn:active .caret,
-.btn-group-vertical .btn:active .caret {
-  margin-left: -1px;
-}
 .btn-group-flat {
   box-shadow: none !important;
 }
