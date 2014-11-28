@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Material Design for Bootstrap</title>
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Twitter Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design for Bootstrap -->
+    <link href="dist/css/material-wfont.min.css" rel="stylesheet">
+    <link href="dist/css/ripples.min.css" rel="stylesheet">
+
+
+    <!-- Page style -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .header-panel {
+        background-color: #5264AE;
+        height: 144px;
+        position: relative;
+        z-index: 3;
+      }
+      .header-panel div {
+        position: relative;
+        height: 100%;
+      }
+      .header-panel h1 {
+        color: #FFF;
+        font-size: 20px;
+        font-weight: 400;
+        position: absolute;
+        bottom: 10px;
+      }
+
+      .menu {
+        overflow: auto;
+        padding: 0;
+      }
+      .menu, .menu * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      .menu ul {
+        padding: 0;
+        margin: 7px 0;
+      }
+      .menu ul li {
+        list-style: none;
+        padding: 20px 0 20px 50px;
+        font-size: 15px;
+        font-weight: normal;
+        cursor: pointer;
+      }
+      .menu ul li.active {
+        background-color: #dedede;
+        position: relative;
+      }
+
+      .pages {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 4;
+        padding: 0;
+        overflow: auto;
+      }
+      .pages > div {
+        padding: 0 5px;
+        padding-top: 64px;
+      }
+
+      .pages .header {
+        color: rgb(82, 101, 162);
+        font-size: 24px;
+        font-weight: normal;
+        margin-top: 5px;
+        margin-bottom: 60px;
+        letter-spacing: 1.20000004768372px;
+      }
+
+      .page {
+        transform: translateY(1080px);
+        transition: transform 0 linear;
+        display: none;
+        opacity: 0;
+        font-size: 16px;
+      }
+
+      .page.active {
+        transform: translateY(0px);
+        transition: all 0.6s ease-out;
+        display: block;
+        opacity: 1;
+      }
+
+      /* FIXME: why do I need these overrides? */
+      .navbar input::-webkit-input-placeholder {
+        color: rgba(255,255,255,.84) !important
+      }
+      .navbar input::-moz-placeholder {
+        color: rgba(255,255,255,.84) !important
+      }
+      .navbar input:-ms-input-placeholder {
+        color: rgba(255,255,255,.84) !important
+      }
+
+    </style>
+
+
+  </head>
+  <body>
+
+    <div class="header-panel shadow-z-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3">
+            <h1>Paper Elements</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid main">
+      <div class="row">
+        <nav class="col-xs-3 menu">
+          <ul>
+            <li class="active withripple" data-target="#checkbox">Checkbox</li>
+            <li class="withripple" data-target="#radio-button">Radio Button</li>
+            <li class="withripple">Toggle Button (TODO)</li>
+            <li class="withripple" data-target="#input">Input</li>
+            <li class="withripple" data-target="#navbar">Navbar</li>
+            <li class="withripple" data-target="#progress-bar">Progress Bar</li>
+            <li class="withripple" data-target="#slider">Slider</li>
+            <li class="withripple">Tabs (TODO)</li>
+            <li class="withripple" data-target="#button">Button</li>
+            <li class="withripple">Icon button (TODO)</li>
+            <li class="withripple" data-target="#floating-action-button">Floating Action Button</li>
+            <li>Input</li>
+            <li>Toolbar</li>
+          </ul>
+        </nav>
+        <div class="pages col-xs-9">
+          <div class="col-xs-10">
+            <div class="well page active" id="checkbox">
+              <style>
+                #checkbox .sample1 label {
+                  font-weight: bold;
+                }
+                #checkbox .hint {
+                  padding-left: 45px;
+                  padding-top: 20px;
+                  font-weight: 400;
+                }
+                #checkbox .sample1 {
+                  padding-bottom: 20px;
+                }
+
+                #checkbox h2 {
+                  font-size: 18.7199993133545px;
+                  font-weight: bold;
+                  margin-bottom: 30px;
+                }
+
+                #checkbox .sample2 {
+                  width: 300px;
+                  clear: both;
+                  font-weight: 400;
+                }
+
+                #checkbox .sample2 .text {
+                  padding: 10px 0;
+                  display: inline-block;
+                }
+                #checkbox .sample2 .checkbox {
+                  float: right;
+                }
+              </style>
+              <h1 class="header">Checkbox</h1>
+              <div>
+                <div class="sample1">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"> Notifications
+                    </label>
+                  </div>
+                  <p class="hint">Notify me about updates to apps or games that I've downloaded</p>
+                </div>
+
+                <div class="sample1">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" checked> Auto-updates
+                    </label>
+                  </div>
+                  <p class="hint">Auto-update apps over wifi only</p>
+                </div>
+
+                <div class="sample1">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"> Clear search history
+                    </label>
+                  </div>
+                  <p class="hint">Remove all the searches you have ever performed</p>
+                </div>
+
+                <h2>Sound</h2>
+
+                <div class="sample2">
+                  <div class="text">Touch sounds</div>
+                  <div class="checkbox checkbox-primary">
+                    <label>
+                      <input type="checkbox" checked>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="sample2">
+                  <div class="text">Screen lock sound</div>
+                  <div class="checkbox checkbox-primary">
+                    <label>
+                      <input type="checkbox">
+                    </label>
+                  </div>
+                </div>
+
+                <div class="sample2">
+                  <div class="text">Vibrate on touch</div>
+                  <div class="checkbox checkbox-primary">
+                    <label>
+                      <input type="checkbox">
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="well page" id="radio-button">
+              <style>
+                #radio-button h2 {
+                  font-size: 18.7199993133545px;
+                  font-weight: bold;
+                  margin-bottom: 30px;
+                  margin-top: 50px;
+                }
+                #radio-button .radio {
+                  margin: 20px 10px;
+                }
+              </style>
+              <h1 class="header">Checkbox</h1>
+              <div>
+                <h2>Keep Wi-Fi on during sleep</h2>
+                <div class="sample1">
+                  <div class="radio radio-success">
+                    <label>
+                      <input type="radio" name="sample1" value="option1" checked="">
+                      Always
+                    </label>
+                  </div>
+                  <div class="radio radio-success">
+                    <label>
+                      <input type="radio" name="sample1" value="option1">
+                      Only when plugged in
+                    </label>
+                  </div>
+                  <div class="radio radio-success">
+                    <label>
+                      <input type="radio" name="sample1" value="option1">
+                      Never
+                    </label>
+                  </div>
+                </div>
+
+
+                <h2>Wi-Fi frequency band</h2>
+                <div class="sample2">
+                  <div class="radio radio-primary">
+                    <label>
+                      <input type="radio" name="sample2" value="option1" checked="">
+                      Auto
+                    </label>
+                  </div>
+                  <div class="radio radio-primary">
+                    <label>
+                      <input type="radio" name="sample2" value="option1">
+                      5 GHz only
+                    </label>
+                  </div>
+                  <div class="radio radio-primary">
+                    <label>
+                      <input type="radio" name="sample2" value="option1">
+                      2.4 GHz only
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="well page" id="input">
+              <style>
+                #input h2 {
+                  padding: 14px;
+                  font-size: 16px;
+                  font-weight: 400;
+                }
+                #input .inputs {
+                  width: 80%;
+                }
+                #input .form-control-wrapper {
+                  margin: 30px 0;
+                }
+              </style>
+              <h1 class="header">Input</h1>
+              <div class="inputs">
+                <h2>Input</h2>
+                <input type="text" class="form-control" placeholder="label">
+                <input type="text" class="form-control floating-label" placeholder="floating label">
+
+                <h2>Textarea</h2>
+                <textarea class="form-control" placeholder="textarea label"></textarea>
+                <textarea class="form-control floating-label" placeholder="textarea floating label"></textarea>
+
+                <h2>Validation</h2>
+                <input type="email" class="form-control floating-label" placeholder="email">
+                <input type="number" class="form-control floating-label" placeholder="number">
+
+                <h2>Hints</h2>
+                <input type="text" class="form-control floating-label" data-hint="Write here something cool" placeholder="label">
+                <input type="email" class="form-control floating-label" data-hint="A valid email should contains @" placeholder="label">
+
+
+                <h2>Styling</h2>
+                <div class="form-group has-success">
+                  <input type="text" class="form-control form-control-success" placeholder="label">
+                  <input type="text" class="form-control form-control-success floating-label" placeholder="floating label">
+                </div>
+
+
+              </div>
+            </div>
+            <div class="well page" id="navbar">
+              <h1 class="header">Navbar</h1>
+
+              <div class="navbar navbar-default">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="javascript:void(0)">Active</a></li>
+                    <li><a href="javascript:void(0)">Link</a></li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Action</a></li>
+                        <li><a href="javascript:void(0)">Another action</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Dropdown header</li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                        <li><a href="javascript:void(0)">One more separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </form>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:void(0)">Link</a></li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Action</a></li>
+                        <li><a href="javascript:void(0)">Another action</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="navbar navbar-warning">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-warning-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="javascript:void(0)">Active</a></li>
+                    <li><a href="javascript:void(0)">Link</a></li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Action</a></li>
+                        <li><a href="javascript:void(0)">Another action</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Dropdown header</li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                        <li><a href="javascript:void(0)">One more separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </form>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:void(0)">Link</a></li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Action</a></li>
+                        <li><a href="javascript:void(0)">Another action</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="navbar navbar-inverse">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+                </div>
+                <div class="navbar-collapse collapse navbar-warning-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="javascript:void(0)">Active</a></li>
+                    <li><a href="javascript:void(0)">Link</a></li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Action</a></li>
+                        <li><a href="javascript:void(0)">Another action</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Dropdown header</li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                        <li><a href="javascript:void(0)">One more separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <form class="navbar-form navbar-left">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </form>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:void(0)">Link</a></li>
+                    <li class="dropdown">
+                      <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="javascript:void(0)">Action</a></li>
+                        <li><a href="javascript:void(0)">Another action</a></li>
+                        <li><a href="javascript:void(0)">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="javascript:void(0)">Separated link</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+            <div class="well page" id="progress-bar">
+              <style>
+                #progress-bar h2 {
+                  font-size: 18.7199993133545px;
+                  font-weight: bold;
+                  margin-bottom: 30px;
+                }
+              </style>
+              <h1 class="header">Progress Bar</h1>
+              <h2>Basic</h2>
+              <div class="progress">
+                <div class="progress-bar" style="width: 60%;"></div>
+              </div>
+
+              <h2>Contextual alternatives</h2>
+              <div class="progress">
+                <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+              </div>
+
+              <h2>Striped</h2>
+              <div class="progress progress-striped">
+                <div class="progress-bar progress-bar-info" style="width: 20%"></div>
+              </div>
+              <div class="progress progress-striped">
+                <div class="progress-bar progress-bar-success" style="width: 40%"></div>
+              </div>
+              <div class="progress progress-striped">
+                <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
+              </div>
+              <div class="progress progress-striped">
+                <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+              </div>
+
+              <h2>Animated</h2>
+              <div class="progress progress-striped active">
+                <div class="progress-bar" style="width: 45%"></div>
+              </div>
+
+              <h2>Stacked</h2>
+              <div class="progress">
+                <div class="progress-bar progress-bar-success" style="width: 35%"></div>
+                <div class="progress-bar progress-bar-warning" style="width: 20%"></div>
+                <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
+              </div>
+
+            </div>
+            <div class="well page" id="slider">
+              <style>
+                #slider .sample1, #slider .sample2 {
+                  padding: 20px 0;
+                  background-color: #f0f0f0;
+                  margin-bottom: 20px;
+                }
+                #slider .sample2 {
+                  height: 150px;
+                }
+                #slider .sample2 .slider {
+                  margin: 0 40px;
+                }
+                #slider h2 {
+                  padding: 14px;
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: 400;
+                }
+                #slider .slider {
+                  margin: 15px;
+                }
+              </style>
+              <h1 class="header">Slider</h1>
+              <div class="sample1">
+                <h2>Music, video, games &amp; other media</h2>
+                <div class="slider shor slider-material-orange"></div>
+
+                <h2>Notifications</h2>
+                <div class="slider shor slider-material-orange"></div>
+
+                <h2>Alarms</h2>
+                <div class="slider shor slider-material-orange"></div>
+              </div>
+
+              <div class="sample2">
+                <div class="slider svert"></div>
+                <div class="slider svert"></div>
+                <div class="slider svert"></div>
+              </div>
+
+              <p>Sliders are powered by <a href="http://refreshless.com/nouislider/" target="_blank">noUiSlider</a></p>
+
+            </div>
+            <div class="well page" id="button">
+              <style>
+                #button h2 {
+                  padding: 14px;
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: 400;
+                }
+              </style>
+              <h1 class="header">Button</h1>
+              <div class="sample1">
+                <h2>Normal buttons</h2>
+                <button class="btn btn-default">Button</button>
+                <button class="btn btn-primary">Colored</button>
+                <button class="btn btn-default" disabled>Disabled</button>
+                <button class="btn btn-default btn-link">Noink</button>
+              </div>
+              <div class="sample1">
+                <h2>Flat buttons</h2>
+                <button class="btn btn-default btn-flat">Button</button>
+                <button class="btn btn-primary btn-flat">Colored</button>
+                <button class="btn btn-default btn-flat" disabled>Disabled</button>
+                <button class="btn btn-default btn-flat btn-link">Noink</button>
+              </div>
+              <div class="sample2">
+                <h2>Raised buttons</h2>
+                <button class="btn btn-default btn-raised">Button</button>
+                <button class="btn btn-primary btn-raised">Colored</button>
+                <button class="btn btn-default btn-raised" disabled>Disabled</button>
+                <button class="btn btn-default btn-raised btn-link">Noink</button>
+              </div>
+              <div class="sample3">
+                <h2>Custom button content</h2>
+                <button class="btn btn-primary btn-flat"><i class="mdi-navigation-check"></i> Ok</button>
+                <button class="btn btn-default btn-flat"><i class="mdi-navigation-close"></i> Cancel</button>
+              </div>
+
+
+            </div>
+            <div class="well page" id="floating-action-button">
+              <style>
+                #floating-action-button .btn {
+                  margin: 20px;
+                }
+                #floating-action-button h2 {
+                  padding: 14px;
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: 400;
+                }
+              </style>
+              <h1 class="header">Floating Action Button</h1>
+
+              <h2>Regular</h2>
+              <button class="btn btn-fab btn-raised btn-material-red"><i class="mdi-navigation-arrow-forward"></i></button>
+              <button class="btn btn-fab btn-raised btn-primary"><i class="mdi-image-edit"></i></button>
+
+              <h2>Mini</h2>
+              <button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-success"><i class="mdi-navigation-check"></i></button>
+              <button class="btn btn-fab btn-fab-mini btn-raised btn-material-lightyellow"><i class="mdi-content-reply"></i></button>
+            </div>
+            <div class="well page" id="dropdown">
+              <style>
+                #dropdown h2 {
+                  padding: 14px;
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: 400;
+                }
+              </style>
+              <h1 class="header">Dropdown</h1>
+              <h2>Simple dropdown</h2>
+              <span class="dropdown"><i class="mdi-navigation-menu"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+    <!-- Twitter Bootstrap -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script src="dist/js/material.min.js"></script>
+    <script src="dist/js/ripples.min.js"></script>
+    <script>
+      $(window).on("resize", function() {
+        $("html, body").height($(window).height());
+        $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
+        $(".pages").height($(window).height());
+      }).trigger("resize");
+
+      $(".menu li").click(function() {
+        $(".menu li").not($(this)).removeClass("active");
+        $(this).addClass("active");
+        var page = $($(this).data("target"));
+        $(".page").not(page).removeClass("active").hide();
+        page.show();
+        setTimeout(function() {
+          page.addClass("active");
+        }, 50);
+      });
+
+      $.material.init();
+
+    </script>
+
+
+    <!-- Sliders -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+    <script>
+      $(function() {
+        $.material.init();
+        $(".shor").noUiSlider({
+          start: 40,
+          connect: "lower",
+          range: {
+            min: 0,
+            max: 100
+          }
+        });
+
+        $(".svert").noUiSlider({
+          orientation: "vertical",
+          start: 40,
+          connect: "lower",
+          range: {
+            min: 0,
+            max: 100
+          }
+        });
+      });
+    </script>
+
+  </body>
+</html>
