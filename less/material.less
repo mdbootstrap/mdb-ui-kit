@@ -107,6 +107,18 @@ legend {
   background: rgba(0,0,0,0.3);
 }
 
+// Prevent highlight on mobile
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  &:focus {
+        outline: 0;
+        border:none;
+        color: rgba(0, 0, 0, 0);
+  }
+}
+
+
 // External plugins
 @import "_plugin-snackbarjs.less";
 @import "_plugin-nouislider.less";
