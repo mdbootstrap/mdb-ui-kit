@@ -1,5 +1,5 @@
 /* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
-/* globals jQuery */
+/* globals jQuery, navigator */
 
 (function($) {
   $.ripples = function(options) {
@@ -8,6 +8,11 @@
     var defaultOptions = {
       "target": ".btn:not(.btn-link), .card-image, .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple"
     };
+
+
+    function isTouch() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
 
 
     // Fade out the ripple and then destroy it
@@ -31,7 +36,11 @@
 
 
     $(document)
-    .on("mousedown", options.target, function(e) {
+    .on("mousedown touchstart", options.target, function(e) {
+      if (isTouch() && e.type == "mousedown") {
+        return false;
+      }
+
       // If the ripple wrapper does not exists, create it
       if (!$(this).find(".ripple-wrapper").length) {
         $(this).append("<div class=ripple-wrapper></div>");
@@ -39,10 +48,24 @@
 
       var wrapper = $(this).find(".ripple-wrapper");
 
-      // Get the mouse position relative to the ripple wrapper
-      var wrapperOffset = wrapper.offset();
-      var relX = e.pageX - wrapperOffset.left;
-      var relY = e.pageY - wrapperOffset.top;
+
+      var wrapperOffset = wrapper.offset(),
+          relX,
+          relY;
+      if (!isTouch()) {
+        // Get the mouse position relative to the ripple wrapper
+        relX = e.pageX - wrapperOffset.left;
+        relY = e.pageY - wrapperOffset.top;
+      } else {
+        // Make sure the user is using only one finger and then get the touch position relative to the ripple wrapper
+        e = e.originalEvent;
+        if (e.touches.length === 1) {
+          relX = e.touches[0].pageX - wrapperOffset.left;
+          relY = e.touches[0].pageY - wrapperOffset.top;
+        } else {
+          return;
+        }
+      }
 
       // Meet the new ripple
       var ripple = $("<div></div>");
