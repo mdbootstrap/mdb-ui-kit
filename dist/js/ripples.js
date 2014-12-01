@@ -41,6 +41,8 @@
         return false;
       }
 
+      var element = $(this);
+
       // If the ripple wrapper does not exists, create it
       if (!$(this).find(".ripple-wrapper").length) {
         $(this).append("<div class=ripple-wrapper></div>");
@@ -109,7 +111,7 @@
       }, 500);
 
       // On mouseup or on mouseleave, set the mousedown flag to "off" and try to destroy the ripple
-      wrapper.on("mouseup mouseleave", function() {
+      element.on("mouseup mouseleave", function() {
         ripple.data("mousedown", "off");
         // If the transition "on" is finished then we can destroy the ripple with transition "out"
         if (ripple.data("animating") == "off") {
