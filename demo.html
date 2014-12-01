@@ -14,6 +14,10 @@
     <link href="dist/css/ripples.min.css" rel="stylesheet">
 
 
+    <!-- Dropdown.js -->
+    <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+
+
     <!-- Page style -->
     <style>
       * {
@@ -35,6 +39,7 @@
         font-weight: 400;
         position: absolute;
         bottom: 10px;
+        padding-left: 35px;
       }
 
       .menu {
@@ -99,6 +104,17 @@
         opacity: 1;
       }
 
+      #opensource {
+        color: rgba(0, 0, 0, 0.62);
+        position: fixed;
+        margin-top: 50px;
+        margin-left: 50px;
+      }
+
+      #source-modal h4 {
+        color: black;
+      }
+
       /* FIXME: why do I need these overrides? */
       .navbar input::-webkit-input-placeholder {
         color: rgba(255,255,255,.84) !important
@@ -117,7 +133,7 @@
   <body>
 
     <div class="header-panel shadow-z-2">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="col-xs-3">
             <h1>Paper Elements</h1>
@@ -131,7 +147,7 @@
           <ul>
             <li class="active withripple" data-target="#checkbox">Checkbox</li>
             <li class="withripple" data-target="#radio-button">Radio Button</li>
-            <li class="withripple">Toggle Button (TODO)</li>
+            <li class="withripple" data-target="#toggle-button">Toggle Button</li>
             <li class="withripple" data-target="#input">Input</li>
             <li class="withripple" data-target="#navbar">Navbar</li>
             <li class="withripple" data-target="#progress-bar">Progress Bar</li>
@@ -140,13 +156,74 @@
             <li class="withripple" data-target="#button">Button</li>
             <li class="withripple">Icon button (TODO)</li>
             <li class="withripple" data-target="#floating-action-button">Floating Action Button</li>
-            <li>Input</li>
-            <li>Toolbar</li>
+            <li class="withripple" data-target="#dropdown">Dropdown (Work in progress)</li>
+            <li class="withripple" data-target="#dropdown-menu">Dropdown Menu</li>
           </ul>
         </nav>
         <div class="pages col-xs-9">
           <div class="col-xs-10">
             <div class="well page active" id="checkbox">
+              <h1 class="header">Checkbox</h1>
+
+              <!-- Simple checkbox with label -->
+              <div class="sample1">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Notifications
+                  </label>
+                </div>
+                <p class="hint">Notify me about updates to apps or games that I've downloaded</p>
+              </div>
+
+              <!-- Simple checkbox with label, checked -->
+              <div class="sample1">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" checked> Auto-updates
+                  </label>
+                </div>
+                <p class="hint">Auto-update apps over wifi only</p>
+              </div>
+
+              <!-- Simple checkbox with label -->
+              <div class="sample1">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Clear search history
+                  </label>
+                </div>
+                <p class="hint">Remove all the searches you have ever performed</p>
+              </div>
+
+              <h2>Sound</h2>
+
+              <!-- Checkboxes with labels on the left -->
+              <div class="sample2">
+                <div class="text">Touch sounds</div>
+                <div class="checkbox checkbox-primary">
+                  <label>
+                    <input type="checkbox" checked>
+                  </label>
+                </div>
+              </div>
+              <div class="sample2">
+                <div class="text">Screen lock sound</div>
+                <div class="checkbox checkbox-primary">
+                  <label>
+                    <input type="checkbox">
+                  </label>
+                </div>
+              </div>
+              <div class="sample2">
+                <div class="text">Vibrate on touch</div>
+                <div class="checkbox checkbox-primary">
+                  <label>
+                    <input type="checkbox">
+                  </label>
+                </div>
+              </div>
+
+              <!-- Custom page style -->
               <style>
                 #checkbox .sample1 label {
                   font-weight: bold;
@@ -180,67 +257,54 @@
                   float: right;
                 }
               </style>
-              <h1 class="header">Checkbox</h1>
-              <div>
-                <div class="sample1">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Notifications
-                    </label>
-                  </div>
-                  <p class="hint">Notify me about updates to apps or games that I've downloaded</p>
-                </div>
-
-                <div class="sample1">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" checked> Auto-updates
-                    </label>
-                  </div>
-                  <p class="hint">Auto-update apps over wifi only</p>
-                </div>
-
-                <div class="sample1">
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox"> Clear search history
-                    </label>
-                  </div>
-                  <p class="hint">Remove all the searches you have ever performed</p>
-                </div>
-
-                <h2>Sound</h2>
-
-                <div class="sample2">
-                  <div class="text">Touch sounds</div>
-                  <div class="checkbox checkbox-primary">
-                    <label>
-                      <input type="checkbox" checked>
-                    </label>
-                  </div>
-                </div>
-
-                <div class="sample2">
-                  <div class="text">Screen lock sound</div>
-                  <div class="checkbox checkbox-primary">
-                    <label>
-                      <input type="checkbox">
-                    </label>
-                  </div>
-                </div>
-
-                <div class="sample2">
-                  <div class="text">Vibrate on touch</div>
-                  <div class="checkbox checkbox-primary">
-                    <label>
-                      <input type="checkbox">
-                    </label>
-                  </div>
-                </div>
-
-              </div>
             </div>
             <div class="well page" id="radio-button">
+              <h1 class="header">Checkbox</h1>
+              <h2>Keep Wi-Fi on during sleep</h2>
+              <div class="sample1">
+                <div class="radio radio-success">
+                  <label>
+                    <input type="radio" name="sample1" value="option1" checked="">
+                    Always
+                  </label>
+                </div>
+                <div class="radio radio-success">
+                  <label>
+                    <input type="radio" name="sample1" value="option1">
+                    Only when plugged in
+                  </label>
+                </div>
+                <div class="radio radio-success">
+                  <label>
+                    <input type="radio" name="sample1" value="option1">
+                    Never
+                  </label>
+                </div>
+              </div>
+
+
+              <h2>Wi-Fi frequency band</h2>
+              <div class="sample2">
+                <div class="radio radio-primary">
+                  <label>
+                    <input type="radio" name="sample2" value="option1" checked="">
+                    Auto
+                  </label>
+                </div>
+                <div class="radio radio-primary">
+                  <label>
+                    <input type="radio" name="sample2" value="option1">
+                    5 GHz only
+                  </label>
+                </div>
+                <div class="radio radio-primary">
+                  <label>
+                    <input type="radio" name="sample2" value="option1">
+                    2.4 GHz only
+                  </label>
+                </div>
+              </div>
+
               <style>
                 #radio-button h2 {
                   font-size: 18.7199993133545px;
@@ -252,69 +316,40 @@
                   margin: 20px 10px;
                 }
               </style>
-              <h1 class="header">Checkbox</h1>
-              <div>
-                <h2>Keep Wi-Fi on during sleep</h2>
-                <div class="sample1">
-                  <div class="radio radio-success">
-                    <label>
-                      <input type="radio" name="sample1" value="option1" checked="">
-                      Always
-                    </label>
-                  </div>
-                  <div class="radio radio-success">
-                    <label>
-                      <input type="radio" name="sample1" value="option1">
-                      Only when plugged in
-                    </label>
-                  </div>
-                  <div class="radio radio-success">
-                    <label>
-                      <input type="radio" name="sample1" value="option1">
-                      Never
-                    </label>
-                  </div>
-                </div>
-
-
-                <h2>Wi-Fi frequency band</h2>
-                <div class="sample2">
-                  <div class="radio radio-primary">
-                    <label>
-                      <input type="radio" name="sample2" value="option1" checked="">
-                      Auto
-                    </label>
-                  </div>
-                  <div class="radio radio-primary">
-                    <label>
-                      <input type="radio" name="sample2" value="option1">
-                      5 GHz only
-                    </label>
-                  </div>
-                  <div class="radio radio-primary">
-                    <label>
-                      <input type="radio" name="sample2" value="option1">
-                      2.4 GHz only
-                    </label>
-                  </div>
-                </div>
-
-              </div>
             </div>
-            <div class="well page" id="input">
+            <div class="well page" id="toggle-button">
+
+              <h1 class="header">Toggle Button</h1>
+              <div class="togglebutton">
+                <label>
+                  Wi-Fi
+                  <input type="checkbox" checked>
+                </label>
+              </div>
+              <div class="togglebutton">
+                <label>
+                  Bluetooth
+                  <input type="checkbox">
+                </label>
+              </div>
+
               <style>
-                #input h2 {
-                  padding: 14px;
-                  font-size: 16px;
-                  font-weight: 400;
+                #toggle-button h2 {
+                  font-size: 18.7199993133545px;
+                  font-weight: bold;
+                  margin-bottom: 30px;
+                  margin-top: 50px;
                 }
-                #input .inputs {
-                  width: 80%;
+                #toggle-button .togglebutton label {
+                  margin: 20px 10px;
+                  width: 200px;
                 }
-                #input .form-control-wrapper {
-                  margin: 30px 0;
+                #toggle-button .togglebutton .toggle {
+                  float: right;
                 }
               </style>
+            </div>
+            <div class="well page" id="input">
               <h1 class="header">Input</h1>
               <div class="inputs">
                 <h2>Input</h2>
@@ -340,6 +375,19 @@
                   <input type="text" class="form-control form-control-success floating-label" placeholder="floating label">
                 </div>
 
+                <style>
+                  #input h2 {
+                    padding: 14px;
+                    font-size: 16px;
+                    font-weight: 400;
+                  }
+                  #input .inputs {
+                    width: 80%;
+                  }
+                  #input .form-control-wrapper {
+                    margin: 30px 0;
+                  }
+                </style>
 
               </div>
             </div>
@@ -483,13 +531,6 @@
 
             </div>
             <div class="well page" id="progress-bar">
-              <style>
-                #progress-bar h2 {
-                  font-size: 18.7199993133545px;
-                  font-weight: bold;
-                  margin-bottom: 30px;
-                }
-              </style>
               <h1 class="header">Progress Bar</h1>
               <h2>Basic</h2>
               <div class="progress">
@@ -536,8 +577,36 @@
                 <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
               </div>
 
+              <style>
+                #progress-bar h2 {
+                  font-size: 18.7199993133545px;
+                  font-weight: bold;
+                  margin-bottom: 30px;
+                }
+              </style>
+
             </div>
             <div class="well page" id="slider">
+              <h1 class="header">Slider</h1>
+              <div class="sample1">
+                <h2>Music, video, games &amp; other media</h2>
+                <div class="slider shor slider-material-orange"></div>
+
+                <h2>Notifications</h2>
+                <div class="slider shor slider-material-orange"></div>
+
+                <h2>Alarms</h2>
+                <div class="slider shor slider-material-orange"></div>
+              </div>
+
+              <div class="sample2">
+                <div class="slider svert"></div>
+                <div class="slider svert"></div>
+                <div class="slider svert"></div>
+              </div>
+
+              <p>Sliders are powered by <a href="http://refreshless.com/nouislider/" target="_blank">noUiSlider</a></p>
+
               <style>
                 #slider .sample1, #slider .sample2 {
                   padding: 20px 0;
@@ -560,36 +629,9 @@
                   margin: 15px;
                 }
               </style>
-              <h1 class="header">Slider</h1>
-              <div class="sample1">
-                <h2>Music, video, games &amp; other media</h2>
-                <div class="slider shor slider-material-orange"></div>
-
-                <h2>Notifications</h2>
-                <div class="slider shor slider-material-orange"></div>
-
-                <h2>Alarms</h2>
-                <div class="slider shor slider-material-orange"></div>
-              </div>
-
-              <div class="sample2">
-                <div class="slider svert"></div>
-                <div class="slider svert"></div>
-                <div class="slider svert"></div>
-              </div>
-
-              <p>Sliders are powered by <a href="http://refreshless.com/nouislider/" target="_blank">noUiSlider</a></p>
 
             </div>
             <div class="well page" id="button">
-              <style>
-                #button h2 {
-                  padding: 14px;
-                  margin: 0;
-                  font-size: 16px;
-                  font-weight: 400;
-                }
-              </style>
               <h1 class="header">Button</h1>
               <div class="sample1">
                 <h2>Normal buttons</h2>
@@ -618,9 +660,26 @@
                 <button class="btn btn-default btn-flat"><i class="mdi-navigation-close"></i> Cancel</button>
               </div>
 
-
+              <style>
+                #button h2 {
+                  padding: 14px;
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: 400;
+                }
+              </style>
             </div>
             <div class="well page" id="floating-action-button">
+              <h1 class="header">Floating Action Button</h1>
+
+              <h2>Regular</h2>
+              <button class="btn btn-fab btn-raised btn-material-red"><i class="mdi-navigation-arrow-forward"></i></button>
+              <button class="btn btn-fab btn-raised btn-primary"><i class="mdi-image-edit"></i></button>
+
+              <h2>Mini</h2>
+              <button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-success"><i class="mdi-navigation-check"></i></button>
+              <button class="btn btn-fab btn-fab-mini btn-raised btn-material-lightyellow"><i class="mdi-content-reply"></i></button>
+
               <style>
                 #floating-action-button .btn {
                   margin: 20px;
@@ -632,15 +691,6 @@
                   font-weight: 400;
                 }
               </style>
-              <h1 class="header">Floating Action Button</h1>
-
-              <h2>Regular</h2>
-              <button class="btn btn-fab btn-raised btn-material-red"><i class="mdi-navigation-arrow-forward"></i></button>
-              <button class="btn btn-fab btn-raised btn-primary"><i class="mdi-image-edit"></i></button>
-
-              <h2>Mini</h2>
-              <button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-success"><i class="mdi-navigation-check"></i></button>
-              <button class="btn btn-fab btn-fab-mini btn-raised btn-material-lightyellow"><i class="mdi-content-reply"></i></button>
             </div>
             <div class="well page" id="dropdown">
               <style>
@@ -650,11 +700,68 @@
                   font-size: 16px;
                   font-weight: 400;
                 }
+                #dropdown .dropdown {
+                  font-size: 30px;
+                  padding: 20px;
+                }
               </style>
               <h1 class="header">Dropdown</h1>
               <h2>Simple dropdown</h2>
               <span class="dropdown"><i class="mdi-navigation-menu"></i></span>
             </div>
+            <div class="well page" id="dropdown-menu">
+              <style>
+                #dropdown-menu h2 {
+                  padding: 14px;
+                  margin: 0;
+                  font-size: 16px;
+                  font-weight: 400;
+                }
+                #dropdown-menu .sample {
+                  width: 200px;
+                }
+                #dropdown-menu .form-control-wrapper {
+                  margin: 30px 0;
+                }
+              </style>
+              <h1 class="header">Dropdown</h1>
+
+              <div class="sample">
+                <select class="form-control" placeholder="Your favorite pastry">
+                  <option value="Apple fritter">Apple fritter</option>
+                  <option value="Croissant">Croissant</option>
+                  <option value="Donut">Donut</option>
+                  <option value="Financier">Financier</option>
+                  <option value="Jello">Jello</option>
+                  <option value="Madeleine">Madeleine</option>
+                  <option value="Pound cake">Pound cake</option>
+                  <option value="Pretzel">Pretzel</option>
+                  <option value="Sfogliatelle">Sfogliatelle</option>
+                </select>
+
+
+                <select class="form-control" disabled placeholder="Your favorite pastry">
+                  <option value="disabled">Disabled</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-xs-2">
+            <button class="btn btn-fab btn-material-lightgrey" id="opensource"><i class="mdi-action-open-in-new"></i></button></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="source-modal" class="modal fade" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Source Code</h4>
+          </div>
+          <div class="modal-body">
+            <pre></pre>
           </div>
         </div>
       </div>
@@ -663,13 +770,10 @@
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
 
-    <!-- Twitter Bootstrap -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
-
-    <!-- Material Design for Bootstrap -->
-    <script src="dist/js/material.min.js"></script>
-    <script src="dist/js/ripples.min.js"></script>
+    <!-- Open source code -->
     <script>
+      window.page = "#checkbox";
+
       $(window).on("resize", function() {
         $("html, body").height($(window).height());
         $(".main, .menu").height($(window).height() - $(".header-panel").outerHeight());
@@ -679,7 +783,8 @@
       $(".menu li").click(function() {
         $(".menu li").not($(this)).removeClass("active");
         $(this).addClass("active");
-        var page = $($(this).data("target"));
+        window.page = $(this).data("target");
+        var page = $(window.page);
         $(".page").not(page).removeClass("active").hide();
         page.show();
         setTimeout(function() {
@@ -687,8 +792,46 @@
         }, 50);
       });
 
-      $.material.init();
+      function cleanSource(html) {
+        var lines = html.split(/\n/);
 
+        lines.shift();
+        lines.splice(-1, 1);
+
+        var indentSize = lines[0].length - lines[0].trim().length,
+            re = new RegExp(" {" + indentSize + "}");
+
+        lines = lines.map(function(line){
+          if (line.match(re)) {
+            line = line.substring(indentSize);
+          }
+
+          return line;
+        });
+
+        lines = lines.join("\n");
+
+        return lines;
+      }
+
+      $("#opensource").click(function() {
+        $.get(window.location.href, function(data){
+          var html = $(data).find(window.page).html();
+          html = cleanSource(html);
+          $("#source-modal pre").text(html);
+          $("#source-modal").modal();
+        });
+      });
+    </script>
+
+    <!-- Twitter Bootstrap -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Material Design for Bootstrap -->
+    <script src="dist/js/material.min.js"></script>
+    <script src="dist/js/ripples.min.js"></script>
+    <script>
+      $.material.init();
     </script>
 
 
@@ -716,6 +859,12 @@
           }
         });
       });
+    </script>
+
+    <!-- Dropdown.js -->
+    <script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>
+    <script>
+      $("#dropdown-menu select").dropdown();
     </script>
 
   </body>
