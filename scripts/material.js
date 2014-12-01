@@ -31,6 +31,7 @@
       ].join(","),
       "inputElements": "input.form-control, textarea.form-control, select.form-control",
       "checkboxElements": ".checkbox > label > input[type=checkbox]",
+      "togglebuttonElements": ".togglebutton > label > input[type=checkbox]",
       "radioElements": ".radio > label > input[type=radio]"
     },
     "checkbox": function(selector) {
@@ -39,6 +40,13 @@
       .filter(":notmdproc")
       .data("mdproc", true)
       .after("<span class=ripple></span><span class=check></span>");
+    },
+    "togglebutton": function(selector) {
+      // Add fake-checkbox to material checkboxes
+      $((selector) ? selector : this.options.togglebuttonElements)
+      .filter(":notmdproc")
+      .data("mdproc", true)
+      .after("<span class=toggle></span>");
     },
     "radio": function(selector) {
       // Add fake-radio to material radios
@@ -124,6 +132,7 @@
       this.ripples();
       this.input();
       this.checkbox();
+      this.togglebutton();
       this.radio();
 
       if (document.arrive) {
