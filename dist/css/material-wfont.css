@@ -3531,6 +3531,75 @@ body .jumbotron-material-lightgrey,
     opacity: 0;
   }
 }
+.togglebutton {
+  vertical-align: middle;
+}
+.togglebutton,
+.togglebutton * {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.togglebutton label {
+  font-weight: 400;
+  cursor: pointer;
+}
+.togglebutton label input[type=checkbox]:first-child {
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+.togglebutton label input[type=checkbox]:first-child:checked + .toggle {
+  background-color: rgba(0, 149, 135, 0.5);
+}
+.togglebutton label input[type=checkbox]:first-child:checked + .toggle:after {
+  background-color: #009587;
+}
+.togglebutton label .toggle,
+.togglebutton label input[type=checkbox][disabled]:first-child + .toggle {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 15px;
+  background-color: rgba(80, 80, 80, 0.7);
+  border-radius: 15px;
+  margin-right: 10px;
+  -webkit-transition: background 0.3s ease;
+          transition: background 0.3s ease;
+  vertical-align: middle;
+}
+.togglebutton label .toggle:after {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #F1F1F1;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+  left: -5px;
+  top: -2px;
+  -webkit-transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
+          transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
+}
+.togglebutton label input[type=checkbox][disabled]:first-child + .toggle:after,
+.togglebutton label input[type=checkbox][disabled]:checked:first-child + .toggle:after {
+  background-color: #BDBDBD;
+}
+.togglebutton label input[type=checkbox]:first-child:checked:active ~ .toggle:after,
+.togglebutton label input[type=checkbox]:first-child:checked ~ .toggle:active:after {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 149, 135, 0.1);
+}
+.togglebutton label input[type=checkbox]:first-child:active ~ .toggle:after,
+.togglebutton label input[type=checkbox]:first-child ~ .toggle:active:after,
+.togglebutton label input[type=checkbox][disabled]:first-child ~ .toggle:active:after {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.togglebutton label input[type=checkbox]:first-child:checked + .toggle:after {
+  left: 15px;
+}
 .form-horizontal .radio {
   margin-bottom: 10px;
 }
