@@ -9,7 +9,6 @@
     // Hide original checkbox
     input[type=checkbox]:first-child {
       opacity: 0;
-      display: block;
       width: 0;
       height:0;
     }
@@ -54,12 +53,10 @@
       background-color: #BDBDBD;
     }
     // Ripple on
-    input[type=checkbox]:first-child:checked:active ~ .toggle:after,
     input[type=checkbox]:first-child:checked ~ .toggle:active:after {
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba(0, 149, 135, 0.1);
     }
     // Ripple off and disabled
-    input[type=checkbox]:first-child:active ~ .toggle:after,
     input[type=checkbox]:first-child ~ .toggle:active:after,
     input[type=checkbox][disabled]:first-child ~ .toggle:active:after {
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
