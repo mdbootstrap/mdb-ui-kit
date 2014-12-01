@@ -49,7 +49,6 @@ Run the `grunt serve` command to build and fire up a http server with live-reloa
 - [Headers](http://www.polymer-project.org/components/core-header-panel/demo.html)
 - [Icon button](http://www.polymer-project.org/components/paper-icon-button/demo.html)
 - [Tabs](http://www.polymer-project.org/components/paper-tabs/demo.html)
-- [Toggle buttons](http://www.polymer-project.org/components/paper-toggle-button/demo.html)
 
 I'll try to write every component without the need of Javascript but just CSS, and use JS only if strictly needed.
 More "todo" things can be found in the ISSUES of this repository.
