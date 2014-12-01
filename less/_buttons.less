@@ -76,6 +76,9 @@
 .open > .dropdown-toggle.btn {
     .variations(~"", background-color, @btn-default);
 }
+.btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
+  margin-left: 0;
+}
 .btn-group, .btn-group-vertical {
     position: relative;
     border-radius: 2px;
@@ -92,7 +95,6 @@
         box-shadow: none !important;
         margin: 0;
     }
-    .btn:active .caret { margin-left: -1px; }
 }
 .btn-group-flat {
     box-shadow: none !important;
