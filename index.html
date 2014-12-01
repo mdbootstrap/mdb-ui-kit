@@ -800,7 +800,13 @@
 
     <!-- Open source code -->
     <script>
-      window.page = "#about";
+      window.page = window.location.hash || "#about";
+
+      $(document).ready(function() {
+        if (window.page != "#about") {
+          $(".menu").find("li[data-target=" + window.page + "]").trigger("click");
+        }
+      });
 
       $(window).on("resize", function() {
         $("html, body").height($(window).height());
@@ -814,6 +820,7 @@
         $(this).addClass("active");
         window.page = $(this).data("target");
         var page = $(window.page);
+        window.location.hash = window.page;
         $(".page").not(page).removeClass("active").hide();
         page.show();
         setTimeout(function() {
