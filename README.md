@@ -13,7 +13,6 @@ Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-
 ## How to install
 
     BOWER:       bower install bootstrap-material-design --save
-    GEMS:        gem install bootstrap-material-design
 
 ## Use our CDN
 
