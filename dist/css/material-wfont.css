@@ -5564,7 +5564,6 @@ icon-material-lightgrey {
 *:focus {
   outline: 0;
   border: none;
-  color: rgba(0, 0, 0, 0);
 }
 .snackbar {
   background-color: #323232;
