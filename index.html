@@ -960,17 +960,29 @@ push = +refs/heads/master:refs/heads/master
       }).trigger("resize");
 
       $(".menu li").click(function() {
+        // Menu
         if (!$(this).data("target")) return;
+        if ($(this).is(".active")) return;
         $(".menu li").not($(this)).removeClass("active");
-        $(this).addClass("active");
+        $(".page").not(page).removeClass("active").hide();
         window.page = $(this).data("target");
         var page = $(window.page);
         window.location.hash = window.page;
-        $(".page").not(page).removeClass("active").hide();
+        $(this).addClass("active");
+
+
         page.show();
+
+        var totop = setInterval(function() {
+          $(".pages").animate({scrollTop:0}, 0);
+        }, 1);
+
         setTimeout(function() {
           page.addClass("active");
-        }, 50);
+          setTimeout(function() {
+            clearInterval(totop);
+          }, 1000);
+        }, 100);
       });
 
       function cleanSource(html) {
