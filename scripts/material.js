@@ -129,7 +129,9 @@
       $.ripples({"target": (selector) ? selector : this.options.withRipples});
     },
     "init": function() {
-      this.ripples();
+      if ($.ripples) {
+        this.ripples();
+      }
       this.input();
       this.checkbox();
       this.togglebutton();
