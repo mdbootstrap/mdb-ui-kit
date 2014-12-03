@@ -5404,7 +5404,7 @@ icon-material-lightgrey {
   padding-top: 0;
 }
 .modal-backdrop {
-  display: none;
+  background: rgba(0, 0, 0, 0.3);
 }
 .label {
   border-radius: 1px;
@@ -5569,9 +5569,6 @@ icon-material-lightgrey {
 }
 .panel-footer {
   background-color: #ececec;
-}
-.modal {
-  background: rgba(0, 0, 0, 0.3);
 }
 * {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
