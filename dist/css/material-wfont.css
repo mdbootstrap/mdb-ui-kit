@@ -2380,6 +2380,16 @@ body .well:not([class^="well well-material-"]) .create,
 .container-fluid .well:not([class^="well well-material-"]) .create {
   color: rgba(0, 0, 0, 0.84);
 }
+body .well-sm,
+.container .well-sm,
+.container-fluid .well-sm {
+  padding: 10px;
+}
+body .well-lg,
+.container .well-lg,
+.container-fluid .well-lg {
+  padding: 26px;
+}
 body [class^="well well-material-"],
 .container [class^="well well-material-"],
 .container-fluid [class^="well well-material-"],
