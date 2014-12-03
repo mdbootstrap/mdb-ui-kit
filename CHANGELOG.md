@@ -5,3 +5,9 @@
 - Primary color is now a subtle teal to follow the Material Design specifications.
 - Ripples.js is now completely rewritten with jQuery.
 - Fixed thousand of bugs.
+
+# v 0.2.1dev
+
+- Fixed well sizes
+- Fixed $.ripple that needed two clicks to effectively "click" an element
+-
