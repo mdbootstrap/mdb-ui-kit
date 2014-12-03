@@ -161,7 +161,7 @@
         var focused;
         $(document)
         .on("focus", "input", function() {
-          var $inputs = $(this).parents("form").find("input");
+          var $inputs = $(this).parents("form").find("input").not("[type=file]");
           focused = setInterval(function() {
             $inputs.each(function() {
               if ($(this).val() !== $(this).attr("value")) {
