@@ -4427,7 +4427,6 @@ select[multiple].form-control.focus {
 .input-group .form-control-wrapper {
   margin-right: 5px;
   margin-left: 5px;
-  bottom: -10px;
 }
 .input-group .form-control-wrapper .form-control {
   float: none;
@@ -4438,6 +4437,7 @@ select[multiple].form-control.focus {
 }
 .input-group .input-group-btn .btn {
   border-radius: 4px;
+  margin: 0;
 }
 select.form-control {
   border: 0;
