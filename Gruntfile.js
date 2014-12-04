@@ -130,68 +130,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // Ensure new line at end of every file
-    file_append: {
-      materialcss: {
-        files: {
-          "dist/css/material.css": { append: "\u000A" },
-          "dist/css/material.min.css": { append: "\u000A" },
-          "dist/css/material.css.map": { append: "\u000A" },
-          "dist/css/material.min.css.map": { append: "\u000A" }
-        }
-      },
-      materialwfontcss: {
-        files: {
-          "dist/css/material-wfont.css": { append: "\u000A" },
-          "dist/css/material-wfont.min.css": { append: "\u000A" },
-          "dist/css/material-wfont.css.map": { append: "\u000A" },
-          "dist/css/material-wfont.min.css.map": { append: "\u000A" }
-        }
-      },
-      ripplescss: {
-        files: {
-          "dist/css/ripples.css": { append: "\u000A" },
-          "dist/css/ripples.min.css": { append: "\u000A" },
-          "dist/css/ripples.css.map": { append: "\u000A" },
-          "dist/css/ripples.min.css.map": { append: "\u000A" }
-        }
-      },
-      materialjs: {
-        files: {
-          "dist/js/material.min.js": { append: "\u000A" },
-          "dist/js/material.min.js.map": { append: "\u000A" }
-        }
-      },
-      ripplesjs: {
-        files: {
-          "dist/js/ripples.min.js": { append: "\u000A" },
-          "dist/js/ripples.min.js.map": { append: "\u000A" }
-        }
-      }
-    },
-
-    connect: {
-      options: {
-        port: 8040,
-        hostname: "localhost",
-        livereload: 35729
-
-      },
-      livereload: {
-        options: {
-          open: true,
-          base: "."
-        }
-      },
-      test: {
-        options: {
-          port: 8041,
-          open: "http://localhost:8041/_SpecRunner.html",
-          base: "."
-        }
-      }
-    },
-
     jasmine: {
       scripts: "scripts/**/*.js",
       options: {
@@ -204,7 +142,6 @@ module.exports = function(grunt) {
         ]
       }
     },
-
     jshint: {
       options: {
         jshintrc: ".jshintrc",
@@ -223,7 +160,6 @@ module.exports = function(grunt) {
         }
       }
     },
-
     watch: {
       js: {
         files: ["Gruntfile.js", "scripts/**/*.js", "template/**/*.js"],
@@ -262,9 +198,7 @@ module.exports = function(grunt) {
     "csswring:material",
     "csswring:materialwfont",
     "autoprefixer:material",
-    "autoprefixer:materialwfont",
-    "file_append:materialcss",
-    "file_append:materialwfontcss"
+    "autoprefixer:materialwfont"
   ]);
   grunt.registerTask("material:js", [
     "copy:material",
@@ -273,19 +207,16 @@ module.exports = function(grunt) {
 
   grunt.registerTask("ripples", [
     "ripples:less",
-    "ripples:js",
-    "file_append:ripplescss"
+    "ripples:js"
   ]);
   grunt.registerTask("ripples:less", [
     "less:ripples",
     "csswring:ripples",
-    "autoprefixer:ripples",
-    "file_append:materialjs"
+    "autoprefixer:ripples"
   ]);
   grunt.registerTask("ripples:js", [
     "copy:ripples",
-    "uglify:ripples",
-    "file_append:ripplesjs"
+    "uglify:ripples"
   ]);
 
   grunt.registerTask("build", function(target) {
