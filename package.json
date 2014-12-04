@@ -29,6 +29,7 @@
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-csswring": "^1.1.0",
+    "grunt-file-append": "0.0.5",
     "grunt-newer": "^0.7.0",
     "jshint-stylish": "^1.0.0",
     "load-grunt-tasks": "^0.6.0"
