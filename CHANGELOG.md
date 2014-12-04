@@ -10,4 +10,4 @@
 
 - Fixed well sizes
 - Fixed $.ripple that needed two clicks to effectively "click" an element
--
+- Added $.ripple support to browsers that don't support CSS transitions (eg. IE9)
