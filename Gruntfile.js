@@ -134,38 +134,38 @@ module.exports = function(grunt) {
     file_append: {
       materialcss: {
         files: {
-          "dist/css/material.css": { append: "\n" },
-          "dist/css/material.min.css": { append: "\n" },
-          "dist/css/material.css.map": { append: "\n" },
-          "dist/css/material.min.css.map": { append: "\n" }
+          "dist/css/material.css": { append: "\u000A" },
+          "dist/css/material.min.css": { append: "\u000A" },
+          "dist/css/material.css.map": { append: "\u000A" },
+          "dist/css/material.min.css.map": { append: "\u000A" }
         }
       },
       materialwfontcss: {
         files: {
-          "dist/css/material-wfont.css": { append: "\n" },
-          "dist/css/material-wfont.min.css": { append: "\n" },
-          "dist/css/material-wfont.css.map": { append: "\n" },
-          "dist/css/material-wfont.min.css.map": { append: "\n" }
+          "dist/css/material-wfont.css": { append: "\u000A" },
+          "dist/css/material-wfont.min.css": { append: "\u000A" },
+          "dist/css/material-wfont.css.map": { append: "\u000A" },
+          "dist/css/material-wfont.min.css.map": { append: "\u000A" }
         }
       },
       ripplescss: {
         files: {
-          "dist/css/ripples.css": { append: "\n" },
-          "dist/css/ripples.min.css": { append: "\n" },
-          "dist/css/ripples.css.map": { append: "\n" },
-          "dist/css/ripples.min.css.map": { append: "\n" }
+          "dist/css/ripples.css": { append: "\u000A" },
+          "dist/css/ripples.min.css": { append: "\u000A" },
+          "dist/css/ripples.css.map": { append: "\u000A" },
+          "dist/css/ripples.min.css.map": { append: "\u000A" }
         }
       },
       materialjs: {
         files: {
-          "dist/js/material.min.js": { append: "\n" },
-          "dist/js/material.min.js.map": { append: "\n" }
+          "dist/js/material.min.js": { append: "\u000A" },
+          "dist/js/material.min.js.map": { append: "\u000A" }
         }
       },
       ripplesjs: {
         files: {
-          "dist/js/ripples.min.js": { append: "\n" },
-          "dist/js/ripples.min.js.map": { append: "\n" }
+          "dist/js/ripples.min.js": { append: "\u000A" },
+          "dist/js/ripples.min.js.map": { append: "\u000A" }
         }
       }
     },
