@@ -22,6 +22,7 @@
   $.material =  {
     "options": {
       // These options set what will be started by $.material.init()
+      "input": true,
       "ripples": true,
       "checkbox": true,
       "togglebutton": true,
