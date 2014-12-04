@@ -5,6 +5,10 @@
 - Fixed well sizes
 - Fixed $.ripple that needed two clicks to effectively "click" an element
 - Added $.ripple support to browsers that don't support CSS transitions (eg. IE9)
+- Arrive.js integration is now complete, it inits correctly every Material Design element dynamically added
+- Arrive.js is now faster, it run directly on the new element instead of scan the entire document
+- $.material.autofill() is now configurable, you can set $.material.options.autofill = false to disable it
+- Every $.material.init() options is now configurable, you can disable them setting false in the $.material.options.\<feature\>
 
 ## v 0.2.0
 
