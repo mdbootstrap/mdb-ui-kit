@@ -130,6 +130,46 @@ module.exports = function(grunt) {
       }
     },
 
+    // Ensure new line at end of every file
+    file_append: {
+      materialcss: {
+        files: {
+          "dist/css/material.css": { append: "\n" },
+          "dist/css/material.min.css": { append: "\n" },
+          "dist/css/material.css.map": { append: "\n" },
+          "dist/css/material.min.css.map": { append: "\n" }
+        }
+      },
+      materialwfontcss: {
+        files: {
+          "dist/css/material-wfont.css": { append: "\n" },
+          "dist/css/material-wfont.min.css": { append: "\n" },
+          "dist/css/material-wfont.css.map": { append: "\n" },
+          "dist/css/material-wfont.min.css.map": { append: "\n" }
+        }
+      },
+      ripplescss: {
+        files: {
+          "dist/css/ripples.css": { append: "\n" },
+          "dist/css/ripples.min.css": { append: "\n" },
+          "dist/css/ripples.css.map": { append: "\n" },
+          "dist/css/ripples.min.css.map": { append: "\n" }
+        }
+      },
+      materialjs: {
+        files: {
+          "dist/js/material.min.js": { append: "\n" },
+          "dist/js/material.min.js.map": { append: "\n" }
+        }
+      },
+      ripplesjs: {
+        files: {
+          "dist/js/ripples.min.js": { append: "\n" },
+          "dist/js/ripples.min.js.map": { append: "\n" }
+        }
+      }
+    },
+
     connect: {
       options: {
         port: 8040,
@@ -208,21 +248,13 @@ module.exports = function(grunt) {
         ]
       }
     }
-
   });
 
   grunt.registerTask("default", ["material", "ripples"]);
 
   grunt.registerTask("material", [
-    "less:material",
-    "less:materialwfont",
-    "csswring:material",
-    "csswring:materialwfont",
-    "csswring:ripples",
-    "autoprefixer:material",
-    "autoprefixer:materialwfont",
-    "copy:material",
-    "uglify:material"
+    "material:less",
+    "material:js"
   ]);
   grunt.registerTask("material:less", [
     "less:material",
@@ -230,7 +262,9 @@ module.exports = function(grunt) {
     "csswring:material",
     "csswring:materialwfont",
     "autoprefixer:material",
-    "autoprefixer:materialwfont"
+    "autoprefixer:materialwfont",
+    "file_append:materialcss",
+    "file_append:materialwfontcss"
   ]);
   grunt.registerTask("material:js", [
     "copy:material",
@@ -238,20 +272,20 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("ripples", [
-    "less:ripples",
-    "csswring:ripples",
-    "autoprefixer:ripples",
-    "copy:ripples",
-    "uglify:ripples"
+    "ripples:less",
+    "ripples:js",
+    "file_append:ripplescss"
   ]);
   grunt.registerTask("ripples:less", [
     "less:ripples",
     "csswring:ripples",
-    "autoprefixer:ripples"
+    "autoprefixer:ripples",
+    "file_append:materialjs"
   ]);
   grunt.registerTask("ripples:js", [
     "copy:ripples",
-    "uglify:ripples"
+    "uglify:ripples",
+    "file_append:ripplesjs"
   ]);
 
   grunt.registerTask("build", function(target) {
