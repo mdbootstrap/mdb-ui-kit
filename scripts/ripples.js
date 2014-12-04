@@ -2,6 +2,21 @@
 /* globals jQuery, navigator */
 
 (function($) {
+
+  // Detect if the browser supports transitions
+  $.support.transition = (function(){
+    var thisBody = document.body || document.documentElement,
+        thisStyle = thisBody.style,
+        support = (
+          thisStyle.transition !== undefined ||
+          thisStyle.WebkitTransition !== undefined ||
+          thisStyle.MozTransition !== undefined ||
+          thisStyle.MsTransition !== undefined ||
+          thisStyle.OTransition !== undefined
+        );
+    return support;
+  })();
+
   $.ripples = function(options) {
 
     // Default options
@@ -22,7 +37,15 @@
       ripple.off();
 
       // Start the out animation
-      ripple.addClass("ripple-out");
+      if ($.support.transition) {
+        ripple.addClass("ripple-out");
+      } else {
+        ripple.animate({
+          "opacity": 0
+        }, 100, function() {
+          ripple.trigger("transitionend");
+        });
+      }
 
       // This function is called when the transition "out" ends
       ripple.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
@@ -90,17 +113,31 @@
       // Set the new size
       var size = (Math.max($(this).outerWidth(), $(this).outerHeight()) / ripple.outerWidth()) * 2.5;
 
-      ripple.css({
-        "-ms-transform": "scale(" + size + ")",
-        "-moz-transform": "scale(" + size + ")",
-        "-webkit-transform": "scale(" + size + ")",
-        "transform": "scale(" + size + ")"
-      });
 
-      // Start the transition
-      ripple.addClass("ripple-on");
-      ripple.data("animating", "on");
-      ripple.data("mousedown", "on");
+      // Decide if use CSS transitions or jQuery transitions
+      if ($.support.transition) {
+        // Start the transition
+        ripple.css({
+          "-ms-transform": "scale(" + size + ")",
+          "-moz-transform": "scale(" + size + ")",
+          "-webkit-transform": "scale(" + size + ")",
+          "transform": "scale(" + size + ")"
+        });
+        ripple.addClass("ripple-on");
+        ripple.data("animating", "on");
+        ripple.data("mousedown", "on");
+      } else {
+        // Start the transition
+        ripple.animate({
+          "width": Math.max($(this).outerWidth(), $(this).outerHeight()) * 2,
+          "height": Math.max($(this).outerWidth(), $(this).outerHeight()) * 2,
+          "margin-left": Math.max($(this).outerWidth(), $(this).outerHeight()) * -1,
+          "margin-top": Math.max($(this).outerWidth(), $(this).outerHeight()) * -1,
+          "opacity": 0.2
+        }, 500, function() {
+          ripple.trigger("transitionend");
+        });
+      }
 
       // This function is called when the transition "on" ends
       setTimeout(function() {
