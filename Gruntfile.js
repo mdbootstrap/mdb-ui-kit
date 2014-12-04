@@ -22,19 +22,6 @@ module.exports = function(grunt) {
           "dist/css/material.css": "less/material.less",
         }
       },
-      materialmin: {
-        options: {
-          paths: ["less"],
-          sourceMap: true,
-          sourceMapRootpath: "/",
-          sourceMapFilename: "dist/css/material.min.css.map",
-          sourceMapURL: "material.min.css.map",
-          cleancss: true
-        },
-        files: {
-          "dist/css/material.min.css": "less/material.less",
-        }
-      },
       materialwfont: {
         options: {
           paths: ["less"],
@@ -48,20 +35,6 @@ module.exports = function(grunt) {
           "dist/css/material-wfont.css": "less/material-wfont.less",
         }
       },
-      materialwfontmin: {
-        options: {
-          paths: ["less"],
-          sourceMap: true,
-          sourceMapRootpath: "/",
-          sourceMapFilename: "dist/css/material-wfont.min.css.map",
-          sourceMapURL: "material-wfont.min.css.map",
-          outputSourceFiles: true,
-          cleancss: true
-        },
-        files: {
-          "dist/css/material-wfont.min.css": "less/material-wfont.less",
-        }
-      },
       ripples: {
         options: {
           paths: ["less"],
@@ -73,20 +46,6 @@ module.exports = function(grunt) {
         },
         files: {
           "dist/css/ripples.css": "less/ripples.less",
-        }
-      },
-      ripplesmin: {
-        options: {
-          paths: ["less"],
-          sourceMap: true,
-          sourceMapRootpath: "/",
-          sourceMapFilename: "dist/css/ripples.min.css.map",
-          sourceMapURL: "ripples.min.css.map",
-          outputSourceFiles: true,
-          cleancss: true
-        },
-        files: {
-          "dist/css/ripples.min.css": "less/ripples.less",
         }
       }
     },
@@ -115,6 +74,22 @@ module.exports = function(grunt) {
           "dist/css/ripples.css": "dist/css/ripples.css",
           "dist/css/ripples.min.css": "dist/css/ripples.min.css"
         }
+      }
+    },
+
+    // Minify CSS and adapt maps
+    csswring: {
+      material: {
+        src: "dist/css/material.css",
+        dest: "dist/css/material.min.css"
+      },
+      materialwfont: {
+        src: "dist/css/material-wfont.css",
+        dest: "dist/css/material-wfont.min.css"
+      },
+      ripples: {
+        src: "dist/css/ripples.css",
+        dest: "dist/css/ripples.min.css"
       }
     },
 
@@ -240,9 +215,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask("material", [
     "less:material",
-    "less:materialmin",
     "less:materialwfont",
-    "less:materialwfontmin",
+    "csswring:material",
+    "csswring:materialwfont",
+    "csswring:ripples",
     "autoprefixer:material",
     "autoprefixer:materialwfont",
     "copy:material",
@@ -250,9 +226,9 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask("material:less", [
     "less:material",
-    "less:materialmin",
     "less:materialwfont",
-    "less:materialwfontmin",
+    "csswring:material",
+    "csswring:materialwfont",
     "autoprefixer:material",
     "autoprefixer:materialwfont"
   ]);
@@ -263,12 +239,14 @@ module.exports = function(grunt) {
 
   grunt.registerTask("ripples", [
     "less:ripples",
+    "csswring:ripples",
     "autoprefixer:ripples",
     "copy:ripples",
     "uglify:ripples"
   ]);
   grunt.registerTask("ripples:less", [
     "less:ripples",
+    "csswring:ripples",
     "autoprefixer:ripples"
   ]);
   grunt.registerTask("ripples:js", [
