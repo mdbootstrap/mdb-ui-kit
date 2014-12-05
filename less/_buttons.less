@@ -21,7 +21,16 @@
     .variations(~":not(.btn-link):not(.btn-flat)", background-color, @btn-default);
 
     .variations(~".btn-flat:not(.btn-link)", color, @lightbg-text);
-
+	/*
+	.background-variations(@extra) {
+		&-material-test {
+			background-color: blue !important;
+			color:  red !important;
+		}
+	}*/
+	.background-variations(~":not(.btn-link):not(.btn-flat)");
+	.background-variations(~".btn-flat:not(.btn-link)");
+	
     &.btn-flat {
         background: none;
         box-shadow: none;

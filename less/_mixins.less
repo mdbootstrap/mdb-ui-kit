@@ -76,4 +76,37 @@
     }
 }
 
+.background-variations(@extra) {
+	.background-variations-factory(@material-color) {
+		.background-variations-factory-deep(@material-color-number) {
+			&-material-@{material-color}@{material-color-number}@{extra} {
+				@final-background-color: "@{material-color}@{material-color-number}";
+				background-color: @@final-background-color;
+				color: contrast(@@final-background-color, @lightbg-text, @darkbg-text, 25%);
+			}
+		}
+		.background-variations-factory-deep(~"");
+		.background-variations-factory-deep(~"-50");
+		.background-variations-factory-deep(~"-100");
+		.background-variations-factory-deep(~"-200");
+		.background-variations-factory-deep(~"-300");
+		.background-variations-factory-deep(~"-400");
+		.background-variations-factory-deep(~"-500");
+		.background-variations-factory-deep(~"-600");
+		.background-variations-factory-deep(~"-700");
+		.background-variations-factory-deep(~"-800");
+		.background-variations-factory-deep(~"-900");
+		.background-variations-factory-deep(~"-A100");
+		.background-variations-factory-deep(~"-A200");
+		.background-variations-factory-deep(~"-A400");
+		.background-variations-factory-deep(~"-A700");
+	}
+	.background-variations-factory(~"lime");
+	.background-variations-factory(~"red");
+	.background-variations-factory(~"pink");
+	.background-variations-factory(~"deep-purple");
+	.background-variations-factory(~"deep-orange");
+	.background-variations-factory(~"orange");
+}
+
 @all-variations: ~"-default, -primary, -info, -success, -warning, -danger";
