@@ -130,6 +130,27 @@ module.exports = function(grunt) {
       }
     },
 
+    connect: {
+      options: {
+        port: 8040,
+        hostname: "localhost",
+        livereload: 35729
+
+      },
+      livereload: {
+        options: {
+          open: true,
+          base: "."
+        }
+      },
+      test: {
+        options: {
+          port: 8041,
+          open: "http://localhost:8041/_SpecRunner.html",
+          base: "."
+        }
+      }
+    },
     jasmine: {
       scripts: "scripts/**/*.js",
       options: {
