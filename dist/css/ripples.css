@@ -30,13 +30,12 @@
   pointer-events: none;
 }
 .ripple.ripple-on {
-  -webkit-transition: opacity 0.15s ease-in 0s, -webkit-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
-          transition: opacity 0.15s ease-in 0s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
-  opacity: 0.15;
+  transition: opacity 0.15s ease-in 0s, -webkit-transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  transition: opacity 0.15s ease-in 0s, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+  opacity: 0.1;
 }
 .ripple.ripple-out {
-  -webkit-transition: opacity 0.1s linear 0s !important;
-          transition: opacity 0.1s linear 0s !important;
+  transition: opacity 0.1s linear 0s !important;
   opacity: 0;
 }
 /*# sourceMappingURL=ripples.css.map */
