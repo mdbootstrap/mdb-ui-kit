@@ -19401,13 +19401,14 @@ legend {
 .navbar .navbar-nav > .active > a:hover,
 .navbar .navbar-nav > .active > a:focus {
   color: inherit;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 .navbar .navbar-nav > .disabled > a,
 .navbar .navbar-nav > .disabled > a:hover,
 .navbar .navbar-nav > .disabled > a:focus {
   color: inherit;
   background-color: transparent;
+  opacity: 0.9;
 }
 .navbar .navbar-toggle {
   border: 0;
