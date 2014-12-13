@@ -107,7 +107,7 @@
       })
       .on("keyup change", ".form-control", function() {
         var $this = $(this);
-        if($this.val() === "") {
+        if($this.val() === "" && $this[0].checkValidity()) {
           $this.addClass("empty");
         } else {
           $this.removeClass("empty");
