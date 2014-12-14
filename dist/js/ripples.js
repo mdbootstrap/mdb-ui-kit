@@ -148,7 +148,7 @@
       }, 500);
 
       // On mouseup or on mouseleave, set the mousedown flag to "off" and try to destroy the ripple
-      element.on("mouseup mouseleave", function() {
+      element.on("mouseup mouseleave touchend", function() {
         ripple.data("mousedown", "off");
         // If the transition "on" is finished then we can destroy the ripple with transition "out"
         if (ripple.data("animating") == "off") {
