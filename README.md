@@ -12,7 +12,7 @@ Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-
 
 ## How to install
 
-    BOWER:       bower install bootstrap-material-design --save
+    Bower:       bower install bootstrap-material-design --save
     Meteor:      meteor add fezvrasta:bootstrap-material-design
 
 ## Use our CDN
@@ -28,6 +28,10 @@ The SASS files are in the source just in case someone wants to update the source
 
 Navigate to the `dist/` folder in this repository, and you will see the `test.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
 You need to copy the `dist/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
+
+#### material-wfont.css or material.css?
+
+The only difference is that `material-wfont.css` has the Google web fonts included.
 
 ## Development
 
