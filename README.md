@@ -33,6 +33,19 @@ You need to copy the `dist/` folder to the root of your project, ensuring that a
 
 The only difference is that `material-wfont.css` has the Google web fonts included.
 
+#### Use custom color as primary
+
+Is often asked how to change the primary color of this theme without edit the bower package directly.
+
+You can do it by creating a less file in your project:
+
+    @import "../bower_components/bootstrap-material-design/less/material-wfont.less";
+
+    // Override @primary color with one took from _colors.less
+    @primary: @deep-purple;
+
+Then, compiling this file, the entire theme will be compiled using the color chosen by you.
+
 ## Development
 
 We are using Grunt to automate the workflow and build process. Ensure you have nodejs installed and grunt-cli installed globally.
