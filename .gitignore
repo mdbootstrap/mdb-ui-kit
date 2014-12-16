@@ -9,3 +9,4 @@ Thumbs.db
 /node_modules/
 .grunt/
 /bower_components/
+.build*
