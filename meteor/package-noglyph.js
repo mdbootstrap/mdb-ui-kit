@@ -1,21 +1,21 @@
 // package metadata file for Meteor.js
 'use strict';
 
-var packageName = 'fezvrasta:bootstrap-material-design';  // https://atmospherejs.com/fezvrasta/bootstrap-material-design
+var packageName = 'fezvrasta:bootstrap-material-design-noglyph';  // https://atmospherejs.com/fezvrasta/bootstrap-material-design-noglyph
 var where = 'client';  // where to install: 'client' or 'server'. For both, pass nothing.
 
 var packageJson = JSON.parse(Npm.require("fs").readFileSync('package.json'));
 
 Package.describe({
   name: packageName,
-  summary: 'FezVrasta\'s Bootstrap theme implementing Google\'s Material (Paper) Design',
+  summary: 'FezVrasta\'s Bootstrap Google Material Design theme. Material icons instead of Bootstrap glyphicons.',
   version: packageJson.version,
   git: 'https://github.com/fezvrasta/bootstrap-material-design.git'
 });
 
 Package.onUse(function (api) {
   api.versionsFrom(['METEOR@0.9.0', 'METEOR@1.0']);
-  api.use('twbs:bootstrap@3.3.1');
+  api.use('twbs:bootstrap-noglyph@3.3.1');
   api.use('jquery');
   api.addFiles([
     // we bundle all font files, but the client will request only one of them via the CSS @font-face rule
@@ -35,5 +35,5 @@ Package.onTest(function (api) {
   api.use(packageName, where);
   api.use(['tinytest', 'http'], where);
 
-  api.addFiles('meteor/test.js', where);
+  api.addFiles('meteor/test.js', where);  // same test because we don't test the glyphicons in particular (that's the job of twbs:bootstrap)
 });
