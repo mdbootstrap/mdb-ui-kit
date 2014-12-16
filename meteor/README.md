@@ -3,16 +3,26 @@
 Packaging [FezVrasta's Bootstrap Material Design](https://github.com/FezVrasta/bootstrap-material-design)
 for [Meteor.js](http://meteor.com).
 
+
+# Versions
+
+All versions include the Material Design theme CSS, JS, and `ripple.js` for the ripple click effect.
+
+* [fezvrasta:bootstrap-material-design](https://atmospherejs.com/fezvrasta/bootstrap-material-design) - Includes Bootstrap's glyphicons along with some Material Design icons.
+* [fezvrasta:bootstrap-material-design-noglyph](https://atmospherejs.com/fezvrasta/bootstrap-material-design-noglyph) - No Bootstrap glyphicons, but includes the Material Design icons.
+* [fezvrasta:bootstrap-material-design-noicons](https://atmospherejs.com/fezvrasta/bootstrap-material-design-noicons) - No icons at all. Useful if you want to use another icon set instead, such as [Font Awesome](https://atmospherejs.com/fortawesome/fontawesome).
+
+
 # Usage
 
 Just run
 
 
 ```sh
-meteor add meteorpackaging:bootstrap-material-design
+meteor add fezvrasta:bootstrap-material-design
 ```
 
-and your Bootstrap CSS will look like Google's Material Design (Polymer Paper).
+and your Bootstrap CSS will look like Google's Material Design (Polymer Paper Elements).
 
 
 # Dependencies
@@ -37,13 +47,19 @@ If you encounter an issue while using this package, please CC @dandv when you fi
 
 # DONE
 
-* Icons font loading test: EOT, SVG, TTF, WOFF
-* Ripples test
+* Material Design Icons font loading test: EOT, SVG, TTF, WOFF
+* Bootstrap plugin loading tests
+* Visual check , inclding for the ripple effect
 
 
 # TODO
 
-* Depend on a version of twbs:bootstrap without the Glyphicons font, to avoid loading those obsoleted icons
+* LESS version / fine-grained control? See [nemo64's package](https://github.com/Nemo64/meteor-bootstrap).
+
+
+# Testing
+
+To test the theme in a browser, run `cp meteor/package.js ./ && meteor test-packages ./`
 
 
 # Acknowledgements
