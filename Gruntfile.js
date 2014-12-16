@@ -224,7 +224,12 @@ module.exports = function(grunt) {
         command: "node_modules/.bin/spacejam --mongo-url mongodb:// test-packages ./"
       },
       "meteor-publish": {
-        command: "meteor publish"
+        command: [
+          "ALL_EXIT_CODE=0; for PACKAGE_FILE in meteor/package*.js",
+            "do cp $PACKAGE_FILE ./package.js && meteor publish $@",
+            "ALL_EXIT_CODE=$(echo $ALL_EXIT_CODE + $? | bc); done",
+          "exit $ALL_EXIT_CODE"
+        ].join(";")
       }
     }
 
