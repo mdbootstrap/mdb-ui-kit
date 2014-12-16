@@ -47,9 +47,10 @@ If you encounter an issue while using this package, please CC @dandv when you fi
 
 # DONE
 
+* Automatically initialize the JS on client startup: `$.material.init()`
 * Material Design Icons font loading test: EOT, SVG, TTF, WOFF
 * Bootstrap plugin loading tests
-* Visual check , inclding for the ripple effect
+* Visual check, including for the ripple effect
 
 
 # TODO

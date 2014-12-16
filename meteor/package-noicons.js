@@ -21,7 +21,8 @@ Package.onUse(function (api) {
     'dist/css/material-wfont.css',           // includes @font-face rules to load the Roboto font
     'dist/css/ripples.css',
     'dist/js/material.js',
-    'dist/js/ripples.js'
+    'dist/js/ripples.js',
+    'meteor/init.js'
   ], where);
 });
 
