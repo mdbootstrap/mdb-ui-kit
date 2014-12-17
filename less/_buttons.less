@@ -20,7 +20,7 @@
 
     .variations(~".btn-flat:not(.btn-link)", color, @lightbg-text);
 
-	.background-variations(~":not(.btn-link):not(.btn-flat)", @btn-default);
+  .background-variations(~":not(.btn-link):not(.btn-flat)", @btn-default);
 
     &.btn-flat {
         background: none;
@@ -101,7 +101,7 @@
 }
 
 .btn-shadow() {
-    .shadow-z-2();
+    .shadow-z-1();
     transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     &:active:not(.btn-link) {
         .shadow-z-3();

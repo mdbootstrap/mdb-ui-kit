@@ -6,7 +6,7 @@ Then, run this script to get the list.
 
 
 (function() {
-  var colors = {};
+  var colors = {}, main = {};
   $(".color-group").each(function() {
     var color = $(this).find(".name").text().trim().toLowerCase().replace(" ", "-");
     colors[color] = {};
@@ -17,18 +17,21 @@ Then, run this script to get the list.
 
       colors[color][shade] = hex;
     });
+    main[color] = color + "-" + $(this).find(".main-color .shade").text().trim();
 
   });
   var LESS = "";
   $.each(colors, function(name, shades) {
     LESS += "\n\n";
-    LESS += "@" + name + ": " + shades[500] + ";\n";
     $.each(shades, function(shade, hex) {
       LESS += "@" + name + "-" + shade + ": " + hex + ";\n";
     });
+    if (main[name]) {
+      LESS += "@" + name + ": " + main[name] + ";\n";
+    }
   });
   console.log(LESS);
-});
+})();
 
 
 */
@@ -6981,7 +6984,7 @@ body .jumbotron-material-blue-grey-A700,
   color: #a8a8a8 !important;
 }
 .btn.btn-raised {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn.btn-raised:active:not(.btn-link) {
@@ -9197,7 +9200,7 @@ body .jumbotron-material-blue-grey-A700,
   position: relative;
   border-radius: 2px;
   margin: 10px 1px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group:active:not(.btn-link),
@@ -9210,7 +9213,7 @@ body .jumbotron-material-blue-grey-A700,
 }
 .btn-group.btn-group-raised,
 .btn-group-vertical.btn-group-raised {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group.btn-group-raised:active:not(.btn-link),

@@ -130,17 +130,15 @@ The syntax to add a Material icon is:
 
 ## Material.js
 
-`Material.js` is a jQuery plugin that add some magic to your markup and allows Material Design for Bootstrap to style some elements like inputs, checkboxes, radios etc.
+`Material.js` is a jQuery plugin that adds some magic to your markup and allows Material Design for Bootstrap to style some elements like inputs, checkboxes, radios etc.
 
 ### Functions
 
-This plugin exposes some functions, them are:
-
-`$.material.init()` is a shortcut to run all the following commands.
-`$.material.ripples()` will apply ripples.js to the default elements.
-`$.material.input()` will enable the MD style to the text inputs, and other kind of inputs (number, email, file etc).
-`$.material.checkbox():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the Inputs chapter.
-`$.material.radio():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the Inputs chapter.
+* `$.material.init()` - shortcut to run all the following commands:
+* `$.material.ripples()` will apply ripples.js to the default elements.
+* `$.material.input()` will enable the MD style to the text inputs, and other kind of inputs (number, email, file etc).
+* `$.material.checkbox():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the [Inputs section](#inputs).
+* `$.material.radio():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the Inputs section.
 
 ### Apply Material.js only to specific elements
 
