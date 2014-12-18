@@ -9,3 +9,7 @@ It already includes every needed dependency and is based on the latest version o
 ## Grunt
 
 **Grunt!** Ok... when you edit something please run `grunt` to compile CSS and copy stuff in the correct folders. Thanks!
+
+## License
+
+Remember to read the license before contributing to this project.
