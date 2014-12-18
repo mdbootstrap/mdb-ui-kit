@@ -1,20 +1,21 @@
 .panel {
-    border-radius: 2px;
-    border: 0;
+  border-radius: 2px;
+  border: 0;
 
-    .variations(~" > .panel-heading", background-color, @lightgrey);
-    .shadow-z-1;
+  .variations(~" > .panel-heading", background-color, @lightgrey);
+  .shadow-z-1;
 }
 
 
 [class*="panel-"] > .panel-heading {
-    color: @darkbg-text;
+  color: @darkbg-text;
+  border: 0;
 }
 .panel-default, .panel:not([class*="panel-"]) {
-    > .panel-heading {
-        color: @lightbg-text;
-    }
+  > .panel-heading {
+    color: @lightbg-text;
+  }
 }
 .panel-footer {
-    background-color: @lightgrey;
+  background-color: @lightgrey;
 }
