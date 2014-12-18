@@ -30289,6 +30289,7 @@ icon-material-blue-grey-A700 {
 }
 [class*="panel-"] > .panel-heading {
   color: rgba(255, 255, 255, 0.84);
+  border: 0;
 }
 .panel-default > .panel-heading,
 .panel:not([class*="panel-"]) > .panel-heading {
