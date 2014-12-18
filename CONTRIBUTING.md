@@ -12,4 +12,4 @@ It already includes every needed dependency and is based on the latest version o
 
 ## License
 
-Remember to read the license before contributing to this project.
+Please read [the license](https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md) before contributing to this project. Be aware that your copyright over your contributions will be held by Federico Zivolo, the original author of this repository.
