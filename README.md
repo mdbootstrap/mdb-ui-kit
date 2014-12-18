@@ -172,6 +172,10 @@ Create snackbars and toasts with the [SnackbarJS plugin](https://github.com/FezV
 This is part of the Material Design for Bootstrap project and is a plain JavaScript script which creates the ripple effect when clicking on the specified elements.
 At the moment RipplesJS does not have its own repository but it will probably have one in the future.
 
+You may want to set a custom color to the ripples of a specific element, to do so write:
+
+    <button class="btn btn-default" data-ripple-color="#F0F0F0">Custom ripple</button>
+
 ### noUiSlider
 
 Make cross-browser sliders and get them styled with Material Design thanks to the support provided by this theme.
