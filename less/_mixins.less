@@ -1,25 +1,25 @@
 // usage: .variations(~" .check", color, transparent);
 .variations(@extra, @property, @default) {
 
-    // Bootstrap shades
-    &@{extra}, &-default@{extra} {
-        @{property}: @default;
-    }
-    &-primary@{extra} {
-        @{property}: @primary;
-    }
-    &-success@{extra} {
-        @{property}: @success;
-    }
-    &-info@{extra} {
-        @{property}: @info;
-    }
-    &-warning@{extra} {
-        @{property}: @warning;
-    }
-    &-danger@{extra} {
-        @{property}: @danger;
-    }
+  // Bootstrap shades
+  &@{extra}, &-default@{extra} {
+    @{property}: @default;
+  }
+  &-primary@{extra} {
+    @{property}: @primary;
+  }
+  &-success@{extra} {
+    @{property}: @success;
+  }
+  &-info@{extra} {
+    @{property}: @info;
+  }
+  &-warning@{extra} {
+    @{property}: @warning;
+  }
+  &-danger@{extra} {
+    @{property}: @danger;
+  }
 
 
   .variations-factory(@material-color) {
@@ -27,7 +27,7 @@
 
       &-material-@{material-color}@{material-color-number}@{extra} {
         @final-color: "@{material-color}@{material-color-number}";
-        		@{property}: @@final-color;
+        @{property}: @@final-color;
       }
 
     }
@@ -67,63 +67,6 @@
   .variations-factory(~"grey");
   .variations-factory(~"blue-grey");
 
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 
 .background-variations(@extra, @default) {
@@ -132,28 +75,32 @@
 
   .set-background-and-font-color(@bg-color) {
     background-color: @bg-color;
+
     color: contrast(@bg-color, @lightbg-text, @darkbg-text, @contrast-factor);
+    & when (@bg-color = @btn-default) {
+      color: @lightbg-text;
+    }
   }
 
   // bootstrap styles
-    &@{extra}, &-default@{extra} {
+  &@{extra}, &-default@{extra} {
     .set-background-and-font-color(@default);
-    }
-    &-primary@{extra} {
+  }
+  &-primary@{extra} {
     .set-background-and-font-color(@primary);
-    }
-    &-success@{extra} {
+  }
+  &-success@{extra} {
     .set-background-and-font-color(@success);
-    }
-    &-info@{extra} {
+  }
+  &-info@{extra} {
     .set-background-and-font-color(@info);
-    }
-    &-warning@{extra} {
+  }
+  &-warning@{extra} {
     .set-background-and-font-color(@warning);
-    }
-    &-danger@{extra} {
+  }
+  &-danger@{extra} {
     .set-background-and-font-color(@danger);
-    }
+  }
 
   // given a color build multiples dephs
   .background-variations-factory(@material-color) {
@@ -217,24 +164,24 @@
   }
 
   // bootstrap styles
-    &@{extra}, &-default@{extra} {
+  &@{extra}, &-default@{extra} {
     .set-font-color(@default);
-    }
-    &-primary@{extra} {
+  }
+  &-primary@{extra} {
     .set-font-color(@primary);
-    }
-    &-success@{extra} {
+  }
+  &-success@{extra} {
     .set-font-color(@success);
-    }
-    &-info@{extra} {
+  }
+  &-info@{extra} {
     .set-font-color(@info);
-    }
-    &-warning@{extra} {
+  }
+  &-warning@{extra} {
     .set-font-color(@warning);
-    }
-    &-danger@{extra} {
+  }
+  &-danger@{extra} {
     .set-font-color(@danger);
-    }
+  }
 
   // given a color build multiples dephs
   .background-variations-factory(@material-color) {

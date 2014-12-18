@@ -30,7 +30,7 @@ Then, run this script to get the list.
 
 
 (function() {
-  var colors = {};
+  var colors = {}, main = {};
   $(".color-group").each(function() {
     var color = $(this).find(".name").text().trim().toLowerCase().replace(" ", "-");
     colors[color] = {};
@@ -41,18 +41,21 @@ Then, run this script to get the list.
 
       colors[color][shade] = hex;
     });
+    main[color] = color + "-" + $(this).find(".main-color .shade").text().trim();
 
   });
   var LESS = "";
   $.each(colors, function(name, shades) {
     LESS += "\n\n";
-    LESS += "@" + name + ": " + shades[500] + ";\n";
     $.each(shades, function(shade, hex) {
       LESS += "@" + name + "-" + shade + ": " + hex + ";\n";
     });
+    if (main[name]) {
+      LESS += "@" + name + ": " + main[name] + ";\n";
+    }
   });
   console.log(LESS);
-});
+})();
 
 
 */
@@ -2481,63 +2484,6 @@ body .jumbotron,
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
   border-radius: 2px;
   border: 0;
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 body .well p,
 .container .well p,
@@ -4893,63 +4839,6 @@ body .jumbotron-material-blue-grey-A700,
   color: rgba(255, 255, 255, 0.84);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 .btn:hover:not(.btn-link):not(.btn-flat) {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
@@ -5835,6 +5724,7 @@ body .jumbotron-material-blue-grey-A700,
 .btn-default:not(.btn-link):not(.btn-flat) {
   background-color: transparent;
   color: rgba(255, 255, 255, 0.84);
+  color: rgba(0, 0, 0, 0.84);
 }
 .btn-primary:not(.btn-link):not(.btn-flat) {
   background-color: #009587;
@@ -7005,7 +6895,7 @@ body .jumbotron-material-blue-grey-A700,
   color: #a8a8a8 !important;
 }
 .btn.btn-raised {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn.btn-raised:active:not(.btn-link) {
@@ -7021,63 +6911,6 @@ body .jumbotron-material-blue-grey-A700,
 .btn.btn-fab,
 .btn.btn-fab:hover {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 .btn.btn-fab,
 .btn.btn-fab:hover,
@@ -8277,65 +8110,6 @@ body .jumbotron-material-blue-grey-A700,
 .btn-flat:not(.btn-link).active {
   background-color: rgba(255, 255, 255, 0.5);
 }
-.open > .dropdown-toggle.btn {
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-}
 .open > .dropdown-toggle.btn,
 .open > .dropdown-toggle.btn-default {
   background-color: transparent;
@@ -9221,7 +8995,7 @@ body .jumbotron-material-blue-grey-A700,
   position: relative;
   border-radius: 2px;
   margin: 10px 1px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group:active:not(.btn-link),
@@ -9234,7 +9008,7 @@ body .jumbotron-material-blue-grey-A700,
 }
 .btn-group.btn-group-raised,
 .btn-group-vertical.btn-group-raised {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group.btn-group-raised:active:not(.btn-link),
@@ -9255,179 +9029,6 @@ body .jumbotron-material-blue-grey-A700,
 }
 .form-horizontal .checkbox {
   padding-top: 20px;
-}
-.checkbox {
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 .checkbox label {
   padding-left: 10px;
@@ -12392,122 +11993,6 @@ body .jumbotron-material-blue-grey-A700,
 .form-horizontal .radio {
   margin-bottom: 10px;
 }
-.radio {
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-}
 .radio label {
   cursor: pointer;
   padding-left: 45px;
@@ -14498,293 +13983,6 @@ select[multiple].form-control.focus {
 }
 .form-control-wrapper select ~ .material-input:after {
   display: none;
-}
-.form-group {
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 .form-group.has-warning .material-input:before,
 .form-group.has-warning input.form-control:focus ~ .material-input:after,
@@ -24210,63 +23408,6 @@ fieldset[disabled] .navbar .btn-link:focus {
 .dropdown-menu {
   border: 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 .dropdown-menu .divider {
   background-color: rgba(229, 229, 229, 0.12);
@@ -25156,63 +24297,6 @@ fieldset[disabled] .navbar .btn-link:focus {
 .alert {
   border: 0px;
   border-radius: 0;
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 .alert a,
 .alert .alert-link {
@@ -26110,63 +25194,6 @@ fieldset[disabled] .navbar .btn-link:focus {
 }
 .progress .progress-bar {
   box-shadow: none;
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 .progress .progress-bar,
 .progress .progress-bar-default {
@@ -27117,63 +26144,6 @@ fieldset[disabled] .navbar .btn-link:focus {
 }
 .mdi,
 icon {
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
   line-height: inherit;
   vertical-align: bottom;
 }
@@ -28440,63 +27410,6 @@ icon-material-blue-grey-A700 {
 }
 .label {
   border-radius: 1px;
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 .label,
 .label-default {
@@ -29375,63 +28288,6 @@ icon-material-blue-grey-A700 {
 .panel {
   border-radius: 2px;
   border: 0;
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
 }
 .panel > .panel-heading,
@@ -30310,6 +29166,7 @@ icon-material-blue-grey-A700 {
 }
 [class*="panel-"] > .panel-heading {
   color: rgba(255, 255, 255, 0.84);
+  border: 0;
 }
 .panel-default > .panel-heading,
 .panel:not([class*="panel-"]) > .panel-heading {
@@ -30457,236 +29314,6 @@ icon-material-blue-grey-A700 {
 }
 .slider {
   background: #c8c8c8;
-}
-.slider {
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
-  /*
-    // Material shades
-    &-material-red@{extra} {
-        @{property}: @red;
-    }
-    &-material-pink@{extra} {
-        @{property}: @pink;
-    }
-    &-material-purple@{extra} {
-        @{property}: @purple;
-    }
-    &-material-deeppurple@{extra} {
-        @{property}: @deeppurple;
-    }
-    &-material-indigo@{extra} {
-        @{property}: @indigo;
-    }
-    &-material-blue@{extra} {
-        @{property}: @blue;
-    }
-    &-material-lightblue@{extra} {
-        @{property}: @lightblue;
-    }
-    &-material-cyan@{extra} {
-        @{property}: @cyan;
-    }
-    &-material-teal@{extra} {
-        @{property}: @teal;
-    }
-    &-material-lightgreen@{extra} {
-        @{property}: @lightgreen;
-    }
-    &-material-lime@{extra} {
-        @{property}: @lime;
-    }
-    &-material-lightyellow@{extra} {
-        @{property}: @lightyellow;
-    }
-    &-material-orange@{extra} {
-        @{property}: @orange;
-    }
-    &-material-deeporange@{extra} {
-        @{property}: @deeporange;
-    }
-    &-material-grey@{extra} {
-        @{property}: @grey;
-    }
-    &-material-bluegrey@{extra} {
-        @{property}: @bluegrey;
-    }
-    &-material-brown@{extra} {
-        @{property}: @brown;
-    }
-    &-material-lightgrey@{extra} {
-        @{property}: @lightgrey;
-    }
-  */
 }
 .slider.noUi-connect,
 .slider-default.noUi-connect {
