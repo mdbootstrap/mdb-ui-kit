@@ -102,7 +102,7 @@
       ripple.css({"left": relX, "top": relY});
 
       // Set the background color of the ripple
-      ripple.css({"background-color": window.getComputedStyle($(this)[0]).color});
+      ripple.css({"background-color": ($(this).data("ripple-color")) ? $(this).data("ripple-color") : window.getComputedStyle($(this)[0]).color});
 
       // Spawn it
       wrapper.append(ripple);
