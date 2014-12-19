@@ -159,9 +159,21 @@
       }
     }
   }
-  .background-variations(~"", @primary);
-  .text-variations(~" .form-control::placeholder", @primary);
-
+  
+  .generic-variations(~"", @primary, {
+      background-color: @material-color;
+      color: @text-color;
+      // deeply defined to override welljumbo class without !impotant need
+      .navbar-form {
+        .form-control-wrapper input.form-control::placeholder {
+          color: @text-color;
+        }
+        input.form-control::placeholder {
+          color: @text-color;
+        }
+      }
+    });
+  
   &-inverse {
     background-color: @indigo;
   }
