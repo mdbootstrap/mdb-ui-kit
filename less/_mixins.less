@@ -18,6 +18,17 @@
     });
 }
 
+/**
+ *  To use this mixin u should pass a function as final parameter to define 
+ *  the style. In that definition u can use the following variables to define it.
+ *
+ *  @material-color-name ---> "red", "green", "indigo" ...
+ *  @material-color-full-name ---> "red", "green-50", "indigo-400" ...
+ *  @material-color ---> #f44336, #e8f5e9, #5c6bc0 ...
+ *  @text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
+ *
+ */
+
 .generic-variations(@extra, @default, @func) {
 
   @contrast-factor: 40%;
