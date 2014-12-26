@@ -9,10 +9,10 @@
   text-decoration: none;
   color: @darkbg-text;
 
-  &:hover:not(.btn-link):not(.btn-flat) {
+  &:hover:not(.btn-link):not(.btn-flat):not(.btn-fab) {
     .shadow-z-2-hover();
   }
-  &:active:not(.btn-link):not(.btn-flat) {
+  &:active:not(.btn-link):not(.btn-flat):not(.btn-fab) {
     .shadow-z-3();
   }
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -41,9 +41,17 @@
     font-size: 26px;
     width: 56px;
     height: 56px;
-    &, &:hover {
-      .shadow-z-1();
+    &, &:hover, &:active
       .variations(~"", background-color, transparent);
+    }
+    & {
+      .shadow-z-3();
+    }
+    &:hover {
+      .shadow-z-4();
+    }
+    &:active {
+      .shadow-z-5();
     }
     &, .ripple-wrapper {
       border-radius: 100%;
