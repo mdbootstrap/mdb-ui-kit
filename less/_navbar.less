@@ -159,54 +159,18 @@
       }
     }
   }
-  .background-variations(~"", @primary);
-  .text-variations(~" .form-control::placeholder", @primary);
+
+  .generic-variations(~".navbar", @primary, {
+    background-color: @material-color;
+    color: @text-color;
+    // deeply defined to override welljumbo class without !impotant need
+    .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
+      color: @text-color;
+    }
+  });
 
   &-inverse {
     background-color: @indigo;
-  }
-  &-material-white {
-    background-color: #FFF;
-    .navbar-brand, .navbar-brand:hover, .navbar-brand:focus {
-      color: inherit;
-    }
-    .navbar-nav {
-      & > li > a {
-        color: inherit;
-
-        &:hover,
-        &:focus {
-          color: inherit;
-          background-color: transparent;
-        }
-      }
-      & > .active > a {
-        &,
-        &:hover,
-        &:focus {
-          color: inherit;
-          background-color: transparent;
-        }
-      }
-      & > .disabled > a {
-        &,
-        &:hover,
-        &:focus {
-          color: inherit;
-          background-color: transparent;
-        }
-      }
-
-      & > .open > a {
-        &,
-        &:hover,
-        &:focus {
-          background-color: transparent;
-          color: inherit;
-        }
-      }
-
-    }
   }
 
   @media (max-width: 1199px) {
