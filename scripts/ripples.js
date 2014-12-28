@@ -3,12 +3,12 @@
 
 (function($, window, document, undefined) {
   
-  'use strict';
+  "use strict";
 
   /**
    * Define the name of the plugin
    */
-  var ripples = 'ripples';
+  var ripples = "ripples";
 
 
   /**
@@ -46,28 +46,28 @@
   Ripples.prototype.init = function() {
     var $element  = this.element;
 
-    $element.on('mousedown touchstart', function(event) {
+    $element.on("mousedown touchstart", function(event) {
       /**
        * Verify if the user is just touching on a device and return if so
        */
-      if(self.isTouch() && event.type === 'mousedown') {
+      if(self.isTouch() && event.type === "mousedown") {
         return false;
       }
 
 
       /**
        * Verify if the current element already has a ripple wrapper element and
-       * creates if it doesn't
+       * creates if it doesn"t
        */
-      if(!($element.find('.ripple-wrapper').length)) {
-        $element.append('<div class="ripple-wrapper"></div>');
+      if(!($element.find(".ripple-wrapper").length)) {
+        $element.append("<div class=\"ripple-wrapper\"></div>");
       }
 
 
       /**
        * Find the ripple wrapper 
        */
-      var $wrapper = $element.find('.ripple-wrapper');
+      var $wrapper = $element.find(".ripple-wrapper");
 
 
       /**
@@ -94,14 +94,14 @@
       /**
        * Create the ripple element
        */
-      var $ripple = $('<div></div>');
+      var $ripple = $("<div></div>");
 
       $ripple
-        .addClass('ripple')
+        .addClass("ripple")
         .css({
-          'left': relX,
-          'top': relY,
-          'background-color': rippleColor
+          "left": relX,
+          "top": relY,
+          "background-color": rippleColor
         });
 
 
@@ -124,7 +124,7 @@
 
 
       /**
-       * Call the rippleEnd function when the transition 'on' ends
+       * Call the rippleEnd function when the transition "on" ends
        */
       setTimeout(function() {
         self.rippleEnd($ripple)
@@ -134,10 +134,10 @@
       /**
        * Detect when the user leaves the element
        */
-      $element.on('mouseup mouseleave touchend', function() {
-        $ripple.data('mousedown', 'off');
+      $element.on("mouseup mouseleave touchend", function() {
+        $ripple.data("mousedown", "off");
 
-        if($ripple.data('animating') === 'off') {
+        if($ripple.data("animating") === "off") {
           self.rippleOut($ripple);
         }
       });
@@ -161,7 +161,7 @@
    */
   Ripples.prototype.getRelX = function(event) {
     var $element = this.element;
-    var wrapperOffset = $element.find('.ripple-wrapper').offset();
+    var wrapperOffset = $element.find(".ripple-wrapper").offset();
 
     if(!self.isTouch()) {
       /**
@@ -189,7 +189,7 @@
    */
   Ripples.prototype.getRelY = function(event) {
     var $element = this.element;
-    var wrapperOffset = $element.find('.ripple-wrapper').offset();
+    var wrapperOffset = $element.find(".ripple-wrapper").offset();
 
     if(!self.isTouch()) {
       /**
@@ -218,7 +218,7 @@
   Ripples.prototype.getRippleColor = function() {
     var $element = this.element;
 
-    var color = $element.data("ripple-color") ? $element.data('ripple-color') : window.getComputedStyle($element[0]).color;
+    var color = $element.data("ripple-color") ? $element.data("ripple-color") : window.getComputedStyle($element[0]).color;
 
     return color;
   };
@@ -255,9 +255,9 @@
    * End the animation of the ripple
    */
   Ripples.prototype.rippleEnd = function($ripple) {
-    $ripple.data('animating', 'off');
+    $ripple.data("animating", "off");
 
-    if($ripple.data('mousedown') === 'off') {
+    if($ripple.data("mousedown") === "off") {
       self.rippleOut($ripple);
     }
   }
@@ -270,14 +270,14 @@
     $ripple.off();
 
     if(self.hasTransitionSupport()) {
-      $ripple.addClass('ripple-out');
+      $ripple.addClass("ripple-out");
     } else {
-      $ripple.animate({'opacity': 0}, 100, function() {
-        $ripple.trigger('transitionend');
+      $ripple.animate({"opacity": 0}, 100, function() {
+        $ripple.trigger("transitionend");
       });
     }
 
-    $ripple.on('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function() {
+    $ripple.on("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
       $ripple.remove();
     });
   };
@@ -293,23 +293,23 @@
     if(self.hasTransitionSupport()) {
       $ripple
         .css({
-          '-ms-transform': 'scale(' + size + ')',
-          '-moz-transform': 'scale(' + size + ')',
-          '-webkit-transform': 'scale(' + size + ')',
-          'transform': 'scale(' + size + ')'
+          "-ms-transform": "scale(" + size + ")",
+          "-moz-transform": "scale(" + size + ")",
+          "-webkit-transform": "scale(" + size + ")",
+          "transform": "scale(" + size + ")"
         })
-        .addClass('ripple-on')
-        .data('animating', 'on')
-        .data('mousedown', 'on');
+        .addClass("ripple-on")
+        .data("animating", "on")
+        .data("mousedown", "on");
     } else {
       $ripple.animate({
-        'width': Math.max($element.outerWidth(), $element.outerHeight()) * 2,
-        'height': Math.max($element.outerWidth(), $element.outerHeight()) * 2,
-        'margin-left': Math.max($element.outerWidth(), $element.outerHeight()) * (-1),
-        'margin-top': Math.max($element.outerWidth(), $element.outerHeight()) * (-1),
-        'opacity': 0.2
+        "width": Math.max($element.outerWidth(), $element.outerHeight()) * 2,
+        "height": Math.max($element.outerWidth(), $element.outerHeight()) * 2,
+        "margin-left": Math.max($element.outerWidth(), $element.outerHeight()) * (-1),
+        "margin-top": Math.max($element.outerWidth(), $element.outerHeight()) * (-1),
+        "opacity": 0.2
       }, 500, function() {
-        $ripple.trigger('transitionend');
+        $ripple.trigger("transitionend");
       });
     }
   };
@@ -320,8 +320,8 @@
    */
   $.fn.ripples = function(options) {
     return this.each(function() {
-      if(!$.data(this, 'plugin_' + ripples)) {
-        $.data(this, 'plugin_' + ripples, new Ripples(this, options))
+      if(!$.data(this, "plugin_" + ripples)) {
+        $.data(this, "plugin_" + ripples, new Ripples(this, options))
       }
     });
   }
