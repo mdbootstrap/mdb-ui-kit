@@ -127,7 +127,7 @@
        * Call the rippleEnd function when the transition "on" ends
        */
       setTimeout(function() {
-        self.rippleEnd($ripple)
+        self.rippleEnd($ripple);
       }, 500);
 
 
@@ -181,7 +181,7 @@
 
       return false;
     }
-  }
+  };
 
 
   /**
@@ -209,7 +209,7 @@
 
       return false;
     }
-  }
+  };
 
 
   /**
@@ -260,7 +260,7 @@
     if($ripple.data("mousedown") === "off") {
       self.rippleOut($ripple);
     }
-  }
+  };
 
 
   /**
@@ -321,9 +321,9 @@
   $.fn.ripples = function(options) {
     return this.each(function() {
       if(!$.data(this, "plugin_" + ripples)) {
-        $.data(this, "plugin_" + ripples, new Ripples(this, options))
+        $.data(this, "plugin_" + ripples, new Ripples(this, options));
       }
     });
-  }
+  };
 
 })(jQuery, window, document);
