@@ -9,6 +9,9 @@
   .generic-variations(@extra, @default, {
       background-color: @material-color;
       color: @text-color;
+      & when (@material-color = @btn-default) {
+        color: @lightbg-text;
+      }
     });
 }
 
