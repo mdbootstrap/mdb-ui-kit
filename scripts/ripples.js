@@ -67,14 +67,14 @@
       /**
        * Find the ripple wrapper 
        */
-      var $wrapper = $element.find(".ripple-wrapper");
+      var $wrapper = $element.children(".ripple-wrapper");
 
 
       /**
        * Get relY and relX positions
        */
-      var relY = self.getRelY(event);
-      var relX = self.getRelX(event);
+      var relY = self.getRelY($wrapper, event);
+      var relX = self.getRelX($wrapper, event);
 
 
       /**
@@ -88,7 +88,7 @@
       /**
        * Get the ripple color
        */
-      var rippleColor = self.getRippleColor();
+      var rippleColor = self.getRipplesColor();
 
 
       /**
@@ -159,9 +159,8 @@
   /**
    * Get the relX
    */
-  Ripples.prototype.getRelX = function(event) {
-    var $element = this.element;
-    var wrapperOffset = $element.find(".ripple-wrapper").offset();
+  Ripples.prototype.getRelX = function($wrapper,  event) {
+    var wrapperOffset = $wrapper.offset();
 
     if(!self.isTouch()) {
       /**
@@ -187,9 +186,8 @@
   /**
    * Get the relY
    */
-  Ripples.prototype.getRelY = function(event) {
-    var $element = this.element;
-    var wrapperOffset = $element.find(".ripple-wrapper").offset();
+  Ripples.prototype.getRelY = function($wrapper, event) {    
+    var wrapperOffset = $wrapper.offset();
 
     if(!self.isTouch()) {
       /**
@@ -215,7 +213,7 @@
   /**
    * Get the ripple color
    */
-  Ripples.prototype.getRippleColor = function() {
+  Ripples.prototype.getRipplesColor = function() {
     var $element = this.element;
 
     var color = $element.data("ripple-color") ? $element.data("ripple-color") : window.getComputedStyle($element[0]).color;
