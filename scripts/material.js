@@ -135,7 +135,7 @@
       });
     },
     "ripples": function(selector) {
-      $.ripples({"target": (selector) ? selector : this.options.withRipples});
+      $((selector) ? selector : this.options.withRipples).ripples();
     },
     "autofill": function() {
 

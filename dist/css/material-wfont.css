@@ -4874,10 +4874,10 @@ body .jumbotron-material-blue-grey-A700,
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
 }
-.btn:hover:not(.btn-link):not(.btn-flat) {
+.btn:hover:not(.btn-link):not(.btn-flat):not(.btn-fab) {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
 }
-.btn:active:not(.btn-link):not(.btn-flat) {
+.btn:active:not(.btn-link):not(.btn-flat):not(.btn-fab) {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
 }
 .btn.btn-flat:not(.btn-link),
@@ -5767,6 +5767,7 @@ body .jumbotron-material-blue-grey-A700,
 .btn-default:not(.btn-link):not(.btn-flat) {
   background-color: transparent;
   color: rgba(255, 255, 255, 0.84);
+  color: rgba(0, 0, 0, 0.84);
 }
 .btn-black:not(.btn-link):not(.btn-flat) {
   background-color: #000000;
@@ -6961,1188 +6962,1486 @@ body .jumbotron-material-blue-grey-A700,
   font-size: 26px;
   width: 56px;
   height: 56px;
-}
-.btn.btn-fab,
-.btn.btn-fab:hover {
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
 }
 .btn.btn-fab,
 .btn.btn-fab:hover,
+.btn.btn-fab:active,
 .btn.btn-fab-default,
-.btn.btn-fab:hover-default {
+.btn.btn-fab:hover-default,
+.btn.btn-fab:active-default {
   background-color: transparent;
 }
 .btn.btn-fab-black,
-.btn.btn-fab:hover-black {
+.btn.btn-fab:hover-black,
+.btn.btn-fab:active-black {
   background-color: #000000;
 }
 .btn.btn-fab-white,
-.btn.btn-fab:hover-white {
+.btn.btn-fab:hover-white,
+.btn.btn-fab:active-white {
   background-color: #ffffff;
 }
 .btn.btn-fab-inverse,
-.btn.btn-fab:hover-inverse {
+.btn.btn-fab:hover-inverse,
+.btn.btn-fab:active-inverse {
   background-color: #3f51b5;
 }
 .btn.btn-fab-primary,
-.btn.btn-fab:hover-primary {
+.btn.btn-fab:hover-primary,
+.btn.btn-fab:active-primary {
   background-color: #009587;
 }
 .btn.btn-fab-success,
-.btn.btn-fab:hover-success {
+.btn.btn-fab:hover-success,
+.btn.btn-fab:active-success {
   background-color: #0f9d58;
 }
 .btn.btn-fab-info,
-.btn.btn-fab:hover-info {
+.btn.btn-fab:hover-info,
+.btn.btn-fab:active-info {
   background-color: #03a9f4;
 }
 .btn.btn-fab-warning,
-.btn.btn-fab:hover-warning {
+.btn.btn-fab:hover-warning,
+.btn.btn-fab:active-warning {
   background-color: #ff5722;
 }
 .btn.btn-fab-danger,
-.btn.btn-fab:hover-danger {
+.btn.btn-fab:hover-danger,
+.btn.btn-fab:active-danger {
   background-color: #f44336;
 }
 .btn.btn-fab-material-red,
-.btn.btn-fab:hover-material-red {
+.btn.btn-fab:hover-material-red,
+.btn.btn-fab:active-material-red {
   background-color: #f44336;
 }
 .btn.btn-fab-material-red-50,
-.btn.btn-fab:hover-material-red-50 {
+.btn.btn-fab:hover-material-red-50,
+.btn.btn-fab:active-material-red-50 {
   background-color: #ffebee;
 }
 .btn.btn-fab-material-red-100,
-.btn.btn-fab:hover-material-red-100 {
+.btn.btn-fab:hover-material-red-100,
+.btn.btn-fab:active-material-red-100 {
   background-color: #ffcdd2;
 }
 .btn.btn-fab-material-red-200,
-.btn.btn-fab:hover-material-red-200 {
+.btn.btn-fab:hover-material-red-200,
+.btn.btn-fab:active-material-red-200 {
   background-color: #ef9a9a;
 }
 .btn.btn-fab-material-red-300,
-.btn.btn-fab:hover-material-red-300 {
+.btn.btn-fab:hover-material-red-300,
+.btn.btn-fab:active-material-red-300 {
   background-color: #e57373;
 }
 .btn.btn-fab-material-red-400,
-.btn.btn-fab:hover-material-red-400 {
+.btn.btn-fab:hover-material-red-400,
+.btn.btn-fab:active-material-red-400 {
   background-color: #ef5350;
 }
 .btn.btn-fab-material-red-500,
-.btn.btn-fab:hover-material-red-500 {
+.btn.btn-fab:hover-material-red-500,
+.btn.btn-fab:active-material-red-500 {
   background-color: #f44336;
 }
 .btn.btn-fab-material-red-600,
-.btn.btn-fab:hover-material-red-600 {
+.btn.btn-fab:hover-material-red-600,
+.btn.btn-fab:active-material-red-600 {
   background-color: #e53935;
 }
 .btn.btn-fab-material-red-700,
-.btn.btn-fab:hover-material-red-700 {
+.btn.btn-fab:hover-material-red-700,
+.btn.btn-fab:active-material-red-700 {
   background-color: #d32f2f;
 }
 .btn.btn-fab-material-red-800,
-.btn.btn-fab:hover-material-red-800 {
+.btn.btn-fab:hover-material-red-800,
+.btn.btn-fab:active-material-red-800 {
   background-color: #c62828;
 }
 .btn.btn-fab-material-red-900,
-.btn.btn-fab:hover-material-red-900 {
+.btn.btn-fab:hover-material-red-900,
+.btn.btn-fab:active-material-red-900 {
   background-color: #b71c1c;
 }
 .btn.btn-fab-material-red-A100,
-.btn.btn-fab:hover-material-red-A100 {
+.btn.btn-fab:hover-material-red-A100,
+.btn.btn-fab:active-material-red-A100 {
   background-color: #ff8a80;
 }
 .btn.btn-fab-material-red-A200,
-.btn.btn-fab:hover-material-red-A200 {
+.btn.btn-fab:hover-material-red-A200,
+.btn.btn-fab:active-material-red-A200 {
   background-color: #ff5252;
 }
 .btn.btn-fab-material-red-A400,
-.btn.btn-fab:hover-material-red-A400 {
+.btn.btn-fab:hover-material-red-A400,
+.btn.btn-fab:active-material-red-A400 {
   background-color: #ff1744;
 }
 .btn.btn-fab-material-red-A700,
-.btn.btn-fab:hover-material-red-A700 {
+.btn.btn-fab:hover-material-red-A700,
+.btn.btn-fab:active-material-red-A700 {
   background-color: #d50000;
 }
 .btn.btn-fab-material-pink,
-.btn.btn-fab:hover-material-pink {
+.btn.btn-fab:hover-material-pink,
+.btn.btn-fab:active-material-pink {
   background-color: #e91e63;
 }
 .btn.btn-fab-material-pink-50,
-.btn.btn-fab:hover-material-pink-50 {
+.btn.btn-fab:hover-material-pink-50,
+.btn.btn-fab:active-material-pink-50 {
   background-color: #fce4ec;
 }
 .btn.btn-fab-material-pink-100,
-.btn.btn-fab:hover-material-pink-100 {
+.btn.btn-fab:hover-material-pink-100,
+.btn.btn-fab:active-material-pink-100 {
   background-color: #f8bbd0;
 }
 .btn.btn-fab-material-pink-200,
-.btn.btn-fab:hover-material-pink-200 {
+.btn.btn-fab:hover-material-pink-200,
+.btn.btn-fab:active-material-pink-200 {
   background-color: #f48fb1;
 }
 .btn.btn-fab-material-pink-300,
-.btn.btn-fab:hover-material-pink-300 {
+.btn.btn-fab:hover-material-pink-300,
+.btn.btn-fab:active-material-pink-300 {
   background-color: #f06292;
 }
 .btn.btn-fab-material-pink-400,
-.btn.btn-fab:hover-material-pink-400 {
+.btn.btn-fab:hover-material-pink-400,
+.btn.btn-fab:active-material-pink-400 {
   background-color: #ec407a;
 }
 .btn.btn-fab-material-pink-500,
-.btn.btn-fab:hover-material-pink-500 {
+.btn.btn-fab:hover-material-pink-500,
+.btn.btn-fab:active-material-pink-500 {
   background-color: #e91e63;
 }
 .btn.btn-fab-material-pink-600,
-.btn.btn-fab:hover-material-pink-600 {
+.btn.btn-fab:hover-material-pink-600,
+.btn.btn-fab:active-material-pink-600 {
   background-color: #d81b60;
 }
 .btn.btn-fab-material-pink-700,
-.btn.btn-fab:hover-material-pink-700 {
+.btn.btn-fab:hover-material-pink-700,
+.btn.btn-fab:active-material-pink-700 {
   background-color: #c2185b;
 }
 .btn.btn-fab-material-pink-800,
-.btn.btn-fab:hover-material-pink-800 {
+.btn.btn-fab:hover-material-pink-800,
+.btn.btn-fab:active-material-pink-800 {
   background-color: #ad1457;
 }
 .btn.btn-fab-material-pink-900,
-.btn.btn-fab:hover-material-pink-900 {
+.btn.btn-fab:hover-material-pink-900,
+.btn.btn-fab:active-material-pink-900 {
   background-color: #880e4f;
 }
 .btn.btn-fab-material-pink-A100,
-.btn.btn-fab:hover-material-pink-A100 {
+.btn.btn-fab:hover-material-pink-A100,
+.btn.btn-fab:active-material-pink-A100 {
   background-color: #ff80ab;
 }
 .btn.btn-fab-material-pink-A200,
-.btn.btn-fab:hover-material-pink-A200 {
+.btn.btn-fab:hover-material-pink-A200,
+.btn.btn-fab:active-material-pink-A200 {
   background-color: #ff4081;
 }
 .btn.btn-fab-material-pink-A400,
-.btn.btn-fab:hover-material-pink-A400 {
+.btn.btn-fab:hover-material-pink-A400,
+.btn.btn-fab:active-material-pink-A400 {
   background-color: #f50057;
 }
 .btn.btn-fab-material-pink-A700,
-.btn.btn-fab:hover-material-pink-A700 {
+.btn.btn-fab:hover-material-pink-A700,
+.btn.btn-fab:active-material-pink-A700 {
   background-color: #c51162;
 }
 .btn.btn-fab-material-purple,
-.btn.btn-fab:hover-material-purple {
+.btn.btn-fab:hover-material-purple,
+.btn.btn-fab:active-material-purple {
   background-color: #9c27b0;
 }
 .btn.btn-fab-material-purple-50,
-.btn.btn-fab:hover-material-purple-50 {
+.btn.btn-fab:hover-material-purple-50,
+.btn.btn-fab:active-material-purple-50 {
   background-color: #f3e5f5;
 }
 .btn.btn-fab-material-purple-100,
-.btn.btn-fab:hover-material-purple-100 {
+.btn.btn-fab:hover-material-purple-100,
+.btn.btn-fab:active-material-purple-100 {
   background-color: #e1bee7;
 }
 .btn.btn-fab-material-purple-200,
-.btn.btn-fab:hover-material-purple-200 {
+.btn.btn-fab:hover-material-purple-200,
+.btn.btn-fab:active-material-purple-200 {
   background-color: #ce93d8;
 }
 .btn.btn-fab-material-purple-300,
-.btn.btn-fab:hover-material-purple-300 {
+.btn.btn-fab:hover-material-purple-300,
+.btn.btn-fab:active-material-purple-300 {
   background-color: #ba68c8;
 }
 .btn.btn-fab-material-purple-400,
-.btn.btn-fab:hover-material-purple-400 {
+.btn.btn-fab:hover-material-purple-400,
+.btn.btn-fab:active-material-purple-400 {
   background-color: #ab47bc;
 }
 .btn.btn-fab-material-purple-500,
-.btn.btn-fab:hover-material-purple-500 {
+.btn.btn-fab:hover-material-purple-500,
+.btn.btn-fab:active-material-purple-500 {
   background-color: #9c27b0;
 }
 .btn.btn-fab-material-purple-600,
-.btn.btn-fab:hover-material-purple-600 {
+.btn.btn-fab:hover-material-purple-600,
+.btn.btn-fab:active-material-purple-600 {
   background-color: #8e24aa;
 }
 .btn.btn-fab-material-purple-700,
-.btn.btn-fab:hover-material-purple-700 {
+.btn.btn-fab:hover-material-purple-700,
+.btn.btn-fab:active-material-purple-700 {
   background-color: #7b1fa2;
 }
 .btn.btn-fab-material-purple-800,
-.btn.btn-fab:hover-material-purple-800 {
+.btn.btn-fab:hover-material-purple-800,
+.btn.btn-fab:active-material-purple-800 {
   background-color: #6a1b9a;
 }
 .btn.btn-fab-material-purple-900,
-.btn.btn-fab:hover-material-purple-900 {
+.btn.btn-fab:hover-material-purple-900,
+.btn.btn-fab:active-material-purple-900 {
   background-color: #4a148c;
 }
 .btn.btn-fab-material-purple-A100,
-.btn.btn-fab:hover-material-purple-A100 {
+.btn.btn-fab:hover-material-purple-A100,
+.btn.btn-fab:active-material-purple-A100 {
   background-color: #ea80fc;
 }
 .btn.btn-fab-material-purple-A200,
-.btn.btn-fab:hover-material-purple-A200 {
+.btn.btn-fab:hover-material-purple-A200,
+.btn.btn-fab:active-material-purple-A200 {
   background-color: #e040fb;
 }
 .btn.btn-fab-material-purple-A400,
-.btn.btn-fab:hover-material-purple-A400 {
+.btn.btn-fab:hover-material-purple-A400,
+.btn.btn-fab:active-material-purple-A400 {
   background-color: #d500f9;
 }
 .btn.btn-fab-material-purple-A700,
-.btn.btn-fab:hover-material-purple-A700 {
+.btn.btn-fab:hover-material-purple-A700,
+.btn.btn-fab:active-material-purple-A700 {
   background-color: #aa00ff;
 }
 .btn.btn-fab-material-deep-purple,
-.btn.btn-fab:hover-material-deep-purple {
+.btn.btn-fab:hover-material-deep-purple,
+.btn.btn-fab:active-material-deep-purple {
   background-color: #673ab7;
 }
 .btn.btn-fab-material-deep-purple-50,
-.btn.btn-fab:hover-material-deep-purple-50 {
+.btn.btn-fab:hover-material-deep-purple-50,
+.btn.btn-fab:active-material-deep-purple-50 {
   background-color: #ede7f6;
 }
 .btn.btn-fab-material-deep-purple-100,
-.btn.btn-fab:hover-material-deep-purple-100 {
+.btn.btn-fab:hover-material-deep-purple-100,
+.btn.btn-fab:active-material-deep-purple-100 {
   background-color: #d1c4e9;
 }
 .btn.btn-fab-material-deep-purple-200,
-.btn.btn-fab:hover-material-deep-purple-200 {
+.btn.btn-fab:hover-material-deep-purple-200,
+.btn.btn-fab:active-material-deep-purple-200 {
   background-color: #b39ddb;
 }
 .btn.btn-fab-material-deep-purple-300,
-.btn.btn-fab:hover-material-deep-purple-300 {
+.btn.btn-fab:hover-material-deep-purple-300,
+.btn.btn-fab:active-material-deep-purple-300 {
   background-color: #9575cd;
 }
 .btn.btn-fab-material-deep-purple-400,
-.btn.btn-fab:hover-material-deep-purple-400 {
+.btn.btn-fab:hover-material-deep-purple-400,
+.btn.btn-fab:active-material-deep-purple-400 {
   background-color: #7e57c2;
 }
 .btn.btn-fab-material-deep-purple-500,
-.btn.btn-fab:hover-material-deep-purple-500 {
+.btn.btn-fab:hover-material-deep-purple-500,
+.btn.btn-fab:active-material-deep-purple-500 {
   background-color: #673ab7;
 }
 .btn.btn-fab-material-deep-purple-600,
-.btn.btn-fab:hover-material-deep-purple-600 {
+.btn.btn-fab:hover-material-deep-purple-600,
+.btn.btn-fab:active-material-deep-purple-600 {
   background-color: #5e35b1;
 }
 .btn.btn-fab-material-deep-purple-700,
-.btn.btn-fab:hover-material-deep-purple-700 {
+.btn.btn-fab:hover-material-deep-purple-700,
+.btn.btn-fab:active-material-deep-purple-700 {
   background-color: #512da8;
 }
 .btn.btn-fab-material-deep-purple-800,
-.btn.btn-fab:hover-material-deep-purple-800 {
+.btn.btn-fab:hover-material-deep-purple-800,
+.btn.btn-fab:active-material-deep-purple-800 {
   background-color: #4527a0;
 }
 .btn.btn-fab-material-deep-purple-900,
-.btn.btn-fab:hover-material-deep-purple-900 {
+.btn.btn-fab:hover-material-deep-purple-900,
+.btn.btn-fab:active-material-deep-purple-900 {
   background-color: #311b92;
 }
 .btn.btn-fab-material-deep-purple-A100,
-.btn.btn-fab:hover-material-deep-purple-A100 {
+.btn.btn-fab:hover-material-deep-purple-A100,
+.btn.btn-fab:active-material-deep-purple-A100 {
   background-color: #b388ff;
 }
 .btn.btn-fab-material-deep-purple-A200,
-.btn.btn-fab:hover-material-deep-purple-A200 {
+.btn.btn-fab:hover-material-deep-purple-A200,
+.btn.btn-fab:active-material-deep-purple-A200 {
   background-color: #7c4dff;
 }
 .btn.btn-fab-material-deep-purple-A400,
-.btn.btn-fab:hover-material-deep-purple-A400 {
+.btn.btn-fab:hover-material-deep-purple-A400,
+.btn.btn-fab:active-material-deep-purple-A400 {
   background-color: #651fff;
 }
 .btn.btn-fab-material-deep-purple-A700,
-.btn.btn-fab:hover-material-deep-purple-A700 {
+.btn.btn-fab:hover-material-deep-purple-A700,
+.btn.btn-fab:active-material-deep-purple-A700 {
   background-color: #6200ea;
 }
 .btn.btn-fab-material-indigo,
-.btn.btn-fab:hover-material-indigo {
+.btn.btn-fab:hover-material-indigo,
+.btn.btn-fab:active-material-indigo {
   background-color: #3f51b5;
 }
 .btn.btn-fab-material-indigo-50,
-.btn.btn-fab:hover-material-indigo-50 {
+.btn.btn-fab:hover-material-indigo-50,
+.btn.btn-fab:active-material-indigo-50 {
   background-color: #e8eaf6;
 }
 .btn.btn-fab-material-indigo-100,
-.btn.btn-fab:hover-material-indigo-100 {
+.btn.btn-fab:hover-material-indigo-100,
+.btn.btn-fab:active-material-indigo-100 {
   background-color: #c5cae9;
 }
 .btn.btn-fab-material-indigo-200,
-.btn.btn-fab:hover-material-indigo-200 {
+.btn.btn-fab:hover-material-indigo-200,
+.btn.btn-fab:active-material-indigo-200 {
   background-color: #9fa8da;
 }
 .btn.btn-fab-material-indigo-300,
-.btn.btn-fab:hover-material-indigo-300 {
+.btn.btn-fab:hover-material-indigo-300,
+.btn.btn-fab:active-material-indigo-300 {
   background-color: #7986cb;
 }
 .btn.btn-fab-material-indigo-400,
-.btn.btn-fab:hover-material-indigo-400 {
+.btn.btn-fab:hover-material-indigo-400,
+.btn.btn-fab:active-material-indigo-400 {
   background-color: #5c6bc0;
 }
 .btn.btn-fab-material-indigo-500,
-.btn.btn-fab:hover-material-indigo-500 {
+.btn.btn-fab:hover-material-indigo-500,
+.btn.btn-fab:active-material-indigo-500 {
   background-color: #3f51b5;
 }
 .btn.btn-fab-material-indigo-600,
-.btn.btn-fab:hover-material-indigo-600 {
+.btn.btn-fab:hover-material-indigo-600,
+.btn.btn-fab:active-material-indigo-600 {
   background-color: #3949ab;
 }
 .btn.btn-fab-material-indigo-700,
-.btn.btn-fab:hover-material-indigo-700 {
+.btn.btn-fab:hover-material-indigo-700,
+.btn.btn-fab:active-material-indigo-700 {
   background-color: #303f9f;
 }
 .btn.btn-fab-material-indigo-800,
-.btn.btn-fab:hover-material-indigo-800 {
+.btn.btn-fab:hover-material-indigo-800,
+.btn.btn-fab:active-material-indigo-800 {
   background-color: #283593;
 }
 .btn.btn-fab-material-indigo-900,
-.btn.btn-fab:hover-material-indigo-900 {
+.btn.btn-fab:hover-material-indigo-900,
+.btn.btn-fab:active-material-indigo-900 {
   background-color: #1a237e;
 }
 .btn.btn-fab-material-indigo-A100,
-.btn.btn-fab:hover-material-indigo-A100 {
+.btn.btn-fab:hover-material-indigo-A100,
+.btn.btn-fab:active-material-indigo-A100 {
   background-color: #8c9eff;
 }
 .btn.btn-fab-material-indigo-A200,
-.btn.btn-fab:hover-material-indigo-A200 {
+.btn.btn-fab:hover-material-indigo-A200,
+.btn.btn-fab:active-material-indigo-A200 {
   background-color: #536dfe;
 }
 .btn.btn-fab-material-indigo-A400,
-.btn.btn-fab:hover-material-indigo-A400 {
+.btn.btn-fab:hover-material-indigo-A400,
+.btn.btn-fab:active-material-indigo-A400 {
   background-color: #3d5afe;
 }
 .btn.btn-fab-material-indigo-A700,
-.btn.btn-fab:hover-material-indigo-A700 {
+.btn.btn-fab:hover-material-indigo-A700,
+.btn.btn-fab:active-material-indigo-A700 {
   background-color: #304ffe;
 }
 .btn.btn-fab-material-blue,
-.btn.btn-fab:hover-material-blue {
+.btn.btn-fab:hover-material-blue,
+.btn.btn-fab:active-material-blue {
   background-color: #2196f3;
 }
 .btn.btn-fab-material-blue-50,
-.btn.btn-fab:hover-material-blue-50 {
+.btn.btn-fab:hover-material-blue-50,
+.btn.btn-fab:active-material-blue-50 {
   background-color: #e3f2fd;
 }
 .btn.btn-fab-material-blue-100,
-.btn.btn-fab:hover-material-blue-100 {
+.btn.btn-fab:hover-material-blue-100,
+.btn.btn-fab:active-material-blue-100 {
   background-color: #bbdefb;
 }
 .btn.btn-fab-material-blue-200,
-.btn.btn-fab:hover-material-blue-200 {
+.btn.btn-fab:hover-material-blue-200,
+.btn.btn-fab:active-material-blue-200 {
   background-color: #90caf9;
 }
 .btn.btn-fab-material-blue-300,
-.btn.btn-fab:hover-material-blue-300 {
+.btn.btn-fab:hover-material-blue-300,
+.btn.btn-fab:active-material-blue-300 {
   background-color: #64b5f6;
 }
 .btn.btn-fab-material-blue-400,
-.btn.btn-fab:hover-material-blue-400 {
+.btn.btn-fab:hover-material-blue-400,
+.btn.btn-fab:active-material-blue-400 {
   background-color: #42a5f5;
 }
 .btn.btn-fab-material-blue-500,
-.btn.btn-fab:hover-material-blue-500 {
+.btn.btn-fab:hover-material-blue-500,
+.btn.btn-fab:active-material-blue-500 {
   background-color: #2196f3;
 }
 .btn.btn-fab-material-blue-600,
-.btn.btn-fab:hover-material-blue-600 {
+.btn.btn-fab:hover-material-blue-600,
+.btn.btn-fab:active-material-blue-600 {
   background-color: #1e88e5;
 }
 .btn.btn-fab-material-blue-700,
-.btn.btn-fab:hover-material-blue-700 {
+.btn.btn-fab:hover-material-blue-700,
+.btn.btn-fab:active-material-blue-700 {
   background-color: #1976d2;
 }
 .btn.btn-fab-material-blue-800,
-.btn.btn-fab:hover-material-blue-800 {
+.btn.btn-fab:hover-material-blue-800,
+.btn.btn-fab:active-material-blue-800 {
   background-color: #1565c0;
 }
 .btn.btn-fab-material-blue-900,
-.btn.btn-fab:hover-material-blue-900 {
+.btn.btn-fab:hover-material-blue-900,
+.btn.btn-fab:active-material-blue-900 {
   background-color: #0d47a1;
 }
 .btn.btn-fab-material-blue-A100,
-.btn.btn-fab:hover-material-blue-A100 {
+.btn.btn-fab:hover-material-blue-A100,
+.btn.btn-fab:active-material-blue-A100 {
   background-color: #82b1ff;
 }
 .btn.btn-fab-material-blue-A200,
-.btn.btn-fab:hover-material-blue-A200 {
+.btn.btn-fab:hover-material-blue-A200,
+.btn.btn-fab:active-material-blue-A200 {
   background-color: #448aff;
 }
 .btn.btn-fab-material-blue-A400,
-.btn.btn-fab:hover-material-blue-A400 {
+.btn.btn-fab:hover-material-blue-A400,
+.btn.btn-fab:active-material-blue-A400 {
   background-color: #2979ff;
 }
 .btn.btn-fab-material-blue-A700,
-.btn.btn-fab:hover-material-blue-A700 {
+.btn.btn-fab:hover-material-blue-A700,
+.btn.btn-fab:active-material-blue-A700 {
   background-color: #2962ff;
 }
 .btn.btn-fab-material-light-blue,
-.btn.btn-fab:hover-material-light-blue {
+.btn.btn-fab:hover-material-light-blue,
+.btn.btn-fab:active-material-light-blue {
   background-color: #03a9f4;
 }
 .btn.btn-fab-material-light-blue-50,
-.btn.btn-fab:hover-material-light-blue-50 {
+.btn.btn-fab:hover-material-light-blue-50,
+.btn.btn-fab:active-material-light-blue-50 {
   background-color: #e1f5fe;
 }
 .btn.btn-fab-material-light-blue-100,
-.btn.btn-fab:hover-material-light-blue-100 {
+.btn.btn-fab:hover-material-light-blue-100,
+.btn.btn-fab:active-material-light-blue-100 {
   background-color: #b3e5fc;
 }
 .btn.btn-fab-material-light-blue-200,
-.btn.btn-fab:hover-material-light-blue-200 {
+.btn.btn-fab:hover-material-light-blue-200,
+.btn.btn-fab:active-material-light-blue-200 {
   background-color: #81d4fa;
 }
 .btn.btn-fab-material-light-blue-300,
-.btn.btn-fab:hover-material-light-blue-300 {
+.btn.btn-fab:hover-material-light-blue-300,
+.btn.btn-fab:active-material-light-blue-300 {
   background-color: #4fc3f7;
 }
 .btn.btn-fab-material-light-blue-400,
-.btn.btn-fab:hover-material-light-blue-400 {
+.btn.btn-fab:hover-material-light-blue-400,
+.btn.btn-fab:active-material-light-blue-400 {
   background-color: #29b6f6;
 }
 .btn.btn-fab-material-light-blue-500,
-.btn.btn-fab:hover-material-light-blue-500 {
+.btn.btn-fab:hover-material-light-blue-500,
+.btn.btn-fab:active-material-light-blue-500 {
   background-color: #03a9f4;
 }
 .btn.btn-fab-material-light-blue-600,
-.btn.btn-fab:hover-material-light-blue-600 {
+.btn.btn-fab:hover-material-light-blue-600,
+.btn.btn-fab:active-material-light-blue-600 {
   background-color: #039be5;
 }
 .btn.btn-fab-material-light-blue-700,
-.btn.btn-fab:hover-material-light-blue-700 {
+.btn.btn-fab:hover-material-light-blue-700,
+.btn.btn-fab:active-material-light-blue-700 {
   background-color: #0288d1;
 }
 .btn.btn-fab-material-light-blue-800,
-.btn.btn-fab:hover-material-light-blue-800 {
+.btn.btn-fab:hover-material-light-blue-800,
+.btn.btn-fab:active-material-light-blue-800 {
   background-color: #0277bd;
 }
 .btn.btn-fab-material-light-blue-900,
-.btn.btn-fab:hover-material-light-blue-900 {
+.btn.btn-fab:hover-material-light-blue-900,
+.btn.btn-fab:active-material-light-blue-900 {
   background-color: #01579b;
 }
 .btn.btn-fab-material-light-blue-A100,
-.btn.btn-fab:hover-material-light-blue-A100 {
+.btn.btn-fab:hover-material-light-blue-A100,
+.btn.btn-fab:active-material-light-blue-A100 {
   background-color: #80d8ff;
 }
 .btn.btn-fab-material-light-blue-A200,
-.btn.btn-fab:hover-material-light-blue-A200 {
+.btn.btn-fab:hover-material-light-blue-A200,
+.btn.btn-fab:active-material-light-blue-A200 {
   background-color: #40c4ff;
 }
 .btn.btn-fab-material-light-blue-A400,
-.btn.btn-fab:hover-material-light-blue-A400 {
+.btn.btn-fab:hover-material-light-blue-A400,
+.btn.btn-fab:active-material-light-blue-A400 {
   background-color: #00b0ff;
 }
 .btn.btn-fab-material-light-blue-A700,
-.btn.btn-fab:hover-material-light-blue-A700 {
+.btn.btn-fab:hover-material-light-blue-A700,
+.btn.btn-fab:active-material-light-blue-A700 {
   background-color: #0091ea;
 }
 .btn.btn-fab-material-cyan,
-.btn.btn-fab:hover-material-cyan {
+.btn.btn-fab:hover-material-cyan,
+.btn.btn-fab:active-material-cyan {
   background-color: #00bcd4;
 }
 .btn.btn-fab-material-cyan-50,
-.btn.btn-fab:hover-material-cyan-50 {
+.btn.btn-fab:hover-material-cyan-50,
+.btn.btn-fab:active-material-cyan-50 {
   background-color: #e0f7fa;
 }
 .btn.btn-fab-material-cyan-100,
-.btn.btn-fab:hover-material-cyan-100 {
+.btn.btn-fab:hover-material-cyan-100,
+.btn.btn-fab:active-material-cyan-100 {
   background-color: #b2ebf2;
 }
 .btn.btn-fab-material-cyan-200,
-.btn.btn-fab:hover-material-cyan-200 {
+.btn.btn-fab:hover-material-cyan-200,
+.btn.btn-fab:active-material-cyan-200 {
   background-color: #80deea;
 }
 .btn.btn-fab-material-cyan-300,
-.btn.btn-fab:hover-material-cyan-300 {
+.btn.btn-fab:hover-material-cyan-300,
+.btn.btn-fab:active-material-cyan-300 {
   background-color: #4dd0e1;
 }
 .btn.btn-fab-material-cyan-400,
-.btn.btn-fab:hover-material-cyan-400 {
+.btn.btn-fab:hover-material-cyan-400,
+.btn.btn-fab:active-material-cyan-400 {
   background-color: #26c6da;
 }
 .btn.btn-fab-material-cyan-500,
-.btn.btn-fab:hover-material-cyan-500 {
+.btn.btn-fab:hover-material-cyan-500,
+.btn.btn-fab:active-material-cyan-500 {
   background-color: #00bcd4;
 }
 .btn.btn-fab-material-cyan-600,
-.btn.btn-fab:hover-material-cyan-600 {
+.btn.btn-fab:hover-material-cyan-600,
+.btn.btn-fab:active-material-cyan-600 {
   background-color: #00acc1;
 }
 .btn.btn-fab-material-cyan-700,
-.btn.btn-fab:hover-material-cyan-700 {
+.btn.btn-fab:hover-material-cyan-700,
+.btn.btn-fab:active-material-cyan-700 {
   background-color: #0097a7;
 }
 .btn.btn-fab-material-cyan-800,
-.btn.btn-fab:hover-material-cyan-800 {
+.btn.btn-fab:hover-material-cyan-800,
+.btn.btn-fab:active-material-cyan-800 {
   background-color: #00838f;
 }
 .btn.btn-fab-material-cyan-900,
-.btn.btn-fab:hover-material-cyan-900 {
+.btn.btn-fab:hover-material-cyan-900,
+.btn.btn-fab:active-material-cyan-900 {
   background-color: #006064;
 }
 .btn.btn-fab-material-cyan-A100,
-.btn.btn-fab:hover-material-cyan-A100 {
+.btn.btn-fab:hover-material-cyan-A100,
+.btn.btn-fab:active-material-cyan-A100 {
   background-color: #84ffff;
 }
 .btn.btn-fab-material-cyan-A200,
-.btn.btn-fab:hover-material-cyan-A200 {
+.btn.btn-fab:hover-material-cyan-A200,
+.btn.btn-fab:active-material-cyan-A200 {
   background-color: #18ffff;
 }
 .btn.btn-fab-material-cyan-A400,
-.btn.btn-fab:hover-material-cyan-A400 {
+.btn.btn-fab:hover-material-cyan-A400,
+.btn.btn-fab:active-material-cyan-A400 {
   background-color: #00e5ff;
 }
 .btn.btn-fab-material-cyan-A700,
-.btn.btn-fab:hover-material-cyan-A700 {
+.btn.btn-fab:hover-material-cyan-A700,
+.btn.btn-fab:active-material-cyan-A700 {
   background-color: #00b8d4;
 }
 .btn.btn-fab-material-teal,
-.btn.btn-fab:hover-material-teal {
+.btn.btn-fab:hover-material-teal,
+.btn.btn-fab:active-material-teal {
   background-color: #009688;
 }
 .btn.btn-fab-material-teal-50,
-.btn.btn-fab:hover-material-teal-50 {
+.btn.btn-fab:hover-material-teal-50,
+.btn.btn-fab:active-material-teal-50 {
   background-color: #e0f2f1;
 }
 .btn.btn-fab-material-teal-100,
-.btn.btn-fab:hover-material-teal-100 {
+.btn.btn-fab:hover-material-teal-100,
+.btn.btn-fab:active-material-teal-100 {
   background-color: #b2dfdb;
 }
 .btn.btn-fab-material-teal-200,
-.btn.btn-fab:hover-material-teal-200 {
+.btn.btn-fab:hover-material-teal-200,
+.btn.btn-fab:active-material-teal-200 {
   background-color: #80cbc4;
 }
 .btn.btn-fab-material-teal-300,
-.btn.btn-fab:hover-material-teal-300 {
+.btn.btn-fab:hover-material-teal-300,
+.btn.btn-fab:active-material-teal-300 {
   background-color: #4db6ac;
 }
 .btn.btn-fab-material-teal-400,
-.btn.btn-fab:hover-material-teal-400 {
+.btn.btn-fab:hover-material-teal-400,
+.btn.btn-fab:active-material-teal-400 {
   background-color: #26a69a;
 }
 .btn.btn-fab-material-teal-500,
-.btn.btn-fab:hover-material-teal-500 {
+.btn.btn-fab:hover-material-teal-500,
+.btn.btn-fab:active-material-teal-500 {
   background-color: #009688;
 }
 .btn.btn-fab-material-teal-600,
-.btn.btn-fab:hover-material-teal-600 {
+.btn.btn-fab:hover-material-teal-600,
+.btn.btn-fab:active-material-teal-600 {
   background-color: #00897b;
 }
 .btn.btn-fab-material-teal-700,
-.btn.btn-fab:hover-material-teal-700 {
+.btn.btn-fab:hover-material-teal-700,
+.btn.btn-fab:active-material-teal-700 {
   background-color: #00796b;
 }
 .btn.btn-fab-material-teal-800,
-.btn.btn-fab:hover-material-teal-800 {
+.btn.btn-fab:hover-material-teal-800,
+.btn.btn-fab:active-material-teal-800 {
   background-color: #00695c;
 }
 .btn.btn-fab-material-teal-900,
-.btn.btn-fab:hover-material-teal-900 {
+.btn.btn-fab:hover-material-teal-900,
+.btn.btn-fab:active-material-teal-900 {
   background-color: #004d40;
 }
 .btn.btn-fab-material-teal-A100,
-.btn.btn-fab:hover-material-teal-A100 {
+.btn.btn-fab:hover-material-teal-A100,
+.btn.btn-fab:active-material-teal-A100 {
   background-color: #a7ffeb;
 }
 .btn.btn-fab-material-teal-A200,
-.btn.btn-fab:hover-material-teal-A200 {
+.btn.btn-fab:hover-material-teal-A200,
+.btn.btn-fab:active-material-teal-A200 {
   background-color: #64ffda;
 }
 .btn.btn-fab-material-teal-A400,
-.btn.btn-fab:hover-material-teal-A400 {
+.btn.btn-fab:hover-material-teal-A400,
+.btn.btn-fab:active-material-teal-A400 {
   background-color: #1de9b6;
 }
 .btn.btn-fab-material-teal-A700,
-.btn.btn-fab:hover-material-teal-A700 {
+.btn.btn-fab:hover-material-teal-A700,
+.btn.btn-fab:active-material-teal-A700 {
   background-color: #00bfa5;
 }
 .btn.btn-fab-material-green,
-.btn.btn-fab:hover-material-green {
+.btn.btn-fab:hover-material-green,
+.btn.btn-fab:active-material-green {
   background-color: #4caf50;
 }
 .btn.btn-fab-material-green-50,
-.btn.btn-fab:hover-material-green-50 {
+.btn.btn-fab:hover-material-green-50,
+.btn.btn-fab:active-material-green-50 {
   background-color: #e8f5e9;
 }
 .btn.btn-fab-material-green-100,
-.btn.btn-fab:hover-material-green-100 {
+.btn.btn-fab:hover-material-green-100,
+.btn.btn-fab:active-material-green-100 {
   background-color: #c8e6c9;
 }
 .btn.btn-fab-material-green-200,
-.btn.btn-fab:hover-material-green-200 {
+.btn.btn-fab:hover-material-green-200,
+.btn.btn-fab:active-material-green-200 {
   background-color: #a5d6a7;
 }
 .btn.btn-fab-material-green-300,
-.btn.btn-fab:hover-material-green-300 {
+.btn.btn-fab:hover-material-green-300,
+.btn.btn-fab:active-material-green-300 {
   background-color: #81c784;
 }
 .btn.btn-fab-material-green-400,
-.btn.btn-fab:hover-material-green-400 {
+.btn.btn-fab:hover-material-green-400,
+.btn.btn-fab:active-material-green-400 {
   background-color: #66bb6a;
 }
 .btn.btn-fab-material-green-500,
-.btn.btn-fab:hover-material-green-500 {
+.btn.btn-fab:hover-material-green-500,
+.btn.btn-fab:active-material-green-500 {
   background-color: #4caf50;
 }
 .btn.btn-fab-material-green-600,
-.btn.btn-fab:hover-material-green-600 {
+.btn.btn-fab:hover-material-green-600,
+.btn.btn-fab:active-material-green-600 {
   background-color: #43a047;
 }
 .btn.btn-fab-material-green-700,
-.btn.btn-fab:hover-material-green-700 {
+.btn.btn-fab:hover-material-green-700,
+.btn.btn-fab:active-material-green-700 {
   background-color: #388e3c;
 }
 .btn.btn-fab-material-green-800,
-.btn.btn-fab:hover-material-green-800 {
+.btn.btn-fab:hover-material-green-800,
+.btn.btn-fab:active-material-green-800 {
   background-color: #2e7d32;
 }
 .btn.btn-fab-material-green-900,
-.btn.btn-fab:hover-material-green-900 {
+.btn.btn-fab:hover-material-green-900,
+.btn.btn-fab:active-material-green-900 {
   background-color: #1b5e20;
 }
 .btn.btn-fab-material-green-A100,
-.btn.btn-fab:hover-material-green-A100 {
+.btn.btn-fab:hover-material-green-A100,
+.btn.btn-fab:active-material-green-A100 {
   background-color: #b9f6ca;
 }
 .btn.btn-fab-material-green-A200,
-.btn.btn-fab:hover-material-green-A200 {
+.btn.btn-fab:hover-material-green-A200,
+.btn.btn-fab:active-material-green-A200 {
   background-color: #69f0ae;
 }
 .btn.btn-fab-material-green-A400,
-.btn.btn-fab:hover-material-green-A400 {
+.btn.btn-fab:hover-material-green-A400,
+.btn.btn-fab:active-material-green-A400 {
   background-color: #00e676;
 }
 .btn.btn-fab-material-green-A700,
-.btn.btn-fab:hover-material-green-A700 {
+.btn.btn-fab:hover-material-green-A700,
+.btn.btn-fab:active-material-green-A700 {
   background-color: #00c853;
 }
 .btn.btn-fab-material-light-green,
-.btn.btn-fab:hover-material-light-green {
+.btn.btn-fab:hover-material-light-green,
+.btn.btn-fab:active-material-light-green {
   background-color: #8bc34a;
 }
 .btn.btn-fab-material-light-green-50,
-.btn.btn-fab:hover-material-light-green-50 {
+.btn.btn-fab:hover-material-light-green-50,
+.btn.btn-fab:active-material-light-green-50 {
   background-color: #f1f8e9;
 }
 .btn.btn-fab-material-light-green-100,
-.btn.btn-fab:hover-material-light-green-100 {
+.btn.btn-fab:hover-material-light-green-100,
+.btn.btn-fab:active-material-light-green-100 {
   background-color: #dcedc8;
 }
 .btn.btn-fab-material-light-green-200,
-.btn.btn-fab:hover-material-light-green-200 {
+.btn.btn-fab:hover-material-light-green-200,
+.btn.btn-fab:active-material-light-green-200 {
   background-color: #c5e1a5;
 }
 .btn.btn-fab-material-light-green-300,
-.btn.btn-fab:hover-material-light-green-300 {
+.btn.btn-fab:hover-material-light-green-300,
+.btn.btn-fab:active-material-light-green-300 {
   background-color: #aed581;
 }
 .btn.btn-fab-material-light-green-400,
-.btn.btn-fab:hover-material-light-green-400 {
+.btn.btn-fab:hover-material-light-green-400,
+.btn.btn-fab:active-material-light-green-400 {
   background-color: #9ccc65;
 }
 .btn.btn-fab-material-light-green-500,
-.btn.btn-fab:hover-material-light-green-500 {
+.btn.btn-fab:hover-material-light-green-500,
+.btn.btn-fab:active-material-light-green-500 {
   background-color: #8bc34a;
 }
 .btn.btn-fab-material-light-green-600,
-.btn.btn-fab:hover-material-light-green-600 {
+.btn.btn-fab:hover-material-light-green-600,
+.btn.btn-fab:active-material-light-green-600 {
   background-color: #7cb342;
 }
 .btn.btn-fab-material-light-green-700,
-.btn.btn-fab:hover-material-light-green-700 {
+.btn.btn-fab:hover-material-light-green-700,
+.btn.btn-fab:active-material-light-green-700 {
   background-color: #689f38;
 }
 .btn.btn-fab-material-light-green-800,
-.btn.btn-fab:hover-material-light-green-800 {
+.btn.btn-fab:hover-material-light-green-800,
+.btn.btn-fab:active-material-light-green-800 {
   background-color: #558b2f;
 }
 .btn.btn-fab-material-light-green-900,
-.btn.btn-fab:hover-material-light-green-900 {
+.btn.btn-fab:hover-material-light-green-900,
+.btn.btn-fab:active-material-light-green-900 {
   background-color: #33691e;
 }
 .btn.btn-fab-material-light-green-A100,
-.btn.btn-fab:hover-material-light-green-A100 {
+.btn.btn-fab:hover-material-light-green-A100,
+.btn.btn-fab:active-material-light-green-A100 {
   background-color: #ccff90;
 }
 .btn.btn-fab-material-light-green-A200,
-.btn.btn-fab:hover-material-light-green-A200 {
+.btn.btn-fab:hover-material-light-green-A200,
+.btn.btn-fab:active-material-light-green-A200 {
   background-color: #b2ff59;
 }
 .btn.btn-fab-material-light-green-A400,
-.btn.btn-fab:hover-material-light-green-A400 {
+.btn.btn-fab:hover-material-light-green-A400,
+.btn.btn-fab:active-material-light-green-A400 {
   background-color: #76ff03;
 }
 .btn.btn-fab-material-light-green-A700,
-.btn.btn-fab:hover-material-light-green-A700 {
+.btn.btn-fab:hover-material-light-green-A700,
+.btn.btn-fab:active-material-light-green-A700 {
   background-color: #64dd17;
 }
 .btn.btn-fab-material-lime,
-.btn.btn-fab:hover-material-lime {
+.btn.btn-fab:hover-material-lime,
+.btn.btn-fab:active-material-lime {
   background-color: #cddc39;
 }
 .btn.btn-fab-material-lime-50,
-.btn.btn-fab:hover-material-lime-50 {
+.btn.btn-fab:hover-material-lime-50,
+.btn.btn-fab:active-material-lime-50 {
   background-color: #f9fbe7;
 }
 .btn.btn-fab-material-lime-100,
-.btn.btn-fab:hover-material-lime-100 {
+.btn.btn-fab:hover-material-lime-100,
+.btn.btn-fab:active-material-lime-100 {
   background-color: #f0f4c3;
 }
 .btn.btn-fab-material-lime-200,
-.btn.btn-fab:hover-material-lime-200 {
+.btn.btn-fab:hover-material-lime-200,
+.btn.btn-fab:active-material-lime-200 {
   background-color: #e6ee9c;
 }
 .btn.btn-fab-material-lime-300,
-.btn.btn-fab:hover-material-lime-300 {
+.btn.btn-fab:hover-material-lime-300,
+.btn.btn-fab:active-material-lime-300 {
   background-color: #dce775;
 }
 .btn.btn-fab-material-lime-400,
-.btn.btn-fab:hover-material-lime-400 {
+.btn.btn-fab:hover-material-lime-400,
+.btn.btn-fab:active-material-lime-400 {
   background-color: #d4e157;
 }
 .btn.btn-fab-material-lime-500,
-.btn.btn-fab:hover-material-lime-500 {
+.btn.btn-fab:hover-material-lime-500,
+.btn.btn-fab:active-material-lime-500 {
   background-color: #cddc39;
 }
 .btn.btn-fab-material-lime-600,
-.btn.btn-fab:hover-material-lime-600 {
+.btn.btn-fab:hover-material-lime-600,
+.btn.btn-fab:active-material-lime-600 {
   background-color: #c0ca33;
 }
 .btn.btn-fab-material-lime-700,
-.btn.btn-fab:hover-material-lime-700 {
+.btn.btn-fab:hover-material-lime-700,
+.btn.btn-fab:active-material-lime-700 {
   background-color: #afb42b;
 }
 .btn.btn-fab-material-lime-800,
-.btn.btn-fab:hover-material-lime-800 {
+.btn.btn-fab:hover-material-lime-800,
+.btn.btn-fab:active-material-lime-800 {
   background-color: #9e9d24;
 }
 .btn.btn-fab-material-lime-900,
-.btn.btn-fab:hover-material-lime-900 {
+.btn.btn-fab:hover-material-lime-900,
+.btn.btn-fab:active-material-lime-900 {
   background-color: #827717;
 }
 .btn.btn-fab-material-lime-A100,
-.btn.btn-fab:hover-material-lime-A100 {
+.btn.btn-fab:hover-material-lime-A100,
+.btn.btn-fab:active-material-lime-A100 {
   background-color: #f4ff81;
 }
 .btn.btn-fab-material-lime-A200,
-.btn.btn-fab:hover-material-lime-A200 {
+.btn.btn-fab:hover-material-lime-A200,
+.btn.btn-fab:active-material-lime-A200 {
   background-color: #eeff41;
 }
 .btn.btn-fab-material-lime-A400,
-.btn.btn-fab:hover-material-lime-A400 {
+.btn.btn-fab:hover-material-lime-A400,
+.btn.btn-fab:active-material-lime-A400 {
   background-color: #c6ff00;
 }
 .btn.btn-fab-material-lime-A700,
-.btn.btn-fab:hover-material-lime-A700 {
+.btn.btn-fab:hover-material-lime-A700,
+.btn.btn-fab:active-material-lime-A700 {
   background-color: #aeea00;
 }
 .btn.btn-fab-material-yellow,
-.btn.btn-fab:hover-material-yellow {
+.btn.btn-fab:hover-material-yellow,
+.btn.btn-fab:active-material-yellow {
   background-color: #ffeb3b;
 }
 .btn.btn-fab-material-yellow-50,
-.btn.btn-fab:hover-material-yellow-50 {
+.btn.btn-fab:hover-material-yellow-50,
+.btn.btn-fab:active-material-yellow-50 {
   background-color: #fffde7;
 }
 .btn.btn-fab-material-yellow-100,
-.btn.btn-fab:hover-material-yellow-100 {
+.btn.btn-fab:hover-material-yellow-100,
+.btn.btn-fab:active-material-yellow-100 {
   background-color: #fff9c4;
 }
 .btn.btn-fab-material-yellow-200,
-.btn.btn-fab:hover-material-yellow-200 {
+.btn.btn-fab:hover-material-yellow-200,
+.btn.btn-fab:active-material-yellow-200 {
   background-color: #fff59d;
 }
 .btn.btn-fab-material-yellow-300,
-.btn.btn-fab:hover-material-yellow-300 {
+.btn.btn-fab:hover-material-yellow-300,
+.btn.btn-fab:active-material-yellow-300 {
   background-color: #fff176;
 }
 .btn.btn-fab-material-yellow-400,
-.btn.btn-fab:hover-material-yellow-400 {
+.btn.btn-fab:hover-material-yellow-400,
+.btn.btn-fab:active-material-yellow-400 {
   background-color: #ffee58;
 }
 .btn.btn-fab-material-yellow-500,
-.btn.btn-fab:hover-material-yellow-500 {
+.btn.btn-fab:hover-material-yellow-500,
+.btn.btn-fab:active-material-yellow-500 {
   background-color: #ffeb3b;
 }
 .btn.btn-fab-material-yellow-600,
-.btn.btn-fab:hover-material-yellow-600 {
+.btn.btn-fab:hover-material-yellow-600,
+.btn.btn-fab:active-material-yellow-600 {
   background-color: #fdd835;
 }
 .btn.btn-fab-material-yellow-700,
-.btn.btn-fab:hover-material-yellow-700 {
+.btn.btn-fab:hover-material-yellow-700,
+.btn.btn-fab:active-material-yellow-700 {
   background-color: #fbc02d;
 }
 .btn.btn-fab-material-yellow-800,
-.btn.btn-fab:hover-material-yellow-800 {
+.btn.btn-fab:hover-material-yellow-800,
+.btn.btn-fab:active-material-yellow-800 {
   background-color: #f9a825;
 }
 .btn.btn-fab-material-yellow-900,
-.btn.btn-fab:hover-material-yellow-900 {
+.btn.btn-fab:hover-material-yellow-900,
+.btn.btn-fab:active-material-yellow-900 {
   background-color: #f57f17;
 }
 .btn.btn-fab-material-yellow-A100,
-.btn.btn-fab:hover-material-yellow-A100 {
+.btn.btn-fab:hover-material-yellow-A100,
+.btn.btn-fab:active-material-yellow-A100 {
   background-color: #ffff8d;
 }
 .btn.btn-fab-material-yellow-A200,
-.btn.btn-fab:hover-material-yellow-A200 {
+.btn.btn-fab:hover-material-yellow-A200,
+.btn.btn-fab:active-material-yellow-A200 {
   background-color: #ffff00;
 }
 .btn.btn-fab-material-yellow-A400,
-.btn.btn-fab:hover-material-yellow-A400 {
+.btn.btn-fab:hover-material-yellow-A400,
+.btn.btn-fab:active-material-yellow-A400 {
   background-color: #ffea00;
 }
 .btn.btn-fab-material-yellow-A700,
-.btn.btn-fab:hover-material-yellow-A700 {
+.btn.btn-fab:hover-material-yellow-A700,
+.btn.btn-fab:active-material-yellow-A700 {
   background-color: #ffd600;
 }
 .btn.btn-fab-material-amber,
-.btn.btn-fab:hover-material-amber {
+.btn.btn-fab:hover-material-amber,
+.btn.btn-fab:active-material-amber {
   background-color: #ffc107;
 }
 .btn.btn-fab-material-amber-50,
-.btn.btn-fab:hover-material-amber-50 {
+.btn.btn-fab:hover-material-amber-50,
+.btn.btn-fab:active-material-amber-50 {
   background-color: #fff8e1;
 }
 .btn.btn-fab-material-amber-100,
-.btn.btn-fab:hover-material-amber-100 {
+.btn.btn-fab:hover-material-amber-100,
+.btn.btn-fab:active-material-amber-100 {
   background-color: #ffecb3;
 }
 .btn.btn-fab-material-amber-200,
-.btn.btn-fab:hover-material-amber-200 {
+.btn.btn-fab:hover-material-amber-200,
+.btn.btn-fab:active-material-amber-200 {
   background-color: #ffe082;
 }
 .btn.btn-fab-material-amber-300,
-.btn.btn-fab:hover-material-amber-300 {
+.btn.btn-fab:hover-material-amber-300,
+.btn.btn-fab:active-material-amber-300 {
   background-color: #ffd54f;
 }
 .btn.btn-fab-material-amber-400,
-.btn.btn-fab:hover-material-amber-400 {
+.btn.btn-fab:hover-material-amber-400,
+.btn.btn-fab:active-material-amber-400 {
   background-color: #ffca28;
 }
 .btn.btn-fab-material-amber-500,
-.btn.btn-fab:hover-material-amber-500 {
+.btn.btn-fab:hover-material-amber-500,
+.btn.btn-fab:active-material-amber-500 {
   background-color: #ffc107;
 }
 .btn.btn-fab-material-amber-600,
-.btn.btn-fab:hover-material-amber-600 {
+.btn.btn-fab:hover-material-amber-600,
+.btn.btn-fab:active-material-amber-600 {
   background-color: #ffb300;
 }
 .btn.btn-fab-material-amber-700,
-.btn.btn-fab:hover-material-amber-700 {
+.btn.btn-fab:hover-material-amber-700,
+.btn.btn-fab:active-material-amber-700 {
   background-color: #ffa000;
 }
 .btn.btn-fab-material-amber-800,
-.btn.btn-fab:hover-material-amber-800 {
+.btn.btn-fab:hover-material-amber-800,
+.btn.btn-fab:active-material-amber-800 {
   background-color: #ff8f00;
 }
 .btn.btn-fab-material-amber-900,
-.btn.btn-fab:hover-material-amber-900 {
+.btn.btn-fab:hover-material-amber-900,
+.btn.btn-fab:active-material-amber-900 {
   background-color: #ff6f00;
 }
 .btn.btn-fab-material-amber-A100,
-.btn.btn-fab:hover-material-amber-A100 {
+.btn.btn-fab:hover-material-amber-A100,
+.btn.btn-fab:active-material-amber-A100 {
   background-color: #ffe57f;
 }
 .btn.btn-fab-material-amber-A200,
-.btn.btn-fab:hover-material-amber-A200 {
+.btn.btn-fab:hover-material-amber-A200,
+.btn.btn-fab:active-material-amber-A200 {
   background-color: #ffd740;
 }
 .btn.btn-fab-material-amber-A400,
-.btn.btn-fab:hover-material-amber-A400 {
+.btn.btn-fab:hover-material-amber-A400,
+.btn.btn-fab:active-material-amber-A400 {
   background-color: #ffc400;
 }
 .btn.btn-fab-material-amber-A700,
-.btn.btn-fab:hover-material-amber-A700 {
+.btn.btn-fab:hover-material-amber-A700,
+.btn.btn-fab:active-material-amber-A700 {
   background-color: #ffab00;
 }
 .btn.btn-fab-material-orange,
-.btn.btn-fab:hover-material-orange {
+.btn.btn-fab:hover-material-orange,
+.btn.btn-fab:active-material-orange {
   background-color: #ff9800;
 }
 .btn.btn-fab-material-orange-50,
-.btn.btn-fab:hover-material-orange-50 {
+.btn.btn-fab:hover-material-orange-50,
+.btn.btn-fab:active-material-orange-50 {
   background-color: #fff3e0;
 }
 .btn.btn-fab-material-orange-100,
-.btn.btn-fab:hover-material-orange-100 {
+.btn.btn-fab:hover-material-orange-100,
+.btn.btn-fab:active-material-orange-100 {
   background-color: #ffe0b2;
 }
 .btn.btn-fab-material-orange-200,
-.btn.btn-fab:hover-material-orange-200 {
+.btn.btn-fab:hover-material-orange-200,
+.btn.btn-fab:active-material-orange-200 {
   background-color: #ffcc80;
 }
 .btn.btn-fab-material-orange-300,
-.btn.btn-fab:hover-material-orange-300 {
+.btn.btn-fab:hover-material-orange-300,
+.btn.btn-fab:active-material-orange-300 {
   background-color: #ffb74d;
 }
 .btn.btn-fab-material-orange-400,
-.btn.btn-fab:hover-material-orange-400 {
+.btn.btn-fab:hover-material-orange-400,
+.btn.btn-fab:active-material-orange-400 {
   background-color: #ffa726;
 }
 .btn.btn-fab-material-orange-500,
-.btn.btn-fab:hover-material-orange-500 {
+.btn.btn-fab:hover-material-orange-500,
+.btn.btn-fab:active-material-orange-500 {
   background-color: #ff9800;
 }
 .btn.btn-fab-material-orange-600,
-.btn.btn-fab:hover-material-orange-600 {
+.btn.btn-fab:hover-material-orange-600,
+.btn.btn-fab:active-material-orange-600 {
   background-color: #fb8c00;
 }
 .btn.btn-fab-material-orange-700,
-.btn.btn-fab:hover-material-orange-700 {
+.btn.btn-fab:hover-material-orange-700,
+.btn.btn-fab:active-material-orange-700 {
   background-color: #f57c00;
 }
 .btn.btn-fab-material-orange-800,
-.btn.btn-fab:hover-material-orange-800 {
+.btn.btn-fab:hover-material-orange-800,
+.btn.btn-fab:active-material-orange-800 {
   background-color: #ef6c00;
 }
 .btn.btn-fab-material-orange-900,
-.btn.btn-fab:hover-material-orange-900 {
+.btn.btn-fab:hover-material-orange-900,
+.btn.btn-fab:active-material-orange-900 {
   background-color: #e65100;
 }
 .btn.btn-fab-material-orange-A100,
-.btn.btn-fab:hover-material-orange-A100 {
+.btn.btn-fab:hover-material-orange-A100,
+.btn.btn-fab:active-material-orange-A100 {
   background-color: #ffd180;
 }
 .btn.btn-fab-material-orange-A200,
-.btn.btn-fab:hover-material-orange-A200 {
+.btn.btn-fab:hover-material-orange-A200,
+.btn.btn-fab:active-material-orange-A200 {
   background-color: #ffab40;
 }
 .btn.btn-fab-material-orange-A400,
-.btn.btn-fab:hover-material-orange-A400 {
+.btn.btn-fab:hover-material-orange-A400,
+.btn.btn-fab:active-material-orange-A400 {
   background-color: #ff9100;
 }
 .btn.btn-fab-material-orange-A700,
-.btn.btn-fab:hover-material-orange-A700 {
+.btn.btn-fab:hover-material-orange-A700,
+.btn.btn-fab:active-material-orange-A700 {
   background-color: #ff6d00;
 }
 .btn.btn-fab-material-deep-orange,
-.btn.btn-fab:hover-material-deep-orange {
+.btn.btn-fab:hover-material-deep-orange,
+.btn.btn-fab:active-material-deep-orange {
   background-color: #ff5722;
 }
 .btn.btn-fab-material-deep-orange-50,
-.btn.btn-fab:hover-material-deep-orange-50 {
+.btn.btn-fab:hover-material-deep-orange-50,
+.btn.btn-fab:active-material-deep-orange-50 {
   background-color: #fbe9e7;
 }
 .btn.btn-fab-material-deep-orange-100,
-.btn.btn-fab:hover-material-deep-orange-100 {
+.btn.btn-fab:hover-material-deep-orange-100,
+.btn.btn-fab:active-material-deep-orange-100 {
   background-color: #ffccbc;
 }
 .btn.btn-fab-material-deep-orange-200,
-.btn.btn-fab:hover-material-deep-orange-200 {
+.btn.btn-fab:hover-material-deep-orange-200,
+.btn.btn-fab:active-material-deep-orange-200 {
   background-color: #ffab91;
 }
 .btn.btn-fab-material-deep-orange-300,
-.btn.btn-fab:hover-material-deep-orange-300 {
+.btn.btn-fab:hover-material-deep-orange-300,
+.btn.btn-fab:active-material-deep-orange-300 {
   background-color: #ff8a65;
 }
 .btn.btn-fab-material-deep-orange-400,
-.btn.btn-fab:hover-material-deep-orange-400 {
+.btn.btn-fab:hover-material-deep-orange-400,
+.btn.btn-fab:active-material-deep-orange-400 {
   background-color: #ff7043;
 }
 .btn.btn-fab-material-deep-orange-500,
-.btn.btn-fab:hover-material-deep-orange-500 {
+.btn.btn-fab:hover-material-deep-orange-500,
+.btn.btn-fab:active-material-deep-orange-500 {
   background-color: #ff5722;
 }
 .btn.btn-fab-material-deep-orange-600,
-.btn.btn-fab:hover-material-deep-orange-600 {
+.btn.btn-fab:hover-material-deep-orange-600,
+.btn.btn-fab:active-material-deep-orange-600 {
   background-color: #f4511e;
 }
 .btn.btn-fab-material-deep-orange-700,
-.btn.btn-fab:hover-material-deep-orange-700 {
+.btn.btn-fab:hover-material-deep-orange-700,
+.btn.btn-fab:active-material-deep-orange-700 {
   background-color: #e64a19;
 }
 .btn.btn-fab-material-deep-orange-800,
-.btn.btn-fab:hover-material-deep-orange-800 {
+.btn.btn-fab:hover-material-deep-orange-800,
+.btn.btn-fab:active-material-deep-orange-800 {
   background-color: #d84315;
 }
 .btn.btn-fab-material-deep-orange-900,
-.btn.btn-fab:hover-material-deep-orange-900 {
+.btn.btn-fab:hover-material-deep-orange-900,
+.btn.btn-fab:active-material-deep-orange-900 {
   background-color: #bf360c;
 }
 .btn.btn-fab-material-deep-orange-A100,
-.btn.btn-fab:hover-material-deep-orange-A100 {
+.btn.btn-fab:hover-material-deep-orange-A100,
+.btn.btn-fab:active-material-deep-orange-A100 {
   background-color: #ff9e80;
 }
 .btn.btn-fab-material-deep-orange-A200,
-.btn.btn-fab:hover-material-deep-orange-A200 {
+.btn.btn-fab:hover-material-deep-orange-A200,
+.btn.btn-fab:active-material-deep-orange-A200 {
   background-color: #ff6e40;
 }
 .btn.btn-fab-material-deep-orange-A400,
-.btn.btn-fab:hover-material-deep-orange-A400 {
+.btn.btn-fab:hover-material-deep-orange-A400,
+.btn.btn-fab:active-material-deep-orange-A400 {
   background-color: #ff3d00;
 }
 .btn.btn-fab-material-deep-orange-A700,
-.btn.btn-fab:hover-material-deep-orange-A700 {
+.btn.btn-fab:hover-material-deep-orange-A700,
+.btn.btn-fab:active-material-deep-orange-A700 {
   background-color: #dd2c00;
 }
 .btn.btn-fab-material-brown,
-.btn.btn-fab:hover-material-brown {
+.btn.btn-fab:hover-material-brown,
+.btn.btn-fab:active-material-brown {
   background-color: #795548;
 }
 .btn.btn-fab-material-brown-50,
-.btn.btn-fab:hover-material-brown-50 {
+.btn.btn-fab:hover-material-brown-50,
+.btn.btn-fab:active-material-brown-50 {
   background-color: #efebe9;
 }
 .btn.btn-fab-material-brown-100,
-.btn.btn-fab:hover-material-brown-100 {
+.btn.btn-fab:hover-material-brown-100,
+.btn.btn-fab:active-material-brown-100 {
   background-color: #d7ccc8;
 }
 .btn.btn-fab-material-brown-200,
-.btn.btn-fab:hover-material-brown-200 {
+.btn.btn-fab:hover-material-brown-200,
+.btn.btn-fab:active-material-brown-200 {
   background-color: #bcaaa4;
 }
 .btn.btn-fab-material-brown-300,
-.btn.btn-fab:hover-material-brown-300 {
+.btn.btn-fab:hover-material-brown-300,
+.btn.btn-fab:active-material-brown-300 {
   background-color: #a1887f;
 }
 .btn.btn-fab-material-brown-400,
-.btn.btn-fab:hover-material-brown-400 {
+.btn.btn-fab:hover-material-brown-400,
+.btn.btn-fab:active-material-brown-400 {
   background-color: #8d6e63;
 }
 .btn.btn-fab-material-brown-500,
-.btn.btn-fab:hover-material-brown-500 {
+.btn.btn-fab:hover-material-brown-500,
+.btn.btn-fab:active-material-brown-500 {
   background-color: #795548;
 }
 .btn.btn-fab-material-brown-600,
-.btn.btn-fab:hover-material-brown-600 {
+.btn.btn-fab:hover-material-brown-600,
+.btn.btn-fab:active-material-brown-600 {
   background-color: #6d4c41;
 }
 .btn.btn-fab-material-brown-700,
-.btn.btn-fab:hover-material-brown-700 {
+.btn.btn-fab:hover-material-brown-700,
+.btn.btn-fab:active-material-brown-700 {
   background-color: #5d4037;
 }
 .btn.btn-fab-material-brown-800,
-.btn.btn-fab:hover-material-brown-800 {
+.btn.btn-fab:hover-material-brown-800,
+.btn.btn-fab:active-material-brown-800 {
   background-color: #4e342e;
 }
 .btn.btn-fab-material-brown-900,
-.btn.btn-fab:hover-material-brown-900 {
+.btn.btn-fab:hover-material-brown-900,
+.btn.btn-fab:active-material-brown-900 {
   background-color: #3e2723;
 }
 .btn.btn-fab-material-brown-A100,
-.btn.btn-fab:hover-material-brown-A100 {
+.btn.btn-fab:hover-material-brown-A100,
+.btn.btn-fab:active-material-brown-A100 {
   background-color: #d7ccc8;
 }
 .btn.btn-fab-material-brown-A200,
-.btn.btn-fab:hover-material-brown-A200 {
+.btn.btn-fab:hover-material-brown-A200,
+.btn.btn-fab:active-material-brown-A200 {
   background-color: #bcaaa4;
 }
 .btn.btn-fab-material-brown-A400,
-.btn.btn-fab:hover-material-brown-A400 {
+.btn.btn-fab:hover-material-brown-A400,
+.btn.btn-fab:active-material-brown-A400 {
   background-color: #8d6e63;
 }
 .btn.btn-fab-material-brown-A700,
-.btn.btn-fab:hover-material-brown-A700 {
+.btn.btn-fab:hover-material-brown-A700,
+.btn.btn-fab:active-material-brown-A700 {
   background-color: #5d4037;
 }
 .btn.btn-fab-material-grey,
-.btn.btn-fab:hover-material-grey {
+.btn.btn-fab:hover-material-grey,
+.btn.btn-fab:active-material-grey {
   background-color: #9e9e9e;
 }
 .btn.btn-fab-material-grey-50,
-.btn.btn-fab:hover-material-grey-50 {
+.btn.btn-fab:hover-material-grey-50,
+.btn.btn-fab:active-material-grey-50 {
   background-color: #fafafa;
 }
 .btn.btn-fab-material-grey-100,
-.btn.btn-fab:hover-material-grey-100 {
+.btn.btn-fab:hover-material-grey-100,
+.btn.btn-fab:active-material-grey-100 {
   background-color: #f5f5f5;
 }
 .btn.btn-fab-material-grey-200,
-.btn.btn-fab:hover-material-grey-200 {
+.btn.btn-fab:hover-material-grey-200,
+.btn.btn-fab:active-material-grey-200 {
   background-color: #eeeeee;
 }
 .btn.btn-fab-material-grey-300,
-.btn.btn-fab:hover-material-grey-300 {
+.btn.btn-fab:hover-material-grey-300,
+.btn.btn-fab:active-material-grey-300 {
   background-color: #e0e0e0;
 }
 .btn.btn-fab-material-grey-400,
-.btn.btn-fab:hover-material-grey-400 {
+.btn.btn-fab:hover-material-grey-400,
+.btn.btn-fab:active-material-grey-400 {
   background-color: #bdbdbd;
 }
 .btn.btn-fab-material-grey-500,
-.btn.btn-fab:hover-material-grey-500 {
+.btn.btn-fab:hover-material-grey-500,
+.btn.btn-fab:active-material-grey-500 {
   background-color: #9e9e9e;
 }
 .btn.btn-fab-material-grey-600,
-.btn.btn-fab:hover-material-grey-600 {
+.btn.btn-fab:hover-material-grey-600,
+.btn.btn-fab:active-material-grey-600 {
   background-color: #757575;
 }
 .btn.btn-fab-material-grey-700,
-.btn.btn-fab:hover-material-grey-700 {
+.btn.btn-fab:hover-material-grey-700,
+.btn.btn-fab:active-material-grey-700 {
   background-color: #616161;
 }
 .btn.btn-fab-material-grey-800,
-.btn.btn-fab:hover-material-grey-800 {
+.btn.btn-fab:hover-material-grey-800,
+.btn.btn-fab:active-material-grey-800 {
   background-color: #424242;
 }
 .btn.btn-fab-material-grey-900,
-.btn.btn-fab:hover-material-grey-900 {
+.btn.btn-fab:hover-material-grey-900,
+.btn.btn-fab:active-material-grey-900 {
   background-color: #212121;
 }
 .btn.btn-fab-material-grey-A100,
-.btn.btn-fab:hover-material-grey-A100 {
+.btn.btn-fab:hover-material-grey-A100,
+.btn.btn-fab:active-material-grey-A100 {
   background-color: #f5f5f5;
 }
 .btn.btn-fab-material-grey-A200,
-.btn.btn-fab:hover-material-grey-A200 {
+.btn.btn-fab:hover-material-grey-A200,
+.btn.btn-fab:active-material-grey-A200 {
   background-color: #eeeeee;
 }
 .btn.btn-fab-material-grey-A400,
-.btn.btn-fab:hover-material-grey-A400 {
+.btn.btn-fab:hover-material-grey-A400,
+.btn.btn-fab:active-material-grey-A400 {
   background-color: #bdbdbd;
 }
 .btn.btn-fab-material-grey-A700,
-.btn.btn-fab:hover-material-grey-A700 {
+.btn.btn-fab:hover-material-grey-A700,
+.btn.btn-fab:active-material-grey-A700 {
   background-color: #616161;
 }
 .btn.btn-fab-material-blue-grey,
-.btn.btn-fab:hover-material-blue-grey {
+.btn.btn-fab:hover-material-blue-grey,
+.btn.btn-fab:active-material-blue-grey {
   background-color: #607d8b;
 }
 .btn.btn-fab-material-blue-grey-50,
-.btn.btn-fab:hover-material-blue-grey-50 {
+.btn.btn-fab:hover-material-blue-grey-50,
+.btn.btn-fab:active-material-blue-grey-50 {
   background-color: #eceff1;
 }
 .btn.btn-fab-material-blue-grey-100,
-.btn.btn-fab:hover-material-blue-grey-100 {
+.btn.btn-fab:hover-material-blue-grey-100,
+.btn.btn-fab:active-material-blue-grey-100 {
   background-color: #cfd8dc;
 }
 .btn.btn-fab-material-blue-grey-200,
-.btn.btn-fab:hover-material-blue-grey-200 {
+.btn.btn-fab:hover-material-blue-grey-200,
+.btn.btn-fab:active-material-blue-grey-200 {
   background-color: #b0bec5;
 }
 .btn.btn-fab-material-blue-grey-300,
-.btn.btn-fab:hover-material-blue-grey-300 {
+.btn.btn-fab:hover-material-blue-grey-300,
+.btn.btn-fab:active-material-blue-grey-300 {
   background-color: #90a4ae;
 }
 .btn.btn-fab-material-blue-grey-400,
-.btn.btn-fab:hover-material-blue-grey-400 {
+.btn.btn-fab:hover-material-blue-grey-400,
+.btn.btn-fab:active-material-blue-grey-400 {
   background-color: #78909c;
 }
 .btn.btn-fab-material-blue-grey-500,
-.btn.btn-fab:hover-material-blue-grey-500 {
+.btn.btn-fab:hover-material-blue-grey-500,
+.btn.btn-fab:active-material-blue-grey-500 {
   background-color: #607d8b;
 }
 .btn.btn-fab-material-blue-grey-600,
-.btn.btn-fab:hover-material-blue-grey-600 {
+.btn.btn-fab:hover-material-blue-grey-600,
+.btn.btn-fab:active-material-blue-grey-600 {
   background-color: #546e7a;
 }
 .btn.btn-fab-material-blue-grey-700,
-.btn.btn-fab:hover-material-blue-grey-700 {
+.btn.btn-fab:hover-material-blue-grey-700,
+.btn.btn-fab:active-material-blue-grey-700 {
   background-color: #455a64;
 }
 .btn.btn-fab-material-blue-grey-800,
-.btn.btn-fab:hover-material-blue-grey-800 {
+.btn.btn-fab:hover-material-blue-grey-800,
+.btn.btn-fab:active-material-blue-grey-800 {
   background-color: #37474f;
 }
 .btn.btn-fab-material-blue-grey-900,
-.btn.btn-fab:hover-material-blue-grey-900 {
+.btn.btn-fab:hover-material-blue-grey-900,
+.btn.btn-fab:active-material-blue-grey-900 {
   background-color: #263238;
 }
 .btn.btn-fab-material-blue-grey-A100,
-.btn.btn-fab:hover-material-blue-grey-A100 {
+.btn.btn-fab:hover-material-blue-grey-A100,
+.btn.btn-fab:active-material-blue-grey-A100 {
   background-color: #cfd8dc;
 }
 .btn.btn-fab-material-blue-grey-A200,
-.btn.btn-fab:hover-material-blue-grey-A200 {
+.btn.btn-fab:hover-material-blue-grey-A200,
+.btn.btn-fab:active-material-blue-grey-A200 {
   background-color: #b0bec5;
 }
 .btn.btn-fab-material-blue-grey-A400,
-.btn.btn-fab:hover-material-blue-grey-A400 {
+.btn.btn-fab:hover-material-blue-grey-A400,
+.btn.btn-fab:active-material-blue-grey-A400 {
   background-color: #78909c;
 }
 .btn.btn-fab-material-blue-grey-A700,
-.btn.btn-fab:hover-material-blue-grey-A700 {
+.btn.btn-fab:hover-material-blue-grey-A700,
+.btn.btn-fab:active-material-blue-grey-A700 {
   background-color: #455a64;
+}
+.btn.btn-fab:hover {
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22), 0 14px 45px rgba(0, 0, 0, 0.25);
+}
+.btn.btn-fab:active {
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.22), 0 19px 60px rgba(0, 0, 0, 0.3);
 }
 .btn.btn-fab,
 .btn.btn-fab .ripple-wrapper {

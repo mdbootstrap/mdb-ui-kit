@@ -1,6 +1,12 @@
 # Changelog
 
-## v 0.2.1dev
+## v 0.3.0 dev
+
+- Implemented full color palette from Material Design specifications (thanks @korgan00)
+- Reformat of ripples.js (thanks @grvcoelho)
+
+
+## v 0.2.1
 
 - Fixed well sizes
 - Fixed $.ripple that needed two clicks to effectively "click" an element
@@ -16,5 +22,5 @@
 - New demo page
 - Primary color is now a subtle teal to follow the Material Design specifications.
 - Ripples.js is now completely rewritten with jQuery.
-- Fixed thousand of bugs.
+- Fixed thousands of bugs.
 

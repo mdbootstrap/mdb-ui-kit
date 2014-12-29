@@ -2,7 +2,7 @@
 /* globals jQuery, navigator */
 
 (function($, window, document, undefined) {
-  
+
   "use strict";
 
   /**
@@ -57,7 +57,7 @@
 
       /**
        * Verify if the current element already has a ripple wrapper element and
-       * creates if it doesn"t
+       * creates if it doesn't
        */
       if(!($element.find(".ripple-wrapper").length)) {
         $element.append("<div class=\"ripple-wrapper\"></div>");
@@ -65,7 +65,7 @@
 
 
       /**
-       * Find the ripple wrapper 
+       * Find the ripple wrapper
        */
       var $wrapper = $element.children(".ripple-wrapper");
 
@@ -97,12 +97,12 @@
       var $ripple = $("<div></div>");
 
       $ripple
-        .addClass("ripple")
-        .css({
-          "left": relX,
-          "top": relY,
-          "background-color": rippleColor
-        });
+      .addClass("ripple")
+      .css({
+        "left": relX,
+        "top": relY,
+        "background-color": rippleColor
+      });
 
 
       /**
@@ -169,14 +169,14 @@
       return event.pageX - wrapperOffset.left;
     } else {
       /**
-       * Make sure the user is using only one finger and then get the touch 
+       * Make sure the user is using only one finger and then get the touch
        * position relative to the ripple wrapper
        */
       event = event.originalEvent;
 
       if(event.touches.length !== 1) {
         return event.touches[0].pageX - wrapperOffset.left;
-      } 
+      }
 
       return false;
     }
@@ -186,7 +186,7 @@
   /**
    * Get the relY
    */
-  Ripples.prototype.getRelY = function($wrapper, event) {    
+  Ripples.prototype.getRelY = function($wrapper, event) {
     var wrapperOffset = $wrapper.offset();
 
     if(!self.isTouch()) {
@@ -196,14 +196,14 @@
       return event.pageY - wrapperOffset.top;
     } else {
       /**
-       * Make sure the user is using only one finger and then get the touch 
+       * Make sure the user is using only one finger and then get the touch
        * position relative to the ripple wrapper
        */
       event = event.originalEvent;
 
       if(event.touches.length !== 1) {
         return event.touches[0].pageY - wrapperOffset.top;
-      } 
+      }
 
       return false;
     }
@@ -216,7 +216,10 @@
   Ripples.prototype.getRipplesColor = function() {
     var $element = this.element;
 
+    console.log($element);
+
     var color = $element.data("ripple-color") ? $element.data("ripple-color") : window.getComputedStyle($element[0]).color;
+    console.log(color);
 
     return color;
   };
@@ -230,10 +233,10 @@
     var thisStyle = thisBody.style;
 
     var support = (
-      thisStyle.transition !== undefined || 
-      thisStyle.WebkitTransition !== undefined || 
-      thisStyle.MozTransition !== undefined || 
-      thisStyle.MsTransition !== undefined || 
+      thisStyle.transition !== undefined ||
+      thisStyle.WebkitTransition !== undefined ||
+      thisStyle.MozTransition !== undefined ||
+      thisStyle.MsTransition !== undefined ||
       thisStyle.OTransition !== undefined
     );
 
@@ -290,15 +293,15 @@
 
     if(self.hasTransitionSupport()) {
       $ripple
-        .css({
-          "-ms-transform": "scale(" + size + ")",
-          "-moz-transform": "scale(" + size + ")",
-          "-webkit-transform": "scale(" + size + ")",
-          "transform": "scale(" + size + ")"
-        })
-        .addClass("ripple-on")
-        .data("animating", "on")
-        .data("mousedown", "on");
+      .css({
+        "-ms-transform": "scale(" + size + ")",
+        "-moz-transform": "scale(" + size + ")",
+        "-webkit-transform": "scale(" + size + ")",
+        "transform": "scale(" + size + ")"
+      })
+      .addClass("ripple-on")
+      .data("animating", "on")
+      .data("mousedown", "on");
     } else {
       $ripple.animate({
         "width": Math.max($element.outerWidth(), $element.outerHeight()) * 2,
@@ -314,7 +317,7 @@
 
 
   /**
-   * Create the jquery plugin function 
+   * Create the jquery plugin function
    */
   $.fn.ripples = function(options) {
     return this.each(function() {
