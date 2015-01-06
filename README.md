@@ -7,23 +7,22 @@
 This Bootstrap theme is an easy way to use the new [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) in your Bootstrap 3 based application.
 Just include the theme, after the Bootstrap CSS and include the JavaScript at the end of your document (just before the `</body>` tag), and everything will be converted to Material Design (Paper) style.
 
-**NOTE**: This theme is in early development and is not ready for production.
+**NOTE**: This theme is still in development, it could be used on production websites but I can't guarantee compatibility with previous versions.
 
-Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/) (this demo may not be even with the `master` branch).
+Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/).
 
 ## How to install
 
-    Bower:       bower install bootstrap-material-design --save
-    Meteor:      meteor add fezvrasta:bootstrap-material-design
+You may install this theme using Bower or Meteor:
 
-## Use our CDN
+- Bower : `bower install bootstrap-material-design`
+- Meteor: `meteor add fezvrasta:bootstrap-material-design`
 
-You can find the CDN of this library at [CDNJS.com](https://cdnjs.com/libraries/bootstrap-material-design) and at [JSDelivr.com](http://www.jsdelivr.com/#!bootstrap.material-design)
+If you prefer, you can include this framework in your project using our official CDN:
 
-### LESS & SASS
+- [Bootstrap Material Design on CDNJS.com](https://cdnjs.com/libraries/bootstrap-material-design)
+- [Bootstrap Material Design on JSDelivr.com](http://www.jsdelivr.com/#!bootstrap.material-design)
 
-Currently only LESS is maintained. The SASS version no longer has a maintainer (#256).
-The SASS files are in the source just in case someone wants to update the source from SASS and use these files as a base.
 
 ## Getting started
 
@@ -58,16 +57,10 @@ Run the `grunt test` command for browser-based Jasmine unit tests.
 
 Run the `grunt serve` command to build and fire up an http server with live-reload and a watch for development purposes.
 
-## Todo
+### LESS & SASS
 
-- Morphing icons
-- [Icons/grids/chips to card/fullscreen transitions](http://www.polymer-project.org/components/core-animated-pages/demo.html)
-- [Headers](http://www.polymer-project.org/components/core-header-panel/demo.html)
-- [Icon button](http://www.polymer-project.org/components/paper-icon-button/demo.html)
-- [Tabs](http://www.polymer-project.org/components/paper-tabs/demo.html)
-
-I'll try to write every component without the need of JavaScript but just CSS, and use JS only if strictly needed.
-More "todo" items can be found in the ISSUES of this repository.
+Currently only LESS is maintained. The SASS version no longer has a maintainer (#256).
+The SASS files are in the source just in case someone wants to update the source from SASS and use these files as a base.
 
 ## Support me
 
@@ -80,7 +73,8 @@ If you like this project you may support me by donating something on Gittip, sta
 
 Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
-## Documentation
+
+# Documentation
 
 Material Design for Bootstrap provides some additional stuff to get the best from Material Design.
 
@@ -181,6 +175,11 @@ You may want to set a custom color to the ripples of a specific element, to do s
 
 Make cross-browser sliders and get them styled with Material Design thanks to the support provided by this theme.
 Read more about [noUiSlider here](http://refreshless.com/nouislider/).
+
+### Dropdown.js
+
+Finally a dropdown plugin that transforms select inputs in nice dropdowns and does not drive you crazy.
+Read more about [Dropdown.js here](https://github.com/FezVrasta/dropdown.js).
 
 ### Selectize.js
 
