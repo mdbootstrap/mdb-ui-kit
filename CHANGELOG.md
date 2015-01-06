@@ -4,6 +4,7 @@
 
 - Implemented full color palette from Material Design specifications (thanks @korgan00)
 - Reformat of ripples.js (thanks @grvcoelho)
+- Autofill option of Material.js is now set to false by default
 
 
 ## v 0.2.1
