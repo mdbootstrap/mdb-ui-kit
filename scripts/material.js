@@ -122,7 +122,6 @@
       .on("change", ".form-control-wrapper.fileinput [type=file]", function() {
         var value = "";
         $.each($(this)[0].files, function(i, file) {
-          console.log(file);
           value += file.name + ", ";
         });
         value = value.substring(0, value.length - 2);
@@ -170,7 +169,7 @@
       });
     },
     "init": function() {
-      if ($.ripples && this.options.ripples) {
+      if ($.fn.ripples && this.options.ripples) {
         this.ripples();
       }
       if (this.options.input) {
