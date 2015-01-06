@@ -88,7 +88,7 @@
       /**
        * Get the ripple color
        */
-      var rippleColor = self.getRipplesColor();
+      var rippleColor = self.getRipplesColor($element);
 
 
       /**
@@ -120,7 +120,7 @@
       /**
        * Turn on the ripple animation
        */
-      self.rippleOn($ripple);
+      self.rippleOn($element, $ripple);
 
 
       /**
@@ -149,8 +149,7 @@
   /**
    * Get the new size based on the element height/width and the ripple width
    */
-  Ripples.prototype.getNewSize = function($ripple) {
-    var $element = this.element;
+  Ripples.prototype.getNewSize = function($element, $ripple) {
 
     return (Math.max($element.outerWidth(), $element.outerHeight()) / $ripple.outerWidth()) * 2.5;
   };
@@ -213,13 +212,9 @@
   /**
    * Get the ripple color
    */
-  Ripples.prototype.getRipplesColor = function() {
-    var $element = this.element;
-
-    console.log($element);
+  Ripples.prototype.getRipplesColor = function($element) {
 
     var color = $element.data("ripple-color") ? $element.data("ripple-color") : window.getComputedStyle($element[0]).color;
-    console.log(color);
 
     return color;
   };
@@ -287,9 +282,8 @@
   /**
    * Turn on the ripple effect
    */
-  Ripples.prototype.rippleOn = function($ripple) {
-    var size = self.getNewSize($ripple);
-    var $element = this.element;
+  Ripples.prototype.rippleOn = function($element, $ripple) {
+    var size = self.getNewSize($element, $ripple);
 
     if(self.hasTransitionSupport()) {
       $ripple
