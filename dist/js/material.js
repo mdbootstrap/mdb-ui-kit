@@ -28,7 +28,7 @@
       "togglebutton": true,
       "radio": true,
       "arrive": true,
-      "autofill": true,
+      "autofill": false,
 
       "withRipples": [
         ".btn:not(.btn-link)",
