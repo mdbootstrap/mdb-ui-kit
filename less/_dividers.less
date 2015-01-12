@@ -1,0 +1,32 @@
+hr {
+        &.on-dark {
+            color: lighten(@black, 10%);
+        }
+        
+        &.on-light {
+            color: lighten(@white, 10%);
+        }
+    	
+        @media (-webkit-min-device-pixel-ratio: 0.75), (min-resolution: 120dpi) {
+            height:0.75px;
+        }
+        @media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 160dpi) {
+            height:1px;
+        }
+        @media (-webkit-min-device-pixel-ratio: 1.33), (min-resolution: 213dpi) {
+            height:1.333px;
+        }
+        @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 240dpi) {            
+            height:1.5px;
+        }
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 320dpi) {
+            height:2px;
+        }
+        @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 480dpi) {
+            height:3px;
+        }
+        @media (-webkit-min-device-pixel-ratio: 4), (min-resolution: 640dpi) {
+            height:4px;
+        }
+	
+}	
