@@ -8434,19 +8434,19 @@ body .jumbotron-material-blue-grey-A700,
   top: -5px;
 }
 .btn-link,
-.btn:not([class^="btn btn-"]),
+.btn:not([class*="btn-"]),
 .btn-default {
   color: rgba(0, 0, 0, 0.84);
 }
 .btn-link:hover,
-.btn:not([class^="btn btn-"]):hover,
+.btn:not([class*="btn-"]):hover,
 .btn-default:hover {
   color: rgba(0, 0, 0, 0.84);
 }
-.btn:not([class^="btn btn-"]):hover,
+.btn:not([class*="btn-"]):hover,
 .btn-default:hover,
 .btn-flat:not(.btn-link):hover,
-.btn:not([class^="btn btn-"]).active,
+.btn:not([class*="btn-"]).active,
 .btn-default.active,
 .btn-flat:not(.btn-link).active {
   background-color: rgba(255, 255, 255, 0.5);
@@ -18911,6 +18911,12 @@ legend {
   border: 0;
   border-radius: 0;
   padding: 0 16px;
+}
+.list-group .list-group-item.baseline {
+  border-bottom: 1px solid #cecece;
+}
+.list-group .list-group-item.baseline:last-child {
+  border-bottom: none;
 }
 .list-group .list-group-item .row-picture,
 .list-group .list-group-item .row-action-primary {
@@ -30865,6 +30871,47 @@ icon-material-blue-grey-A700 {
 }
 .panel-footer {
   background-color: #ececec;
+}
+hr.on-dark {
+  color: #1a1a1a;
+}
+hr.on-light {
+  color: #ffffff;
+}
+@media (-webkit-min-device-pixel-ratio: 0.75), (min-resolution: 120dpi) {
+  hr {
+    height: 0.75px;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 160dpi) {
+  hr {
+    height: 1px;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.33), (min-resolution: 213dpi) {
+  hr {
+    height: 1.333px;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 240dpi) {
+  hr {
+    height: 1.5px;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 320dpi) {
+  hr {
+    height: 2px;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 480dpi) {
+  hr {
+    height: 3px;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 4), (min-resolution: 640dpi) {
+  hr {
+    height: 4px;
+  }
 }
 * {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
