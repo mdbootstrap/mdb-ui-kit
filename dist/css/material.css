@@ -30878,37 +30878,37 @@ hr.on-dark {
 hr.on-light {
   color: #ffffff;
 }
-@media (-webkit-min-device-pixel-ratio: 0.75), (min-resolution: 120dpi) {
+@media (-webkit-min-device-pixel-ratio: 0.75), (min--moz-device-pixel-ratio: 0.75), (-o-device-pixel-ratio: 3/4), (min-device-pixel-ratio: 0.75), (min-resolution: 0.75dppx), (min-resolution: 120dpi) {
   hr {
     height: 0.75px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 1), (min-resolution: 160dpi) {
+@media (-webkit-min-device-pixel-ratio: 1), (min--moz-device-pixel-ratio: 1), (-o-device-pixel-ratio: 1), (min-device-pixel-ratio: 1), (min-resolution: 1dppx), (min-resolution: 160dpi) {
   hr {
     height: 1px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 1.33), (min-resolution: 213dpi) {
+@media (-webkit-min-device-pixel-ratio: 1.33), (min--moz-device-pixel-ratio: 1.33), (-o-device-pixel-ratio: 133/100), (min-device-pixel-ratio: 1.33), (min-resolution: 1.33dppx), (min-resolution: 213dpi) {
   hr {
     height: 1.333px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 240dpi) {
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx), (min-resolution: 240dpi) {
   hr {
     height: 1.5px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 320dpi) {
+@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 380dpi) {
   hr {
     height: 2px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 480dpi) {
+@media (-webkit-min-device-pixel-ratio: 3), (min--moz-device-pixel-ratio: 3), (-o-device-pixel-ratio: 3/1), (min-device-pixel-ratio: 3), (min-resolution: 3dppx), (min-resolution: 480dpi) {
   hr {
     height: 3px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 4), (min-resolution: 640dpi) {
+@media (-webkit-min-device-pixel-ratio: 4), (min--moz-device-pixel-ratio: 4), (-o-device-pixel-ratio: 4/1), (min-device-pixel-ratio: 3), (min-resolution: 4dppx), (min-resolution: 640dpi) {
   hr {
     height: 4px;
   }
