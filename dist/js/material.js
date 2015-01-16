@@ -189,18 +189,32 @@
       }
 
       if (document.arrive && this.options.arrive) {
-        $(document).arrive(this.options.inputElements, function() {
-          $.material.input($(this));
-        });
-        $(document).arrive(this.options.checkboxElements, function() {
-          $.material.checkbox($(this));
-        });
-        $(document).arrive(this.options.radioElements, function() {
-          $.material.radio($(this));
-        });
-        $(document).arrive(this.options.togglebuttonElements, function() {
-          $.material.togglebutton($(this));
-        });
+        if ($.fn.ripples && this.options.ripples) {
+          $(document).arrive(this.options.withRipples, function() {
+            $.material.ripples($(this));
+          });
+        }
+        if (this.options.input) {
+          $(document).arrive(this.options.inputElements, function() {
+            $.material.input($(this));
+          });
+        }
+        if (this.options.checkbox) {
+          $(document).arrive(this.options.checkboxElements, function() {
+            $.material.checkbox($(this));
+          });
+        }
+        if (this.options.radio) {
+          $(document).arrive(this.options.radioElements, function() {
+            $.material.radio($(this));
+          });
+        }
+        if (this.options.togglebutton) {
+          $(document).arrive(this.options.togglebuttonElements, function() {
+            $.material.togglebutton($(this));
+          });
+        }
+
       }
     }
   };
