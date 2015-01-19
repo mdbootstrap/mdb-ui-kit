@@ -141,7 +141,7 @@ Every function expects an optional value that will be used as a selector for the
 `$.material.ripples("#selector, #foobar")` will apply Ripples.js only to `#selector` and `#foobar`.
 The functions that allows an optional selector are `$.material.ripples`, `$.material.input`, `$.material.checkbox` and `$.material.radio`.
 
-You can even override the default values using the `$.material.options` function. The default values are:
+You can even override the default values using the `$.extend` function. The default values are:
 
     $.material.options = {
         "withRipples": ".btn:not(.btn-link), .card-image, .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple",
@@ -149,6 +149,12 @@ You can even override the default values using the `$.material.options` function
         "checkboxElements": ".checkbox > label > input[type=checkbox]",
         "radioElements": ".radio > label > input[type=radio]"
     }
+
+So, for example: 
+
+    $.extend($.material.options, {
+      inputElements: "input.form-control.material, textarea.form-control.material, select.form-control.material"
+    });
 
 ### Arrive.js support
 
