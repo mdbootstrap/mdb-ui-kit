@@ -200,8 +200,8 @@ require('bootstrap')(jquery);
 require('bootstrap-material')(jquery);
 
 console.log('Is Bootstrap loaded?');
-console.log((typeof jquery().emulateTransitionEnd === 'function'));
+console.log(typeof jquery.emulateTransitionEnd === 'function');
 console.log('Is Bootstrap Material loaded?');
-console.log(jquery().material !== undefined);
+console.log(typeof jquery.material === 'object');
 ```
-NOTE: Until this [PR](https://github.com/twbs/bootstrap/pull/15640) is accepted in the main Bootstrap project this fork must be used: [https://github.com/eface2face/bootstrap-material-design](https://github.com/eface2face/bootstrap-material-design)
+NOTE: Until this [PR](https://github.com/twbs/bootstrap/pull/15640) to the main Bootstrap project is accepted this fork must be used: [https://github.com/eface2face/bootstrap-material-design](https://github.com/eface2face/bootstrap-material-design)
