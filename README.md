@@ -197,7 +197,8 @@ This library is [CommonJS](http://www.commonjs.org/) compatible, so you can use 
 ```javascript
 var jquery = require('jquery');
 require('bootstrap')(jquery);
-require('bootstrap-material')(jquery);
+require('bootstrap-material').material(jquery);
+require('bootstrap-material').ripples(jquery);
 
 console.log('Is Bootstrap loaded?');
 console.log(typeof jquery.emulateTransitionEnd === 'function');

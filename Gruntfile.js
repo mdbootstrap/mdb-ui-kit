@@ -272,17 +272,26 @@ module.exports = function(grunt) {
     
   grunt.registerTask("commonjs", "Generate CommonJS entrypoint module in dist dir.", function () {
     var distPath = "dist/js/";
+    var npmPath = distPath + "npm/";
     var srcFiles = ["material", "ripples"];
-    var destFile = distPath + "npm.js";
-    var moduleOutputJs = COMMONJS_BANNER;
+    var entryPoint = npmPath + "npm.js";
+    var entryCode = COMMONJS_BANNER;
     
-    moduleOutputJs += "\nmodule.exports = function(jQuery) {\n";
+    
     srcFiles.forEach(function(file) {
-      moduleOutputJs += grunt.file.read(distPath + file + ".js");
+      var finalCode = COMMONJS_BANNER;
+      
+      entryCode += "module.exports." + file + " = require(\"./" + file + ".js\")\n";
+      finalCode += "\nmodule.exports = function(jQuery) {\n";
+      finalCode += grunt.file.read(distPath + file + ".js");
+      finalCode += "\n};\n";
+      grunt.file.write(npmPath + file + ".js", finalCode);
+      grunt.log.write("File " + npmPath + file + ".js created.");
     });
-    moduleOutputJs += "\n};\n";
-    grunt.file.write(destFile, moduleOutputJs);
-    grunt.log.write("File dist/js/npm.js created.");
+
+    grunt.file.write(entryPoint, entryCode);
+    grunt.log.write("File " + entryPoint + " created.");
+
   });
   
   grunt.registerTask("build", function(target) {
