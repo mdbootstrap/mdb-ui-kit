@@ -17,8 +17,10 @@ You may install this theme using Bower or Meteor:
 
 - Bower : `bower install bootstrap-material-design`
 - Meteor: `meteor add fezvrasta:bootstrap-material-design`
-- NPM: `npm i bootstrap-material-design`
-
+- NPM:
+ - Material.js: `npm i bootstrap-material`
+ - Ripples.js: `npm i bootstrap-material-ripples`
+ 
 If you prefer, you can include this framework in your project using our official CDN:
 
 - [Bootstrap Material Design on CDNJS.com](https://cdnjs.com/libraries/bootstrap-material-design)
@@ -197,11 +199,11 @@ This library is [CommonJS](http://www.commonjs.org/) compatible, so you can use 
 ```javascript
 var jquery = require('jquery');
 require('bootstrap')(jquery);
-require('bootstrap-material').material(jquery);
-require('bootstrap-material').ripples(jquery);
+require('bootstrap-material')(jquery);
+require('bootstrap-material-ripples')(jquery);
 
 console.log('Is Bootstrap loaded?');
-console.log(typeof jquery.emulateTransitionEnd === 'function');
+console.log(typeof jquery().modal === 'function');
 console.log('Is Bootstrap Material loaded?');
 console.log(typeof jquery.material === 'object');
 ```
