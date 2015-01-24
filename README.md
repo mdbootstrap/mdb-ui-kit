@@ -207,4 +207,4 @@ console.log(typeof jquery().modal === 'function');
 console.log('Is Bootstrap Material loaded?');
 console.log(typeof jquery.material === 'object');
 ```
-NOTE: Until this [PR](https://github.com/twbs/bootstrap/pull/15640) to the main Bootstrap project is accepted this fork must be used: [https://github.com/eface2face/bootstrap-material-design](https://github.com/eface2face/bootstrap-material-design)
+NOTE: Until this [PR](https://github.com/twbs/bootstrap/pull/15640) be accepted into the main Bootstrap project this fork must be used: [https://github.com/eface2face/bootstrap](https://github.com/eface2face/bootstrap)
