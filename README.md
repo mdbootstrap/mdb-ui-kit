@@ -17,7 +17,10 @@ You may install this theme using Bower or Meteor:
 
 - Bower : `bower install bootstrap-material-design`
 - Meteor: `meteor add fezvrasta:bootstrap-material-design`
-
+- NPM:
+ - Material.js: `npm i bootstrap-material`
+ - Ripples.js: `npm i bootstrap-material-ripples`
+ 
 If you prefer, you can include this framework in your project using our official CDN:
 
 - [Bootstrap Material Design on CDNJS.com](https://cdnjs.com/libraries/bootstrap-material-design)
@@ -189,3 +192,19 @@ Read more about [selectize.js](http://brianreavis.github.io/selectize.js/).
 ## Compatibility
 
 Currently, Material Design for Bootstrap supports Google Chrome (tested v37+), Mozilla Firefox (tested 30+), and Internet Explorer (tested 11+). Mobile browsers are not currently tested but they may work.
+
+###Browserify
+This library is [CommonJS](http://www.commonjs.org/) compatible, so you can use it this way:
+
+```javascript
+var jquery = require('jquery');
+require('bootstrap')(jquery);
+require('bootstrap-material')(jquery);
+require('bootstrap-material-ripples')(jquery);
+
+console.log('Is Bootstrap loaded?');
+console.log(typeof jquery().modal === 'function');
+console.log('Is Bootstrap Material loaded?');
+console.log(typeof jquery.material === 'object');
+```
+NOTE: Until this [PR](https://github.com/twbs/bootstrap/pull/15640) be accepted into the main Bootstrap project this fork must be used: [https://github.com/eface2face/bootstrap](https://github.com/eface2face/bootstrap)
