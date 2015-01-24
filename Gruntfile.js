@@ -286,7 +286,7 @@ module.exports = function(grunt) {
     var npmPath = distPath + "npm/";
     
     createCommonjsCode(distPath + "material.js", npmPath + "material.js");
-    createCommonjsCode(distPath + "ripples.js", npmPath + "browserify-material-ripples/ripples.js");    
+    createCommonjsCode(distPath + "ripples.js", npmPath + "bootstrap-material-ripples/ripples.js");    
   });
   
   grunt.registerTask("build", function(target) {
