@@ -70,6 +70,10 @@
       .data("mdproc", true)
       .each( function() {
         var $this = $(this);
+
+        if (!$(this).attr("data-hint") && !$this.hasClass("floating-label")) {
+          return;
+        }
         $this.wrap("<div class=form-control-wrapper></div>");
         $this.after("<span class=material-input></span>");
 
