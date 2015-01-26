@@ -2385,14 +2385,6 @@ body .well:not([class^="well well-material-"]) .floating-label,
 .container-fluid .well:not([class^="well well-material-"]) .floating-label {
   color: #7e7e7e;
 }
-body .well .form-control,
-.container .well .form-control,
-.container-fluid .well .form-control,
-body .well:not([class^="well well-material-"]) .form-control,
-.container .well:not([class^="well well-material-"]) .form-control,
-.container-fluid .well:not([class^="well well-material-"]) .form-control {
-  border-bottom-color: #7e7e7e;
-}
 body .well .form-control::-webkit-input-placeholder,
 .container .well .form-control::-webkit-input-placeholder,
 .container-fluid .well .form-control::-webkit-input-placeholder,
@@ -14266,8 +14258,6 @@ fieldset[disabled] .form-control.focus,
   border: 0;
   box-shadow: none;
   border-radius: 0;
-  background: transparent;
-  border-bottom: 1px solid #757575;
 }
 fieldset[disabled] .form-control:not(textarea):not(select),
 .form-control-wrapper .form-control:not(textarea):not(select),
@@ -14290,6 +14280,7 @@ fieldset[disabled] .form-control.focus:disabled,
 .form-control-wrapper .form-control.focus:disabled,
 .form-control.focus:disabled {
   border-style: dashed;
+  border-bottom: 1px solid #757575;
 }
 select.form-control {
   height: 23px;
@@ -14299,12 +14290,24 @@ select[multiple].form-control:focus,
 select[multiple].form-control.focus {
   height: 85px;
 }
+.form-control {
+  border: 0;
+  background-image: linear-gradient(#d2d2d2, #d2d2d2);
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+.form-control:focus,
+.form-control.focus {
+  outline: none;
+  background-image: linear-gradient(#009587, #009587), linear-gradient(#d2d2d2, #d2d2d2);
+  -webkit-animation: input-highlight 0.5s forwards;
+          animation: input-highlight 0.5s forwards;
+  box-shadow: none;
+  background-size: 0% 2px;
+}
 .form-control-wrapper {
   position: relative;
-}
-.form-control-wrapper .form-control:focus,
-.form-control-wrapper .form-control.focus {
-  outline: none;
 }
 .form-control-wrapper .floating-label {
   color: #7E7E7E;
@@ -14338,58 +14341,11 @@ select[multiple].form-control.focus {
 .form-control-wrapper .form-control.empty ~ .floating-label {
   opacity: 1;
 }
-.form-control-wrapper .material-input:before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  left: 0;
-  height: 2px;
-  background-color: #009587;
-  bottom: -1px;
-  -webkit-transform: scaleX(0);
-      -ms-transform: scaleX(0);
-          transform: scaleX(0);
-  transition: -webkit-transform 0s;
-  transition: transform 0s;
-}
-.form-control-wrapper .form-control:focus ~ .material-input:before,
-.form-control-wrapper .form-control.focus ~ .material-input:before {
-  -webkit-transform: scaleX(1);
-      -ms-transform: scaleX(1);
-          transform: scaleX(1);
-  transition: -webkit-transform 0.2s ease-out;
-  transition: transform 0.2s ease-out;
-}
-.form-control-wrapper .material-input:after {
-  content: "";
-  position: absolute;
-  height: 18px;
-  width: 100px;
-  margin-top: -1px;
-  top: 7px;
-  left: 0;
-  pointer-events: none;
-  opacity: 0.9;
-  -webkit-transform-origin: left;
-      -ms-transform-origin: left;
-          transform-origin: left;
-}
-.form-control-wrapper .input-lg ~ .material-input:after {
-  height: 26px;
-}
 .form-control-wrapper textarea {
   resize: none;
 }
 .form-control-wrapper textarea ~ .form-control-highlight {
   margin-top: -11px;
-}
-.form-control-wrapper .form-control:focus ~ .material-input:after,
-.form-control-wrapper .form-control.focus ~ .material-input:after {
-  -webkit-animation: input-highlight 0.3s ease;
-          animation: input-highlight 0.3s ease;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  opacity: 0;
 }
 .form-control-wrapper .hint {
   position: absolute;
@@ -14403,2690 +14359,1823 @@ select[multiple].form-control.focus {
 .form-control-wrapper select ~ .material-input:after {
   display: none;
 }
-.form-group.has-warning .material-input:before,
-.form-group.has-warning input.form-control:focus ~ .material-input:after,
-.form-group.has-warning input.form-control.focus ~ .material-input:after {
-  background: #ff5722;
+.form-group.has-warning .form-control {
+  box-shadow: none;
+}
+.form-group.has-warning .material-input:focus,
+.form-group.has-warning .form-control:focus,
+.form-group.has-warning .form-control.focus {
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
+  box-shadow: none;
 }
 .form-group.has-warning .control-label,
 .form-group.has-warning input.form-control:not(.empty) ~ .floating-label {
   color: #ff5722;
 }
-.form-group.has-error .material-input:before,
-.form-group.has-error input.form-control:focus ~ .material-input:after,
-.form-group.has-error input.form-control.focus ~ .material-input:after {
-  background: #f44336;
+.form-group.has-error .form-control {
+  box-shadow: none;
+}
+.form-group.has-error .material-input:focus,
+.form-group.has-error .form-control:focus,
+.form-group.has-error .form-control.focus {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
+  box-shadow: none;
 }
 .form-group.has-error .control-label,
 .form-group.has-error input.form-control:not(.empty) ~ .floating-label {
   color: #f44336;
 }
-.form-group.has-success .material-input:before,
-.form-group.has-success input.form-control:focus ~ .material-input:after,
-.form-group.has-success input.form-control.focus ~ .material-input:after {
-  background: #0f9d58;
+.form-group.has-success .form-control {
+  box-shadow: none;
+}
+.form-group.has-success .material-input:focus,
+.form-group.has-success .form-control:focus,
+.form-group.has-success .form-control.focus {
+  background-image: linear-gradient(#0f9d58, #0f9d58), linear-gradient(#d2d2d2, #d2d2d2);
+  box-shadow: none;
 }
 .form-group.has-success .control-label,
 .form-group.has-success input.form-control:not(.empty) ~ .floating-label {
   color: #0f9d58;
 }
-.form-group.has-info .material-input:before,
-.form-group.has-info input.form-control:focus ~ .material-input:after,
-.form-group.has-info input.form-control.focus ~ .material-input:after {
-  background: #03a9f4;
+.form-group.has-info .form-control {
+  box-shadow: none;
+}
+.form-group.has-info .material-input:focus,
+.form-group.has-info .form-control:focus,
+.form-group.has-info .form-control.focus {
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
+  box-shadow: none;
 }
 .form-group.has-info .control-label,
 .form-group.has-info input.form-control:not(.empty) ~ .floating-label {
   color: #03a9f4;
 }
-.form-group .material-input:before,
-.form-group-default .material-input:before {
-  background-color: #009587;
+.form-group .form-control:focus,
+.form-group-default .form-control:focus {
+  background-image: linear-gradient(#009587, #009587), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-black .material-input:before {
-  background-color: #000000;
+.form-group-black .form-control:focus {
+  background-image: linear-gradient(#000000, #000000), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-white .material-input:before {
-  background-color: #ffffff;
+.form-group-white .form-control:focus {
+  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-inverse .material-input:before {
-  background-color: #3f51b5;
+.form-group-inverse .form-control:focus {
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-primary .material-input:before {
-  background-color: #009587;
+.form-group-primary .form-control:focus {
+  background-image: linear-gradient(#009587, #009587), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-success .material-input:before {
-  background-color: #0f9d58;
+.form-group-success .form-control:focus {
+  background-image: linear-gradient(#0f9d58, #0f9d58), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-info .material-input:before {
-  background-color: #03a9f4;
+.form-group-info .form-control:focus {
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-warning .material-input:before {
-  background-color: #ff5722;
+.form-group-warning .form-control:focus {
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-danger .material-input:before {
-  background-color: #f44336;
+.form-group-danger .form-control:focus {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red .material-input:before {
-  background-color: #f44336;
+.form-group-material-red .form-control:focus {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-50 .material-input:before {
-  background-color: #ffebee;
+.form-group-material-red-50 .form-control:focus {
+  background-image: linear-gradient(#ffebee, #ffebee), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-100 .material-input:before {
-  background-color: #ffcdd2;
+.form-group-material-red-100 .form-control:focus {
+  background-image: linear-gradient(#ffcdd2, #ffcdd2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-200 .material-input:before {
-  background-color: #ef9a9a;
+.form-group-material-red-200 .form-control:focus {
+  background-image: linear-gradient(#ef9a9a, #ef9a9a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-300 .material-input:before {
-  background-color: #e57373;
+.form-group-material-red-300 .form-control:focus {
+  background-image: linear-gradient(#e57373, #e57373), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-400 .material-input:before {
-  background-color: #ef5350;
+.form-group-material-red-400 .form-control:focus {
+  background-image: linear-gradient(#ef5350, #ef5350), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-500 .material-input:before {
-  background-color: #f44336;
+.form-group-material-red-500 .form-control:focus {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-600 .material-input:before {
-  background-color: #e53935;
+.form-group-material-red-600 .form-control:focus {
+  background-image: linear-gradient(#e53935, #e53935), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-700 .material-input:before {
-  background-color: #d32f2f;
+.form-group-material-red-700 .form-control:focus {
+  background-image: linear-gradient(#d32f2f, #d32f2f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-800 .material-input:before {
-  background-color: #c62828;
+.form-group-material-red-800 .form-control:focus {
+  background-image: linear-gradient(#c62828, #c62828), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-900 .material-input:before {
-  background-color: #b71c1c;
+.form-group-material-red-900 .form-control:focus {
+  background-image: linear-gradient(#b71c1c, #b71c1c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-A100 .material-input:before {
-  background-color: #ff8a80;
+.form-group-material-red-A100 .form-control:focus {
+  background-image: linear-gradient(#ff8a80, #ff8a80), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-A200 .material-input:before {
-  background-color: #ff5252;
+.form-group-material-red-A200 .form-control:focus {
+  background-image: linear-gradient(#ff5252, #ff5252), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-A400 .material-input:before {
-  background-color: #ff1744;
+.form-group-material-red-A400 .form-control:focus {
+  background-image: linear-gradient(#ff1744, #ff1744), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-A700 .material-input:before {
-  background-color: #d50000;
+.form-group-material-red-A700 .form-control:focus {
+  background-image: linear-gradient(#d50000, #d50000), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink .material-input:before {
-  background-color: #e91e63;
+.form-group-material-pink .form-control:focus {
+  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-50 .material-input:before {
-  background-color: #fce4ec;
+.form-group-material-pink-50 .form-control:focus {
+  background-image: linear-gradient(#fce4ec, #fce4ec), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-100 .material-input:before {
-  background-color: #f8bbd0;
+.form-group-material-pink-100 .form-control:focus {
+  background-image: linear-gradient(#f8bbd0, #f8bbd0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-200 .material-input:before {
-  background-color: #f48fb1;
+.form-group-material-pink-200 .form-control:focus {
+  background-image: linear-gradient(#f48fb1, #f48fb1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-300 .material-input:before {
-  background-color: #f06292;
+.form-group-material-pink-300 .form-control:focus {
+  background-image: linear-gradient(#f06292, #f06292), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-400 .material-input:before {
-  background-color: #ec407a;
+.form-group-material-pink-400 .form-control:focus {
+  background-image: linear-gradient(#ec407a, #ec407a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-500 .material-input:before {
-  background-color: #e91e63;
+.form-group-material-pink-500 .form-control:focus {
+  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-600 .material-input:before {
-  background-color: #d81b60;
+.form-group-material-pink-600 .form-control:focus {
+  background-image: linear-gradient(#d81b60, #d81b60), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-700 .material-input:before {
-  background-color: #c2185b;
+.form-group-material-pink-700 .form-control:focus {
+  background-image: linear-gradient(#c2185b, #c2185b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-800 .material-input:before {
-  background-color: #ad1457;
+.form-group-material-pink-800 .form-control:focus {
+  background-image: linear-gradient(#ad1457, #ad1457), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-900 .material-input:before {
-  background-color: #880e4f;
+.form-group-material-pink-900 .form-control:focus {
+  background-image: linear-gradient(#880e4f, #880e4f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-A100 .material-input:before {
-  background-color: #ff80ab;
+.form-group-material-pink-A100 .form-control:focus {
+  background-image: linear-gradient(#ff80ab, #ff80ab), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-A200 .material-input:before {
-  background-color: #ff4081;
+.form-group-material-pink-A200 .form-control:focus {
+  background-image: linear-gradient(#ff4081, #ff4081), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-A400 .material-input:before {
-  background-color: #f50057;
+.form-group-material-pink-A400 .form-control:focus {
+  background-image: linear-gradient(#f50057, #f50057), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-A700 .material-input:before {
-  background-color: #c51162;
+.form-group-material-pink-A700 .form-control:focus {
+  background-image: linear-gradient(#c51162, #c51162), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple .material-input:before {
-  background-color: #9c27b0;
+.form-group-material-purple .form-control:focus {
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-50 .material-input:before {
-  background-color: #f3e5f5;
+.form-group-material-purple-50 .form-control:focus {
+  background-image: linear-gradient(#f3e5f5, #f3e5f5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-100 .material-input:before {
-  background-color: #e1bee7;
+.form-group-material-purple-100 .form-control:focus {
+  background-image: linear-gradient(#e1bee7, #e1bee7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-200 .material-input:before {
-  background-color: #ce93d8;
+.form-group-material-purple-200 .form-control:focus {
+  background-image: linear-gradient(#ce93d8, #ce93d8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-300 .material-input:before {
-  background-color: #ba68c8;
+.form-group-material-purple-300 .form-control:focus {
+  background-image: linear-gradient(#ba68c8, #ba68c8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-400 .material-input:before {
-  background-color: #ab47bc;
+.form-group-material-purple-400 .form-control:focus {
+  background-image: linear-gradient(#ab47bc, #ab47bc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-500 .material-input:before {
-  background-color: #9c27b0;
+.form-group-material-purple-500 .form-control:focus {
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-600 .material-input:before {
-  background-color: #8e24aa;
+.form-group-material-purple-600 .form-control:focus {
+  background-image: linear-gradient(#8e24aa, #8e24aa), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-700 .material-input:before {
-  background-color: #7b1fa2;
+.form-group-material-purple-700 .form-control:focus {
+  background-image: linear-gradient(#7b1fa2, #7b1fa2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-800 .material-input:before {
-  background-color: #6a1b9a;
+.form-group-material-purple-800 .form-control:focus {
+  background-image: linear-gradient(#6a1b9a, #6a1b9a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-900 .material-input:before {
-  background-color: #4a148c;
+.form-group-material-purple-900 .form-control:focus {
+  background-image: linear-gradient(#4a148c, #4a148c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-A100 .material-input:before {
-  background-color: #ea80fc;
+.form-group-material-purple-A100 .form-control:focus {
+  background-image: linear-gradient(#ea80fc, #ea80fc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-A200 .material-input:before {
-  background-color: #e040fb;
+.form-group-material-purple-A200 .form-control:focus {
+  background-image: linear-gradient(#e040fb, #e040fb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-A400 .material-input:before {
-  background-color: #d500f9;
+.form-group-material-purple-A400 .form-control:focus {
+  background-image: linear-gradient(#d500f9, #d500f9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-A700 .material-input:before {
-  background-color: #aa00ff;
+.form-group-material-purple-A700 .form-control:focus {
+  background-image: linear-gradient(#aa00ff, #aa00ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple .material-input:before {
-  background-color: #673ab7;
+.form-group-material-deep-purple .form-control:focus {
+  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-50 .material-input:before {
-  background-color: #ede7f6;
+.form-group-material-deep-purple-50 .form-control:focus {
+  background-image: linear-gradient(#ede7f6, #ede7f6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-100 .material-input:before {
-  background-color: #d1c4e9;
+.form-group-material-deep-purple-100 .form-control:focus {
+  background-image: linear-gradient(#d1c4e9, #d1c4e9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-200 .material-input:before {
-  background-color: #b39ddb;
+.form-group-material-deep-purple-200 .form-control:focus {
+  background-image: linear-gradient(#b39ddb, #b39ddb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-300 .material-input:before {
-  background-color: #9575cd;
+.form-group-material-deep-purple-300 .form-control:focus {
+  background-image: linear-gradient(#9575cd, #9575cd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-400 .material-input:before {
-  background-color: #7e57c2;
+.form-group-material-deep-purple-400 .form-control:focus {
+  background-image: linear-gradient(#7e57c2, #7e57c2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-500 .material-input:before {
-  background-color: #673ab7;
+.form-group-material-deep-purple-500 .form-control:focus {
+  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-600 .material-input:before {
-  background-color: #5e35b1;
+.form-group-material-deep-purple-600 .form-control:focus {
+  background-image: linear-gradient(#5e35b1, #5e35b1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-700 .material-input:before {
-  background-color: #512da8;
+.form-group-material-deep-purple-700 .form-control:focus {
+  background-image: linear-gradient(#512da8, #512da8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-800 .material-input:before {
-  background-color: #4527a0;
+.form-group-material-deep-purple-800 .form-control:focus {
+  background-image: linear-gradient(#4527a0, #4527a0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-900 .material-input:before {
-  background-color: #311b92;
+.form-group-material-deep-purple-900 .form-control:focus {
+  background-image: linear-gradient(#311b92, #311b92), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-A100 .material-input:before {
-  background-color: #b388ff;
+.form-group-material-deep-purple-A100 .form-control:focus {
+  background-image: linear-gradient(#b388ff, #b388ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-A200 .material-input:before {
-  background-color: #7c4dff;
+.form-group-material-deep-purple-A200 .form-control:focus {
+  background-image: linear-gradient(#7c4dff, #7c4dff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-A400 .material-input:before {
-  background-color: #651fff;
+.form-group-material-deep-purple-A400 .form-control:focus {
+  background-image: linear-gradient(#651fff, #651fff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-A700 .material-input:before {
-  background-color: #6200ea;
+.form-group-material-deep-purple-A700 .form-control:focus {
+  background-image: linear-gradient(#6200ea, #6200ea), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo .material-input:before {
-  background-color: #3f51b5;
+.form-group-material-indigo .form-control:focus {
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-50 .material-input:before {
-  background-color: #e8eaf6;
+.form-group-material-indigo-50 .form-control:focus {
+  background-image: linear-gradient(#e8eaf6, #e8eaf6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-100 .material-input:before {
-  background-color: #c5cae9;
+.form-group-material-indigo-100 .form-control:focus {
+  background-image: linear-gradient(#c5cae9, #c5cae9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-200 .material-input:before {
-  background-color: #9fa8da;
+.form-group-material-indigo-200 .form-control:focus {
+  background-image: linear-gradient(#9fa8da, #9fa8da), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-300 .material-input:before {
-  background-color: #7986cb;
+.form-group-material-indigo-300 .form-control:focus {
+  background-image: linear-gradient(#7986cb, #7986cb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-400 .material-input:before {
-  background-color: #5c6bc0;
+.form-group-material-indigo-400 .form-control:focus {
+  background-image: linear-gradient(#5c6bc0, #5c6bc0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-500 .material-input:before {
-  background-color: #3f51b5;
+.form-group-material-indigo-500 .form-control:focus {
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-600 .material-input:before {
-  background-color: #3949ab;
+.form-group-material-indigo-600 .form-control:focus {
+  background-image: linear-gradient(#3949ab, #3949ab), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-700 .material-input:before {
-  background-color: #303f9f;
+.form-group-material-indigo-700 .form-control:focus {
+  background-image: linear-gradient(#303f9f, #303f9f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-800 .material-input:before {
-  background-color: #283593;
+.form-group-material-indigo-800 .form-control:focus {
+  background-image: linear-gradient(#283593, #283593), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-900 .material-input:before {
-  background-color: #1a237e;
+.form-group-material-indigo-900 .form-control:focus {
+  background-image: linear-gradient(#1a237e, #1a237e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-A100 .material-input:before {
-  background-color: #8c9eff;
+.form-group-material-indigo-A100 .form-control:focus {
+  background-image: linear-gradient(#8c9eff, #8c9eff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-A200 .material-input:before {
-  background-color: #536dfe;
+.form-group-material-indigo-A200 .form-control:focus {
+  background-image: linear-gradient(#536dfe, #536dfe), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-A400 .material-input:before {
-  background-color: #3d5afe;
+.form-group-material-indigo-A400 .form-control:focus {
+  background-image: linear-gradient(#3d5afe, #3d5afe), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-A700 .material-input:before {
-  background-color: #304ffe;
+.form-group-material-indigo-A700 .form-control:focus {
+  background-image: linear-gradient(#304ffe, #304ffe), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue .material-input:before {
-  background-color: #2196f3;
+.form-group-material-blue .form-control:focus {
+  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-50 .material-input:before {
-  background-color: #e3f2fd;
+.form-group-material-blue-50 .form-control:focus {
+  background-image: linear-gradient(#e3f2fd, #e3f2fd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-100 .material-input:before {
-  background-color: #bbdefb;
+.form-group-material-blue-100 .form-control:focus {
+  background-image: linear-gradient(#bbdefb, #bbdefb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-200 .material-input:before {
-  background-color: #90caf9;
+.form-group-material-blue-200 .form-control:focus {
+  background-image: linear-gradient(#90caf9, #90caf9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-300 .material-input:before {
-  background-color: #64b5f6;
+.form-group-material-blue-300 .form-control:focus {
+  background-image: linear-gradient(#64b5f6, #64b5f6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-400 .material-input:before {
-  background-color: #42a5f5;
+.form-group-material-blue-400 .form-control:focus {
+  background-image: linear-gradient(#42a5f5, #42a5f5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-500 .material-input:before {
-  background-color: #2196f3;
+.form-group-material-blue-500 .form-control:focus {
+  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-600 .material-input:before {
-  background-color: #1e88e5;
+.form-group-material-blue-600 .form-control:focus {
+  background-image: linear-gradient(#1e88e5, #1e88e5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-700 .material-input:before {
-  background-color: #1976d2;
+.form-group-material-blue-700 .form-control:focus {
+  background-image: linear-gradient(#1976d2, #1976d2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-800 .material-input:before {
-  background-color: #1565c0;
+.form-group-material-blue-800 .form-control:focus {
+  background-image: linear-gradient(#1565c0, #1565c0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-900 .material-input:before {
-  background-color: #0d47a1;
+.form-group-material-blue-900 .form-control:focus {
+  background-image: linear-gradient(#0d47a1, #0d47a1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-A100 .material-input:before {
-  background-color: #82b1ff;
+.form-group-material-blue-A100 .form-control:focus {
+  background-image: linear-gradient(#82b1ff, #82b1ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-A200 .material-input:before {
-  background-color: #448aff;
+.form-group-material-blue-A200 .form-control:focus {
+  background-image: linear-gradient(#448aff, #448aff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-A400 .material-input:before {
-  background-color: #2979ff;
+.form-group-material-blue-A400 .form-control:focus {
+  background-image: linear-gradient(#2979ff, #2979ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-A700 .material-input:before {
-  background-color: #2962ff;
+.form-group-material-blue-A700 .form-control:focus {
+  background-image: linear-gradient(#2962ff, #2962ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue .material-input:before {
-  background-color: #03a9f4;
+.form-group-material-light-blue .form-control:focus {
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-50 .material-input:before {
-  background-color: #e1f5fe;
+.form-group-material-light-blue-50 .form-control:focus {
+  background-image: linear-gradient(#e1f5fe, #e1f5fe), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-100 .material-input:before {
-  background-color: #b3e5fc;
+.form-group-material-light-blue-100 .form-control:focus {
+  background-image: linear-gradient(#b3e5fc, #b3e5fc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-200 .material-input:before {
-  background-color: #81d4fa;
+.form-group-material-light-blue-200 .form-control:focus {
+  background-image: linear-gradient(#81d4fa, #81d4fa), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-300 .material-input:before {
-  background-color: #4fc3f7;
+.form-group-material-light-blue-300 .form-control:focus {
+  background-image: linear-gradient(#4fc3f7, #4fc3f7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-400 .material-input:before {
-  background-color: #29b6f6;
+.form-group-material-light-blue-400 .form-control:focus {
+  background-image: linear-gradient(#29b6f6, #29b6f6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-500 .material-input:before {
-  background-color: #03a9f4;
+.form-group-material-light-blue-500 .form-control:focus {
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-600 .material-input:before {
-  background-color: #039be5;
+.form-group-material-light-blue-600 .form-control:focus {
+  background-image: linear-gradient(#039be5, #039be5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-700 .material-input:before {
-  background-color: #0288d1;
+.form-group-material-light-blue-700 .form-control:focus {
+  background-image: linear-gradient(#0288d1, #0288d1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-800 .material-input:before {
-  background-color: #0277bd;
+.form-group-material-light-blue-800 .form-control:focus {
+  background-image: linear-gradient(#0277bd, #0277bd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-900 .material-input:before {
-  background-color: #01579b;
+.form-group-material-light-blue-900 .form-control:focus {
+  background-image: linear-gradient(#01579b, #01579b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-A100 .material-input:before {
-  background-color: #80d8ff;
+.form-group-material-light-blue-A100 .form-control:focus {
+  background-image: linear-gradient(#80d8ff, #80d8ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-A200 .material-input:before {
-  background-color: #40c4ff;
+.form-group-material-light-blue-A200 .form-control:focus {
+  background-image: linear-gradient(#40c4ff, #40c4ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-A400 .material-input:before {
-  background-color: #00b0ff;
+.form-group-material-light-blue-A400 .form-control:focus {
+  background-image: linear-gradient(#00b0ff, #00b0ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-A700 .material-input:before {
-  background-color: #0091ea;
+.form-group-material-light-blue-A700 .form-control:focus {
+  background-image: linear-gradient(#0091ea, #0091ea), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan .material-input:before {
-  background-color: #00bcd4;
+.form-group-material-cyan .form-control:focus {
+  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-50 .material-input:before {
-  background-color: #e0f7fa;
+.form-group-material-cyan-50 .form-control:focus {
+  background-image: linear-gradient(#e0f7fa, #e0f7fa), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-100 .material-input:before {
-  background-color: #b2ebf2;
+.form-group-material-cyan-100 .form-control:focus {
+  background-image: linear-gradient(#b2ebf2, #b2ebf2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-200 .material-input:before {
-  background-color: #80deea;
+.form-group-material-cyan-200 .form-control:focus {
+  background-image: linear-gradient(#80deea, #80deea), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-300 .material-input:before {
-  background-color: #4dd0e1;
+.form-group-material-cyan-300 .form-control:focus {
+  background-image: linear-gradient(#4dd0e1, #4dd0e1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-400 .material-input:before {
-  background-color: #26c6da;
+.form-group-material-cyan-400 .form-control:focus {
+  background-image: linear-gradient(#26c6da, #26c6da), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-500 .material-input:before {
-  background-color: #00bcd4;
+.form-group-material-cyan-500 .form-control:focus {
+  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-600 .material-input:before {
-  background-color: #00acc1;
+.form-group-material-cyan-600 .form-control:focus {
+  background-image: linear-gradient(#00acc1, #00acc1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-700 .material-input:before {
-  background-color: #0097a7;
+.form-group-material-cyan-700 .form-control:focus {
+  background-image: linear-gradient(#0097a7, #0097a7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-800 .material-input:before {
-  background-color: #00838f;
+.form-group-material-cyan-800 .form-control:focus {
+  background-image: linear-gradient(#00838f, #00838f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-900 .material-input:before {
-  background-color: #006064;
+.form-group-material-cyan-900 .form-control:focus {
+  background-image: linear-gradient(#006064, #006064), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-A100 .material-input:before {
-  background-color: #84ffff;
+.form-group-material-cyan-A100 .form-control:focus {
+  background-image: linear-gradient(#84ffff, #84ffff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-A200 .material-input:before {
-  background-color: #18ffff;
+.form-group-material-cyan-A200 .form-control:focus {
+  background-image: linear-gradient(#18ffff, #18ffff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-A400 .material-input:before {
-  background-color: #00e5ff;
+.form-group-material-cyan-A400 .form-control:focus {
+  background-image: linear-gradient(#00e5ff, #00e5ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-A700 .material-input:before {
-  background-color: #00b8d4;
+.form-group-material-cyan-A700 .form-control:focus {
+  background-image: linear-gradient(#00b8d4, #00b8d4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal .material-input:before {
-  background-color: #009688;
+.form-group-material-teal .form-control:focus {
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-50 .material-input:before {
-  background-color: #e0f2f1;
+.form-group-material-teal-50 .form-control:focus {
+  background-image: linear-gradient(#e0f2f1, #e0f2f1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-100 .material-input:before {
-  background-color: #b2dfdb;
+.form-group-material-teal-100 .form-control:focus {
+  background-image: linear-gradient(#b2dfdb, #b2dfdb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-200 .material-input:before {
-  background-color: #80cbc4;
+.form-group-material-teal-200 .form-control:focus {
+  background-image: linear-gradient(#80cbc4, #80cbc4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-300 .material-input:before {
-  background-color: #4db6ac;
+.form-group-material-teal-300 .form-control:focus {
+  background-image: linear-gradient(#4db6ac, #4db6ac), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-400 .material-input:before {
-  background-color: #26a69a;
+.form-group-material-teal-400 .form-control:focus {
+  background-image: linear-gradient(#26a69a, #26a69a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-500 .material-input:before {
-  background-color: #009688;
+.form-group-material-teal-500 .form-control:focus {
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-600 .material-input:before {
-  background-color: #00897b;
+.form-group-material-teal-600 .form-control:focus {
+  background-image: linear-gradient(#00897b, #00897b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-700 .material-input:before {
-  background-color: #00796b;
+.form-group-material-teal-700 .form-control:focus {
+  background-image: linear-gradient(#00796b, #00796b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-800 .material-input:before {
-  background-color: #00695c;
+.form-group-material-teal-800 .form-control:focus {
+  background-image: linear-gradient(#00695c, #00695c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-900 .material-input:before {
-  background-color: #004d40;
+.form-group-material-teal-900 .form-control:focus {
+  background-image: linear-gradient(#004d40, #004d40), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-A100 .material-input:before {
-  background-color: #a7ffeb;
+.form-group-material-teal-A100 .form-control:focus {
+  background-image: linear-gradient(#a7ffeb, #a7ffeb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-A200 .material-input:before {
-  background-color: #64ffda;
+.form-group-material-teal-A200 .form-control:focus {
+  background-image: linear-gradient(#64ffda, #64ffda), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-A400 .material-input:before {
-  background-color: #1de9b6;
+.form-group-material-teal-A400 .form-control:focus {
+  background-image: linear-gradient(#1de9b6, #1de9b6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-A700 .material-input:before {
-  background-color: #00bfa5;
+.form-group-material-teal-A700 .form-control:focus {
+  background-image: linear-gradient(#00bfa5, #00bfa5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green .material-input:before {
-  background-color: #4caf50;
+.form-group-material-green .form-control:focus {
+  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-50 .material-input:before {
-  background-color: #e8f5e9;
+.form-group-material-green-50 .form-control:focus {
+  background-image: linear-gradient(#e8f5e9, #e8f5e9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-100 .material-input:before {
-  background-color: #c8e6c9;
+.form-group-material-green-100 .form-control:focus {
+  background-image: linear-gradient(#c8e6c9, #c8e6c9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-200 .material-input:before {
-  background-color: #a5d6a7;
+.form-group-material-green-200 .form-control:focus {
+  background-image: linear-gradient(#a5d6a7, #a5d6a7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-300 .material-input:before {
-  background-color: #81c784;
+.form-group-material-green-300 .form-control:focus {
+  background-image: linear-gradient(#81c784, #81c784), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-400 .material-input:before {
-  background-color: #66bb6a;
+.form-group-material-green-400 .form-control:focus {
+  background-image: linear-gradient(#66bb6a, #66bb6a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-500 .material-input:before {
-  background-color: #4caf50;
+.form-group-material-green-500 .form-control:focus {
+  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-600 .material-input:before {
-  background-color: #43a047;
+.form-group-material-green-600 .form-control:focus {
+  background-image: linear-gradient(#43a047, #43a047), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-700 .material-input:before {
-  background-color: #388e3c;
+.form-group-material-green-700 .form-control:focus {
+  background-image: linear-gradient(#388e3c, #388e3c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-800 .material-input:before {
-  background-color: #2e7d32;
+.form-group-material-green-800 .form-control:focus {
+  background-image: linear-gradient(#2e7d32, #2e7d32), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-900 .material-input:before {
-  background-color: #1b5e20;
+.form-group-material-green-900 .form-control:focus {
+  background-image: linear-gradient(#1b5e20, #1b5e20), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-A100 .material-input:before {
-  background-color: #b9f6ca;
+.form-group-material-green-A100 .form-control:focus {
+  background-image: linear-gradient(#b9f6ca, #b9f6ca), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-A200 .material-input:before {
-  background-color: #69f0ae;
+.form-group-material-green-A200 .form-control:focus {
+  background-image: linear-gradient(#69f0ae, #69f0ae), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-A400 .material-input:before {
-  background-color: #00e676;
+.form-group-material-green-A400 .form-control:focus {
+  background-image: linear-gradient(#00e676, #00e676), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-A700 .material-input:before {
-  background-color: #00c853;
+.form-group-material-green-A700 .form-control:focus {
+  background-image: linear-gradient(#00c853, #00c853), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green .material-input:before {
-  background-color: #8bc34a;
+.form-group-material-light-green .form-control:focus {
+  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-50 .material-input:before {
-  background-color: #f1f8e9;
+.form-group-material-light-green-50 .form-control:focus {
+  background-image: linear-gradient(#f1f8e9, #f1f8e9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-100 .material-input:before {
-  background-color: #dcedc8;
+.form-group-material-light-green-100 .form-control:focus {
+  background-image: linear-gradient(#dcedc8, #dcedc8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-200 .material-input:before {
-  background-color: #c5e1a5;
+.form-group-material-light-green-200 .form-control:focus {
+  background-image: linear-gradient(#c5e1a5, #c5e1a5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-300 .material-input:before {
-  background-color: #aed581;
+.form-group-material-light-green-300 .form-control:focus {
+  background-image: linear-gradient(#aed581, #aed581), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-400 .material-input:before {
-  background-color: #9ccc65;
+.form-group-material-light-green-400 .form-control:focus {
+  background-image: linear-gradient(#9ccc65, #9ccc65), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-500 .material-input:before {
-  background-color: #8bc34a;
+.form-group-material-light-green-500 .form-control:focus {
+  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-600 .material-input:before {
-  background-color: #7cb342;
+.form-group-material-light-green-600 .form-control:focus {
+  background-image: linear-gradient(#7cb342, #7cb342), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-700 .material-input:before {
-  background-color: #689f38;
+.form-group-material-light-green-700 .form-control:focus {
+  background-image: linear-gradient(#689f38, #689f38), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-800 .material-input:before {
-  background-color: #558b2f;
+.form-group-material-light-green-800 .form-control:focus {
+  background-image: linear-gradient(#558b2f, #558b2f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-900 .material-input:before {
-  background-color: #33691e;
+.form-group-material-light-green-900 .form-control:focus {
+  background-image: linear-gradient(#33691e, #33691e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-A100 .material-input:before {
-  background-color: #ccff90;
+.form-group-material-light-green-A100 .form-control:focus {
+  background-image: linear-gradient(#ccff90, #ccff90), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-A200 .material-input:before {
-  background-color: #b2ff59;
+.form-group-material-light-green-A200 .form-control:focus {
+  background-image: linear-gradient(#b2ff59, #b2ff59), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-A400 .material-input:before {
-  background-color: #76ff03;
+.form-group-material-light-green-A400 .form-control:focus {
+  background-image: linear-gradient(#76ff03, #76ff03), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-A700 .material-input:before {
-  background-color: #64dd17;
+.form-group-material-light-green-A700 .form-control:focus {
+  background-image: linear-gradient(#64dd17, #64dd17), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime .material-input:before {
-  background-color: #cddc39;
+.form-group-material-lime .form-control:focus {
+  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-50 .material-input:before {
-  background-color: #f9fbe7;
+.form-group-material-lime-50 .form-control:focus {
+  background-image: linear-gradient(#f9fbe7, #f9fbe7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-100 .material-input:before {
-  background-color: #f0f4c3;
+.form-group-material-lime-100 .form-control:focus {
+  background-image: linear-gradient(#f0f4c3, #f0f4c3), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-200 .material-input:before {
-  background-color: #e6ee9c;
+.form-group-material-lime-200 .form-control:focus {
+  background-image: linear-gradient(#e6ee9c, #e6ee9c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-300 .material-input:before {
-  background-color: #dce775;
+.form-group-material-lime-300 .form-control:focus {
+  background-image: linear-gradient(#dce775, #dce775), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-400 .material-input:before {
-  background-color: #d4e157;
+.form-group-material-lime-400 .form-control:focus {
+  background-image: linear-gradient(#d4e157, #d4e157), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-500 .material-input:before {
-  background-color: #cddc39;
+.form-group-material-lime-500 .form-control:focus {
+  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-600 .material-input:before {
-  background-color: #c0ca33;
+.form-group-material-lime-600 .form-control:focus {
+  background-image: linear-gradient(#c0ca33, #c0ca33), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-700 .material-input:before {
-  background-color: #afb42b;
+.form-group-material-lime-700 .form-control:focus {
+  background-image: linear-gradient(#afb42b, #afb42b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-800 .material-input:before {
-  background-color: #9e9d24;
+.form-group-material-lime-800 .form-control:focus {
+  background-image: linear-gradient(#9e9d24, #9e9d24), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-900 .material-input:before {
-  background-color: #827717;
+.form-group-material-lime-900 .form-control:focus {
+  background-image: linear-gradient(#827717, #827717), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-A100 .material-input:before {
-  background-color: #f4ff81;
+.form-group-material-lime-A100 .form-control:focus {
+  background-image: linear-gradient(#f4ff81, #f4ff81), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-A200 .material-input:before {
-  background-color: #eeff41;
+.form-group-material-lime-A200 .form-control:focus {
+  background-image: linear-gradient(#eeff41, #eeff41), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-A400 .material-input:before {
-  background-color: #c6ff00;
+.form-group-material-lime-A400 .form-control:focus {
+  background-image: linear-gradient(#c6ff00, #c6ff00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-A700 .material-input:before {
-  background-color: #aeea00;
+.form-group-material-lime-A700 .form-control:focus {
+  background-image: linear-gradient(#aeea00, #aeea00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow .material-input:before {
-  background-color: #ffeb3b;
+.form-group-material-yellow .form-control:focus {
+  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-50 .material-input:before {
-  background-color: #fffde7;
+.form-group-material-yellow-50 .form-control:focus {
+  background-image: linear-gradient(#fffde7, #fffde7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-100 .material-input:before {
-  background-color: #fff9c4;
+.form-group-material-yellow-100 .form-control:focus {
+  background-image: linear-gradient(#fff9c4, #fff9c4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-200 .material-input:before {
-  background-color: #fff59d;
+.form-group-material-yellow-200 .form-control:focus {
+  background-image: linear-gradient(#fff59d, #fff59d), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-300 .material-input:before {
-  background-color: #fff176;
+.form-group-material-yellow-300 .form-control:focus {
+  background-image: linear-gradient(#fff176, #fff176), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-400 .material-input:before {
-  background-color: #ffee58;
+.form-group-material-yellow-400 .form-control:focus {
+  background-image: linear-gradient(#ffee58, #ffee58), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-500 .material-input:before {
-  background-color: #ffeb3b;
+.form-group-material-yellow-500 .form-control:focus {
+  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-600 .material-input:before {
-  background-color: #fdd835;
+.form-group-material-yellow-600 .form-control:focus {
+  background-image: linear-gradient(#fdd835, #fdd835), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-700 .material-input:before {
-  background-color: #fbc02d;
+.form-group-material-yellow-700 .form-control:focus {
+  background-image: linear-gradient(#fbc02d, #fbc02d), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-800 .material-input:before {
-  background-color: #f9a825;
+.form-group-material-yellow-800 .form-control:focus {
+  background-image: linear-gradient(#f9a825, #f9a825), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-900 .material-input:before {
-  background-color: #f57f17;
+.form-group-material-yellow-900 .form-control:focus {
+  background-image: linear-gradient(#f57f17, #f57f17), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-A100 .material-input:before {
-  background-color: #ffff8d;
+.form-group-material-yellow-A100 .form-control:focus {
+  background-image: linear-gradient(#ffff8d, #ffff8d), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-A200 .material-input:before {
-  background-color: #ffff00;
+.form-group-material-yellow-A200 .form-control:focus {
+  background-image: linear-gradient(#ffff00, #ffff00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-A400 .material-input:before {
-  background-color: #ffea00;
+.form-group-material-yellow-A400 .form-control:focus {
+  background-image: linear-gradient(#ffea00, #ffea00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-A700 .material-input:before {
-  background-color: #ffd600;
+.form-group-material-yellow-A700 .form-control:focus {
+  background-image: linear-gradient(#ffd600, #ffd600), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber .material-input:before {
-  background-color: #ffc107;
+.form-group-material-amber .form-control:focus {
+  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-50 .material-input:before {
-  background-color: #fff8e1;
+.form-group-material-amber-50 .form-control:focus {
+  background-image: linear-gradient(#fff8e1, #fff8e1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-100 .material-input:before {
-  background-color: #ffecb3;
+.form-group-material-amber-100 .form-control:focus {
+  background-image: linear-gradient(#ffecb3, #ffecb3), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-200 .material-input:before {
-  background-color: #ffe082;
+.form-group-material-amber-200 .form-control:focus {
+  background-image: linear-gradient(#ffe082, #ffe082), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-300 .material-input:before {
-  background-color: #ffd54f;
+.form-group-material-amber-300 .form-control:focus {
+  background-image: linear-gradient(#ffd54f, #ffd54f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-400 .material-input:before {
-  background-color: #ffca28;
+.form-group-material-amber-400 .form-control:focus {
+  background-image: linear-gradient(#ffca28, #ffca28), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-500 .material-input:before {
-  background-color: #ffc107;
+.form-group-material-amber-500 .form-control:focus {
+  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-600 .material-input:before {
-  background-color: #ffb300;
+.form-group-material-amber-600 .form-control:focus {
+  background-image: linear-gradient(#ffb300, #ffb300), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-700 .material-input:before {
-  background-color: #ffa000;
+.form-group-material-amber-700 .form-control:focus {
+  background-image: linear-gradient(#ffa000, #ffa000), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-800 .material-input:before {
-  background-color: #ff8f00;
+.form-group-material-amber-800 .form-control:focus {
+  background-image: linear-gradient(#ff8f00, #ff8f00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-900 .material-input:before {
-  background-color: #ff6f00;
+.form-group-material-amber-900 .form-control:focus {
+  background-image: linear-gradient(#ff6f00, #ff6f00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-A100 .material-input:before {
-  background-color: #ffe57f;
+.form-group-material-amber-A100 .form-control:focus {
+  background-image: linear-gradient(#ffe57f, #ffe57f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-A200 .material-input:before {
-  background-color: #ffd740;
+.form-group-material-amber-A200 .form-control:focus {
+  background-image: linear-gradient(#ffd740, #ffd740), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-A400 .material-input:before {
-  background-color: #ffc400;
+.form-group-material-amber-A400 .form-control:focus {
+  background-image: linear-gradient(#ffc400, #ffc400), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-A700 .material-input:before {
-  background-color: #ffab00;
+.form-group-material-amber-A700 .form-control:focus {
+  background-image: linear-gradient(#ffab00, #ffab00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange .material-input:before {
-  background-color: #ff9800;
+.form-group-material-orange .form-control:focus {
+  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-50 .material-input:before {
-  background-color: #fff3e0;
+.form-group-material-orange-50 .form-control:focus {
+  background-image: linear-gradient(#fff3e0, #fff3e0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-100 .material-input:before {
-  background-color: #ffe0b2;
+.form-group-material-orange-100 .form-control:focus {
+  background-image: linear-gradient(#ffe0b2, #ffe0b2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-200 .material-input:before {
-  background-color: #ffcc80;
+.form-group-material-orange-200 .form-control:focus {
+  background-image: linear-gradient(#ffcc80, #ffcc80), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-300 .material-input:before {
-  background-color: #ffb74d;
+.form-group-material-orange-300 .form-control:focus {
+  background-image: linear-gradient(#ffb74d, #ffb74d), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-400 .material-input:before {
-  background-color: #ffa726;
+.form-group-material-orange-400 .form-control:focus {
+  background-image: linear-gradient(#ffa726, #ffa726), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-500 .material-input:before {
-  background-color: #ff9800;
+.form-group-material-orange-500 .form-control:focus {
+  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-600 .material-input:before {
-  background-color: #fb8c00;
+.form-group-material-orange-600 .form-control:focus {
+  background-image: linear-gradient(#fb8c00, #fb8c00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-700 .material-input:before {
-  background-color: #f57c00;
+.form-group-material-orange-700 .form-control:focus {
+  background-image: linear-gradient(#f57c00, #f57c00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-800 .material-input:before {
-  background-color: #ef6c00;
+.form-group-material-orange-800 .form-control:focus {
+  background-image: linear-gradient(#ef6c00, #ef6c00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-900 .material-input:before {
-  background-color: #e65100;
+.form-group-material-orange-900 .form-control:focus {
+  background-image: linear-gradient(#e65100, #e65100), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-A100 .material-input:before {
-  background-color: #ffd180;
+.form-group-material-orange-A100 .form-control:focus {
+  background-image: linear-gradient(#ffd180, #ffd180), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-A200 .material-input:before {
-  background-color: #ffab40;
+.form-group-material-orange-A200 .form-control:focus {
+  background-image: linear-gradient(#ffab40, #ffab40), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-A400 .material-input:before {
-  background-color: #ff9100;
+.form-group-material-orange-A400 .form-control:focus {
+  background-image: linear-gradient(#ff9100, #ff9100), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-A700 .material-input:before {
-  background-color: #ff6d00;
+.form-group-material-orange-A700 .form-control:focus {
+  background-image: linear-gradient(#ff6d00, #ff6d00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange .material-input:before {
-  background-color: #ff5722;
+.form-group-material-deep-orange .form-control:focus {
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-50 .material-input:before {
-  background-color: #fbe9e7;
+.form-group-material-deep-orange-50 .form-control:focus {
+  background-image: linear-gradient(#fbe9e7, #fbe9e7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-100 .material-input:before {
-  background-color: #ffccbc;
+.form-group-material-deep-orange-100 .form-control:focus {
+  background-image: linear-gradient(#ffccbc, #ffccbc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-200 .material-input:before {
-  background-color: #ffab91;
+.form-group-material-deep-orange-200 .form-control:focus {
+  background-image: linear-gradient(#ffab91, #ffab91), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-300 .material-input:before {
-  background-color: #ff8a65;
+.form-group-material-deep-orange-300 .form-control:focus {
+  background-image: linear-gradient(#ff8a65, #ff8a65), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-400 .material-input:before {
-  background-color: #ff7043;
+.form-group-material-deep-orange-400 .form-control:focus {
+  background-image: linear-gradient(#ff7043, #ff7043), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-500 .material-input:before {
-  background-color: #ff5722;
+.form-group-material-deep-orange-500 .form-control:focus {
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-600 .material-input:before {
-  background-color: #f4511e;
+.form-group-material-deep-orange-600 .form-control:focus {
+  background-image: linear-gradient(#f4511e, #f4511e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-700 .material-input:before {
-  background-color: #e64a19;
+.form-group-material-deep-orange-700 .form-control:focus {
+  background-image: linear-gradient(#e64a19, #e64a19), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-800 .material-input:before {
-  background-color: #d84315;
+.form-group-material-deep-orange-800 .form-control:focus {
+  background-image: linear-gradient(#d84315, #d84315), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-900 .material-input:before {
-  background-color: #bf360c;
+.form-group-material-deep-orange-900 .form-control:focus {
+  background-image: linear-gradient(#bf360c, #bf360c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-A100 .material-input:before {
-  background-color: #ff9e80;
+.form-group-material-deep-orange-A100 .form-control:focus {
+  background-image: linear-gradient(#ff9e80, #ff9e80), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-A200 .material-input:before {
-  background-color: #ff6e40;
+.form-group-material-deep-orange-A200 .form-control:focus {
+  background-image: linear-gradient(#ff6e40, #ff6e40), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-A400 .material-input:before {
-  background-color: #ff3d00;
+.form-group-material-deep-orange-A400 .form-control:focus {
+  background-image: linear-gradient(#ff3d00, #ff3d00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-A700 .material-input:before {
-  background-color: #dd2c00;
+.form-group-material-deep-orange-A700 .form-control:focus {
+  background-image: linear-gradient(#dd2c00, #dd2c00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown .material-input:before {
-  background-color: #795548;
+.form-group-material-brown .form-control:focus {
+  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-50 .material-input:before {
-  background-color: #efebe9;
+.form-group-material-brown-50 .form-control:focus {
+  background-image: linear-gradient(#efebe9, #efebe9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-100 .material-input:before {
-  background-color: #d7ccc8;
+.form-group-material-brown-100 .form-control:focus {
+  background-image: linear-gradient(#d7ccc8, #d7ccc8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-200 .material-input:before {
-  background-color: #bcaaa4;
+.form-group-material-brown-200 .form-control:focus {
+  background-image: linear-gradient(#bcaaa4, #bcaaa4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-300 .material-input:before {
-  background-color: #a1887f;
+.form-group-material-brown-300 .form-control:focus {
+  background-image: linear-gradient(#a1887f, #a1887f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-400 .material-input:before {
-  background-color: #8d6e63;
+.form-group-material-brown-400 .form-control:focus {
+  background-image: linear-gradient(#8d6e63, #8d6e63), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-500 .material-input:before {
-  background-color: #795548;
+.form-group-material-brown-500 .form-control:focus {
+  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-600 .material-input:before {
-  background-color: #6d4c41;
+.form-group-material-brown-600 .form-control:focus {
+  background-image: linear-gradient(#6d4c41, #6d4c41), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-700 .material-input:before {
-  background-color: #5d4037;
+.form-group-material-brown-700 .form-control:focus {
+  background-image: linear-gradient(#5d4037, #5d4037), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-800 .material-input:before {
-  background-color: #4e342e;
+.form-group-material-brown-800 .form-control:focus {
+  background-image: linear-gradient(#4e342e, #4e342e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-900 .material-input:before {
-  background-color: #3e2723;
+.form-group-material-brown-900 .form-control:focus {
+  background-image: linear-gradient(#3e2723, #3e2723), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-A100 .material-input:before {
-  background-color: #d7ccc8;
+.form-group-material-brown-A100 .form-control:focus {
+  background-image: linear-gradient(#d7ccc8, #d7ccc8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-A200 .material-input:before {
-  background-color: #bcaaa4;
+.form-group-material-brown-A200 .form-control:focus {
+  background-image: linear-gradient(#bcaaa4, #bcaaa4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-A400 .material-input:before {
-  background-color: #8d6e63;
+.form-group-material-brown-A400 .form-control:focus {
+  background-image: linear-gradient(#8d6e63, #8d6e63), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-A700 .material-input:before {
-  background-color: #5d4037;
+.form-group-material-brown-A700 .form-control:focus {
+  background-image: linear-gradient(#5d4037, #5d4037), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey .material-input:before {
-  background-color: #9e9e9e;
+.form-group-material-grey .form-control:focus {
+  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-50 .material-input:before {
-  background-color: #fafafa;
+.form-group-material-grey-50 .form-control:focus {
+  background-image: linear-gradient(#fafafa, #fafafa), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-100 .material-input:before {
-  background-color: #f5f5f5;
+.form-group-material-grey-100 .form-control:focus {
+  background-image: linear-gradient(#f5f5f5, #f5f5f5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-200 .material-input:before {
-  background-color: #eeeeee;
+.form-group-material-grey-200 .form-control:focus {
+  background-image: linear-gradient(#eeeeee, #eeeeee), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-300 .material-input:before {
-  background-color: #e0e0e0;
+.form-group-material-grey-300 .form-control:focus {
+  background-image: linear-gradient(#e0e0e0, #e0e0e0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-400 .material-input:before {
-  background-color: #bdbdbd;
+.form-group-material-grey-400 .form-control:focus {
+  background-image: linear-gradient(#bdbdbd, #bdbdbd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-500 .material-input:before {
-  background-color: #9e9e9e;
+.form-group-material-grey-500 .form-control:focus {
+  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-600 .material-input:before {
-  background-color: #757575;
+.form-group-material-grey-600 .form-control:focus {
+  background-image: linear-gradient(#757575, #757575), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-700 .material-input:before {
-  background-color: #616161;
+.form-group-material-grey-700 .form-control:focus {
+  background-image: linear-gradient(#616161, #616161), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-800 .material-input:before {
-  background-color: #424242;
+.form-group-material-grey-800 .form-control:focus {
+  background-image: linear-gradient(#424242, #424242), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-900 .material-input:before {
-  background-color: #212121;
+.form-group-material-grey-900 .form-control:focus {
+  background-image: linear-gradient(#212121, #212121), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-A100 .material-input:before {
-  background-color: #f5f5f5;
+.form-group-material-grey-A100 .form-control:focus {
+  background-image: linear-gradient(#f5f5f5, #f5f5f5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-A200 .material-input:before {
-  background-color: #eeeeee;
+.form-group-material-grey-A200 .form-control:focus {
+  background-image: linear-gradient(#eeeeee, #eeeeee), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-A400 .material-input:before {
-  background-color: #bdbdbd;
+.form-group-material-grey-A400 .form-control:focus {
+  background-image: linear-gradient(#bdbdbd, #bdbdbd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-A700 .material-input:before {
-  background-color: #616161;
+.form-group-material-grey-A700 .form-control:focus {
+  background-image: linear-gradient(#616161, #616161), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey .material-input:before {
-  background-color: #607d8b;
+.form-group-material-blue-grey .form-control:focus {
+  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-50 .material-input:before {
-  background-color: #eceff1;
+.form-group-material-blue-grey-50 .form-control:focus {
+  background-image: linear-gradient(#eceff1, #eceff1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-100 .material-input:before {
-  background-color: #cfd8dc;
+.form-group-material-blue-grey-100 .form-control:focus {
+  background-image: linear-gradient(#cfd8dc, #cfd8dc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-200 .material-input:before {
-  background-color: #b0bec5;
+.form-group-material-blue-grey-200 .form-control:focus {
+  background-image: linear-gradient(#b0bec5, #b0bec5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-300 .material-input:before {
-  background-color: #90a4ae;
+.form-group-material-blue-grey-300 .form-control:focus {
+  background-image: linear-gradient(#90a4ae, #90a4ae), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-400 .material-input:before {
-  background-color: #78909c;
+.form-group-material-blue-grey-400 .form-control:focus {
+  background-image: linear-gradient(#78909c, #78909c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-500 .material-input:before {
-  background-color: #607d8b;
+.form-group-material-blue-grey-500 .form-control:focus {
+  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-600 .material-input:before {
-  background-color: #546e7a;
+.form-group-material-blue-grey-600 .form-control:focus {
+  background-image: linear-gradient(#546e7a, #546e7a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-700 .material-input:before {
-  background-color: #455a64;
+.form-group-material-blue-grey-700 .form-control:focus {
+  background-image: linear-gradient(#455a64, #455a64), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-800 .material-input:before {
-  background-color: #37474f;
+.form-group-material-blue-grey-800 .form-control:focus {
+  background-image: linear-gradient(#37474f, #37474f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-900 .material-input:before {
-  background-color: #263238;
+.form-group-material-blue-grey-900 .form-control:focus {
+  background-image: linear-gradient(#263238, #263238), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-A100 .material-input:before {
-  background-color: #cfd8dc;
+.form-group-material-blue-grey-A100 .form-control:focus {
+  background-image: linear-gradient(#cfd8dc, #cfd8dc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-A200 .material-input:before {
-  background-color: #b0bec5;
+.form-group-material-blue-grey-A200 .form-control:focus {
+  background-image: linear-gradient(#b0bec5, #b0bec5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-A400 .material-input:before {
-  background-color: #78909c;
+.form-group-material-blue-grey-A400 .form-control:focus {
+  background-image: linear-gradient(#78909c, #78909c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-A700 .material-input:before {
-  background-color: #455a64;
+.form-group-material-blue-grey-A700 .form-control:focus {
+  background-image: linear-gradient(#455a64, #455a64), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group input.form-control:focus ~ .material-input:after,
-.form-group-default input.form-control:focus ~ .material-input:after {
-  background-color: #009587;
+.form-group .form-control.focus,
+.form-group-default .form-control.focus {
+  background-image: linear-gradient(#009587, #009587), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-black input.form-control:focus ~ .material-input:after {
-  background-color: #000000;
+.form-group-black .form-control.focus {
+  background-image: linear-gradient(#000000, #000000), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-white input.form-control:focus ~ .material-input:after {
-  background-color: #ffffff;
+.form-group-white .form-control.focus {
+  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-inverse input.form-control:focus ~ .material-input:after {
-  background-color: #3f51b5;
+.form-group-inverse .form-control.focus {
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-primary input.form-control:focus ~ .material-input:after {
-  background-color: #009587;
+.form-group-primary .form-control.focus {
+  background-image: linear-gradient(#009587, #009587), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-success input.form-control:focus ~ .material-input:after {
-  background-color: #0f9d58;
+.form-group-success .form-control.focus {
+  background-image: linear-gradient(#0f9d58, #0f9d58), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-info input.form-control:focus ~ .material-input:after {
-  background-color: #03a9f4;
+.form-group-info .form-control.focus {
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-warning input.form-control:focus ~ .material-input:after {
-  background-color: #ff5722;
+.form-group-warning .form-control.focus {
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-danger input.form-control:focus ~ .material-input:after {
-  background-color: #f44336;
+.form-group-danger .form-control.focus {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red input.form-control:focus ~ .material-input:after {
-  background-color: #f44336;
+.form-group-material-red .form-control.focus {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-50 input.form-control:focus ~ .material-input:after {
-  background-color: #ffebee;
+.form-group-material-red-50 .form-control.focus {
+  background-image: linear-gradient(#ffebee, #ffebee), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-100 input.form-control:focus ~ .material-input:after {
-  background-color: #ffcdd2;
+.form-group-material-red-100 .form-control.focus {
+  background-image: linear-gradient(#ffcdd2, #ffcdd2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-200 input.form-control:focus ~ .material-input:after {
-  background-color: #ef9a9a;
+.form-group-material-red-200 .form-control.focus {
+  background-image: linear-gradient(#ef9a9a, #ef9a9a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-300 input.form-control:focus ~ .material-input:after {
-  background-color: #e57373;
+.form-group-material-red-300 .form-control.focus {
+  background-image: linear-gradient(#e57373, #e57373), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-400 input.form-control:focus ~ .material-input:after {
-  background-color: #ef5350;
+.form-group-material-red-400 .form-control.focus {
+  background-image: linear-gradient(#ef5350, #ef5350), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-500 input.form-control:focus ~ .material-input:after {
-  background-color: #f44336;
+.form-group-material-red-500 .form-control.focus {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-600 input.form-control:focus ~ .material-input:after {
-  background-color: #e53935;
+.form-group-material-red-600 .form-control.focus {
+  background-image: linear-gradient(#e53935, #e53935), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-700 input.form-control:focus ~ .material-input:after {
-  background-color: #d32f2f;
+.form-group-material-red-700 .form-control.focus {
+  background-image: linear-gradient(#d32f2f, #d32f2f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-800 input.form-control:focus ~ .material-input:after {
-  background-color: #c62828;
+.form-group-material-red-800 .form-control.focus {
+  background-image: linear-gradient(#c62828, #c62828), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-900 input.form-control:focus ~ .material-input:after {
-  background-color: #b71c1c;
+.form-group-material-red-900 .form-control.focus {
+  background-image: linear-gradient(#b71c1c, #b71c1c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #ff8a80;
+.form-group-material-red-A100 .form-control.focus {
+  background-image: linear-gradient(#ff8a80, #ff8a80), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #ff5252;
+.form-group-material-red-A200 .form-control.focus {
+  background-image: linear-gradient(#ff5252, #ff5252), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #ff1744;
+.form-group-material-red-A400 .form-control.focus {
+  background-image: linear-gradient(#ff1744, #ff1744), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-red-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #d50000;
+.form-group-material-red-A700 .form-control.focus {
+  background-image: linear-gradient(#d50000, #d50000), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink input.form-control:focus ~ .material-input:after {
-  background-color: #e91e63;
+.form-group-material-pink .form-control.focus {
+  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-50 input.form-control:focus ~ .material-input:after {
-  background-color: #fce4ec;
+.form-group-material-pink-50 .form-control.focus {
+  background-image: linear-gradient(#fce4ec, #fce4ec), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-100 input.form-control:focus ~ .material-input:after {
-  background-color: #f8bbd0;
+.form-group-material-pink-100 .form-control.focus {
+  background-image: linear-gradient(#f8bbd0, #f8bbd0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-200 input.form-control:focus ~ .material-input:after {
-  background-color: #f48fb1;
+.form-group-material-pink-200 .form-control.focus {
+  background-image: linear-gradient(#f48fb1, #f48fb1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-300 input.form-control:focus ~ .material-input:after {
-  background-color: #f06292;
+.form-group-material-pink-300 .form-control.focus {
+  background-image: linear-gradient(#f06292, #f06292), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-400 input.form-control:focus ~ .material-input:after {
-  background-color: #ec407a;
+.form-group-material-pink-400 .form-control.focus {
+  background-image: linear-gradient(#ec407a, #ec407a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-500 input.form-control:focus ~ .material-input:after {
-  background-color: #e91e63;
+.form-group-material-pink-500 .form-control.focus {
+  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-600 input.form-control:focus ~ .material-input:after {
-  background-color: #d81b60;
+.form-group-material-pink-600 .form-control.focus {
+  background-image: linear-gradient(#d81b60, #d81b60), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-700 input.form-control:focus ~ .material-input:after {
-  background-color: #c2185b;
+.form-group-material-pink-700 .form-control.focus {
+  background-image: linear-gradient(#c2185b, #c2185b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-800 input.form-control:focus ~ .material-input:after {
-  background-color: #ad1457;
+.form-group-material-pink-800 .form-control.focus {
+  background-image: linear-gradient(#ad1457, #ad1457), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-900 input.form-control:focus ~ .material-input:after {
-  background-color: #880e4f;
+.form-group-material-pink-900 .form-control.focus {
+  background-image: linear-gradient(#880e4f, #880e4f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #ff80ab;
+.form-group-material-pink-A100 .form-control.focus {
+  background-image: linear-gradient(#ff80ab, #ff80ab), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #ff4081;
+.form-group-material-pink-A200 .form-control.focus {
+  background-image: linear-gradient(#ff4081, #ff4081), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #f50057;
+.form-group-material-pink-A400 .form-control.focus {
+  background-image: linear-gradient(#f50057, #f50057), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-pink-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #c51162;
+.form-group-material-pink-A700 .form-control.focus {
+  background-image: linear-gradient(#c51162, #c51162), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple input.form-control:focus ~ .material-input:after {
-  background-color: #9c27b0;
+.form-group-material-purple .form-control.focus {
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-50 input.form-control:focus ~ .material-input:after {
-  background-color: #f3e5f5;
+.form-group-material-purple-50 .form-control.focus {
+  background-image: linear-gradient(#f3e5f5, #f3e5f5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-100 input.form-control:focus ~ .material-input:after {
-  background-color: #e1bee7;
+.form-group-material-purple-100 .form-control.focus {
+  background-image: linear-gradient(#e1bee7, #e1bee7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-200 input.form-control:focus ~ .material-input:after {
-  background-color: #ce93d8;
+.form-group-material-purple-200 .form-control.focus {
+  background-image: linear-gradient(#ce93d8, #ce93d8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-300 input.form-control:focus ~ .material-input:after {
-  background-color: #ba68c8;
+.form-group-material-purple-300 .form-control.focus {
+  background-image: linear-gradient(#ba68c8, #ba68c8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-400 input.form-control:focus ~ .material-input:after {
-  background-color: #ab47bc;
+.form-group-material-purple-400 .form-control.focus {
+  background-image: linear-gradient(#ab47bc, #ab47bc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-500 input.form-control:focus ~ .material-input:after {
-  background-color: #9c27b0;
+.form-group-material-purple-500 .form-control.focus {
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-600 input.form-control:focus ~ .material-input:after {
-  background-color: #8e24aa;
+.form-group-material-purple-600 .form-control.focus {
+  background-image: linear-gradient(#8e24aa, #8e24aa), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-700 input.form-control:focus ~ .material-input:after {
-  background-color: #7b1fa2;
+.form-group-material-purple-700 .form-control.focus {
+  background-image: linear-gradient(#7b1fa2, #7b1fa2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-800 input.form-control:focus ~ .material-input:after {
-  background-color: #6a1b9a;
+.form-group-material-purple-800 .form-control.focus {
+  background-image: linear-gradient(#6a1b9a, #6a1b9a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-900 input.form-control:focus ~ .material-input:after {
-  background-color: #4a148c;
+.form-group-material-purple-900 .form-control.focus {
+  background-image: linear-gradient(#4a148c, #4a148c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #ea80fc;
+.form-group-material-purple-A100 .form-control.focus {
+  background-image: linear-gradient(#ea80fc, #ea80fc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #e040fb;
+.form-group-material-purple-A200 .form-control.focus {
+  background-image: linear-gradient(#e040fb, #e040fb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #d500f9;
+.form-group-material-purple-A400 .form-control.focus {
+  background-image: linear-gradient(#d500f9, #d500f9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-purple-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #aa00ff;
+.form-group-material-purple-A700 .form-control.focus {
+  background-image: linear-gradient(#aa00ff, #aa00ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple input.form-control:focus ~ .material-input:after {
-  background-color: #673ab7;
+.form-group-material-deep-purple .form-control.focus {
+  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-50 input.form-control:focus ~ .material-input:after {
-  background-color: #ede7f6;
+.form-group-material-deep-purple-50 .form-control.focus {
+  background-image: linear-gradient(#ede7f6, #ede7f6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-100 input.form-control:focus ~ .material-input:after {
-  background-color: #d1c4e9;
+.form-group-material-deep-purple-100 .form-control.focus {
+  background-image: linear-gradient(#d1c4e9, #d1c4e9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-200 input.form-control:focus ~ .material-input:after {
-  background-color: #b39ddb;
+.form-group-material-deep-purple-200 .form-control.focus {
+  background-image: linear-gradient(#b39ddb, #b39ddb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-300 input.form-control:focus ~ .material-input:after {
-  background-color: #9575cd;
+.form-group-material-deep-purple-300 .form-control.focus {
+  background-image: linear-gradient(#9575cd, #9575cd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-400 input.form-control:focus ~ .material-input:after {
-  background-color: #7e57c2;
+.form-group-material-deep-purple-400 .form-control.focus {
+  background-image: linear-gradient(#7e57c2, #7e57c2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-500 input.form-control:focus ~ .material-input:after {
-  background-color: #673ab7;
+.form-group-material-deep-purple-500 .form-control.focus {
+  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-600 input.form-control:focus ~ .material-input:after {
-  background-color: #5e35b1;
+.form-group-material-deep-purple-600 .form-control.focus {
+  background-image: linear-gradient(#5e35b1, #5e35b1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-700 input.form-control:focus ~ .material-input:after {
-  background-color: #512da8;
+.form-group-material-deep-purple-700 .form-control.focus {
+  background-image: linear-gradient(#512da8, #512da8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-800 input.form-control:focus ~ .material-input:after {
-  background-color: #4527a0;
+.form-group-material-deep-purple-800 .form-control.focus {
+  background-image: linear-gradient(#4527a0, #4527a0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-900 input.form-control:focus ~ .material-input:after {
-  background-color: #311b92;
+.form-group-material-deep-purple-900 .form-control.focus {
+  background-image: linear-gradient(#311b92, #311b92), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #b388ff;
+.form-group-material-deep-purple-A100 .form-control.focus {
+  background-image: linear-gradient(#b388ff, #b388ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #7c4dff;
+.form-group-material-deep-purple-A200 .form-control.focus {
+  background-image: linear-gradient(#7c4dff, #7c4dff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #651fff;
+.form-group-material-deep-purple-A400 .form-control.focus {
+  background-image: linear-gradient(#651fff, #651fff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-purple-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #6200ea;
+.form-group-material-deep-purple-A700 .form-control.focus {
+  background-image: linear-gradient(#6200ea, #6200ea), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo input.form-control:focus ~ .material-input:after {
-  background-color: #3f51b5;
+.form-group-material-indigo .form-control.focus {
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-50 input.form-control:focus ~ .material-input:after {
-  background-color: #e8eaf6;
+.form-group-material-indigo-50 .form-control.focus {
+  background-image: linear-gradient(#e8eaf6, #e8eaf6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-100 input.form-control:focus ~ .material-input:after {
-  background-color: #c5cae9;
+.form-group-material-indigo-100 .form-control.focus {
+  background-image: linear-gradient(#c5cae9, #c5cae9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-200 input.form-control:focus ~ .material-input:after {
-  background-color: #9fa8da;
+.form-group-material-indigo-200 .form-control.focus {
+  background-image: linear-gradient(#9fa8da, #9fa8da), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-300 input.form-control:focus ~ .material-input:after {
-  background-color: #7986cb;
+.form-group-material-indigo-300 .form-control.focus {
+  background-image: linear-gradient(#7986cb, #7986cb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-400 input.form-control:focus ~ .material-input:after {
-  background-color: #5c6bc0;
+.form-group-material-indigo-400 .form-control.focus {
+  background-image: linear-gradient(#5c6bc0, #5c6bc0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-500 input.form-control:focus ~ .material-input:after {
-  background-color: #3f51b5;
+.form-group-material-indigo-500 .form-control.focus {
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-600 input.form-control:focus ~ .material-input:after {
-  background-color: #3949ab;
+.form-group-material-indigo-600 .form-control.focus {
+  background-image: linear-gradient(#3949ab, #3949ab), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-700 input.form-control:focus ~ .material-input:after {
-  background-color: #303f9f;
+.form-group-material-indigo-700 .form-control.focus {
+  background-image: linear-gradient(#303f9f, #303f9f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-800 input.form-control:focus ~ .material-input:after {
-  background-color: #283593;
+.form-group-material-indigo-800 .form-control.focus {
+  background-image: linear-gradient(#283593, #283593), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-900 input.form-control:focus ~ .material-input:after {
-  background-color: #1a237e;
+.form-group-material-indigo-900 .form-control.focus {
+  background-image: linear-gradient(#1a237e, #1a237e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #8c9eff;
+.form-group-material-indigo-A100 .form-control.focus {
+  background-image: linear-gradient(#8c9eff, #8c9eff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #536dfe;
+.form-group-material-indigo-A200 .form-control.focus {
+  background-image: linear-gradient(#536dfe, #536dfe), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #3d5afe;
+.form-group-material-indigo-A400 .form-control.focus {
+  background-image: linear-gradient(#3d5afe, #3d5afe), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-indigo-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #304ffe;
+.form-group-material-indigo-A700 .form-control.focus {
+  background-image: linear-gradient(#304ffe, #304ffe), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue input.form-control:focus ~ .material-input:after {
-  background-color: #2196f3;
+.form-group-material-blue .form-control.focus {
+  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-50 input.form-control:focus ~ .material-input:after {
-  background-color: #e3f2fd;
+.form-group-material-blue-50 .form-control.focus {
+  background-image: linear-gradient(#e3f2fd, #e3f2fd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-100 input.form-control:focus ~ .material-input:after {
-  background-color: #bbdefb;
+.form-group-material-blue-100 .form-control.focus {
+  background-image: linear-gradient(#bbdefb, #bbdefb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-200 input.form-control:focus ~ .material-input:after {
-  background-color: #90caf9;
+.form-group-material-blue-200 .form-control.focus {
+  background-image: linear-gradient(#90caf9, #90caf9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-300 input.form-control:focus ~ .material-input:after {
-  background-color: #64b5f6;
+.form-group-material-blue-300 .form-control.focus {
+  background-image: linear-gradient(#64b5f6, #64b5f6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-400 input.form-control:focus ~ .material-input:after {
-  background-color: #42a5f5;
+.form-group-material-blue-400 .form-control.focus {
+  background-image: linear-gradient(#42a5f5, #42a5f5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-500 input.form-control:focus ~ .material-input:after {
-  background-color: #2196f3;
+.form-group-material-blue-500 .form-control.focus {
+  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-600 input.form-control:focus ~ .material-input:after {
-  background-color: #1e88e5;
+.form-group-material-blue-600 .form-control.focus {
+  background-image: linear-gradient(#1e88e5, #1e88e5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-700 input.form-control:focus ~ .material-input:after {
-  background-color: #1976d2;
+.form-group-material-blue-700 .form-control.focus {
+  background-image: linear-gradient(#1976d2, #1976d2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-800 input.form-control:focus ~ .material-input:after {
-  background-color: #1565c0;
+.form-group-material-blue-800 .form-control.focus {
+  background-image: linear-gradient(#1565c0, #1565c0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-900 input.form-control:focus ~ .material-input:after {
-  background-color: #0d47a1;
+.form-group-material-blue-900 .form-control.focus {
+  background-image: linear-gradient(#0d47a1, #0d47a1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #82b1ff;
+.form-group-material-blue-A100 .form-control.focus {
+  background-image: linear-gradient(#82b1ff, #82b1ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #448aff;
+.form-group-material-blue-A200 .form-control.focus {
+  background-image: linear-gradient(#448aff, #448aff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #2979ff;
+.form-group-material-blue-A400 .form-control.focus {
+  background-image: linear-gradient(#2979ff, #2979ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #2962ff;
+.form-group-material-blue-A700 .form-control.focus {
+  background-image: linear-gradient(#2962ff, #2962ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue input.form-control:focus ~ .material-input:after {
-  background-color: #03a9f4;
+.form-group-material-light-blue .form-control.focus {
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-50 input.form-control:focus ~ .material-input:after {
-  background-color: #e1f5fe;
+.form-group-material-light-blue-50 .form-control.focus {
+  background-image: linear-gradient(#e1f5fe, #e1f5fe), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-100 input.form-control:focus ~ .material-input:after {
-  background-color: #b3e5fc;
+.form-group-material-light-blue-100 .form-control.focus {
+  background-image: linear-gradient(#b3e5fc, #b3e5fc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-200 input.form-control:focus ~ .material-input:after {
-  background-color: #81d4fa;
+.form-group-material-light-blue-200 .form-control.focus {
+  background-image: linear-gradient(#81d4fa, #81d4fa), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-300 input.form-control:focus ~ .material-input:after {
-  background-color: #4fc3f7;
+.form-group-material-light-blue-300 .form-control.focus {
+  background-image: linear-gradient(#4fc3f7, #4fc3f7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-400 input.form-control:focus ~ .material-input:after {
-  background-color: #29b6f6;
+.form-group-material-light-blue-400 .form-control.focus {
+  background-image: linear-gradient(#29b6f6, #29b6f6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-500 input.form-control:focus ~ .material-input:after {
-  background-color: #03a9f4;
+.form-group-material-light-blue-500 .form-control.focus {
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-600 input.form-control:focus ~ .material-input:after {
-  background-color: #039be5;
+.form-group-material-light-blue-600 .form-control.focus {
+  background-image: linear-gradient(#039be5, #039be5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-700 input.form-control:focus ~ .material-input:after {
-  background-color: #0288d1;
+.form-group-material-light-blue-700 .form-control.focus {
+  background-image: linear-gradient(#0288d1, #0288d1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-800 input.form-control:focus ~ .material-input:after {
-  background-color: #0277bd;
+.form-group-material-light-blue-800 .form-control.focus {
+  background-image: linear-gradient(#0277bd, #0277bd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-900 input.form-control:focus ~ .material-input:after {
-  background-color: #01579b;
+.form-group-material-light-blue-900 .form-control.focus {
+  background-image: linear-gradient(#01579b, #01579b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #80d8ff;
+.form-group-material-light-blue-A100 .form-control.focus {
+  background-image: linear-gradient(#80d8ff, #80d8ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #40c4ff;
+.form-group-material-light-blue-A200 .form-control.focus {
+  background-image: linear-gradient(#40c4ff, #40c4ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #00b0ff;
+.form-group-material-light-blue-A400 .form-control.focus {
+  background-image: linear-gradient(#00b0ff, #00b0ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-blue-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #0091ea;
+.form-group-material-light-blue-A700 .form-control.focus {
+  background-image: linear-gradient(#0091ea, #0091ea), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan input.form-control:focus ~ .material-input:after {
-  background-color: #00bcd4;
+.form-group-material-cyan .form-control.focus {
+  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-50 input.form-control:focus ~ .material-input:after {
-  background-color: #e0f7fa;
+.form-group-material-cyan-50 .form-control.focus {
+  background-image: linear-gradient(#e0f7fa, #e0f7fa), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-100 input.form-control:focus ~ .material-input:after {
-  background-color: #b2ebf2;
+.form-group-material-cyan-100 .form-control.focus {
+  background-image: linear-gradient(#b2ebf2, #b2ebf2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-200 input.form-control:focus ~ .material-input:after {
-  background-color: #80deea;
+.form-group-material-cyan-200 .form-control.focus {
+  background-image: linear-gradient(#80deea, #80deea), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-300 input.form-control:focus ~ .material-input:after {
-  background-color: #4dd0e1;
+.form-group-material-cyan-300 .form-control.focus {
+  background-image: linear-gradient(#4dd0e1, #4dd0e1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-400 input.form-control:focus ~ .material-input:after {
-  background-color: #26c6da;
+.form-group-material-cyan-400 .form-control.focus {
+  background-image: linear-gradient(#26c6da, #26c6da), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-500 input.form-control:focus ~ .material-input:after {
-  background-color: #00bcd4;
+.form-group-material-cyan-500 .form-control.focus {
+  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-600 input.form-control:focus ~ .material-input:after {
-  background-color: #00acc1;
+.form-group-material-cyan-600 .form-control.focus {
+  background-image: linear-gradient(#00acc1, #00acc1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-700 input.form-control:focus ~ .material-input:after {
-  background-color: #0097a7;
+.form-group-material-cyan-700 .form-control.focus {
+  background-image: linear-gradient(#0097a7, #0097a7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-800 input.form-control:focus ~ .material-input:after {
-  background-color: #00838f;
+.form-group-material-cyan-800 .form-control.focus {
+  background-image: linear-gradient(#00838f, #00838f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-900 input.form-control:focus ~ .material-input:after {
-  background-color: #006064;
+.form-group-material-cyan-900 .form-control.focus {
+  background-image: linear-gradient(#006064, #006064), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #84ffff;
+.form-group-material-cyan-A100 .form-control.focus {
+  background-image: linear-gradient(#84ffff, #84ffff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #18ffff;
+.form-group-material-cyan-A200 .form-control.focus {
+  background-image: linear-gradient(#18ffff, #18ffff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #00e5ff;
+.form-group-material-cyan-A400 .form-control.focus {
+  background-image: linear-gradient(#00e5ff, #00e5ff), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-cyan-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #00b8d4;
+.form-group-material-cyan-A700 .form-control.focus {
+  background-image: linear-gradient(#00b8d4, #00b8d4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal input.form-control:focus ~ .material-input:after {
-  background-color: #009688;
+.form-group-material-teal .form-control.focus {
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-50 input.form-control:focus ~ .material-input:after {
-  background-color: #e0f2f1;
+.form-group-material-teal-50 .form-control.focus {
+  background-image: linear-gradient(#e0f2f1, #e0f2f1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-100 input.form-control:focus ~ .material-input:after {
-  background-color: #b2dfdb;
+.form-group-material-teal-100 .form-control.focus {
+  background-image: linear-gradient(#b2dfdb, #b2dfdb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-200 input.form-control:focus ~ .material-input:after {
-  background-color: #80cbc4;
+.form-group-material-teal-200 .form-control.focus {
+  background-image: linear-gradient(#80cbc4, #80cbc4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-300 input.form-control:focus ~ .material-input:after {
-  background-color: #4db6ac;
+.form-group-material-teal-300 .form-control.focus {
+  background-image: linear-gradient(#4db6ac, #4db6ac), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-400 input.form-control:focus ~ .material-input:after {
-  background-color: #26a69a;
+.form-group-material-teal-400 .form-control.focus {
+  background-image: linear-gradient(#26a69a, #26a69a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-500 input.form-control:focus ~ .material-input:after {
-  background-color: #009688;
+.form-group-material-teal-500 .form-control.focus {
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-600 input.form-control:focus ~ .material-input:after {
-  background-color: #00897b;
+.form-group-material-teal-600 .form-control.focus {
+  background-image: linear-gradient(#00897b, #00897b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-700 input.form-control:focus ~ .material-input:after {
-  background-color: #00796b;
+.form-group-material-teal-700 .form-control.focus {
+  background-image: linear-gradient(#00796b, #00796b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-800 input.form-control:focus ~ .material-input:after {
-  background-color: #00695c;
+.form-group-material-teal-800 .form-control.focus {
+  background-image: linear-gradient(#00695c, #00695c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-900 input.form-control:focus ~ .material-input:after {
-  background-color: #004d40;
+.form-group-material-teal-900 .form-control.focus {
+  background-image: linear-gradient(#004d40, #004d40), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #a7ffeb;
+.form-group-material-teal-A100 .form-control.focus {
+  background-image: linear-gradient(#a7ffeb, #a7ffeb), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #64ffda;
+.form-group-material-teal-A200 .form-control.focus {
+  background-image: linear-gradient(#64ffda, #64ffda), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #1de9b6;
+.form-group-material-teal-A400 .form-control.focus {
+  background-image: linear-gradient(#1de9b6, #1de9b6), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-teal-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #00bfa5;
+.form-group-material-teal-A700 .form-control.focus {
+  background-image: linear-gradient(#00bfa5, #00bfa5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green input.form-control:focus ~ .material-input:after {
-  background-color: #4caf50;
+.form-group-material-green .form-control.focus {
+  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-50 input.form-control:focus ~ .material-input:after {
-  background-color: #e8f5e9;
+.form-group-material-green-50 .form-control.focus {
+  background-image: linear-gradient(#e8f5e9, #e8f5e9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-100 input.form-control:focus ~ .material-input:after {
-  background-color: #c8e6c9;
+.form-group-material-green-100 .form-control.focus {
+  background-image: linear-gradient(#c8e6c9, #c8e6c9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-200 input.form-control:focus ~ .material-input:after {
-  background-color: #a5d6a7;
+.form-group-material-green-200 .form-control.focus {
+  background-image: linear-gradient(#a5d6a7, #a5d6a7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-300 input.form-control:focus ~ .material-input:after {
-  background-color: #81c784;
+.form-group-material-green-300 .form-control.focus {
+  background-image: linear-gradient(#81c784, #81c784), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-400 input.form-control:focus ~ .material-input:after {
-  background-color: #66bb6a;
+.form-group-material-green-400 .form-control.focus {
+  background-image: linear-gradient(#66bb6a, #66bb6a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-500 input.form-control:focus ~ .material-input:after {
-  background-color: #4caf50;
+.form-group-material-green-500 .form-control.focus {
+  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-600 input.form-control:focus ~ .material-input:after {
-  background-color: #43a047;
+.form-group-material-green-600 .form-control.focus {
+  background-image: linear-gradient(#43a047, #43a047), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-700 input.form-control:focus ~ .material-input:after {
-  background-color: #388e3c;
+.form-group-material-green-700 .form-control.focus {
+  background-image: linear-gradient(#388e3c, #388e3c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-800 input.form-control:focus ~ .material-input:after {
-  background-color: #2e7d32;
+.form-group-material-green-800 .form-control.focus {
+  background-image: linear-gradient(#2e7d32, #2e7d32), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-900 input.form-control:focus ~ .material-input:after {
-  background-color: #1b5e20;
+.form-group-material-green-900 .form-control.focus {
+  background-image: linear-gradient(#1b5e20, #1b5e20), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #b9f6ca;
+.form-group-material-green-A100 .form-control.focus {
+  background-image: linear-gradient(#b9f6ca, #b9f6ca), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #69f0ae;
+.form-group-material-green-A200 .form-control.focus {
+  background-image: linear-gradient(#69f0ae, #69f0ae), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #00e676;
+.form-group-material-green-A400 .form-control.focus {
+  background-image: linear-gradient(#00e676, #00e676), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-green-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #00c853;
+.form-group-material-green-A700 .form-control.focus {
+  background-image: linear-gradient(#00c853, #00c853), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green input.form-control:focus ~ .material-input:after {
-  background-color: #8bc34a;
+.form-group-material-light-green .form-control.focus {
+  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-50 input.form-control:focus ~ .material-input:after {
-  background-color: #f1f8e9;
+.form-group-material-light-green-50 .form-control.focus {
+  background-image: linear-gradient(#f1f8e9, #f1f8e9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-100 input.form-control:focus ~ .material-input:after {
-  background-color: #dcedc8;
+.form-group-material-light-green-100 .form-control.focus {
+  background-image: linear-gradient(#dcedc8, #dcedc8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-200 input.form-control:focus ~ .material-input:after {
-  background-color: #c5e1a5;
+.form-group-material-light-green-200 .form-control.focus {
+  background-image: linear-gradient(#c5e1a5, #c5e1a5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-300 input.form-control:focus ~ .material-input:after {
-  background-color: #aed581;
+.form-group-material-light-green-300 .form-control.focus {
+  background-image: linear-gradient(#aed581, #aed581), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-400 input.form-control:focus ~ .material-input:after {
-  background-color: #9ccc65;
+.form-group-material-light-green-400 .form-control.focus {
+  background-image: linear-gradient(#9ccc65, #9ccc65), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-500 input.form-control:focus ~ .material-input:after {
-  background-color: #8bc34a;
+.form-group-material-light-green-500 .form-control.focus {
+  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-600 input.form-control:focus ~ .material-input:after {
-  background-color: #7cb342;
+.form-group-material-light-green-600 .form-control.focus {
+  background-image: linear-gradient(#7cb342, #7cb342), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-700 input.form-control:focus ~ .material-input:after {
-  background-color: #689f38;
+.form-group-material-light-green-700 .form-control.focus {
+  background-image: linear-gradient(#689f38, #689f38), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-800 input.form-control:focus ~ .material-input:after {
-  background-color: #558b2f;
+.form-group-material-light-green-800 .form-control.focus {
+  background-image: linear-gradient(#558b2f, #558b2f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-900 input.form-control:focus ~ .material-input:after {
-  background-color: #33691e;
+.form-group-material-light-green-900 .form-control.focus {
+  background-image: linear-gradient(#33691e, #33691e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #ccff90;
+.form-group-material-light-green-A100 .form-control.focus {
+  background-image: linear-gradient(#ccff90, #ccff90), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #b2ff59;
+.form-group-material-light-green-A200 .form-control.focus {
+  background-image: linear-gradient(#b2ff59, #b2ff59), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #76ff03;
+.form-group-material-light-green-A400 .form-control.focus {
+  background-image: linear-gradient(#76ff03, #76ff03), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-light-green-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #64dd17;
+.form-group-material-light-green-A700 .form-control.focus {
+  background-image: linear-gradient(#64dd17, #64dd17), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime input.form-control:focus ~ .material-input:after {
-  background-color: #cddc39;
+.form-group-material-lime .form-control.focus {
+  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-50 input.form-control:focus ~ .material-input:after {
-  background-color: #f9fbe7;
+.form-group-material-lime-50 .form-control.focus {
+  background-image: linear-gradient(#f9fbe7, #f9fbe7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-100 input.form-control:focus ~ .material-input:after {
-  background-color: #f0f4c3;
+.form-group-material-lime-100 .form-control.focus {
+  background-image: linear-gradient(#f0f4c3, #f0f4c3), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-200 input.form-control:focus ~ .material-input:after {
-  background-color: #e6ee9c;
+.form-group-material-lime-200 .form-control.focus {
+  background-image: linear-gradient(#e6ee9c, #e6ee9c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-300 input.form-control:focus ~ .material-input:after {
-  background-color: #dce775;
+.form-group-material-lime-300 .form-control.focus {
+  background-image: linear-gradient(#dce775, #dce775), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-400 input.form-control:focus ~ .material-input:after {
-  background-color: #d4e157;
+.form-group-material-lime-400 .form-control.focus {
+  background-image: linear-gradient(#d4e157, #d4e157), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-500 input.form-control:focus ~ .material-input:after {
-  background-color: #cddc39;
+.form-group-material-lime-500 .form-control.focus {
+  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-600 input.form-control:focus ~ .material-input:after {
-  background-color: #c0ca33;
+.form-group-material-lime-600 .form-control.focus {
+  background-image: linear-gradient(#c0ca33, #c0ca33), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-700 input.form-control:focus ~ .material-input:after {
-  background-color: #afb42b;
+.form-group-material-lime-700 .form-control.focus {
+  background-image: linear-gradient(#afb42b, #afb42b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-800 input.form-control:focus ~ .material-input:after {
-  background-color: #9e9d24;
+.form-group-material-lime-800 .form-control.focus {
+  background-image: linear-gradient(#9e9d24, #9e9d24), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-900 input.form-control:focus ~ .material-input:after {
-  background-color: #827717;
+.form-group-material-lime-900 .form-control.focus {
+  background-image: linear-gradient(#827717, #827717), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #f4ff81;
+.form-group-material-lime-A100 .form-control.focus {
+  background-image: linear-gradient(#f4ff81, #f4ff81), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #eeff41;
+.form-group-material-lime-A200 .form-control.focus {
+  background-image: linear-gradient(#eeff41, #eeff41), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #c6ff00;
+.form-group-material-lime-A400 .form-control.focus {
+  background-image: linear-gradient(#c6ff00, #c6ff00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-lime-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #aeea00;
+.form-group-material-lime-A700 .form-control.focus {
+  background-image: linear-gradient(#aeea00, #aeea00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow input.form-control:focus ~ .material-input:after {
-  background-color: #ffeb3b;
+.form-group-material-yellow .form-control.focus {
+  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-50 input.form-control:focus ~ .material-input:after {
-  background-color: #fffde7;
+.form-group-material-yellow-50 .form-control.focus {
+  background-image: linear-gradient(#fffde7, #fffde7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-100 input.form-control:focus ~ .material-input:after {
-  background-color: #fff9c4;
+.form-group-material-yellow-100 .form-control.focus {
+  background-image: linear-gradient(#fff9c4, #fff9c4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-200 input.form-control:focus ~ .material-input:after {
-  background-color: #fff59d;
+.form-group-material-yellow-200 .form-control.focus {
+  background-image: linear-gradient(#fff59d, #fff59d), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-300 input.form-control:focus ~ .material-input:after {
-  background-color: #fff176;
+.form-group-material-yellow-300 .form-control.focus {
+  background-image: linear-gradient(#fff176, #fff176), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-400 input.form-control:focus ~ .material-input:after {
-  background-color: #ffee58;
+.form-group-material-yellow-400 .form-control.focus {
+  background-image: linear-gradient(#ffee58, #ffee58), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-500 input.form-control:focus ~ .material-input:after {
-  background-color: #ffeb3b;
+.form-group-material-yellow-500 .form-control.focus {
+  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-600 input.form-control:focus ~ .material-input:after {
-  background-color: #fdd835;
+.form-group-material-yellow-600 .form-control.focus {
+  background-image: linear-gradient(#fdd835, #fdd835), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-700 input.form-control:focus ~ .material-input:after {
-  background-color: #fbc02d;
+.form-group-material-yellow-700 .form-control.focus {
+  background-image: linear-gradient(#fbc02d, #fbc02d), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-800 input.form-control:focus ~ .material-input:after {
-  background-color: #f9a825;
+.form-group-material-yellow-800 .form-control.focus {
+  background-image: linear-gradient(#f9a825, #f9a825), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-900 input.form-control:focus ~ .material-input:after {
-  background-color: #f57f17;
+.form-group-material-yellow-900 .form-control.focus {
+  background-image: linear-gradient(#f57f17, #f57f17), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #ffff8d;
+.form-group-material-yellow-A100 .form-control.focus {
+  background-image: linear-gradient(#ffff8d, #ffff8d), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #ffff00;
+.form-group-material-yellow-A200 .form-control.focus {
+  background-image: linear-gradient(#ffff00, #ffff00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #ffea00;
+.form-group-material-yellow-A400 .form-control.focus {
+  background-image: linear-gradient(#ffea00, #ffea00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-yellow-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #ffd600;
+.form-group-material-yellow-A700 .form-control.focus {
+  background-image: linear-gradient(#ffd600, #ffd600), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber input.form-control:focus ~ .material-input:after {
-  background-color: #ffc107;
+.form-group-material-amber .form-control.focus {
+  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-50 input.form-control:focus ~ .material-input:after {
-  background-color: #fff8e1;
+.form-group-material-amber-50 .form-control.focus {
+  background-image: linear-gradient(#fff8e1, #fff8e1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-100 input.form-control:focus ~ .material-input:after {
-  background-color: #ffecb3;
+.form-group-material-amber-100 .form-control.focus {
+  background-image: linear-gradient(#ffecb3, #ffecb3), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-200 input.form-control:focus ~ .material-input:after {
-  background-color: #ffe082;
+.form-group-material-amber-200 .form-control.focus {
+  background-image: linear-gradient(#ffe082, #ffe082), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-300 input.form-control:focus ~ .material-input:after {
-  background-color: #ffd54f;
+.form-group-material-amber-300 .form-control.focus {
+  background-image: linear-gradient(#ffd54f, #ffd54f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-400 input.form-control:focus ~ .material-input:after {
-  background-color: #ffca28;
+.form-group-material-amber-400 .form-control.focus {
+  background-image: linear-gradient(#ffca28, #ffca28), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-500 input.form-control:focus ~ .material-input:after {
-  background-color: #ffc107;
+.form-group-material-amber-500 .form-control.focus {
+  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-600 input.form-control:focus ~ .material-input:after {
-  background-color: #ffb300;
+.form-group-material-amber-600 .form-control.focus {
+  background-image: linear-gradient(#ffb300, #ffb300), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-700 input.form-control:focus ~ .material-input:after {
-  background-color: #ffa000;
+.form-group-material-amber-700 .form-control.focus {
+  background-image: linear-gradient(#ffa000, #ffa000), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-800 input.form-control:focus ~ .material-input:after {
-  background-color: #ff8f00;
+.form-group-material-amber-800 .form-control.focus {
+  background-image: linear-gradient(#ff8f00, #ff8f00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-900 input.form-control:focus ~ .material-input:after {
-  background-color: #ff6f00;
+.form-group-material-amber-900 .form-control.focus {
+  background-image: linear-gradient(#ff6f00, #ff6f00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #ffe57f;
+.form-group-material-amber-A100 .form-control.focus {
+  background-image: linear-gradient(#ffe57f, #ffe57f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #ffd740;
+.form-group-material-amber-A200 .form-control.focus {
+  background-image: linear-gradient(#ffd740, #ffd740), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #ffc400;
+.form-group-material-amber-A400 .form-control.focus {
+  background-image: linear-gradient(#ffc400, #ffc400), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-amber-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #ffab00;
+.form-group-material-amber-A700 .form-control.focus {
+  background-image: linear-gradient(#ffab00, #ffab00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange input.form-control:focus ~ .material-input:after {
-  background-color: #ff9800;
+.form-group-material-orange .form-control.focus {
+  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-50 input.form-control:focus ~ .material-input:after {
-  background-color: #fff3e0;
+.form-group-material-orange-50 .form-control.focus {
+  background-image: linear-gradient(#fff3e0, #fff3e0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-100 input.form-control:focus ~ .material-input:after {
-  background-color: #ffe0b2;
+.form-group-material-orange-100 .form-control.focus {
+  background-image: linear-gradient(#ffe0b2, #ffe0b2), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-200 input.form-control:focus ~ .material-input:after {
-  background-color: #ffcc80;
+.form-group-material-orange-200 .form-control.focus {
+  background-image: linear-gradient(#ffcc80, #ffcc80), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-300 input.form-control:focus ~ .material-input:after {
-  background-color: #ffb74d;
+.form-group-material-orange-300 .form-control.focus {
+  background-image: linear-gradient(#ffb74d, #ffb74d), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-400 input.form-control:focus ~ .material-input:after {
-  background-color: #ffa726;
+.form-group-material-orange-400 .form-control.focus {
+  background-image: linear-gradient(#ffa726, #ffa726), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-500 input.form-control:focus ~ .material-input:after {
-  background-color: #ff9800;
+.form-group-material-orange-500 .form-control.focus {
+  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-600 input.form-control:focus ~ .material-input:after {
-  background-color: #fb8c00;
+.form-group-material-orange-600 .form-control.focus {
+  background-image: linear-gradient(#fb8c00, #fb8c00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-700 input.form-control:focus ~ .material-input:after {
-  background-color: #f57c00;
+.form-group-material-orange-700 .form-control.focus {
+  background-image: linear-gradient(#f57c00, #f57c00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-800 input.form-control:focus ~ .material-input:after {
-  background-color: #ef6c00;
+.form-group-material-orange-800 .form-control.focus {
+  background-image: linear-gradient(#ef6c00, #ef6c00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-900 input.form-control:focus ~ .material-input:after {
-  background-color: #e65100;
+.form-group-material-orange-900 .form-control.focus {
+  background-image: linear-gradient(#e65100, #e65100), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #ffd180;
+.form-group-material-orange-A100 .form-control.focus {
+  background-image: linear-gradient(#ffd180, #ffd180), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #ffab40;
+.form-group-material-orange-A200 .form-control.focus {
+  background-image: linear-gradient(#ffab40, #ffab40), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #ff9100;
+.form-group-material-orange-A400 .form-control.focus {
+  background-image: linear-gradient(#ff9100, #ff9100), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-orange-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #ff6d00;
+.form-group-material-orange-A700 .form-control.focus {
+  background-image: linear-gradient(#ff6d00, #ff6d00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange input.form-control:focus ~ .material-input:after {
-  background-color: #ff5722;
+.form-group-material-deep-orange .form-control.focus {
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-50 input.form-control:focus ~ .material-input:after {
-  background-color: #fbe9e7;
+.form-group-material-deep-orange-50 .form-control.focus {
+  background-image: linear-gradient(#fbe9e7, #fbe9e7), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-100 input.form-control:focus ~ .material-input:after {
-  background-color: #ffccbc;
+.form-group-material-deep-orange-100 .form-control.focus {
+  background-image: linear-gradient(#ffccbc, #ffccbc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-200 input.form-control:focus ~ .material-input:after {
-  background-color: #ffab91;
+.form-group-material-deep-orange-200 .form-control.focus {
+  background-image: linear-gradient(#ffab91, #ffab91), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-300 input.form-control:focus ~ .material-input:after {
-  background-color: #ff8a65;
+.form-group-material-deep-orange-300 .form-control.focus {
+  background-image: linear-gradient(#ff8a65, #ff8a65), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-400 input.form-control:focus ~ .material-input:after {
-  background-color: #ff7043;
+.form-group-material-deep-orange-400 .form-control.focus {
+  background-image: linear-gradient(#ff7043, #ff7043), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-500 input.form-control:focus ~ .material-input:after {
-  background-color: #ff5722;
+.form-group-material-deep-orange-500 .form-control.focus {
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-600 input.form-control:focus ~ .material-input:after {
-  background-color: #f4511e;
+.form-group-material-deep-orange-600 .form-control.focus {
+  background-image: linear-gradient(#f4511e, #f4511e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-700 input.form-control:focus ~ .material-input:after {
-  background-color: #e64a19;
+.form-group-material-deep-orange-700 .form-control.focus {
+  background-image: linear-gradient(#e64a19, #e64a19), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-800 input.form-control:focus ~ .material-input:after {
-  background-color: #d84315;
+.form-group-material-deep-orange-800 .form-control.focus {
+  background-image: linear-gradient(#d84315, #d84315), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-900 input.form-control:focus ~ .material-input:after {
-  background-color: #bf360c;
+.form-group-material-deep-orange-900 .form-control.focus {
+  background-image: linear-gradient(#bf360c, #bf360c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #ff9e80;
+.form-group-material-deep-orange-A100 .form-control.focus {
+  background-image: linear-gradient(#ff9e80, #ff9e80), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #ff6e40;
+.form-group-material-deep-orange-A200 .form-control.focus {
+  background-image: linear-gradient(#ff6e40, #ff6e40), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #ff3d00;
+.form-group-material-deep-orange-A400 .form-control.focus {
+  background-image: linear-gradient(#ff3d00, #ff3d00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-deep-orange-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #dd2c00;
+.form-group-material-deep-orange-A700 .form-control.focus {
+  background-image: linear-gradient(#dd2c00, #dd2c00), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown input.form-control:focus ~ .material-input:after {
-  background-color: #795548;
+.form-group-material-brown .form-control.focus {
+  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-50 input.form-control:focus ~ .material-input:after {
-  background-color: #efebe9;
+.form-group-material-brown-50 .form-control.focus {
+  background-image: linear-gradient(#efebe9, #efebe9), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-100 input.form-control:focus ~ .material-input:after {
-  background-color: #d7ccc8;
+.form-group-material-brown-100 .form-control.focus {
+  background-image: linear-gradient(#d7ccc8, #d7ccc8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-200 input.form-control:focus ~ .material-input:after {
-  background-color: #bcaaa4;
+.form-group-material-brown-200 .form-control.focus {
+  background-image: linear-gradient(#bcaaa4, #bcaaa4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-300 input.form-control:focus ~ .material-input:after {
-  background-color: #a1887f;
+.form-group-material-brown-300 .form-control.focus {
+  background-image: linear-gradient(#a1887f, #a1887f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-400 input.form-control:focus ~ .material-input:after {
-  background-color: #8d6e63;
+.form-group-material-brown-400 .form-control.focus {
+  background-image: linear-gradient(#8d6e63, #8d6e63), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-500 input.form-control:focus ~ .material-input:after {
-  background-color: #795548;
+.form-group-material-brown-500 .form-control.focus {
+  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-600 input.form-control:focus ~ .material-input:after {
-  background-color: #6d4c41;
+.form-group-material-brown-600 .form-control.focus {
+  background-image: linear-gradient(#6d4c41, #6d4c41), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-700 input.form-control:focus ~ .material-input:after {
-  background-color: #5d4037;
+.form-group-material-brown-700 .form-control.focus {
+  background-image: linear-gradient(#5d4037, #5d4037), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-800 input.form-control:focus ~ .material-input:after {
-  background-color: #4e342e;
+.form-group-material-brown-800 .form-control.focus {
+  background-image: linear-gradient(#4e342e, #4e342e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-900 input.form-control:focus ~ .material-input:after {
-  background-color: #3e2723;
+.form-group-material-brown-900 .form-control.focus {
+  background-image: linear-gradient(#3e2723, #3e2723), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #d7ccc8;
+.form-group-material-brown-A100 .form-control.focus {
+  background-image: linear-gradient(#d7ccc8, #d7ccc8), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #bcaaa4;
+.form-group-material-brown-A200 .form-control.focus {
+  background-image: linear-gradient(#bcaaa4, #bcaaa4), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #8d6e63;
+.form-group-material-brown-A400 .form-control.focus {
+  background-image: linear-gradient(#8d6e63, #8d6e63), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-brown-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #5d4037;
+.form-group-material-brown-A700 .form-control.focus {
+  background-image: linear-gradient(#5d4037, #5d4037), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey input.form-control:focus ~ .material-input:after {
-  background-color: #9e9e9e;
+.form-group-material-grey .form-control.focus {
+  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-50 input.form-control:focus ~ .material-input:after {
-  background-color: #fafafa;
+.form-group-material-grey-50 .form-control.focus {
+  background-image: linear-gradient(#fafafa, #fafafa), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-100 input.form-control:focus ~ .material-input:after {
-  background-color: #f5f5f5;
+.form-group-material-grey-100 .form-control.focus {
+  background-image: linear-gradient(#f5f5f5, #f5f5f5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-200 input.form-control:focus ~ .material-input:after {
-  background-color: #eeeeee;
+.form-group-material-grey-200 .form-control.focus {
+  background-image: linear-gradient(#eeeeee, #eeeeee), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-300 input.form-control:focus ~ .material-input:after {
-  background-color: #e0e0e0;
+.form-group-material-grey-300 .form-control.focus {
+  background-image: linear-gradient(#e0e0e0, #e0e0e0), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-400 input.form-control:focus ~ .material-input:after {
-  background-color: #bdbdbd;
+.form-group-material-grey-400 .form-control.focus {
+  background-image: linear-gradient(#bdbdbd, #bdbdbd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-500 input.form-control:focus ~ .material-input:after {
-  background-color: #9e9e9e;
+.form-group-material-grey-500 .form-control.focus {
+  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-600 input.form-control:focus ~ .material-input:after {
-  background-color: #757575;
+.form-group-material-grey-600 .form-control.focus {
+  background-image: linear-gradient(#757575, #757575), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-700 input.form-control:focus ~ .material-input:after {
-  background-color: #616161;
+.form-group-material-grey-700 .form-control.focus {
+  background-image: linear-gradient(#616161, #616161), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-800 input.form-control:focus ~ .material-input:after {
-  background-color: #424242;
+.form-group-material-grey-800 .form-control.focus {
+  background-image: linear-gradient(#424242, #424242), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-900 input.form-control:focus ~ .material-input:after {
-  background-color: #212121;
+.form-group-material-grey-900 .form-control.focus {
+  background-image: linear-gradient(#212121, #212121), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #f5f5f5;
+.form-group-material-grey-A100 .form-control.focus {
+  background-image: linear-gradient(#f5f5f5, #f5f5f5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #eeeeee;
+.form-group-material-grey-A200 .form-control.focus {
+  background-image: linear-gradient(#eeeeee, #eeeeee), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #bdbdbd;
+.form-group-material-grey-A400 .form-control.focus {
+  background-image: linear-gradient(#bdbdbd, #bdbdbd), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-grey-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #616161;
+.form-group-material-grey-A700 .form-control.focus {
+  background-image: linear-gradient(#616161, #616161), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey input.form-control:focus ~ .material-input:after {
-  background-color: #607d8b;
+.form-group-material-blue-grey .form-control.focus {
+  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-50 input.form-control:focus ~ .material-input:after {
-  background-color: #eceff1;
+.form-group-material-blue-grey-50 .form-control.focus {
+  background-image: linear-gradient(#eceff1, #eceff1), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-100 input.form-control:focus ~ .material-input:after {
-  background-color: #cfd8dc;
+.form-group-material-blue-grey-100 .form-control.focus {
+  background-image: linear-gradient(#cfd8dc, #cfd8dc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-200 input.form-control:focus ~ .material-input:after {
-  background-color: #b0bec5;
+.form-group-material-blue-grey-200 .form-control.focus {
+  background-image: linear-gradient(#b0bec5, #b0bec5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-300 input.form-control:focus ~ .material-input:after {
-  background-color: #90a4ae;
+.form-group-material-blue-grey-300 .form-control.focus {
+  background-image: linear-gradient(#90a4ae, #90a4ae), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-400 input.form-control:focus ~ .material-input:after {
-  background-color: #78909c;
+.form-group-material-blue-grey-400 .form-control.focus {
+  background-image: linear-gradient(#78909c, #78909c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-500 input.form-control:focus ~ .material-input:after {
-  background-color: #607d8b;
+.form-group-material-blue-grey-500 .form-control.focus {
+  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-600 input.form-control:focus ~ .material-input:after {
-  background-color: #546e7a;
+.form-group-material-blue-grey-600 .form-control.focus {
+  background-image: linear-gradient(#546e7a, #546e7a), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-700 input.form-control:focus ~ .material-input:after {
-  background-color: #455a64;
+.form-group-material-blue-grey-700 .form-control.focus {
+  background-image: linear-gradient(#455a64, #455a64), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-800 input.form-control:focus ~ .material-input:after {
-  background-color: #37474f;
+.form-group-material-blue-grey-800 .form-control.focus {
+  background-image: linear-gradient(#37474f, #37474f), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-900 input.form-control:focus ~ .material-input:after {
-  background-color: #263238;
+.form-group-material-blue-grey-900 .form-control.focus {
+  background-image: linear-gradient(#263238, #263238), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-A100 input.form-control:focus ~ .material-input:after {
-  background-color: #cfd8dc;
+.form-group-material-blue-grey-A100 .form-control.focus {
+  background-image: linear-gradient(#cfd8dc, #cfd8dc), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-A200 input.form-control:focus ~ .material-input:after {
-  background-color: #b0bec5;
+.form-group-material-blue-grey-A200 .form-control.focus {
+  background-image: linear-gradient(#b0bec5, #b0bec5), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-A400 input.form-control:focus ~ .material-input:after {
-  background-color: #78909c;
+.form-group-material-blue-grey-A400 .form-control.focus {
+  background-image: linear-gradient(#78909c, #78909c), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-group-material-blue-grey-A700 input.form-control:focus ~ .material-input:after {
-  background-color: #455a64;
-}
-.form-group input.form-control.focus ~ .material-input:after,
-.form-group-default input.form-control.focus ~ .material-input:after {
-  background-color: #009587;
-}
-.form-group-black input.form-control.focus ~ .material-input:after {
-  background-color: #000000;
-}
-.form-group-white input.form-control.focus ~ .material-input:after {
-  background-color: #ffffff;
-}
-.form-group-inverse input.form-control.focus ~ .material-input:after {
-  background-color: #3f51b5;
-}
-.form-group-primary input.form-control.focus ~ .material-input:after {
-  background-color: #009587;
-}
-.form-group-success input.form-control.focus ~ .material-input:after {
-  background-color: #0f9d58;
-}
-.form-group-info input.form-control.focus ~ .material-input:after {
-  background-color: #03a9f4;
-}
-.form-group-warning input.form-control.focus ~ .material-input:after {
-  background-color: #ff5722;
-}
-.form-group-danger input.form-control.focus ~ .material-input:after {
-  background-color: #f44336;
-}
-.form-group-material-red input.form-control.focus ~ .material-input:after {
-  background-color: #f44336;
-}
-.form-group-material-red-50 input.form-control.focus ~ .material-input:after {
-  background-color: #ffebee;
-}
-.form-group-material-red-100 input.form-control.focus ~ .material-input:after {
-  background-color: #ffcdd2;
-}
-.form-group-material-red-200 input.form-control.focus ~ .material-input:after {
-  background-color: #ef9a9a;
-}
-.form-group-material-red-300 input.form-control.focus ~ .material-input:after {
-  background-color: #e57373;
-}
-.form-group-material-red-400 input.form-control.focus ~ .material-input:after {
-  background-color: #ef5350;
-}
-.form-group-material-red-500 input.form-control.focus ~ .material-input:after {
-  background-color: #f44336;
-}
-.form-group-material-red-600 input.form-control.focus ~ .material-input:after {
-  background-color: #e53935;
-}
-.form-group-material-red-700 input.form-control.focus ~ .material-input:after {
-  background-color: #d32f2f;
-}
-.form-group-material-red-800 input.form-control.focus ~ .material-input:after {
-  background-color: #c62828;
-}
-.form-group-material-red-900 input.form-control.focus ~ .material-input:after {
-  background-color: #b71c1c;
-}
-.form-group-material-red-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #ff8a80;
-}
-.form-group-material-red-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #ff5252;
-}
-.form-group-material-red-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #ff1744;
-}
-.form-group-material-red-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #d50000;
-}
-.form-group-material-pink input.form-control.focus ~ .material-input:after {
-  background-color: #e91e63;
-}
-.form-group-material-pink-50 input.form-control.focus ~ .material-input:after {
-  background-color: #fce4ec;
-}
-.form-group-material-pink-100 input.form-control.focus ~ .material-input:after {
-  background-color: #f8bbd0;
-}
-.form-group-material-pink-200 input.form-control.focus ~ .material-input:after {
-  background-color: #f48fb1;
-}
-.form-group-material-pink-300 input.form-control.focus ~ .material-input:after {
-  background-color: #f06292;
-}
-.form-group-material-pink-400 input.form-control.focus ~ .material-input:after {
-  background-color: #ec407a;
-}
-.form-group-material-pink-500 input.form-control.focus ~ .material-input:after {
-  background-color: #e91e63;
-}
-.form-group-material-pink-600 input.form-control.focus ~ .material-input:after {
-  background-color: #d81b60;
-}
-.form-group-material-pink-700 input.form-control.focus ~ .material-input:after {
-  background-color: #c2185b;
-}
-.form-group-material-pink-800 input.form-control.focus ~ .material-input:after {
-  background-color: #ad1457;
-}
-.form-group-material-pink-900 input.form-control.focus ~ .material-input:after {
-  background-color: #880e4f;
-}
-.form-group-material-pink-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #ff80ab;
-}
-.form-group-material-pink-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #ff4081;
-}
-.form-group-material-pink-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #f50057;
-}
-.form-group-material-pink-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #c51162;
-}
-.form-group-material-purple input.form-control.focus ~ .material-input:after {
-  background-color: #9c27b0;
-}
-.form-group-material-purple-50 input.form-control.focus ~ .material-input:after {
-  background-color: #f3e5f5;
-}
-.form-group-material-purple-100 input.form-control.focus ~ .material-input:after {
-  background-color: #e1bee7;
-}
-.form-group-material-purple-200 input.form-control.focus ~ .material-input:after {
-  background-color: #ce93d8;
-}
-.form-group-material-purple-300 input.form-control.focus ~ .material-input:after {
-  background-color: #ba68c8;
-}
-.form-group-material-purple-400 input.form-control.focus ~ .material-input:after {
-  background-color: #ab47bc;
-}
-.form-group-material-purple-500 input.form-control.focus ~ .material-input:after {
-  background-color: #9c27b0;
-}
-.form-group-material-purple-600 input.form-control.focus ~ .material-input:after {
-  background-color: #8e24aa;
-}
-.form-group-material-purple-700 input.form-control.focus ~ .material-input:after {
-  background-color: #7b1fa2;
-}
-.form-group-material-purple-800 input.form-control.focus ~ .material-input:after {
-  background-color: #6a1b9a;
-}
-.form-group-material-purple-900 input.form-control.focus ~ .material-input:after {
-  background-color: #4a148c;
-}
-.form-group-material-purple-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #ea80fc;
-}
-.form-group-material-purple-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #e040fb;
-}
-.form-group-material-purple-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #d500f9;
-}
-.form-group-material-purple-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #aa00ff;
-}
-.form-group-material-deep-purple input.form-control.focus ~ .material-input:after {
-  background-color: #673ab7;
-}
-.form-group-material-deep-purple-50 input.form-control.focus ~ .material-input:after {
-  background-color: #ede7f6;
-}
-.form-group-material-deep-purple-100 input.form-control.focus ~ .material-input:after {
-  background-color: #d1c4e9;
-}
-.form-group-material-deep-purple-200 input.form-control.focus ~ .material-input:after {
-  background-color: #b39ddb;
-}
-.form-group-material-deep-purple-300 input.form-control.focus ~ .material-input:after {
-  background-color: #9575cd;
-}
-.form-group-material-deep-purple-400 input.form-control.focus ~ .material-input:after {
-  background-color: #7e57c2;
-}
-.form-group-material-deep-purple-500 input.form-control.focus ~ .material-input:after {
-  background-color: #673ab7;
-}
-.form-group-material-deep-purple-600 input.form-control.focus ~ .material-input:after {
-  background-color: #5e35b1;
-}
-.form-group-material-deep-purple-700 input.form-control.focus ~ .material-input:after {
-  background-color: #512da8;
-}
-.form-group-material-deep-purple-800 input.form-control.focus ~ .material-input:after {
-  background-color: #4527a0;
-}
-.form-group-material-deep-purple-900 input.form-control.focus ~ .material-input:after {
-  background-color: #311b92;
-}
-.form-group-material-deep-purple-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #b388ff;
-}
-.form-group-material-deep-purple-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #7c4dff;
-}
-.form-group-material-deep-purple-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #651fff;
-}
-.form-group-material-deep-purple-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #6200ea;
-}
-.form-group-material-indigo input.form-control.focus ~ .material-input:after {
-  background-color: #3f51b5;
-}
-.form-group-material-indigo-50 input.form-control.focus ~ .material-input:after {
-  background-color: #e8eaf6;
-}
-.form-group-material-indigo-100 input.form-control.focus ~ .material-input:after {
-  background-color: #c5cae9;
-}
-.form-group-material-indigo-200 input.form-control.focus ~ .material-input:after {
-  background-color: #9fa8da;
-}
-.form-group-material-indigo-300 input.form-control.focus ~ .material-input:after {
-  background-color: #7986cb;
-}
-.form-group-material-indigo-400 input.form-control.focus ~ .material-input:after {
-  background-color: #5c6bc0;
-}
-.form-group-material-indigo-500 input.form-control.focus ~ .material-input:after {
-  background-color: #3f51b5;
-}
-.form-group-material-indigo-600 input.form-control.focus ~ .material-input:after {
-  background-color: #3949ab;
-}
-.form-group-material-indigo-700 input.form-control.focus ~ .material-input:after {
-  background-color: #303f9f;
-}
-.form-group-material-indigo-800 input.form-control.focus ~ .material-input:after {
-  background-color: #283593;
-}
-.form-group-material-indigo-900 input.form-control.focus ~ .material-input:after {
-  background-color: #1a237e;
-}
-.form-group-material-indigo-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #8c9eff;
-}
-.form-group-material-indigo-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #536dfe;
-}
-.form-group-material-indigo-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #3d5afe;
-}
-.form-group-material-indigo-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #304ffe;
-}
-.form-group-material-blue input.form-control.focus ~ .material-input:after {
-  background-color: #2196f3;
-}
-.form-group-material-blue-50 input.form-control.focus ~ .material-input:after {
-  background-color: #e3f2fd;
-}
-.form-group-material-blue-100 input.form-control.focus ~ .material-input:after {
-  background-color: #bbdefb;
-}
-.form-group-material-blue-200 input.form-control.focus ~ .material-input:after {
-  background-color: #90caf9;
-}
-.form-group-material-blue-300 input.form-control.focus ~ .material-input:after {
-  background-color: #64b5f6;
-}
-.form-group-material-blue-400 input.form-control.focus ~ .material-input:after {
-  background-color: #42a5f5;
-}
-.form-group-material-blue-500 input.form-control.focus ~ .material-input:after {
-  background-color: #2196f3;
-}
-.form-group-material-blue-600 input.form-control.focus ~ .material-input:after {
-  background-color: #1e88e5;
-}
-.form-group-material-blue-700 input.form-control.focus ~ .material-input:after {
-  background-color: #1976d2;
-}
-.form-group-material-blue-800 input.form-control.focus ~ .material-input:after {
-  background-color: #1565c0;
-}
-.form-group-material-blue-900 input.form-control.focus ~ .material-input:after {
-  background-color: #0d47a1;
-}
-.form-group-material-blue-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #82b1ff;
-}
-.form-group-material-blue-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #448aff;
-}
-.form-group-material-blue-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #2979ff;
-}
-.form-group-material-blue-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #2962ff;
-}
-.form-group-material-light-blue input.form-control.focus ~ .material-input:after {
-  background-color: #03a9f4;
-}
-.form-group-material-light-blue-50 input.form-control.focus ~ .material-input:after {
-  background-color: #e1f5fe;
-}
-.form-group-material-light-blue-100 input.form-control.focus ~ .material-input:after {
-  background-color: #b3e5fc;
-}
-.form-group-material-light-blue-200 input.form-control.focus ~ .material-input:after {
-  background-color: #81d4fa;
-}
-.form-group-material-light-blue-300 input.form-control.focus ~ .material-input:after {
-  background-color: #4fc3f7;
-}
-.form-group-material-light-blue-400 input.form-control.focus ~ .material-input:after {
-  background-color: #29b6f6;
-}
-.form-group-material-light-blue-500 input.form-control.focus ~ .material-input:after {
-  background-color: #03a9f4;
-}
-.form-group-material-light-blue-600 input.form-control.focus ~ .material-input:after {
-  background-color: #039be5;
-}
-.form-group-material-light-blue-700 input.form-control.focus ~ .material-input:after {
-  background-color: #0288d1;
-}
-.form-group-material-light-blue-800 input.form-control.focus ~ .material-input:after {
-  background-color: #0277bd;
-}
-.form-group-material-light-blue-900 input.form-control.focus ~ .material-input:after {
-  background-color: #01579b;
-}
-.form-group-material-light-blue-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #80d8ff;
-}
-.form-group-material-light-blue-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #40c4ff;
-}
-.form-group-material-light-blue-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #00b0ff;
-}
-.form-group-material-light-blue-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #0091ea;
-}
-.form-group-material-cyan input.form-control.focus ~ .material-input:after {
-  background-color: #00bcd4;
-}
-.form-group-material-cyan-50 input.form-control.focus ~ .material-input:after {
-  background-color: #e0f7fa;
-}
-.form-group-material-cyan-100 input.form-control.focus ~ .material-input:after {
-  background-color: #b2ebf2;
-}
-.form-group-material-cyan-200 input.form-control.focus ~ .material-input:after {
-  background-color: #80deea;
-}
-.form-group-material-cyan-300 input.form-control.focus ~ .material-input:after {
-  background-color: #4dd0e1;
-}
-.form-group-material-cyan-400 input.form-control.focus ~ .material-input:after {
-  background-color: #26c6da;
-}
-.form-group-material-cyan-500 input.form-control.focus ~ .material-input:after {
-  background-color: #00bcd4;
-}
-.form-group-material-cyan-600 input.form-control.focus ~ .material-input:after {
-  background-color: #00acc1;
-}
-.form-group-material-cyan-700 input.form-control.focus ~ .material-input:after {
-  background-color: #0097a7;
-}
-.form-group-material-cyan-800 input.form-control.focus ~ .material-input:after {
-  background-color: #00838f;
-}
-.form-group-material-cyan-900 input.form-control.focus ~ .material-input:after {
-  background-color: #006064;
-}
-.form-group-material-cyan-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #84ffff;
-}
-.form-group-material-cyan-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #18ffff;
-}
-.form-group-material-cyan-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #00e5ff;
-}
-.form-group-material-cyan-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #00b8d4;
-}
-.form-group-material-teal input.form-control.focus ~ .material-input:after {
-  background-color: #009688;
-}
-.form-group-material-teal-50 input.form-control.focus ~ .material-input:after {
-  background-color: #e0f2f1;
-}
-.form-group-material-teal-100 input.form-control.focus ~ .material-input:after {
-  background-color: #b2dfdb;
-}
-.form-group-material-teal-200 input.form-control.focus ~ .material-input:after {
-  background-color: #80cbc4;
-}
-.form-group-material-teal-300 input.form-control.focus ~ .material-input:after {
-  background-color: #4db6ac;
-}
-.form-group-material-teal-400 input.form-control.focus ~ .material-input:after {
-  background-color: #26a69a;
-}
-.form-group-material-teal-500 input.form-control.focus ~ .material-input:after {
-  background-color: #009688;
-}
-.form-group-material-teal-600 input.form-control.focus ~ .material-input:after {
-  background-color: #00897b;
-}
-.form-group-material-teal-700 input.form-control.focus ~ .material-input:after {
-  background-color: #00796b;
-}
-.form-group-material-teal-800 input.form-control.focus ~ .material-input:after {
-  background-color: #00695c;
-}
-.form-group-material-teal-900 input.form-control.focus ~ .material-input:after {
-  background-color: #004d40;
-}
-.form-group-material-teal-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #a7ffeb;
-}
-.form-group-material-teal-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #64ffda;
-}
-.form-group-material-teal-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #1de9b6;
-}
-.form-group-material-teal-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #00bfa5;
-}
-.form-group-material-green input.form-control.focus ~ .material-input:after {
-  background-color: #4caf50;
-}
-.form-group-material-green-50 input.form-control.focus ~ .material-input:after {
-  background-color: #e8f5e9;
-}
-.form-group-material-green-100 input.form-control.focus ~ .material-input:after {
-  background-color: #c8e6c9;
-}
-.form-group-material-green-200 input.form-control.focus ~ .material-input:after {
-  background-color: #a5d6a7;
-}
-.form-group-material-green-300 input.form-control.focus ~ .material-input:after {
-  background-color: #81c784;
-}
-.form-group-material-green-400 input.form-control.focus ~ .material-input:after {
-  background-color: #66bb6a;
-}
-.form-group-material-green-500 input.form-control.focus ~ .material-input:after {
-  background-color: #4caf50;
-}
-.form-group-material-green-600 input.form-control.focus ~ .material-input:after {
-  background-color: #43a047;
-}
-.form-group-material-green-700 input.form-control.focus ~ .material-input:after {
-  background-color: #388e3c;
-}
-.form-group-material-green-800 input.form-control.focus ~ .material-input:after {
-  background-color: #2e7d32;
-}
-.form-group-material-green-900 input.form-control.focus ~ .material-input:after {
-  background-color: #1b5e20;
-}
-.form-group-material-green-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #b9f6ca;
-}
-.form-group-material-green-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #69f0ae;
-}
-.form-group-material-green-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #00e676;
-}
-.form-group-material-green-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #00c853;
-}
-.form-group-material-light-green input.form-control.focus ~ .material-input:after {
-  background-color: #8bc34a;
-}
-.form-group-material-light-green-50 input.form-control.focus ~ .material-input:after {
-  background-color: #f1f8e9;
-}
-.form-group-material-light-green-100 input.form-control.focus ~ .material-input:after {
-  background-color: #dcedc8;
-}
-.form-group-material-light-green-200 input.form-control.focus ~ .material-input:after {
-  background-color: #c5e1a5;
-}
-.form-group-material-light-green-300 input.form-control.focus ~ .material-input:after {
-  background-color: #aed581;
-}
-.form-group-material-light-green-400 input.form-control.focus ~ .material-input:after {
-  background-color: #9ccc65;
-}
-.form-group-material-light-green-500 input.form-control.focus ~ .material-input:after {
-  background-color: #8bc34a;
-}
-.form-group-material-light-green-600 input.form-control.focus ~ .material-input:after {
-  background-color: #7cb342;
-}
-.form-group-material-light-green-700 input.form-control.focus ~ .material-input:after {
-  background-color: #689f38;
-}
-.form-group-material-light-green-800 input.form-control.focus ~ .material-input:after {
-  background-color: #558b2f;
-}
-.form-group-material-light-green-900 input.form-control.focus ~ .material-input:after {
-  background-color: #33691e;
-}
-.form-group-material-light-green-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #ccff90;
-}
-.form-group-material-light-green-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #b2ff59;
-}
-.form-group-material-light-green-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #76ff03;
-}
-.form-group-material-light-green-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #64dd17;
-}
-.form-group-material-lime input.form-control.focus ~ .material-input:after {
-  background-color: #cddc39;
-}
-.form-group-material-lime-50 input.form-control.focus ~ .material-input:after {
-  background-color: #f9fbe7;
-}
-.form-group-material-lime-100 input.form-control.focus ~ .material-input:after {
-  background-color: #f0f4c3;
-}
-.form-group-material-lime-200 input.form-control.focus ~ .material-input:after {
-  background-color: #e6ee9c;
-}
-.form-group-material-lime-300 input.form-control.focus ~ .material-input:after {
-  background-color: #dce775;
-}
-.form-group-material-lime-400 input.form-control.focus ~ .material-input:after {
-  background-color: #d4e157;
-}
-.form-group-material-lime-500 input.form-control.focus ~ .material-input:after {
-  background-color: #cddc39;
-}
-.form-group-material-lime-600 input.form-control.focus ~ .material-input:after {
-  background-color: #c0ca33;
-}
-.form-group-material-lime-700 input.form-control.focus ~ .material-input:after {
-  background-color: #afb42b;
-}
-.form-group-material-lime-800 input.form-control.focus ~ .material-input:after {
-  background-color: #9e9d24;
-}
-.form-group-material-lime-900 input.form-control.focus ~ .material-input:after {
-  background-color: #827717;
-}
-.form-group-material-lime-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #f4ff81;
-}
-.form-group-material-lime-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #eeff41;
-}
-.form-group-material-lime-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #c6ff00;
-}
-.form-group-material-lime-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #aeea00;
-}
-.form-group-material-yellow input.form-control.focus ~ .material-input:after {
-  background-color: #ffeb3b;
-}
-.form-group-material-yellow-50 input.form-control.focus ~ .material-input:after {
-  background-color: #fffde7;
-}
-.form-group-material-yellow-100 input.form-control.focus ~ .material-input:after {
-  background-color: #fff9c4;
-}
-.form-group-material-yellow-200 input.form-control.focus ~ .material-input:after {
-  background-color: #fff59d;
-}
-.form-group-material-yellow-300 input.form-control.focus ~ .material-input:after {
-  background-color: #fff176;
-}
-.form-group-material-yellow-400 input.form-control.focus ~ .material-input:after {
-  background-color: #ffee58;
-}
-.form-group-material-yellow-500 input.form-control.focus ~ .material-input:after {
-  background-color: #ffeb3b;
-}
-.form-group-material-yellow-600 input.form-control.focus ~ .material-input:after {
-  background-color: #fdd835;
-}
-.form-group-material-yellow-700 input.form-control.focus ~ .material-input:after {
-  background-color: #fbc02d;
-}
-.form-group-material-yellow-800 input.form-control.focus ~ .material-input:after {
-  background-color: #f9a825;
-}
-.form-group-material-yellow-900 input.form-control.focus ~ .material-input:after {
-  background-color: #f57f17;
-}
-.form-group-material-yellow-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #ffff8d;
-}
-.form-group-material-yellow-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #ffff00;
-}
-.form-group-material-yellow-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #ffea00;
-}
-.form-group-material-yellow-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #ffd600;
-}
-.form-group-material-amber input.form-control.focus ~ .material-input:after {
-  background-color: #ffc107;
-}
-.form-group-material-amber-50 input.form-control.focus ~ .material-input:after {
-  background-color: #fff8e1;
-}
-.form-group-material-amber-100 input.form-control.focus ~ .material-input:after {
-  background-color: #ffecb3;
-}
-.form-group-material-amber-200 input.form-control.focus ~ .material-input:after {
-  background-color: #ffe082;
-}
-.form-group-material-amber-300 input.form-control.focus ~ .material-input:after {
-  background-color: #ffd54f;
-}
-.form-group-material-amber-400 input.form-control.focus ~ .material-input:after {
-  background-color: #ffca28;
-}
-.form-group-material-amber-500 input.form-control.focus ~ .material-input:after {
-  background-color: #ffc107;
-}
-.form-group-material-amber-600 input.form-control.focus ~ .material-input:after {
-  background-color: #ffb300;
-}
-.form-group-material-amber-700 input.form-control.focus ~ .material-input:after {
-  background-color: #ffa000;
-}
-.form-group-material-amber-800 input.form-control.focus ~ .material-input:after {
-  background-color: #ff8f00;
-}
-.form-group-material-amber-900 input.form-control.focus ~ .material-input:after {
-  background-color: #ff6f00;
-}
-.form-group-material-amber-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #ffe57f;
-}
-.form-group-material-amber-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #ffd740;
-}
-.form-group-material-amber-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #ffc400;
-}
-.form-group-material-amber-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #ffab00;
-}
-.form-group-material-orange input.form-control.focus ~ .material-input:after {
-  background-color: #ff9800;
-}
-.form-group-material-orange-50 input.form-control.focus ~ .material-input:after {
-  background-color: #fff3e0;
-}
-.form-group-material-orange-100 input.form-control.focus ~ .material-input:after {
-  background-color: #ffe0b2;
-}
-.form-group-material-orange-200 input.form-control.focus ~ .material-input:after {
-  background-color: #ffcc80;
-}
-.form-group-material-orange-300 input.form-control.focus ~ .material-input:after {
-  background-color: #ffb74d;
-}
-.form-group-material-orange-400 input.form-control.focus ~ .material-input:after {
-  background-color: #ffa726;
-}
-.form-group-material-orange-500 input.form-control.focus ~ .material-input:after {
-  background-color: #ff9800;
-}
-.form-group-material-orange-600 input.form-control.focus ~ .material-input:after {
-  background-color: #fb8c00;
-}
-.form-group-material-orange-700 input.form-control.focus ~ .material-input:after {
-  background-color: #f57c00;
-}
-.form-group-material-orange-800 input.form-control.focus ~ .material-input:after {
-  background-color: #ef6c00;
-}
-.form-group-material-orange-900 input.form-control.focus ~ .material-input:after {
-  background-color: #e65100;
-}
-.form-group-material-orange-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #ffd180;
-}
-.form-group-material-orange-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #ffab40;
-}
-.form-group-material-orange-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #ff9100;
-}
-.form-group-material-orange-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #ff6d00;
-}
-.form-group-material-deep-orange input.form-control.focus ~ .material-input:after {
-  background-color: #ff5722;
-}
-.form-group-material-deep-orange-50 input.form-control.focus ~ .material-input:after {
-  background-color: #fbe9e7;
-}
-.form-group-material-deep-orange-100 input.form-control.focus ~ .material-input:after {
-  background-color: #ffccbc;
-}
-.form-group-material-deep-orange-200 input.form-control.focus ~ .material-input:after {
-  background-color: #ffab91;
-}
-.form-group-material-deep-orange-300 input.form-control.focus ~ .material-input:after {
-  background-color: #ff8a65;
-}
-.form-group-material-deep-orange-400 input.form-control.focus ~ .material-input:after {
-  background-color: #ff7043;
-}
-.form-group-material-deep-orange-500 input.form-control.focus ~ .material-input:after {
-  background-color: #ff5722;
-}
-.form-group-material-deep-orange-600 input.form-control.focus ~ .material-input:after {
-  background-color: #f4511e;
-}
-.form-group-material-deep-orange-700 input.form-control.focus ~ .material-input:after {
-  background-color: #e64a19;
-}
-.form-group-material-deep-orange-800 input.form-control.focus ~ .material-input:after {
-  background-color: #d84315;
-}
-.form-group-material-deep-orange-900 input.form-control.focus ~ .material-input:after {
-  background-color: #bf360c;
-}
-.form-group-material-deep-orange-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #ff9e80;
-}
-.form-group-material-deep-orange-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #ff6e40;
-}
-.form-group-material-deep-orange-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #ff3d00;
-}
-.form-group-material-deep-orange-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #dd2c00;
-}
-.form-group-material-brown input.form-control.focus ~ .material-input:after {
-  background-color: #795548;
-}
-.form-group-material-brown-50 input.form-control.focus ~ .material-input:after {
-  background-color: #efebe9;
-}
-.form-group-material-brown-100 input.form-control.focus ~ .material-input:after {
-  background-color: #d7ccc8;
-}
-.form-group-material-brown-200 input.form-control.focus ~ .material-input:after {
-  background-color: #bcaaa4;
-}
-.form-group-material-brown-300 input.form-control.focus ~ .material-input:after {
-  background-color: #a1887f;
-}
-.form-group-material-brown-400 input.form-control.focus ~ .material-input:after {
-  background-color: #8d6e63;
-}
-.form-group-material-brown-500 input.form-control.focus ~ .material-input:after {
-  background-color: #795548;
-}
-.form-group-material-brown-600 input.form-control.focus ~ .material-input:after {
-  background-color: #6d4c41;
-}
-.form-group-material-brown-700 input.form-control.focus ~ .material-input:after {
-  background-color: #5d4037;
-}
-.form-group-material-brown-800 input.form-control.focus ~ .material-input:after {
-  background-color: #4e342e;
-}
-.form-group-material-brown-900 input.form-control.focus ~ .material-input:after {
-  background-color: #3e2723;
-}
-.form-group-material-brown-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #d7ccc8;
-}
-.form-group-material-brown-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #bcaaa4;
-}
-.form-group-material-brown-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #8d6e63;
-}
-.form-group-material-brown-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #5d4037;
-}
-.form-group-material-grey input.form-control.focus ~ .material-input:after {
-  background-color: #9e9e9e;
-}
-.form-group-material-grey-50 input.form-control.focus ~ .material-input:after {
-  background-color: #fafafa;
-}
-.form-group-material-grey-100 input.form-control.focus ~ .material-input:after {
-  background-color: #f5f5f5;
-}
-.form-group-material-grey-200 input.form-control.focus ~ .material-input:after {
-  background-color: #eeeeee;
-}
-.form-group-material-grey-300 input.form-control.focus ~ .material-input:after {
-  background-color: #e0e0e0;
-}
-.form-group-material-grey-400 input.form-control.focus ~ .material-input:after {
-  background-color: #bdbdbd;
-}
-.form-group-material-grey-500 input.form-control.focus ~ .material-input:after {
-  background-color: #9e9e9e;
-}
-.form-group-material-grey-600 input.form-control.focus ~ .material-input:after {
-  background-color: #757575;
-}
-.form-group-material-grey-700 input.form-control.focus ~ .material-input:after {
-  background-color: #616161;
-}
-.form-group-material-grey-800 input.form-control.focus ~ .material-input:after {
-  background-color: #424242;
-}
-.form-group-material-grey-900 input.form-control.focus ~ .material-input:after {
-  background-color: #212121;
-}
-.form-group-material-grey-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #f5f5f5;
-}
-.form-group-material-grey-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #eeeeee;
-}
-.form-group-material-grey-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #bdbdbd;
-}
-.form-group-material-grey-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #616161;
-}
-.form-group-material-blue-grey input.form-control.focus ~ .material-input:after {
-  background-color: #607d8b;
-}
-.form-group-material-blue-grey-50 input.form-control.focus ~ .material-input:after {
-  background-color: #eceff1;
-}
-.form-group-material-blue-grey-100 input.form-control.focus ~ .material-input:after {
-  background-color: #cfd8dc;
-}
-.form-group-material-blue-grey-200 input.form-control.focus ~ .material-input:after {
-  background-color: #b0bec5;
-}
-.form-group-material-blue-grey-300 input.form-control.focus ~ .material-input:after {
-  background-color: #90a4ae;
-}
-.form-group-material-blue-grey-400 input.form-control.focus ~ .material-input:after {
-  background-color: #78909c;
-}
-.form-group-material-blue-grey-500 input.form-control.focus ~ .material-input:after {
-  background-color: #607d8b;
-}
-.form-group-material-blue-grey-600 input.form-control.focus ~ .material-input:after {
-  background-color: #546e7a;
-}
-.form-group-material-blue-grey-700 input.form-control.focus ~ .material-input:after {
-  background-color: #455a64;
-}
-.form-group-material-blue-grey-800 input.form-control.focus ~ .material-input:after {
-  background-color: #37474f;
-}
-.form-group-material-blue-grey-900 input.form-control.focus ~ .material-input:after {
-  background-color: #263238;
-}
-.form-group-material-blue-grey-A100 input.form-control.focus ~ .material-input:after {
-  background-color: #cfd8dc;
-}
-.form-group-material-blue-grey-A200 input.form-control.focus ~ .material-input:after {
-  background-color: #b0bec5;
-}
-.form-group-material-blue-grey-A400 input.form-control.focus ~ .material-input:after {
-  background-color: #78909c;
-}
-.form-group-material-blue-grey-A700 input.form-control.focus ~ .material-input:after {
-  background-color: #455a64;
+.form-group-material-blue-grey-A700 .form-control.focus {
+  background-image: linear-gradient(#455a64, #455a64), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group .control-label,
 .form-group-default .control-label {
@@ -18882,34 +17971,18 @@ select.form-control.focus {
 }
 @-webkit-keyframes input-highlight {
   0% {
-    left: 20%;
-    -webkit-transform: scaleX(20%);
-            transform: scaleX(20%);
-  }
-  99% {
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
-    left: 0;
-    opacity: 1;
+    background-size: 0% 2px, 100% 2px;
   }
   100% {
-    opacity: 0;
+    background-size: 100% 2px, 100% 2px;
   }
 }
 @keyframes input-highlight {
   0% {
-    left: 20%;
-    -webkit-transform: scaleX(20%);
-            transform: scaleX(20%);
-  }
-  99% {
-    -webkit-transform: scaleX(0);
-            transform: scaleX(0);
-    left: 0;
-    opacity: 1;
+    background-size: 0% 2px, 100% 2px;
   }
   100% {
-    opacity: 0;
+    background-size: 100% 2px, 100% 2px;
   }
 }
 .form-control-wrapper input[type=file] {

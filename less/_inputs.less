@@ -8,10 +8,9 @@ fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-con
     border: 0;
     box-shadow: none;
     border-radius: 0;
-    background: transparent;
-    border-bottom: 1px solid #757575;
     &:disabled {
       border-style: dashed;
+      border-bottom: 1px solid #757575;
     }
   }
 }
@@ -24,12 +23,25 @@ select[multiple].form-control {
   }
 }
 
+.form-control {
+  border: 0;
+  background-image: linear-gradient(#D2D2D2, #D2D2D2);
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.form-control:focus, .form-control.focus {
+  outline: none;
+  background-image: linear-gradient(@primary, @primary), linear-gradient(#D2D2D2, #D2D2D2);
+  animation: input-highlight 0.5s forwards;
+  box-shadow: none;
+  background-size: 0% 2px;
+}
+
+
 .form-control-wrapper {
   position: relative;
-
-  .form-control:focus, .form-control.focus {
-    outline: none;
-  }
 
   .floating-label {
     color: #7E7E7E;
@@ -60,46 +72,9 @@ select[multiple].form-control {
   .form-control.empty ~ .floating-label {
     opacity: 1;
   }
-  .material-input:before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0;
-    height: 2px;
-    background-color: @input-default;
-    bottom: -1px;
-    transform: scaleX(0);
-    transition: transform 0s;
-  }
-  .form-control:focus  ~ .material-input:before, .form-control.focus  ~ .material-input:before {
-    transform: scaleX(1);
-    transition: transform 0.2s ease-out;
-  }
-  .material-input:after {
-    content: "";
-    position: absolute;
-    height: 18px;
-    width: 100px;
-    margin-top: -1px;
-    top: 7px;
-    left: 0;
-    pointer-events: none;
-    opacity: 0.9;
-    transform-origin: left;
-  }
-  .input-lg ~ .material-input:after {
-    height: 26px;
-  }
   textarea { resize: none; }
   textarea ~ .form-control-highlight {
     margin-top: -11px;
-  }
-
-  // active state
-  .form-control:focus ~ .material-input:after, .form-control.focus ~ .material-input:after {
-    animation: input-highlight 0.3s ease;
-    animation-fill-mode: forwards;
-    opacity: 0;
   }
 
   // Hints
@@ -120,40 +95,59 @@ select[multiple].form-control {
 
 .form-group {
   &.has-warning {
-    .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
-      background: @input-warning;
+    .form-control {
+      box-shadow: none;
+    }
+    .material-input:focus, .form-control:focus, .form-control.focus {
+      background-image: linear-gradient(@input-warning, @input-warning), linear-gradient(#D2D2D2, #D2D2D2);
+      box-shadow: none;
     }
     .control-label, input.form-control:not(.empty) ~ .floating-label {
       color: @input-warning;
     }
   }
   &.has-error {
-    .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
-      background: @input-danger;
+    .form-control {
+      box-shadow: none;
+    }
+    .material-input:focus, .form-control:focus, .form-control.focus {
+      background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(#D2D2D2, #D2D2D2);
+      box-shadow: none;
     }
     .control-label, input.form-control:not(.empty) ~ .floating-label {
       color: @input-danger;
     }
   }
   &.has-success {
-    .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
-      background: @input-success;
+    .form-control {
+      box-shadow: none;
+    }
+    .material-input:focus, .form-control:focus, .form-control.focus {
+      background-image: linear-gradient(@input-success, @input-success), linear-gradient(#D2D2D2, #D2D2D2);
+      box-shadow: none;
     }
     .control-label, input.form-control:not(.empty) ~ .floating-label {
       color: @input-success;
     }
   }
   &.has-info {
-    .material-input:before, input.form-control:focus ~ .material-input:after, input.form-control.focus ~ .material-input:after {
-      background: @input-info;
+    .form-control {
+      box-shadow: none;
+    }
+    .material-input:focus, .form-control:focus, .form-control.focus {
+      background-image: linear-gradient(@input-info, @input-info), linear-gradient(#D2D2D2, #D2D2D2);
+      box-shadow: none;
     }
     .control-label, input.form-control:not(.empty) ~ .floating-label {
       color: @input-info;
     }
   }
-  .variations(~" .material-input:before", background-color, @input-default);
-  .variations(~" input.form-control:focus ~ .material-input:after", background-color, @input-default);
-  .variations(~" input.form-control.focus ~ .material-input:after", background-color, @input-default);
+  .generic-variations(~" .form-control:focus", @primary, {
+    background-image: linear-gradient(@material-color, @material-color), linear-gradient(#D2D2D2, #D2D2D2);
+  });
+  .generic-variations(~" .form-control.focus", @primary, {
+    background-image: linear-gradient(@material-color, @material-color), linear-gradient(#D2D2D2, #D2D2D2);
+  });
   .variations(~" .control-label", color, @lightbg-text);
   .variations(~" input.form-control:not(.empty) ~ .floating-label", color, @input-default);
 
@@ -188,19 +182,13 @@ select.form-control {
   }
 }
 
-
 @keyframes input-highlight {
   0% {
-    left: 20%;
-    transform: scaleX(20%);
+    background-size: 0% 2px, 100% 2px;
   }
-  99% {
-    transform: scaleX(0);
-    left: 0;
-    opacity: 1;
-  }
+
   100% {
-    opacity: 0;
+    background-size: 100% 2px, 100% 2px;
   }
 }
 
