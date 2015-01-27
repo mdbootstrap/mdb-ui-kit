@@ -25,10 +25,10 @@ select[multiple].form-control {
 
 .form-control {
   border: 0;
-  background-image: linear-gradient(#D2D2D2, #D2D2D2);
-  background-size: 100% 2px;
+  background-image: linear-gradient(@primary, @primary), linear-gradient(#D2D2D2, #D2D2D2);
+  background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center bottom, center calc(~"100% - 1px");
 }
 
 .form-control:focus, .form-control.focus {
@@ -36,7 +36,7 @@ select[multiple].form-control {
   background-image: linear-gradient(@primary, @primary), linear-gradient(#D2D2D2, #D2D2D2);
   animation: input-highlight 0.5s forwards;
   box-shadow: none;
-  background-size: 0% 2px;
+  background-size: 0 2px, 100% 1px;
 }
 
 
@@ -184,11 +184,11 @@ select.form-control {
 
 @keyframes input-highlight {
   0% {
-    background-size: 0% 2px, 100% 2px;
+    background-size: 0 2px, 100% 1px;
   }
 
   100% {
-    background-size: 100% 2px, 100% 2px;
+    background-size: 100% 2px, 100% 1px;
   }
 }
 

@@ -14292,10 +14292,10 @@ select[multiple].form-control.focus {
 }
 .form-control {
   border: 0;
-  background-image: linear-gradient(#d2d2d2, #d2d2d2);
-  background-size: 100% 2px;
+  background-image: linear-gradient(#009587, #009587), linear-gradient(#d2d2d2, #d2d2d2);
+  background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
-  background-position: center bottom;
+  background-position: center bottom, center calc(100% - 1px);
 }
 .form-control:focus,
 .form-control.focus {
@@ -14304,7 +14304,7 @@ select[multiple].form-control.focus {
   -webkit-animation: input-highlight 0.5s forwards;
           animation: input-highlight 0.5s forwards;
   box-shadow: none;
-  background-size: 0% 2px;
+  background-size: 0 2px, 100% 1px;
 }
 .form-control-wrapper {
   position: relative;
@@ -17971,18 +17971,18 @@ select.form-control.focus {
 }
 @-webkit-keyframes input-highlight {
   0% {
-    background-size: 0% 2px, 100% 2px;
+    background-size: 0 2px, 100% 1px;
   }
   100% {
-    background-size: 100% 2px, 100% 2px;
+    background-size: 100% 2px, 100% 1px;
   }
 }
 @keyframes input-highlight {
   0% {
-    background-size: 0% 2px, 100% 2px;
+    background-size: 0 2px, 100% 1px;
   }
   100% {
-    background-size: 100% 2px, 100% 2px;
+    background-size: 100% 2px, 100% 1px;
   }
 }
 .form-control-wrapper input[type=file] {
