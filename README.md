@@ -85,7 +85,7 @@ They can be used by adding the class suffix `-material-color` to the desired ele
 
 Example:
 
-    <button class="btn btn-material-deeppurple">Deep purple button</button>
+    <button class="btn btn-material-deep-purple">Deep purple button</button>
 
 These colors are taken from the Material Design color palette and are reported below:
 
