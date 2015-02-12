@@ -7,13 +7,13 @@
       font-weight: 400;
       cursor: pointer;
     // Hide original checkbox
-    input[type=checkbox]:first-child {
+    input[type=checkbox]:first-of-type {
       opacity: 0;
       width: 0;
       height:0;
     }
     // Switch bg on
-    input[type=checkbox]:first-child:checked + .toggle {
+    input[type=checkbox]:first-of-type:checked + .toggle {
       background-color: rgba(0, 149, 135, 0.5);
       // Handle on
       &:after {
@@ -22,7 +22,7 @@
     }
     // Switch bg off and disabled
     .toggle,
-    input[type=checkbox][disabled]:first-child + .toggle {
+    input[type=checkbox][disabled]:first-of-type + .toggle {
       content: "";
       display: inline-block;
       width: 30px;
@@ -48,20 +48,20 @@
       transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
     }
     // Handle disabled
-    input[type=checkbox][disabled]:first-child + .toggle:after,
-    input[type=checkbox][disabled]:checked:first-child + .toggle:after{
+    input[type=checkbox][disabled]:first-of-type + .toggle:after,
+    input[type=checkbox][disabled]:checked:first-of-type + .toggle:after{
       background-color: #BDBDBD;
     }
     // Ripple on
-    input[type=checkbox]:first-child:checked ~ .toggle:active:after {
+    input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba(0, 149, 135, 0.1);
     }
     // Ripple off and disabled
-    input[type=checkbox]:first-child ~ .toggle:active:after,
-    input[type=checkbox][disabled]:first-child ~ .toggle:active:after {
+    input[type=checkbox]:first-of-type ~ .toggle:active:after,
+    input[type=checkbox][disabled]:first-of-type ~ .toggle:active:after {
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
     }
-    input[type=checkbox]:first-child:checked + .toggle:after {
+    input[type=checkbox]:first-of-type:checked + .toggle:after {
       left: 15px;
     }
   }

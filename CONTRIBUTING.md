@@ -1,6 +1,6 @@
 ## Playground
 
-Use this pen to test and deveop new features of Material Design for Bootstrap:
+Use this pen to test and develop new features of Material Design for Bootstrap:
 
 http://codepen.io/FezVrasta/pen/ihmea
 
