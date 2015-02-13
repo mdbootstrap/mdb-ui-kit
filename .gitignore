@@ -10,3 +10,4 @@ Thumbs.db
 .grunt/
 /bower_components/
 .build*
+/meteor/
