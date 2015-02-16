@@ -35,6 +35,19 @@ module.exports = function(grunt) {
           "dist/css/material-wfont.css": "less/material-wfont.less",
         }
       },
+      materialwoIcons: {
+        options: {
+          paths: ["less"],
+          sourceMap: true,
+          sourceMapRootpath: "/",
+          sourceMapFilename: "dist/css/material-woIcons.css.map",
+          sourceMapURL: "material-woIcons.css.map",
+          outputSourceFiles: true
+        },
+        files: {
+          "dist/css/material-woIcons.css": "less/material-woIcons.less",
+        }
+      },
       ripples: {
         options: {
           paths: ["less"],
@@ -69,6 +82,12 @@ module.exports = function(grunt) {
           "dist/css/material-wfont.min.css": "dist/css/material-wfont.min.css"
         }
       },
+      materialwoIcons: {
+        files: {
+          "dist/css/material-woIcons.css": "dist/css/material-woIcons.css",
+          "dist/css/material-woIcons.min.css": "dist/css/material-woIcons.min.css"
+        }
+      },
       ripples: {
         files: {
           "dist/css/ripples.css": "dist/css/ripples.css",
@@ -86,6 +105,10 @@ module.exports = function(grunt) {
       materialwfont: {
         src: "dist/css/material-wfont.css",
         dest: "dist/css/material-wfont.min.css"
+      },
+      materialwoIcons: {
+        src: "dist/css/material-woIcons.css",
+        dest: "dist/css/material-woIcons.min.css"
       },
       ripples: {
         src: "dist/css/ripples.css",
@@ -244,10 +267,13 @@ module.exports = function(grunt) {
   grunt.registerTask("material:less", [
     "less:material",
     "less:materialwfont",
+    "less:materialwoIcons",
     "csswring:material",
     "csswring:materialwfont",
+    "csswring:materialwoIcons",
     "autoprefixer:material",
-    "autoprefixer:materialwfont"
+    "autoprefixer:materialwfont",
+    "autoprefixer:materialwoIcons"
   ]);
   grunt.registerTask("material:js", [
     "copy:material",
