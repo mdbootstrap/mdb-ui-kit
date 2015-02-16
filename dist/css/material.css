@@ -12309,19 +12309,19 @@ body .jumbotron-material-blue-grey-A700,
   font-weight: 400;
   cursor: pointer;
 }
-.togglebutton label input[type=checkbox]:first-child {
+.togglebutton label input[type=checkbox]:first-of-type {
   opacity: 0;
   width: 0;
   height: 0;
 }
-.togglebutton label input[type=checkbox]:first-child:checked + .toggle {
+.togglebutton label input[type=checkbox]:first-of-type:checked + .toggle {
   background-color: rgba(0, 149, 135, 0.5);
 }
-.togglebutton label input[type=checkbox]:first-child:checked + .toggle:after {
+.togglebutton label input[type=checkbox]:first-of-type:checked + .toggle:after {
   background-color: #009587;
 }
 .togglebutton label .toggle,
-.togglebutton label input[type=checkbox][disabled]:first-child + .toggle {
+.togglebutton label input[type=checkbox][disabled]:first-of-type + .toggle {
   content: "";
   display: inline-block;
   width: 30px;
@@ -12345,18 +12345,18 @@ body .jumbotron-material-blue-grey-A700,
   top: -2px;
   transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
 }
-.togglebutton label input[type=checkbox][disabled]:first-child + .toggle:after,
-.togglebutton label input[type=checkbox][disabled]:checked:first-child + .toggle:after {
+.togglebutton label input[type=checkbox][disabled]:first-of-type + .toggle:after,
+.togglebutton label input[type=checkbox][disabled]:checked:first-of-type + .toggle:after {
   background-color: #BDBDBD;
 }
-.togglebutton label input[type=checkbox]:first-child:checked ~ .toggle:active:after {
+.togglebutton label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 149, 135, 0.1);
 }
-.togglebutton label input[type=checkbox]:first-child ~ .toggle:active:after,
-.togglebutton label input[type=checkbox][disabled]:first-child ~ .toggle:active:after {
+.togglebutton label input[type=checkbox]:first-of-type ~ .toggle:active:after,
+.togglebutton label input[type=checkbox][disabled]:first-of-type ~ .toggle:active:after {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
 }
-.togglebutton label input[type=checkbox]:first-child:checked + .toggle:after {
+.togglebutton label input[type=checkbox]:first-of-type:checked + .toggle:after {
   left: 15px;
 }
 .form-horizontal .radio {
