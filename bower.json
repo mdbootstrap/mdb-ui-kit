@@ -43,6 +43,6 @@
   ],
   "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md",
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": ">=1.9.1"
   }
 }
