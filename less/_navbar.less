@@ -167,6 +167,23 @@
         .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
             color: @text-color;
         }
+
+        .dropdown-menu {
+            li > a {
+                &:hover,
+                &:focus {
+                    color: @material-color;
+                }
+            }
+            .active > a {
+                &:hover,
+                &:focus {
+                    color: @text-color;
+                }
+                background-color: @material-color;
+                color: @text-color;
+            }
+        }
     });
 
     &-inverse {
