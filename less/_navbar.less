@@ -1,191 +1,192 @@
 .navbar {
-  background-color: @primary;
-  border: 0;
-  border-radius: 0;
-
-  .navbar-brand {
-    position: relative;
-    height: 60px;
-    line-height: 30px;
-    color: inherit;
-    &:hover,
-    &:focus {
-      color: inherit;
-      background-color: transparent;
-    }
-  }
-
-  .navbar-text {
-    color: inherit;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .navbar-nav {
-    > li > a {
-      color: inherit;
-      padding-top: 20px;
-      padding-bottom: 20px;
-
-      &:hover,
-      &:focus {
-        color: inherit;
-        background-color: transparent;
-      }
-    }
-    > .active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: inherit;
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-    }
-    > .disabled > a {
-      &,
-      &:hover,
-      &:focus {
-        color: inherit;
-        background-color: transparent;
-        opacity: 0.9;
-      }
-    }
-  }
-
-  // Darken the responsive nav toggle
-  .navbar-toggle {
+    background-color: @primary;
     border: 0;
-    &:hover,
-    &:focus {
-      background-color: transparent;
-    }
-    .icon-bar {
-      background-color: inherit;
-      border: 1px solid;
-    }
-  }
-
-  .navbar-default .navbar-toggle,
-  .navbar-inverse .navbar-toggle {
-    border-color: transparent;
-  }
-
-  .navbar-collapse,
-  .navbar-form {
-    border-color: rgba(0,0,0,0.1);
-  }
-
-  // Dropdowns
-  .navbar-nav {
-    > .open > a {
-      &,
-      &:hover,
-      &:focus {
-        background-color: transparent;
-        color: inherit;
-      }
-    }
-
-    @media (max-width: 767px) {
-      // Dropdowns get custom display
-      .open .dropdown-menu {
-        > .dropdown-header {
-          border: 0;
-          color: inherit;
-        }
-        .divider {
-          border-bottom: 1px solid;
-          opacity: 0.08;
-        }
-        > li > a {
-          color: inherit;
-          &:hover,
-          &:focus {
-            color: inherit;
-            background-color: transparent;
-          }
-        }
-        > .active > a {
-          &,
-          &:hover,
-          &:focus {
-            color: inherit;
-            background-color: transparent;
-          }
-        }
-        > .disabled > a {
-          &,
-          &:hover,
-          &:focus {
-            color: inherit;
-            background-color: transparent;
-          }
-        }
-      }
-    }
-  }
-
-  .navbar-link {
-    color: inherit;
-    &:hover {
-      color: inherit;
-    }
-  }
-
-  .btn-link {
-    color: inherit;
-    &:hover,
-    &:focus {
-      color: inherit;
-    }
-    &[disabled],
-    fieldset[disabled] & {
-      &:hover,
-      &:focus {
-        color: inherit;
-      }
-    }
-  }
-
-  .navbar-form {
-    margin-top: 16px;
-    .form-control-wrapper .form-control, .form-control {
-      border-color: inherit;
-      color: inherit;
-    }
-    .form-control-wrapper {
-      .material-input:before, input:focus ~ .material-input:after {
-        background-color: inherit;
-      }
-    }
-  }
-
-  .generic-variations(~".navbar", @primary, {
-    background-color: @material-color;
-    color: @text-color;
-    // deeply defined to override welljumbo class without !impotant need
-    .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
-      color: @text-color;
-    }
-  });
-
-  &-inverse {
-    background-color: @indigo;
-  }
-
-  @media (max-width: 1199px) {
+    border-radius: 0;
 
     .navbar-brand {
-      height: 50px;
-      padding: 10px 15px;
-    }
-    .navbar-form {
-      margin-top: 10px;
+        position: relative;
+        height: 60px;
+        line-height: 30px;
+        color: inherit;
+        &:hover,
+        &:focus {
+            color: inherit;
+            background-color: transparent;
+        }
     }
 
-    .navbar-nav > li > a {
-      padding-top: 15px;
-      padding-bottom: 15px;
+    .navbar-text {
+        color: inherit;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
-  }
+
+    .navbar-nav {
+        > li > a {
+            color: inherit;
+            padding-top: 20px;
+            padding-bottom: 20px;
+
+            &:hover,
+            &:focus {
+                color: inherit;
+                background-color: transparent;
+            }
+        }
+        > .active > a {
+            &,
+            &:hover,
+            &:focus {
+                color: inherit;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+        > .disabled > a {
+            &,
+            &:hover,
+            &:focus {
+                color: inherit;
+                background-color: transparent;
+                opacity: 0.9;
+            }
+        }
+    }
+
+    // Darken the responsive nav toggle
+    .navbar-toggle {
+        border: 0;
+        &:hover,
+        &:focus {
+            background-color: transparent;
+        }
+        .icon-bar {
+            background-color: inherit;
+            border: 1px solid;
+        }
+    }
+
+    .navbar-default .navbar-toggle,
+    .navbar-inverse .navbar-toggle {
+        border-color: transparent;
+    }
+
+    .navbar-collapse,
+    .navbar-form {
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    // Dropdowns
+    .navbar-nav {
+        > .open > a {
+            &,
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                color: inherit;
+            }
+        }
+
+        @media (max-width: 767px) {
+            // Dropdowns get custom display
+            .open .dropdown-menu {
+                > .dropdown-header {
+                    border: 0;
+                    color: inherit;
+                }
+                .divider {
+                    border-bottom: 1px solid;
+                    opacity: 0.08;
+                }
+                > li > a {
+                    color: inherit;
+                    &:hover,
+                    &:focus {
+                        color: inherit;
+                        background-color: transparent;
+                    }
+                }
+                > .active > a {
+                    &,
+                    &:hover,
+                    &:focus {
+                        color: inherit;
+                        background-color: transparent;
+                    }
+                }
+                > .disabled > a {
+                    &,
+                    &:hover,
+                    &:focus {
+                        color: inherit;
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-link {
+        color: inherit;
+        &:hover {
+            color: inherit;
+        }
+    }
+
+    .btn-link {
+        color: inherit;
+        &:hover,
+        &:focus {
+            color: inherit;
+        }
+        &[disabled],
+        fieldset[disabled] & {
+            &:hover,
+            &:focus {
+                color: inherit;
+            }
+        }
+    }
+
+    .navbar-form {
+        margin-top: 16px;
+        .form-control-wrapper .form-control, .form-control {
+            border-color: inherit;
+            color: inherit;
+        }
+        .form-control-wrapper {
+            .material-input:before, input:focus ~ .material-input:after {
+                background-color: inherit;
+            }
+        }
+    }
+
+    .generic-variations(~".navbar", @primary, {
+        background-color: @material-color;
+        color: @text-color;
+        // deeply defined to override welljumbo class without !impotant need
+        .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
+            color: @text-color;
+        }
+    });
+
+    &-inverse {
+        background-color: @indigo;
+    }
+
+    @media (max-width: 1199px) {
+
+        .navbar-brand {
+            height: 50px;
+            padding: 10px 15px;
+        }
+
+        .navbar-form {
+            margin-top: 10px;
+        }
+
+        .navbar-nav > li > a {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
 }

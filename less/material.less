@@ -5,27 +5,26 @@
 @import "_shadows.less";
 
 body {
-  background-color: #EEEEEE;
-  &.inverse {
-    background: #333333;
-    &, .form-control {
-      color: @darkbg-text;
+    background-color: #EEEEEE;
+    &.inverse {
+        background: #333333;
+        &, .form-control {
+            color: @darkbg-text;
+        }
     }
-  }
 }
-
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 300;
+    font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
 }
 
-h5, h6{
-  font-weight: 400;
+h5, h6 {
+    font-weight: 400;
 }
 
 a, a:hover, a:focus {
-  color: @primary;
+    color: @primary;
 }
 
 // Well and Jumbotrons
@@ -47,7 +46,7 @@ a, a:hover, a:focus {
 @import "_inputs.less";
 
 legend {
-  border-bottom: 0;
+    border-bottom: 0;
 }
 
 // Lists
@@ -57,27 +56,27 @@ legend {
 @import "_navbar.less";
 
 .dropdown-menu {
-  border: 0;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  .divider {
-    background-color: rgba(229, 229, 229, 0.12);
-  }
-  li {
-    overflow: hidden;
-    position: relative;
-    a:hover {
-      background-color: transparent;
-      color: @primary;
+    border: 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    .divider {
+        background-color: rgba(229, 229, 229, 0.12);
     }
-  }
-  .variations(~" li a:hover", color, @primary);
+    li {
+        overflow: hidden;
+        position: relative;
+        a:hover {
+            background-color: transparent;
+            color: @primary;
+        }
+    }
+    .variations(~" li a:hover", color, @primary);
 }
 
 // Active state
 .dropdown-menu {
-  .variations(~" > .active > a", background-color, @primary);
-  .variations(~" > .active > a:hover", background-color, @primary);
-  .variations(~" > .active > a:focus", background-color, @primary);
+    .variations(~" > .active > a", background-color, @primary);
+    .variations(~" > .active > a:hover", background-color, @primary);
+    .variations(~" > .active > a:focus", background-color, @primary);
 }
 
 // Alerts
@@ -88,19 +87,23 @@ legend {
 
 // Typography
 .text-warning {
-  color: @btn-warning;
+    color: @btn-warning;
 }
+
 .text-primary {
-  color: @btn-primary;
+    color: @btn-primary;
 }
+
 .text-danger {
-  color: @btn-danger;
+    color: @btn-danger;
 }
+
 .text-success {
-  color: @btn-success;
+    color: @btn-success;
 }
+
 .text-info {
-  color: @btn-info;
+    color: @btn-info;
 }
 
 @import "_tabs.less";
@@ -121,13 +124,12 @@ legend {
 
 // Prevent highlight on mobile
 * {
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-tap-highlight-color: transparent;
-  &:focus {
-    outline: 0;
-  }
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-tap-highlight-color: transparent;
+    &:focus {
+        outline: 0;
+    }
 }
-
 
 // External plugins
 @import "_plugin-snackbarjs.less";
