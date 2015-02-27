@@ -1,16 +1,23 @@
 .alert {
     border: 0px;
     border-radius: 0;
-    a, .alert-link {
-        color: #FFFFFF;
-    }
-    .variations(~"", background-color, #FFFFFF);
+
+    .generic-variations(~"", @darkbg-text, {
+        background-color: @material-color;
+        color: @text-color;
+
+        a, .alert-link {
+            color: @text-color;
+        }
+    });
+
     &-info, &-danger, &-warning, &-success {
-        color: #FFFFFF;
+        color: @darkbg-text;
     }
+
     &-default {
         a, .alert-link {
-            color: #000000;
+            color: @lightbg-text;
         }
     }
 }
