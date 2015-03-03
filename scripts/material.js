@@ -1,6 +1,17 @@
 /* globals jQuery */
 
-(function($) {
+(function (factory) {
+    if (typeof define === "function" && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(["jquery"], factory);
+    } else if (typeof exports === "object") {
+        // Node/CommonJS
+        module.exports = factory(require("jquery"));
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function($) {
   // Selector to select only not already processed elements
   $.expr[":"].notmdproc = function(obj){
     if ($(obj).data("mdproc")) {
@@ -223,4 +234,4 @@
     }
   };
 
-})(jQuery);
+}));

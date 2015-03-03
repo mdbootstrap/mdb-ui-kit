@@ -1,0 +1,22 @@
+{
+  "name": "bootstrap-material-ripples",
+  "version": "0.2.0",
+  "description": "Material Design for Bootstrap 3 (Ripples.js component)",
+  "main": "../js/ripples",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FezVrasta/bootstrap-material-design.git"
+  },
+  "author": {
+    "name": "Federico Zivolo"
+  },
+  "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/FezVrasta/bootstrap-material-design/issues"
+  },
+  "homepage": "https://github.com/FezVrasta/bootstrap-material-design",
+  "devDependencies": {}
+}

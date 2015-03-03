@@ -189,3 +189,18 @@ Read more about [selectize.js](http://brianreavis.github.io/selectize.js/).
 ## Compatibility
 
 Currently, Material Design for Bootstrap supports Google Chrome (tested v37+), Mozilla Firefox (tested 30+), and Internet Explorer (tested 11+). Mobile browsers are not currently tested but they may work.
+
+### Browserify
+This library is [CommonJS](http://www.commonjs.org/) compatible, so you can use it this way:
+
+```javascript
+var jquery = require('jquery');
+require('bootstrap');
+require('bootstrap-material');
+require('bootstrap-material-ripples'); // Optional
+
+console.log('Is Bootstrap loaded?');
+console.log(typeof jquery().modal === 'function');
+console.log('Is Bootstrap Material loaded?');
+console.log(typeof jquery.material === 'object');
+```

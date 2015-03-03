@@ -103,6 +103,10 @@ module.exports = function(grunt) {
         src: "scripts/ripples.js",
         dest: "dist/js/ripples.js"
       },
+      "ripples-npm": {
+        src: "scripts/ripples.js",
+        dest: "dist/bootstrap-material-ripples/ripples.js"
+      },
       fonts: {
         expand: true,
         cwd: "fonts/",
@@ -265,6 +269,7 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask("ripples:js", [
     "copy:ripples",
+    "copy:ripples-npm",
     "uglify:ripples"
   ]);
 
