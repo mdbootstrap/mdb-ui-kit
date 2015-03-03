@@ -1,7 +1,18 @@
 /* Copyright 2014+, Federico Zivolo, LICENSE at https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md */
 /* globals jQuery, navigator */
 
-(function($, window, document, undefined) {
+(function (factory) {
+    if (typeof define === "function" && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(["jquery"], factory);
+    } else if (typeof exports === "object") {
+        // Node/CommonJS
+        module.exports = factory(require("jquery"));
+    } else {
+        // Browser globals
+        factory(jQuery, window, document);
+    }
+}(function($, window, document, undefined) {
 
   "use strict";
 
@@ -321,4 +332,4 @@
     });
   };
 
-})(jQuery, window, document);
+}));

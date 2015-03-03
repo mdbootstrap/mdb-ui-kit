@@ -2,7 +2,7 @@
   "name": "bootstrap-material",
   "version": "0.2.0",
   "description": "Material Design for Bootstrap 3",
-  "main": "index.js",
+  "main": "dist/js/material",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

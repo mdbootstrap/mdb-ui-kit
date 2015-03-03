@@ -1,0 +1,1 @@
+Ripples.js library of the Bootstrap theme "Material Design". Please, visit [the repository](https://github.com/FezVrasta/bootstrap-material-design) to know more about it.
