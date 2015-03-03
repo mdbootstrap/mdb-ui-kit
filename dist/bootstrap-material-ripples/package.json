@@ -2,7 +2,7 @@
   "name": "bootstrap-material-ripples",
   "version": "0.2.0",
   "description": "Material Design for Bootstrap 3 (Ripples.js component)",
-  "main": "../js/ripples",
+  "main": "ripples",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
