@@ -14259,15 +14259,15 @@ fieldset[disabled] .form-control.focus,
   box-shadow: none;
   border-radius: 0;
 }
-fieldset[disabled] .form-control:not(textarea):not(select),
-.form-control-wrapper .form-control:not(textarea):not(select),
-.form-control:not(textarea):not(select),
-fieldset[disabled] .form-control:focus:not(textarea):not(select),
-.form-control-wrapper .form-control:focus:not(textarea):not(select),
-.form-control:focus:not(textarea):not(select),
-fieldset[disabled] .form-control.focus:not(textarea):not(select),
-.form-control-wrapper .form-control.focus:not(textarea):not(select),
-.form-control.focus:not(textarea):not(select) {
+fieldset[disabled] .form-control:not(textarea),
+.form-control-wrapper .form-control:not(textarea),
+.form-control:not(textarea),
+fieldset[disabled] .form-control:focus:not(textarea),
+.form-control-wrapper .form-control:focus:not(textarea),
+.form-control:focus:not(textarea),
+fieldset[disabled] .form-control.focus:not(textarea),
+.form-control-wrapper .form-control.focus:not(textarea),
+.form-control.focus:not(textarea) {
   height: 28px;
 }
 fieldset[disabled] .form-control:disabled,
@@ -14281,9 +14281,6 @@ fieldset[disabled] .form-control.focus:disabled,
 .form-control.focus:disabled {
   border-style: dashed;
   border-bottom: 1px solid #757575;
-}
-select.form-control {
-  height: 23px;
 }
 select[multiple].form-control,
 select[multiple].form-control:focus,
