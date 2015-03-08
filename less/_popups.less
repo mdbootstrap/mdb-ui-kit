@@ -1,25 +1,19 @@
 .popover, .tooltip-inner {
-    background: #323232;
-    color: #FFF;
-    border-radius: 2px;
-
+  color: #ececec;
+  font-weight: bold;
+  line-height: 1em;
+  background: rgba(70,70,70,.9);
+  border: 1px solid rgba(70,70,70,.9);
+  border-radius: 2px;
+  .shadow-z-1();
 }
 
 .tooltip, .tooltip.in {
-    opacity: 1;
+  opacity: 1;
 }
 
 .popover, .tooltip {
-    &.left .arrow:after, &.left .tooltip-arrow {
-        border-left-color: #323232;
-    }
-    &.right .arrow:after, &.right .tooltip-arrow {
-        border-right-color: #323232;
-    }
-    &.top .arrow:after, &.top .tooltip-arrow {
-        border-top-color: #323232;
-    }
-    &.bottom .arrow:after, &.bottom .tooltip-arrow {
-        border-bottom-color: #323232;
-    }
+  .arrow, .tooltip-arrow {
+    display: none;
+  }
 }
