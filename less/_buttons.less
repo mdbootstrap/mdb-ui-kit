@@ -18,10 +18,31 @@
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
 
+
   .variations(~".btn-flat:not(.btn-link)", color, @lightbg-text);
 
   .background-variations(~":not(.btn-link):not(.btn-flat)", @btn-default);
 
+  // BTN hover effect
+  .generic-variations(~":hover:not(.btn-link):not(.btn-flat)", @btn-default, {
+    background-color: contrast(@material-color, darken(@material-color, 4%), lighten(@material-color, 4%), @contrast-factor);
+  });
+  // BTN active effect
+  .generic-variations(~":active:not(.btn-link):not(.btn-flat)", @btn-default, {
+    background-color: contrast(@material-color, darken(@material-color, 6%), lighten(@material-color, 6%), @contrast-factor);
+  });
+  // BTN .active effect
+  .generic-variations(~".active:not(.btn-link):not(.btn-flat)", @btn-default, {
+    background-color: contrast(@material-color, darken(@material-color, 6%), lighten(@material-color, 6%), @contrast-factor);
+  });
+  // BTN flat hover effect
+  .generic-variations(~".btn-flat:hover:not(.btn-ink)", @btn-default, {
+    background-color: fade(@material-color, 20%);
+  });
+
+}
+
+.btn {
   &.btn-flat {
     background: none;
     box-shadow: none;
