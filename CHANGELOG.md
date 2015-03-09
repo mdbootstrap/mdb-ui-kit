@@ -11,7 +11,8 @@
 - Adjusted padding on dialog(modal) to be more inline with standards (thanks @GradyD)
 - Added jQuery 1.9.1 and Bootstrap 3.0 as dependencies (thanks @GradyD)
 - fixed #468 (thanks @MatrixZ)
-
+- Added :hover, :focus, :active and .active states on buttons
+- Added color variations on toggles
 
 ## v 0.2.1
 
