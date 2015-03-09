@@ -2909,6 +2909,346 @@ body .jumbotron-material-blue-grey,
   background-color: #607d8b;
   color: rgba(255, 255, 255, 0.84);
 }
+.btn:hover:not(.btn-link):not(.btn-flat),
+.btn-default:hover:not(.btn-link):not(.btn-flat) {
+  background-color: rgba(10, 10, 10, 0);
+}
+.btn-black:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #0a0a0a;
+}
+.btn-white:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #f5f5f5;
+}
+.btn-inverse:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #495bc0;
+}
+.btn-primary:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #00a999;
+}
+.btn-success:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #11b062;
+}
+.btn-info:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #0fb2fc;
+}
+.btn-warning:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #ff6736;
+}
+.btn-danger:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #f55549;
+}
+.btn-material-red:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #f55549;
+}
+.btn-material-pink:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #eb3170;
+}
+.btn-material-purple:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #ab2bc1;
+}
+.btn-material-deep-purple:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #7142c3;
+}
+.btn-material-indigo:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #495bc0;
+}
+.btn-material-blue:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #349ff4;
+}
+.btn-material-light-blue:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #0fb2fc;
+}
+.btn-material-cyan:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #00aac0;
+}
+.btn-material-teal:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #00aa9a;
+}
+.btn-material-green:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #59b75c;
+}
+.btn-material-light-green:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #81bb3e;
+}
+.btn-material-lime:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #c9d928;
+}
+.btn-material-yellow:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #ffe927;
+}
+.btn-material-amber:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #f2b500;
+}
+.btn-material-orange:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #eb8c00;
+}
+.btn-material-deep-orange:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #ff6736;
+}
+.btn-material-brown:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #865e50;
+}
+.btn-material-grey:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #a8a8a8;
+}
+.btn-material-blue-grey:hover:not(.btn-link):not(.btn-flat) {
+  background-color: #688897;
+}
+.btn:active:not(.btn-link):not(.btn-flat),
+.btn-default:active:not(.btn-link):not(.btn-flat) {
+  background-color: rgba(15, 15, 15, 0);
+}
+.btn-black:active:not(.btn-link):not(.btn-flat) {
+  background-color: #0f0f0f;
+}
+.btn-white:active:not(.btn-link):not(.btn-flat) {
+  background-color: #f0f0f0;
+}
+.btn-inverse:active:not(.btn-link):not(.btn-flat) {
+  background-color: #5062c2;
+}
+.btn-primary:active:not(.btn-link):not(.btn-flat) {
+  background-color: #00b4a3;
+}
+.btn-success:active:not(.btn-link):not(.btn-flat) {
+  background-color: #12b968;
+}
+.btn-info:active:not(.btn-link):not(.btn-flat) {
+  background-color: #19b6fc;
+}
+.btn-warning:active:not(.btn-link):not(.btn-flat) {
+  background-color: #ff6e41;
+}
+.btn-danger:active:not(.btn-link):not(.btn-flat) {
+  background-color: #f65e53;
+}
+.btn-material-red:active:not(.btn-link):not(.btn-flat) {
+  background-color: #f65e53;
+}
+.btn-material-pink:active:not(.btn-link):not(.btn-flat) {
+  background-color: #ec3a76;
+}
+.btn-material-purple:active:not(.btn-link):not(.btn-flat) {
+  background-color: #b22dc9;
+}
+.btn-material-deep-purple:active:not(.btn-link):not(.btn-flat) {
+  background-color: #764ac6;
+}
+.btn-material-indigo:active:not(.btn-link):not(.btn-flat) {
+  background-color: #5062c2;
+}
+.btn-material-blue:active:not(.btn-link):not(.btn-flat) {
+  background-color: #3ea4f5;
+}
+.btn-material-light-blue:active:not(.btn-link):not(.btn-flat) {
+  background-color: #19b6fc;
+}
+.btn-material-cyan:active:not(.btn-link):not(.btn-flat) {
+  background-color: #00a1b5;
+}
+.btn-material-teal:active:not(.btn-link):not(.btn-flat) {
+  background-color: #00b5a4;
+}
+.btn-material-green:active:not(.btn-link):not(.btn-flat) {
+  background-color: #60ba63;
+}
+.btn-material-light-green:active:not(.btn-link):not(.btn-flat) {
+  background-color: #7cb33b;
+}
+.btn-material-lime:active:not(.btn-link):not(.btn-flat) {
+  background-color: #c2d125;
+}
+.btn-material-yellow:active:not(.btn-link):not(.btn-flat) {
+  background-color: #ffe81c;
+}
+.btn-material-amber:active:not(.btn-link):not(.btn-flat) {
+  background-color: #e7ae00;
+}
+.btn-material-orange:active:not(.btn-link):not(.btn-flat) {
+  background-color: #e08600;
+}
+.btn-material-deep-orange:active:not(.btn-link):not(.btn-flat) {
+  background-color: #ff6e41;
+}
+.btn-material-brown:active:not(.btn-link):not(.btn-flat) {
+  background-color: #8c6253;
+}
+.btn-material-grey:active:not(.btn-link):not(.btn-flat) {
+  background-color: #adadad;
+}
+.btn-material-blue-grey:active:not(.btn-link):not(.btn-flat) {
+  background-color: #6e8d9b;
+}
+.btn.active:not(.btn-link):not(.btn-flat),
+.btn-default.active:not(.btn-link):not(.btn-flat) {
+  background-color: rgba(15, 15, 15, 0);
+}
+.btn-black.active:not(.btn-link):not(.btn-flat) {
+  background-color: #0f0f0f;
+}
+.btn-white.active:not(.btn-link):not(.btn-flat) {
+  background-color: #f0f0f0;
+}
+.btn-inverse.active:not(.btn-link):not(.btn-flat) {
+  background-color: #5062c2;
+}
+.btn-primary.active:not(.btn-link):not(.btn-flat) {
+  background-color: #00b4a3;
+}
+.btn-success.active:not(.btn-link):not(.btn-flat) {
+  background-color: #12b968;
+}
+.btn-info.active:not(.btn-link):not(.btn-flat) {
+  background-color: #19b6fc;
+}
+.btn-warning.active:not(.btn-link):not(.btn-flat) {
+  background-color: #ff6e41;
+}
+.btn-danger.active:not(.btn-link):not(.btn-flat) {
+  background-color: #f65e53;
+}
+.btn-material-red.active:not(.btn-link):not(.btn-flat) {
+  background-color: #f65e53;
+}
+.btn-material-pink.active:not(.btn-link):not(.btn-flat) {
+  background-color: #ec3a76;
+}
+.btn-material-purple.active:not(.btn-link):not(.btn-flat) {
+  background-color: #b22dc9;
+}
+.btn-material-deep-purple.active:not(.btn-link):not(.btn-flat) {
+  background-color: #764ac6;
+}
+.btn-material-indigo.active:not(.btn-link):not(.btn-flat) {
+  background-color: #5062c2;
+}
+.btn-material-blue.active:not(.btn-link):not(.btn-flat) {
+  background-color: #3ea4f5;
+}
+.btn-material-light-blue.active:not(.btn-link):not(.btn-flat) {
+  background-color: #19b6fc;
+}
+.btn-material-cyan.active:not(.btn-link):not(.btn-flat) {
+  background-color: #00a1b5;
+}
+.btn-material-teal.active:not(.btn-link):not(.btn-flat) {
+  background-color: #00b5a4;
+}
+.btn-material-green.active:not(.btn-link):not(.btn-flat) {
+  background-color: #60ba63;
+}
+.btn-material-light-green.active:not(.btn-link):not(.btn-flat) {
+  background-color: #7cb33b;
+}
+.btn-material-lime.active:not(.btn-link):not(.btn-flat) {
+  background-color: #c2d125;
+}
+.btn-material-yellow.active:not(.btn-link):not(.btn-flat) {
+  background-color: #ffe81c;
+}
+.btn-material-amber.active:not(.btn-link):not(.btn-flat) {
+  background-color: #e7ae00;
+}
+.btn-material-orange.active:not(.btn-link):not(.btn-flat) {
+  background-color: #e08600;
+}
+.btn-material-deep-orange.active:not(.btn-link):not(.btn-flat) {
+  background-color: #ff6e41;
+}
+.btn-material-brown.active:not(.btn-link):not(.btn-flat) {
+  background-color: #8c6253;
+}
+.btn-material-grey.active:not(.btn-link):not(.btn-flat) {
+  background-color: #adadad;
+}
+.btn-material-blue-grey.active:not(.btn-link):not(.btn-flat) {
+  background-color: #6e8d9b;
+}
+.btn.btn-flat:hover:not(.btn-ink),
+.btn-default.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.btn-black.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.btn-white.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.btn-inverse.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(63, 81, 181, 0.2);
+}
+.btn-primary.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(0, 149, 135, 0.2);
+}
+.btn-success.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(15, 157, 88, 0.2);
+}
+.btn-info.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(3, 169, 244, 0.2);
+}
+.btn-warning.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(255, 87, 34, 0.2);
+}
+.btn-danger.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(244, 67, 54, 0.2);
+}
+.btn-material-red.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(244, 67, 54, 0.2);
+}
+.btn-material-pink.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(233, 30, 99, 0.2);
+}
+.btn-material-purple.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(156, 39, 176, 0.2);
+}
+.btn-material-deep-purple.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(103, 58, 183, 0.2);
+}
+.btn-material-indigo.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(63, 81, 181, 0.2);
+}
+.btn-material-blue.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(33, 150, 243, 0.2);
+}
+.btn-material-light-blue.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(3, 169, 244, 0.2);
+}
+.btn-material-cyan.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(0, 188, 212, 0.2);
+}
+.btn-material-teal.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(0, 150, 136, 0.2);
+}
+.btn-material-green.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(76, 175, 80, 0.2);
+}
+.btn-material-light-green.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(139, 195, 74, 0.2);
+}
+.btn-material-lime.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(205, 220, 57, 0.2);
+}
+.btn-material-yellow.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(255, 235, 59, 0.2);
+}
+.btn-material-amber.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(255, 193, 7, 0.2);
+}
+.btn-material-orange.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(255, 152, 0, 0.2);
+}
+.btn-material-deep-orange.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(255, 87, 34, 0.2);
+}
+.btn-material-brown.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(121, 85, 72, 0.2);
+}
+.btn-material-grey.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(158, 158, 158, 0.2);
+}
+.btn-material-blue-grey.btn-flat:hover:not(.btn-ink) {
+  background-color: rgba(96, 125, 139, 0.2);
+}
 .btn.btn-flat {
   background: none;
   box-shadow: none;
@@ -3777,7 +4117,9 @@ body .jumbotron-material-blue-grey,
   vertical-align: middle;
 }
 .togglebutton,
-.togglebutton * {
+.togglebutton label,
+.togglebutton input,
+.togglebutton .toggle {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -3791,12 +4133,6 @@ body .jumbotron-material-blue-grey,
   opacity: 0;
   width: 0;
   height: 0;
-}
-.togglebutton label input[type=checkbox]:first-of-type:checked + .toggle {
-  background-color: rgba(0, 149, 135, 0.5);
-}
-.togglebutton label input[type=checkbox]:first-of-type:checked + .toggle:after {
-  background-color: #009587;
 }
 .togglebutton label .toggle,
 .togglebutton label input[type=checkbox][disabled]:first-of-type + .toggle {
@@ -3836,6 +4172,176 @@ body .jumbotron-material-blue-grey,
 }
 .togglebutton label input[type=checkbox]:first-of-type:checked + .toggle:after {
   left: 15px;
+}
+.togglebutton label input[type=checkbox]:first-of-type:checked + .toggle,
+.togglebutton-default label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(0, 149, 135, 0.5);
+}
+.togglebutton-black label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.togglebutton-white label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.togglebutton-inverse label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(63, 81, 181, 0.5);
+}
+.togglebutton-primary label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(0, 149, 135, 0.5);
+}
+.togglebutton-success label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(15, 157, 88, 0.5);
+}
+.togglebutton-info label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(3, 169, 244, 0.5);
+}
+.togglebutton-warning label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(255, 87, 34, 0.5);
+}
+.togglebutton-danger label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(244, 67, 54, 0.5);
+}
+.togglebutton-material-red label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(244, 67, 54, 0.5);
+}
+.togglebutton-material-pink label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(233, 30, 99, 0.5);
+}
+.togglebutton-material-purple label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(156, 39, 176, 0.5);
+}
+.togglebutton-material-deep-purple label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(103, 58, 183, 0.5);
+}
+.togglebutton-material-indigo label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(63, 81, 181, 0.5);
+}
+.togglebutton-material-blue label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(33, 150, 243, 0.5);
+}
+.togglebutton-material-light-blue label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(3, 169, 244, 0.5);
+}
+.togglebutton-material-cyan label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(0, 188, 212, 0.5);
+}
+.togglebutton-material-teal label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(0, 150, 136, 0.5);
+}
+.togglebutton-material-green label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(76, 175, 80, 0.5);
+}
+.togglebutton-material-light-green label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(139, 195, 74, 0.5);
+}
+.togglebutton-material-lime label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(205, 220, 57, 0.5);
+}
+.togglebutton-material-yellow label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(255, 235, 59, 0.5);
+}
+.togglebutton-material-amber label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(255, 193, 7, 0.5);
+}
+.togglebutton-material-orange label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(255, 152, 0, 0.5);
+}
+.togglebutton-material-deep-orange label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(255, 87, 34, 0.5);
+}
+.togglebutton-material-brown label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(121, 85, 72, 0.5);
+}
+.togglebutton-material-grey label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(158, 158, 158, 0.5);
+}
+.togglebutton-material-blue-grey label input[type=checkbox]:first-of-type:checked + .toggle {
+  background-color: rgba(96, 125, 139, 0.5);
+}
+.togglebutton label input[type=checkbox]:first-of-type:checked + .toggle:after,
+.togglebutton-default label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #009587;
+}
+.togglebutton-black label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #000000;
+}
+.togglebutton-white label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #ffffff;
+}
+.togglebutton-inverse label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #3f51b5;
+}
+.togglebutton-primary label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #009587;
+}
+.togglebutton-success label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #0f9d58;
+}
+.togglebutton-info label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #03a9f4;
+}
+.togglebutton-warning label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #ff5722;
+}
+.togglebutton-danger label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #f44336;
+}
+.togglebutton-material-red label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #f44336;
+}
+.togglebutton-material-pink label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #e91e63;
+}
+.togglebutton-material-purple label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #9c27b0;
+}
+.togglebutton-material-deep-purple label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #673ab7;
+}
+.togglebutton-material-indigo label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #3f51b5;
+}
+.togglebutton-material-blue label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #2196f3;
+}
+.togglebutton-material-light-blue label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #03a9f4;
+}
+.togglebutton-material-cyan label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #00bcd4;
+}
+.togglebutton-material-teal label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #009688;
+}
+.togglebutton-material-green label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #4caf50;
+}
+.togglebutton-material-light-green label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #8bc34a;
+}
+.togglebutton-material-lime label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #cddc39;
+}
+.togglebutton-material-yellow label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #ffeb3b;
+}
+.togglebutton-material-amber label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #ffc107;
+}
+.togglebutton-material-orange label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #ff9800;
+}
+.togglebutton-material-deep-orange label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #ff5722;
+}
+.togglebutton-material-brown label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #795548;
+}
+.togglebutton-material-grey label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #9e9e9e;
+}
+.togglebutton-material-blue-grey label input[type=checkbox]:first-of-type:checked + .toggle:after {
+  background-color: #607d8b;
 }
 .form-horizontal .radio {
   margin-bottom: 10px;
@@ -4067,7 +4573,10 @@ body .jumbotron-material-blue-grey,
   opacity: 0.5;
 }
 .radio input[type=radio] {
-  display: none;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
 .radio input[type=radio]:checked ~ .check {
   -webkit-transform: scale(0.55);
