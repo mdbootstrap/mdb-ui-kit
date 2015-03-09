@@ -11,7 +11,8 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Material Design for Bootstrap -->
-    <link href="dist/css/material-wfont.min.css" rel="stylesheet">
+    <link href="dist/css/roboto.min.css" rel="stylesheet">
+    <link href="dist/css/material-fullpalette.min.css" rel="stylesheet">
     <link href="dist/css/ripples.min.css" rel="stylesheet">
 
     <!-- Dropdown.js -->
@@ -755,12 +756,11 @@
             </div>
             <div class="well page" id="material-colors">
               <h1 class="header">Material Color Samples</h1>
-              <p>This is the list of all the supported color variations. Each color can be applied to every element that supports variations.
-              </p>
-              <pre><code>.btn-material-{{color}}
-              .navbar-material-{{color}}
-              .well-material-{{color}}
-              etc...</code></pre>
+              <p>This is the list of all the supported color variations. Each color can be applied to every element that supports variations.</p>
+
+              <pre>.btn-material-{{color}}<br>.navbar-material-{{color}}<br>.well-material-{{color}}<br>etc...</pre>
+
+              <p><b>material.css</b> includes only the primary color shades (red, pink, purple, deep-purple, etc...), if you want the entire palette please use <b>material-fullpalette.css</b></p>
               <div class="sampleOthers">
                 <button class="btn btn-black btn-lg">Black</button>
                 <button class="btn btn-white btn-lg">White</button>
@@ -1186,11 +1186,14 @@
                   <option value="Sfogliatelle">Sfogliatelle</option>
                 </select>
 
+                <br>
 
                 <select class="form-control" disabled placeholder="Your favorite pastry">
                   <option value="disabled">Disabled</option>
                 </select>
               </div>
+              <br>
+              <p>Dropdowns provided by <a href="https://github.com/FezVrasta/dropdown.js" target="_blank">Dropdown.js</a></p>
 
             </div>
             <div class="well page" id="dialog">
