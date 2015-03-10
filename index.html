@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Twitter Bootstrap -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Material Design for Bootstrap -->
     <link href="dist/css/material-wfont.min.css" rel="stylesheet">
     <link href="dist/css/ripples.min.css" rel="stylesheet">
 
     <!-- Dropdown.js -->
-    <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+    <link href="http://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
 
     <!-- Page style -->
     <style>
@@ -122,7 +122,7 @@
 
 
     <!-- jQuery -->
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
   </head>
   <body>
@@ -234,8 +234,83 @@
 
 
             </div>
-            <div id="getting-started">
-
+            <div class="well page" id="getting-started">
+              <h1 class="header">Getting Started</h1>
+              <h3>Download</h3>
+              <hr>
+              <h4>Install with NPM - Coming Soon</h4>
+              <p>You can also install and manage Material Bootstrap using NPM</p>
+              <pre><code>npm install</code></pre>
+              <h4>Install with Bower</h4>
+              <p>You can also install and manage Material Bootstrap using Bower</p>
+              <pre><code>bower install bootstrap-material-design</code></pre>
+              <h4>Install with Meteor</h4>
+              <p>You can also install and manage Material Bootstrap using Meteor</p>
+              <pre><code>meteor add fezvrasta:bootstrap-material-design</code></pre>
+              <br />
+              <h3>What's included</h3>
+              <hr>
+              <p>Material Bootstrap is downloadable in a two forms. Material.css only supports the primary shades of the material color palette and Material-fullpalette.css supports every shade of the material color palette</p>
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Required Frameworks</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="list-group">
+                    <div class="list-group-item">
+                      <div class="row-action-primary">
+                        <i class="mdi-action-settings"></i>
+                      </div>
+                      <div class="row-content">
+                        <h4 class="list-group-item-heading">Bootstrap v3.0+</h4>
+                        <p class="list-group-item-text">This theme extends, styles, and modifies Bootstrap's elements and styles. Without Bootstrap this project will not display correctly. To install Bootstrap please go to <a href="http://getbootstrap.com/getting-started/" alt="Bootstrap Docs">Get Bootstrap</a></p>
+                      </div>
+                    </div>
+                    <div class="list-group-separator"></div>
+                    <div class="list-group-item">
+                      <div class="row-action-primary">
+                        <i class="mdi-action-settings"></i>
+                      </div>
+                      <div class="row-content">
+                        <h4 class="list-group-item-heading">jQuery 1.9.1+</h4>
+                        <p class="list-group-item-text">All JavaScript plugins require jQuery to be included.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) Material Bootstrap. You'll see something like this:</p>
+                <!-- This code must be aligned this way to render correctly -->
+                <pre><code class="language-bash" data-lang="bash">Material/
+├── css/
+│   ├── material.css
+│   ├── material.css.map
+│   ├── material.min.css
+│   ├── material.min.css.map
+│   ├── material-wfont.css
+│   ├── material-wfont.css.map
+│   ├── material-wfont.min.css
+│   ├── material-wfont.min.css.map
+│   ├── ripples
+│   ├── ripples.css.map
+│   ├── ripples.min.css
+│   ├── ripples.min.css.map
+├── js/
+│   ├── material.js
+│   ├── material.min.js
+│   ├── material.min.js.map
+│   ├── ripples.js
+│   ├── ripples.min.js
+│   ├── ripples.min.js.map
+└── fonts/
+    ├── Material-Design-Icons.eot
+    ├── Material-Design-Icons.svg
+    ├── Material-Design-Icons.ttf
+    ├── Material-Design-Icons.woff
+    └── ADD REMAINING GOOGLE FONT FILES HERE
+                </code>
+              </pre>
+              <p>This is the most basic form of Material Bootstrap. Just copy and drop in the compiled CSS and JS files and copy the font files from the .zip and add them to your site.</p>
             </div>
             <div class="well page" id="checkbox">
               <h1 class="header">Checkbox</h1>
@@ -1430,7 +1505,7 @@
 
 
     <!-- Sliders -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>
     <script>
       $(function() {
         $.material.init();
