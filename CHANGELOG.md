@@ -13,6 +13,8 @@
 - fixed #468 (thanks @MatrixZ)
 - Added :hover, :focus, :active and .active states on buttons
 - Added color variations on toggles
+- Improved shadows to better fit Material Design specs
+- Improved hover state of buttons
 
 ## v 0.2.1
 
