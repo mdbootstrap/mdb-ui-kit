@@ -1,6 +1,6 @@
 fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-control {
   &, &:focus, &.focus {
-    &:not(textarea):not(select) {
+    &:not(textarea) {
       height: 28px;
     }
     padding: 0;
@@ -14,9 +14,7 @@ fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-con
     }
   }
 }
-select.form-control {
-  height: 23px;
-}
+
 select[multiple].form-control {
   &, &:focus, &.focus {
     height: 85px;
@@ -183,7 +181,6 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
 select.form-control {
   border: 0;
   box-shadow: none;
-  border-bottom: 1px solid #757575;
   border-radius: 0;
   &:focus, &.focus {
     box-shadow: none;

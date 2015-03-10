@@ -87,6 +87,12 @@
     }
 
     @media (max-width: 767px) {
+      .navbar-text {
+        color: inherit;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
       // Dropdowns get custom display
       .open .dropdown-menu {
         > .dropdown-header {
@@ -166,6 +172,22 @@
     // deeply defined to override welljumbo class without !impotant need
     .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
       color: @text-color;
+    }
+    .dropdown-menu {
+      li > a {
+        &:hover,
+        &:focus {
+          color: @material-color;
+        }
+      }
+      .active > a {
+        &:hover,
+        &:focus {
+          color: @text-color;
+        }
+        background-color: @material-color;
+        color: @text-color;
+      }
     }
   });
 

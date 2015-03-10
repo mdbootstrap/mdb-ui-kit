@@ -3,9 +3,18 @@
 ## v 0.3.0 dev
 
 - Implemented full color palette from Material Design specifications (thanks @korgan00)
-- Reformat of ripples.js (thanks @grvcoelho)
-- Autofill option of Material.js is now set to false by default
-
+- Reformat of `ripples.js` (thanks @grvcoelho)
+- Autofill option of `material.js` is now set to false by default
+- Deprecated `material-wfont.css`, now to include web fonts you should include roboto.css
+- Now `material.css` supports only the primary shades of the material color palette (lightweight! about 200KB)
+- `material-fullpalette.css` supports every shade of the material color palette (huge size! ~ 2MB)
+- Adjusted padding on dialog(modal) to be more inline with standards (thanks @GradyD)
+- Added jQuery 1.9.1 and Bootstrap 3.0 as dependencies (thanks @GradyD)
+- fixed #468 (thanks @MatrixZ)
+- Added :hover, :focus, :active and .active states on buttons
+- Added color variations on toggles
+- Improved shadows to better fit Material Design specs
+- Improved hover state of buttons
 
 ## v 0.2.1
 

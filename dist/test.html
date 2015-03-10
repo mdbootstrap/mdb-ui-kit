@@ -3,8 +3,10 @@
     <head>
 
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/ripples.min.css" rel="stylesheet">
-        <link href="css/material-wfont.min.css" rel="stylesheet">
+        <!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+        <link href="dist/css/roboto.min.css" rel="stylesheet">
+        <link href="dist/css/material.min.css" rel="stylesheet">
+        <link href="dist/css/ripples.min.css" rel="stylesheet">
 
     </head>
 
@@ -38,6 +40,7 @@
         <script src="js/material.min.js"></script>
         <script>
             $(document).ready(function() {
+                // This command is used to initialize some elements and make them work properly
                 $.material.init();
             });
         </script>
