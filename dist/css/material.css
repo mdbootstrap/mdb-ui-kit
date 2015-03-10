@@ -2279,22 +2279,22 @@ Then, run this script to get the list.
   content: "\e8e4";
 }
 .shadow-z-1 {
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+.shadow-z-1-hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .shadow-z-2 {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
-}
-.shadow-z-2-hover {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .shadow-z-3 {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 .shadow-z-4 {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22), 0 14px 45px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 }
 .shadow-z-5 {
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.22), 0 19px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
 }
 body {
   background-color: #EEEEEE;
@@ -2449,7 +2449,7 @@ body .jumbotron,
   background-color: #fff;
   padding: 19px;
   margin-bottom: 20px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 2px;
   border: 0;
 }
@@ -2701,14 +2701,14 @@ body .jumbotron-material-blue-grey,
   text-transform: uppercase;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.84);
-  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
 }
 .btn:hover:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .btn:active:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn.btn-flat:not(.btn-link),
 .btn-default.btn-flat:not(.btn-link) {
@@ -3258,11 +3258,11 @@ body .jumbotron-material-blue-grey,
   color: #a8a8a8 !important;
 }
 .btn.btn-raised {
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn.btn-raised:active:not(.btn-link) {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn.btn-fab {
   margin: 0;
@@ -3270,7 +3270,6 @@ body .jumbotron-material-blue-grey,
   font-size: 26px;
   width: 56px;
   height: 56px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
 }
 .btn.btn-fab,
 .btn.btn-fab:hover,
@@ -3415,11 +3414,12 @@ body .jumbotron-material-blue-grey,
 .btn.btn-fab:active-material-blue-grey {
   background-color: #607d8b;
 }
+.btn.btn-fab,
 .btn.btn-fab:hover {
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22), 0 14px 45px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .btn.btn-fab:active {
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.22), 0 19px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn.btn-fab,
 .btn.btn-fab .ripple-wrapper {
@@ -3549,12 +3549,12 @@ body .jumbotron-material-blue-grey,
   position: relative;
   border-radius: 2px;
   margin: 10px 1px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group:active:not(.btn-link),
 .btn-group-vertical:active:not(.btn-link) {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn-group.open .dropdown-toggle,
 .btn-group-vertical.open .dropdown-toggle {
@@ -3562,12 +3562,12 @@ body .jumbotron-material-blue-grey,
 }
 .btn-group.btn-group-raised,
 .btn-group-vertical.btn-group-raised {
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group.btn-group-raised:active:not(.btn-link),
 .btn-group-vertical.btn-group-raised:active:not(.btn-link) {
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.23), 0 10px 30px rgba(0, 0, 0, 0.19);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn-group .btn,
 .btn-group-vertical .btn,
@@ -7076,7 +7076,7 @@ icon-material-blue-grey {
   border-radius: 2px;
   color: rgba(0, 0, 0, 0.84);
   background: #ffffff;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card .card-height-indicator {
   margin-top: 100%;
@@ -7125,7 +7125,7 @@ icon-material-blue-grey {
   left: -15px;
 }
 .modal-content {
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.22), 0 19px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
   border-radius: 2px;
   border: none;
 }
@@ -7258,7 +7258,7 @@ icon-material-blue-grey {
 .panel {
   border-radius: 2px;
   border: 0;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .panel > .panel-heading,
 .panel-default > .panel-heading {
@@ -7409,7 +7409,7 @@ hr.on-light {
   color: rgba(255, 255, 255, 0.84);
   font-size: 14px;
   border-radius: 2px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   height: 0;
   transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
