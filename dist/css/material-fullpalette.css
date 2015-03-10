@@ -27455,9 +27455,6 @@ body .jumbotron-material-blue-grey-A700,
 .togglebutton label input[type=checkbox][disabled]:checked:first-of-type + .toggle:after {
   background-color: #BDBDBD;
 }
-.togglebutton label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 149, 135, 0.1);
-}
 .togglebutton label input[type=checkbox]:first-of-type ~ .toggle:active:after,
 .togglebutton label input[type=checkbox][disabled]:first-of-type ~ .toggle:active:after {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
@@ -30368,6 +30365,974 @@ body .jumbotron-material-blue-grey-A700,
 }
 .togglebutton-material-blue-grey-A700 label input[type=checkbox]:first-of-type:checked + .toggle:after {
   background-color: #455a64;
+}
+.togglebutton label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after,
+.togglebutton-default label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 149, 135, 0.1);
+}
+.togglebutton-black label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.togglebutton-white label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.togglebutton-inverse label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+.togglebutton-primary label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 149, 135, 0.1);
+}
+.togglebutton-success label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(15, 157, 88, 0.1);
+}
+.togglebutton-info label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(3, 169, 244, 0.1);
+}
+.togglebutton-warning label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 87, 34, 0.1);
+}
+.togglebutton-danger label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+.togglebutton-material-red label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+.togglebutton-material-pink label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(233, 30, 99, 0.1);
+}
+.togglebutton-material-purple label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(156, 39, 176, 0.1);
+}
+.togglebutton-material-deep-purple label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(103, 58, 183, 0.1);
+}
+.togglebutton-material-indigo label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+.togglebutton-material-blue label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(33, 150, 243, 0.1);
+}
+.togglebutton-material-light-blue label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(3, 169, 244, 0.1);
+}
+.togglebutton-material-cyan label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 188, 212, 0.1);
+}
+.togglebutton-material-teal label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 150, 136, 0.1);
+}
+.togglebutton-material-green label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+.togglebutton-material-light-green label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(139, 195, 74, 0.1);
+}
+.togglebutton-material-lime label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(205, 220, 57, 0.1);
+}
+.togglebutton-material-yellow label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 235, 59, 0.1);
+}
+.togglebutton-material-amber label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+.togglebutton-material-orange label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+.togglebutton-material-deep-orange label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 87, 34, 0.1);
+}
+.togglebutton-material-brown label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(121, 85, 72, 0.1);
+}
+.togglebutton-material-grey label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(158, 158, 158, 0.1);
+}
+.togglebutton-material-blue-grey label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(96, 125, 139, 0.1);
+}
+.togglebutton label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after,
+.togglebutton-default label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 149, 135, 0.1);
+}
+.togglebutton-black label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.togglebutton-white label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.togglebutton-inverse label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+.togglebutton-primary label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 149, 135, 0.1);
+}
+.togglebutton-success label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(15, 157, 88, 0.1);
+}
+.togglebutton-info label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(3, 169, 244, 0.1);
+}
+.togglebutton-warning label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 87, 34, 0.1);
+}
+.togglebutton-danger label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+.togglebutton-material-red label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+.togglebutton-material-red-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 235, 238, 0.1);
+}
+.togglebutton-material-red-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 205, 210, 0.1);
+}
+.togglebutton-material-red-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(239, 154, 154, 0.1);
+}
+.togglebutton-material-red-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(229, 115, 115, 0.1);
+}
+.togglebutton-material-red-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(239, 83, 80, 0.1);
+}
+.togglebutton-material-red-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+.togglebutton-material-red-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(229, 57, 53, 0.1);
+}
+.togglebutton-material-red-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(211, 47, 47, 0.1);
+}
+.togglebutton-material-red-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(198, 40, 40, 0.1);
+}
+.togglebutton-material-red-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(183, 28, 28, 0.1);
+}
+.togglebutton-material-red-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 138, 128, 0.1);
+}
+.togglebutton-material-red-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 82, 82, 0.1);
+}
+.togglebutton-material-red-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 23, 68, 0.1);
+}
+.togglebutton-material-red-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(213, 0, 0, 0.1);
+}
+.togglebutton-material-pink label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(233, 30, 99, 0.1);
+}
+.togglebutton-material-pink-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(252, 228, 236, 0.1);
+}
+.togglebutton-material-pink-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(248, 187, 208, 0.1);
+}
+.togglebutton-material-pink-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(244, 143, 177, 0.1);
+}
+.togglebutton-material-pink-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(240, 98, 146, 0.1);
+}
+.togglebutton-material-pink-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(236, 64, 122, 0.1);
+}
+.togglebutton-material-pink-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(233, 30, 99, 0.1);
+}
+.togglebutton-material-pink-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(216, 27, 96, 0.1);
+}
+.togglebutton-material-pink-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(194, 24, 91, 0.1);
+}
+.togglebutton-material-pink-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(173, 20, 87, 0.1);
+}
+.togglebutton-material-pink-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(136, 14, 79, 0.1);
+}
+.togglebutton-material-pink-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 128, 171, 0.1);
+}
+.togglebutton-material-pink-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 64, 129, 0.1);
+}
+.togglebutton-material-pink-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(245, 0, 87, 0.1);
+}
+.togglebutton-material-pink-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(197, 17, 98, 0.1);
+}
+.togglebutton-material-purple label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(156, 39, 176, 0.1);
+}
+.togglebutton-material-purple-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(243, 229, 245, 0.1);
+}
+.togglebutton-material-purple-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(225, 190, 231, 0.1);
+}
+.togglebutton-material-purple-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(206, 147, 216, 0.1);
+}
+.togglebutton-material-purple-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(186, 104, 200, 0.1);
+}
+.togglebutton-material-purple-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(171, 71, 188, 0.1);
+}
+.togglebutton-material-purple-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(156, 39, 176, 0.1);
+}
+.togglebutton-material-purple-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(142, 36, 170, 0.1);
+}
+.togglebutton-material-purple-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(123, 31, 162, 0.1);
+}
+.togglebutton-material-purple-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(106, 27, 154, 0.1);
+}
+.togglebutton-material-purple-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(74, 20, 140, 0.1);
+}
+.togglebutton-material-purple-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(234, 128, 252, 0.1);
+}
+.togglebutton-material-purple-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(224, 64, 251, 0.1);
+}
+.togglebutton-material-purple-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(213, 0, 249, 0.1);
+}
+.togglebutton-material-purple-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(170, 0, 255, 0.1);
+}
+.togglebutton-material-deep-purple label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(103, 58, 183, 0.1);
+}
+.togglebutton-material-deep-purple-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(237, 231, 246, 0.1);
+}
+.togglebutton-material-deep-purple-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(209, 196, 233, 0.1);
+}
+.togglebutton-material-deep-purple-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(179, 157, 219, 0.1);
+}
+.togglebutton-material-deep-purple-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(149, 117, 205, 0.1);
+}
+.togglebutton-material-deep-purple-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(126, 87, 194, 0.1);
+}
+.togglebutton-material-deep-purple-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(103, 58, 183, 0.1);
+}
+.togglebutton-material-deep-purple-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(94, 53, 177, 0.1);
+}
+.togglebutton-material-deep-purple-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(81, 45, 168, 0.1);
+}
+.togglebutton-material-deep-purple-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(69, 39, 160, 0.1);
+}
+.togglebutton-material-deep-purple-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(49, 27, 146, 0.1);
+}
+.togglebutton-material-deep-purple-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(179, 136, 255, 0.1);
+}
+.togglebutton-material-deep-purple-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(124, 77, 255, 0.1);
+}
+.togglebutton-material-deep-purple-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(101, 31, 255, 0.1);
+}
+.togglebutton-material-deep-purple-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(98, 0, 234, 0.1);
+}
+.togglebutton-material-indigo label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+.togglebutton-material-indigo-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(232, 234, 246, 0.1);
+}
+.togglebutton-material-indigo-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(197, 202, 233, 0.1);
+}
+.togglebutton-material-indigo-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(159, 168, 218, 0.1);
+}
+.togglebutton-material-indigo-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(121, 134, 203, 0.1);
+}
+.togglebutton-material-indigo-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(92, 107, 192, 0.1);
+}
+.togglebutton-material-indigo-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+.togglebutton-material-indigo-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(57, 73, 171, 0.1);
+}
+.togglebutton-material-indigo-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(48, 63, 159, 0.1);
+}
+.togglebutton-material-indigo-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(40, 53, 147, 0.1);
+}
+.togglebutton-material-indigo-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(26, 35, 126, 0.1);
+}
+.togglebutton-material-indigo-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(140, 158, 255, 0.1);
+}
+.togglebutton-material-indigo-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(83, 109, 254, 0.1);
+}
+.togglebutton-material-indigo-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(61, 90, 254, 0.1);
+}
+.togglebutton-material-indigo-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(48, 79, 254, 0.1);
+}
+.togglebutton-material-blue label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(33, 150, 243, 0.1);
+}
+.togglebutton-material-blue-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(227, 242, 253, 0.1);
+}
+.togglebutton-material-blue-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(187, 222, 251, 0.1);
+}
+.togglebutton-material-blue-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(144, 202, 249, 0.1);
+}
+.togglebutton-material-blue-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(100, 181, 246, 0.1);
+}
+.togglebutton-material-blue-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(66, 165, 245, 0.1);
+}
+.togglebutton-material-blue-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(33, 150, 243, 0.1);
+}
+.togglebutton-material-blue-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(30, 136, 229, 0.1);
+}
+.togglebutton-material-blue-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(25, 118, 210, 0.1);
+}
+.togglebutton-material-blue-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(21, 101, 192, 0.1);
+}
+.togglebutton-material-blue-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(13, 71, 161, 0.1);
+}
+.togglebutton-material-blue-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(130, 177, 255, 0.1);
+}
+.togglebutton-material-blue-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(68, 138, 255, 0.1);
+}
+.togglebutton-material-blue-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(41, 121, 255, 0.1);
+}
+.togglebutton-material-blue-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(41, 98, 255, 0.1);
+}
+.togglebutton-material-light-blue label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(3, 169, 244, 0.1);
+}
+.togglebutton-material-light-blue-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(225, 245, 254, 0.1);
+}
+.togglebutton-material-light-blue-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(179, 229, 252, 0.1);
+}
+.togglebutton-material-light-blue-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(129, 212, 250, 0.1);
+}
+.togglebutton-material-light-blue-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(79, 195, 247, 0.1);
+}
+.togglebutton-material-light-blue-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(41, 182, 246, 0.1);
+}
+.togglebutton-material-light-blue-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(3, 169, 244, 0.1);
+}
+.togglebutton-material-light-blue-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(3, 155, 229, 0.1);
+}
+.togglebutton-material-light-blue-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(2, 136, 209, 0.1);
+}
+.togglebutton-material-light-blue-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(2, 119, 189, 0.1);
+}
+.togglebutton-material-light-blue-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(1, 87, 155, 0.1);
+}
+.togglebutton-material-light-blue-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(128, 216, 255, 0.1);
+}
+.togglebutton-material-light-blue-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(64, 196, 255, 0.1);
+}
+.togglebutton-material-light-blue-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 176, 255, 0.1);
+}
+.togglebutton-material-light-blue-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 145, 234, 0.1);
+}
+.togglebutton-material-cyan label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 188, 212, 0.1);
+}
+.togglebutton-material-cyan-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(224, 247, 250, 0.1);
+}
+.togglebutton-material-cyan-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(178, 235, 242, 0.1);
+}
+.togglebutton-material-cyan-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(128, 222, 234, 0.1);
+}
+.togglebutton-material-cyan-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(77, 208, 225, 0.1);
+}
+.togglebutton-material-cyan-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(38, 198, 218, 0.1);
+}
+.togglebutton-material-cyan-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 188, 212, 0.1);
+}
+.togglebutton-material-cyan-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 172, 193, 0.1);
+}
+.togglebutton-material-cyan-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 151, 167, 0.1);
+}
+.togglebutton-material-cyan-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 131, 143, 0.1);
+}
+.togglebutton-material-cyan-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 96, 100, 0.1);
+}
+.togglebutton-material-cyan-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(132, 255, 255, 0.1);
+}
+.togglebutton-material-cyan-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(24, 255, 255, 0.1);
+}
+.togglebutton-material-cyan-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 229, 255, 0.1);
+}
+.togglebutton-material-cyan-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 184, 212, 0.1);
+}
+.togglebutton-material-teal label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 150, 136, 0.1);
+}
+.togglebutton-material-teal-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(224, 242, 241, 0.1);
+}
+.togglebutton-material-teal-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(178, 223, 219, 0.1);
+}
+.togglebutton-material-teal-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(128, 203, 196, 0.1);
+}
+.togglebutton-material-teal-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(77, 182, 172, 0.1);
+}
+.togglebutton-material-teal-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(38, 166, 154, 0.1);
+}
+.togglebutton-material-teal-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 150, 136, 0.1);
+}
+.togglebutton-material-teal-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 137, 123, 0.1);
+}
+.togglebutton-material-teal-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 121, 107, 0.1);
+}
+.togglebutton-material-teal-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 105, 92, 0.1);
+}
+.togglebutton-material-teal-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 77, 64, 0.1);
+}
+.togglebutton-material-teal-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(167, 255, 235, 0.1);
+}
+.togglebutton-material-teal-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+.togglebutton-material-teal-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(29, 233, 182, 0.1);
+}
+.togglebutton-material-teal-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 191, 165, 0.1);
+}
+.togglebutton-material-green label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+.togglebutton-material-green-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(232, 245, 233, 0.1);
+}
+.togglebutton-material-green-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(200, 230, 201, 0.1);
+}
+.togglebutton-material-green-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(165, 214, 167, 0.1);
+}
+.togglebutton-material-green-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(129, 199, 132, 0.1);
+}
+.togglebutton-material-green-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(102, 187, 106, 0.1);
+}
+.togglebutton-material-green-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+.togglebutton-material-green-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(67, 160, 71, 0.1);
+}
+.togglebutton-material-green-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(56, 142, 60, 0.1);
+}
+.togglebutton-material-green-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(46, 125, 50, 0.1);
+}
+.togglebutton-material-green-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(27, 94, 32, 0.1);
+}
+.togglebutton-material-green-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(185, 246, 202, 0.1);
+}
+.togglebutton-material-green-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(105, 240, 174, 0.1);
+}
+.togglebutton-material-green-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 230, 118, 0.1);
+}
+.togglebutton-material-green-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(0, 200, 83, 0.1);
+}
+.togglebutton-material-light-green label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(139, 195, 74, 0.1);
+}
+.togglebutton-material-light-green-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(241, 248, 233, 0.1);
+}
+.togglebutton-material-light-green-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(220, 237, 200, 0.1);
+}
+.togglebutton-material-light-green-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(197, 225, 165, 0.1);
+}
+.togglebutton-material-light-green-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(174, 213, 129, 0.1);
+}
+.togglebutton-material-light-green-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(156, 204, 101, 0.1);
+}
+.togglebutton-material-light-green-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(139, 195, 74, 0.1);
+}
+.togglebutton-material-light-green-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(124, 179, 66, 0.1);
+}
+.togglebutton-material-light-green-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(104, 159, 56, 0.1);
+}
+.togglebutton-material-light-green-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(85, 139, 47, 0.1);
+}
+.togglebutton-material-light-green-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(51, 105, 30, 0.1);
+}
+.togglebutton-material-light-green-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(204, 255, 144, 0.1);
+}
+.togglebutton-material-light-green-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(178, 255, 89, 0.1);
+}
+.togglebutton-material-light-green-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(118, 255, 3, 0.1);
+}
+.togglebutton-material-light-green-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(100, 221, 23, 0.1);
+}
+.togglebutton-material-lime label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(205, 220, 57, 0.1);
+}
+.togglebutton-material-lime-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(249, 251, 231, 0.1);
+}
+.togglebutton-material-lime-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(240, 244, 195, 0.1);
+}
+.togglebutton-material-lime-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(230, 238, 156, 0.1);
+}
+.togglebutton-material-lime-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(220, 231, 117, 0.1);
+}
+.togglebutton-material-lime-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(212, 225, 87, 0.1);
+}
+.togglebutton-material-lime-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(205, 220, 57, 0.1);
+}
+.togglebutton-material-lime-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(192, 202, 51, 0.1);
+}
+.togglebutton-material-lime-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(175, 180, 43, 0.1);
+}
+.togglebutton-material-lime-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(158, 157, 36, 0.1);
+}
+.togglebutton-material-lime-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(130, 119, 23, 0.1);
+}
+.togglebutton-material-lime-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(244, 255, 129, 0.1);
+}
+.togglebutton-material-lime-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(238, 255, 65, 0.1);
+}
+.togglebutton-material-lime-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(198, 255, 0, 0.1);
+}
+.togglebutton-material-lime-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(174, 234, 0, 0.1);
+}
+.togglebutton-material-yellow label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 235, 59, 0.1);
+}
+.togglebutton-material-yellow-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 253, 231, 0.1);
+}
+.togglebutton-material-yellow-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 249, 196, 0.1);
+}
+.togglebutton-material-yellow-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 245, 157, 0.1);
+}
+.togglebutton-material-yellow-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 241, 118, 0.1);
+}
+.togglebutton-material-yellow-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 238, 88, 0.1);
+}
+.togglebutton-material-yellow-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 235, 59, 0.1);
+}
+.togglebutton-material-yellow-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(253, 216, 53, 0.1);
+}
+.togglebutton-material-yellow-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(251, 192, 45, 0.1);
+}
+.togglebutton-material-yellow-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(249, 168, 37, 0.1);
+}
+.togglebutton-material-yellow-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(245, 127, 23, 0.1);
+}
+.togglebutton-material-yellow-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 255, 141, 0.1);
+}
+.togglebutton-material-yellow-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 255, 0, 0.1);
+}
+.togglebutton-material-yellow-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 234, 0, 0.1);
+}
+.togglebutton-material-yellow-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 214, 0, 0.1);
+}
+.togglebutton-material-amber label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+.togglebutton-material-amber-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 248, 225, 0.1);
+}
+.togglebutton-material-amber-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 236, 179, 0.1);
+}
+.togglebutton-material-amber-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 224, 130, 0.1);
+}
+.togglebutton-material-amber-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 213, 79, 0.1);
+}
+.togglebutton-material-amber-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 202, 40, 0.1);
+}
+.togglebutton-material-amber-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 193, 7, 0.1);
+}
+.togglebutton-material-amber-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 179, 0, 0.1);
+}
+.togglebutton-material-amber-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 160, 0, 0.1);
+}
+.togglebutton-material-amber-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 143, 0, 0.1);
+}
+.togglebutton-material-amber-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 111, 0, 0.1);
+}
+.togglebutton-material-amber-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 229, 127, 0.1);
+}
+.togglebutton-material-amber-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 215, 64, 0.1);
+}
+.togglebutton-material-amber-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 196, 0, 0.1);
+}
+.togglebutton-material-amber-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 171, 0, 0.1);
+}
+.togglebutton-material-orange label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+.togglebutton-material-orange-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 243, 224, 0.1);
+}
+.togglebutton-material-orange-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 224, 178, 0.1);
+}
+.togglebutton-material-orange-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 204, 128, 0.1);
+}
+.togglebutton-material-orange-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 183, 77, 0.1);
+}
+.togglebutton-material-orange-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 167, 38, 0.1);
+}
+.togglebutton-material-orange-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 152, 0, 0.1);
+}
+.togglebutton-material-orange-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(251, 140, 0, 0.1);
+}
+.togglebutton-material-orange-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(245, 124, 0, 0.1);
+}
+.togglebutton-material-orange-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(239, 108, 0, 0.1);
+}
+.togglebutton-material-orange-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(230, 81, 0, 0.1);
+}
+.togglebutton-material-orange-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 209, 128, 0.1);
+}
+.togglebutton-material-orange-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 171, 64, 0.1);
+}
+.togglebutton-material-orange-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 145, 0, 0.1);
+}
+.togglebutton-material-orange-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 109, 0, 0.1);
+}
+.togglebutton-material-deep-orange label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 87, 34, 0.1);
+}
+.togglebutton-material-deep-orange-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(251, 233, 231, 0.1);
+}
+.togglebutton-material-deep-orange-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 204, 188, 0.1);
+}
+.togglebutton-material-deep-orange-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 171, 145, 0.1);
+}
+.togglebutton-material-deep-orange-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 138, 101, 0.1);
+}
+.togglebutton-material-deep-orange-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 112, 67, 0.1);
+}
+.togglebutton-material-deep-orange-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 87, 34, 0.1);
+}
+.togglebutton-material-deep-orange-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(244, 81, 30, 0.1);
+}
+.togglebutton-material-deep-orange-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(230, 74, 25, 0.1);
+}
+.togglebutton-material-deep-orange-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(216, 67, 21, 0.1);
+}
+.togglebutton-material-deep-orange-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(191, 54, 12, 0.1);
+}
+.togglebutton-material-deep-orange-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 158, 128, 0.1);
+}
+.togglebutton-material-deep-orange-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 110, 64, 0.1);
+}
+.togglebutton-material-deep-orange-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(255, 61, 0, 0.1);
+}
+.togglebutton-material-deep-orange-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(221, 44, 0, 0.1);
+}
+.togglebutton-material-brown label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(121, 85, 72, 0.1);
+}
+.togglebutton-material-brown-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(239, 235, 233, 0.1);
+}
+.togglebutton-material-brown-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(215, 204, 200, 0.1);
+}
+.togglebutton-material-brown-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(188, 170, 164, 0.1);
+}
+.togglebutton-material-brown-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(161, 136, 127, 0.1);
+}
+.togglebutton-material-brown-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(141, 110, 99, 0.1);
+}
+.togglebutton-material-brown-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(121, 85, 72, 0.1);
+}
+.togglebutton-material-brown-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(109, 76, 65, 0.1);
+}
+.togglebutton-material-brown-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(93, 64, 55, 0.1);
+}
+.togglebutton-material-brown-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(78, 52, 46, 0.1);
+}
+.togglebutton-material-brown-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(62, 39, 35, 0.1);
+}
+.togglebutton-material-brown-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(215, 204, 200, 0.1);
+}
+.togglebutton-material-brown-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(188, 170, 164, 0.1);
+}
+.togglebutton-material-brown-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(141, 110, 99, 0.1);
+}
+.togglebutton-material-brown-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(93, 64, 55, 0.1);
+}
+.togglebutton-material-grey label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(158, 158, 158, 0.1);
+}
+.togglebutton-material-grey-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(250, 250, 250, 0.1);
+}
+.togglebutton-material-grey-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(245, 245, 245, 0.1);
+}
+.togglebutton-material-grey-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(238, 238, 238, 0.1);
+}
+.togglebutton-material-grey-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(224, 224, 224, 0.1);
+}
+.togglebutton-material-grey-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(189, 189, 189, 0.1);
+}
+.togglebutton-material-grey-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(158, 158, 158, 0.1);
+}
+.togglebutton-material-grey-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(117, 117, 117, 0.1);
+}
+.togglebutton-material-grey-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(97, 97, 97, 0.1);
+}
+.togglebutton-material-grey-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(66, 66, 66, 0.1);
+}
+.togglebutton-material-grey-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(33, 33, 33, 0.1);
+}
+.togglebutton-material-grey-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(245, 245, 245, 0.1);
+}
+.togglebutton-material-grey-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(238, 238, 238, 0.1);
+}
+.togglebutton-material-grey-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(189, 189, 189, 0.1);
+}
+.togglebutton-material-grey-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(97, 97, 97, 0.1);
+}
+.togglebutton-material-blue-grey label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(96, 125, 139, 0.1);
+}
+.togglebutton-material-blue-grey-50 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(236, 239, 241, 0.1);
+}
+.togglebutton-material-blue-grey-100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(207, 216, 220, 0.1);
+}
+.togglebutton-material-blue-grey-200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(176, 190, 197, 0.1);
+}
+.togglebutton-material-blue-grey-300 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(144, 164, 174, 0.1);
+}
+.togglebutton-material-blue-grey-400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(120, 144, 156, 0.1);
+}
+.togglebutton-material-blue-grey-500 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(96, 125, 139, 0.1);
+}
+.togglebutton-material-blue-grey-600 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(84, 110, 122, 0.1);
+}
+.togglebutton-material-blue-grey-700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(69, 90, 100, 0.1);
+}
+.togglebutton-material-blue-grey-800 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(55, 71, 79, 0.1);
+}
+.togglebutton-material-blue-grey-900 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(38, 50, 56, 0.1);
+}
+.togglebutton-material-blue-grey-A100 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(207, 216, 220, 0.1);
+}
+.togglebutton-material-blue-grey-A200 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(176, 190, 197, 0.1);
+}
+.togglebutton-material-blue-grey-A400 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(120, 144, 156, 0.1);
+}
+.togglebutton-material-blue-grey-A700 label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
+  background-color: rgba(69, 90, 100, 0.1);
 }
 .form-horizontal .radio {
   margin-bottom: 10px;
