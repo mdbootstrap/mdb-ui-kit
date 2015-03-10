@@ -29,9 +29,9 @@ If you prefer, you can include this framework in your project using our official
 Navigate to the `dist/` folder in this repository, and you will see the `test.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
 You need to copy the `dist/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
 
-#### material-wfont.css or material.css?
+#### material-fullpalette.css or material.css?
 
-The only difference is that `material-wfont.css` has the Google web fonts included.
+The only difference is that `material-fullpalette.css` has the full colors palette available, the other one has just the primary colors.
 
 #### Use custom color as primary
 
@@ -90,6 +90,8 @@ Example:
 These colors are taken from the Material Design color palette and are reported below:
 
 ![palette](demo/imgs/palette.jpg)
+
+To take advantage of all the shades please use `material-fullpalette.css`, be aware of its huge size.
 
 ### Buttons
 

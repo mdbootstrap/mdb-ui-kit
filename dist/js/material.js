@@ -14,7 +14,7 @@
     if (typeof evt.which == "undefined") {
       return true;
     } else if (typeof evt.which == "number" && evt.which > 0) {
-      return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8;
+      return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8 && evt.which != 9;
     }
     return false;
   }
@@ -111,7 +111,7 @@
       })
       .on("keyup change", ".form-control", function() {
         var $this = $(this);
-        if($this.val() === "" && $this[0].checkValidity()) {
+        if ($this.val() === "" && (typeof $this[0].checkValidity != "undefined" && $this[0].checkValidity())) {
           $this.addClass("empty");
         } else {
           $this.removeClass("empty");

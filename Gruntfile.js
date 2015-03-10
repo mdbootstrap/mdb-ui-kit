@@ -22,17 +22,30 @@ module.exports = function(grunt) {
           "dist/css/material.css": "less/material.less",
         }
       },
-      materialwfont: {
+      materialfullpalette: {
         options: {
           paths: ["less"],
           sourceMap: true,
           sourceMapRootpath: "/",
-          sourceMapFilename: "dist/css/material-wfont.css.map",
-          sourceMapURL: "material-wfont.css.map",
+          sourceMapFilename: "dist/css/material-fullpalette.css.map",
+          sourceMapURL: "material-fullpalette.css.map",
           outputSourceFiles: true
         },
         files: {
-          "dist/css/material-wfont.css": "less/material-wfont.less",
+          "dist/css/material-fullpalette.css": "less/material-fullpalette.less",
+        }
+      },
+      roboto: {
+        options: {
+          paths: ["less"],
+          sourceMap: true,
+          sourceMapRootpath: "/",
+          sourceMapFilename: "dist/css/roboto.css.map",
+          sourceMapURL: "roboto.css.map",
+          outputSourceFiles: true
+        },
+        files: {
+          "dist/css/roboto.css": "less/roboto.less",
         }
       },
       ripples: {
@@ -63,10 +76,16 @@ module.exports = function(grunt) {
           "dist/css/material.min.css": "dist/css/material.min.css"
         }
       },
-      materialwfont: {
+      materialfullpalette: {
         files: {
-          "dist/css/material-wfont.css": "dist/css/material-wfont.css",
-          "dist/css/material-wfont.min.css": "dist/css/material-wfont.min.css"
+          "dist/css/material-fullpalette.css": "dist/css/material-fullpalette.css",
+          "dist/css/material-fullpalette.min.css": "dist/css/material-fullpalette.min.css"
+        }
+      },
+      roboto: {
+        files: {
+          "dist/css/roboto.css": "dist/css/roboto.css",
+          "dist/css/roboto.min.css": "dist/css/roboto.min.css"
         }
       },
       ripples: {
@@ -83,9 +102,13 @@ module.exports = function(grunt) {
         src: "dist/css/material.css",
         dest: "dist/css/material.min.css"
       },
-      materialwfont: {
-        src: "dist/css/material-wfont.css",
-        dest: "dist/css/material-wfont.min.css"
+      materialfullpalette: {
+        src: "dist/css/material-fullpalette.css",
+        dest: "dist/css/material-fullpalette.min.css"
+      },
+      roboto: {
+        src: "dist/css/roboto.css",
+        dest: "dist/css/roboto.min.css"
       },
       ripples: {
         src: "dist/css/ripples.css",
@@ -201,7 +224,7 @@ module.exports = function(grunt) {
         files: [
           "index.html",
           "dist/css/**/*.css",
-          "**/*.{png,jpg,jpeg,gif,webp,svg}"
+          "demo/**/*.{png,jpg,jpeg,gif,webp,svg}"
         ]
       }
     },
@@ -243,11 +266,14 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask("material:less", [
     "less:material",
-    "less:materialwfont",
+    "less:materialfullpalette",
+    "less:roboto",
     "csswring:material",
-    "csswring:materialwfont",
+    "csswring:materialfullpalette",
+    "csswring:roboto",
     "autoprefixer:material",
-    "autoprefixer:materialwfont"
+    "autoprefixer:materialfullpalette",
+    "autoprefixer:roboto"
   ]);
   grunt.registerTask("material:js", [
     "copy:material",
