@@ -62,6 +62,6 @@
   .variations(~" label input[type=checkbox]:first-of-type:checked + .toggle:after", background-color, @primary);
   // Ripple on
   .generic-variations(~" label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after", @primary, {
-    background-color: fade(@material-color, 10%);
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px fade(@material-color, 10%);
   });
 }
