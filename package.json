@@ -26,6 +26,10 @@
     "framework"
   ],
   "homepage": "https://github.com/FezVrasta/bootstrap-material-design",
+  "dependencies": {
+    "bootstrap": ">=3.0",
+    "jquery": ">=1.9.1"
+  },
   "devDependencies": {
     "bootstrap": ">=3.0",
     "grunt": "^0.4.5",
