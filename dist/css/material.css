@@ -3590,6 +3590,7 @@ body .jumbotron-material-blue-grey,
 }
 .checkbox label {
   cursor: pointer;
+  padding-left: 0;
 }
 .checkbox input[type=checkbox] {
   opacity: 0;
@@ -3610,6 +3611,7 @@ body .jumbotron-material-blue-grey,
 .checkbox .checkbox-material:before {
   display: block;
   position: absolute;
+  left: 0;
   content: "";
   background-color: rgba(0, 0, 0, 0.84);
   height: 20px;
@@ -3644,12 +3646,12 @@ body .jumbotron-material-blue-grey,
   width: 0;
   height: 0;
   box-shadow: 0 0 0 0,
-                0 0 0 0,
-                0 0 0 0,
-                0 0 0 0,
-                0 0 0 0,
-                0 0 0 0,
-                0 0 0 0 inset;
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0 inset;
   -webkit-animation: checkbox-off 0.3s forwards;
           animation: checkbox-off 0.3s forwards;
 }
@@ -3988,12 +3990,12 @@ body .jumbotron-material-blue-grey,
     width: 20px;
     height: 20px;
     box-shadow: 0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0px 0px 0 10px inset;
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0px 0px 0 10px inset;
   }
   100% {
     -webkit-transform: rotate(0deg);
@@ -4003,12 +4005,12 @@ body .jumbotron-material-blue-grey,
     width: 20px;
     height: 20px;
     box-shadow: 0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0px 0px 0 0px inset;
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0px 0px 0 0px inset;
   }
 }
 @keyframes checkbox-off {
@@ -4035,12 +4037,12 @@ body .jumbotron-material-blue-grey,
     width: 20px;
     height: 20px;
     box-shadow: 0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0px 0px 0 10px inset;
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0px 0px 0 10px inset;
   }
   100% {
     -webkit-transform: rotate(0deg);
@@ -4050,12 +4052,12 @@ body .jumbotron-material-blue-grey,
     width: 20px;
     height: 20px;
     box-shadow: 0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0 0 0 0,
-            0px 0px 0 0px inset;
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0px 0px 0 0px inset;
   }
 }
 @-webkit-keyframes rippleOn {
@@ -4331,88 +4333,88 @@ body .jumbotron-material-blue-grey,
 }
 .togglebutton label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after,
 .togglebutton-default label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(0, 149, 135, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 149, 135, 0.1);
 }
 .togglebutton-black label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .togglebutton-white label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 255, 255, 0.1);
 }
 .togglebutton-inverse label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(63, 81, 181, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1);
 }
 .togglebutton-primary label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(0, 149, 135, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 149, 135, 0.1);
 }
 .togglebutton-success label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(15, 157, 88, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(15, 157, 88, 0.1);
 }
 .togglebutton-info label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(3, 169, 244, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1);
 }
 .togglebutton-warning label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(255, 87, 34, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1);
 }
 .togglebutton-danger label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(244, 67, 54, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(244, 67, 54, 0.1);
 }
 .togglebutton-material-red label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(244, 67, 54, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(244, 67, 54, 0.1);
 }
 .togglebutton-material-pink label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(233, 30, 99, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(233, 30, 99, 0.1);
 }
 .togglebutton-material-purple label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(156, 39, 176, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(156, 39, 176, 0.1);
 }
 .togglebutton-material-deep-purple label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(103, 58, 183, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(103, 58, 183, 0.1);
 }
 .togglebutton-material-indigo label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(63, 81, 181, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1);
 }
 .togglebutton-material-blue label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(33, 150, 243, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(33, 150, 243, 0.1);
 }
 .togglebutton-material-light-blue label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(3, 169, 244, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1);
 }
 .togglebutton-material-cyan label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(0, 188, 212, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 188, 212, 0.1);
 }
 .togglebutton-material-teal label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(0, 150, 136, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
 }
 .togglebutton-material-green label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(76, 175, 80, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(76, 175, 80, 0.1);
 }
 .togglebutton-material-light-green label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(139, 195, 74, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(139, 195, 74, 0.1);
 }
 .togglebutton-material-lime label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(205, 220, 57, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(205, 220, 57, 0.1);
 }
 .togglebutton-material-yellow label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(255, 235, 59, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 235, 59, 0.1);
 }
 .togglebutton-material-amber label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(255, 193, 7, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 193, 7, 0.1);
 }
 .togglebutton-material-orange label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(255, 152, 0, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 152, 0, 0.1);
 }
 .togglebutton-material-deep-orange label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(255, 87, 34, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1);
 }
 .togglebutton-material-brown label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(121, 85, 72, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(121, 85, 72, 0.1);
 }
 .togglebutton-material-grey label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(158, 158, 158, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(158, 158, 158, 0.1);
 }
 .togglebutton-material-blue-grey label input[type=checkbox]:first-of-type:checked ~ .toggle:active:after {
-  background-color: rgba(96, 125, 139, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(96, 125, 139, 0.1);
 }
 .form-horizontal .radio {
   margin-bottom: 10px;
@@ -5316,6 +5318,10 @@ legend {
   margin-right: -7px;
   margin-top: 5px;
   margin-bottom: -5px;
+}
+.list-group .list-group-item .row-picture label .checkbox-material,
+.list-group .list-group-item .row-action-primary label .checkbox-material {
+  left: -10px;
 }
 .list-group .list-group-item .row-content {
   display: inline-block;
