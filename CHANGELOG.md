@@ -15,6 +15,7 @@
 - Added color variations on toggles
 - Improved shadows to better fit Material Design specs
 - Improved hover state of buttons
+- Material Checkboxes now are a single inline element `.checkbox-material`, this helps when you need to vertical align them
 
 ## v 0.2.1
 
