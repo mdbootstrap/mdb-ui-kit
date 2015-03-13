@@ -13,6 +13,8 @@ Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-
 
 ## How to install
 
+[![Join the chat at https://gitter.im/FezVrasta/bootstrap-material-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FezVrasta/bootstrap-material-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 You may install this theme using Bower or Meteor:
 
 - Bower : `bower install bootstrap-material-design`
