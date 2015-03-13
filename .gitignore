@@ -11,3 +11,4 @@ Thumbs.db
 /bower_components/
 .build*
 /_SpecRunner.html
+/nbproject/private/

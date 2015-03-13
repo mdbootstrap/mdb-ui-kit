@@ -41358,10 +41358,11 @@ legend {
   overflow: hidden;
   border: 0;
   border-radius: 0;
-  padding: 0 16px;
+  /* padding: 0 16px; */
 }
 .list-group .list-group-item.baseline {
   border-bottom: 1px solid #cecece;
+  margin-bottom: 1px;
 }
 .list-group .list-group-item.baseline:last-child {
   border-bottom: none;
