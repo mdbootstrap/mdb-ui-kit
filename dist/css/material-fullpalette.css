@@ -58469,37 +58469,22 @@ fieldset[disabled] .navbar .btn-link:focus {
 }
 .popover,
 .tooltip-inner {
-  background: #323232;
-  color: #FFF;
+  color: #ececec;
+  line-height: 1em;
+  background: rgba(101, 101, 101, 0.9);
+  border: none;
   border-radius: 2px;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .tooltip,
 .tooltip.in {
   opacity: 1;
 }
-.popover.left .arrow:after,
-.tooltip.left .arrow:after,
-.popover.left .tooltip-arrow,
-.tooltip.left .tooltip-arrow {
-  border-left-color: #323232;
-}
-.popover.right .arrow:after,
-.tooltip.right .arrow:after,
-.popover.right .tooltip-arrow,
-.tooltip.right .tooltip-arrow {
-  border-right-color: #323232;
-}
-.popover.top .arrow:after,
-.tooltip.top .arrow:after,
-.popover.top .tooltip-arrow,
-.tooltip.top .tooltip-arrow {
-  border-top-color: #323232;
-}
-.popover.bottom .arrow:after,
-.tooltip.bottom .arrow:after,
-.popover.bottom .tooltip-arrow,
-.tooltip.bottom .tooltip-arrow {
-  border-bottom-color: #323232;
+.popover .arrow,
+.tooltip .arrow,
+.popover .tooltip-arrow,
+.tooltip .tooltip-arrow {
+  display: none;
 }
 .mdi,
 icon {
