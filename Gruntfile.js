@@ -294,12 +294,8 @@ module.exports = function(grunt) {
     "uglify:ripples"
   ]);
 
-  grunt.registerTask("build", function(target) {
-    var buildType = "default";
-    if (target && target === "scss") {
-      buildType = "scss";
-    }
-    grunt.task.run(["newer:jshint", "jasmine:scripts", buildType]);
+  grunt.registerTask("build", function() {
+    grunt.task.run(["newer:jshint", "default"]);
   });
 
   grunt.registerTask("test", [
