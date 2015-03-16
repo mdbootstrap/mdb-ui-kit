@@ -2,7 +2,6 @@
 @import "_colors.less";
 @import "_mixins.less";
 @import "_icons-material-design.less";
-@import "_shadows.less";
 
 body {
   background-color: #EEEEEE;
@@ -127,3 +126,7 @@ legend {
 @import "_plugin-nouislider.less";
 @import "_plugin-selectize.less";
 @import "_plugin-dropdownjs.less";
+
+// Material shadows
+// Place them on bottom of stylesheet to increase the importance of it and override other same-specificity selectors
+@import "_shadows.less";
