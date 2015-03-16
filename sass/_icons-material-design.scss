@@ -9,8 +9,7 @@
     font-style: normal;
 }
 
-
-[class^="mdi-"], [class*=" mdi-"] {
+[class^="mdi-"], [class*="mdi-"] {
     speak: none;
     display: inline-block;
     font: normal normal normal 24px/1 'Material-Design-Icons';
@@ -19,32 +18,68 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
+    &:before {
+        display: inline-block;
+        speak: none;
+        text-decoration: inherit;
+    }
+    &.pull-left {
+        margin-right: .3em;
+    }
+    &.pull-right{
+        margin-left: .3em;
+    }
+    &.mdi-lg:before, &.mdi-lg:after {
+        font-size: 1.33333333em;
+        line-height: 0.75em;
+        vertical-align: -15%;
+    }
+    &.mdi-2x:before, &.mdi-2x:after {
+        font-size: 2em;
+    }
+    &.mdi-3x:before, &.mdi-3x:after {
+        font-size: 3em;
+    }
+    &.mdi-4x:before, &.mdi-4x:after {
+        font-size: 4em;
+    }
+    &.mdi-5x:before, &.mdi-5x:after {
+        font-size: 5em;
+    }
 }
 
-[class^="mdi-"]:before {
-    display: inline-block;
-    speak: none;
-    text-decoration: inherit;
+[class^="mdi-device-signal-cellular-"],
+[class^="mdi-device-battery-"],
+[class^="mdi-device-battery-charging-"],
+[class^="mdi-device-signal-cellular-connected-no-internet-"],
+[class^="mdi-device-signal-wifi-"],
+[class^="mdi-device-signal-wifi-statusbar-not-connected"],
+.mdi-device-network-wifi{
+    &:after {
+        opacity: .3;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        display: inline-block;
+        speak: none;
+        text-decoration: inherit;
+    }
 }
 
-/* makes the font 33% larger relative to the icon container */
-[class^="mdi-"].mdi-lg:before {
-    font-size: 1.33333333em;
-    line-height: 0.75em;
-    vertical-align: -15%;
+[class^="mdi-device-signal-cellular-"]:after {content:"\e758";}
+[class^="mdi-device-battery-"]:after {content:"\e735";}
+[class^="mdi-device-battery-charging-"]:after {content:"\e733";}
+[class^="mdi-device-signal-cellular-connected-no-internet-"]:after {content:"\e75d";}
+[class^="mdi-device-signal-wifi-"]:after, .mdi-device-network-wifi:after {content:"\e765";}
+[class^="mdi-device-signal-wifi-statusbasr-not-connected"]:after {content:"\e8f7";}
+
+.mdi-device-signal-cellular-off, .mdi-device-signal-cellular-null, .mdi-device-signal-cellular-no-sim, .mdi-device-signal-wifi-off, .mdi-device-signal-wifi-4-bar, .mdi-device-signal-cellular-4-bar, .mdi-device-battery-alert, .mdi-device-signal-cellular-connected-no-internet-4-bar, .mdi-device-battery-std, .mdi-device-battery-full .mdi-device-battery-unknown {
+    &:after {
+        content: "";
+    }
 }
-[class^="mdi-"].mdi-2x:before {
-    font-size: 2em;
-}
-[class^="mdi-"].mdi-3x:before {
-    font-size: 3em;
-}
-[class^="mdi-"].mdi-4x:before {
-    font-size: 4em;
-}
-[class^="mdi-"].mdi-5x:before {
-    font-size: 5em;
-}
+
 .mdi-fw {
     width: 1.28571429em;
     text-align: center;
@@ -73,12 +108,6 @@
     border-radius: .1em;
 }
 
-[class^="mdi-"].pull-left {
-    margin-right: .3em;
-}
-[class^="mdi-"].pull-right{
-    margin-left: .3em;
-}
 .mdi-spin {
     -webkit-animation: mdi-spin 2s infinite linear;
     animation: mdi-spin 2s infinite linear;
@@ -173,10 +202,12 @@
 .mdi-stack-2x {
     font-size: 2em;
 }
-.inverse {
+.mdi-inverse {
     color: #ffffff;
 }
 
+
+/* Start Icons */
 
 .mdi-action-3d-rotation:before {
     content: "\e600";
