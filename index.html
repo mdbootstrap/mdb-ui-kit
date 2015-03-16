@@ -175,11 +175,24 @@
               <br>
               <p>If you want support the development of this project please consider donate something:</p>
               <a href="https://www.gratipay.com/FezVrasta/" target="_blank" class="btn btn-primary">Donate with Gratipay</a>
-              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display: inline-block;">
+              <form action="https://www.paypal.com/cgi-bin/webscr" id="paypal" method="post" target="_blank" style="display: inline-block;">
                 <input type="hidden" name="cmd" value="_s-xclick">
-                <input type="hidden" name="hosted_button_id" value="ZLAZFNZVV5QL6">
-                <input type="submit" class="btn btn-primary" value="Donate with PayPal" name="submit">
+                <div class="btn btn-primary">
+                  <select name="hosted_button_id" title="I can't accept less than 5 euro due to accounting troubles">
+                    <option value="DAAK965W2DKYE">&euro; 5,00</option>
+                    <option value="28PH77JK5QWFE">&euro; 10,00</option>
+                    <option value="6B6TJAJ2R99HS">&euro; 15,00</option>
+                    <option value="GJCEKCQFMBVHA">&euro; 20,00</option>
+                    <option value="U7QXM95C8RJ9W">&euro; 25,00</option>
+                    <option value="55S3VBB3U4NAS">&euro; 50,00</option>
+                  </select>
+                  <input type="submit" value="DONATE WITH PAYPAL" name="submit">
+                </div>
               </form>
+              <style>
+                #paypal .btn { padding: 5px 30px 6px 30px; }
+                #paypal input { background: transparent; border: 0; }
+              </style>
               <p>Thanks to all the people that donate me weekly on Gratipay and all the ones which has donated on PayPal! You are great guys!</p>
 
               <br>
@@ -281,8 +294,8 @@
                 </div>
               </div>
               <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) Material Bootstrap. You'll see something like this:</p>
-                <!-- This code must be aligned this way to render correctly -->
-                <pre><code class="language-bash" data-lang="bash">Material/
+              <!-- This code must be aligned this way to render correctly -->
+              <pre><code class="language-bash" data-lang="bash">Material/
 ├── css/
 │   ├── material.css
 │   ├── material.css.map
