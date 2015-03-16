@@ -7,14 +7,14 @@
     font-weight: 400;
     cursor: pointer;
     // Hide original checkbox
-    input[type=checkbox]:first-of-type {
+    input[type=checkbox] {
       opacity: 0;
       width: 0;
       height:0;
     }
     // Switch bg off and disabled
     .toggle,
-    input[type=checkbox][disabled]:first-of-type + .toggle {
+    input[type=checkbox][disabled] + .toggle {
       content: "";
       display: inline-block;
       width: 30px;
@@ -40,28 +40,28 @@
       transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
     }
     // Handle disabled
-    input[type=checkbox][disabled]:first-of-type + .toggle:after,
-    input[type=checkbox][disabled]:checked:first-of-type + .toggle:after{
+    input[type=checkbox][disabled] + .toggle:after,
+    input[type=checkbox][disabled]:checked + .toggle:after{
       background-color: #BDBDBD;
     }
     // Ripple off and disabled
-    input[type=checkbox]:first-of-type + .toggle:active:after,
-    input[type=checkbox][disabled]:first-of-type + .toggle:active:after {
+    input[type=checkbox] + .toggle:active:after,
+    input[type=checkbox][disabled] + .toggle:active:after {
       box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
     }
-    input[type=checkbox]:first-of-type:checked + .toggle:after {
+    input[type=checkbox]:checked + .toggle:after {
       left: 15px;
     }
   }
 
   // Switch bg on
-  .generic-variations(~" label input[type=checkbox]:first-of-type:checked + .toggle", @primary, {
+  .generic-variations(~" label input[type=checkbox]:checked + .toggle", @primary, {
     background-color: fade(@material-color, 50%);
   });
   // Handle on
-  .variations(~" label input[type=checkbox]:first-of-type:checked + .toggle:after", background-color, @primary);
+  .variations(~" label input[type=checkbox]:checked + .toggle:after", background-color, @primary);
   // Ripple on
-  .generic-variations(~" label input[type=checkbox]:first-of-type:checked + .toggle:active:after", @primary, {
+  .generic-variations(~" label input[type=checkbox]:checked + .toggle:active:after", @primary, {
     box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px fade(@material-color, 10%);
   });
 }
