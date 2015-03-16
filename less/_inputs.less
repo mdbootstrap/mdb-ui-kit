@@ -32,12 +32,12 @@ select[multiple].form-control {
   
   // fix to stop horizontal resize.
   textarea& {
-     height: auto;
-+    resize: vertical; // fix to stop horizontal resize.
-     &[disabled] {
+    height: auto;
+    resize: vertical; // fix to stop horizontal resize.
+    &[disabled] {
       resize: vertical;
-  }
-}
+    }
+ }
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
   background-color: transparent;
   background-color: rgba(0,0,0,0);
