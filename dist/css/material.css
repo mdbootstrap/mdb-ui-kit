@@ -2562,6 +2562,15 @@ body.inverse,
 body.inverse .form-control {
   color: rgba(255, 255, 255, 0.84);
 }
+body.inverse .modal,
+body.inverse .panel-default,
+body.inverse .card,
+body.inverse .modal .form-control,
+body.inverse .panel-default .form-control,
+body.inverse .card .form-control {
+  background-color: initial;
+  color: initial;
+}
 body,
 h1,
 h2,
