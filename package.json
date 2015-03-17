@@ -1,6 +1,6 @@
 {
-  "name": "bootstrap-material",
-  "version": "0.3.0-dev",
+  "name": "bootstrap-material-design",
+  "version": "0.3.0",
   "description": "Material Design for Bootstrap 3",
   "main": "index.js",
   "scripts": {
