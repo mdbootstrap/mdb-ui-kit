@@ -177,7 +177,7 @@ select.form-control {
 textarea.form-control {
     height: auto;
     resize: vertical; // fix to stop horizontal resize.
-    &[disabled] {
+    &:disabled {
         resize: vertical;
     }
 }
