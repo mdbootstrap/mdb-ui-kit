@@ -51,7 +51,7 @@
        * Verify if the user is just touching on a device and return if so
        */
       if(self.isTouch() && event.type === "mousedown") {
-        return false;
+        return;
       }
 
 
