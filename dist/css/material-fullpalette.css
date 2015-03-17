@@ -16312,6 +16312,13 @@ body .jumbotron-material-blue-grey-A700,
 .btn.btn-flat:disabled {
   color: #a8a8a8 !important;
 }
+.btn.btn-sm {
+  padding: 5px 20px;
+}
+.btn.btn-xs {
+  padding: 4px 15px;
+  font-size: 10px;
+}
 .btn.btn-raised {
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
