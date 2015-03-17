@@ -5027,6 +5027,7 @@ fieldset[disabled] .form-control.focus:disabled,
   transition: 0.2s ease all;
   opacity: 0;
 }
+.form-control-wrapper .form-control:focus ~ .floating-label,
 .form-control-wrapper .form-control:not(.empty) ~ .floating-label {
   top: -10px;
   font-size: 10px;
@@ -5077,7 +5078,7 @@ fieldset[disabled] .form-control.focus:disabled,
   box-shadow: none;
 }
 .form-group.has-warning .control-label,
-.form-group.has-warning input.form-control:not(.empty) ~ .floating-label {
+.form-group.has-warning input.form-control:focus ~ .floating-label {
   color: #ff5722;
 }
 .form-group.has-error .form-control {
@@ -5090,7 +5091,7 @@ fieldset[disabled] .form-control.focus:disabled,
   box-shadow: none;
 }
 .form-group.has-error .control-label,
-.form-group.has-error input.form-control:not(.empty) ~ .floating-label {
+.form-group.has-error input.form-control:focus ~ .floating-label {
   color: #f44336;
 }
 .form-group.has-success .form-control {
@@ -5103,7 +5104,7 @@ fieldset[disabled] .form-control.focus:disabled,
   box-shadow: none;
 }
 .form-group.has-success .control-label,
-.form-group.has-success input.form-control:not(.empty) ~ .floating-label {
+.form-group.has-success input.form-control:focus ~ .floating-label {
   color: #0f9d58;
 }
 .form-group.has-info .form-control {
@@ -5116,7 +5117,7 @@ fieldset[disabled] .form-control.focus:disabled,
   box-shadow: none;
 }
 .form-group.has-info .control-label,
-.form-group.has-info input.form-control:not(.empty) ~ .floating-label {
+.form-group.has-info input.form-control:focus ~ .floating-label {
   color: #03a9f4;
 }
 .form-group .form-control:focus,
@@ -5374,89 +5375,89 @@ fieldset[disabled] .form-control.focus:disabled,
 .form-group-material-blue-grey .control-label {
   color: #607d8b;
 }
-.form-group input.form-control:not(.empty) ~ .floating-label,
-.form-group-default input.form-control:not(.empty) ~ .floating-label {
+.form-group input.form-control:focus ~ .floating-label,
+.form-group-default input.form-control:focus ~ .floating-label {
   color: #009587;
 }
-.form-group-black input.form-control:not(.empty) ~ .floating-label {
+.form-group-black input.form-control:focus ~ .floating-label {
   color: #000000;
 }
-.form-group-white input.form-control:not(.empty) ~ .floating-label {
+.form-group-white input.form-control:focus ~ .floating-label {
   color: #ffffff;
 }
-.form-group-inverse input.form-control:not(.empty) ~ .floating-label {
+.form-group-inverse input.form-control:focus ~ .floating-label {
   color: #3f51b5;
 }
-.form-group-primary input.form-control:not(.empty) ~ .floating-label {
+.form-group-primary input.form-control:focus ~ .floating-label {
   color: #009587;
 }
-.form-group-success input.form-control:not(.empty) ~ .floating-label {
+.form-group-success input.form-control:focus ~ .floating-label {
   color: #0f9d58;
 }
-.form-group-info input.form-control:not(.empty) ~ .floating-label {
+.form-group-info input.form-control:focus ~ .floating-label {
   color: #03a9f4;
 }
-.form-group-warning input.form-control:not(.empty) ~ .floating-label {
+.form-group-warning input.form-control:focus ~ .floating-label {
   color: #ff5722;
 }
-.form-group-danger input.form-control:not(.empty) ~ .floating-label {
+.form-group-danger input.form-control:focus ~ .floating-label {
   color: #f44336;
 }
-.form-group-material-red input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-red input.form-control:focus ~ .floating-label {
   color: #f44336;
 }
-.form-group-material-pink input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-pink input.form-control:focus ~ .floating-label {
   color: #e91e63;
 }
-.form-group-material-purple input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-purple input.form-control:focus ~ .floating-label {
   color: #9c27b0;
 }
-.form-group-material-deep-purple input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-deep-purple input.form-control:focus ~ .floating-label {
   color: #673ab7;
 }
-.form-group-material-indigo input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-indigo input.form-control:focus ~ .floating-label {
   color: #3f51b5;
 }
-.form-group-material-blue input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-blue input.form-control:focus ~ .floating-label {
   color: #2196f3;
 }
-.form-group-material-light-blue input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-light-blue input.form-control:focus ~ .floating-label {
   color: #03a9f4;
 }
-.form-group-material-cyan input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-cyan input.form-control:focus ~ .floating-label {
   color: #00bcd4;
 }
-.form-group-material-teal input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-teal input.form-control:focus ~ .floating-label {
   color: #009688;
 }
-.form-group-material-green input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-green input.form-control:focus ~ .floating-label {
   color: #4caf50;
 }
-.form-group-material-light-green input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-light-green input.form-control:focus ~ .floating-label {
   color: #8bc34a;
 }
-.form-group-material-lime input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-lime input.form-control:focus ~ .floating-label {
   color: #cddc39;
 }
-.form-group-material-yellow input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-yellow input.form-control:focus ~ .floating-label {
   color: #ffeb3b;
 }
-.form-group-material-amber input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-amber input.form-control:focus ~ .floating-label {
   color: #ffc107;
 }
-.form-group-material-orange input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-orange input.form-control:focus ~ .floating-label {
   color: #ff9800;
 }
-.form-group-material-deep-orange input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-deep-orange input.form-control:focus ~ .floating-label {
   color: #ff5722;
 }
-.form-group-material-brown input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-brown input.form-control:focus ~ .floating-label {
   color: #795548;
 }
-.form-group-material-grey input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-grey input.form-control:focus ~ .floating-label {
   color: #9e9e9e;
 }
-.form-group-material-blue-grey input.form-control:not(.empty) ~ .floating-label {
+.form-group-material-blue-grey input.form-control:focus ~ .floating-label {
   color: #607d8b;
 }
 .input-group .form-control-wrapper {
