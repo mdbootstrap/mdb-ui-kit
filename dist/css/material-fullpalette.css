@@ -35644,7 +35644,10 @@ fieldset[disabled] .form-control.focus:disabled,
   font-size: 10px;
   opacity: 1;
 }
-.form-control-wrapper .form-control:focus:invalid ~ .floating-label,
+.form-control-wrapper .form-control:focus ~ .floating-label {
+  color: #009587;
+}
+.form-control-wrapper .form-control:not(.empty):invalid ~ .floating-label,
 .form-control-wrapper .form-control.focus:invalid ~ .floating-label {
   color: #f44336;
 }
@@ -35652,11 +35655,8 @@ fieldset[disabled] .form-control.focus:disabled,
 .form-control-wrapper .form-control.focus ~ .material-input:after {
   background-color: #009587;
 }
-.form-control-wrapper .form-control:focus:invalid ~ .material-input:before,
-.form-control-wrapper .form-control.focus:invalid ~ .material-input:before,
-.form-control-wrapper .form-control:focus:invalid ~ .material-input:after,
-.form-control-wrapper .form-control.focus:invalid ~ .material-input:after {
-  background-color: #f44336;
+.form-control-wrapper .form-control:invalid {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-control-wrapper .form-control.empty ~ .floating-label {
   opacity: 1;
@@ -35678,6 +35678,9 @@ fieldset[disabled] .form-control.focus:disabled,
 }
 .form-control-wrapper select ~ .material-input:after {
   display: none;
+}
+.form-control-wrapper select {
+  appearance: none;
 }
 .form-group.has-warning .form-control {
   box-shadow: none;
