@@ -1,7 +1,7 @@
 // package metadata file for Meteor.js
 'use strict';
 
-var packageName = 'fezvrasta:bootstrap-material-design';  // https://atmospherejs.com/fezvrasta/bootstrap-material-design
+var packageName = 'fezvrasta:bootstrap-material-design-fullpalette';  // https://atmospherejs.com/fezvrasta/bootstrap-material-design-fullpalette
 var where = 'client';  // where to install: 'client' or 'server'. For both, pass nothing.
 
 var packageJson = JSON.parse(Npm.require("fs").readFileSync('package.json'));
@@ -23,7 +23,7 @@ Package.onUse(function (api) {
     'dist/fonts/Material-Design-Icons.svg',  // SVG fallback for iOS < 5 - http://caniuse.com/#feat=svg-fonts, http://stackoverflow.com/a/11002874/126903
     'dist/fonts/Material-Design-Icons.ttf',  // Android Browers 4.1, 4.3 - http://caniuse.com/#feat=ttf
     'dist/fonts/Material-Design-Icons.woff', // Supported by all modern browsers
-    'dist/css/material.css',
+    'dist/css/material-fullpalette.css',
     'dist/css/ripples.css',
     'dist/js/material.js',
     'dist/js/ripples.js',
