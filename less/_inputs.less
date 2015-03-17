@@ -60,6 +60,7 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
     transition: 0.2s ease all;
     opacity: 0;
   }
+  .form-control:focus ~ .floating-label,
   .form-control:not(.empty) ~ .floating-label {
     top: -10px;
     font-size: 10px;
@@ -76,7 +77,7 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
       background-color: @input-danger;
     }
   }
-  .form-control.empty ~ .floating-label {
+  .form-control.empty ~ .floating-label  {
     opacity: 1;
   }
   textarea { resize: none; }
@@ -109,7 +110,7 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
       background-image: linear-gradient(@input-warning, @input-warning), linear-gradient(#D2D2D2, #D2D2D2);
       box-shadow: none;
     }
-    .control-label, input.form-control:not(.empty) ~ .floating-label {
+    .control-label, input.form-control:focus ~ .floating-label {
       color: @input-warning;
     }
   }
@@ -121,7 +122,7 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
       background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(#D2D2D2, #D2D2D2);
       box-shadow: none;
     }
-    .control-label, input.form-control:not(.empty) ~ .floating-label {
+    .control-label, input.form-control:focus ~ .floating-label {
       color: @input-danger;
     }
   }
@@ -133,7 +134,7 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
       background-image: linear-gradient(@input-success, @input-success), linear-gradient(#D2D2D2, #D2D2D2);
       box-shadow: none;
     }
-    .control-label, input.form-control:not(.empty) ~ .floating-label {
+    .control-label, input.form-control:focus ~ .floating-label {
       color: @input-success;
     }
   }
@@ -145,7 +146,7 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
       background-image: linear-gradient(@input-info, @input-info), linear-gradient(#D2D2D2, #D2D2D2);
       box-shadow: none;
     }
-    .control-label, input.form-control:not(.empty) ~ .floating-label {
+    .control-label, input.form-control:focus ~ .floating-label {
       color: @input-info;
     }
   }
@@ -156,7 +157,7 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
     background-image: linear-gradient(@material-color, @material-color), linear-gradient(#D2D2D2, #D2D2D2);
   });
   .variations(~" .control-label", color, @lightbg-text);
-  .variations(~" input.form-control:not(.empty) ~ .floating-label", color, @input-default);
+  .variations(~" input.form-control:focus ~ .floating-label", color, @input-default);
 
 }
 
