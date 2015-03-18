@@ -2594,67 +2594,6 @@ a:hover,
 a:focus {
   color: #009688;
 }
-body .well,
-.container .well,
-.container-fluid .well,
-body .well:not([class^="well well-material-"]),
-.container .well:not([class^="well well-material-"]),
-.container-fluid .well:not([class^="well well-material-"]),
-body .well .form-control,
-.container .well .form-control,
-.container-fluid .well .form-control,
-body .well:not([class^="well well-material-"]) .form-control,
-.container .well:not([class^="well well-material-"]) .form-control,
-.container-fluid .well:not([class^="well well-material-"]) .form-control {
-  color: rgba(0, 0, 0, 0.84);
-}
-body .well .floating-label,
-.container .well .floating-label,
-.container-fluid .well .floating-label,
-body .well:not([class^="well well-material-"]) .floating-label,
-.container .well:not([class^="well well-material-"]) .floating-label,
-.container-fluid .well:not([class^="well well-material-"]) .floating-label {
-  color: #7e7e7e;
-}
-body .well .form-control::-webkit-input-placeholder,
-.container .well .form-control::-webkit-input-placeholder,
-.container-fluid .well .form-control::-webkit-input-placeholder,
-body .well:not([class^="well well-material-"]) .form-control::-webkit-input-placeholder,
-.container .well:not([class^="well well-material-"]) .form-control::-webkit-input-placeholder,
-.container-fluid .well:not([class^="well well-material-"]) .form-control::-webkit-input-placeholder {
-  color: #7e7e7e;
-}
-body .well .form-control::-moz-placeholder,
-.container .well .form-control::-moz-placeholder,
-.container-fluid .well .form-control::-moz-placeholder,
-body .well:not([class^="well well-material-"]) .form-control::-moz-placeholder,
-.container .well:not([class^="well well-material-"]) .form-control::-moz-placeholder,
-.container-fluid .well:not([class^="well well-material-"]) .form-control::-moz-placeholder {
-  color: #7e7e7e;
-  opacity: 1;
-}
-body .well .form-control:-ms-input-placeholder,
-.container .well .form-control:-ms-input-placeholder,
-.container-fluid .well .form-control:-ms-input-placeholder,
-body .well:not([class^="well well-material-"]) .form-control:-ms-input-placeholder,
-.container .well:not([class^="well well-material-"]) .form-control:-ms-input-placeholder,
-.container-fluid .well:not([class^="well well-material-"]) .form-control:-ms-input-placeholder {
-  color: #7e7e7e;
-}
-body .well .option,
-.container .well .option,
-.container-fluid .well .option,
-body .well:not([class^="well well-material-"]) .option,
-.container .well:not([class^="well well-material-"]) .option,
-.container-fluid .well:not([class^="well well-material-"]) .option,
-body .well .create,
-.container .well .create,
-.container-fluid .well .create,
-body .well:not([class^="well well-material-"]) .create,
-.container .well:not([class^="well well-material-"]) .create,
-.container-fluid .well:not([class^="well well-material-"]) .create {
-  color: rgba(0, 0, 0, 0.84);
-}
 body .well.well-sm,
 .container .well.well-sm,
 .container-fluid .well.well-sm {
@@ -2664,46 +2603,6 @@ body .well.well-lg,
 .container .well.well-lg,
 .container-fluid .well.well-lg {
   padding: 26px;
-}
-body [class^="well well-material-"],
-.container [class^="well well-material-"],
-.container-fluid [class^="well well-material-"],
-body [class^="well well-material-"] .form-control,
-.container [class^="well well-material-"] .form-control,
-.container-fluid [class^="well well-material-"] .form-control,
-body [class^="well well-material-"] .floating-label,
-.container [class^="well well-material-"] .floating-label,
-.container-fluid [class^="well well-material-"] .floating-label {
-  color: rgba(255, 255, 255, 0.84);
-}
-body [class^="well well-material-"] .form-control,
-.container [class^="well well-material-"] .form-control,
-.container-fluid [class^="well well-material-"] .form-control {
-  border-bottom-color: rgba(255, 255, 255, 0.84);
-}
-body [class^="well well-material-"] .form-control::-webkit-input-placeholder,
-.container [class^="well well-material-"] .form-control::-webkit-input-placeholder,
-.container-fluid [class^="well well-material-"] .form-control::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.84);
-}
-body [class^="well well-material-"] .form-control::-moz-placeholder,
-.container [class^="well well-material-"] .form-control::-moz-placeholder,
-.container-fluid [class^="well well-material-"] .form-control::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.84);
-  opacity: 1;
-}
-body [class^="well well-material-"] .form-control:-ms-input-placeholder,
-.container [class^="well well-material-"] .form-control:-ms-input-placeholder,
-.container-fluid [class^="well well-material-"] .form-control:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.84);
-}
-body [class^="well well-material-"] .option,
-.container [class^="well well-material-"] .option,
-.container-fluid [class^="well well-material-"] .option,
-body [class^="well well-material-"] .create,
-.container [class^="well well-material-"] .create,
-.container-fluid [class^="well well-material-"] .create {
-  color: rgba(0, 0, 0, 0.84);
 }
 body .well,
 .container .well,
@@ -5004,6 +4903,15 @@ select[multiple].form-control.focus {
   background-color: transparent;
   background-color: rgba(0, 0, 0, 0);
 }
+.form-control::-webkit-input-placeholder {
+  color: #bdbdbd;
+}
+.form-control::-moz-placeholder {
+  color: #bdbdbd;
+}
+.form-control:-ms-input-placeholder {
+  color: #bdbdbd;
+}
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
@@ -5034,7 +4942,7 @@ fieldset[disabled] .form-control.focus:disabled,
   position: relative;
 }
 .form-control-wrapper .floating-label {
-  color: #7E7E7E;
+  color: #bdbdbd;
   font-size: 14px;
   position: absolute;
   pointer-events: none;

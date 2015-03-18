@@ -29,13 +29,30 @@ select[multiple].form-control {
   background-position: center bottom, center calc(~"100% - 1px");
   background-color: transparent;
   background-color: rgba(0,0,0,0);
+  &::-webkit-input-placeholder {
+    color: @input-placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: @input-placeholder-color; 
+  }
+  &:-ms-input-placeholder {  
+    color: @input-placeholder-color;
+  }
 }
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
   background-color: transparent;
   background-color: rgba(0,0,0,0);
 }
-fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:disabled, .form-control:disabled, fieldset[disabled] .form-control:focus:disabled, .form-control-wrapper .form-control:focus:disabled, .form-control:focus:disabled, fieldset[disabled] .form-control.focus:disabled, .form-control-wrapper .form-control.focus:disabled, .form-control.focus:disabled {
-  border: 0;
+fieldset[disabled] .form-control:disabled, 
+.form-control-wrapper .form-control:disabled, 
+.form-control:disabled, 
+fieldset[disabled] .form-control:focus:disabled, 
+.form-control-wrapper .form-control:focus:disabled, 
+.form-control:focus:disabled, 
+fieldset[disabled] .form-control.focus:disabled, 
+.form-control-wrapper .form-control.focus:disabled, 
+.form-control.focus:disabled {
+  border: 0; // Ugly override of Bootstrap border
 }
 
 .form-control:focus, .form-control.focus {
@@ -51,7 +68,7 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
   position: relative;
 
   .floating-label {
-    color: #7E7E7E;
+    color: @input-placeholder-color;
     font-size: 14px;
     position: absolute;
     pointer-events: none;
