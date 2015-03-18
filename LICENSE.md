@@ -1,7 +1,7 @@
 Bootstrap Material Design theme
 Copyright (C) 2014+  Federico Zivolo
 
-This program is free software: you can redistribute it and/or modify
+This program is non-free software: you can redistribute it and/or modify
 it under the terms you can find below.
 
 You may edit, improve and redistribute this software always under the
