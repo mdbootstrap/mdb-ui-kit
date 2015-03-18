@@ -1,8 +1,5 @@
-fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-control {
+fieldset[disabled] .form-control, .form-control {
   &, &:focus, &.focus {
-    &:not(textarea) {
-      height: 28px;
-    }
     padding: 0;
     float: none;
     border: 0;
@@ -12,6 +9,12 @@ fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-con
       border-style: dashed;
       border-bottom: 1px solid #757575;
     }
+  }
+}
+
+fieldset[disabled] .form-control, .form-control {
+  &:textarea {
+    height: 40px;
   }
 }
 
@@ -69,20 +72,48 @@ fieldset[disabled] .form-control.focus:disabled,
 
   .floating-label {
     color: @input-placeholder-color;
-    font-size: 14px;
     position: absolute;
     pointer-events: none;
     left: 0px;
     top: 5px;
     transition: 0.2s ease all;
     opacity: 0;
+    .form-control:focus ~ &,
+    .form-control:not(.empty) ~ & {
+      opacity: 1;
+    }
+  }
+
+  // Input sizes
+  .floating-label { // base
+    font-size: @font-size-base;
   }
   .form-control:focus ~ .floating-label,
   .form-control:not(.empty) ~ .floating-label {
-    top: -10px;
-    font-size: 10px;
-    opacity: 1;
+    top: @floating-label-size-ratio * -@font-size-base;
+    font-size: @floating-label-size-ratio * @font-size-base;
   }
+
+  .input-sm + .floating-label { // small
+    font-size: @font-size-small;
+    top: 7px;
+  }
+  .form-control.input-sm:focus ~ .floating-label,
+  .form-control.input-sm:not(.empty) ~.floating-label {
+    top: @floating-label-size-ratio * -@font-size-small;
+    font-size: @floating-label-size-ratio * @font-size-small;
+  }
+
+  .input-lg + .floating-label {
+    font-size: @font-size-large;
+    top: 10px;
+  }
+  .form-control.input-lg:focus ~ .floating-label,
+  .form-control.input-lg:not(.empty) ~ .floating-label {
+    top: @floating-label-size-ratio * -@font-size-large;
+    font-size: @floating-label-size-ratio * @font-size-large;
+  }
+
   .form-control:focus ~ .floating-label {
     color: @primary;
   }

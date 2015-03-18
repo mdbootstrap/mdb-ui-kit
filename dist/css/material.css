@@ -4852,13 +4852,10 @@ body .jumbotron-material-blue-grey,
   }
 }
 fieldset[disabled] .form-control,
-.form-control-wrapper .form-control,
 .form-control,
 fieldset[disabled] .form-control:focus,
-.form-control-wrapper .form-control:focus,
 .form-control:focus,
 fieldset[disabled] .form-control.focus,
-.form-control-wrapper .form-control.focus,
 .form-control.focus {
   padding: 0;
   float: none;
@@ -4866,28 +4863,18 @@ fieldset[disabled] .form-control.focus,
   box-shadow: none;
   border-radius: 0;
 }
-fieldset[disabled] .form-control:not(textarea),
-.form-control-wrapper .form-control:not(textarea),
-.form-control:not(textarea),
-fieldset[disabled] .form-control:focus:not(textarea),
-.form-control-wrapper .form-control:focus:not(textarea),
-.form-control:focus:not(textarea),
-fieldset[disabled] .form-control.focus:not(textarea),
-.form-control-wrapper .form-control.focus:not(textarea),
-.form-control.focus:not(textarea) {
-  height: 28px;
-}
 fieldset[disabled] .form-control:disabled,
-.form-control-wrapper .form-control:disabled,
 .form-control:disabled,
 fieldset[disabled] .form-control:focus:disabled,
-.form-control-wrapper .form-control:focus:disabled,
 .form-control:focus:disabled,
 fieldset[disabled] .form-control.focus:disabled,
-.form-control-wrapper .form-control.focus:disabled,
 .form-control.focus:disabled {
   border-style: dashed;
   border-bottom: 1px solid #757575;
+}
+fieldset[disabled] .form-control:textarea,
+.form-control:textarea {
+  height: 40px;
 }
 select[multiple].form-control,
 select[multiple].form-control:focus,
@@ -4943,7 +4930,6 @@ fieldset[disabled] .form-control.focus:disabled,
 }
 .form-control-wrapper .floating-label {
   color: #bdbdbd;
-  font-size: 14px;
   position: absolute;
   pointer-events: none;
   left: 0px;
@@ -4951,11 +4937,35 @@ fieldset[disabled] .form-control.focus:disabled,
   transition: 0.2s ease all;
   opacity: 0;
 }
+.form-control:focus ~ .form-control-wrapper .floating-label,
+.form-control:not(.empty) ~ .form-control-wrapper .floating-label {
+  opacity: 1;
+}
+.form-control-wrapper .floating-label {
+  font-size: 14px;
+}
 .form-control-wrapper .form-control:focus ~ .floating-label,
 .form-control-wrapper .form-control:not(.empty) ~ .floating-label {
-  top: -10px;
-  font-size: 10px;
-  opacity: 1;
+  top: -9.8px;
+  font-size: 9.8px;
+}
+.form-control-wrapper .input-sm + .floating-label {
+  font-size: 12px;
+  top: 7px;
+}
+.form-control-wrapper .form-control.input-sm:focus ~ .floating-label,
+.form-control-wrapper .form-control.input-sm:not(.empty) ~ .floating-label {
+  top: -8.4px;
+  font-size: 8.4px;
+}
+.form-control-wrapper .input-lg + .floating-label {
+  font-size: 18px;
+  top: 10px;
+}
+.form-control-wrapper .form-control.input-lg:focus ~ .floating-label,
+.form-control-wrapper .form-control.input-lg:not(.empty) ~ .floating-label {
+  top: -12.6px;
+  font-size: 12.6px;
 }
 .form-control-wrapper .form-control:focus ~ .floating-label {
   color: #009688;
