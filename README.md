@@ -188,6 +188,11 @@ Read more about [Dropdown.js here](https://github.com/FezVrasta/dropdown.js).
 Transform select and multi-select inputs into advanced text inputs. Material Design for BS provides a full replacement of the plugin's CSS, so don't include it.
 Read more about [selectize.js](http://brianreavis.github.io/selectize.js/).
 
+### Bootstrap Material Datepicker
+
+A Material Design datepicker created to be used with Material Design for Bootstrap.  
+Read more about [Bootstrap Material Datepicker](https://github.com/T00rk/bootstrap-material-datepicker)
+
 ## Compatibility
 
 Currently, Material Design for Bootstrap supports Google Chrome (tested v37+), Mozilla Firefox (tested 30+), and Internet Explorer (tested 11+). Mobile browsers are not currently tested but they may work.
