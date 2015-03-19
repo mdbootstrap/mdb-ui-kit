@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+<<<<<<< HEAD
     <head>
         <title>Material Design for Bootstrap</title>
 
@@ -135,8 +136,299 @@
                 <div class="row">
                     <div class="col-xs-3">
                         <h1>Paper Elements</h1>
+=======
+  <head>
+    <title>Material Design for Bootstrap</title>
+
+    <!-- Mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Twitter Bootstrap -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design for Bootstrap -->
+    <link href="dist/css/roboto.min.css" rel="stylesheet">
+    <link href="dist/css/material-fullpalette.min.css" rel="stylesheet">
+    <link href="dist/css/ripples.min.css" rel="stylesheet">
+
+    <!-- Dropdown.js -->
+    <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+
+    <!-- Page style -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .header-panel {
+        background-color: #009587;
+        height: 144px;
+        position: relative;
+        z-index: 3;
+      }
+      .header-panel div {
+        position: relative;
+        height: 100%;
+      }
+      .header-panel h1 {
+        color: #FFF;
+        font-size: 20px;
+        font-weight: 400;
+        position: absolute;
+        bottom: 10px;
+        padding-left: 35px;
+      }
+
+      .menu {
+        overflow: auto;
+        padding: 0;
+      }
+      .menu, .menu * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      .menu ul {
+        padding: 0;
+        margin: 7px 0;
+      }
+      .menu ul li {
+        list-style: none;
+        padding: 20px 0 20px 50px;
+        font-size: 15px;
+        font-weight: normal;
+        cursor: pointer;
+      }
+      .menu ul li.active {
+        background-color: #dedede;
+        position: relative;
+      }
+      .menu ul li a {
+        color: rgb(51, 51, 51);
+        text-decoration: none;
+      }
+
+      .pages {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 4;
+        padding: 0;
+        overflow: auto;
+      }
+      .pages > div {
+        padding: 0 5px;
+        padding-top: 64px;
+      }
+
+      .pages .header {
+        color: rgb(82, 101, 162);
+        font-size: 24px;
+        font-weight: normal;
+        margin-top: 5px;
+        margin-bottom: 60px;
+        letter-spacing: 1.20000004768372px;
+      }
+
+      .page {
+        transform: translateY(1080px);
+        transition: transform 0 linear;
+        display: none;
+        opacity: 0;
+        font-size: 16px;
+      }
+
+      .page.active {
+        transform: translateY(0px);
+        transition: all 0.3s ease-out;
+        display: block;
+        opacity: 1;
+      }
+
+      #opensource {
+        color: rgba(0, 0, 0, 0.62);
+        position: fixed;
+        margin-top: 50px;
+        margin-left: 50px;
+        z-index: 100;
+      }
+
+      #source-modal h4 {
+        color: black;
+      }
+    </style>
+
+
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+  </head>
+  <body>
+
+    <a href="https://github.com/FezVrasta/bootstrap-material-design" style="position: absolute; top: 0; left: 0; border: 0; z-index: 10;"><img src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
+    <div class="header-panel shadow-z-2">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-3">
+            <h1>Paper Elements</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid main">
+      <div class="row">
+        <nav class="col-xs-3 menu">
+          <ul>
+            <li class="active withripple" data-target="#about">Material Design for Bootstrap</li>
+            <li class="withripple" data-target="#getting-started">Getting Started</li>
+            <li><a href="http://fezvrasta.github.com/bootstrap-material-design/bootstrap-elements.html" target="_blank">Bootstrap elements <i class="mdi-action-open-in-new"></i></a></li>
+            <li class="withripple" data-target="#material-colors">Material Colors</li>
+            <li class="withripple" data-target="#checkbox">Checkbox</li>
+            <li class="withripple" data-target="#radio-button">Radio Button</li>
+            <li class="withripple" data-target="#toggle-button">Toggle Button</li>
+            <li class="withripple" data-target="#input">Input</li>
+            <li class="withripple" data-target="#navbar">Navbar</li>
+            <li class="withripple" data-target="#progress-bar">Progress Bar</li>
+            <li class="withripple" data-target="#slider">Slider</li>
+            <li class="withripple">Tabs (To do)</li>
+            <li class="withripple" data-target="#button">Button</li>
+            <li class="withripple">Icon button (To do)</li>
+            <li class="withripple" data-target="#floating-action-button">Floating Action Button</li>
+            <li class="withripple" data-target="#dropdown">Dropdown (Work in progress)</li>
+            <li class="withripple" data-target="#dropdown-menu">Dropdown Menu</li>
+            <li class="withripple" data-target="#dialog">Dialog</li>
+            <li class="withripple" data-target="#shadow">Shadow</li>
+          </ul>
+        </nav>
+        <div class="pages col-xs-9">
+          <div class="col-xs-10">
+            <div class="well page active" id="about">
+              <h1 class="header">Material Design for Bootstrap</h1>
+              <p>Material Design for Bootstrap is a theme for Bootstrap 3 which lets you use the new <a href="http://www.google.com/design/spec/material-design/" target="_blank">Google Material Design</a> in your favorite front-end framework.</p>
+              <p>If you like this project you can support me by donating something on Gratipay, starring this repository, or <a href="https://github.com/FezVrasta/bootstrap-material-design/issues">reporting bugs and ideas</a>.</p>
+              <p>Read more about Material Design for Bootstrap at the <a href="https://github.com/FezVrasta/bootstrap-material-design">Github page</a>.</p>
+
+              <br>
+              <p>If you want support the development of this project please consider donate something:</p>
+              <a href="https://www.gratipay.com/FezVrasta/" target="_blank" class="btn btn-primary">Donate with Gratipay</a>
+              <form action="https://www.paypal.com/cgi-bin/webscr" id="paypal" method="post" target="_blank" style="display: inline-block;">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <div class="btn btn-primary">
+                  <select name="hosted_button_id" title="I can't accept less than 5 euro due to accounting troubles">
+                    <option value="DAAK965W2DKYE">&euro; 5,00</option>
+                    <option value="28PH77JK5QWFE">&euro; 10,00</option>
+                    <option value="6B6TJAJ2R99HS">&euro; 15,00</option>
+                    <option value="GJCEKCQFMBVHA">&euro; 20,00</option>
+                    <option value="U7QXM95C8RJ9W">&euro; 25,00</option>
+                    <option value="55S3VBB3U4NAS">&euro; 50,00</option>
+                  </select>
+                  <input type="submit" value="DONATE WITH PAYPAL" name="submit">
+                </div>
+              </form>
+              <style>
+                #paypal .btn { padding: 5px 30px 6px 30px; }
+                #paypal input { background: transparent; border: 0; }
+              </style>
+              <p>Thanks to all the people that donate me weekly on Gratipay and all the ones which has donated on PayPal! You are great guys!</p>
+
+              <br>
+              <p>Would you like to use this theme for commercial projects? Visit <a href="http://www.mywebexpression.com">MyWebExpression</a> and contact me using the form on the bottom of the page. Thanks!</p>
+
+              <br>
+              <div class="cbwrapper">
+                <script async
+                        type="text/javascript"
+                        src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=fezvrastagithubiobootstrapmateri"
+                        id="_carbonads_js">
+                </script>
+                <div id="fakecb">Seems like you are using AdBlock to hide banners... Carbon ADS are quite nice and don't take much space, you may consider disabling it on this website.<br>This is the only AD on the entire website.<br><br>Thanks!</div>
+              </div>
+              <style>
+                .cbwrapper div {
+                  display: none;
+                }
+                .cbwrapper div:nth-child(2) {
+                  display: block;
+                }
+                #carbonads, #fakecb {
+                  border: 1px solid #d5d5d5;
+                  font-size: 11px;
+                  line-height: 15px;
+                  overflow: hidden;
+                  width: 340px;
+                  padding: 20px;
+                  margin: auto;
+                  height: 142px;
+                  border-radius: 2px;
+                }
+                #carbonads .carbon-img {
+                  float: left;
+                  display: block;
+                }
+                #carbonads .carbon-text, #carbonads .carbon-poweredby {
+                  float: left;
+                  width: 150px;
+                  padding: 0 10px 10px 10px;
+                }
+                #carbonads .carbon-text:hover, #carbonads .carbon-poweredby:hover {
+                  text-decoration: none;
+                }
+                #carbonads .carbon-poweredby {
+                  color: #9D9D9D;
+                }
+              </style>
+
+              <br>
+              <p>You can get this theme downloading the source from Bower:</p>
+              <pre><code>bower install bootstrap-material-design</code></pre>
+
+
+            </div>
+            <div class="well page" id="getting-started">
+              <h1 class="header">Getting Started</h1>
+              <h3>Download</h3>
+              <hr>
+              <h4>Install with NPM - Coming Soon</h4>
+              <p>You can also install and manage Material Bootstrap using NPM</p>
+              <pre><code>npm install</code></pre>
+              <h4>Install with Bower</h4>
+              <p>You can also install and manage Material Bootstrap using Bower</p>
+              <pre><code>bower install bootstrap-material-design</code></pre>
+              <h4>Install with Meteor</h4>
+              <p>You can also install and manage Material Bootstrap using Meteor</p>
+              <pre><code>meteor add fezvrasta:bootstrap-material-design</code></pre>
+              <br />
+              <h3>What's included</h3>
+              <hr>
+              <p>Material Bootstrap is downloadable in a two forms. Material.css only supports the primary shades of the material color palette and Material-fullpalette.css supports every shade of the material color palette</p>
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Required Frameworks</h3>
+                </div>
+                <div class="panel-body">
+                  <div class="list-group">
+                    <div class="list-group-item">
+                      <div class="row-action-primary">
+                        <i class="mdi-action-settings"></i>
+                      </div>
+                      <div class="row-content">
+                        <h4 class="list-group-item-heading">Bootstrap v3.0+</h4>
+                        <p class="list-group-item-text">This theme extends, styles, and modifies Bootstrap's elements and styles. Without Bootstrap this project will not display correctly. To install Bootstrap please go to <a href="http://getbootstrap.com/getting-started/" alt="Bootstrap Docs">Get Bootstrap</a></p>
+                      </div>
+                    </div>
+                    <div class="list-group-separator"></div>
+                    <div class="list-group-item">
+                      <div class="row-action-primary">
+                        <i class="mdi-action-settings"></i>
+                      </div>
+                      <div class="row-content">
+                        <h4 class="list-group-item-heading">jQuery 1.9.1+</h4>
+                        <p class="list-group-item-text">All JavaScript plugins require jQuery to be included.</p>
+                      </div>
+>>>>>>> upstream/master
                     </div>
                 </div>
+<<<<<<< HEAD
             </div>
         </div>
         <div class="container-fluid main">
@@ -283,6 +575,12 @@
                             <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) Material Bootstrap. You'll see something like this:</p>
                             <!-- This code must be aligned this way to render correctly -->
                             <pre><code class="language-bash" data-lang="bash">Material/
+=======
+              </div>
+              <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) Material Bootstrap. You'll see something like this:</p>
+              <!-- This code must be aligned this way to render correctly -->
+              <pre><code class="language-bash" data-lang="bash">Material/
+>>>>>>> upstream/master
 ├── css/
 │   ├── material.css
 │   ├── material.css.map
@@ -310,6 +608,7 @@
     ├── Material-Design-Icons.woff
     └── ADD REMAINING GOOGLE FONT FILES HERE
                 </code>
+<<<<<<< HEAD
                             </pre>
                             <p>Just copy the compiled CSS and JS files and the font files from the .zip and add them to your site.</p>
                             <br />
@@ -1464,6 +1763,157 @@
                     </div>
                     <div class="col-xs-2">
                         <button class="btn btn-fab btn-material-grey-200" id="opensource"><i class="mdi-action-open-in-new"></i></button></div>
+=======
+              </pre>
+              <p>Just copy the compiled CSS and JS files and the font files from the .zip and add them to your site.</p>
+              <br />
+              <p>Once copied you need to initialize the material javascript by adding the following javascript to your site,</p>
+              <pre><code>$.material.init()</code></pre>
+            </div>
+            <div class="well page" id="checkbox">
+              <h1 class="header">Checkbox</h1>
+
+              <!-- Simple checkbox with label -->
+              <div class="sample1">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Notifications
+                  </label>
+                </div>
+                <p class="hint">Notify me about updates to apps or games that I've downloaded</p>
+              </div>
+
+              <!-- Simple checkbox with label, checked -->
+              <div class="sample1">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" checked> Auto-updates
+                  </label>
+                </div>
+                <p class="hint">Auto-update apps over wifi only</p>
+              </div>
+
+              <!-- Simple checkbox with label -->
+              <div class="sample1">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Clear search history
+                  </label>
+                </div>
+                <p class="hint">Remove all the searches you have ever performed</p>
+              </div>
+
+              <h2>Sound</h2>
+
+              <!-- Checkboxes with labels on the left -->
+              <div class="sample2">
+                <div class="text">Touch sounds</div>
+                <div class="checkbox checkbox-primary">
+                  <label>
+                    <input type="checkbox" checked>
+                  </label>
+                </div>
+              </div>
+              <div class="sample2">
+                <div class="text">Screen lock sound</div>
+                <div class="checkbox checkbox-primary">
+                  <label>
+                    <input type="checkbox">
+                  </label>
+                </div>
+              </div>
+              <div class="sample2">
+                <div class="text">Vibrate on touch</div>
+                <div class="checkbox checkbox-primary">
+                  <label>
+                    <input type="checkbox">
+                  </label>
+                </div>
+              </div>
+
+              <!-- Custom page style -->
+              <style>
+                #checkbox .sample1 label {
+                  font-weight: bold;
+                }
+                #checkbox .hint {
+                  padding-left: 45px;
+                  padding-top: 20px;
+                  font-weight: 400;
+                }
+                #checkbox .sample1 {
+                  padding-bottom: 20px;
+                }
+
+                #checkbox h2 {
+                  font-size: 18.7199993133545px;
+                  font-weight: bold;
+                  margin-bottom: 30px;
+                }
+
+                #checkbox .sample2 {
+                  width: 300px;
+                  clear: both;
+                  font-weight: 400;
+                }
+
+                #checkbox .sample2 {
+                  padding: 10px 0;
+                }
+                #checkbox .sample2 .text {
+                  display: inline-block;
+                }
+                #checkbox .sample2 .checkbox {
+                  float: right;
+                  margin: 0;
+                }
+              </style>
+            </div>
+            <div class="well page" id="radio-button">
+              <h1 class="header">Checkbox</h1>
+              <h2>Keep Wi-Fi on during sleep</h2>
+              <div class="sample1">
+                <div class="radio radio-success">
+                  <label>
+                    <input type="radio" name="sample1" value="option1" checked="">
+                    Always
+                  </label>
+                </div>
+                <div class="radio radio-success">
+                  <label>
+                    <input type="radio" name="sample1" value="option1">
+                    Only when plugged in
+                  </label>
+                </div>
+                <div class="radio radio-success">
+                  <label>
+                    <input type="radio" name="sample1" value="option1">
+                    Never
+                  </label>
+                </div>
+              </div>
+
+
+              <h2>Wi-Fi frequency band</h2>
+              <div class="sample2">
+                <div class="radio radio-primary">
+                  <label>
+                    <input type="radio" name="sample2" value="option1" checked="">
+                    Auto
+                  </label>
+                </div>
+                <div class="radio radio-primary">
+                  <label>
+                    <input type="radio" name="sample2" value="option1">
+                    5 GHz only
+                  </label>
+                </div>
+                <div class="radio radio-primary">
+                  <label>
+                    <input type="radio" name="sample2" value="option1">
+                    2.4 GHz only
+                  </label>
+>>>>>>> upstream/master
                 </div>
             </div>
         </div>
