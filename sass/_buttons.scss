@@ -34,6 +34,9 @@
         @extend .shadow-z-3;
     }
     outline: none !important;
+
+
+
 }
 // This is needed to style buttons which has not a variation suffix (they must stiled as btn-default)
 .btn-link, .btn:not([class^="btn btn-"]), .btn-default {
@@ -101,8 +104,9 @@
     &.btn-mini {
         width: 40px;
         height: 40px;
-        padding: 13px;
+        padding: 13px 9px;
         font-size: 15px;
+        box-sizing: border-box;
     }
 }
 
@@ -110,26 +114,26 @@
 // --------------------------------------------------
 
 .btn-default {
-  @include button-variant($btn-default);
+    @include button-variant($btn-default);
 }
 .btn-primary {
-  @include button-variant($primary);
+    @include button-variant($primary);
 }
 // Success appears as green
 .btn-success {
-  @include button-variant($success);
+    @include button-variant($success);
 }
 // Info appears as blue-green
 .btn-info {
-  @include button-variant($info);
+    @include button-variant($info);
 }
 // Warning appears as orange
 .btn-warning {
-  @include button-variant($warning);
+    @include button-variant($warning);
 }
 // Danger and error appear as red
 .btn-danger {
-  @include button-variant($danger);
+    @include button-variant($danger);
 }
 
 // Material shades

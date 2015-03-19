@@ -3599,8 +3599,9 @@ body .jumbotron-material-blue-grey,
 .btn.btn-fab.btn-fab-mini {
   width: 40px;
   height: 40px;
-  padding: 13px;
+  padding: 13px 9px;
   font-size: 15px;
+  box-sizing: border-box;
 }
 .btn.btn-fab i {
   position: relative;
