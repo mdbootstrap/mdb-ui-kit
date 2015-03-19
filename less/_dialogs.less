@@ -2,51 +2,90 @@
 // Modals
 // Material Design element Dialogs
 // --------------------------------------------------
+/*
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 2%;
+    max-height: 94%;
+    box-sizing: border-box;
+    overflow: auto;
+
+    *
+      *Scroll
+      
+    &::-webkit-scrollbar {
+        width: 8px;
+        border-radius: 5px;
+
+    }
+     Fundo da barra de rolagem 
+    &::-webkit-scrollbar-track-piece {
+        background-color: #EEE;
+        border-radius: 0px 5px 5px 0px;
+    }
+
+     Cor do indicador de rolagem 
+    &::-webkit-scrollbar-thumb:vertical,
+        &::-webkit-scrollbar-thumb:horizontal {
+        background-color: #CCC;
+        border-radius: 5px;
+    }
+
+     Cor do indicador de rolagem - ao passar o mouse 
+    &::-webkit-scrollbar-thumb:vertical:hover,
+        &::-webkit-scrollbar-thumb:horizontal:hover {
+        background-color: #ccc
+    }
+}*/
+
 .modal-content {
-  .shadow-z-5();
-  border-radius: 2px;
-  border: none;
-  // Modal header
-  // Top section of the modal w/ title and dismiss
-  .modal-header {
-    border-bottom: none;
-    padding-top:    24px;
-    padding-right:  24px;
-    padding-bottom: 0px;
-    padding-left:   24px;
-  }
-  // Modal body
-  // Where all modal content resides (sibling of .modal-header and .modal-footer)
-  .modal-body {
-    padding-top:    0px;
-    padding-right:  24px;
-    padding-bottom: 16px;
-    padding-left:   24px;
-  }
-  // Footer (for actions)
-  .modal-footer {
-    border-top: none;
-    padding: 7px;
-    button {
-      margin: 0;
-      padding-left: 16px;
-      padding-right: 16px;
-      width: auto;
-      &.pull-left {
-        padding-left: 5px;
-        padding-right: 5px;
-        position: relative;
-        left: -5px;
-      }
+    .shadow-z-5();
+    border-radius: 2px;
+    border: none;
+    box-sizing: border-box;
+    // Modal header
+    // Top section of the modal w/ title and dismiss
+    .modal-header {
+        border-bottom: none;
+        padding-top:    24px;
+        padding-right:  24px;
+        padding-bottom: 0px;
+        padding-left:   24px;
     }
-    button+button {
-      margin-bottom: 16px;
+    // Modal body
+    // Where all modal content resides (sibling of .modal-header and .modal-footer)
+    .modal-body {
+        padding-top: 24px;
+        padding-right: 24px;
+        padding-bottom: 16px;
+        padding-left: 24px;
+        box-sizing: border-box;
     }
-  }
-  .modal-body + .modal-footer {
-    padding-top: 0;
-  }
+    // Footer (for actions)
+    .modal-footer {
+        border-top: none;
+        padding: 7px;
+        button {
+            margin: 0;
+            padding-left: 16px;
+            padding-right: 16px;
+            width: auto;
+            &.pull-left {
+                padding-left: 5px;
+                padding-right: 5px;
+                position: relative;
+                left: -5px;
+            }
+        }
+        button+button {
+            margin-bottom: 16px;
+        }
+    }
+    .modal-body + .modal-footer {
+        padding-top: 0;
+    }
 }
 .modal-backdrop {
-  background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.3);
 }
