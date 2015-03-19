@@ -32,6 +32,7 @@ select[multiple].form-control {
   background-position: center bottom, center calc(~"100% - 1px");
   background-color: transparent;
   background-color: rgba(0,0,0,0);
+  transition: background 0 ease-out;
   &::-webkit-input-placeholder {
     color: @input-placeholder-color;
   }
@@ -61,9 +62,9 @@ fieldset[disabled] .form-control.focus:disabled,
 .form-control:focus, .form-control.focus {
   outline: none;
   background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
-  animation: input-highlight 0.5s forwards;
+  background-size: 100% 2px, 100% 1px;
   box-shadow: none;
-  background-size: 0 2px, 100% 1px;
+  transition-duration: 0.3s;
 }
 
 
@@ -76,7 +77,7 @@ fieldset[disabled] .form-control.focus:disabled,
     pointer-events: none;
     left: 0px;
     top: 5px;
-    transition: 0.2s ease all;
+    transition: 0.3s ease all;
     opacity: 0;
     .form-control:focus ~ &,
     .form-control:not(.empty) ~ & {
@@ -240,16 +241,6 @@ select.form-control {
   &:focus, &.focus {
     box-shadow: none;
     border-color: #757575;
-  }
-}
-
-@keyframes input-highlight {
-  0% {
-    background-size: 0 2px, 100% 1px;
-  }
-
-  100% {
-    background-size: 100% 2px, 100% 1px;
   }
 }
 
