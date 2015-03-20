@@ -3,3 +3,21 @@
     line-height: inherit;
     vertical-align: bottom;
 }
+
+.btn:not(.btn-fab) {
+    [class^=mdi-],  
+    [class*=mdi-] {
+        position: relative;
+        float: left;        
+        top: 50%;
+        margin-right: 5px;
+        margin-left: -12px;
+        margin-top: -3px;
+
+        &.icon-right{
+            float: right;
+            margin-right: -12px;
+            margin-left: 5px;
+        }
+    }  
+}

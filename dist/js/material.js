@@ -47,7 +47,7 @@
       $((selector) ? selector : this.options.checkboxElements)
       .filter(":notmdproc")
       .data("mdproc", true)
-      .after("<span class=ripple></span><span class=check></span>");
+      .after("<span class=checkbox-material><span class=check></span></span>");
     },
     "togglebutton": function(selector) {
       // Add fake-checkbox to material checkboxes
