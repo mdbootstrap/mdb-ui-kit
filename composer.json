@@ -1,0 +1,7 @@
+{
+    "packages": {
+        "jcvb/bootstrap-material": {
+            "dev-master": { @composer.json }
+        }
+    }
+}
