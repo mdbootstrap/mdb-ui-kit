@@ -1,7 +1,33 @@
 {
-    "packages": {
-        "jcvb/bootstrap-material": {
-            "dev-master": { @composer.json }
-        }
+  "name": "jcvb/bootstrap-material",
+  "description": "Material design theme for Bootstrap 3 ",
+  "keywords": [
+    "material",
+    "design",
+    "bootstrap",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "https://github.com/FezVrasta/bootstrap-material-design",
+  "authors": [
+    {
+      "name": "JC Valerio",
+      "email": "jc.valerio.b@gmail.com"
     }
+  ],
+  "support": {
+    "issues": "https://github.com/FezVrasta/bootstrap-material-design/issues"
+  },
+  "license": "MIT",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.3.x-dev"
+    }
+  },
+  "replace": {
+    "jcvb/bootstrap-material": "self.version"
+  }
 }
