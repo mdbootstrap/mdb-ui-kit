@@ -1,7 +1,7 @@
 .navbar {
   background-color: @primary;
-  border: 0;
-  border-radius: 0;
+  border: @zero;
+  border-radius: @zero;
 
   .navbar-brand {
     position: relative;
@@ -54,7 +54,7 @@
 
   // Darken the responsive nav toggle
   .navbar-toggle {
-    border: 0;
+    border: @zero;
     &:hover,
     &:focus {
       background-color: transparent;
@@ -96,7 +96,7 @@
       // Dropdowns get custom display
       .open .dropdown-menu {
         > .dropdown-header {
-          border: 0;
+          border: @zero;
           color: inherit;
         }
         .divider {
@@ -174,10 +174,14 @@
       color: @text-color;
     }
     .dropdown-menu {
+      border-radius: @dropdown-radius;
       li > a {
+        font-size: @dropdown-font-size;
+        padding: 13px 16px;
         &:hover,
         &:focus {
           color: @material-color;
+          background-color: @lightgrey;
         }
       }
       .active > a {
