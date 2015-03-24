@@ -23,7 +23,7 @@ Package.onUse(function (api) {
     'dist/fonts/Material-Design-Icons.svg',  // SVG fallback for iOS < 5 - http://caniuse.com/#feat=svg-fonts, http://stackoverflow.com/a/11002874/126903
     'dist/fonts/Material-Design-Icons.ttf',  // Android Browers 4.1, 4.3 - http://caniuse.com/#feat=ttf
     'dist/fonts/Material-Design-Icons.woff', // Supported by all modern browsers
-    'dist/css/material.css',                 // includes only the primary color variations
+    'dist/css/material.css',
     'dist/css/ripples.css',
     'dist/js/material.js',
     'dist/js/ripples.js',

@@ -125,6 +125,50 @@ The syntax to add a Material icon is:
 
      <i class="icon icon-material-favorite"></i>
 
+### Cards 
+
+A card will expand to fill all of the available width (e.g. column's width). Card's height will be automatically resized to match width.
+
+Here is an example on how to use it:
+
+    <div class="card">
+
+        <div class="card-height-indicator"></div>
+
+        <div class="card-content">
+
+            <div class="card-image">
+                <img src="./image.jpg" alt="Loading image...">
+                <h3 class="card-image-headline">Lorem Ipsum Dolor</h3>
+            </div>
+
+            <div class="card-body">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+
+            <footer class="card-footer">
+                <button class="btn btn-flat">Share</button>
+                <button class="btn btn-flat btn-warning">Learn More</button>
+            </footer>
+
+        </div>
+
+    </div>
+Cards will adapt to column's width. The card below will have width equal to col-lg-6:
+
+    <div class="row">
+        <div class="col-lg-3"></div>
+
+        <div class="col-lg-6">
+            <div class="card">
+                ...
+            </div>
+        </div>
+
+        <div class="col-lg-3"></div>
+    </div>
+
+
 ## Material.js
 
 `Material.js` is a jQuery plugin that adds some magic to your markup and allows Material Design for Bootstrap to style some elements like inputs, checkboxes, radios etc.
@@ -187,6 +231,11 @@ Read more about [Dropdown.js here](https://github.com/FezVrasta/dropdown.js).
 
 Transform select and multi-select inputs into advanced text inputs. Material Design for BS provides a full replacement of the plugin's CSS, so don't include it.
 Read more about [selectize.js](http://brianreavis.github.io/selectize.js/).
+
+### Bootstrap Material Datepicker
+
+A Material Design datepicker created to be used with Material Design for Bootstrap.  
+Read more about [Bootstrap Material Datepicker](https://github.com/T00rk/bootstrap-material-datepicker)
 
 ## Compatibility
 

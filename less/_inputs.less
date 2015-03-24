@@ -1,8 +1,5 @@
-fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-control {
+fieldset[disabled] .form-control, .form-control {
   &, &:focus, &.focus {
-    &:not(textarea) {
-      height: 28px;
-    }
     padding: 0;
     float: none;
     border: 0;
@@ -15,6 +12,12 @@ fieldset[disabled] .form-control, .form-control-wrapper .form-control, .form-con
   }
 }
 
+fieldset[disabled] .form-control, .form-control {
+  &:textarea {
+    height: 40px;
+  }
+}
+
 select[multiple].form-control {
   &, &:focus, &.focus {
     height: 85px;
@@ -23,27 +26,45 @@ select[multiple].form-control {
 
 .form-control {
   border: 0;
-  background-image: linear-gradient(@primary, @primary), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
   background-position: center bottom, center calc(~"100% - 1px");
   background-color: transparent;
   background-color: rgba(0,0,0,0);
+  transition: background 0 ease-out;
+  &::-webkit-input-placeholder {
+    color: @input-placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: @input-placeholder-color; 
+  }
+  &:-ms-input-placeholder {  
+    color: @input-placeholder-color;
+  }
 }
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
   background-color: transparent;
   background-color: rgba(0,0,0,0);
 }
-fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:disabled, .form-control:disabled, fieldset[disabled] .form-control:focus:disabled, .form-control-wrapper .form-control:focus:disabled, .form-control:focus:disabled, fieldset[disabled] .form-control.focus:disabled, .form-control-wrapper .form-control.focus:disabled, .form-control.focus:disabled {
-  border: 0;
+fieldset[disabled] .form-control:disabled, 
+.form-control-wrapper .form-control:disabled, 
+.form-control:disabled, 
+fieldset[disabled] .form-control:focus:disabled, 
+.form-control-wrapper .form-control:focus:disabled, 
+.form-control:focus:disabled, 
+fieldset[disabled] .form-control.focus:disabled, 
+.form-control-wrapper .form-control.focus:disabled, 
+.form-control.focus:disabled {
+  border: 0; // Ugly override of Bootstrap border
 }
 
 .form-control:focus, .form-control.focus {
   outline: none;
-  background-image: linear-gradient(@primary, @primary), linear-gradient(#D2D2D2, #D2D2D2);
-  animation: input-highlight 0.5s forwards;
+  background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
+  background-size: 100% 2px, 100% 1px;
   box-shadow: none;
-  background-size: 0 2px, 100% 1px;
+  transition-duration: 0.3s;
 }
 
 
@@ -51,32 +72,62 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
   position: relative;
 
   .floating-label {
-    color: #7E7E7E;
-    font-size: 14px;
+    color: @input-placeholder-color;
     position: absolute;
     pointer-events: none;
     left: 0px;
     top: 5px;
-    transition: 0.2s ease all;
+    transition: 0.3s ease all;
     opacity: 0;
+    .form-control:focus ~ &,
+    .form-control:not(.empty) ~ & {
+      opacity: 1;
+    }
   }
+
+  // Input sizes
+  .floating-label { // base
+    font-size: @font-size-base;
+  }
+  .form-control:focus ~ .floating-label,
   .form-control:not(.empty) ~ .floating-label {
-    top: -10px;
-    font-size: 10px;
-    opacity: 1;
+    top: @floating-label-size-ratio * -@font-size-base;
+    font-size: @floating-label-size-ratio * @font-size-base;
   }
-  .form-control:focus:invalid ~ .floating-label, .form-control.focus:invalid ~ .floating-label {
+
+  .input-sm + .floating-label { // small
+    font-size: @font-size-small;
+    top: 7px;
+  }
+  .form-control.input-sm:focus ~ .floating-label,
+  .form-control.input-sm:not(.empty) ~.floating-label {
+    top: @floating-label-size-ratio * -@font-size-small;
+    font-size: @floating-label-size-ratio * @font-size-small;
+  }
+
+  .input-lg + .floating-label {
+    font-size: @font-size-large;
+    top: 10px;
+  }
+  .form-control.input-lg:focus ~ .floating-label,
+  .form-control.input-lg:not(.empty) ~ .floating-label {
+    top: @floating-label-size-ratio * -@font-size-large;
+    font-size: @floating-label-size-ratio * @font-size-large;
+  }
+
+  .form-control:focus ~ .floating-label {
+    color: @primary;
+  }
+  .form-control:not(.empty):invalid ~ .floating-label, .form-control.focus:invalid ~ .floating-label {
     color: @input-danger;
   }
   .form-control:focus ~ .material-input:after, .form-control.focus ~ .material-input:after {
     background-color: @input-default;
   }
-  .form-control:focus:invalid ~ .material-input, .form-control.focus:invalid ~ .material-input {
-    &:before, &:after  {
-      background-color: @input-danger;
-    }
+  .form-control:invalid {
+    background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(@input-underline-color, @input-underline-color);
   }
-  .form-control.empty ~ .floating-label {
+  .form-control.empty ~ .floating-label  {
     opacity: 1;
   }
   textarea { resize: none; }
@@ -98,6 +149,11 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
     display: none;
   }
 
+  // Fix for OS X
+  select {
+    appearance: none;
+  }
+
 }
 
 .form-group {
@@ -106,10 +162,10 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
       box-shadow: none;
     }
     .material-input:focus, .form-control:focus, .form-control.focus {
-      background-image: linear-gradient(@input-warning, @input-warning), linear-gradient(#D2D2D2, #D2D2D2);
+      background-image: linear-gradient(@input-warning, @input-warning), linear-gradient(@input-underline-color, @input-underline-color);
       box-shadow: none;
     }
-    .control-label, input.form-control:not(.empty) ~ .floating-label {
+    .control-label, input.form-control:focus ~ .floating-label {
       color: @input-warning;
     }
   }
@@ -118,10 +174,10 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
       box-shadow: none;
     }
     .material-input:focus, .form-control:focus, .form-control.focus {
-      background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(#D2D2D2, #D2D2D2);
+      background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(@input-underline-color, @input-underline-color);
       box-shadow: none;
     }
-    .control-label, input.form-control:not(.empty) ~ .floating-label {
+    .control-label, input.form-control:focus ~ .floating-label {
       color: @input-danger;
     }
   }
@@ -130,10 +186,10 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
       box-shadow: none;
     }
     .material-input:focus, .form-control:focus, .form-control.focus {
-      background-image: linear-gradient(@input-success, @input-success), linear-gradient(#D2D2D2, #D2D2D2);
+      background-image: linear-gradient(@input-success, @input-success), linear-gradient(@input-underline-color, @input-underline-color);
       box-shadow: none;
     }
-    .control-label, input.form-control:not(.empty) ~ .floating-label {
+    .control-label, input.form-control:focus ~ .floating-label {
       color: @input-success;
     }
   }
@@ -142,21 +198,21 @@ fieldset[disabled] .form-control:disabled, .form-control-wrapper .form-control:d
       box-shadow: none;
     }
     .material-input:focus, .form-control:focus, .form-control.focus {
-      background-image: linear-gradient(@input-info, @input-info), linear-gradient(#D2D2D2, #D2D2D2);
+      background-image: linear-gradient(@input-info, @input-info), linear-gradient(@input-underline-color, @input-underline-color);
       box-shadow: none;
     }
-    .control-label, input.form-control:not(.empty) ~ .floating-label {
+    .control-label, input.form-control:focus ~ .floating-label {
       color: @input-info;
     }
   }
   .generic-variations(~" .form-control:focus", @primary, {
-    background-image: linear-gradient(@material-color, @material-color), linear-gradient(#D2D2D2, #D2D2D2);
+    background-image: linear-gradient(@material-color, @material-color), linear-gradient(@input-underline-color, @input-underline-color);
   });
   .generic-variations(~" .form-control.focus", @primary, {
-    background-image: linear-gradient(@material-color, @material-color), linear-gradient(#D2D2D2, #D2D2D2);
+    background-image: linear-gradient(@material-color, @material-color), linear-gradient(@input-underline-color, @input-underline-color);
   });
   .variations(~" .control-label", color, @lightbg-text);
-  .variations(~" input.form-control:not(.empty) ~ .floating-label", color, @input-default);
+  .variations(~" input.form-control:focus ~ .floating-label", color, @input-default);
 
 }
 
@@ -185,16 +241,6 @@ select.form-control {
   &:focus, &.focus {
     box-shadow: none;
     border-color: #757575;
-  }
-}
-
-@keyframes input-highlight {
-  0% {
-    background-size: 0 2px, 100% 1px;
-  }
-
-  100% {
-    background-size: 100% 2px, 100% 1px;
   }
 }
 
