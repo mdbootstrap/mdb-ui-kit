@@ -294,12 +294,8 @@ module.exports = function(grunt) {
     "uglify:ripples"
   ]);
 
-  grunt.registerTask("build", function(target) {
-    var buildType = "default";
-    if (target && target === "scss") {
-      buildType = "scss";
-    }
-    grunt.task.run(["newer:jshint", "jasmine:scripts", buildType]);
+  grunt.registerTask("build", function() {
+    grunt.task.run(["newer:jshint", "default"]);
   });
 
   grunt.registerTask("test", [
@@ -324,6 +320,6 @@ module.exports = function(grunt) {
   grunt.registerTask("meteor-publish", ["exec:meteor-init", "exec:meteor-publish", "exec:meteor-cleanup"]);
   grunt.registerTask("meteor", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-publish", "exec:meteor-cleanup"]);
 
-  grunt.registerTask("cibuild", ["newer:jshint", "jasmine:scripts", "meteor-test"]);
+  grunt.registerTask("cibuild", ["newer:jshint", "meteor-test"]);
 
 };
