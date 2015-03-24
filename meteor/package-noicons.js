@@ -18,7 +18,7 @@ Package.onUse(function (api) {
   api.use('twbs:bootstrap-noglyph@3.3.1');
   api.use('jquery');
   api.addFiles([
-    'dist/css/material-wfont.css',           // includes @font-face rules to load the Roboto font
+    'dist/css/material.css',           // includes @font-face rules to load the Roboto font
     'dist/css/ripples.css',
     'dist/js/material.js',
     'dist/js/ripples.js',
