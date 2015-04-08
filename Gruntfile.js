@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   require("load-grunt-tasks")(grunt);
 
   grunt.initConfig({
-
+    pkg: grunt.file.readJSON("package.json"),
 
     // Compile less to .css
     // Compile less to .min.css
@@ -314,6 +314,50 @@ module.exports = function(grunt) {
       "watch"
     ]);
   });
+  
+  grunt.registerTask("nuget", "Create a nuget package", function () {
+        var target = grunt.option("target") || "less", done = this.async();
+        if (target === "less") {
+            grunt.util.spawn({
+                cmd: "nuget/nuget.exe",
+                args: [
+                    "pack",
+                    "nuget/Bootstrap.Material.Design.nuspec",
+                    "-OutputDirectory",
+                    "dist/nuget",
+                    "-Version",
+                    grunt.config.get("pkg").version
+                ]
+            }, function (error, result) {
+                if (error) {
+                    grunt.log.error(error);
+                } else {
+                    grunt.log.write(result);
+                }
+                done();
+            });
+        }
+        else { //--target=css
+            grunt.util.spawn({
+                cmd: "nuget/nuget.exe",
+                args: [
+                    "pack",
+                    "nuget/Bootstrap.Material.Design.CSS.nuspec",
+                    "-OutputDirectory",
+                    "dist/nuget",
+                    "-Version",
+                    grunt.config.get("pkg").version
+                ]
+            }, function (error, result) {
+                if (error) {
+                    grunt.log.error(error);
+                } else {
+                    grunt.log.write(result);
+                }
+                done();
+            });
+        }
+    });
 
   // Meteor tasks
   grunt.registerTask("meteor-test", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-cleanup"]);

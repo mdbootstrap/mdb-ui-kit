@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Bootstrap.Material.Design.CSS</id>
+        <version>1.0.0</version>
+        <title>Material Design for Bootstrap CSS</title>
+        <authors>fezvrasta</authors>
+        <owners>Eonasdan</owners>
+        <projectUrl>http://fezvrasta.github.io/bootstrap-material-design/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Material Design for Bootstrap is a theme for Bootstrap 3 which lets you use the new Google Material Design in your favorite front-end framework.</description>
+        <releaseNotes>https://github.com/FezVrasta/bootstrap-material-design/blob/master/CHANGELOG.md</releaseNotes>
+        <tags>bootstrap material</tags>
+        <dependencies>
+            <dependency id="bootstrap" version="3.3" />
+        </dependencies>
+    </metadata>
+	<files>
+		<file src="..\dist\fonts\Material-Design-Icons.eot" target="content\fonts" />
+		<file src="..\dist\fonts\Material-Design-Icons.svg" target="content\fonts" />
+		<file src="..\dist\fonts\Material-Design-Icons.ttf" target="content\fonts" />
+		<file src="..\dist\fonts\Material-Design-Icons.woff" target="content\fonts" />
+        <file src="..\dist\js\material.js" target="content\Scripts" />
+        <file src="..\dist\js\ripples.js" target="content\Scripts" />
+        <file src="..\dist\css\material.css" target="content\Content\material" />
+		<file src="..\dist\css\ripples.css" target="content\Content\material" />
+    </files>
+</package>

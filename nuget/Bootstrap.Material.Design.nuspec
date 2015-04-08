@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Bootstrap.Material.Design</id>
+        <version>1.0.0</version>
+        <title>Material Design for Bootstrap</title>
+        <authors>fezvrasta</authors>
+        <owners>Eonasdan</owners>
+        <projectUrl>http://fezvrasta.github.io/bootstrap-material-design/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Material Design for Bootstrap is a theme for Bootstrap 3 which lets you use the new Google Material Design in your favorite front-end framework.</description>
+        <releaseNotes>https://github.com/FezVrasta/bootstrap-material-design/blob/master/CHANGELOG.md</releaseNotes>
+        <tags>bootstrap material</tags>
+        <dependencies>
+            <dependency id="Twitter.Bootstrap.Less" version="3.3" />
+        </dependencies>
+    </metadata>
+	<files>
+		<file src="..\dist\fonts\Material-Design-Icons.eot" target="content\Content\fonts" />
+		<file src="..\dist\fonts\Material-Design-Icons.svg" target="content\Content\fonts" />
+		<file src="..\dist\fonts\Material-Design-Icons.ttf" target="content\Content\fonts" />
+		<file src="..\dist\fonts\Material-Design-Icons.woff" target="content\Content\fonts" />
+        <file src="..\dist\js\material.js" target="content\Scripts" />
+        <file src="..\dist\js\ripples.js" target="content\Scripts" />
+        <file src="..\less\material-fullpalette.less" target="content\Content\material" />
+		<file src="..\less\material.less" target="content\Content\material" />
+		<file src="..\less\ripples.less" target="content\Content\material" />
+		<file src="..\less\roboto.less" target="content\Content\material" />
+		<file src="..\less\_alerts.less" target="content\Content\material" />
+		<file src="..\less\_buttons.less" target="content\Content\material" />
+		<file src="..\less\_cards.less" target="content\Content\material" />
+		<file src="..\less\_checkboxes.less" target="content\Content\material" />
+		<file src="..\less\_colors.less" target="content\Content\material" />
+		<file src="..\less\_dialogs.less" target="content\Content\material" />
+		<file src="..\less\_dividers.less" target="content\Content\material" />
+		<file src="..\less\_icons-material-design.less" target="content\Content\material" />
+		<file src="..\less\_icons.less" target="content\Content\material" />
+		<file src="..\less\_inputs.less" target="content\Content\material" />
+		<file src="..\less\_labels.less" target="content\Content\material" />
+		<file src="..\less\_lists.less" target="content\Content\material" />
+		<file src="..\less\_mixins-fullpalette.less" target="content\Content\material" />
+		<file src="..\less\_mixins.less" target="content\Content\material" />
+		<file src="..\less\_navbar.less" target="content\Content\material" />
+		<file src="..\less\_panels.less" target="content\Content\material" />
+		<file src="..\less\_plugin-dropdownjs.less" target="content\Content\material" />
+		<file src="..\less\_plugin-nouislider.less" target="content\Content\material" />
+		<file src="..\less\_plugin-selectize.less" target="content\Content\material" />
+		<file src="..\less\_plugin-snackbarjs.less" target="content\Content\material" />
+		<file src="..\less\_popups.less" target="content\Content\material" />
+		<file src="..\less\_progress.less" target="content\Content\material" />
+		<file src="..\less\_radios.less" target="content\Content\material" />
+		<file src="..\less\_shadows.less" target="content\Content\material" />
+		<file src="..\less\_tabs.less" target="content\Content\material" />
+		<file src="..\less\_togglebutton.less" target="content\Content\material" />
+		<file src="..\less\_variables.less" target="content\Content\material" />
+		<file src="..\less\_welljumbo.less" target="content\Content\material" />
+    </files>
+</package>
