@@ -240,3 +240,4 @@ Read more about [Bootstrap Material Datepicker](https://github.com/T00rk/bootstr
 ## Compatibility
 
 Currently, Material Design for Bootstrap supports Google Chrome (tested v37+), Mozilla Firefox (tested 30+), and Internet Explorer (tested 11+). Mobile browsers are not currently tested but they may work.
+Tested on Chrome on Android and it does not work
