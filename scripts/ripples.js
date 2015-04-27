@@ -173,7 +173,7 @@
        */
       event = event.originalEvent;
 
-      if(event.touches.length !== 1) {
+      if(event.touches.length === 1) {
         return event.touches[0].pageX - wrapperOffset.left;
       }
 
@@ -200,7 +200,7 @@
        */
       event = event.originalEvent;
 
-      if(event.touches.length !== 1) {
+      if(event.touches.length === 1) {
         return event.touches[0].pageY - wrapperOffset.top;
       }
 
