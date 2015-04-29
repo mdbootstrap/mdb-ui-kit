@@ -39,7 +39,7 @@ Is often asked how to change the primary color of this theme without edit the bo
 
 You can do it by creating a less file in your project:
 
-    @import "../bower_components/bootstrap-material-design/less/material-wfont.less";
+    @import "../bower_components/bootstrap-material-design/less/material.less";
 
     // Override @primary color with one took from _colors.less
     @primary: @deep-purple;
