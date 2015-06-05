@@ -78,11 +78,6 @@ fieldset[disabled] .form-control.focus:disabled,
     left: 0px;
     top: 5px;
     transition: 0.3s ease all;
-    opacity: 0;
-    .form-control:focus ~ &,
-    .form-control:not(.empty) ~ & {
-      opacity: 1;
-    }
   }
 
   // Input sizes
@@ -126,9 +121,6 @@ fieldset[disabled] .form-control.focus:disabled,
   }
   .form-control:invalid {
     background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(@input-underline-color, @input-underline-color);
-  }
-  .form-control.empty ~ .floating-label  {
-    opacity: 1;
   }
   textarea { resize: none; }
   textarea ~ .form-control-highlight {
