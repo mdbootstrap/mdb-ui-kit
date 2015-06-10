@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+
+    <link rel="stylesheet" type="text/css" href="tabs.css">
+    <script src="tabs.js"></script>
+
+  </head>
+
+  <body>
+    <div class="toolbar">
+      <ul class="tabs" id="example-tabs">
+        <li class="tab-one active"><a href="#">Tab 1</a></li>
+        <li class="tab-two"><a href="#">Tab 2</a></li>
+        <li class="tab-three"><a href="#">Tab 3</a></li>
+      </ul>
+    </div>
+
+    <div id="tab-one" class="tab-page active-page">
+      I am the first tab
+    </div>
+
+    <div id="tab-two" class="tab-page">
+      I am the second tab
+    </div>
+
+    <div id="tab-three" class="tab-page">
+      I am the third tab
+    </div>
+
+    <script>
+      /*
+         Initialize the tabs
+      */
+      window.onload = function () {
+        var div = document.getElementById('example-tabs');
+        var exampleTabs = new MaterialTabs(div);
+      };
+
+    </script>
+  </body>
+</html>
