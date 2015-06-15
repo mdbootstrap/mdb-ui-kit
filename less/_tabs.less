@@ -22,3 +22,64 @@
     }
 
 }
+
+.tab-page-group {
+  overflow: hidden;
+  .toolbar {
+    background: #03A9F4;
+    height: 50px;
+    overflow: hidden;
+    .tabs {
+      list-style: none;
+      overflow: hidden;
+      padding: 0;
+      margin: 0 16px;
+      li {
+        float: left;
+        display: inline;
+        position: relative;
+        a {
+          position: relative;
+          color: white;
+          text-decoration: none;
+          text-transform: uppercase;
+          display: block;
+          padding: 0 16px;
+          height: 50px;
+          text-align: center;
+          line-height: 52px;
+          font-weight: 700;
+          font-size: 14px;
+          color: rgba(255, 255, 255, 0.6);
+          overflow: hidden;
+          &:after {
+            height: 0;
+            width: 100%;
+            display: block;
+            content: " ";
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            background: #FFFF8D;
+            transition: all 0.1s cubic-bezier(0.4, 0.0, 1, 1);
+          }
+        }
+        &.active a {
+          color: white;
+          &:after {
+            height: 2px;
+          }
+        }
+      }
+    }
+  }
+  .tab-page {
+    display: none;
+    box-shadow: inset 0 5px 6px -3px rgba(0, 0, 0, 0.4);
+    padding: 50px;
+    overflow: hidden;
+  }
+  .active-page {
+    display: block;
+  }
+}

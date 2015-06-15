@@ -29,6 +29,7 @@
       "radio": true,
       "arrive": true,
       "autofill": false,
+      "tabs": true,
 
       "withRipples": [
         ".btn:not(.btn-link)",
@@ -36,6 +37,7 @@
         ".navbar a:not(.withoutripple)",
         ".dropdown-menu a",
         ".nav-tabs a:not(.withoutripple)",
+        ".tab-page-group .toolbar .tabs > li:not(.withoutripple)",
         ".withripple"
       ].join(","),
       "inputElements": "input.form-control, textarea.form-control, select.form-control",
@@ -172,6 +174,60 @@
         clearInterval(focused);
       });
     },
+    "tabs": function() {
+      var dragging = null,
+        current = null,
+        startPos = 0;
+      $(".tab-page-group").each(function() {
+        var group = $(this),
+          pages = group.find(".tab-page"),
+          activePage = pages.eq(0),
+          tabs = group.find(".toolbar > .tabs > li"),
+          width = 0;
+
+        tabs.click(function() {
+          var targetPage = pages.eq($(this).index());
+          if (targetPage.length > 0 && targetPage.index() !== activePage.index()) {
+            targetPage.css("display", "block");
+            activePage.css("display", "none");
+            activePage = targetPage;
+            tabs.removeClass("active");
+            $(this).addClass("active");
+          }
+        }).each(function() {
+          width += $(this).width();
+        }).eq(0).addClass("active");
+        group.find(".toolbar").width(width).on("mousedown touchstart", function(e) {
+          startPos = e.pageX;
+          dragging = $(this);
+          e.preventDefault();
+          return false;
+        });
+      });
+      $("body").on("mousemove", function(e) {
+        var offset = e.pageX - startPos;
+        if (dragging !== null) {
+          if (current === null) {
+            current = parseFloat(dragging.css("margin-left"));
+          }
+          if (current + offset > 0) {
+            startPos = e.pageX;
+            dragging.css("margin-left", 0);
+            current = null;
+          } else if (Math.abs(current + offset) + dragging.parent().width() > dragging.width()) {
+            offset = (dragging.parent().width() - dragging.width());
+            startPos = e.pageX;
+            dragging.css("margin-left", offset);
+            current = null;
+          } else {
+            dragging.css("margin-left", current + offset);
+          }
+        }
+      }).on("mouseup touchend", function() {
+        dragging = null;
+        current = null;
+      });
+    },
     "init": function() {
       if ($.fn.ripples && this.options.ripples) {
         this.ripples();
@@ -190,6 +246,9 @@
       }
       if (this.options.autofill) {
         this.autofill();
+      }
+      if (this.options.tabs) {
+        this.tabs();
       }
 
       if (document.arrive && this.options.arrive) {
