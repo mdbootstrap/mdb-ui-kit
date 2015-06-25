@@ -36,7 +36,8 @@
         ".navbar a:not(.withoutripple)",
         ".dropdown-menu a",
         ".nav-tabs a:not(.withoutripple)",
-        ".withripple"
+        ".withripple",
+        ".pagination li:not(.active, .disabled) a:not(.withoutripple)"
       ].join(","),
       "inputElements": "input.form-control, textarea.form-control, select.form-control",
       "checkboxElements": ".checkbox > label > input[type=checkbox]",
