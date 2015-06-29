@@ -1,24 +1,26 @@
 // usage: .variations(~" .check", color, transparent);
 .variations(@extra, @property, @default) {
   .generic-variations(@extra, @default, {
-      @{property}: @material-color;
-    });
+    @{property}: @material-color;
+  });
 }
 
 .background-variations(@extra, @default) {
   .generic-variations(@extra, @default, {
-      background-color: @material-color;
-      color: @text-color;
-      & when (@material-color = @btn-default) {
-        color: @lightbg-text;
-      }
-    });
+    background-color: @material-color;
+    & when (@material-color = @btn-default) {
+      color: @lightbg-text;
+    }
+    & when not (@material-color = @btn-default) {
+      color: @material-text-color;
+    }
+  });
 }
 
 .text-variations(@extra, @default) {
   .generic-variations(@extra, @default, {
-      color: @material-color;
-    });
+    color: @material-color;
+  });
 }
 
 //
@@ -28,7 +30,7 @@
 // @material-color-name ---> "red", "green", "indigo" ...
 // @material-color-full-name ---> "red", "green-50", "indigo-400" ...
 // @material-color ---> #f44336, #e8f5e9, #5c6bc0 ...
-// @text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
+// @material-text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
 //
 
 
@@ -41,63 +43,63 @@
     @material-color-name: "default";
     @material-color-full-name: @material-color-name;
     @material-color: @default;
-    @text-color: @darkbg-text;
+    @material-text-color: @darkbg-text;
     @func();
   }
   &-black@{extra} {
     @material-color-name: "black";
     @material-color-full-name: @material-color-name;
     @material-color: @black;
-    @text-color: @darkbg-text;
+    @material-text-color: @darkbg-text;
     @func();
   }
   &-white@{extra} {
     @material-color-name: "white";
     @material-color-full-name: @material-color-name;
     @material-color: @white;
-    @text-color: @lightbg-text;
+    @material-text-color: @lightbg-text;
     @func();
   }
   &-inverse@{extra} {
     @material-color-name: "inverse";
     @material-color-full-name: @material-color-name;
     @material-color: @inverse;
-    @text-color: contrast(@inverse, @lightbg-text, @darkbg-text, @contrast-factor);
+    @material-text-color: contrast(@inverse, @lightbg-text, @darkbg-text, @contrast-factor);
     @func();
   }
   &-primary@{extra} {
     @material-color-name: "primary";
     @material-color-full-name: @material-color-name;
     @material-color: @primary;
-    @text-color: @darkbg-text;
+    @material-text-color: @darkbg-text;
     @func();
   }
   &-success@{extra} {
     @material-color-name: "success";
     @material-color-full-name: @material-color-name;
     @material-color: @success;
-    @text-color: @darkbg-text;
+    @material-text-color: @darkbg-text;
     @func();
   }
   &-info@{extra} {
     @material-color-name: "info";
     @material-color-full-name: @material-color-name;
     @material-color: @info;
-    @text-color: @darkbg-text;
+    @material-text-color: @darkbg-text;
     @func();
   }
   &-warning@{extra} {
     @material-color-name: "warning";
     @material-color-full-name: @material-color-name;
     @material-color: @warning;
-    @text-color: @darkbg-text;
+    @material-text-color: @darkbg-text;
     @func();
   }
   &-danger@{extra} {
     @material-color-name: "danger";
     @material-color-full-name: @material-color-name;
     @material-color: @danger;
-    @text-color: @darkbg-text;
+    @material-text-color: @darkbg-text;
     @func();
   }
 
@@ -110,7 +112,7 @@
       &-material-@{material-color-name}@{material-color-number}@{extra} {
         @material-color-full-name: "@{material-color-name}@{material-color-number}";
         @material-color: @@material-color-full-name;
-        @text-color: contrast(@material-color, @lightbg-text, @darkbg-text, @contrast-factor);
+        @material-text-color: contrast(@material-color, @lightbg-text, @darkbg-text, @contrast-factor);
         @func();
       }
 
