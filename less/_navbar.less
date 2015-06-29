@@ -168,10 +168,10 @@
 
   .generic-variations(~".navbar", @primary, {
     background-color: @material-color;
-    color: @text-color;
+    color: @material-text-color;
     // deeply defined to override welljumbo class without !impotant need
     .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
-      color: @text-color;
+      color: @material-text-color;
     }
     .dropdown-menu {
       border-radius: @dropdown-radius;
@@ -187,10 +187,10 @@
       .active > a {
         &:hover,
         &:focus {
-          color: @text-color;
+          color: @material-text-color;
         }
         background-color: @material-color;
-        color: @text-color;
+        color: @material-text-color;
       }
     }
   });
