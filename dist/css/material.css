@@ -3603,8 +3603,10 @@ body .jumbotron-material-blue-grey,
   font-size: 15px;
 }
 .btn.btn-fab i {
-  position: relative;
-  top: -5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-52%);
   margin: 0 auto;
 }
 .btn-link,
