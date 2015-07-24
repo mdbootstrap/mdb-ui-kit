@@ -2962,7 +2962,6 @@ body .jumbotron-material-blue-grey,
 .btn:not(.btn-link):not(.btn-flat),
 .btn-default:not(.btn-link):not(.btn-flat) {
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.84);
   color: rgba(0, 0, 0, 0.84);
 }
 .btn-black:not(.btn-link):not(.btn-flat) {
@@ -3603,10 +3602,8 @@ body .jumbotron-material-blue-grey,
   font-size: 15px;
 }
 .btn.btn-fab i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-52%);
+  position: relative;
+  top: -5px;
   margin: 0 auto;
 }
 .btn-link,
