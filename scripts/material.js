@@ -72,7 +72,7 @@
       .each( function() {
         var $this = $(this);
 
-        if (!$(this).attr("data-hint") && !$this.hasClass("floating-label")) {
+        if (!$this.attr("data-hint") && !$this.hasClass("floating-label")) {
           return;
         }
         $this.wrap("<div class=form-control-wrapper></div>");
@@ -125,17 +125,18 @@
         $(this).find("input").removeClass("focus");
       })
       .on("change", ".form-control-wrapper.fileinput [type=file]", function() {
+        var $this = $(this);
         var value = "";
-        $.each($(this)[0].files, function(i, file) {
+        $.each(this.files, function(i, file) {
           value += file.name + ", ";
         });
         value = value.substring(0, value.length - 2);
         if (value) {
-          $(this).prev().removeClass("empty");
+          $this.prev().removeClass("empty");
         } else {
-          $(this).prev().addClass("empty");
+          $this.prev().addClass("empty");
         }
-        $(this).prev().val(value);
+        $this.prev().val(value);
       });
     },
     "ripples": function(selector) {
@@ -146,8 +147,9 @@
       // This part of code will detect autofill when the page is loading (username and password inputs for example)
       var loading = setInterval(function() {
         $("input[type!=checkbox]").each(function() {
-          if ($(this).val() && $(this).val() !== $(this).attr("value")) {
-            $(this).trigger("change");
+          var $this = $(this);
+          if ($this.val() && $this.val() !== $this.attr("value")) {
+            $this.trigger("change");
           }
         });
       }, 100);
@@ -163,8 +165,9 @@
         var $inputs = $(this).parents("form").find("input").not("[type=file]");
         focused = setInterval(function() {
           $inputs.each(function() {
-            if ($(this).val() !== $(this).attr("value")) {
-              $(this).trigger("change");
+            var $this = $(this);
+            if ($this.val() !== $this.attr("value")) {
+              $this.trigger("change");
             }
           });
         }, 100);
