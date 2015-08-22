@@ -102,7 +102,8 @@
           $this.after($input);
         }
       });
-
+    },
+    "attachInputEventHandlers": function() {
       $(document)
       .on("change", ".checkbox input[type=checkbox]", function() { $(this).blur(); })
       .on("keydown paste", ".form-control", function(e) {
@@ -143,7 +144,6 @@
       $((selector) ? selector : this.options.withRipples).ripples();
     },
     "autofill": function() {
-
       // This part of code will detect autofill when the page is loading (username and password inputs for example)
       var loading = setInterval(function() {
         $("input[type!=checkbox]").each(function() {
@@ -158,7 +158,9 @@
       setTimeout(function() {
         clearInterval(loading);
       }, 10000);
-      // Now we just listen on inputs of the focused form (because user can select from the autofill dropdown only when the input has focus)
+    },
+    "attachAutofillEventHandlers": function() {
+      // Listen on inputs of the focused form (because user can select from the autofill dropdown only when the input has focus)
       var focused;
       $(document)
       .on("focus", "input", function() {
@@ -178,12 +180,13 @@
     },
     "init": function() {
       var $document = $(document);
-      
+
       if ($.fn.ripples && this.options.ripples) {
         this.ripples();
       }
       if (this.options.input) {
         this.input();
+        this.attachInputEventHandlers();
       }
       if (this.options.checkbox) {
         this.checkbox();
@@ -196,6 +199,7 @@
       }
       if (this.options.autofill) {
         this.autofill();
+        this.attachAutofillEventHandlers();
       }
 
       if (document.arrive && this.options.arrive) {
