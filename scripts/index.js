@@ -1,2 +1,2 @@
-require('./material.js');
-require('./ripples.js');
+require("./material.js");
+require("./ripples.js");
