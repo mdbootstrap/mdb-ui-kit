@@ -33,7 +33,6 @@
 // $material-text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
 //
 
-
 @mixin generic-variations($extra, $default, $func){
 
   $contrast-factor: 40% !default;
@@ -119,6 +118,20 @@
     }
 
     @include generic-variations-factory-deep(unquote(""));
+    @include generic-variations-factory-deep(unquote("-50"));
+    @include generic-variations-factory-deep(unquote("-100"));
+    @include generic-variations-factory-deep(unquote("-200"));
+    @include generic-variations-factory-deep(unquote("-300"));
+    @include generic-variations-factory-deep(unquote("-400"));
+    @include generic-variations-factory-deep(unquote("-500"));
+    @include generic-variations-factory-deep(unquote("-600"));
+    @include generic-variations-factory-deep(unquote("-700"));
+    @include generic-variations-factory-deep(unquote("-800"));
+    @include generic-variations-factory-deep(unquote("-900"));
+    @include generic-variations-factory-deep(unquote("-A100"));
+    @include generic-variations-factory-deep(unquote("-A200"));
+    @include generic-variations-factory-deep(unquote("-A400"));
+    @include generic-variations-factory-deep(unquote("-A700"));
   }
 
   @include generic-variations-factory(unquote("red"));

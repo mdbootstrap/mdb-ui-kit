@@ -2,19 +2,18 @@ module.exports = function(grunt) {
   "use strict";
 
   require("load-grunt-tasks")(grunt);
-  grunt.loadNpmTasks('grunt-less-to-sass');
 
   grunt.initConfig({
 
     // Convert from less to sass
-    sass: {
+    lessToSass: {
       convert: {
         files: [{
           expand: true,
           cwd: 'less',
           src: ['*.less'],
           ext: '.scss',
-          dest: '../sass'
+          dest: 'sass'
         }]
       }
     },
@@ -271,6 +270,8 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.loadNpmTasks('grunt-less-to-sass');
+
   grunt.registerTask("default", ["material", "ripples"]);
 
   grunt.registerTask("material", [
@@ -279,7 +280,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("material:sass", [
-    "sass:convert"
+    "lessToSass:convert"
   ]);
 
   grunt.registerTask("material:less", [

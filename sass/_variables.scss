@@ -1,100 +1,104 @@
+// Material Global vars
+$zero: 0 !default;
+
 // material icons path
 $material-font-path: "../fonts" !default;
 
-// Material colors palette
-$red: #F44336 !default;
-$pink: #E91E63 !default;
-$purple: #9C27B0 !default;
-$deeppurple: #673AB7 !default;
-$indigo: #3F51B5 !default;
-$lightblue: #03A9F4 !default;
-$cyan: #00BCD4 !default;
-$teal: #009688 !default;
-$lightgreen: #8BC34A !default;
-$lime: #CDDC39 !default;
-$lightyellow: #FFEB3B !default;
-$orange: #FF9800 !default;
-$deeporange: #FF5722 !default;
-$grey: #9E9E9E !default;
-$bluegrey: #607D8B !default;
-$brown: #795548 !default;
-$lightgrey: #ECECEC !default;
-
 // Bootstrap shades
-$primary: #4285F4 !default;
-$success: #0F9D58 !default;
-$info: $lightblue !default;
-$warning: $deeporange !default;
+$primary: $teal !default;
+$success: $green !default;
+$info: $light-blue !default;
+$warning: $deep-orange !default;
 $danger: $red !default;
 
+$brand-primary: $primary !default;
+$brand-success: $success !default;
+$brand-danger: $danger !default;
+$brand-warning: $warning !default;
+$brand-info: $info !default;
+
 // Typography elements for Material
-$darkbg-text: rgba(255,255,255,0.84);
-$lightbg-text: rgba(0,0,0,0.84);
-$icon-color: rgba(0,0,0,0.5);
+$darkbg-text: rgba(255,255,255,0.84) !default;
+$lightbg-text: rgba(0,0,0,0.84) !default;
+$icon-color: rgba(0,0,0,0.5) !default;
 
 
 // Bootstrap variables
-$btn-default: #FFF;
-$btn-default-text: $lightbg-text;
+$body-bg: #EEEEEE !default;
 
-$btn-primary: $primary;
-$btn-primary-text: $darkbg-text;
+$btn-default: transparent !default;
+$btn-default-text: $lightbg-text !default;
 
-$btn-success: $success;
-$btn-success-text: $darkbg-text;
+$btn-primary: $primary !default;
+$btn-primary-text: $darkbg-text !default;
 
-$btn-info: $info;
-$btn-info-text: $darkbg-text;
+$btn-success: $success !default;
+$btn-success-text: $darkbg-text !default;
 
-$btn-warning: $warning;
-$btn-warning-text: $darkbg-text;
+$btn-info: $info !default;
+$btn-info-text: $darkbg-text !default;
 
-$btn-danger: $danger;
-$btn-danger-text: $darkbg-text;
+$btn-warning: $warning !default;
+$btn-warning-text: $darkbg-text !default;
 
-$input-unchecked: rgba(137, 137, 137, 0.3);
-$input-checked: rgba(15, 157, 88, 0.3);
+$btn-danger: $danger !default;
+$btn-danger-text: $darkbg-text !default;
 
-$radio-default: $lightbg-text;
-$radio-primary: $primary;
-$radio-success: $success;
-$radio-info:    $info;
-$radio-warning: $warning;
-$radio-danger:  $danger;
+$input-unchecked: rgba(137, 137, 137, 0.3) !default;
+$input-checked: rgba(15, 157, 88, 0.3) !default;
 
-$input-danger: $danger;
-$input-default: $primary;
-$input-warning: $warning;
-$input-success: $success;
-$input-info:    $info;
+$radio-default: $lightbg-text !default;
+$radio-primary: $primary !default;
+$radio-success: $success !default;
+$radio-info:    $info !default;
+$radio-warning: $warning !default;
+$radio-danger:  $danger !default;
 
-$navbar-danger-bg: $danger;
-$navbar-inverse-bg: #5264AE;
-$navbar-warning-bg: $warning;
-$navbar-success-bg: $success;
-$navbar-info-bg:    $info;
-$navbar-default-bg: $primary;
-$navbar-color: $darkbg-text;
-$navbar-link-color: $darkbg-text;
-$navbar-link-hover-color: $darkbg-text;
-$navbar-link-hover-bg: transparent;
-$navbar-link-active-color: $darkbg-text;
-$navbar-link-active-bg: rgba(0,0,0,0.05);
-$navbar-link-disabled-color: #E5E5E5;
-$navbar-link-disabled-bg: transparent;
-$navbar-brand-color: $darkbg-text;
-$navbar-toggle-border-color: $darkbg-text;
-$navbar-toggle-hover-bg: transparent;
-$navbar-toggle-icon-bar-bg: $darkbg-text;
-$navbar-border: $darkbg-text;
+$input-danger: $danger !default;
+$input-default: $primary !default;
+$input-warning: $warning !default;
+$input-success: $success !default;
+$input-info:    $info !default;
 
-$alert-success: $success;
-$alert-info: $info;
-$alert-warning: $warning;
-$alert-danger: $danger;
+$alert-success: $success !default;
+$alert-info: $info !default;
+$alert-warning: $warning !default;
+$alert-danger: $danger !default;
 
-$progress-success: $success;
-$progress-info: $info;
-$progress-warning: $warning;
-$progress-danger: $danger;
+$progress-success: $success !default;
+$progress-info: $info !default;
+$progress-warning: $warning !default;
+$progress-danger: $danger !default;
 
+$font-size-base: 14px !default;
+$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
+$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
+
+// Global Material variables
+$material-border-radius: 2px !default;
+$input-underline-color: #D2D2D2 !default;
+
+// Card
+$card-body-text: $lightbg-text !default;
+$card-body-background: #fff !default;
+$card-image-headline: #fff !default;
+
+$text-disabled: #a8a8a8 !default;
+$background-disabled: #eaeaea !default;
+
+// Checkboxes
+$checkbox-size: 20px !default;
+$checkbox-animation-ripple: 500ms !default;
+$checkbox-animation-check: 0.3s !default;
+
+// Popovers and Popups
+$popover-background: rgba(101, 101, 101, 0.9) !default;
+$popover-color: #ececec !default;
+
+// Inputs
+$input-placeholder-color: #BDBDBD !default;
+$floating-label-size-ratio: 70 / 100 !default;
+
+// Dropdown Menu
+$dropdown-radius: 2px !default;
+$dropdown-font-size: 16px !default;
