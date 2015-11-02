@@ -12,3 +12,4 @@ Thumbs.db
 .build*
 /_SpecRunner.html
 Gemfile.lock
+tmp

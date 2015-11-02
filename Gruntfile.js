@@ -11,9 +11,23 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'less',
-          src: ['*.less'],
+          src: ['*.less', '!_mixins.less'],
           ext: '.scss',
           dest: 'sass'
+        }]
+      }
+    },
+
+    // Test compile sass
+    sass: {
+      compile: {
+        files: [{
+          expand: true,
+          cwd: 'sass',
+          //src: ['material.scss', 'material-fullpalette.scss', 'ripples.scss', 'roboto.scss'],
+          src: ['material.scss'],
+          dest: 'tmp/sass/compiled',
+          ext: '.css'
         }]
       }
     },
@@ -280,7 +294,8 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask("material:sass", [
-    "lessToSass:convert"
+    "lessToSass:convert",
+    "sass:compile"
   ]);
 
   grunt.registerTask("material:less", [
