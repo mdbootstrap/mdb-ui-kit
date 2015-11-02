@@ -1,286 +1,217 @@
 .navbar {
-    background-color: $navbar-default-bg;
-    border: 0;
-    border-radius: 0;
+  background-color: $primary;
+  border: $zero;
+  border-radius: $zero;
 
-    .navbar-brand {
-        position: relative;
-        height: 60px;
-        line-height: 30px;
-        color: $navbar-brand-color;
-        &:hover,
-        &:focus {
-            color: $navbar-brand-color;
-            background-color: transparent;
+  .navbar-brand {
+    position: relative;
+    height: 60px;
+    line-height: 30px;
+    color: inherit;
+    &:hover,
+    &:focus {
+      color: inherit;
+      background-color: transparent;
+    }
+  }
+
+  .navbar-text {
+    color: inherit;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: inherit;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: transparent;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: transparent;
+        opacity: 0.9;
+      }
+    }
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border: $zero;
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+    .icon-bar {
+      background-color: inherit;
+      border: 1px solid;
+    }
+  }
+
+  .navbar-default .navbar-toggle,
+  .navbar-inverse .navbar-toggle {
+    border-color: transparent;
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: rgba(0,0,0,0.1);
+  }
+
+  // Dropdowns
+  .navbar-nav {
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-text {
+        color: inherit;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
+      // Dropdowns get custom display
+      .open .dropdown-menu {
+        > .dropdown-header {
+          border: $zero;
+          color: inherit;
         }
-    }
-
-    .navbar-text {
-        color: $navbar-color;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .navbar-nav {
+        .divider {
+          border-bottom: 1px solid;
+          opacity: 0.08;
+        }
         > li > a {
-            color: $navbar-link-color;
-            padding-top: 20px;
-            padding-bottom: 20px;
-
-            &:hover,
-            &:focus {
-                color: $navbar-link-hover-color;
-                background-color: $navbar-link-hover-bg;
-            }
+          color: inherit;
+          &:hover,
+          &:focus {
+            color: inherit;
+            background-color: transparent;
+          }
         }
         > .active > a {
-            &,
-            &:hover,
-            &:focus {
-                color: $navbar-link-active-color;
-                background-color: $navbar-link-active-bg;
-            }
+          &,
+          &:hover,
+          &:focus {
+            color: inherit;
+            background-color: transparent;
+          }
         }
         > .disabled > a {
-            &,
-            &:hover,
-            &:focus {
-                color: $navbar-link-disabled-color;
-                background-color: $navbar-link-disabled-bg;
-            }
+          &,
+          &:hover,
+          &:focus {
+            color: inherit;
+            background-color: transparent;
+          }
         }
+      }
     }
+  }
 
-    // Darken the responsive nav toggle
-    .navbar-toggle {
-        border-color: $navbar-toggle-border-color;
+  .navbar-link {
+    color: inherit;
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  .btn-link {
+    color: inherit;
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: inherit;
+      }
+    }
+  }
+
+  .navbar-form {
+    margin-top: 16px;
+    .form-control-wrapper .form-control, .form-control {
+      border-color: inherit;
+      color: inherit;
+    }
+    .form-control-wrapper {
+      .material-input:before, input:focus ~ .material-input:after {
+        background-color: inherit;
+      }
+    }
+  }
+
+  .generic-variations(unquote(".navbar"), $primary, {
+    background-color: $material-color;
+    color: $material-text-color;
+    // deeply defined to override welljumbo class without !impotant need
+    .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
+      color: $material-text-color;
+    }
+    .dropdown-menu {
+      border-radius: $dropdown-radius;
+      li > a {
+        font-size: $dropdown-font-size;
+        padding: 13px 16px;
         &:hover,
         &:focus {
-            background-color: $navbar-toggle-hover-bg;
+          color: $material-color;
+          background-color: $grey-200;
         }
-        .icon-bar {
-            background-color: $navbar-toggle-icon-bar-bg;
-        }
-    }
-
-    .navbar-collapse,
-    .navbar-form {
-        border-color: rgba(0,0,0,0.1);
-    }
-
-    // Dropdowns
-    .navbar-nav {
-        > .open > a {
-            &,
-            &:hover,
-            &:focus {
-                background-color: $navbar-link-active-bg;
-                color: $navbar-link-active-color;
-            }
-        }
-
-        @media (max-width: 767px) {
-            // Dropdowns get custom display
-            .open .dropdown-menu {
-                > .dropdown-header {
-                    border: 0;
-                    color: darken($navbar-link-color, 17%)
-                }
-                .divider {
-                    background-color: $navbar-border;
-                }
-                > li > a {
-                    color: $navbar-link-color;
-                    &:hover,
-                    &:focus {
-                        color: $navbar-link-hover-color;
-                        background-color: $navbar-link-hover-bg;
-                    }
-                }
-                > .active > a {
-                    &,
-                    &:hover,
-                    &:focus {
-                        color: $navbar-link-active-color;
-                        background-color: $navbar-link-active-bg;
-                    }
-                }
-                > .disabled > a {
-                    &,
-                    &:hover,
-                    &:focus {
-                        color: $navbar-link-disabled-color;
-                        background-color: $navbar-link-disabled-bg;
-                    }
-                }
-            }
-        }
-    }
-
-    .navbar-link {
-        color: $navbar-link-color;
-        &:hover {
-            color: $navbar-link-hover-color;
-        }
-    }
-
-    .navbar-link {
-        color: $navbar-link-color;
+      }
+      .active > a {
         &:hover,
         &:focus {
-            color: $navbar-link-hover-color;
+          color: $material-text-color;
         }
-        &[disabled],
-        fieldset[disabled] & {
-            &:hover,
-            &:focus {
-                color: $navbar-link-disabled-color;
-            }
-        }
+        background-color: $material-color;
+        color: $material-text-color;
+      }
     }
+  });
 
+  &-inverse {
+    background-color: $indigo;
+  }
+
+  @media (max-width: 1199px) {
+
+    .navbar-brand {
+      height: 50px;
+      padding: 10px 15px;
+    }
     .navbar-form {
-        margin-top: 16px;
-        .form-control-wrapper .form-control, .form-control {
-            border-color: $navbar-border;
-            color: $navbar-border;
-        }
-        .form-control-wrapper {
-            .material-input:before, input:focus ~ .material-input:after {
-                background-color: $navbar-border;
-            }
-        }
-        ::-webkit-input-placeholder { color: $navbar-border; }
-        :-moz-placeholder { color: $navbar-border; };
-        ::-moz-placeholder { color: $navbar-border; };
-        :-ms-input-placeholder { color: $navbar-border; };
-    }
-}
-
-.navbar-inverse {
-        background-color: $navbar-inverse-bg;
+      margin-top: 10px;
     }
 
-.navbar-white {
-        background-color: #FFF;
-        .navbar-brand, .navbar-brand:hover, .navbar-brand:focus {
-            color: $lightbg-text;
-        }
-        .navbar-nav {
-            & > li > a {
-                color: $lightbg-text;
-
-                &:hover,
-                &:focus {
-                    color: $lightbg-text;
-                    background-color: $navbar-link-hover-bg;
-                }
-            }
-            & > .active > a {
-                &,
-                &:hover,
-                &:focus {
-                    color: $lightbg-text;
-                    background-color: $navbar-link-active-bg;
-                }
-            }
-            & > .disabled > a {
-                &,
-                &:hover,
-                &:focus {
-                    color: $lightbg-text;
-                    background-color: $navbar-link-disabled-bg;
-                }
-            }
-
-            & > .open > a {
-                &,
-                &:hover,
-                &:focus {
-                    background-color: $navbar-link-active-bg;
-                    color: $lightbg-text;
-                }
-            }
-
-        }
+    .navbar-nav > li > a {
+      padding-top: 15px;
+      padding-bottom: 15px;
     }
-
-// Navbar alternate
-// --------------------------------------------------
-
-.navbar-default {
-  @include navbar-variant($primary);
+  }
 }
-.navbar-primary {
-  @include navbar-variant($primary);
-}
-// Success appears as green
-.navbar-success {
-  @include navbar-variant($success);
-}
-// Info appears as blue-green
-.navbar-info {
-  @include navbar-variant($info);
-}
-// Warning appears as orange
-.navbar-warning {
-  @include navbar-variant($warning);
-}
-// Danger and error appear as red
-.navbar-danger {
-  @include navbar-variant($danger);
-}
-
-// Material shades
-.navbar-material-red {
-    @include navbar-variant($red)
-}
-.navbar-material-pink {
-    @include navbar-variant($pink);
-}
-.navbar-material-purple {
-    @include navbar-variant($purple);
-}
-.navbar-material-deeppurple {
-    @include navbar-variant($deeppurple);
-}
-.navbar-material-indigo {
-    @include navbar-variant($indigo);
-}
-.navbar-material-lightblue {
-    @include navbar-variant($lightblue);
-}
-.navbar-material-cyan {
-    @include navbar-variant($cyan);
-}
-.navbar-material-teal {
-    @include navbar-variant($teal);
-}
-.navbar-material-lightgreen {
-    @include navbar-variant($lightgreen);
-}
-.navbar-material-lime {
-    @include navbar-variant($lime);
-}
-.navbar-material-lightyellow {
-    @include navbar-variant($lightyellow);
-}
-.navbar-material-orange {
-    @include navbar-variant($orange);
-}
-.navbar-material-deeporange {
-    @include navbar-variant($deeporange);
-}
-.navbar-material-grey {
-    @include navbar-variant($grey);
-}
-.navbar-material-bluegrey {
-    @include navbar-variant($bluegrey);
-}
-.navbar-material-brown {
-    @include navbar-variant($brown);
-}
-.navbar-material-lightgrey {
-    @include navbar-variant($lightgrey);
-}
-
