@@ -2,9 +2,22 @@ module.exports = function(grunt) {
   "use strict";
 
   require("load-grunt-tasks")(grunt);
+  grunt.loadNpmTasks('grunt-less-to-sass');
 
   grunt.initConfig({
 
+    // Convert from less to sass
+    sass: {
+      convert: {
+        files: [{
+          expand: true,
+          cwd: 'less',
+          src: ['*.less'],
+          ext: '.scss',
+          dest: '../sass'
+        }]
+      }
+    },
 
     // Compile less to .css
     // Compile less to .min.css
@@ -264,6 +277,11 @@ module.exports = function(grunt) {
     "material:less",
     "material:js"
   ]);
+
+  grunt.registerTask("material:sass", [
+    "sass:convert"
+  ]);
+
   grunt.registerTask("material:less", [
     "less:material",
     "less:materialfullpalette",
