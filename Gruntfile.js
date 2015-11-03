@@ -29,16 +29,10 @@ module.exports = function(grunt) {
             },
 
             // button variations mixin replacement(s)
-            //{ // http://rubular.com/r/r198CndVsf
-            //  pattern: /.generic-variations\(unquote\((.*)\).*\).*(\d+).*}\);/m,
-            //  replacement: '@include button-variations(unquote($1), $btn-default, $2%);',
-            //  order: 200
-            //}
-            // attempting multi-line replacement - https://github.com/duvillierA/grunt-less-to-sass/issues/6
-            { // http://rubular.com/r/oL4O1x6Wda
-              pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$.+?(?!\r|\n)), {$\n.+?(?!\r|\n)(\d+).+?(?!\r|\n)}\);$\n/m,
-              replacement: '@include button-variations(unquote($1), $2, $3%);',
-              order: 2
+            { // Multi-line replacement -https://regex101.com/r/qD9qB8/2
+              pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)contrast[\s\S]+?(?!\r|\n)(\d+)[\s\S]+?(?!\r|\n)}\);$\n/mg,
+              replacement: '@include button-variations(unquote($1), $2, $3%);\n',
+              order: 20
             }
 
           ]

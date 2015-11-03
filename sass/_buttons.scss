@@ -24,17 +24,11 @@
   @include background-variations(unquote(":not(.btn-link):not(.btn-flat)"), $btn-default);
 
   // BTN hover effect
-  .generic-variations(unquote(":hover:not(.btn-link):not(.btn-flat)"), $btn-default, {
-    background-color: contrast($material-color, darken($material-color, 4%), lighten($material-color, 4%), $contrast-factor);
-  });
+  @include button-variations(unquote(":hover:not(.btn-link):not(.btn-flat)"), $btn-default, 4%);
   // BTN active effect
-  .generic-variations(unquote(":active:not(.btn-link):not(.btn-flat)"), $btn-default, {
-    background-color: contrast($material-color, darken($material-color, 6%), lighten($material-color, 6%), $contrast-factor);
-  });
+  @include button-variations(unquote(":active:not(.btn-link):not(.btn-flat)"), $btn-default, 6%);
   // BTN .active effect
-  .generic-variations(unquote(".active:not(.btn-link):not(.btn-flat)"), $btn-default, {
-    background-color: contrast($material-color, darken($material-color, 6%), lighten($material-color, 6%), $contrast-factor);
-  });
+  @include button-variations(unquote(".active:not(.btn-link):not(.btn-flat)"), $btn-default, 6%);
   // BTN flat hover effect
   .generic-variations(unquote(".btn-flat:hover:not(.btn-link)"), $btn-default, {
     background-color: rgba($material-color, (20/100));
