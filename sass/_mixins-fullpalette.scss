@@ -1,13 +1,13 @@
 @import 'mixins-shared';
 
-@mixin generic-variations-colors($mixin-name, $extra, $default, $contrast-factor, $property) {
+@mixin generic-variations-colors($mixin-name, $extra, $default, $contrast-factor, $material-param-1) {
 
   $material-color-names: "red" "pink" "purple" "deep-purple" "indigo" "blue" "light-blue" "cyan" "teal" "green" "light-green" "lime" "yellow" "amber" "orange" "deep-orange" "brown" "grey" "blue-grey";
   @each $material-color-name in $material-color-names {
     // given a color build multiples depths
     $material-color-numbers: "" "-50" "-100" "-200" "-300" "-400" "-500" "-600" "-700" "-800" "-900" "-A100" "-A200" "-A400" "-A700";
     @each $material-color-number in $material-color-numbers {
-      @include generic-variations-color($mixin-name, $extra, $default, $contrast-factor, $material-color-name, $material-color-number, $property)
+      @include generic-variations-color($mixin-name, $extra, $default, $contrast-factor, $material-color-name, $material-color-number, $material-param-1)
     }
   }
 }

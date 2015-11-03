@@ -26,6 +26,19 @@ module.exports = function(grunt) {
               pattern: /@include (foo1|foo2)\(\);/gi,
               replacement: '@extend .$1;',
               order: 2
+            },
+
+            // button variations mixin replacement(s)
+            //{ // http://rubular.com/r/r198CndVsf
+            //  pattern: /.generic-variations\(unquote\((.*)\).*\).*(\d+).*}\);/m,
+            //  replacement: '@include button-variations(unquote($1), $btn-default, $2%);',
+            //  order: 200
+            //}
+            // attempting multi-line replacement - https://github.com/duvillierA/grunt-less-to-sass/issues/6
+            { // http://rubular.com/r/oL4O1x6Wda
+              pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$.+?(?!\r|\n)), {$\n.+?(?!\r|\n)(\d+).+?(?!\r|\n)}\);$\n/m,
+              replacement: '@include button-variations(unquote($1), $2, $3%);',
+              order: 2
             }
 
           ]
