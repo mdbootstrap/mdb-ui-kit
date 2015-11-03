@@ -14,7 +14,22 @@ module.exports = function(grunt) {
           src: ['*.less', '!_mixins.less', '!_mixins-fullpalette.less'],
           ext: '.scss',
           dest: 'sass'
-        }]
+        }],
+        options: {
+          replacements: [
+            { // bad conversions to @include instead of @extend
+            pattern: /@include shadow-z-(\d+)\(\);/gi,
+            replacement: '@extend .shadow-z-$1;',
+            order: 2
+            },
+            { // bad conversions to @include instead of @extend
+              pattern: /@include (foo1|foo2)\(\);/gi,
+              replacement: '@extend .$1;',
+              order: 2
+            }
+
+          ]
+        }
       }
     },
 

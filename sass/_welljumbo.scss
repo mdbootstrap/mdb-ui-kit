@@ -11,7 +11,7 @@ body, .container, .container-fluid {
     background-color: #fff;
     padding: 19px;
     margin-bottom: 20px;
-    @include shadow-z-2();
+    @extend .shadow-z-2;
     border-radius: 2px;
     border: 0;
     p {
