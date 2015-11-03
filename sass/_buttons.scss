@@ -13,7 +13,7 @@
     @extend .shadow-z-1;
   }
   &:active:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-    @include shadow-z-1-hover();
+    @extend .shadow-z-1-hover;
   }
   transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
@@ -70,7 +70,7 @@
       @extend .shadow-z-1;
     }
     &:active {
-      @include shadow-z-1-hover();
+      @extend .shadow-z-1-hover;
     }
     &, .ripple-wrapper {
       border-radius: 100%;
@@ -132,6 +132,6 @@
   @extend .shadow-z-1;
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   &:active:not(.btn-link) {
-    @include shadow-z-1-hover();
+    @extend .shadow-z-1-hover;
   }
 }
