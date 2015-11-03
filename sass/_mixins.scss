@@ -1,26 +1,31 @@
+@mixin variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property) {
+  #{$property}: $material-color;
+}
+
+@mixin background-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property) {
+  background-color: $material-color;
+  @if ($material-color == $btn-default) {
+    color: $lightbg-text;
+  } @else {
+    color: $material-text-color;
+  }
+}
+
+@mixin text-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property) {
+  color: $material-color;
+}
+
 // usage: @include variations(unquote(" .check"), color, transparent);
-@mixin variations($extra, $property, $default){
-  @include generic-variations($extra, $default) {
-    #{$property}: $material-color;
-  };
+@mixin variations($extra, $property, $default) {
+  @include generic-variations($extra, $default, "variations-content", $property);
 }
 
-@mixin background-variations($extra, $default){
-  @include generic-variations($extra, $default) {
-    background-color: $material-color;
-    & when ($material-color = $btn-default) {
-      color: $lightbg-text;
-    }
-    & when not ($material-color = $btn-default) {
-      color: $material-text-color;
-    }
-  };
+@mixin background-variations($extra, $default) {
+  @include generic-variations($extra, $default, "background-variations-content", null);
 }
 
-@mixin text-variations($extra, $default){
-  @include generic-variations($extra, $default) {
-    color: $material-color;
-  };
+@mixin text-variations($extra, $default) {
+  @include generic-variations($extra, $default, "text-variations-content", null);
 }
 
 //
@@ -33,8 +38,7 @@
 // $material-text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
 //
 
-
-@mixin generic-variations($extra, $default){
+@mixin generic-variations($extra, $default, $mixin-name, $property) {
 
   $contrast-factor: 40% !default;
 
@@ -44,79 +48,91 @@
     $material-color-full-name: $material-color-name !default;
     $material-color: $default !default;
     $material-text-color: $darkbg-text !default;
-    @content
+    @include #{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
   }
   &-black#{$extra} {
     $material-color-name: "black" !default;
     $material-color-full-name: $material-color-name !default;
     $material-color: $black !default;
     $material-text-color: $darkbg-text !default;
-    @content
+    @include #{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
   }
   &-white#{$extra} {
     $material-color-name: "white" !default;
     $material-color-full-name: $material-color-name !default;
     $material-color: $white !default;
     $material-text-color: $lightbg-text !default;
-    @content
+    @include #{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
   }
   &-inverse#{$extra} {
     $material-color-name: "inverse" !default;
     $material-color-full-name: $material-color-name !default;
     $material-color: $inverse !default;
     $material-text-color: contrast($inverse, $lightbg-text, $darkbg-text, $contrast-factor) !default;
-    @content
+    @include #{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
   }
   &-primary#{$extra} {
     $material-color-name: "primary" !default;
     $material-color-full-name: $material-color-name !default;
     $material-color: $primary !default;
     $material-text-color: $darkbg-text !default;
-    @content
+    @include #{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
   }
   &-success#{$extra} {
     $material-color-name: "success" !default;
     $material-color-full-name: $material-color-name !default;
     $material-color: $success !default;
     $material-text-color: $darkbg-text !default;
-    @content
+    @include #{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
   }
   &-info#{$extra} {
     $material-color-name: "info" !default;
     $material-color-full-name: $material-color-name !default;
     $material-color: $info !default;
     $material-text-color: $darkbg-text !default;
-    @content
+    @include #{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
   }
   &-warning#{$extra} {
     $material-color-name: "warning" !default;
     $material-color-full-name: $material-color-name !default;
     $material-color: $warning !default;
     $material-text-color: $darkbg-text !default;
-    @content
+    @include#{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property)
   }
   &-danger#{$extra} {
     $material-color-name: "danger" !default;
     $material-color-full-name: $material-color-name !default;
     $material-color: $danger !default;
     $material-text-color: $darkbg-text !default;
-    @content
+    @include#{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property)
   }
 
-  // given a color build multiples depths
-  $material-color-names: "red" "pink" "purple" "deep-purple" "indigo" "blue" "light-blue" "cyan" "teal" "green" "light-green" "lime" "yellow" "amber" "orange" "deep-orange" "brown" "grey" "blue-grey";
-  @each $material-color-name in $material-color-names
-
-    //$material-color-numbers: ""; // single element empty string
-    //@each $material-color-number in $material-color-numbers
-    //&-material-#{$material-color-name}#{unquote($material-color-number)}#{$extra} {
-    &-material-#{$material-color-name}#{$extra} {
-      $material-color-full-name: "#{$material-color-name}#{$material-color-number}" !default;
-      $material-color: $material-color-full-name !default;
-      $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, $contrast-factor) !default;
-      @content
-    }
+  @include generic-variations-colors($extra, $default, $contrast-factor)
 }
 
+@mixin generic-variations-colors($extra, $default, $contrast-factor) {
+
+  $material-color-names: "red" "pink" "purple" "deep-purple" "indigo" "blue" "light-blue" "cyan" "teal" "green" "light-green" "lime" "yellow" "amber" "orange" "deep-orange" "brown" "grey" "blue-grey";
+  @each $material-color-name in $material-color-names {
+    //// given a color build multiples depths
+    //$material-color-numbers: "" "-50" "-100" "-200" "-300" "-400" "-500" "-600" "-700" "-800" "-900" "-A100" "-A200" "-A400" "-A700";
+    //@each $material-color-number in $material-color-numbers {
+    //  @include generic-variations-color($extra, $default, $contrast-factor, $material-color-name, $material-color-number)
+    //}
+
+    // build a single depth color palette
+    $material-color-number: "";
+    @include generic-variations-color($extra, $default, $contrast-factor, $material-color-name, $material-color-number)
+  }
+}
+
+@mixin generic-variations-color($extra, $default, $contrast-factor, $material-color-name, $material-color-number) {
+  & -material-#{$material-color-name}#{unquote($material-color-number)}#{$extra} {
+    $material-color-full-name: "#{$material-color-name}#{$material-color-number}" !default;
+    $material-color: $material-color-full-name !default;
+    $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, $contrast-factor) !default;
+    @include #{unquote($mixin-name)}($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+}
 
 $all-variations: unquote("-default, -primary, -info, -success, -warning, -danger") !default;
