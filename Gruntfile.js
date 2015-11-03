@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         }],
         options: {
           replacements: [
-            { // bad conversions to @include instead of @extend
+            { // bad conversions of shadow-z-* to @include instead of @extend
             pattern: /@include shadow-z-(\d+)\(\);/gi,
             replacement: '@extend .shadow-z-$1;',
             order: 2

@@ -1,26 +1,27 @@
 // usage: @include variations(unquote(" .check"), color, transparent);
-@mixin variations($extra, $property, $default){
+@mixin variations($extra, $property, $default) {
   @include generic-variations($extra, $default) {
     #{$property}: $material-color !default;
-  };
+  }
+;
 }
 
-@mixin background-variations($extra, $default){
+@mixin background-variations($extra, $default) {
   @include generic-variations($extra, $default) {
     background-color: $material-color;
-    & when ($material-color = $btn-default) {
-    color: $lightbg-text;
-  }
-    & when not ($material-color = $btn-default) {
-    color: $material-text-color;
-  }
+    @if ($material-color == $btn-default) {
+      color: $lightbg-text;
+    } @else {
+      color: $material-text-color;
+    }
   };
 }
 
-@mixin text-variations($extra, $default){
+@mixin text-variations($extra, $default) {
   @include generic-variations($extra, $default) {
     color: $material-color;
-  };
+  }
+;
 }
 
 //
@@ -33,7 +34,7 @@
 // $material-text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
 //
 
-@mixin generic-variations($extra, $default){
+@mixin generic-variations($extra, $default) {
 
   $contrast-factor: 40% !default;
 
@@ -102,19 +103,28 @@
     @content
   }
 
-  // given a color build multiples depths
-  $material-color-names: "red" "pink" "purple" "deep-purple" "indigo" "blue" "light-blue" "cyan" "teal" "green" "light-green" "lime" "yellow" "amber" "orange" "deep-orange" "brown" "grey" "blue-grey";
-  @each $material-color-name in $material-color-names
-
-    $material-color-numbers: "" "-50" "-100" "-200" "-300" "-400" "-500" "-600" "-700" "-800" "-900" "-A100" "-A200" "-A400" "-A700";
-    @each $material-color-number in $material-color-numbers
-      &-material-#{$material-color-name}#{unquote($material-color-number)}#{$extra} {
-        $material-color-full-name: "#{$material-color-name}#{$material-color-number}" !default;
-        $material-color: $material-color-full-name !default;
-        $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, $contrast-factor) !default;
-        @content
-      }
+  @include generic-variations-colors($extra, $default, $contrast-factor)
 }
 
+@mixin generic-variations-colors($extra, $default, $contrast-factor) {
+
+  $material-color-names: "red" "pink" "purple" "deep-purple" "indigo" "blue" "light-blue" "cyan" "teal" "green" "light-green" "lime" "yellow" "amber" "orange" "deep-orange" "brown" "grey" "blue-grey";
+  @each $material-color-name in $material-color-names {
+    // given a color build multiples depths
+    $material-color-numbers: "" "-50" "-100" "-200" "-300" "-400" "-500" "-600" "-700" "-800" "-900" "-A100" "-A200" "-A400" "-A700";
+    @each $material-color-number in $material-color-numbers {
+      @include generic-variations-color($extra, $default, $contrast-factor, $material-color-name, $material-color-number)
+    }
+  }
+}
+
+@mixin generic-variations-color($extra, $default, $contrast-factor, $material-color-name, $material-color-number) {
+  & -material-#{$material-color-name}#{unquote($material-color-number)}#{$extra} {
+    $material-color-full-name: "#{$material-color-name}#{$material-color-number}" !default;
+    $material-color: $material-color-full-name !default;
+    $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, $contrast-factor) !default;
+    @content
+  }
+}
 
 $all-variations: unquote("-default, -primary, -info, -success, -warning, -danger") !default;
