@@ -10,7 +10,7 @@
   color: $darkbg-text;
 
   &:hover:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-    @include shadow-z-1();
+    @extend .shadow-z-1;
   }
   &:active:not(.btn-link):not(.btn-flat):not(.btn-fab) {
     @include shadow-z-1-hover();
@@ -75,7 +75,7 @@
       @include variations(unquote(""), background-color, transparent);
     }
     &, &:hover {
-      @include shadow-z-1();
+      @extend .shadow-z-1;
     }
     &:active {
       @include shadow-z-1-hover();
@@ -137,7 +137,7 @@
 }
 
 @mixin btn-shadow(){
-  @include shadow-z-1();
+  @extend .shadow-z-1;
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   &:active:not(.btn-link) {
     @include shadow-z-1-hover();

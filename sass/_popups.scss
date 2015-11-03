@@ -4,7 +4,7 @@
   background: $popover-background;
   border: none;
   border-radius: $material-border-radius;
-  @include shadow-z-1();
+  @extend .shadow-z-1;
 }
 
 .tooltip, .tooltip.in {
