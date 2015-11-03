@@ -1,0 +1,136 @@
+@mixin variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property) {
+  #{$property}: $material-color;
+}
+
+@mixin background-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property) {
+  background-color: $material-color;
+  @if ($material-color == $btn-default) {
+    color: $lightbg-text;
+  } @else {
+    color: $material-text-color;
+  }
+}
+
+@mixin text-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property) {
+  color: $material-color;
+}
+
+// interpolation of mixin-name is not allowed evidently, so we statically include based on the mixin-name given
+@mixin call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property) {
+  @if $mixin-name == variations-content {
+    @include variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  } @else if $mixin-name == background-variations-content {
+    @include background-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  } @else if $mixin-name == text-variations-content {
+    @include text-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  } @else {
+    @error "Unknown mixin: #{$mixin-name}"
+  }
+}
+
+// usage: @include variations(unquote(" .check"), color, transparent);
+@mixin variations($extra, $property, $default) {
+  @include generic-variations($extra, $default, "variations-content", $property);
+}
+
+@mixin background-variations($extra, $default) {
+  @include generic-variations($extra, $default, "background-variations-content", null);
+}
+
+@mixin text-variations($extra, $default) {
+  @include generic-variations($extra, $default, "text-variations-content", null);
+}
+
+//
+// To use this mixin you should pass a function as final parameter to define
+// the style. In that definition you can use the following variables to define it.
+//
+// $material-color-name ---> "red", "green", "indigo" ...
+// $material-color-full-name ---> "red", "green-50", "indigo-400" ...
+// $material-color ---> #f44336, #e8f5e9, #5c6bc0 ...
+// $material-text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
+//
+
+@mixin generic-variations($extra, $default, $mixin-name, $property) {
+
+  $contrast-factor: 40% !default;
+
+  // bootstrap styles
+  &#{$extra}, &-default#{$extra} {
+    $material-color-name: "default" !default;
+    $material-color-full-name: $material-color-name !default;
+    $material-color: $default !default;
+    $material-text-color: $darkbg-text !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+  &-black#{$extra} {
+    $material-color-name: "black" !default;
+    $material-color-full-name: $material-color-name !default;
+    $material-color: $black !default;
+    $material-text-color: $darkbg-text !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+  &-white#{$extra} {
+    $material-color-name: "white" !default;
+    $material-color-full-name: $material-color-name !default;
+    $material-color: $white !default;
+    $material-text-color: $lightbg-text !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+  &-inverse#{$extra} {
+    $material-color-name: "inverse" !default;
+    $material-color-full-name: $material-color-name !default;
+    $material-color: $inverse !default;
+    $material-text-color: contrast($inverse, $lightbg-text, $darkbg-text, $contrast-factor) !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+  &-primary#{$extra} {
+    $material-color-name: "primary" !default;
+    $material-color-full-name: $material-color-name !default;
+    $material-color: $primary !default;
+    $material-text-color: $darkbg-text !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+  &-success#{$extra} {
+    $material-color-name: "success" !default;
+    $material-color-full-name: $material-color-name !default;
+    $material-color: $success !default;
+    $material-text-color: $darkbg-text !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+  &-info#{$extra} {
+    $material-color-name: "info" !default;
+    $material-color-full-name: $material-color-name !default;
+    $material-color: $info !default;
+    $material-text-color: $darkbg-text !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+  &-warning#{$extra} {
+    $material-color-name: "warning" !default;
+    $material-color-full-name: $material-color-name !default;
+    $material-color: $warning !default;
+    $material-text-color: $darkbg-text !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+  &-danger#{$extra} {
+    $material-color-name: "danger" !default;
+    $material-color-full-name: $material-color-name !default;
+    $material-color: $danger !default;
+    $material-text-color: $darkbg-text !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+
+  @include generic-variations-colors($mixin-name, $extra, $default, $contrast-factor, $property)
+}
+
+
+@mixin generic-variations-color($mixin-name, $extra, $default, $contrast-factor, $material-color-name, $material-color-number, $property) {
+  & -material-#{$material-color-name}#{unquote($material-color-number)}#{$extra} {
+    $material-color-full-name: "#{$material-color-name}#{$material-color-number}" !default;
+    $material-color: $material-color-full-name !default;
+    $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, $contrast-factor) !default;
+    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $property);
+  }
+}
+
+$all-variations: unquote("-default, -primary, -info, -success, -warning, -danger") !default;
