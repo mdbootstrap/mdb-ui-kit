@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'less',
-          src: ['*.less', '!_mixins.less'],
+          src: ['*.less', '!_mixins.less', '!_mixins-fullpalette.less'],
           ext: '.scss',
           dest: 'sass'
         }]
