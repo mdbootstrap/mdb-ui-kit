@@ -30,9 +30,7 @@
   // BTN .active effect
   @include button-variations(unquote(".active:not(.btn-link):not(.btn-flat)"), $btn-default, 6%);
   // BTN flat hover effect
-  .generic-variations(unquote(".btn-flat:hover:not(.btn-link)"), $btn-default, {
-    background-color: rgba($material-color, (20/100));
-  });
+  @include bg-color-variations(unquote(".btn-flat:hover:not(.btn-link)"), $btn-default, (20/100));
 
 }
 
