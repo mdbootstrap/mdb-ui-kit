@@ -102,36 +102,9 @@
     @content
   }
 
-  // given a color build multiples dephs
-  @mixin generic-variations-factory($material-color-name){
-
-    // given a color and its deph build css
-    //@mixin generic-variations-factory-deep($material-color-number){
-    //
-    //  &-material-#{$material-color-name}#{$material-color-number}#{$extra} {
-    //    $material-color-full-name: "#{$material-color-name}#{$material-color-number}" !default;
-    //    $material-color: $material-color-full-name !default;
-    //    $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, $contrast-factor) !default;
-    //    @content
-    //  }
-    //
-    //}
-    //
-    //@include generic-variations-factory-deep(unquote(""));
-    //@include generic-variations-factory-deep(unquote("-50"));
-    //@include generic-variations-factory-deep(unquote("-100"));
-    //@include generic-variations-factory-deep(unquote("-200"));
-    //@include generic-variations-factory-deep(unquote("-300"));
-    //@include generic-variations-factory-deep(unquote("-400"));
-    //@include generic-variations-factory-deep(unquote("-500"));
-    //@include generic-variations-factory-deep(unquote("-600"));
-    //@include generic-variations-factory-deep(unquote("-700"));
-    //@include generic-variations-factory-deep(unquote("-800"));
-    //@include generic-variations-factory-deep(unquote("-900"));
-    //@include generic-variations-factory-deep(unquote("-A100"));
-    //@include generic-variations-factory-deep(unquote("-A200"));
-    //@include generic-variations-factory-deep(unquote("-A400"));
-    //@include generic-variations-factory-deep(unquote("-A700"));
+  // given a color build multiples depths
+  $material-color-names: "red" "pink" "purple" "deep-purple" "indigo" "blue" "light-blue" "cyan" "teal" "green" "light-green" "lime" "yellow" "amber" "orange" "deep-orange" "brown" "grey" "blue-grey";
+  @each $material-color-name in $material-color-names
 
     $material-color-numbers: "" "-50" "-100" "-200" "-300" "-400" "-500" "-600" "-700" "-800" "-900" "-A100" "-A200" "-A400" "-A700";
     @each $material-color-number in $material-color-numbers
@@ -141,28 +114,6 @@
         $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, $contrast-factor) !default;
         @content
       }
-  }
-
-  @include generic-variations-factory(unquote("red"));
-  @include generic-variations-factory(unquote("pink"));
-  @include generic-variations-factory(unquote("purple"));
-  @include generic-variations-factory(unquote("deep-purple"));
-  @include generic-variations-factory(unquote("indigo"));
-  @include generic-variations-factory(unquote("blue"));
-  @include generic-variations-factory(unquote("light-blue"));
-  @include generic-variations-factory(unquote("cyan"));
-  @include generic-variations-factory(unquote("teal"));
-  @include generic-variations-factory(unquote("green"));
-  @include generic-variations-factory(unquote("light-green"));
-  @include generic-variations-factory(unquote("lime"));
-  @include generic-variations-factory(unquote("yellow"));
-  @include generic-variations-factory(unquote("amber"));
-  @include generic-variations-factory(unquote("orange"));
-  @include generic-variations-factory(unquote("deep-orange"));
-  @include generic-variations-factory(unquote("brown"));
-  @include generic-variations-factory(unquote("grey"));
-  @include generic-variations-factory(unquote("blue-grey"));
-
 }
 
 
