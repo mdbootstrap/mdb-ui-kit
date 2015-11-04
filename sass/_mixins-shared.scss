@@ -36,15 +36,14 @@
 }
 
 @mixin button-variations-content($args) {
-
-  @debug "#{inspect($args)}";
-
+  //@debug "#{inspect($args)}";
   $material-color: map-get($args, material-color);
   $material-param-1: map-get($args, material-param-1);
   $contrast-factor: map-get($args, contrast-factor);
-  background-color: contrast($material-color, darken($material-color, $material-param-1), lighten($material-color, $material-param-1), $contrast-factor);
-
-  //@error "break here";
+  background-color: contrast($material-color,
+          darken($material-color, $material-param-1),
+          lighten($material-color, $material-param-1),
+          $contrast-factor);
 }
 
 @mixin bg-color-variations($extra, $default, $material-param-1) {
@@ -72,8 +71,6 @@
     @error "Unknown mixin: #{$mixin-name}"
   }
 }
-
-
 
 //
 // To use this mixin you should pass a function as final parameter to define
@@ -188,13 +185,14 @@
   $material-color-name: map-get($args, material-color-name);
   $material-color-number: map-get($args, material-color-number);
   $material-color-full-name: "#{$material-color-name}#{$material-color-number}";
-  $material-color: $material-color-full-name;
+  $material-color: map-get($args, material-color); // $material-color-full-name;
+  $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, map-get($args, contrast-factor));
 
   & -material-#{$material-color-name}#{unquote($material-color-number)}#{map-get($args, extra)} {
     $args-color: map-merge($args, (
             material-color-full-name: $material-color-full-name,
             material-color: $material-color,
-            material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, map-get($args, contrast-factor)),
+            material-text-color: $material-text-color,
     ));
 
     @include call-variations-content-mixin($args-color);

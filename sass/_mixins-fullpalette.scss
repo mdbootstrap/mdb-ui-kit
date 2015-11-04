@@ -2,17 +2,24 @@
 
 @mixin generic-variations-colors($args) {
 
+  // FIXME: see _mixins.scss regarding variable names and the below FIXME
   $material-color-names: "red" "pink" "purple" "deep-purple" "indigo" "blue" "light-blue" "cyan" "teal" "green" "light-green" "lime" "yellow" "amber" "orange" "deep-orange" "brown" "grey" "blue-grey";
   @each $material-color-name in $material-color-names {
     // given a color build multiples depths
     $material-color-numbers: "" "-50" "-100" "-200" "-300" "-400" "-500" "-600" "-700" "-800" "-900" "-A100" "-A200" "-A400" "-A700";
     @each $material-color-number in $material-color-numbers {
 
-      $args: map-merge($args, (
+      $args-variation-color: map-merge($args, (
+              material-color-name: $material-color-name,
               material-color-number: $material-color-number
       ));
 
-      @include generic-variations-color($args)
+      // FIXME: these colors are defined in _colors.scss.  Since there is no way to access a variable as a string
+      // FIXME: in sass, this needs to be changed to get a permutation as an actual variable.
+      // FIXME: http://krasimirtsonev.com/blog/article/SASS-interpolation-in-a-name-of-variable-nest-variables-within-variables
+
+      // FIXME: this shows a valid approach and adds a color function: https://github.com/darrenkopp/libsass-net/issues/12
+      @include generic-variations-color($args-variation-color)
     }
   }
 }
