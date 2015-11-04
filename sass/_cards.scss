@@ -23,7 +23,7 @@
     color: $card-body-text;
     background: $card-body-background;
 
-    @extend .shadow-z-2;
+    @include shadow-z-2();
 
     .card-image {
         height: 60%;

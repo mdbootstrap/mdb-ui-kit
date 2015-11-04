@@ -3,7 +3,7 @@
   border: 0;
 
   @include variations(unquote(" > .panel-heading"), background-color, $grey-200);
-  @extend .shadow-z-1;
+  @include shadow-z-1;
 }
 
 

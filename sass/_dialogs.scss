@@ -3,7 +3,7 @@
 // Material Design element Dialogs
 // --------------------------------------------------
 .modal-content {
-  @extend .shadow-z-5;
+  @include shadow-z-5();
   border-radius: 2px;
   border: none;
   // Modal header
