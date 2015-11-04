@@ -16,10 +16,11 @@
       ));
 
       // FIXME: these colors are defined in _colors.scss.  Since there is no way to access a variable as a string
-      // FIXME: in sass, this needs to be changed to get a permutation as an actual variable.
+      // FIXME: in sass, this needs to be changed to get a permutation as an actual variable object.
       // FIXME: http://krasimirtsonev.com/blog/article/SASS-interpolation-in-a-name-of-variable-nest-variables-within-variables
 
-      // FIXME: this shows a valid approach and adds a color function: https://github.com/darrenkopp/libsass-net/issues/12
+      // FIXME: The following shows a valid approach and adds a color lookup function from a map, but would require changes in the less files:
+      // FIXME:     https://github.com/darrenkopp/libsass-net/issues/12
       @include generic-variations-color($args-variation-color)
     }
   }
