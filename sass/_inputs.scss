@@ -197,12 +197,7 @@ fieldset[disabled] .form-control.focus:disabled,
       color: $input-info;
     }
   }
-  .generic-variations(unquote(" .form-control:focus"), $primary, {
-    background-image: linear-gradient($material-color, $material-color), linear-gradient($input-underline-color, $input-underline-color);
-  });
-  .generic-variations(unquote(" .form-control.focus"), $primary, {
-    background-image: linear-gradient($material-color, $material-color), linear-gradient($input-underline-color, $input-underline-color);
-  });
+  @include bg-img-variations(unquote(" .form-control:focus"), $primary);
   @include variations(unquote(" .control-label"), color, $lightbg-text);
   @include variations(unquote(" input.form-control:focus ~ .floating-label"), color, $input-default);
 

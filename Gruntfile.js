@@ -49,8 +49,14 @@ module.exports = function(grunt) {
               pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)box-shadow[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
               replacement: '@include bg-box-shadow-variations(unquote($1), $2);\n',
               order: 22
-            }
-          ]
+            },
+
+            // bg-img generic-variations
+            { // Multi-line replacement - https://regex101.com/r/aP2hH2/1
+              pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-image[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
+              replacement: '@include bg-img-variations(unquote($1), $2);\n',
+              order: 23
+            }          ]
         }
       }
     },
