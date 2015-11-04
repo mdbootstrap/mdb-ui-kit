@@ -1,8 +1,8 @@
 @mixin btn-shadow(){
-  @extend .shadow-z-1;
+  @include shadow-z-1();
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   &:active:not(.btn-link) {
-    @extend .shadow-z-1-hover;
+    @include shadow-z-1-hover();
   }
 }
 
@@ -18,10 +18,10 @@
   color: $darkbg-text;
 
   &:hover:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-    @extend .shadow-z-1;
+    @include shadow-z-1();
   }
   &:active:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-    @extend .shadow-z-1-hover;
+    @include shadow-z-1-hover();
   }
   transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
@@ -75,10 +75,10 @@
       @include variations(unquote(""), background-color, transparent);
     }
     &, &:hover {
-      @extend .shadow-z-1;
+      @include shadow-z-1();
     }
     &:active {
-      @extend .shadow-z-1-hover;
+      @include shadow-z-1-hover();
     }
     &, .ripple-wrapper {
       border-radius: 100%;

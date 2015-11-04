@@ -17,16 +17,18 @@ module.exports = function (grunt) {
         }],
         options: {
           replacements: [
-            // bad conversions of shadow-z-* to @include instead of @extend
-            { // https://regex101.com/r/bF2iJ2/1
-              pattern: /@include shadow-z-(\d+)((?:-hover)?)\(\);/gi,
-              replacement: '@extend .shadow-z-$1$2;',
+
+
+            // convert all shadow mixins
+            { // https://regex101.com/r/sJ2lH4/1
+              pattern: /.shadow-z-(\d+)((?:-hover)?) {/gi,
+              replacement: '@mixin shadow-z-$1$2 {',
               order: 2
             },
             // bad conversions of .shadow-z-*
-            { // https://regex101.com/r/pV0yB0/2
+            { // https://regex101.com/r/pV0yB0/3
               pattern: /\.shadow-z-(\d+)((?:-hover)?)(?:\(\))?;/gi,
-              replacement: '@extend .shadow-z-$1$2;',
+              replacement: '@include shadow-z-$1$2;',
               order: 2
             },
 
