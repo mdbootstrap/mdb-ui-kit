@@ -7,7 +7,7 @@
     color: $darkbg-text;
     font-size: 14px;
     border-radius: 2px;
-    .shadow-z-1;
+    @extend .shadow-z-1;
 
     // Animation
     height: 0;
