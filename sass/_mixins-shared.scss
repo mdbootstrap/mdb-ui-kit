@@ -1,5 +1,34 @@
 // This file is NOT automatically converted and must be manually merged
 
+// contrast-color and brightness borrowed from compass
+// Copyright (c) 2009-2014 Christopher M. Eppstein
+// Complies with license: https://github.com/Compass/compass/blob/stable/LICENSE.markdown
+@function contrast-color($color, $dark: $contrasted-dark-default, $light: $contrasted-light-default, $threshold: null) {
+  @if $threshold {
+    // Deprecated in Compass 0.13
+    @warn "The $threshold argment to contrast-color is no longer needed and will be removed in the next release.";
+  }
+  @if $color == null {
+    @return null;
+  }
+  @else {
+    $color-brightness: brightness($color);
+    $dark-text-brightness: brightness($dark);
+    $light-text-brightness: brightness($light);
+    @return if(abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness), $light, $dark);
+  }
+}
+
+@function brightness($color) {
+  @if type-of($color) == color {
+    @return (red($color) * 0.299 + green($color) * 0.587 + blue($color) * 0.114) / 255 * 100%;
+  }
+  @else {
+    @return unquote("brightness(#{$color})");
+  }
+}
+
+
 // variations(unquote(""), background-color, #FFF);
 @mixin variations($extra, $material-param-1, $default) {
   @include generic-variations($extra, $default, "variations-content", $material-param-1);
@@ -41,11 +70,9 @@
   //@debug "#{inspect($args)}";
   $material-color: map-get($args, material-color);
   $material-param-1: map-get($args, material-param-1);
-  $contrast-factor: map-get($args, contrast-factor);
-  background-color: contrast($material-color,
+  background-color: contrast-color($material-color,
           darken($material-color, $material-param-1),
-          lighten($material-color, $material-param-1),
-          $contrast-factor);
+          lighten($material-color, $material-param-1));
 }
 
 @mixin bg-color-variations($extra, $default, $material-param-1) {
@@ -168,14 +195,12 @@
 
 @mixin generic-variations($extra, $default, $mixin-name, $material-param-1) {
 
-  $contrast-factor: 40%;
   //setup map to pass parameters (instead of the incredibly long-error-prone list for each and every @include)
   $args: (
           extra: $extra,
           default: $default,
           mixin-name: $mixin-name,
-          material-param-1: $material-param-1,
-          contrast-factor: $contrast-factor,
+          material-param-1: $material-param-1
   );
 
   // bootstrap styles
@@ -212,7 +237,7 @@
             material-color-name: "inverse",
             material-color-full-name: "inverse",
             material-color: $inverse,
-            material-text-color: contrast($inverse, $lightbg-text, $darkbg-text, $contrast-factor)
+            material-text-color: contrast-color($inverse, $lightbg-text, $darkbg-text)
     ));
     @include call-variations-content-mixin($args-inverse);
   }
@@ -270,9 +295,9 @@
   $material-color-number: map-get($args, material-color-number);
   $material-color-full-name: "#{$material-color-name}#{$material-color-number}";
   $material-color: map-get($args, material-color); // $material-color-full-name;
-  $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, map-get($args, contrast-factor));
+  $material-text-color: contrast-color($material-color, $lightbg-text, $darkbg-text);
 
-  & -material-#{$material-color-name}#{unquote($material-color-number)}#{map-get($args, extra)} {
+  &-material-#{$material-color-name}#{unquote($material-color-number)}#{map-get($args, extra)} {
     $args-color: map-merge($args, (
             material-color-full-name: $material-color-full-name,
             material-color: $material-color,
