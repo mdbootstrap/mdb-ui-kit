@@ -55,10 +55,12 @@
   }
 
   // Switch bg on
+  // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-color-variations-content
   .generic-variations(~" label input[type=checkbox]:checked + .toggle", @primary, {
     background-color: fade(@material-color, 50%);
   });
   // Handle on
+  // SASS conversion note: please mirror any content change in _mixins-shared.scss variations-content
   .variations(~" label input[type=checkbox]:checked + .toggle:after", background-color, @primary);
   // Ripple on
   .generic-variations(~" label input[type=checkbox]:checked + .toggle:active:after", @primary, {
