@@ -90,6 +90,14 @@ module.exports = function (grunt) {
               order: 24
             },
 
+
+            // fix calc references
+            { // https://regex101.com/r/aZ8iI5/1
+              pattern: /calc\(unquote\("([^"]+)"\)\)/gi,
+              replacement: 'calc($1)',
+              order: 24
+            },
+
             // alert generic-variations (convert this one last - very broad search)
             { // Multi-line replacement - https://regex101.com/r/jB1uL1/1
               pattern: /.generic-variations\(unquote\(("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
