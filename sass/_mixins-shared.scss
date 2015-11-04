@@ -1,3 +1,5 @@
+// This file is NOT automatically converted and must be manually merged
+
 // variations(unquote(""), background-color, #FFF);
 @mixin variations($extra, $material-param-1, $default) {
   @include generic-variations($extra, $default, "variations-content", $material-param-1);
@@ -74,6 +76,42 @@
   background-image: linear-gradient($material-color, $material-color), linear-gradient($input-underline-color, $input-underline-color);
 }
 
+// navbar-variations(" label input[type=checkbox]:checked + .toggle:active:after", $primary
+@mixin navbar-variations($extra, $default) {
+  @include generic-variations($extra, $default, "navbar-variations-content", null);
+}
+
+@mixin navbar-variations-content($args){
+  $material-color: map-get($args, material-color);
+  $material-text-color: map-get($args, material-text-color);
+
+  background-color: $material-color;
+  color: $material-text-color;
+  // deeply defined to override welljumbo class without !impotant need
+  .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
+    color: $material-text-color;
+  }
+  .dropdown-menu {
+    border-radius: $dropdown-radius;
+    li > a {
+      font-size: $dropdown-font-size;
+      padding: 13px 16px;
+      &:hover,
+      &:focus {
+        color: $material-color;
+        background-color: $grey-200;
+      }
+    }
+    .active > a {
+      &:hover,
+      &:focus {
+        color: $material-text-color;
+      }
+      background-color: $material-color;
+      color: $material-text-color;
+    }
+  }
+}
 
 // interpolation of mixin-name is not allowed evidently, so we statically include based on the mixin-name given
 @mixin call-variations-content-mixin($args) {
@@ -92,6 +130,8 @@
     @include bg-box-shadow-variations-content($args);
   } @else if $mixin-name == bg-img-variations-content {
     @include bg-img-variations-content($args);
+  } @else if $mixin-name == navbar-variations-content {
+    @include navbar-variations-content($args);
   } @else {
     @error "Unknown mixin: #{$mixin-name}"
   }

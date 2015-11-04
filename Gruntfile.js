@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   "use strict";
 
   require("load-grunt-tasks")(grunt);
@@ -19,9 +19,9 @@ module.exports = function(grunt) {
           replacements: [
             // bad conversions of shadow-z-* to @include instead of @extend
             { // https://regex101.com/r/bF2iJ2/1
-            pattern: /@include shadow-z-(\d+)((?:-hover)?)\(\);/gi,
-            replacement: '@extend .shadow-z-$1$2;',
-            order: 2
+              pattern: /@include shadow-z-(\d+)((?:-hover)?)\(\);/gi,
+              replacement: '@extend .shadow-z-$1$2;',
+              order: 2
             },
             // bad conversions to @include instead of @extend
             {
@@ -56,7 +56,15 @@ module.exports = function(grunt) {
               pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-image[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
               replacement: '@include bg-img-variations(unquote($1), $2);\n',
               order: 23
-            }          ]
+            },
+
+            // navbar generic-variations
+            { // Multi-line replacement - https://regex101.com/r/lX1hH1/1
+              pattern: /.generic-variations\(unquote\((".navbar")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
+              replacement: '@include navbar-variations(unquote($1), $2);\n',
+              order: 24
+            },
+          ]
         }
       }
     },
@@ -283,7 +291,7 @@ module.exports = function(grunt) {
         tasks: ["newer:jshint:test", "jasmine"]
       },
       less: {
-        files:["less/**/*.less"],
+        files: ["less/**/*.less"],
         tasks: ["material:less"]
       },
       livereload: {
@@ -318,8 +326,8 @@ module.exports = function(grunt) {
       "meteor-publish": {
         command: [
           "ALL_EXIT_CODE=0; for PACKAGE_FILE in meteor/package*.js",
-            "do cp $PACKAGE_FILE ./package.js && meteor publish $@",
-            "ALL_EXIT_CODE=$(echo $ALL_EXIT_CODE + $? | bc); done",
+          "do cp $PACKAGE_FILE ./package.js && meteor publish $@",
+          "ALL_EXIT_CODE=$(echo $ALL_EXIT_CODE + $? | bc); done",
           "exit $ALL_EXIT_CODE"
         ].join(";")
       }
@@ -371,7 +379,7 @@ module.exports = function(grunt) {
     "uglify:ripples"
   ]);
 
-  grunt.registerTask("build", function() {
+  grunt.registerTask("build", function () {
     grunt.task.run(["newer:jshint", "default"]);
   });
 
@@ -380,13 +388,13 @@ module.exports = function(grunt) {
     "connect:test:keepalive"
   ]);
 
-  grunt.registerTask("serve", function(target){
+  grunt.registerTask("serve", function (target) {
     var buildTarget = "material:less";
-    if(target && target === "scss") {
+    if (target && target === "scss") {
       buildTarget = "scss";
     }
     grunt.task.run([
-      "build:"+ buildTarget,
+      "build:" + buildTarget,
       "connect:livereload",
       "watch"
     ]);
