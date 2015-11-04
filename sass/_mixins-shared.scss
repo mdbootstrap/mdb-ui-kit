@@ -100,6 +100,7 @@
 
 @mixin bg-img-variations-content($args){
   $material-color: map-get($args, material-color);
+  //@debug "bg-img-variations-content called for #{map-get($args, extra)} #{map-get($args, default)} #{map-get($args, material-color-name)} #{map-get($args, material-color)}"; //#{inspect($args)}";
   background-image: linear-gradient($material-color, $material-color), linear-gradient($input-underline-color, $input-underline-color);
 }
 
