@@ -54,6 +54,17 @@
   background-color: rgba(map-get($args, material-color), map-get($args, material-param-1));
 }
 
+// bg-box-shadow-variations(" label input[type=checkbox]:checked + .toggle:active:after", $primary
+@mixin bg-box-shadow-variations($extra, $default) {
+  @include generic-variations($extra, $default, "bg-box-shadow-variations-content", null);
+}
+
+@mixin bg-box-shadow-variations-content($args){
+  $material-color: map-get($args, material-color);
+  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba($material-color, (10/100));
+}
+
+
 // interpolation of mixin-name is not allowed evidently, so we statically include based on the mixin-name given
 @mixin call-variations-content-mixin($args) {
   $mixin-name: map-get($args, mixin-name);
@@ -67,6 +78,8 @@
     @include button-variations-content($args);
   } @else if $mixin-name == bg-color-variations-content {
     @include bg-color-variations-content($args);
+  } @else if $mixin-name == bg-box-shadow-variations-content {
+    @include bg-box-shadow-variations-content($args);
   } @else {
     @error "Unknown mixin: #{$mixin-name}"
   }

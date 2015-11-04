@@ -1,3 +1,11 @@
+@mixin btn-shadow(){
+  @extend .shadow-z-1;
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  &:active:not(.btn-link) {
+    @extend .shadow-z-1-hover;
+  }
+}
+
 .btn {
   position: relative;
   padding: 8px 30px;
@@ -126,12 +134,4 @@
 }
 .btn-group-flat {
   box-shadow: none !important;
-}
-
-@mixin btn-shadow(){
-  @extend .shadow-z-1;
-  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  &:active:not(.btn-link) {
-    @extend .shadow-z-1-hover;
-  }
 }
