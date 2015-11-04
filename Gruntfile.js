@@ -18,7 +18,6 @@ module.exports = function (grunt) {
         options: {
           replacements: [
 
-
             // convert all shadow mixins
             { // https://regex101.com/r/sJ2lH4/1
               pattern: /.shadow-z-(\d+)((?:-hover)?) {/gi,
@@ -45,15 +44,6 @@ module.exports = function (grunt) {
               replacement: '@extend',
               order: 10
             },
-
-
-            // .variations need quoted properties?
-            //{ // Multi-line replacement - https://regex101.com/r/nA6zX9/1
-            //  pattern: /@include variations\(unquote\(("([^"]+)?")\), (\w+(?:-\w+)?), ((?:\$|#)?\w+(?:-\w+)?)\);/gi,
-            //  replacement: '@include variations(unquote($1), \"$3\", $4);\n',
-            //  order: 19
-            //},
-
 
             // button variations mixin replacement(s)
             { // Multi-line replacement - https://regex101.com/r/qD9qB8/2
@@ -389,7 +379,8 @@ module.exports = function (grunt) {
 
   grunt.registerTask("material", [
     "material:less",
-    "material:js"
+    "material:js",
+    "material:sass"
   ]);
 
   grunt.registerTask("material:sass", [
