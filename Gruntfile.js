@@ -64,6 +64,13 @@ module.exports = function (grunt) {
               replacement: '@include navbar-variations(unquote($1), $2);\n',
               order: 24
             },
+
+            // alert generic-variations (convert this one last - very broad search)
+            { // Multi-line replacement - https://regex101.com/r/jB1uL1/1
+              pattern: /.generic-variations\(unquote\(("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
+              replacement: '@include alert-variations(unquote($1), $3);\n',
+              order: 250 // very broad search, do this last
+            }
           ]
         }
       }

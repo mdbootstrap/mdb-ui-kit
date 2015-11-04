@@ -113,6 +113,23 @@
   }
 }
 
+// alert-variations("", $primary)
+@mixin alert-variations($extra, $default) {
+  @include generic-variations($extra, $default, "alert-variations-content", null);
+}
+
+@mixin alert-variations-content($args){
+  $material-color: map-get($args, material-color);
+  $material-text-color: map-get($args, material-text-color);
+
+  background-color: $material-color;
+  color: $material-text-color;
+
+  a, .alert-link {
+    color: $material-text-color;
+  }
+}
+
 // interpolation of mixin-name is not allowed evidently, so we statically include based on the mixin-name given
 @mixin call-variations-content-mixin($args) {
   $mixin-name: map-get($args, mixin-name);
@@ -132,6 +149,8 @@
     @include bg-img-variations-content($args);
   } @else if $mixin-name == navbar-variations-content {
     @include navbar-variations-content($args);
+  }@else if $mixin-name == alert-variations-content {
+    @include alert-variations-content($args);
   } @else {
     @error "Unknown mixin: #{$mixin-name}"
   }
