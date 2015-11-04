@@ -23,12 +23,35 @@ module.exports = function (grunt) {
               replacement: '@extend .shadow-z-$1$2;',
               order: 2
             },
+            // bad conversions of .shadow-z-*
+            { // https://regex101.com/r/pV0yB0/2
+              pattern: /\.shadow-z-(\d+)((?:-hover)?)(?:\(\))?;/gi,
+              replacement: '@extend .shadow-z-$1$2;',
+              order: 2
+            },
+
             // bad conversions to @include instead of @extend
             {
               pattern: /@include (foo1|foo2)\(\);/gi,
               replacement: '@extend .$1;',
               order: 2
             },
+
+            // hack - (no conditional replacements)
+            { // https://regex101.com/r/pV0yB0/2
+              pattern: /@extend @extend/gi,
+              replacement: '@extend',
+              order: 10
+            },
+
+
+            // .variations need quoted properties?
+            //{ // Multi-line replacement - https://regex101.com/r/nA6zX9/1
+            //  pattern: /@include variations\(unquote\(("([^"]+)?")\), (\w+(?:-\w+)?), ((?:\$|#)?\w+(?:-\w+)?)\);/gi,
+            //  replacement: '@include variations(unquote($1), \"$3\", $4);\n',
+            //  order: 19
+            //},
+
 
             // button variations mixin replacement(s)
             { // Multi-line replacement - https://regex101.com/r/qD9qB8/2
