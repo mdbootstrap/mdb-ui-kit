@@ -2,14 +2,7 @@
     border: 0px;
     border-radius: 0;
 
-    .generic-variations(unquote(""), $darkbg-text, {
-        background-color: $material-color;
-        color: $material-text-color;
-
-        a, .alert-link {
-            color: $material-text-color;
-        }
-    });
+    @include alert-variations(unquote(""), $darkbg-text);
 
     &-info, &-danger, &-warning, &-success {
         color: $darkbg-text;
