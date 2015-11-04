@@ -59,7 +59,5 @@
   // Handle on
   @include variations(unquote(" label input[type=checkbox]:checked + .toggle:after"), background-color, $primary);
   // Ripple on
-  .generic-variations(unquote(" label input[type=checkbox]:checked + .toggle:active:after"), $primary, {
-    box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba($material-color, (10/100));
-  });
+  @include bg-box-shadow-variations(unquote(" label input[type=checkbox]:checked + .toggle:active:after"), $primary);
 }
