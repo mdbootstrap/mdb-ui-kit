@@ -31,7 +31,7 @@ select[multiple].form-control {
   background-image: linear-gradient($primary, $primary), linear-gradient($input-underline-color, $input-underline-color);
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
-  background-position: center bottom, center calc(unquote("100% - 1px"));
+  background-position: center bottom, center calc(100% - 1px);
   background-color: transparent;
   background-color: rgba(0,0,0,0);
   transition: background 0s ease-out;
