@@ -2,6 +2,7 @@
 @import "_variables.less";
 @import "_mixins.less";
 @import "_icons-material-design.less";
+@import "_shadows.less"; // these are mixins only, and must be placed at the top before use (sass requiremnt)
 
 body {
   background-color: @body-bg;
@@ -136,7 +137,3 @@ legend {
 @import "_plugin-nouislider.less";
 @import "_plugin-selectize.less";
 @import "_plugin-dropdownjs.less";
-
-// Material shadows
-// Place them on bottom of stylesheet to increase the importance of it and override other same-specificity selectors
-@import "_shadows.less";
