@@ -1,65 +1,79 @@
-@mixin variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1) {
-  #{$material-param-1}: unquote($material-color);
-}
-
-@mixin background-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1) {
-  background-color: $material-color;
-  @if ($material-color == $btn-default) {
-    color: $lightbg-text;
-  } @else {
-    color: $material-text-color;
-  }
-}
-
-@mixin text-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1) {
-  color: $material-color;
-}
-
-@mixin button-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1) {
-  background-color: contrast($material-color, darken($material-color, $material-param-1), lighten($material-color, $material-param-1), $contrast-factor);
-}
-
-@mixin bg-color-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1) {
-  background-color: rgba($material-color, $material-param-1);
-}
-
-// interpolation of mixin-name is not allowed evidently, so we statically include based on the mixin-name given
-@mixin call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1) {
-  @if $mixin-name == variations-content {
-    @include variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
-  } @else if $mixin-name == background-variations-content {
-    @include background-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
-  } @else if $mixin-name == text-variations-content {
-    @include text-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
-  } @else if $mixin-name == button-variations-content {
-    @include button-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
-  } @else if $mixin-name == bg-color-variations-content {
-    @include bg-color-variations-content($material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
-  } @else {
-    @error "Unknown mixin: #{$mixin-name}"
-  }
-}
-
-// @include button-variations(unquote(":not(.btn-link):not(.btn-flat)"), $btn-default, 4%);
-@mixin variations($extra, $default, $material-param-1) {
+// variations(unquote(""), background-color, #FFF);
+@mixin variations($extra, $material-param-1, $default) {
   @include generic-variations($extra, $default, "variations-content", $material-param-1);
+}
+
+@mixin variations-content($args) {
+  //@debug "#{map-get($args, mixin-name)}{ #{map-get($args, material-param-1)}: #{map-get($args, material-color)}; }";
+  //@debug "#{inspect($args)}";
+  //@error "break here";
+  #{map-get($args, material-param-1)}: map-get($args, material-color);
 }
 
 @mixin background-variations($extra, $default) {
   @include generic-variations($extra, $default, "background-variations-content", null);
 }
 
+@mixin background-variations-content($args) {
+  background-color: map-get($args, material-color);
+  @if (map-get($args, material-color) == $btn-default) {
+    color: $lightbg-text;
+  } @else {
+    color: map-get($args, material-text-color);
+  }
+}
+
 @mixin text-variations($extra, $default) {
   @include generic-variations($extra, $default, "text-variations-content", null);
+}
+
+@mixin text-variations-content($args) {
+  color: map-get($args, material-color);
 }
 
 @mixin button-variations($extra, $default, $material-param-1) {
   @include generic-variations($extra, $default, "button-variations-content", $material-param-1);
 }
 
+@mixin button-variations-content($args) {
+
+  @debug "#{inspect($args)}";
+
+  $material-color: map-get($args, material-color);
+  $material-param-1: map-get($args, material-param-1);
+  $contrast-factor: map-get($args, contrast-factor);
+  background-color: contrast($material-color, darken($material-color, $material-param-1), lighten($material-color, $material-param-1), $contrast-factor);
+
+  //@error "break here";
+}
+
 @mixin bg-color-variations($extra, $default, $material-param-1) {
   @include generic-variations($extra, $default, "bg-color-variations-content", $material-param-1);
 }
+
+@mixin bg-color-variations-content($args) {
+  background-color: rgba(map-get($args, material-color), map-get($args, material-param-1));
+}
+
+// interpolation of mixin-name is not allowed evidently, so we statically include based on the mixin-name given
+@mixin call-variations-content-mixin($args) {
+  $mixin-name: map-get($args, mixin-name);
+  @if $mixin-name == variations-content {
+    @include variations-content($args);
+  } @else if $mixin-name == background-variations-content {
+    @include background-variations-content($args);
+  } @else if $mixin-name == text-variations-content {
+    @include text-variations-content($args);
+  } @else if $mixin-name == button-variations-content {
+    @include button-variations-content($args);
+  } @else if $mixin-name == bg-color-variations-content {
+    @include bg-color-variations-content($args);
+  } @else {
+    @error "Unknown mixin: #{$mixin-name}"
+  }
+}
+
+
 
 //
 // To use this mixin you should pass a function as final parameter to define
@@ -73,83 +87,118 @@
 
 @mixin generic-variations($extra, $default, $mixin-name, $material-param-1) {
 
-  $contrast-factor: 40% !default;
+  $contrast-factor: 40%;
+  //setup map to pass parameters (instead of the incredibly long-error-prone list for each and every @include)
+  $args: (
+          extra: $extra,
+          default: $default,
+          mixin-name: $mixin-name,
+          material-param-1: $material-param-1,
+          contrast-factor: $contrast-factor,
+  );
 
   // bootstrap styles
   &#{$extra}, &-default#{$extra} {
-    $material-color-name: "default" !default;
-    $material-color-full-name: $material-color-name !default;
-    $material-color: $default !default;
-    $material-text-color: $darkbg-text !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+
+    $args-extra: map-merge($args, (
+            material-color-name: "default",
+            material-color-full-name: "default",
+            material-color: $default,
+            material-text-color: $darkbg-text
+    ));
+    @include call-variations-content-mixin($args-extra);
   }
   &-black#{$extra} {
-    $material-color-name: "black" !default;
-    $material-color-full-name: $material-color-name !default;
-    $material-color: $black !default;
-    $material-text-color: $darkbg-text !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+    $args-black: map-merge($args, (
+            material-color-name: "black",
+            material-color-full-name: "black",
+            material-color: $black,
+            material-text-color: $darkbg-text
+    ));
+    @include call-variations-content-mixin($args-black);
   }
   &-white#{$extra} {
-    $material-color-name: "white" !default;
-    $material-color-full-name: $material-color-name !default;
-    $material-color: $white !default;
-    $material-text-color: $lightbg-text !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+    $args-white: map-merge($args, (
+            material-color-name: "white",
+            material-color-full-name: "white",
+            material-color: $white,
+            material-text-color: $lightbg-text
+    ));
+    @include call-variations-content-mixin($args-white);
   }
   &-inverse#{$extra} {
-    $material-color-name: "inverse" !default;
-    $material-color-full-name: $material-color-name !default;
-    $material-color: $inverse !default;
-    $material-text-color: contrast($inverse, $lightbg-text, $darkbg-text, $contrast-factor) !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+    $args-inverse: map-merge($args, (
+            material-color-name: "inverse",
+            material-color-full-name: "inverse",
+            material-color: $inverse,
+            material-text-color: contrast($inverse, $lightbg-text, $darkbg-text, $contrast-factor)
+    ));
+    @include call-variations-content-mixin($args-inverse);
   }
   &-primary#{$extra} {
-    $material-color-name: "primary" !default;
-    $material-color-full-name: $material-color-name !default;
-    $material-color: $primary !default;
-    $material-text-color: $darkbg-text !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+    $args-primary: map-merge($args, (
+            material-color-name: "primary",
+            material-color-full-name: "primary",
+            material-color: $primary,
+            material-text-color: $darkbg-text
+    ));
+    @include call-variations-content-mixin($args-primary);
   }
   &-success#{$extra} {
-    $material-color-name: "success" !default;
-    $material-color-full-name: $material-color-name !default;
-    $material-color: $success !default;
-    $material-text-color: $darkbg-text !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+    $args-success: map-merge($args, (
+            material-color-name: "success",
+            material-color-full-name: "success",
+            material-color: $success,
+            material-text-color: $darkbg-text
+    ));
+    @include call-variations-content-mixin($args-success);
   }
   &-info#{$extra} {
-    $material-color-name: "info" !default;
-    $material-color-full-name: $material-color-name !default;
-    $material-color: $info !default;
-    $material-text-color: $darkbg-text !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+    $args-info: map-merge($args, (
+            material-color-name: "info",
+            material-color-full-name: "info",
+            material-color: $info,
+            material-text-color: $darkbg-text
+    ));
+    @include call-variations-content-mixin($args-info);
   }
   &-warning#{$extra} {
-    $material-color-name: "warning" !default;
-    $material-color-full-name: $material-color-name !default;
-    $material-color: $warning !default;
-    $material-text-color: $darkbg-text !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+    $args-warning: map-merge($args, (
+            material-color-name: "warning",
+            material-color-full-name: "warning",
+            material-color: $warning,
+            material-text-color: $darkbg-text
+    ));
+    @include call-variations-content-mixin($args-warning);
   }
   &-danger#{$extra} {
-    $material-color-name: "danger" !default;
-    $material-color-full-name: $material-color-name !default;
-    $material-color: $danger !default;
-    $material-text-color: $darkbg-text !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+    $args-danger: map-merge($args, (
+            material-color-name: "danger",
+            material-color-full-name: "danger",
+            material-color: $danger,
+            material-text-color: $darkbg-text
+    ));
+    @include call-variations-content-mixin($args-danger);
   }
 
-  @include generic-variations-colors($mixin-name, $extra, $default, $contrast-factor, $material-param-1)
+  @include generic-variations-colors($args)
 }
 
-@mixin generic-variations-color($mixin-name, $extra, $default, $contrast-factor, $material-color-name, $material-color-number, $material-param-1) {
-  & -material-#{$material-color-name}#{unquote($material-color-number)}#{$extra} {
-    $material-color-full-name: "#{$material-color-name}#{$material-color-number}" !default;
-    $material-color: $material-color-full-name !default;
-    $material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, $contrast-factor) !default;
-    @include call-variations-content-mixin($mixin-name, $material-color-name, $material-color-full-name, $material-color, $material-text-color, $material-param-1);
+@mixin generic-variations-color($args) {
+  $material-color-name: map-get($args, material-color-name);
+  $material-color-number: map-get($args, material-color-number);
+  $material-color-full-name: "#{$material-color-name}#{$material-color-number}";
+  $material-color: $material-color-full-name;
+
+  & -material-#{$material-color-name}#{unquote($material-color-number)}#{map-get($args, extra)} {
+    $args-color: map-merge($args, (
+            material-color-full-name: $material-color-full-name,
+            material-color: $material-color,
+            material-text-color: contrast($material-color, $lightbg-text, $darkbg-text, map-get($args, contrast-factor)),
+    ));
+
+    @include call-variations-content-mixin($args-color);
   }
 }
 
-$all-variations: unquote("-default, -primary, -info, -success, -warning, -danger") !default;
+$all-variations: unquote("-default, -primary, -info, -success, -warning, -danger");
