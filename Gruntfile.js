@@ -114,7 +114,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: "sass",
           //src: ['material.scss', 'material-fullpalette.scss', 'ripples.scss', 'roboto.scss'],
-          src: ["material.scss", "roboto.scss", "ripples.scss"],
+          src: ["material.scss", "material-fullpalette.scss", "roboto.scss", "ripples.scss"],
           dest: "dist/sassc", // added to gitignore, only used for local testing
           ext: ".css"
         }]
