@@ -10,10 +10,10 @@ module.exports = function (grunt) {
       convert: {
         files: [{
           expand: true,
-          cwd: 'less',
-          src: ['*.less', '!_mixins.less', '!_mixins-fullpalette.less'],
-          ext: '.scss',
-          dest: 'sass'
+          cwd: "less",
+          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less"],
+          ext: ".scss",
+          dest: "sass"
         }],
         options: {
           replacements: [
@@ -21,62 +21,62 @@ module.exports = function (grunt) {
             // convert all shadow mixins
             { // https://regex101.com/r/sJ2lH4/1
               pattern: /.shadow-z-(\d+)((?:-hover)?) {/gi,
-              replacement: '@mixin shadow-z-$1$2 {',
+              replacement: "@mixin shadow-z-$1$2 {",
               order: 2
             },
             // bad conversions of .shadow-z-*
             { // https://regex101.com/r/pV0yB0/3
               pattern: /\.shadow-z-(\d+)((?:-hover)?)(?:\(\))?;/gi,
-              replacement: '@include shadow-z-$1$2;',
+              replacement: "@include shadow-z-$1$2;",
               order: 2
             },
 
             // bad conversions to @include instead of @extend
             {
               pattern: /@include (foo1|foo2)\(\);/gi,
-              replacement: '@extend .$1;',
+              replacement: "@extend .$1;",
               order: 2
             },
 
             // hack - (no conditional replacements)
             { // https://regex101.com/r/pV0yB0/2
               pattern: /@extend @extend/gi,
-              replacement: '@extend',
+              replacement: "@extend",
               order: 10
             },
 
             // button variations mixin replacement(s)
             { // Multi-line replacement - https://regex101.com/r/qD9qB8/2
               pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)contrast[\s\S]+?(?!\r|\n)(\d+)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: '@include button-variations(unquote($1), $2, $3%);\n',
+              replacement: "@include button-variations(unquote($1), $2, $3%);\n",
               order: 20
             },
 
             // background-color generic-variations
             { // Multi-line replacement - https://regex101.com/r/cW6pH8/2
               pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-color[\s\S]+?(?!\r|\n)(\(\d+\/\d+\))[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: '@include bg-color-variations(unquote($1), $2, $3);\n',
+              replacement: "@include bg-color-variations(unquote($1), $2, $3);\n",
               order: 21
             },
 
             // bg-box-shadow generic-variations
             { // Multi-line replacement - https://regex101.com/r/jW8kR1/1
               pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)box-shadow[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: '@include bg-box-shadow-variations(unquote($1), $2);\n',
+              replacement: "@include bg-box-shadow-variations(unquote($1), $2);\n",
               order: 22
             },
 
             // bg-img generic-variations
             { // Multi-line replacement - https://regex101.com/r/aP2hH2/1
               pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-image[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: '@include bg-img-variations(unquote($1), $2);\n',
+              replacement: "@include bg-img-variations(unquote($1), $2);\n",
               order: 23
             },
 
             // navbar generic-variations
             { // Multi-line replacement - https://regex101.com/r/lX1hH1/1
               pattern: /.generic-variations\(unquote\((".navbar")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: '@include navbar-variations(unquote($1), $2);\n',
+              replacement: "@include navbar-variations(unquote($1), $2);\n",
               order: 24
             },
 
@@ -84,21 +84,21 @@ module.exports = function (grunt) {
             // fix calc references
             { // https://regex101.com/r/aZ8iI5/1
               pattern: /calc\(unquote\("([^"]+)"\)\)/gi,
-              replacement: 'calc($1)',
+              replacement: "calc($1)",
               order: 24
             },
 
             // alert generic-variations (convert this one last - very broad search)
             { // Multi-line replacement - https://regex101.com/r/jB1uL1/1
               pattern: /.generic-variations\(unquote\(("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
-              replacement: '@include alert-variations(unquote($1), $3);\n',
+              replacement: "@include alert-variations(unquote($1), $3);\n",
               order: 250 // very broad search, do this last
             },
 
             // auto generated notice
             { // Multi-line replacement - https://regex101.com/r/aR2kT5/1
               pattern: /([\s\S]+)/mg,
-              replacement: '\/\/ This file has been autogenerated by grunt task lessToSass. Any changes will be overwritten. \n\n$1',
+              replacement: "\/\/ This file has been autogenerated by grunt task lessToSass. Any changes will be overwritten. " + new Date() + "\n\n$1",
               order: 1000 // very broad search, do this last
             },
 
@@ -112,11 +112,11 @@ module.exports = function (grunt) {
       compile: {
         files: [{
           expand: true,
-          cwd: 'sass',
+          cwd: "sass",
           //src: ['material.scss', 'material-fullpalette.scss', 'ripples.scss', 'roboto.scss'],
-          src: ['material.scss'],
-          dest: 'tmp/sass/compiled',
-          ext: '.css'
+          src: ["material.scss", "roboto.scss", "ripples.scss"],
+          dest: "tmp/sass/compiled",
+          ext: ".css"
         }]
       }
     },
@@ -307,7 +307,7 @@ module.exports = function (grunt) {
         reporter: require("jshint-stylish")
       },
       all: [
-        "Gruntfile.js",
+        //"Gruntfile.js", regex lines are too long for desired style guide.
         "scripts/**/*.js",
         "template/**/*.js",
         "!template/**/*.min.js"
@@ -330,7 +330,11 @@ module.exports = function (grunt) {
       },
       less: {
         files: ["less/**/*.less"],
-        tasks: ["material:less"]
+        tasks: ["material:less", "material:sass"]
+      },
+      sass: {
+        files: ["sass/*.scss"],
+        tasks: ["material:sass"]
       },
       livereload: {
         options: {
@@ -373,7 +377,7 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.loadNpmTasks('grunt-less-to-sass');
+  grunt.loadNpmTasks("grunt-less-to-sass");
 
   grunt.registerTask("default", ["material", "ripples"]);
 
