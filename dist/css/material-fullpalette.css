@@ -2552,6 +2552,24 @@ Then, run this script to get the list.
 .mdi-toggle-star:before {
   content: "\e8f5";
 }
+.shadow-z-1 {
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+.shadow-z-1-hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+.shadow-z-2 {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.shadow-z-3 {
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.shadow-z-4 {
+  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+}
+.shadow-z-5 {
+  box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+}
 body {
   background-color: #eeeeee;
 }
@@ -15240,972 +15258,972 @@ body .jumbotron-material-blue-grey-A700,
 .btn-material-blue-grey-A700.active:not(.btn-link):not(.btn-flat) {
   background-color: #516a76;
 }
-.btn.btn-flat:hover:not(.btn-ink),
-.btn-default.btn-flat:hover:not(.btn-ink) {
+.btn.btn-flat:hover:not(.btn-link),
+.btn-default.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 0, 0, 0.2);
 }
-.btn-black.btn-flat:hover:not(.btn-ink) {
+.btn-black.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 0, 0, 0.2);
 }
-.btn-white.btn-flat:hover:not(.btn-ink) {
+.btn-white.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 255, 255, 0.2);
 }
-.btn-inverse.btn-flat:hover:not(.btn-ink) {
+.btn-inverse.btn-flat:hover:not(.btn-link) {
   background-color: rgba(63, 81, 181, 0.2);
 }
-.btn-primary.btn-flat:hover:not(.btn-ink) {
+.btn-primary.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 150, 136, 0.2);
 }
-.btn-success.btn-flat:hover:not(.btn-ink) {
+.btn-success.btn-flat:hover:not(.btn-link) {
   background-color: rgba(76, 175, 80, 0.2);
 }
-.btn-info.btn-flat:hover:not(.btn-ink) {
+.btn-info.btn-flat:hover:not(.btn-link) {
   background-color: rgba(3, 169, 244, 0.2);
 }
-.btn-warning.btn-flat:hover:not(.btn-ink) {
+.btn-warning.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 87, 34, 0.2);
 }
-.btn-danger.btn-flat:hover:not(.btn-ink) {
+.btn-danger.btn-flat:hover:not(.btn-link) {
   background-color: rgba(244, 67, 54, 0.2);
 }
-.btn-material-red.btn-flat:hover:not(.btn-ink) {
+.btn-material-red.btn-flat:hover:not(.btn-link) {
   background-color: rgba(244, 67, 54, 0.2);
 }
-.btn-material-pink.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink.btn-flat:hover:not(.btn-link) {
   background-color: rgba(233, 30, 99, 0.2);
 }
-.btn-material-purple.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple.btn-flat:hover:not(.btn-link) {
   background-color: rgba(156, 39, 176, 0.2);
 }
-.btn-material-deep-purple.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple.btn-flat:hover:not(.btn-link) {
   background-color: rgba(103, 58, 183, 0.2);
 }
-.btn-material-indigo.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo.btn-flat:hover:not(.btn-link) {
   background-color: rgba(63, 81, 181, 0.2);
 }
-.btn-material-blue.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue.btn-flat:hover:not(.btn-link) {
   background-color: rgba(33, 150, 243, 0.2);
 }
-.btn-material-light-blue.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue.btn-flat:hover:not(.btn-link) {
   background-color: rgba(3, 169, 244, 0.2);
 }
-.btn-material-cyan.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 188, 212, 0.2);
 }
-.btn-material-teal.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 150, 136, 0.2);
 }
-.btn-material-green.btn-flat:hover:not(.btn-ink) {
+.btn-material-green.btn-flat:hover:not(.btn-link) {
   background-color: rgba(76, 175, 80, 0.2);
 }
-.btn-material-light-green.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green.btn-flat:hover:not(.btn-link) {
   background-color: rgba(139, 195, 74, 0.2);
 }
-.btn-material-lime.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime.btn-flat:hover:not(.btn-link) {
   background-color: rgba(205, 220, 57, 0.2);
 }
-.btn-material-yellow.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 235, 59, 0.2);
 }
-.btn-material-amber.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 193, 7, 0.2);
 }
-.btn-material-orange.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 152, 0, 0.2);
 }
-.btn-material-deep-orange.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 87, 34, 0.2);
 }
-.btn-material-brown.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown.btn-flat:hover:not(.btn-link) {
   background-color: rgba(121, 85, 72, 0.2);
 }
-.btn-material-grey.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey.btn-flat:hover:not(.btn-link) {
   background-color: rgba(158, 158, 158, 0.2);
 }
-.btn-material-blue-grey.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey.btn-flat:hover:not(.btn-link) {
   background-color: rgba(96, 125, 139, 0.2);
 }
-.btn.btn-flat:hover:not(.btn-ink),
-.btn-default.btn-flat:hover:not(.btn-ink) {
+.btn.btn-flat:hover:not(.btn-link),
+.btn-default.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 0, 0, 0.2);
 }
-.btn-black.btn-flat:hover:not(.btn-ink) {
+.btn-black.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 0, 0, 0.2);
 }
-.btn-white.btn-flat:hover:not(.btn-ink) {
+.btn-white.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 255, 255, 0.2);
 }
-.btn-inverse.btn-flat:hover:not(.btn-ink) {
+.btn-inverse.btn-flat:hover:not(.btn-link) {
   background-color: rgba(63, 81, 181, 0.2);
 }
-.btn-primary.btn-flat:hover:not(.btn-ink) {
+.btn-primary.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 150, 136, 0.2);
 }
-.btn-success.btn-flat:hover:not(.btn-ink) {
+.btn-success.btn-flat:hover:not(.btn-link) {
   background-color: rgba(76, 175, 80, 0.2);
 }
-.btn-info.btn-flat:hover:not(.btn-ink) {
+.btn-info.btn-flat:hover:not(.btn-link) {
   background-color: rgba(3, 169, 244, 0.2);
 }
-.btn-warning.btn-flat:hover:not(.btn-ink) {
+.btn-warning.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 87, 34, 0.2);
 }
-.btn-danger.btn-flat:hover:not(.btn-ink) {
+.btn-danger.btn-flat:hover:not(.btn-link) {
   background-color: rgba(244, 67, 54, 0.2);
 }
-.btn-material-red.btn-flat:hover:not(.btn-ink) {
+.btn-material-red.btn-flat:hover:not(.btn-link) {
   background-color: rgba(244, 67, 54, 0.2);
 }
-.btn-material-red-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 235, 238, 0.2);
 }
-.btn-material-red-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 205, 210, 0.2);
 }
-.btn-material-red-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(239, 154, 154, 0.2);
 }
-.btn-material-red-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(229, 115, 115, 0.2);
 }
-.btn-material-red-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(239, 83, 80, 0.2);
 }
-.btn-material-red-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(244, 67, 54, 0.2);
 }
-.btn-material-red-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(229, 57, 53, 0.2);
 }
-.btn-material-red-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(211, 47, 47, 0.2);
 }
-.btn-material-red-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(198, 40, 40, 0.2);
 }
-.btn-material-red-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(183, 28, 28, 0.2);
 }
-.btn-material-red-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 138, 128, 0.2);
 }
-.btn-material-red-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 82, 82, 0.2);
 }
-.btn-material-red-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 23, 68, 0.2);
 }
-.btn-material-red-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-red-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(213, 0, 0, 0.2);
 }
-.btn-material-pink.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink.btn-flat:hover:not(.btn-link) {
   background-color: rgba(233, 30, 99, 0.2);
 }
-.btn-material-pink-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(252, 228, 236, 0.2);
 }
-.btn-material-pink-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(248, 187, 208, 0.2);
 }
-.btn-material-pink-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(244, 143, 177, 0.2);
 }
-.btn-material-pink-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(240, 98, 146, 0.2);
 }
-.btn-material-pink-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(236, 64, 122, 0.2);
 }
-.btn-material-pink-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(233, 30, 99, 0.2);
 }
-.btn-material-pink-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(216, 27, 96, 0.2);
 }
-.btn-material-pink-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(194, 24, 91, 0.2);
 }
-.btn-material-pink-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(173, 20, 87, 0.2);
 }
-.btn-material-pink-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(136, 14, 79, 0.2);
 }
-.btn-material-pink-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 128, 171, 0.2);
 }
-.btn-material-pink-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 64, 129, 0.2);
 }
-.btn-material-pink-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(245, 0, 87, 0.2);
 }
-.btn-material-pink-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-pink-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(197, 17, 98, 0.2);
 }
-.btn-material-purple.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple.btn-flat:hover:not(.btn-link) {
   background-color: rgba(156, 39, 176, 0.2);
 }
-.btn-material-purple-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(243, 229, 245, 0.2);
 }
-.btn-material-purple-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(225, 190, 231, 0.2);
 }
-.btn-material-purple-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(206, 147, 216, 0.2);
 }
-.btn-material-purple-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(186, 104, 200, 0.2);
 }
-.btn-material-purple-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(171, 71, 188, 0.2);
 }
-.btn-material-purple-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(156, 39, 176, 0.2);
 }
-.btn-material-purple-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(142, 36, 170, 0.2);
 }
-.btn-material-purple-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(123, 31, 162, 0.2);
 }
-.btn-material-purple-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(106, 27, 154, 0.2);
 }
-.btn-material-purple-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(74, 20, 140, 0.2);
 }
-.btn-material-purple-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(234, 128, 252, 0.2);
 }
-.btn-material-purple-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(224, 64, 251, 0.2);
 }
-.btn-material-purple-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(213, 0, 249, 0.2);
 }
-.btn-material-purple-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-purple-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(170, 0, 255, 0.2);
 }
-.btn-material-deep-purple.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple.btn-flat:hover:not(.btn-link) {
   background-color: rgba(103, 58, 183, 0.2);
 }
-.btn-material-deep-purple-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(237, 231, 246, 0.2);
 }
-.btn-material-deep-purple-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(209, 196, 233, 0.2);
 }
-.btn-material-deep-purple-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(179, 157, 219, 0.2);
 }
-.btn-material-deep-purple-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(149, 117, 205, 0.2);
 }
-.btn-material-deep-purple-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(126, 87, 194, 0.2);
 }
-.btn-material-deep-purple-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(103, 58, 183, 0.2);
 }
-.btn-material-deep-purple-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(94, 53, 177, 0.2);
 }
-.btn-material-deep-purple-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(81, 45, 168, 0.2);
 }
-.btn-material-deep-purple-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(69, 39, 160, 0.2);
 }
-.btn-material-deep-purple-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(49, 27, 146, 0.2);
 }
-.btn-material-deep-purple-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(179, 136, 255, 0.2);
 }
-.btn-material-deep-purple-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(124, 77, 255, 0.2);
 }
-.btn-material-deep-purple-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(101, 31, 255, 0.2);
 }
-.btn-material-deep-purple-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-purple-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(98, 0, 234, 0.2);
 }
-.btn-material-indigo.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo.btn-flat:hover:not(.btn-link) {
   background-color: rgba(63, 81, 181, 0.2);
 }
-.btn-material-indigo-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(232, 234, 246, 0.2);
 }
-.btn-material-indigo-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(197, 202, 233, 0.2);
 }
-.btn-material-indigo-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(159, 168, 218, 0.2);
 }
-.btn-material-indigo-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(121, 134, 203, 0.2);
 }
-.btn-material-indigo-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(92, 107, 192, 0.2);
 }
-.btn-material-indigo-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(63, 81, 181, 0.2);
 }
-.btn-material-indigo-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(57, 73, 171, 0.2);
 }
-.btn-material-indigo-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(48, 63, 159, 0.2);
 }
-.btn-material-indigo-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(40, 53, 147, 0.2);
 }
-.btn-material-indigo-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(26, 35, 126, 0.2);
 }
-.btn-material-indigo-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(140, 158, 255, 0.2);
 }
-.btn-material-indigo-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(83, 109, 254, 0.2);
 }
-.btn-material-indigo-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(61, 90, 254, 0.2);
 }
-.btn-material-indigo-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-indigo-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(48, 79, 254, 0.2);
 }
-.btn-material-blue.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue.btn-flat:hover:not(.btn-link) {
   background-color: rgba(33, 150, 243, 0.2);
 }
-.btn-material-blue-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(227, 242, 253, 0.2);
 }
-.btn-material-blue-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(187, 222, 251, 0.2);
 }
-.btn-material-blue-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(144, 202, 249, 0.2);
 }
-.btn-material-blue-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(100, 181, 246, 0.2);
 }
-.btn-material-blue-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(66, 165, 245, 0.2);
 }
-.btn-material-blue-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(33, 150, 243, 0.2);
 }
-.btn-material-blue-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(30, 136, 229, 0.2);
 }
-.btn-material-blue-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(25, 118, 210, 0.2);
 }
-.btn-material-blue-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(21, 101, 192, 0.2);
 }
-.btn-material-blue-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(13, 71, 161, 0.2);
 }
-.btn-material-blue-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(130, 177, 255, 0.2);
 }
-.btn-material-blue-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(68, 138, 255, 0.2);
 }
-.btn-material-blue-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(41, 121, 255, 0.2);
 }
-.btn-material-blue-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(41, 98, 255, 0.2);
 }
-.btn-material-light-blue.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue.btn-flat:hover:not(.btn-link) {
   background-color: rgba(3, 169, 244, 0.2);
 }
-.btn-material-light-blue-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(225, 245, 254, 0.2);
 }
-.btn-material-light-blue-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(179, 229, 252, 0.2);
 }
-.btn-material-light-blue-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(129, 212, 250, 0.2);
 }
-.btn-material-light-blue-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(79, 195, 247, 0.2);
 }
-.btn-material-light-blue-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(41, 182, 246, 0.2);
 }
-.btn-material-light-blue-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(3, 169, 244, 0.2);
 }
-.btn-material-light-blue-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(3, 155, 229, 0.2);
 }
-.btn-material-light-blue-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(2, 136, 209, 0.2);
 }
-.btn-material-light-blue-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(2, 119, 189, 0.2);
 }
-.btn-material-light-blue-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(1, 87, 155, 0.2);
 }
-.btn-material-light-blue-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(128, 216, 255, 0.2);
 }
-.btn-material-light-blue-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(64, 196, 255, 0.2);
 }
-.btn-material-light-blue-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 176, 255, 0.2);
 }
-.btn-material-light-blue-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-blue-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 145, 234, 0.2);
 }
-.btn-material-cyan.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 188, 212, 0.2);
 }
-.btn-material-cyan-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(224, 247, 250, 0.2);
 }
-.btn-material-cyan-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(178, 235, 242, 0.2);
 }
-.btn-material-cyan-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(128, 222, 234, 0.2);
 }
-.btn-material-cyan-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(77, 208, 225, 0.2);
 }
-.btn-material-cyan-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(38, 198, 218, 0.2);
 }
-.btn-material-cyan-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 188, 212, 0.2);
 }
-.btn-material-cyan-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 172, 193, 0.2);
 }
-.btn-material-cyan-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 151, 167, 0.2);
 }
-.btn-material-cyan-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 131, 143, 0.2);
 }
-.btn-material-cyan-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 96, 100, 0.2);
 }
-.btn-material-cyan-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(132, 255, 255, 0.2);
 }
-.btn-material-cyan-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(24, 255, 255, 0.2);
 }
-.btn-material-cyan-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 229, 255, 0.2);
 }
-.btn-material-cyan-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-cyan-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 184, 212, 0.2);
 }
-.btn-material-teal.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 150, 136, 0.2);
 }
-.btn-material-teal-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(224, 242, 241, 0.2);
 }
-.btn-material-teal-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(178, 223, 219, 0.2);
 }
-.btn-material-teal-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(128, 203, 196, 0.2);
 }
-.btn-material-teal-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(77, 182, 172, 0.2);
 }
-.btn-material-teal-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(38, 166, 154, 0.2);
 }
-.btn-material-teal-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 150, 136, 0.2);
 }
-.btn-material-teal-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 137, 123, 0.2);
 }
-.btn-material-teal-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 121, 107, 0.2);
 }
-.btn-material-teal-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 105, 92, 0.2);
 }
-.btn-material-teal-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 77, 64, 0.2);
 }
-.btn-material-teal-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(167, 255, 235, 0.2);
 }
-.btn-material-teal-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(100, 255, 218, 0.2);
 }
-.btn-material-teal-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(29, 233, 182, 0.2);
 }
-.btn-material-teal-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-teal-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 191, 165, 0.2);
 }
-.btn-material-green.btn-flat:hover:not(.btn-ink) {
+.btn-material-green.btn-flat:hover:not(.btn-link) {
   background-color: rgba(76, 175, 80, 0.2);
 }
-.btn-material-green-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(232, 245, 233, 0.2);
 }
-.btn-material-green-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(200, 230, 201, 0.2);
 }
-.btn-material-green-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(165, 214, 167, 0.2);
 }
-.btn-material-green-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(129, 199, 132, 0.2);
 }
-.btn-material-green-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(102, 187, 106, 0.2);
 }
-.btn-material-green-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(76, 175, 80, 0.2);
 }
-.btn-material-green-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(67, 160, 71, 0.2);
 }
-.btn-material-green-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(56, 142, 60, 0.2);
 }
-.btn-material-green-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(46, 125, 50, 0.2);
 }
-.btn-material-green-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(27, 94, 32, 0.2);
 }
-.btn-material-green-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(185, 246, 202, 0.2);
 }
-.btn-material-green-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(105, 240, 174, 0.2);
 }
-.btn-material-green-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 230, 118, 0.2);
 }
-.btn-material-green-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-green-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(0, 200, 83, 0.2);
 }
-.btn-material-light-green.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green.btn-flat:hover:not(.btn-link) {
   background-color: rgba(139, 195, 74, 0.2);
 }
-.btn-material-light-green-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(241, 248, 233, 0.2);
 }
-.btn-material-light-green-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(220, 237, 200, 0.2);
 }
-.btn-material-light-green-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(197, 225, 165, 0.2);
 }
-.btn-material-light-green-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(174, 213, 129, 0.2);
 }
-.btn-material-light-green-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(156, 204, 101, 0.2);
 }
-.btn-material-light-green-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(139, 195, 74, 0.2);
 }
-.btn-material-light-green-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(124, 179, 66, 0.2);
 }
-.btn-material-light-green-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(104, 159, 56, 0.2);
 }
-.btn-material-light-green-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(85, 139, 47, 0.2);
 }
-.btn-material-light-green-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(51, 105, 30, 0.2);
 }
-.btn-material-light-green-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(204, 255, 144, 0.2);
 }
-.btn-material-light-green-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(178, 255, 89, 0.2);
 }
-.btn-material-light-green-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(118, 255, 3, 0.2);
 }
-.btn-material-light-green-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-light-green-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(100, 221, 23, 0.2);
 }
-.btn-material-lime.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime.btn-flat:hover:not(.btn-link) {
   background-color: rgba(205, 220, 57, 0.2);
 }
-.btn-material-lime-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(249, 251, 231, 0.2);
 }
-.btn-material-lime-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(240, 244, 195, 0.2);
 }
-.btn-material-lime-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(230, 238, 156, 0.2);
 }
-.btn-material-lime-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(220, 231, 117, 0.2);
 }
-.btn-material-lime-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(212, 225, 87, 0.2);
 }
-.btn-material-lime-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(205, 220, 57, 0.2);
 }
-.btn-material-lime-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(192, 202, 51, 0.2);
 }
-.btn-material-lime-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(175, 180, 43, 0.2);
 }
-.btn-material-lime-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(158, 157, 36, 0.2);
 }
-.btn-material-lime-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(130, 119, 23, 0.2);
 }
-.btn-material-lime-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(244, 255, 129, 0.2);
 }
-.btn-material-lime-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(238, 255, 65, 0.2);
 }
-.btn-material-lime-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(198, 255, 0, 0.2);
 }
-.btn-material-lime-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-lime-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(174, 234, 0, 0.2);
 }
-.btn-material-yellow.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 235, 59, 0.2);
 }
-.btn-material-yellow-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 253, 231, 0.2);
 }
-.btn-material-yellow-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 249, 196, 0.2);
 }
-.btn-material-yellow-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 245, 157, 0.2);
 }
-.btn-material-yellow-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 241, 118, 0.2);
 }
-.btn-material-yellow-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 238, 88, 0.2);
 }
-.btn-material-yellow-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 235, 59, 0.2);
 }
-.btn-material-yellow-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(253, 216, 53, 0.2);
 }
-.btn-material-yellow-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(251, 192, 45, 0.2);
 }
-.btn-material-yellow-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(249, 168, 37, 0.2);
 }
-.btn-material-yellow-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(245, 127, 23, 0.2);
 }
-.btn-material-yellow-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 255, 141, 0.2);
 }
-.btn-material-yellow-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 255, 0, 0.2);
 }
-.btn-material-yellow-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 234, 0, 0.2);
 }
-.btn-material-yellow-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-yellow-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 214, 0, 0.2);
 }
-.btn-material-amber.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 193, 7, 0.2);
 }
-.btn-material-amber-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 248, 225, 0.2);
 }
-.btn-material-amber-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 236, 179, 0.2);
 }
-.btn-material-amber-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 224, 130, 0.2);
 }
-.btn-material-amber-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 213, 79, 0.2);
 }
-.btn-material-amber-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 202, 40, 0.2);
 }
-.btn-material-amber-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 193, 7, 0.2);
 }
-.btn-material-amber-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 179, 0, 0.2);
 }
-.btn-material-amber-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 160, 0, 0.2);
 }
-.btn-material-amber-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 143, 0, 0.2);
 }
-.btn-material-amber-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 111, 0, 0.2);
 }
-.btn-material-amber-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 229, 127, 0.2);
 }
-.btn-material-amber-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 215, 64, 0.2);
 }
-.btn-material-amber-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 196, 0, 0.2);
 }
-.btn-material-amber-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-amber-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 171, 0, 0.2);
 }
-.btn-material-orange.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 152, 0, 0.2);
 }
-.btn-material-orange-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 243, 224, 0.2);
 }
-.btn-material-orange-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 224, 178, 0.2);
 }
-.btn-material-orange-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 204, 128, 0.2);
 }
-.btn-material-orange-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 183, 77, 0.2);
 }
-.btn-material-orange-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 167, 38, 0.2);
 }
-.btn-material-orange-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 152, 0, 0.2);
 }
-.btn-material-orange-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(251, 140, 0, 0.2);
 }
-.btn-material-orange-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(245, 124, 0, 0.2);
 }
-.btn-material-orange-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(239, 108, 0, 0.2);
 }
-.btn-material-orange-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(230, 81, 0, 0.2);
 }
-.btn-material-orange-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 209, 128, 0.2);
 }
-.btn-material-orange-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 171, 64, 0.2);
 }
-.btn-material-orange-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 145, 0, 0.2);
 }
-.btn-material-orange-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-orange-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 109, 0, 0.2);
 }
-.btn-material-deep-orange.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 87, 34, 0.2);
 }
-.btn-material-deep-orange-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(251, 233, 231, 0.2);
 }
-.btn-material-deep-orange-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 204, 188, 0.2);
 }
-.btn-material-deep-orange-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 171, 145, 0.2);
 }
-.btn-material-deep-orange-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 138, 101, 0.2);
 }
-.btn-material-deep-orange-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 112, 67, 0.2);
 }
-.btn-material-deep-orange-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 87, 34, 0.2);
 }
-.btn-material-deep-orange-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(244, 81, 30, 0.2);
 }
-.btn-material-deep-orange-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(230, 74, 25, 0.2);
 }
-.btn-material-deep-orange-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(216, 67, 21, 0.2);
 }
-.btn-material-deep-orange-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(191, 54, 12, 0.2);
 }
-.btn-material-deep-orange-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 158, 128, 0.2);
 }
-.btn-material-deep-orange-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 110, 64, 0.2);
 }
-.btn-material-deep-orange-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(255, 61, 0, 0.2);
 }
-.btn-material-deep-orange-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-deep-orange-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(221, 44, 0, 0.2);
 }
-.btn-material-brown.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown.btn-flat:hover:not(.btn-link) {
   background-color: rgba(121, 85, 72, 0.2);
 }
-.btn-material-brown-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(239, 235, 233, 0.2);
 }
-.btn-material-brown-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(215, 204, 200, 0.2);
 }
-.btn-material-brown-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(188, 170, 164, 0.2);
 }
-.btn-material-brown-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(161, 136, 127, 0.2);
 }
-.btn-material-brown-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(141, 110, 99, 0.2);
 }
-.btn-material-brown-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(121, 85, 72, 0.2);
 }
-.btn-material-brown-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(109, 76, 65, 0.2);
 }
-.btn-material-brown-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(93, 64, 55, 0.2);
 }
-.btn-material-brown-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(78, 52, 46, 0.2);
 }
-.btn-material-brown-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(62, 39, 35, 0.2);
 }
-.btn-material-brown-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(215, 204, 200, 0.2);
 }
-.btn-material-brown-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(188, 170, 164, 0.2);
 }
-.btn-material-brown-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(141, 110, 99, 0.2);
 }
-.btn-material-brown-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-brown-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(93, 64, 55, 0.2);
 }
-.btn-material-grey.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey.btn-flat:hover:not(.btn-link) {
   background-color: rgba(158, 158, 158, 0.2);
 }
-.btn-material-grey-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(250, 250, 250, 0.2);
 }
-.btn-material-grey-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(245, 245, 245, 0.2);
 }
-.btn-material-grey-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(238, 238, 238, 0.2);
 }
-.btn-material-grey-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(224, 224, 224, 0.2);
 }
-.btn-material-grey-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(189, 189, 189, 0.2);
 }
-.btn-material-grey-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(158, 158, 158, 0.2);
 }
-.btn-material-grey-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(117, 117, 117, 0.2);
 }
-.btn-material-grey-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(97, 97, 97, 0.2);
 }
-.btn-material-grey-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(66, 66, 66, 0.2);
 }
-.btn-material-grey-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(33, 33, 33, 0.2);
 }
-.btn-material-grey-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(245, 245, 245, 0.2);
 }
-.btn-material-grey-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(238, 238, 238, 0.2);
 }
-.btn-material-grey-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(189, 189, 189, 0.2);
 }
-.btn-material-grey-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-grey-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(97, 97, 97, 0.2);
 }
-.btn-material-blue-grey.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey.btn-flat:hover:not(.btn-link) {
   background-color: rgba(96, 125, 139, 0.2);
 }
-.btn-material-blue-grey-50.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-50.btn-flat:hover:not(.btn-link) {
   background-color: rgba(236, 239, 241, 0.2);
 }
-.btn-material-blue-grey-100.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(207, 216, 220, 0.2);
 }
-.btn-material-blue-grey-200.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(176, 190, 197, 0.2);
 }
-.btn-material-blue-grey-300.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-300.btn-flat:hover:not(.btn-link) {
   background-color: rgba(144, 164, 174, 0.2);
 }
-.btn-material-blue-grey-400.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(120, 144, 156, 0.2);
 }
-.btn-material-blue-grey-500.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-500.btn-flat:hover:not(.btn-link) {
   background-color: rgba(96, 125, 139, 0.2);
 }
-.btn-material-blue-grey-600.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-600.btn-flat:hover:not(.btn-link) {
   background-color: rgba(84, 110, 122, 0.2);
 }
-.btn-material-blue-grey-700.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(69, 90, 100, 0.2);
 }
-.btn-material-blue-grey-800.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-800.btn-flat:hover:not(.btn-link) {
   background-color: rgba(55, 71, 79, 0.2);
 }
-.btn-material-blue-grey-900.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-900.btn-flat:hover:not(.btn-link) {
   background-color: rgba(38, 50, 56, 0.2);
 }
-.btn-material-blue-grey-A100.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-A100.btn-flat:hover:not(.btn-link) {
   background-color: rgba(207, 216, 220, 0.2);
 }
-.btn-material-blue-grey-A200.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-A200.btn-flat:hover:not(.btn-link) {
   background-color: rgba(176, 190, 197, 0.2);
 }
-.btn-material-blue-grey-A400.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-A400.btn-flat:hover:not(.btn-link) {
   background-color: rgba(120, 144, 156, 0.2);
 }
-.btn-material-blue-grey-A700.btn-flat:hover:not(.btn-ink) {
+.btn-material-blue-grey-A700.btn-flat:hover:not(.btn-link) {
   background-color: rgba(69, 90, 100, 0.2);
 }
 .btn.btn-flat {
@@ -36623,974 +36641,6 @@ fieldset[disabled] .form-control.focus:disabled,
   background-image: linear-gradient(#78909c, #78909c), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-blue-grey-A700 .form-control:focus {
-  background-image: linear-gradient(#455a64, #455a64), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group .form-control.focus,
-.form-group-default .form-control.focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-black .form-control.focus {
-  background-image: linear-gradient(#000000, #000000), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-white .form-control.focus {
-  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-inverse .form-control.focus {
-  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-primary .form-control.focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-success .form-control.focus {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-info .form-control.focus {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-warning .form-control.focus {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-danger .form-control.focus {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red .form-control.focus {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink .form-control.focus {
-  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple .form-control.focus {
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple .form-control.focus {
-  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo .form-control.focus {
-  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue .form-control.focus {
-  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue .form-control.focus {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan .form-control.focus {
-  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal .form-control.focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green .form-control.focus {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green .form-control.focus {
-  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime .form-control.focus {
-  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow .form-control.focus {
-  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber .form-control.focus {
-  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange .form-control.focus {
-  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange .form-control.focus {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown .form-control.focus {
-  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey .form-control.focus {
-  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey .form-control.focus {
-  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group .form-control.focus,
-.form-group-default .form-control.focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-black .form-control.focus {
-  background-image: linear-gradient(#000000, #000000), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-white .form-control.focus {
-  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-inverse .form-control.focus {
-  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-primary .form-control.focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-success .form-control.focus {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-info .form-control.focus {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-warning .form-control.focus {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-danger .form-control.focus {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red .form-control.focus {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-50 .form-control.focus {
-  background-image: linear-gradient(#ffebee, #ffebee), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-100 .form-control.focus {
-  background-image: linear-gradient(#ffcdd2, #ffcdd2), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-200 .form-control.focus {
-  background-image: linear-gradient(#ef9a9a, #ef9a9a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-300 .form-control.focus {
-  background-image: linear-gradient(#e57373, #e57373), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-400 .form-control.focus {
-  background-image: linear-gradient(#ef5350, #ef5350), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-500 .form-control.focus {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-600 .form-control.focus {
-  background-image: linear-gradient(#e53935, #e53935), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-700 .form-control.focus {
-  background-image: linear-gradient(#d32f2f, #d32f2f), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-800 .form-control.focus {
-  background-image: linear-gradient(#c62828, #c62828), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-900 .form-control.focus {
-  background-image: linear-gradient(#b71c1c, #b71c1c), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-A100 .form-control.focus {
-  background-image: linear-gradient(#ff8a80, #ff8a80), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-A200 .form-control.focus {
-  background-image: linear-gradient(#ff5252, #ff5252), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-A400 .form-control.focus {
-  background-image: linear-gradient(#ff1744, #ff1744), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red-A700 .form-control.focus {
-  background-image: linear-gradient(#d50000, #d50000), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink .form-control.focus {
-  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-50 .form-control.focus {
-  background-image: linear-gradient(#fce4ec, #fce4ec), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-100 .form-control.focus {
-  background-image: linear-gradient(#f8bbd0, #f8bbd0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-200 .form-control.focus {
-  background-image: linear-gradient(#f48fb1, #f48fb1), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-300 .form-control.focus {
-  background-image: linear-gradient(#f06292, #f06292), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-400 .form-control.focus {
-  background-image: linear-gradient(#ec407a, #ec407a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-500 .form-control.focus {
-  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-600 .form-control.focus {
-  background-image: linear-gradient(#d81b60, #d81b60), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-700 .form-control.focus {
-  background-image: linear-gradient(#c2185b, #c2185b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-800 .form-control.focus {
-  background-image: linear-gradient(#ad1457, #ad1457), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-900 .form-control.focus {
-  background-image: linear-gradient(#880e4f, #880e4f), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-A100 .form-control.focus {
-  background-image: linear-gradient(#ff80ab, #ff80ab), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-A200 .form-control.focus {
-  background-image: linear-gradient(#ff4081, #ff4081), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-A400 .form-control.focus {
-  background-image: linear-gradient(#f50057, #f50057), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink-A700 .form-control.focus {
-  background-image: linear-gradient(#c51162, #c51162), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple .form-control.focus {
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-50 .form-control.focus {
-  background-image: linear-gradient(#f3e5f5, #f3e5f5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-100 .form-control.focus {
-  background-image: linear-gradient(#e1bee7, #e1bee7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-200 .form-control.focus {
-  background-image: linear-gradient(#ce93d8, #ce93d8), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-300 .form-control.focus {
-  background-image: linear-gradient(#ba68c8, #ba68c8), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-400 .form-control.focus {
-  background-image: linear-gradient(#ab47bc, #ab47bc), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-500 .form-control.focus {
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-600 .form-control.focus {
-  background-image: linear-gradient(#8e24aa, #8e24aa), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-700 .form-control.focus {
-  background-image: linear-gradient(#7b1fa2, #7b1fa2), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-800 .form-control.focus {
-  background-image: linear-gradient(#6a1b9a, #6a1b9a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-900 .form-control.focus {
-  background-image: linear-gradient(#4a148c, #4a148c), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-A100 .form-control.focus {
-  background-image: linear-gradient(#ea80fc, #ea80fc), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-A200 .form-control.focus {
-  background-image: linear-gradient(#e040fb, #e040fb), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-A400 .form-control.focus {
-  background-image: linear-gradient(#d500f9, #d500f9), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple-A700 .form-control.focus {
-  background-image: linear-gradient(#aa00ff, #aa00ff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple .form-control.focus {
-  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-50 .form-control.focus {
-  background-image: linear-gradient(#ede7f6, #ede7f6), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-100 .form-control.focus {
-  background-image: linear-gradient(#d1c4e9, #d1c4e9), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-200 .form-control.focus {
-  background-image: linear-gradient(#b39ddb, #b39ddb), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-300 .form-control.focus {
-  background-image: linear-gradient(#9575cd, #9575cd), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-400 .form-control.focus {
-  background-image: linear-gradient(#7e57c2, #7e57c2), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-500 .form-control.focus {
-  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-600 .form-control.focus {
-  background-image: linear-gradient(#5e35b1, #5e35b1), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-700 .form-control.focus {
-  background-image: linear-gradient(#512da8, #512da8), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-800 .form-control.focus {
-  background-image: linear-gradient(#4527a0, #4527a0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-900 .form-control.focus {
-  background-image: linear-gradient(#311b92, #311b92), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-A100 .form-control.focus {
-  background-image: linear-gradient(#b388ff, #b388ff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-A200 .form-control.focus {
-  background-image: linear-gradient(#7c4dff, #7c4dff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-A400 .form-control.focus {
-  background-image: linear-gradient(#651fff, #651fff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple-A700 .form-control.focus {
-  background-image: linear-gradient(#6200ea, #6200ea), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo .form-control.focus {
-  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-50 .form-control.focus {
-  background-image: linear-gradient(#e8eaf6, #e8eaf6), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-100 .form-control.focus {
-  background-image: linear-gradient(#c5cae9, #c5cae9), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-200 .form-control.focus {
-  background-image: linear-gradient(#9fa8da, #9fa8da), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-300 .form-control.focus {
-  background-image: linear-gradient(#7986cb, #7986cb), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-400 .form-control.focus {
-  background-image: linear-gradient(#5c6bc0, #5c6bc0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-500 .form-control.focus {
-  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-600 .form-control.focus {
-  background-image: linear-gradient(#3949ab, #3949ab), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-700 .form-control.focus {
-  background-image: linear-gradient(#303f9f, #303f9f), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-800 .form-control.focus {
-  background-image: linear-gradient(#283593, #283593), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-900 .form-control.focus {
-  background-image: linear-gradient(#1a237e, #1a237e), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-A100 .form-control.focus {
-  background-image: linear-gradient(#8c9eff, #8c9eff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-A200 .form-control.focus {
-  background-image: linear-gradient(#536dfe, #536dfe), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-A400 .form-control.focus {
-  background-image: linear-gradient(#3d5afe, #3d5afe), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo-A700 .form-control.focus {
-  background-image: linear-gradient(#304ffe, #304ffe), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue .form-control.focus {
-  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-50 .form-control.focus {
-  background-image: linear-gradient(#e3f2fd, #e3f2fd), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-100 .form-control.focus {
-  background-image: linear-gradient(#bbdefb, #bbdefb), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-200 .form-control.focus {
-  background-image: linear-gradient(#90caf9, #90caf9), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-300 .form-control.focus {
-  background-image: linear-gradient(#64b5f6, #64b5f6), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-400 .form-control.focus {
-  background-image: linear-gradient(#42a5f5, #42a5f5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-500 .form-control.focus {
-  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-600 .form-control.focus {
-  background-image: linear-gradient(#1e88e5, #1e88e5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-700 .form-control.focus {
-  background-image: linear-gradient(#1976d2, #1976d2), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-800 .form-control.focus {
-  background-image: linear-gradient(#1565c0, #1565c0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-900 .form-control.focus {
-  background-image: linear-gradient(#0d47a1, #0d47a1), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-A100 .form-control.focus {
-  background-image: linear-gradient(#82b1ff, #82b1ff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-A200 .form-control.focus {
-  background-image: linear-gradient(#448aff, #448aff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-A400 .form-control.focus {
-  background-image: linear-gradient(#2979ff, #2979ff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-A700 .form-control.focus {
-  background-image: linear-gradient(#2962ff, #2962ff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue .form-control.focus {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-50 .form-control.focus {
-  background-image: linear-gradient(#e1f5fe, #e1f5fe), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-100 .form-control.focus {
-  background-image: linear-gradient(#b3e5fc, #b3e5fc), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-200 .form-control.focus {
-  background-image: linear-gradient(#81d4fa, #81d4fa), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-300 .form-control.focus {
-  background-image: linear-gradient(#4fc3f7, #4fc3f7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-400 .form-control.focus {
-  background-image: linear-gradient(#29b6f6, #29b6f6), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-500 .form-control.focus {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-600 .form-control.focus {
-  background-image: linear-gradient(#039be5, #039be5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-700 .form-control.focus {
-  background-image: linear-gradient(#0288d1, #0288d1), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-800 .form-control.focus {
-  background-image: linear-gradient(#0277bd, #0277bd), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-900 .form-control.focus {
-  background-image: linear-gradient(#01579b, #01579b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-A100 .form-control.focus {
-  background-image: linear-gradient(#80d8ff, #80d8ff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-A200 .form-control.focus {
-  background-image: linear-gradient(#40c4ff, #40c4ff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-A400 .form-control.focus {
-  background-image: linear-gradient(#00b0ff, #00b0ff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue-A700 .form-control.focus {
-  background-image: linear-gradient(#0091ea, #0091ea), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan .form-control.focus {
-  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-50 .form-control.focus {
-  background-image: linear-gradient(#e0f7fa, #e0f7fa), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-100 .form-control.focus {
-  background-image: linear-gradient(#b2ebf2, #b2ebf2), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-200 .form-control.focus {
-  background-image: linear-gradient(#80deea, #80deea), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-300 .form-control.focus {
-  background-image: linear-gradient(#4dd0e1, #4dd0e1), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-400 .form-control.focus {
-  background-image: linear-gradient(#26c6da, #26c6da), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-500 .form-control.focus {
-  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-600 .form-control.focus {
-  background-image: linear-gradient(#00acc1, #00acc1), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-700 .form-control.focus {
-  background-image: linear-gradient(#0097a7, #0097a7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-800 .form-control.focus {
-  background-image: linear-gradient(#00838f, #00838f), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-900 .form-control.focus {
-  background-image: linear-gradient(#006064, #006064), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-A100 .form-control.focus {
-  background-image: linear-gradient(#84ffff, #84ffff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-A200 .form-control.focus {
-  background-image: linear-gradient(#18ffff, #18ffff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-A400 .form-control.focus {
-  background-image: linear-gradient(#00e5ff, #00e5ff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan-A700 .form-control.focus {
-  background-image: linear-gradient(#00b8d4, #00b8d4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal .form-control.focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-50 .form-control.focus {
-  background-image: linear-gradient(#e0f2f1, #e0f2f1), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-100 .form-control.focus {
-  background-image: linear-gradient(#b2dfdb, #b2dfdb), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-200 .form-control.focus {
-  background-image: linear-gradient(#80cbc4, #80cbc4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-300 .form-control.focus {
-  background-image: linear-gradient(#4db6ac, #4db6ac), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-400 .form-control.focus {
-  background-image: linear-gradient(#26a69a, #26a69a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-500 .form-control.focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-600 .form-control.focus {
-  background-image: linear-gradient(#00897b, #00897b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-700 .form-control.focus {
-  background-image: linear-gradient(#00796b, #00796b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-800 .form-control.focus {
-  background-image: linear-gradient(#00695c, #00695c), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-900 .form-control.focus {
-  background-image: linear-gradient(#004d40, #004d40), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-A100 .form-control.focus {
-  background-image: linear-gradient(#a7ffeb, #a7ffeb), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-A200 .form-control.focus {
-  background-image: linear-gradient(#64ffda, #64ffda), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-A400 .form-control.focus {
-  background-image: linear-gradient(#1de9b6, #1de9b6), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal-A700 .form-control.focus {
-  background-image: linear-gradient(#00bfa5, #00bfa5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green .form-control.focus {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-50 .form-control.focus {
-  background-image: linear-gradient(#e8f5e9, #e8f5e9), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-100 .form-control.focus {
-  background-image: linear-gradient(#c8e6c9, #c8e6c9), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-200 .form-control.focus {
-  background-image: linear-gradient(#a5d6a7, #a5d6a7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-300 .form-control.focus {
-  background-image: linear-gradient(#81c784, #81c784), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-400 .form-control.focus {
-  background-image: linear-gradient(#66bb6a, #66bb6a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-500 .form-control.focus {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-600 .form-control.focus {
-  background-image: linear-gradient(#43a047, #43a047), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-700 .form-control.focus {
-  background-image: linear-gradient(#388e3c, #388e3c), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-800 .form-control.focus {
-  background-image: linear-gradient(#2e7d32, #2e7d32), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-900 .form-control.focus {
-  background-image: linear-gradient(#1b5e20, #1b5e20), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-A100 .form-control.focus {
-  background-image: linear-gradient(#b9f6ca, #b9f6ca), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-A200 .form-control.focus {
-  background-image: linear-gradient(#69f0ae, #69f0ae), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-A400 .form-control.focus {
-  background-image: linear-gradient(#00e676, #00e676), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green-A700 .form-control.focus {
-  background-image: linear-gradient(#00c853, #00c853), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green .form-control.focus {
-  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-50 .form-control.focus {
-  background-image: linear-gradient(#f1f8e9, #f1f8e9), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-100 .form-control.focus {
-  background-image: linear-gradient(#dcedc8, #dcedc8), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-200 .form-control.focus {
-  background-image: linear-gradient(#c5e1a5, #c5e1a5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-300 .form-control.focus {
-  background-image: linear-gradient(#aed581, #aed581), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-400 .form-control.focus {
-  background-image: linear-gradient(#9ccc65, #9ccc65), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-500 .form-control.focus {
-  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-600 .form-control.focus {
-  background-image: linear-gradient(#7cb342, #7cb342), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-700 .form-control.focus {
-  background-image: linear-gradient(#689f38, #689f38), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-800 .form-control.focus {
-  background-image: linear-gradient(#558b2f, #558b2f), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-900 .form-control.focus {
-  background-image: linear-gradient(#33691e, #33691e), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-A100 .form-control.focus {
-  background-image: linear-gradient(#ccff90, #ccff90), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-A200 .form-control.focus {
-  background-image: linear-gradient(#b2ff59, #b2ff59), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-A400 .form-control.focus {
-  background-image: linear-gradient(#76ff03, #76ff03), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green-A700 .form-control.focus {
-  background-image: linear-gradient(#64dd17, #64dd17), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime .form-control.focus {
-  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-50 .form-control.focus {
-  background-image: linear-gradient(#f9fbe7, #f9fbe7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-100 .form-control.focus {
-  background-image: linear-gradient(#f0f4c3, #f0f4c3), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-200 .form-control.focus {
-  background-image: linear-gradient(#e6ee9c, #e6ee9c), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-300 .form-control.focus {
-  background-image: linear-gradient(#dce775, #dce775), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-400 .form-control.focus {
-  background-image: linear-gradient(#d4e157, #d4e157), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-500 .form-control.focus {
-  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-600 .form-control.focus {
-  background-image: linear-gradient(#c0ca33, #c0ca33), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-700 .form-control.focus {
-  background-image: linear-gradient(#afb42b, #afb42b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-800 .form-control.focus {
-  background-image: linear-gradient(#9e9d24, #9e9d24), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-900 .form-control.focus {
-  background-image: linear-gradient(#827717, #827717), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-A100 .form-control.focus {
-  background-image: linear-gradient(#f4ff81, #f4ff81), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-A200 .form-control.focus {
-  background-image: linear-gradient(#eeff41, #eeff41), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-A400 .form-control.focus {
-  background-image: linear-gradient(#c6ff00, #c6ff00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime-A700 .form-control.focus {
-  background-image: linear-gradient(#aeea00, #aeea00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow .form-control.focus {
-  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-50 .form-control.focus {
-  background-image: linear-gradient(#fffde7, #fffde7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-100 .form-control.focus {
-  background-image: linear-gradient(#fff9c4, #fff9c4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-200 .form-control.focus {
-  background-image: linear-gradient(#fff59d, #fff59d), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-300 .form-control.focus {
-  background-image: linear-gradient(#fff176, #fff176), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-400 .form-control.focus {
-  background-image: linear-gradient(#ffee58, #ffee58), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-500 .form-control.focus {
-  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-600 .form-control.focus {
-  background-image: linear-gradient(#fdd835, #fdd835), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-700 .form-control.focus {
-  background-image: linear-gradient(#fbc02d, #fbc02d), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-800 .form-control.focus {
-  background-image: linear-gradient(#f9a825, #f9a825), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-900 .form-control.focus {
-  background-image: linear-gradient(#f57f17, #f57f17), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-A100 .form-control.focus {
-  background-image: linear-gradient(#ffff8d, #ffff8d), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-A200 .form-control.focus {
-  background-image: linear-gradient(#ffff00, #ffff00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-A400 .form-control.focus {
-  background-image: linear-gradient(#ffea00, #ffea00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow-A700 .form-control.focus {
-  background-image: linear-gradient(#ffd600, #ffd600), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber .form-control.focus {
-  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-50 .form-control.focus {
-  background-image: linear-gradient(#fff8e1, #fff8e1), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-100 .form-control.focus {
-  background-image: linear-gradient(#ffecb3, #ffecb3), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-200 .form-control.focus {
-  background-image: linear-gradient(#ffe082, #ffe082), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-300 .form-control.focus {
-  background-image: linear-gradient(#ffd54f, #ffd54f), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-400 .form-control.focus {
-  background-image: linear-gradient(#ffca28, #ffca28), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-500 .form-control.focus {
-  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-600 .form-control.focus {
-  background-image: linear-gradient(#ffb300, #ffb300), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-700 .form-control.focus {
-  background-image: linear-gradient(#ffa000, #ffa000), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-800 .form-control.focus {
-  background-image: linear-gradient(#ff8f00, #ff8f00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-900 .form-control.focus {
-  background-image: linear-gradient(#ff6f00, #ff6f00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-A100 .form-control.focus {
-  background-image: linear-gradient(#ffe57f, #ffe57f), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-A200 .form-control.focus {
-  background-image: linear-gradient(#ffd740, #ffd740), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-A400 .form-control.focus {
-  background-image: linear-gradient(#ffc400, #ffc400), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber-A700 .form-control.focus {
-  background-image: linear-gradient(#ffab00, #ffab00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange .form-control.focus {
-  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-50 .form-control.focus {
-  background-image: linear-gradient(#fff3e0, #fff3e0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-100 .form-control.focus {
-  background-image: linear-gradient(#ffe0b2, #ffe0b2), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-200 .form-control.focus {
-  background-image: linear-gradient(#ffcc80, #ffcc80), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-300 .form-control.focus {
-  background-image: linear-gradient(#ffb74d, #ffb74d), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-400 .form-control.focus {
-  background-image: linear-gradient(#ffa726, #ffa726), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-500 .form-control.focus {
-  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-600 .form-control.focus {
-  background-image: linear-gradient(#fb8c00, #fb8c00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-700 .form-control.focus {
-  background-image: linear-gradient(#f57c00, #f57c00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-800 .form-control.focus {
-  background-image: linear-gradient(#ef6c00, #ef6c00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-900 .form-control.focus {
-  background-image: linear-gradient(#e65100, #e65100), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-A100 .form-control.focus {
-  background-image: linear-gradient(#ffd180, #ffd180), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-A200 .form-control.focus {
-  background-image: linear-gradient(#ffab40, #ffab40), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-A400 .form-control.focus {
-  background-image: linear-gradient(#ff9100, #ff9100), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange-A700 .form-control.focus {
-  background-image: linear-gradient(#ff6d00, #ff6d00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange .form-control.focus {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-50 .form-control.focus {
-  background-image: linear-gradient(#fbe9e7, #fbe9e7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-100 .form-control.focus {
-  background-image: linear-gradient(#ffccbc, #ffccbc), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-200 .form-control.focus {
-  background-image: linear-gradient(#ffab91, #ffab91), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-300 .form-control.focus {
-  background-image: linear-gradient(#ff8a65, #ff8a65), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-400 .form-control.focus {
-  background-image: linear-gradient(#ff7043, #ff7043), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-500 .form-control.focus {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-600 .form-control.focus {
-  background-image: linear-gradient(#f4511e, #f4511e), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-700 .form-control.focus {
-  background-image: linear-gradient(#e64a19, #e64a19), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-800 .form-control.focus {
-  background-image: linear-gradient(#d84315, #d84315), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-900 .form-control.focus {
-  background-image: linear-gradient(#bf360c, #bf360c), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-A100 .form-control.focus {
-  background-image: linear-gradient(#ff9e80, #ff9e80), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-A200 .form-control.focus {
-  background-image: linear-gradient(#ff6e40, #ff6e40), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-A400 .form-control.focus {
-  background-image: linear-gradient(#ff3d00, #ff3d00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange-A700 .form-control.focus {
-  background-image: linear-gradient(#dd2c00, #dd2c00), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown .form-control.focus {
-  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-50 .form-control.focus {
-  background-image: linear-gradient(#efebe9, #efebe9), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-100 .form-control.focus {
-  background-image: linear-gradient(#d7ccc8, #d7ccc8), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-200 .form-control.focus {
-  background-image: linear-gradient(#bcaaa4, #bcaaa4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-300 .form-control.focus {
-  background-image: linear-gradient(#a1887f, #a1887f), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-400 .form-control.focus {
-  background-image: linear-gradient(#8d6e63, #8d6e63), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-500 .form-control.focus {
-  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-600 .form-control.focus {
-  background-image: linear-gradient(#6d4c41, #6d4c41), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-700 .form-control.focus {
-  background-image: linear-gradient(#5d4037, #5d4037), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-800 .form-control.focus {
-  background-image: linear-gradient(#4e342e, #4e342e), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-900 .form-control.focus {
-  background-image: linear-gradient(#3e2723, #3e2723), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-A100 .form-control.focus {
-  background-image: linear-gradient(#d7ccc8, #d7ccc8), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-A200 .form-control.focus {
-  background-image: linear-gradient(#bcaaa4, #bcaaa4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-A400 .form-control.focus {
-  background-image: linear-gradient(#8d6e63, #8d6e63), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown-A700 .form-control.focus {
-  background-image: linear-gradient(#5d4037, #5d4037), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey .form-control.focus {
-  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-50 .form-control.focus {
-  background-image: linear-gradient(#fafafa, #fafafa), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-100 .form-control.focus {
-  background-image: linear-gradient(#f5f5f5, #f5f5f5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-200 .form-control.focus {
-  background-image: linear-gradient(#eeeeee, #eeeeee), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-300 .form-control.focus {
-  background-image: linear-gradient(#e0e0e0, #e0e0e0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-400 .form-control.focus {
-  background-image: linear-gradient(#bdbdbd, #bdbdbd), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-500 .form-control.focus {
-  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-600 .form-control.focus {
-  background-image: linear-gradient(#757575, #757575), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-700 .form-control.focus {
-  background-image: linear-gradient(#616161, #616161), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-800 .form-control.focus {
-  background-image: linear-gradient(#424242, #424242), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-900 .form-control.focus {
-  background-image: linear-gradient(#212121, #212121), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-A100 .form-control.focus {
-  background-image: linear-gradient(#f5f5f5, #f5f5f5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-A200 .form-control.focus {
-  background-image: linear-gradient(#eeeeee, #eeeeee), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-A400 .form-control.focus {
-  background-image: linear-gradient(#bdbdbd, #bdbdbd), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey-A700 .form-control.focus {
-  background-image: linear-gradient(#616161, #616161), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey .form-control.focus {
-  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-50 .form-control.focus {
-  background-image: linear-gradient(#eceff1, #eceff1), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-100 .form-control.focus {
-  background-image: linear-gradient(#cfd8dc, #cfd8dc), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-200 .form-control.focus {
-  background-image: linear-gradient(#b0bec5, #b0bec5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-300 .form-control.focus {
-  background-image: linear-gradient(#90a4ae, #90a4ae), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-400 .form-control.focus {
-  background-image: linear-gradient(#78909c, #78909c), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-500 .form-control.focus {
-  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-600 .form-control.focus {
-  background-image: linear-gradient(#546e7a, #546e7a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-700 .form-control.focus {
-  background-image: linear-gradient(#455a64, #455a64), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-800 .form-control.focus {
-  background-image: linear-gradient(#37474f, #37474f), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-900 .form-control.focus {
-  background-image: linear-gradient(#263238, #263238), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-A100 .form-control.focus {
-  background-image: linear-gradient(#cfd8dc, #cfd8dc), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-A200 .form-control.focus {
-  background-image: linear-gradient(#b0bec5, #b0bec5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-A400 .form-control.focus {
-  background-image: linear-gradient(#78909c, #78909c), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey-A700 .form-control.focus {
   background-image: linear-gradient(#455a64, #455a64), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group .control-label,
@@ -75879,7 +74929,7 @@ hr.on-light {
   top: 3px;
   font-size: 25px;
   position: absolute;
-  content: "\e894";
+  content: "\e8ac";
   font-family: "Material-Design-Icons";
   speak: none;
   font-style: normal;
@@ -75891,23 +74941,5 @@ hr.on-light {
   -moz-osx-font-smoothing: grayscale;
   pointer-events: none;
   color: #757575;
-}
-.shadow-z-1 {
-  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-}
-.shadow-z-1-hover {
-  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-}
-.shadow-z-2 {
-  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.shadow-z-3 {
-  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-}
-.shadow-z-4 {
-  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
-}
-.shadow-z-5 {
-  box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
 }
 /*# sourceMappingURL=material-fullpalette.css.map */
