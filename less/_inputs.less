@@ -1,26 +1,14 @@
-fieldset[disabled] .form-control, .form-control {
-  &, &:focus, &.focus {
-    padding: 0;
-    float: none;
-    border: 0;
+// usage: .input-validation-state(@input-danger);
+.input-validation-state(@color) {
+  .form-control {
     box-shadow: none;
-    border-radius: 0;
-    &:disabled {
-      border-style: dashed;
-      border-bottom: 1px solid #757575;
-    }
   }
-}
-
-fieldset[disabled] .form-control, .form-control {
-  &:textarea {
-    height: 40px;
+  .material-input:focus, .form-control:focus, .form-control.focus {
+    background-image: linear-gradient(@color, @color), linear-gradient(@input-underline-color, @input-underline-color);
+    box-shadow: none;
   }
-}
-
-select[multiple].form-control {
-  &, &:focus, &.focus {
-    height: 85px;
+  .control-label, input.form-control:focus ~ .floating-label {
+    color: @color;
   }
 }
 
@@ -31,42 +19,73 @@ select[multiple].form-control {
   background-repeat: no-repeat;
   background-position: center bottom, center calc(~"100% - 1px");
   background-color: transparent;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   transition: background 0s ease-out;
   &::-webkit-input-placeholder {
     color: @input-placeholder-color;
   }
   &::-moz-placeholder {
-    color: @input-placeholder-color; 
-  }
-  &:-ms-input-placeholder {  
     color: @input-placeholder-color;
   }
+  &:-ms-input-placeholder {
+    color: @input-placeholder-color;
+  }
+
+  fieldset[disabled] &, & {
+    &:textarea {
+      height: 40px;
+    }
+
+    &, &:focus, &.focus {
+      padding: 0;
+      float: none;
+      border: 0;
+      box-shadow: none;
+      border-radius: 0;
+      &:disabled {
+        border-style: dashed;
+        border-bottom: 1px solid #757575;
+      }
+    }
+  }
+
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  &:focus,
+  &.focus {
+    outline: none;
+    background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
+    background-size: 100% 2px, 100% 1px;
+    box-shadow: none;
+    transition-duration: 0.3s;
+  }
+
+  &:focus ~ .material-input:after,
+  &.focus ~ .material-input:after {
+    background-color: @input-default;
+  }
+
+  &:invalid {
+    background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(@input-underline-color, @input-underline-color);
+  }
 }
-.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
-  background-color: transparent;
-  background-color: rgba(0,0,0,0);
-}
-fieldset[disabled] .form-control:disabled, 
+
+fieldset[disabled] .form-control:disabled,
 .form-group .form-control:disabled,
-.form-control:disabled, 
-fieldset[disabled] .form-control:focus:disabled, 
+.form-control:disabled,
+fieldset[disabled] .form-control:focus:disabled,
 .form-group .form-control:focus:disabled,
-.form-control:focus:disabled, 
-fieldset[disabled] .form-control.focus:disabled, 
+.form-control:focus:disabled,
+fieldset[disabled] .form-control.focus:disabled,
 .form-group .form-control.focus:disabled,
 .form-control.focus:disabled {
   border: 0; // Ugly override of Bootstrap border
 }
-
-.form-control:focus, .form-control.focus {
-  outline: none;
-  background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
-  background-size: 100% 2px, 100% 1px;
-  box-shadow: none;
-  transition-duration: 0.3s;
-}
-
 
 .form-group {
   position: relative;
@@ -78,51 +97,47 @@ fieldset[disabled] .form-control.focus:disabled,
     left: 0px;
     top: 5px;
     transition: 0.3s ease all;
+    font-size: @font-size-base; // Input sizes
+
+    .form-control:focus ~ &,
+    .form-control:not(.empty) ~ & {
+      top: @floating-label-size-ratio * -@font-size-base;
+      font-size: @floating-label-size-ratio * @font-size-base;
+    }
+
+    .input-sm + & { // small
+      font-size: @font-size-small;
+      top: 7px;
+    }
+    .form-control.input-sm:focus ~ &,
+    .form-control.input-sm:not(.empty) ~ & {
+      top: @floating-label-size-ratio * -@font-size-small;
+      font-size: @floating-label-size-ratio * @font-size-small;
+    }
+
+    .input-lg + & {
+      font-size: @font-size-large;
+      top: 10px;
+    }
+    .form-control.input-lg:focus ~ &,
+    .form-control.input-lg:not(.empty) ~ & {
+      top: @floating-label-size-ratio * -@font-size-large;
+      font-size: @floating-label-size-ratio * @font-size-large;
+    }
+
+    .form-control:focus ~ & {
+      color: @primary;
+    }
+
+    .form-control:not(.empty):invalid ~ &,
+    .form-control.focus:invalid ~ & {
+      color: @input-danger;
+    }
   }
 
-  // Input sizes
-  .floating-label { // base
-    font-size: @font-size-base;
+  textarea {
+    resize: none;
   }
-  .form-control:focus ~ .floating-label,
-  .form-control:not(.empty) ~ .floating-label {
-    top: @floating-label-size-ratio * -@font-size-base;
-    font-size: @floating-label-size-ratio * @font-size-base;
-  }
-
-  .input-sm + .floating-label { // small
-    font-size: @font-size-small;
-    top: 7px;
-  }
-  .form-control.input-sm:focus ~ .floating-label,
-  .form-control.input-sm:not(.empty) ~.floating-label {
-    top: @floating-label-size-ratio * -@font-size-small;
-    font-size: @floating-label-size-ratio * @font-size-small;
-  }
-
-  .input-lg + .floating-label {
-    font-size: @font-size-large;
-    top: 10px;
-  }
-  .form-control.input-lg:focus ~ .floating-label,
-  .form-control.input-lg:not(.empty) ~ .floating-label {
-    top: @floating-label-size-ratio * -@font-size-large;
-    font-size: @floating-label-size-ratio * @font-size-large;
-  }
-
-  .form-control:focus ~ .floating-label {
-    color: @primary;
-  }
-  .form-control:not(.empty):invalid ~ .floating-label, .form-control.focus:invalid ~ .floating-label {
-    color: @input-danger;
-  }
-  .form-control:focus ~ .material-input:after, .form-control.focus ~ .material-input:after {
-    background-color: @input-default;
-  }
-  .form-control:invalid {
-    background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(@input-underline-color, @input-underline-color);
-  }
-  textarea { resize: none; }
   textarea ~ .form-control-highlight {
     margin-top: -11px;
   }
@@ -133,7 +148,8 @@ fieldset[disabled] .form-control.focus:disabled,
     font-size: 80%;
     display: none;
   }
-  .form-control:focus ~ .hint, .form-control.focus ~ .hint {
+  .form-control:focus ~ .hint,
+  .form-control.focus ~ .hint {
     display: block;
   }
 
@@ -146,56 +162,17 @@ fieldset[disabled] .form-control.focus:disabled,
     appearance: none;
   }
 
-}
-
-.form-group {
   &.has-warning {
-    .form-control {
-      box-shadow: none;
-    }
-    .material-input:focus, .form-control:focus, .form-control.focus {
-      background-image: linear-gradient(@input-warning, @input-warning), linear-gradient(@input-underline-color, @input-underline-color);
-      box-shadow: none;
-    }
-    .control-label, input.form-control:focus ~ .floating-label {
-      color: @input-warning;
-    }
+    .input-validation-state(@input-warning);
   }
   &.has-error {
-    .form-control {
-      box-shadow: none;
-    }
-    .material-input:focus, .form-control:focus, .form-control.focus {
-      background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(@input-underline-color, @input-underline-color);
-      box-shadow: none;
-    }
-    .control-label, input.form-control:focus ~ .floating-label {
-      color: @input-danger;
-    }
+    .input-validation-state(@input-danger);
   }
   &.has-success {
-    .form-control {
-      box-shadow: none;
-    }
-    .material-input:focus, .form-control:focus, .form-control.focus {
-      background-image: linear-gradient(@input-success, @input-success), linear-gradient(@input-underline-color, @input-underline-color);
-      box-shadow: none;
-    }
-    .control-label, input.form-control:focus ~ .floating-label {
-      color: @input-success;
-    }
+    .input-validation-state(@input-success);
   }
   &.has-info {
-    .form-control {
-      box-shadow: none;
-    }
-    .material-input:focus, .form-control:focus, .form-control.focus {
-      background-image: linear-gradient(@input-info, @input-info), linear-gradient(@input-underline-color, @input-underline-color);
-      box-shadow: none;
-    }
-    .control-label, input.form-control:focus ~ .floating-label {
-      color: @input-info;
-    }
+    .input-validation-state(@input-info);
   }
   // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-img-variations-content
   .generic-variations(~" .form-control:focus", @primary, {
@@ -203,7 +180,6 @@ fieldset[disabled] .form-control.focus:disabled,
   });
   .variations(~" .control-label", color, @lightbg-text);
   .variations(~" input.form-control:focus ~ .floating-label", color, @input-default);
-
 }
 
 .input-group {
@@ -221,6 +197,12 @@ fieldset[disabled] .form-control.focus:disabled,
   .input-group-btn .btn {
     border-radius: 4px;
     margin: 0;
+  }
+}
+
+select[multiple].form-control {
+  &, &:focus, &.focus {
+    height: 85px;
   }
 }
 
