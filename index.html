@@ -19,117 +19,7 @@
   <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
 
   <!-- Page style -->
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    .header-panel {
-      background-color: #009587;
-      height: 144px;
-      position: relative;
-      z-index: 3;
-    }
-
-    .header-panel div {
-      position: relative;
-      height: 100%;
-    }
-
-    .header-panel h1 {
-      color: #FFF;
-      font-size: 20px;
-      font-weight: 400;
-      position: absolute;
-      bottom: 10px;
-      padding-left: 35px;
-    }
-
-    .menu {
-      overflow: auto;
-      padding: 0;
-    }
-
-    .menu, .menu * {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    .menu ul {
-      padding: 0;
-      margin: 7px 0;
-    }
-
-    .menu ul li {
-      list-style: none;
-      padding: 20px 0 20px 50px;
-      font-size: 15px;
-      font-weight: normal;
-      cursor: pointer;
-    }
-
-    .menu ul li.active {
-      background-color: #dedede;
-      position: relative;
-    }
-
-    .menu ul li a {
-      color: rgb(51, 51, 51);
-      text-decoration: none;
-    }
-
-    .pages {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 4;
-      padding: 0;
-      overflow: auto;
-    }
-
-    .pages > div {
-      padding: 0 5px;
-      padding-top: 64px;
-    }
-
-    .pages .header {
-      color: rgb(82, 101, 162);
-      font-size: 24px;
-      font-weight: normal;
-      margin-top: 5px;
-      margin-bottom: 60px;
-      letter-spacing: 1.20000004768372px;
-    }
-
-    .page {
-      transform: translateY(1080px);
-      transition: transform 0 linear;
-      display: none;
-      opacity: 0;
-      font-size: 16px;
-    }
-
-    .page.active {
-      transform: translateY(0px);
-      transition: all 0.3s ease-out;
-      display: block;
-      opacity: 1;
-    }
-
-    #opensource {
-      color: rgba(0, 0, 0, 0.62);
-      position: fixed;
-      margin-top: 50px;
-      margin-left: 50px;
-      z-index: 100;
-    }
-
-    #source-modal h4 {
-      color: black;
-    }
-  </style>
-
+  <link href="index.css" rel="stylesheet">
 
   <!-- jQuery -->
   <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -593,35 +483,75 @@
             }
           </style>
         </div>
+        <!--
+          Inputs
+          -->
         <div class="well page" id="input">
           <h1 class="header">Input</h1>
 
           <div class="inputs">
             <h2>Input</h2>
-            <input type="text" class="form-control" placeholder="label">
-            <input type="text" class="form-control floating-label" placeholder="floating label">
+
+            <div class="form-group">
+              <label for="i1" class="not-floating">Static label</label>
+              <input type="email" class="form-control" id="i1" placeholder="Placeholder text">
+
+              <p class="help-block hint">This is a hint as a <code>p.help-block.hint</code></p>
+            </div>
+
+            <div class="form-group">
+              <label for="i2" class="not-floating">Floating label</label>
+              <input type="email" class="form-control" id="i2" placeholder="Placeholder text">
+              <span class="help-block hint">This is a hint as a <code>span.help-block.hint</code></span>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control floating-label" placeholder="old floating label" data-hint="old hint attribute">
+            </div>
 
             <h2>Textarea</h2>
-            <textarea class="form-control" placeholder="textarea label"></textarea>
-            <textarea class="form-control floating-label" placeholder="textarea floating label"></textarea>
+
+            <div class="form-group">
+              <textarea class="form-control" placeholder="textarea label"></textarea>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control floating-label" placeholder="textarea floating label"></textarea>
+            </div>
 
             <h2>Validation</h2>
-            <input type="email" class="form-control floating-label" placeholder="email">
-            <input type="number" class="form-control floating-label" placeholder="number">
+
+            <div class="form-group">
+              <input type="email" class="form-control floating-label" placeholder="email">
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control floating-label" placeholder="number">
+            </div>
 
             <h2>Disabled</h2>
-            <input disabled type="text" class="form-control floating-label" placeholder="email">
-            <input disabled type="text" class="form-control floating-label" placeholder="number">
+
+            <div class="form-group">
+              <input disabled type="text" class="form-control floating-label" placeholder="email">
+            </div>
+            <div class="form-group">
+              <input disabled type="text" class="form-control floating-label" placeholder="number">
+            </div>
 
             <h2>Hints</h2>
-            <input type="text" class="form-control floating-label" data-hint="Write here something cool" placeholder="label">
-            <input type="email" class="form-control floating-label" data-hint="A valid email should contain an @ symbol" placeholder="label">
+
+            <div class="form-group">
+              <input type="text" class="form-control floating-label" data-hint="Write here something cool" placeholder="label">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control floating-label" data-hint="A valid email should contain an @ symbol" placeholder="label">
+            </div>
 
 
             <h2>Styling</h2>
 
             <div class="form-group has-error">
               <input type="text" class="form-control form-control-success" placeholder="label">
+            </div>
+            <div class="form-group has-error">
               <input type="text" class="form-control form-control-success floating-label" placeholder="floating label">
             </div>
 
@@ -636,11 +566,10 @@
                 width: 80%;
               }
 
-              #input .form-control-wrapper {
+              #input .form-group {
                 margin: 30px 0;
               }
             </style>
-
           </div>
         </div>
         <div class="well page" id="navbar">
@@ -674,7 +603,9 @@
                 </li>
               </ul>
               <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
+                <div class="form-group">
+                  <input type="text" class="form-control col-lg-8" placeholder="Search">
+                </div>
               </form>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="javascript:void(0)">Link</a></li>
@@ -721,7 +652,9 @@
                 </li>
               </ul>
               <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
+                <div class="form-group">
+                  <input type="text" class="form-control col-lg-8" placeholder="Search">
+                </div>
               </form>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="javascript:void(0)">Link</a></li>
@@ -768,7 +701,9 @@
                 </li>
               </ul>
               <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
+                <div class="form-group">
+                  <input type="text" class="form-control col-lg-8" placeholder="Search">
+                </div>
               </form>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="javascript:void(0)">Link</a></li>
@@ -815,7 +750,9 @@
                 </li>
               </ul>
               <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
+                <div class="form-group">
+                  <input type="text" class="form-control col-lg-8" placeholder="Search">
+                </div>
               </form>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="javascript:void(0)">Link</a></li>
@@ -1376,14 +1313,15 @@
           <h1 class="header">Floating Action Button</h1>
 
           <h2>Regular</h2>
-          <button class="btn btn-fab btn-raised btn-material-red"><i class="mdi-navigation-arrow-forward"></i></button>
+          <button class="btn btn-fab btn-raised btn-material-red"><i class="mdi-navigation-arrow-forward"></i>
+          </button>
           <button class="btn btn-fab btn-raised btn-primary"><i class="mdi-image-edit"></i></button>
 
           <h2>Mini</h2>
-          <button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-success"><i class="mdi-navigation-check"></i>
-          </button>
-          <button class="btn btn-fab btn-fab-mini btn-raised btn-material-lightyellow"><i class="mdi-content-reply"></i>
-          </button>
+          <button class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-success">
+            <i class="mdi-navigation-check"></i></button>
+          <button class="btn btn-fab btn-fab-mini btn-raised btn-material-lightyellow">
+            <i class="mdi-content-reply"></i></button>
 
           <style>
             #floating-action-button .btn {
@@ -1437,28 +1375,32 @@
           <h1 class="header">Dropdown</h1>
 
           <div class="sample">
-            <select class="form-control" placeholder="Your favorite pastry">
-              <option value="Apple fritter">Apple fritter</option>
-              <option value="Croissant">Croissant</option>
-              <option value="Donut">Donut</option>
-              <option value="Financier">Financier</option>
-              <option value="Jello">Jello</option>
-              <option value="Madeleine">Madeleine</option>
-              <option value="Pound cake">Pound cake</option>
-              <option value="Pretzel">Pretzel</option>
-              <option value="Sfogliatelle">Sfogliatelle</option>
-            </select>
+            <div class="form-group">
 
+              <select class="form-control" placeholder="Your favorite pastry">
+                <option value="Apple fritter">Apple fritter</option>
+                <option value="Croissant">Croissant</option>
+                <option value="Donut">Donut</option>
+                <option value="Financier">Financier</option>
+                <option value="Jello">Jello</option>
+                <option value="Madeleine">Madeleine</option>
+                <option value="Pound cake">Pound cake</option>
+                <option value="Pretzel">Pretzel</option>
+                <option value="Sfogliatelle">Sfogliatelle</option>
+              </select>
+            </div>
             <br>
 
-            <select class="form-control" disabled placeholder="Your favorite pastry">
-              <option value="disabled">Disabled</option>
-            </select>
+            <div class="form-group">
+              <select class="form-control" disabled placeholder="Your favorite pastry">
+                <option value="disabled">Disabled</option>
+              </select>
+            </div>
           </div>
           <br>
 
-          <p>Dropdowns provided by <a href="https://github.com/FezVrasta/dropdown.js" target="_blank">Dropdown.js</a>
-          </p>
+          <p>Dropdowns provided by
+            <a href="https://github.com/FezVrasta/dropdown.js" target="_blank">Dropdown.js</a></p>
 
         </div>
         <div class="well page" id="dialog">
@@ -1598,6 +1540,12 @@
       </div>
     </div>
   </div>
+  <div class="col-xs-2">
+    <button class="btn btn-fab btn-material-grey-200" id="opensource"><i class="mdi-action-open-in-new"></i>
+    </button>
+  </div>
+</div>
+</div>
 </div>
 
 <div id="source-modal" class="modal fade" tabindex="-1">

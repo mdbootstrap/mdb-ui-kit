@@ -4925,13 +4925,13 @@ fieldset[disabled] .form-control {
   background-color: rgba(0, 0, 0, 0);
 }
 fieldset[disabled] .form-control:disabled,
-.form-control-wrapper .form-control:disabled,
+.form-group .form-control:disabled,
 .form-control:disabled,
 fieldset[disabled] .form-control:focus:disabled,
-.form-control-wrapper .form-control:focus:disabled,
+.form-group .form-control:focus:disabled,
 .form-control:focus:disabled,
 fieldset[disabled] .form-control.focus:disabled,
-.form-control-wrapper .form-control.focus:disabled,
+.form-group .form-control.focus:disabled,
 .form-control.focus:disabled {
   border: 0;
 }
@@ -4943,10 +4943,10 @@ fieldset[disabled] .form-control.focus:disabled,
   box-shadow: none;
   transition-duration: 0.3s;
 }
-.form-control-wrapper {
+.form-group {
   position: relative;
 }
-.form-control-wrapper .floating-label {
+.form-group .floating-label {
   color: #bdbdbd;
   position: absolute;
   pointer-events: none;
@@ -4954,65 +4954,65 @@ fieldset[disabled] .form-control.focus:disabled,
   top: 5px;
   transition: 0.3s ease all;
 }
-.form-control-wrapper .floating-label {
+.form-group .floating-label {
   font-size: 14px;
 }
-.form-control-wrapper .form-control:focus ~ .floating-label,
-.form-control-wrapper .form-control:not(.empty) ~ .floating-label {
+.form-group .form-control:focus ~ .floating-label,
+.form-group .form-control:not(.empty) ~ .floating-label {
   top: -9.8px;
   font-size: 9.8px;
 }
-.form-control-wrapper .input-sm + .floating-label {
+.form-group .input-sm + .floating-label {
   font-size: 12px;
   top: 7px;
 }
-.form-control-wrapper .form-control.input-sm:focus ~ .floating-label,
-.form-control-wrapper .form-control.input-sm:not(.empty) ~ .floating-label {
+.form-group .form-control.input-sm:focus ~ .floating-label,
+.form-group .form-control.input-sm:not(.empty) ~ .floating-label {
   top: -8.4px;
   font-size: 8.4px;
 }
-.form-control-wrapper .input-lg + .floating-label {
+.form-group .input-lg + .floating-label {
   font-size: 18px;
   top: 10px;
 }
-.form-control-wrapper .form-control.input-lg:focus ~ .floating-label,
-.form-control-wrapper .form-control.input-lg:not(.empty) ~ .floating-label {
+.form-group .form-control.input-lg:focus ~ .floating-label,
+.form-group .form-control.input-lg:not(.empty) ~ .floating-label {
   top: -12.6px;
   font-size: 12.6px;
 }
-.form-control-wrapper .form-control:focus ~ .floating-label {
+.form-group .form-control:focus ~ .floating-label {
   color: #009688;
 }
-.form-control-wrapper .form-control:not(.empty):invalid ~ .floating-label,
-.form-control-wrapper .form-control.focus:invalid ~ .floating-label {
+.form-group .form-control:not(.empty):invalid ~ .floating-label,
+.form-group .form-control.focus:invalid ~ .floating-label {
   color: #f44336;
 }
-.form-control-wrapper .form-control:focus ~ .material-input:after,
-.form-control-wrapper .form-control.focus ~ .material-input:after {
+.form-group .form-control:focus ~ .material-input:after,
+.form-group .form-control.focus ~ .material-input:after {
   background-color: #009688;
 }
-.form-control-wrapper .form-control:invalid {
+.form-group .form-control:invalid {
   background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
-.form-control-wrapper textarea {
+.form-group textarea {
   resize: none;
 }
-.form-control-wrapper textarea ~ .form-control-highlight {
+.form-group textarea ~ .form-control-highlight {
   margin-top: -11px;
 }
-.form-control-wrapper .hint {
+.form-group .hint {
   position: absolute;
   font-size: 80%;
   display: none;
 }
-.form-control-wrapper .form-control:focus ~ .hint,
-.form-control-wrapper .form-control.focus ~ .hint {
+.form-group .form-control:focus ~ .hint,
+.form-group .form-control.focus ~ .hint {
   display: block;
 }
-.form-control-wrapper select ~ .material-input:after {
+.form-group select ~ .material-input:after {
   display: none;
 }
-.form-control-wrapper select {
+.form-group select {
   appearance: none;
 }
 .form-group.has-warning .form-control {
@@ -5322,11 +5322,11 @@ fieldset[disabled] .form-control.focus:disabled,
 .form-group-material-blue-grey input.form-control:focus ~ .floating-label {
   color: #607d8b;
 }
-.input-group .form-control-wrapper {
+.input-group .form-group {
   margin-right: 5px;
   margin-left: 5px;
 }
-.input-group .form-control-wrapper .form-control {
+.input-group .form-group .form-control {
   float: none;
 }
 .input-group .input-group-addon {
@@ -5347,7 +5347,7 @@ select.form-control.focus {
   box-shadow: none;
   border-color: #757575;
 }
-.form-control-wrapper input[type=file] {
+.form-group input[type=file] {
   opacity: 0;
   position: absolute;
   top: 0;
@@ -5599,13 +5599,13 @@ fieldset[disabled] .navbar .btn-link:focus {
 .navbar .navbar-form {
   margin-top: 16px;
 }
-.navbar .navbar-form .form-control-wrapper .form-control,
+.navbar .navbar-form .form-group .form-control,
 .navbar .navbar-form .form-control {
   border-color: inherit;
   color: inherit;
 }
-.navbar .navbar-form .form-control-wrapper .material-input:before,
-.navbar .navbar-form .form-control-wrapper input:focus ~ .material-input:after {
+.navbar .navbar-form .form-group .material-input:before,
+.navbar .navbar-form .form-group input:focus ~ .material-input:after {
   background-color: inherit;
 }
 .navbar.navbar,
@@ -5613,26 +5613,26 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #009688;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
-.navbar-default.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
+.navbar-default.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar.navbar .navbar-form input.form-control::-webkit-input-placeholder,
 .navbar-default.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
-.navbar-default.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
+.navbar-default.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar.navbar .navbar-form input.form-control::-moz-placeholder,
 .navbar-default.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
-.navbar-default.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
+.navbar-default.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar.navbar .navbar-form input.form-control:-ms-input-placeholder,
 .navbar-default.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
-.navbar-default.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar.navbar .navbar-form .form-group input.form-control::placeholder,
+.navbar-default.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar.navbar .navbar-form input.form-control::placeholder,
 .navbar-default.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
@@ -5668,19 +5668,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #000000;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-black.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-black.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-black.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-black.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-black.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-black.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-black.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-black.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-black.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-black.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-black.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-black.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -5708,19 +5708,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #ffffff;
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-white.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-white.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-white.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-white.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-white.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-white.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-white.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-white.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-white.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-white.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-white.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-white.navbar .navbar-form input.form-control::placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
@@ -5748,19 +5748,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #3f51b5;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-inverse.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-inverse.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-inverse.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-inverse.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-inverse.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-inverse.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-inverse.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-inverse.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-inverse.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-inverse.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-inverse.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-inverse.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -5788,19 +5788,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #009688;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-primary.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-primary.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-primary.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-primary.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-primary.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-primary.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-primary.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-primary.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-primary.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-primary.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-primary.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-primary.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -5828,19 +5828,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #4caf50;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-success.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-success.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-success.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-success.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-success.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-success.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-success.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-success.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-success.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-success.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-success.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-success.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -5868,19 +5868,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #03a9f4;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-info.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-info.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-info.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-info.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-info.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-info.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-info.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-info.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-info.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-info.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-info.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-info.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -5908,19 +5908,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #ff5722;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-warning.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-warning.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-warning.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-warning.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-warning.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-warning.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-warning.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-warning.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-warning.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-warning.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-warning.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-warning.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -5948,19 +5948,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #f44336;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-danger.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-danger.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-danger.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-danger.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-danger.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-danger.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-danger.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-danger.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-danger.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-danger.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-danger.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-danger.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -5988,19 +5988,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #f44336;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-red.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-red.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-red.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-red.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-red.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-red.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-red.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-red.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-red.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-red.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-red.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-red.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6028,19 +6028,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #e91e63;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-pink.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-pink.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-pink.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-pink.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-pink.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-pink.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-pink.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-pink.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-pink.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-pink.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-pink.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-pink.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6068,19 +6068,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #9c27b0;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-purple.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-purple.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-purple.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-purple.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-purple.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-purple.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-purple.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-purple.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-purple.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-purple.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-purple.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-purple.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6108,19 +6108,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #673ab7;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-deep-purple.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-deep-purple.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-deep-purple.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-deep-purple.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-deep-purple.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-deep-purple.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-deep-purple.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-deep-purple.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-deep-purple.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-deep-purple.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-deep-purple.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-deep-purple.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6148,19 +6148,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #3f51b5;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-indigo.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-indigo.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-indigo.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-indigo.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-indigo.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-indigo.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-indigo.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-indigo.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-indigo.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-indigo.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-indigo.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-indigo.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6188,19 +6188,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #2196f3;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-blue.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-blue.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-blue.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-blue.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-blue.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-blue.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-blue.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-blue.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-blue.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-blue.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-blue.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-blue.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6228,19 +6228,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #03a9f4;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-light-blue.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-light-blue.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-light-blue.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-light-blue.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-light-blue.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-light-blue.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-light-blue.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-light-blue.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-light-blue.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-light-blue.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-light-blue.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-light-blue.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6268,19 +6268,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #00bcd4;
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-cyan.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-cyan.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-cyan.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-cyan.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-cyan.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-cyan.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-cyan.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-cyan.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-cyan.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-cyan.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-cyan.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-cyan.navbar .navbar-form input.form-control::placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
@@ -6308,19 +6308,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #009688;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-teal.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-teal.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-teal.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-teal.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-teal.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-teal.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-teal.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-teal.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-teal.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-teal.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-teal.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-teal.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6348,19 +6348,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #4caf50;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-green.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-green.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-green.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-green.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-green.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-green.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-green.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-green.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-green.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-green.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-green.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-green.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6388,19 +6388,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #8bc34a;
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-light-green.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-light-green.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-light-green.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-light-green.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-light-green.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-light-green.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-light-green.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-light-green.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-light-green.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-light-green.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-light-green.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-light-green.navbar .navbar-form input.form-control::placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
@@ -6428,19 +6428,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #cddc39;
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-lime.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-lime.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-lime.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-lime.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-lime.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-lime.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-lime.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-lime.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-lime.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-lime.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-lime.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-lime.navbar .navbar-form input.form-control::placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
@@ -6468,19 +6468,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #ffeb3b;
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-yellow.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-yellow.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-yellow.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-yellow.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-yellow.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-yellow.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-yellow.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-yellow.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-yellow.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-yellow.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-yellow.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-yellow.navbar .navbar-form input.form-control::placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
@@ -6508,19 +6508,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #ffc107;
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-amber.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-amber.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-amber.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-amber.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-amber.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-amber.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-amber.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-amber.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-amber.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-amber.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-amber.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-amber.navbar .navbar-form input.form-control::placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
@@ -6548,19 +6548,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #ff9800;
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-orange.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-orange.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-orange.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-orange.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-orange.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-orange.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-orange.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-orange.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-orange.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
-.navbar-material-orange.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-orange.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-orange.navbar .navbar-form input.form-control::placeholder {
   color: rgba(0, 0, 0, 0.84);
 }
@@ -6588,19 +6588,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #ff5722;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-deep-orange.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-deep-orange.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-deep-orange.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-deep-orange.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-deep-orange.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-deep-orange.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-deep-orange.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-deep-orange.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-deep-orange.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-deep-orange.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-deep-orange.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-deep-orange.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6628,19 +6628,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #795548;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-brown.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-brown.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-brown.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-brown.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-brown.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-brown.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-brown.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-brown.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-brown.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-brown.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-brown.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-brown.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6668,19 +6668,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #9e9e9e;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-grey.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-grey.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-grey.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-grey.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-grey.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-grey.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-grey.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-grey.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-grey.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-grey.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-grey.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-grey.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
@@ -6708,19 +6708,19 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #607d8b;
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-blue-grey.navbar .navbar-form .form-control-wrapper input.form-control::-webkit-input-placeholder,
+.navbar-material-blue-grey.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar-material-blue-grey.navbar .navbar-form input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-blue-grey.navbar .navbar-form .form-control-wrapper input.form-control::-moz-placeholder,
+.navbar-material-blue-grey.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar-material-blue-grey.navbar .navbar-form input.form-control::-moz-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-blue-grey.navbar .navbar-form .form-control-wrapper input.form-control:-ms-input-placeholder,
+.navbar-material-blue-grey.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar-material-blue-grey.navbar .navbar-form input.form-control:-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.84);
 }
-.navbar-material-blue-grey.navbar .navbar-form .form-control-wrapper input.form-control::placeholder,
+.navbar-material-blue-grey.navbar .navbar-form .form-group input.form-control::placeholder,
 .navbar-material-blue-grey.navbar .navbar-form input.form-control::placeholder {
   color: rgba(255, 255, 255, 0.84);
 }

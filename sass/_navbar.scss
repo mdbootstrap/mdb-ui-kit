@@ -157,11 +157,11 @@
 
   .navbar-form {
     margin-top: 16px;
-    .form-control-wrapper .form-control, .form-control {
+    .form-group .form-control, .form-control {
       border-color: inherit;
       color: inherit;
     }
-    .form-control-wrapper {
+    .form-group {
       .material-input:before, input:focus ~ .material-input:after {
         background-color: inherit;
       }
