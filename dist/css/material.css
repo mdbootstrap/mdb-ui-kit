@@ -4869,6 +4869,29 @@ body .jumbotron-material-blue-grey,
     opacity: 0;
   }
 }
+.form-control {
+  border: 0;
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
+  background-size: 0 2px, 100% 1px;
+  background-repeat: no-repeat;
+  background-position: center bottom, center calc(100% - 1px);
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background 0s ease-out;
+}
+.form-control::-webkit-input-placeholder {
+  color: #bdbdbd;
+}
+.form-control::-moz-placeholder {
+  color: #bdbdbd;
+}
+.form-control:-ms-input-placeholder {
+  color: #bdbdbd;
+}
+fieldset[disabled] .form-control:textarea,
+.form-control:textarea {
+  height: 40px;
+}
 fieldset[disabled] .form-control,
 .form-control,
 fieldset[disabled] .form-control:focus,
@@ -4890,50 +4913,11 @@ fieldset[disabled] .form-control.focus:disabled,
   border-style: dashed;
   border-bottom: 1px solid #757575;
 }
-fieldset[disabled] .form-control:textarea,
-.form-control:textarea {
-  height: 40px;
-}
-select[multiple].form-control,
-select[multiple].form-control:focus,
-select[multiple].form-control.focus {
-  height: 85px;
-}
-.form-control {
-  border: 0;
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-  background-size: 0 2px, 100% 1px;
-  background-repeat: no-repeat;
-  background-position: center bottom, center calc(100% - 1px);
-  background-color: transparent;
-  background-color: rgba(0, 0, 0, 0);
-  transition: background 0s ease-out;
-}
-.form-control::-webkit-input-placeholder {
-  color: #bdbdbd;
-}
-.form-control::-moz-placeholder {
-  color: #bdbdbd;
-}
-.form-control:-ms-input-placeholder {
-  color: #bdbdbd;
-}
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
   background-color: transparent;
   background-color: rgba(0, 0, 0, 0);
-}
-fieldset[disabled] .form-control:disabled,
-.form-group .form-control:disabled,
-.form-control:disabled,
-fieldset[disabled] .form-control:focus:disabled,
-.form-group .form-control:focus:disabled,
-.form-control:focus:disabled,
-fieldset[disabled] .form-control.focus:disabled,
-.form-group .form-control.focus:disabled,
-.form-control.focus:disabled {
-  border: 0;
 }
 .form-control:focus,
 .form-control.focus {
@@ -4943,56 +4927,54 @@ fieldset[disabled] .form-control.focus:disabled,
   box-shadow: none;
   transition-duration: 0.3s;
 }
-.form-group {
-  position: relative;
+.form-control:focus ~ .material-input:after,
+.form-control.focus ~ .material-input:after {
+  background-color: #009688;
 }
-.form-group .floating-label {
+.form-control:invalid {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.floating-label {
   color: #bdbdbd;
   position: absolute;
   pointer-events: none;
   left: 0px;
   top: 5px;
   transition: 0.3s ease all;
-}
-.form-group .floating-label {
   font-size: 14px;
 }
-.form-group .form-control:focus ~ .floating-label,
-.form-group .form-control:not(.empty) ~ .floating-label {
+.form-control:focus ~ .floating-label,
+.form-control:not(.empty) ~ .floating-label {
   top: -9.8px;
   font-size: 9.8px;
 }
-.form-group .input-sm + .floating-label {
+.input-sm + .floating-label {
   font-size: 12px;
   top: 7px;
 }
-.form-group .form-control.input-sm:focus ~ .floating-label,
-.form-group .form-control.input-sm:not(.empty) ~ .floating-label {
+.form-control.input-sm:focus ~ .floating-label,
+.form-control.input-sm:not(.empty) ~ .floating-label {
   top: -8.4px;
   font-size: 8.4px;
 }
-.form-group .input-lg + .floating-label {
+.input-lg + .floating-label {
   font-size: 18px;
   top: 10px;
 }
-.form-group .form-control.input-lg:focus ~ .floating-label,
-.form-group .form-control.input-lg:not(.empty) ~ .floating-label {
+.form-control.input-lg:focus ~ .floating-label,
+.form-control.input-lg:not(.empty) ~ .floating-label {
   top: -12.6px;
   font-size: 12.6px;
 }
-.form-group .form-control:focus ~ .floating-label {
+.form-control:focus ~ .floating-label {
   color: #009688;
 }
-.form-group .form-control:not(.empty):invalid ~ .floating-label,
-.form-group .form-control.focus:invalid ~ .floating-label {
+.form-control:not(.empty):invalid ~ .floating-label,
+.form-control.focus:invalid ~ .floating-label {
   color: #f44336;
 }
-.form-group .form-control:focus ~ .material-input:after,
-.form-group .form-control.focus ~ .material-input:after {
-  background-color: #009688;
-}
-.form-group .form-control:invalid {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
+.form-group {
+  position: relative;
 }
 .form-group textarea {
   resize: none;
@@ -5337,6 +5319,11 @@ fieldset[disabled] .form-control.focus:disabled,
   border-radius: 4px;
   margin: 0;
 }
+select[multiple].form-control,
+select[multiple].form-control:focus,
+select[multiple].form-control.focus {
+  height: 85px;
+}
 select.form-control {
   border: 0;
   box-shadow: none;
@@ -5357,6 +5344,17 @@ select.form-control.focus {
   width: 100%;
   height: 100%;
   z-index: 100;
+}
+fieldset[disabled] .form-control:disabled,
+.form-group .form-control:disabled,
+.form-control:disabled,
+fieldset[disabled] .form-control:focus:disabled,
+.form-group .form-control:focus:disabled,
+.form-control:focus:disabled,
+fieldset[disabled] .form-control.focus:disabled,
+.form-group .form-control.focus:disabled,
+.form-control.focus:disabled {
+  border: 0;
 }
 legend {
   border-bottom: 0;
