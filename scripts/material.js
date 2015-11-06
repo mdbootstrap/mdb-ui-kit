@@ -138,11 +138,13 @@
           $this.removeClass("empty");
         }
       })
-      .on("focus", ".form-group.fileinput", function() {
-        $(this).find("input").addClass("focus");
+      .on("focus", ".form-group input, .form-group select, .form-group.fileinput", function() {
+        //$(this).find("input").addClass("focus");
+        $(this).parent().addClass("focus"); // add class to form-group
       })
-      .on("blur", ".form-group.fileinput", function() {
-        $(this).find("input").removeClass("focus");
+      .on("blur", ".form-group input, .form-group select, .form-group.fileinput", function() {
+        //$(this).find("input").removeClass("focus");
+        $(this).parent().removeClass("focus"); // remove class from form-group
       })
       .on("change", ".form-group.fileinput [type=file]", function() {
         var $this = $(this);
@@ -183,6 +185,7 @@
       var focused;
       $(document)
       .on("focus", "input", function() {
+        console.log($(this).parent());
         var $inputs = $(this).parents("form").find("input").not("[type=file]");
         focused = setInterval(function() {
           $inputs.each(function() {
@@ -193,7 +196,7 @@
           });
         }, 100);
       })
-      .on("blur", "input", function() {
+      .on("blur", ".form-group input", function() {
         clearInterval(focused);
       });
     },

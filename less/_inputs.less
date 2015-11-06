@@ -1,17 +1,20 @@
-// usage: .input-validation-state(@input-danger);
-.input-validation-state(@color) {
-  .form-control {
-    box-shadow: none;
-  }
-  .material-input:focus,
-  .form-control:focus,
-  .form-control.focus {
-    background-image: linear-gradient(@color, @color), linear-gradient(@input-underline-color, @input-underline-color);
-    box-shadow: none;
-  }
-  .control-label,
-  input.form-control:focus ~ .floating-label {
-    color: @color;
+// usage: .form-group-validation-state(@input-danger);
+.form-group-validation-state(@name, @color) {
+
+  &.@{name} {  // e.g. has-error
+    .form-control {
+      box-shadow: none;
+    }
+    .material-input:focus,
+    .form-control:focus,
+    &.focus .form-control {
+      background-image: linear-gradient(@color, @color), linear-gradient(@input-underline-color, @input-underline-color);
+      box-shadow: none;
+    }
+    label.control-label,
+    .help-block {
+      color: @color;
+    }
   }
 }
 
@@ -78,9 +81,80 @@
   }
 }
 
-// shared sizing
-.input-floating-label-size(@name, @size) {
+.form-group {
+  position: relative;
 
+  label {
+    //color: @input-placeholder-color;
+    font-size: @floating-label-size-ratio * @font-size-base; // same as focused size of floating
+    font-weight: normal;
+    padding-left: 0px;
+  }
+
+  // Hints
+  .hint {
+    position: absolute;
+    font-size: 80%;
+    display: none;
+  }
+
+  &.focus {
+    .hint {
+      display: block;
+    }
+  }
+
+  .variations(~" label.control-label", color, @lightbg-text);
+  .variations(~".focus label.control-label", color, @input-default);
+
+  .form-group-validation-state(has-warning, @input-warning);
+  .form-group-validation-state(has-error, @input-danger);
+  .form-group-validation-state(has-success, @input-success);
+  .form-group-validation-state(has-info, @input-info);
+
+  // sm
+  &.form-group-sm {
+    label {
+      font-size: @floating-label-size-ratio * @font-size-small; // same as focused size of floating
+    }
+    .form-control {
+      padding-left: 0px;
+    }
+  }
+
+  // lg
+  &.form-group-lg {
+    label {
+      font-size: @floating-label-size-ratio * @font-size-large; // same as focused size of floating
+    }
+    .form-control {
+      padding-left: 0px;
+    }
+  }
+
+  textarea {
+    resize: none;
+  }
+  textarea ~ .form-control-highlight {
+    margin-top: -11px;
+  }
+
+  select ~ .material-input:after {
+    display: none;
+  }
+
+  // Fix for OS X
+  select {
+    appearance: none;
+  }
+
+  // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-img-variations-content
+  .generic-variations(~" .form-control:focus", @primary, {
+    background-image: linear-gradient(@material-color, @material-color), linear-gradient(@input-underline-color, @input-underline-color);
+  });
+}
+
+.input-floating-label-size(@name, @size) {
   .form-control.@{name} ~ & {
     font-size: @size;
     top: 7px;
@@ -93,15 +167,9 @@
   }
 }
 
-label,
-.floating-label {
-
-  color: @input-placeholder-color;
+// Do not nest .floating-label inside .form-group - it messes with ~
+label.floating-label {
   font-size: @font-size-base; // Input sizes
-  font-weight: normal;
-}
-
-.floating-label {
   position: absolute;
   pointer-events: none;
   left: 0px;
@@ -118,65 +186,11 @@ label,
   .input-floating-label-size(input-sm, @font-size-small);
   .input-floating-label-size(input-lg, @font-size-large);
 
-  .form-control:focus ~ & {
-    color: @primary;
-  }
 
-  .form-control:not(.empty):invalid ~ &,
+  .form-control:not(.empty):invalid ~ &, // FIXME: where does the invalid class come from? it isnt' bs3.
   .form-control.focus:invalid ~ & {
     color: @input-danger;
   }
-}
-
-.form-group {
-  position: relative;
-
-  textarea {
-    resize: none;
-  }
-  textarea ~ .form-control-highlight {
-    margin-top: -11px;
-  }
-
-  // Hints
-  .hint {
-    position: absolute;
-    font-size: 80%;
-    display: none;
-  }
-  .form-control:focus ~ .hint,
-  .form-control.focus ~ .hint {
-    display: block;
-  }
-
-  select ~ .material-input:after {
-    display: none;
-  }
-
-  // Fix for OS X
-  select {
-    appearance: none;
-  }
-
-  &.has-warning {
-    .input-validation-state(@input-warning);
-  }
-  &.has-error {
-    .input-validation-state(@input-danger);
-  }
-  &.has-success {
-    .input-validation-state(@input-success);
-  }
-  &.has-info {
-    .input-validation-state(@input-info);
-  }
-
-  // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-img-variations-content
-  .generic-variations(~" .form-control:focus", @primary, {
-    background-image: linear-gradient(@material-color, @material-color), linear-gradient(@input-underline-color, @input-underline-color);
-  });
-  .variations(~" .control-label", color, @lightbg-text);
-  .variations(~" input.form-control:focus ~ .floating-label", color, @input-default);
 }
 
 .input-group {
