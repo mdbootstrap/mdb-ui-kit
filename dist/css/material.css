@@ -4959,7 +4959,7 @@ fieldset[disabled] .form-control {
 }
 .input-lg + .floating-label {
   font-size: 18px;
-  top: 10px;
+  top: 7px;
 }
 .form-control.input-lg:focus ~ .floating-label,
 .form-control.input-lg:not(.empty) ~ .floating-label {
