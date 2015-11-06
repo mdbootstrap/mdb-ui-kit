@@ -197,10 +197,8 @@ fieldset[disabled] .form-control.focus:disabled,
       color: @input-info;
     }
   }
+  // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-img-variations-content
   .generic-variations(~" .form-control:focus", @primary, {
-    background-image: linear-gradient(@material-color, @material-color), linear-gradient(@input-underline-color, @input-underline-color);
-  });
-  .generic-variations(~" .form-control.focus", @primary, {
     background-image: linear-gradient(@material-color, @material-color), linear-gradient(@input-underline-color, @input-underline-color);
   });
   .variations(~" .control-label", color, @lightbg-text);

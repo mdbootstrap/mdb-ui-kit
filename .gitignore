@@ -11,3 +11,5 @@ Thumbs.db
 /bower_components/
 .build*
 /_SpecRunner.html
+Gemfile.lock
+dist/sassc
