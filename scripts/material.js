@@ -79,11 +79,8 @@
           formGroup = $input.wrap("<div class='form-group'></div>");
         }
 
-        //if (!$this.attr("data-hint") && !$this.hasClass("floating-label")) {
-        //  return;
-        //}
-
-        $input.after("<span class='material-input'></span>");
+        //
+        formGroup.append("<span class='material-input'></span>");
 
         // Legacy - Add floating label if using old shorthand <input class="floating-label" placeholder="foo">
         if ($input.hasClass("floating-label")) {

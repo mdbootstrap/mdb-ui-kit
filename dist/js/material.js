@@ -70,43 +70,45 @@
       .filter(":notmdproc")
       .data("mdproc", true)
       .each( function() {
-        var $this = $(this);
+        var $input = $(this);
 
-        // Now using/requiring form-group (instead of the old div.form-control-wrapper)
-        var formGroup = $this.parent(".form-group");
+        // Now using/requiring form-group standard markup (instead of the old div.form-control-wrapper)
+        var formGroup = $input.parent(".form-group");
         if(formGroup.length === 0){
-          console.error("Expected form-group for input", $this);
+          //console.debug("Generating form-group for input", $this);
+          formGroup = $input.wrap("<div class='form-group'></div>");
         }
 
+        //
+        formGroup.append("<span class='material-input'></span>");
 
-        //if (!$this.attr("data-hint") && !$this.hasClass("floating-label")) {
-        //  return;
-        //}
-
-        $this.after("<span class=material-input></span>");
-
-        // Add floating label if required
-        if ($this.hasClass("floating-label")) {
-          var placeholder = $this.attr("placeholder");
-          $this.attr("placeholder", null).removeClass("floating-label");
-          $this.after("<div class=floating-label>" + placeholder + "</div>");
+        // Legacy - Add floating label if using old shorthand <input class="floating-label" placeholder="foo">
+        if ($input.hasClass("floating-label")) {
+          var placeholder = $input.attr("placeholder");
+          $input.attr("placeholder", null).removeClass("floating-label");
+          var id = $input.attr("id");
+          var forAttribute = "";
+          if(id) {
+            forAttribute = "for='" + id + "'";
+          }
+          $input.after("<label " + forAttribute + "class='floating-label'>" + placeholder + "</label>");
         }
 
-        // Add hint label if using the shorthand data-hint attribute on the input
-        if ($this.attr("data-hint")) {
-          $this.after("<p class='help-block hint'>" + $this.attr("data-hint") + "</p>");
+        // Legacy - Add hint label if using the old shorthand data-hint attribute on the input
+        if ($input.attr("data-hint")) {
+          $input.after("<p class='help-block hint'>" + $input.attr("data-hint") + "</p>");
         }
 
         // Set as empty if is empty (damn I must improve this...)
-        if ($this.val() === null || $this.val() == "undefined" || $this.val() === "") {
-          $this.addClass("empty");
+        if ($input.val() === null || $input.val() == "undefined" || $input.val() === "") {
+          $input.addClass("empty");
         }
 
         // Support for file input
         if (formGroup.next().is("[type=file]")) {
           formGroup.addClass("fileinput");
-          var $input = formGroup.next().detach();
-          $this.after($input);
+          var $nextInput = formGroup.next().detach();
+          $input.after($nextInput);
         }
       });
     },
