@@ -1,0 +1,133 @@
+body {
+  background-color: @body-bg;
+  &.inverse {
+    background: #333333;
+    &, .form-control {
+      color: @darkbg-text;
+    }
+    .modal,
+    .panel-default,
+    .card {
+      &,
+      .form-control {
+        background-color: initial;
+        color: initial;
+      }
+    }
+
+  }
+}
+
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  font-family: "RobotoDraft", "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+h5, h6{
+  font-weight: 400;
+}
+
+a, a:hover, a:focus {
+  color: @primary;
+}
+
+// Well and Jumbotrons
+@import "_welljumbo.less";
+
+// Buttons
+@import "_buttons.less";
+
+// Checkboxes
+@import "_checkboxes.less";
+
+// Toggle buttons
+@import "_togglebutton.less";
+
+// Radios
+@import "_radios.less";
+
+// Text inputs
+@import "_inputs.less";
+
+legend {
+  border-bottom: 0;
+}
+
+// Lists
+@import "_lists.less";
+
+// Navbar
+@import "_navbar.less";
+
+.dropdown-menu {
+  border: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  .divider {
+    background-color: rgba(229, 229, 229, 0.12);
+  }
+  li {
+    overflow: hidden;
+    position: relative;
+    a:hover {
+      background-color: transparent;
+      color: @primary;
+    }
+  }
+  .variations(~" li a:hover", color, @primary);
+}
+
+// Alerts
+@import "_alerts.less";
+
+// Progress bar
+@import "_progress.less";
+
+// Typography
+.text-warning {
+  color: @btn-warning;
+}
+.text-primary {
+  color: @btn-primary;
+}
+.text-danger {
+  color: @btn-danger;
+}
+.text-success {
+  color: @btn-success;
+}
+.text-info {
+  color: @btn-info;
+}
+
+@import "_tabs.less";
+
+@import "_popups.less";
+
+@import "_icons.less";
+
+@import "_cards.less";
+
+@import "_dialogs.less";
+
+@import "_labels.less";
+
+@import "_panels.less";
+
+@import "_dividers.less";
+
+// Prevent highlight on mobile
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  &:focus {
+    outline: 0;
+  }
+}
+
+
+// External plugins
+@import "_plugin-snackbarjs.less";
+@import "_plugin-nouislider.less";
+@import "_plugin-selectize.less";
+@import "_plugin-dropdownjs.less";
