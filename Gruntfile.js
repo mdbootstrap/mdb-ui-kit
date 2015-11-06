@@ -330,12 +330,12 @@ module.exports = function (grunt) {
       },
       less: {
         files: ["less/**/*.less"],
-        tasks: ["material:less", "material:sass"]
+        tasks: ["material:less"]//, "material:sass"]
       },
-      sass: {
-        files: ["sass/*.scss"],
-        tasks: ["material:sass"]
-      },
+      //sass: {
+      //  files: ["sass/*.scss"],
+      //  tasks: ["material:sass"]
+      //},
       livereload: {
         options: {
           livereload: "<%= connect.options.livereload %>"
