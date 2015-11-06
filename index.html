@@ -490,20 +490,46 @@
           <h1 class="header">Input</h1>
 
           <div class="inputs">
-            <h2>Input</h2>
+            <h2>Input - static labels</h2>
 
             <div class="form-group">
-              <label for="i1" class="not-floating">Static label</label>
-              <input type="email" class="form-control" id="i1" placeholder="Placeholder text">
+              <label for="i1" class="not-floating input-sm">Static label input-sm</label>
+              <input type="email" class="form-control input-sm" id="i1" placeholder="Placeholder text">
               <p class="help-block hint">This is a hint as a <code>p.help-block.hint</code></p>
             </div>
 
             <div class="form-group">
-              <label for="i2" class="floating-label">Floating label</label>
-              <input type="email" class="form-control" id="i2">
+              <label for="i2" class="not-floating">Static label</label>
+              <input type="email" class="form-control" id="i2" placeholder="Placeholder text">
+              <p class="help-block hint">This is a hint as a <code>p.help-block.hint</code></p>
+            </div>
+
+            <div class="form-group">
+              <label for="i3" class="not-floating input-lg">Static label input-lg</label>
+              <input type="email" class="form-control input-lg" id="i3" placeholder="Placeholder text">
+              <p class="help-block hint">This is a hint as a <code>p.help-block.hint</code></p>
+            </div>
+
+            <h2>Input - floating labels</h2>
+            <div class="form-group">
+              <label for="i4" class="floating-label">Floating label input-sm</label>
+              <input type="email" class="form-control input-sm" id="i4">
+              <span class="help-block hint">This is a hint</span>
+            </div>
+
+            <div class="form-group">
+              <label for="i5" class="floating-label">Floating label</label>
+              <input type="email" class="form-control" id="i5">
               <span class="help-block hint">This is a hint as a <code>span.help-block.hint</code></span>
             </div>
 
+            <div class="form-group">
+              <label for="i6" class="floating-label">Floating label input-lg</label>
+              <input type="email" class="form-control input-lg" id="i6">
+              <span class="help-block hint">This is a hint</span>
+            </div>
+
+            <h2>Input - Legacy</h2>
             <!-- Exercise backwards compatibility without form-group -->
             <input type="text" class="form-control floating-label" placeholder="Legacy floating label as placeholder attribute" data-hint="This is a hint using a legacy <code>data-hint</code> attribute on the input">
 
