@@ -79,9 +79,6 @@
           formGroup = $input.wrap("<div class='form-group'></div>");
         }
 
-        //
-        formGroup.append("<span class='material-input'></span>");
-
         // Legacy - Add floating label if using old shorthand <input class="floating-label" placeholder="foo">
         if ($input.hasClass("floating-label")) {
           var placeholder = $input.attr("placeholder");
@@ -93,6 +90,16 @@
           }
           $input.after("<label " + forAttribute + "class='floating-label'>" + placeholder + "</label>");
         }
+        else {
+          // If it has a label, based on the way the css is written with the adjacent sibling selector `~`,
+          //  we need the label to be *after* the input for it to work properly.
+          //  See: http://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
+          var $label = formGroup.find("label.floating-label");
+          if($label.length > 0){
+            $label.detach();
+            $input.after($label);
+          }
+        }
 
         // Legacy - Add hint label if using the old shorthand data-hint attribute on the input
         if ($input.attr("data-hint")) {
@@ -103,6 +110,9 @@
         if ($input.val() === null || $input.val() == "undefined" || $input.val() === "") {
           $input.addClass("empty");
         }
+
+        // Add at the end of the form-group
+        formGroup.append("<span class='material-input'></span>");
 
         // Support for file input
         if (formGroup.next().is("[type=file]")) {

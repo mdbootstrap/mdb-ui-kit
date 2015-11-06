@@ -3,11 +3,14 @@
   .form-control {
     box-shadow: none;
   }
-  .material-input:focus, .form-control:focus, .form-control.focus {
+  .material-input:focus,
+  .form-control:focus,
+  .form-control.focus {
     background-image: linear-gradient(@color, @color), linear-gradient(@input-underline-color, @input-underline-color);
     box-shadow: none;
   }
-  .control-label, input.form-control:focus ~ .floating-label {
+  .control-label,
+  input.form-control:focus ~ .floating-label {
     color: @color;
   }
 }
@@ -75,6 +78,20 @@
   }
 }
 
+// shared sizing
+.input-floating-label-size(@name, @size) {
+
+  .@{name} + & {
+    font-size: @size;
+    top: 7px;
+  }
+  .form-control.@{name}:focus ~ &,
+  .form-control.@{name}:not(.empty) ~ & {
+    top: @floating-label-size-ratio * -@size;
+    font-size: @floating-label-size-ratio * @size;
+  }
+}
+
 .floating-label {
   color: @input-placeholder-color;
   position: absolute;
@@ -84,31 +101,15 @@
   transition: 0.3s ease all;
   font-size: @font-size-base; // Input sizes
 
+  // sizing
   .form-control:focus ~ &,
   .form-control:not(.empty) ~ & {
     top: @floating-label-size-ratio * -@font-size-base;
     font-size: @floating-label-size-ratio * @font-size-base;
   }
 
-  .input-sm + & { // small
-    font-size: @font-size-small;
-    top: 7px;
-  }
-  .form-control.input-sm:focus ~ &,
-  .form-control.input-sm:not(.empty) ~ & {
-    top: @floating-label-size-ratio * -@font-size-small;
-    font-size: @floating-label-size-ratio * @font-size-small;
-  }
-
-  .input-lg + & {
-    font-size: @font-size-large;
-    top: 10px;
-  }
-  .form-control.input-lg:focus ~ &,
-  .form-control.input-lg:not(.empty) ~ & {
-    top: @floating-label-size-ratio * -@font-size-large;
-    font-size: @floating-label-size-ratio * @font-size-large;
-  }
+  .input-floating-label-size(input-sm, @font-size-small);
+  .input-floating-label-size(input-lg, @font-size-large);
 
   .form-control:focus ~ & {
     color: @primary;
