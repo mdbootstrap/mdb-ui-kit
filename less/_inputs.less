@@ -48,13 +48,13 @@ select[multiple].form-control {
   background-color: rgba(0,0,0,0);
 }
 fieldset[disabled] .form-control:disabled, 
-.form-control-wrapper .form-control:disabled, 
+.form-group .form-control:disabled,
 .form-control:disabled, 
 fieldset[disabled] .form-control:focus:disabled, 
-.form-control-wrapper .form-control:focus:disabled, 
+.form-group .form-control:focus:disabled,
 .form-control:focus:disabled, 
 fieldset[disabled] .form-control.focus:disabled, 
-.form-control-wrapper .form-control.focus:disabled, 
+.form-group .form-control.focus:disabled,
 .form-control.focus:disabled {
   border: 0; // Ugly override of Bootstrap border
 }
@@ -68,7 +68,7 @@ fieldset[disabled] .form-control.focus:disabled,
 }
 
 
-.form-control-wrapper {
+.form-group {
   position: relative;
 
   .floating-label {
@@ -207,7 +207,7 @@ fieldset[disabled] .form-control.focus:disabled,
 }
 
 .input-group {
-  .form-control-wrapper {
+  .form-group {
     .form-control {
       float: none;
     }
@@ -235,7 +235,7 @@ select.form-control {
 }
 
 // Input files (kinda hack)
-.form-control-wrapper input[type=file] {
+.form-group input[type=file] {
   opacity: 0;
   position: absolute;
   top: 0;

@@ -155,11 +155,11 @@
 
   .navbar-form {
     margin-top: 16px;
-    .form-control-wrapper .form-control, .form-control {
+    .form-group .form-control, .form-control {
       border-color: inherit;
       color: inherit;
     }
-    .form-control-wrapper {
+    .form-group {
       .material-input:before, input:focus ~ .material-input:after {
         background-color: inherit;
       }
@@ -171,7 +171,7 @@
     background-color: @material-color;
     color: @material-text-color;
     // deeply defined to override welljumbo class without !impotant need
-    .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
+    .navbar-form .form-group input.form-control::placeholder, .navbar-form input.form-control::placeholder {
       color: @material-text-color;
     }
     .dropdown-menu {

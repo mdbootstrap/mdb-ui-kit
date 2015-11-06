@@ -72,10 +72,15 @@
       .each( function() {
         var $this = $(this);
 
+        var formGroup = $this.parent(".form-group");
+        if(formGroup.length === 0){
+          console.error("Expected form-group for input", $this);
+        }
+
         if (!$this.attr("data-hint") && !$this.hasClass("floating-label")) {
           return;
         }
-        $this.wrap("<div class=form-control-wrapper></div>");
+        //$this.wrap("<div class=form-control-wrapper></div>"); // now using/requiring form-group
         $this.after("<span class=material-input></span>");
 
         // Add floating label if required
@@ -119,13 +124,13 @@
           $this.removeClass("empty");
         }
       })
-      .on("focus", ".form-control-wrapper.fileinput", function() {
+      .on("focus", ".form-group.fileinput", function() {
         $(this).find("input").addClass("focus");
       })
-      .on("blur", ".form-control-wrapper.fileinput", function() {
+      .on("blur", ".form-group.fileinput", function() {
         $(this).find("input").removeClass("focus");
       })
-      .on("change", ".form-control-wrapper.fileinput [type=file]", function() {
+      .on("change", ".form-group.fileinput [type=file]", function() {
         var $this = $(this);
         var value = "";
         $.each(this.files, function(i, file) {
