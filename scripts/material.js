@@ -78,6 +78,7 @@
           console.error("Expected form-group for input", $this);
         }
 
+
         //if (!$this.attr("data-hint") && !$this.hasClass("floating-label")) {
         //  return;
         //}
@@ -91,7 +92,6 @@
           $this.after("<div class=floating-label>" + placeholder + "</div>");
         }
 
-
         // Add hint label if using the shorthand data-hint attribute on the input
         if ($this.attr("data-hint")) {
           $this.after("<p class='help-block hint'>" + $this.attr("data-hint") + "</p>");
@@ -103,9 +103,9 @@
         }
 
         // Support for file input
-        if ($this.parent().next().is("[type=file]")) {
-          $this.parent().addClass("fileinput");
-          var $input = $this.parent().next().detach();
+        if (formGroup.next().is("[type=file]")) {
+          formGroup.addClass("fileinput");
+          var $input = formGroup.next().detach();
           $this.after($input);
         }
       });

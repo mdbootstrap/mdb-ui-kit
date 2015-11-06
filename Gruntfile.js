@@ -322,7 +322,7 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: ["Gruntfile.js", "scripts/**/*.js", "template/**/*.js"],
-        tasks: ["newer:jshint:all"]
+        tasks: ["newer:jshint:all", "material:js"]
       },
       jsTest: {
         files: ["test/**/*.js"],
@@ -342,6 +342,7 @@ module.exports = function (grunt) {
         },
         files: [
           "index.html",
+          "dist/js/**/*.js",
           "dist/css/**/*.css",
           "demo/**/*.{png,jpg,jpeg,gif,webp,svg}"
         ]
