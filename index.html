@@ -490,42 +490,57 @@
           <h1 class="header">Input</h1>
 
           <div class="inputs">
-            <h2>Input - static labels</h2>
+            <h2>Input <small>default sizing</small></h2>
 
             <div class="form-group">
-              <label for="i1" class="not-floating input-sm">Static label input-sm</label>
-              <input type="email" class="form-control input-sm" id="i1" placeholder="Placeholder text">
-              <p class="help-block hint">This is a hint as a <code>p.help-block.hint</code></p>
-            </div>
-
-            <div class="form-group">
-              <label for="i2" class="not-floating">Static label</label>
+              <label for="i2" class="control-label">Static label</label>
               <input type="email" class="form-control" id="i2" placeholder="Placeholder text">
               <p class="help-block hint">This is a hint as a <code>p.help-block.hint</code></p>
             </div>
 
             <div class="form-group">
-              <label for="i3" class="not-floating input-lg">Static label input-lg</label>
-              <input type="email" class="form-control input-lg" id="i3" placeholder="Placeholder text">
-              <p class="help-block hint">This is a hint as a <code>p.help-block.hint</code></p>
-            </div>
-
-            <h2>Input - floating labels</h2>
-            <div class="form-group">
-              <label for="i4" class="floating-label">Floating label input-sm</label>
-              <input type="email" class="form-control input-sm" id="i4">
-              <span class="help-block hint">This is a hint</span>
-            </div>
-
-            <div class="form-group">
-              <label for="i5" class="floating-label">Floating label</label>
+              <label for="i5" class="control-label floating-label">Floating label</label>
               <input type="email" class="form-control" id="i5">
               <span class="help-block hint">This is a hint as a <code>span.help-block.hint</code></span>
             </div>
 
+            <h2>Input - floating labels <small>form-group sizing</small></h2>
+            <div class="form-group form-group-sm has-error">
+              <label for="i4" class="control-label floating-label">Floating label form-group-sm has-error</label>
+              <input type="email" class="form-control input-sm" id="i4">
+              <span class="help-block hint">This is a hint</span>
+            </div>
+
+            <div class="form-group form-group-lg">
+              <label for="i6" class="control-label floating-label">Floating label input-lg</label>
+              <input type="email" class="form-control" id="i6">
+              <span class="help-block hint">This is a hint</span>
+            </div>
+
+            <h2>Input - static labels <small>form-group sizing</small></h2>
+
+            <div class="form-group form-group-sm has-error">
+              <label for="i1" class="control-label">Static label form-group-sm has-error</label>
+              <input type="email" class="form-control" id="i1" placeholder="Placeholder text">
+              <p class="help-block hint">This is a hint as a <code>p.help-block.hint</code></p>
+            </div>
+
+            <div class="form-group form-group-lg">
+              <label for="i3" class="control-label">Static label form-group-lg</label>
+              <input type="email" class="form-control" id="i3" placeholder="Placeholder text">
+              <p class="help-block hint">This is a hint as a <code>p.help-block.hint</code></p>
+            </div>
+
+            <h2>Input - floating labels <small>input sizing</small></h2>
+            <div class="form-group form-group-lg">
+              <label for="i7" class="control-label floating-label">Floating label input-sm</label>
+              <input type="email" class="form-control input-sm" id="i7">
+              <span class="help-block hint">This is a hint</span>
+            </div>
+
             <div class="form-group">
-              <label for="i6" class="floating-label">Floating label input-lg</label>
-              <input type="email" class="form-control input-lg" id="i6">
+              <label for="i9" class="control-label floating-label">Floating label input-lg</label>
+              <input type="email" class="form-control input-lg" id="i9">
               <span class="help-block hint">This is a hint</span>
             </div>
 
@@ -580,11 +595,11 @@
             </div>
 
             <style>
-              #input h2 {
-                padding: 14px;
-                font-size: 16px;
-                font-weight: 400;
-              }
+              /*#input h2 {*/
+                /*padding: 14px;*/
+                /*font-size: 16px;*/
+                /*font-weight: 400;*/
+              /*}*/
 
               #input .inputs {
                 width: 80%;
@@ -849,13 +864,13 @@
             <div class="progress-bar progress-bar-danger" style="width: 10%"></div>
           </div>
 
-          <style>
-            #progress-bar h2 {
-              font-size: 18.7199993133545px;
-              font-weight: bold;
-              margin-bottom: 30px;
-            }
-          </style>
+          <!--<style>-->
+            <!--#progress-bar h2 {-->
+              <!--font-size: 18.7199993133545px;-->
+              <!--font-weight: bold;-->
+              <!--margin-bottom: 30px;-->
+            <!--}-->
+          <!--</style>-->
 
         </div>
         <div class="well page" id="slider">
@@ -898,12 +913,12 @@
               margin: 0 40px;
             }
 
-            #slider h2 {
-              padding: 14px;
-              margin: 0;
-              font-size: 16px;
-              font-weight: 400;
-            }
+            /*#slider h2 {*/
+              /*padding: 14px;*/
+              /*margin: 0;*/
+              /*font-size: 16px;*/
+              /*font-weight: 400;*/
+            /*}*/
 
             #slider .slider {
               margin: 15px;
@@ -1325,12 +1340,12 @@
 
 
           <style>
-            #button h2 {
-              padding: 14px;
-              margin: 0;
-              font-size: 16px;
-              font-weight: 400;
-            }
+            /*#button h2 {*/
+              /*padding: 14px;*/
+              /*margin: 0;*/
+              /*font-size: 16px;*/
+              /*font-weight: 400;*/
+            /*}*/
           </style>
         </div>
         <div class="well page" id="floating-action-button">
@@ -1352,22 +1367,22 @@
               margin: 20px;
             }
 
-            #floating-action-button h2 {
-              padding: 14px;
-              margin: 0;
-              font-size: 16px;
-              font-weight: 400;
-            }
+            /*#floating-action-button h2 {*/
+              /*padding: 14px;*/
+              /*margin: 0;*/
+              /*font-size: 16px;*/
+              /*font-weight: 400;*/
+            /*}*/
           </style>
         </div>
         <div class="well page" id="dropdown">
           <style>
-            #dropdown h2 {
-              padding: 14px;
-              margin: 0;
-              font-size: 16px;
-              font-weight: 400;
-            }
+            /*#dropdown h2 {*/
+              /*padding: 14px;*/
+              /*margin: 0;*/
+              /*font-size: 16px;*/
+              /*font-weight: 400;*/
+            /*}*/
 
             #dropdown .dropdown {
               font-size: 30px;
@@ -1381,12 +1396,12 @@
         </div>
         <div class="well page" id="dropdown-menu">
           <style>
-            #dropdown-menu h2 {
-              padding: 14px;
-              margin: 0;
-              font-size: 16px;
-              font-weight: 400;
-            }
+            /*#dropdown-menu h2 {*/
+              /*padding: 14px;*/
+              /*margin: 0;*/
+              /*font-size: 16px;*/
+              /*font-weight: 400;*/
+            /*}*/
 
             #dropdown-menu .sample {
               width: 200px;
@@ -1476,14 +1491,14 @@
               </div>
             </div>
           </div>
-          <style>
-            #dialog h2 {
-              padding: 14px;
-              margin: 0;
-              font-size: 16px;
-              font-weight: 400;
-            }
-          </style>
+          <!--<style>-->
+            <!--#dialog h2 {-->
+              <!--padding: 14px;-->
+              <!--margin: 0;-->
+              <!--font-size: 16px;-->
+              <!--font-weight: 400;-->
+            <!--}-->
+          <!--</style>-->
         </div>
         <div class="well page" id="shadow">
           <h1 class="header">Shadow</h1>
@@ -1515,12 +1530,12 @@
           </script>
 
           <style>
-            #shadow h2 {
-              padding: 14px;
-              margin: 0;
-              font-size: 16px;
-              font-weight: 400;
-            }
+            /*#shadow h2 {*/
+              /*padding: 14px;*/
+              /*margin: 0;*/
+              /*font-size: 16px;*/
+              /*font-weight: 400;*/
+            /*}*/
 
             #shadow .sample {
               width: 100px;

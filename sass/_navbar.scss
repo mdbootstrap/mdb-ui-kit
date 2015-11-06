@@ -162,7 +162,8 @@
       color: inherit;
     }
     .form-group {
-      .material-input:before, input:focus ~ .material-input:after {
+      .material-input:before,
+      input:focus ~ .material-input:after {
         background-color: inherit;
       }
     }
