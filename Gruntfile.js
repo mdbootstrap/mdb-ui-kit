@@ -5,6 +5,30 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
 
+    htmllint: {
+      //options: {
+      //  stoponerror: false,
+      //  relaxerror: []
+      //},
+      //files: ['index.html', 'bootstrap-elements.html']
+      all: {
+        options: {
+          ignore: '“&” did not start a character reference. (“&” probably should have been escaped as “&amp;”.)'
+        },
+        src: ["*.html"]
+      }
+    },
+
+
+    // Make sure we are structurally correct for bootstrap
+    bootlint: {
+      options: {
+        stoponerror: false,
+        relaxerror: []
+      },
+      files: ['index.html', 'bootstrap-elements.html']
+    },
+
     // Convert from less to sass
     lessToSass: {
       convert: {
@@ -320,6 +344,10 @@ module.exports = function (grunt) {
       }
     },
     watch: {
+      html: {
+        files: ["index.html", "bootstrap-elements.html"],
+        tasks: ["htmllint", "bootlint"]
+      },
       js: {
         files: ["Gruntfile.js", "scripts/**/*.js", "template/**/*.js"],
         tasks: ["newer:jshint:all", "material:js"]
@@ -342,6 +370,7 @@ module.exports = function (grunt) {
         },
         files: [
           "index.html",
+          "bootstrap-elements.html",
           "dist/js/**/*.js",
           "dist/css/**/*.css",
           "demo/**/*.{png,jpg,jpeg,gif,webp,svg}"
@@ -394,6 +423,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask("material:less", [
+    "htmllint",
+    "bootlint",
     "less:material",
     "less:materialfullpalette",
     "less:roboto",
