@@ -81,10 +81,11 @@
 // shared sizing
 .input-floating-label-size(@name, @size) {
 
-  .@{name} + & {
+  .form-control.@{name} ~ & {
     font-size: @size;
     top: 7px;
   }
+
   .form-control.@{name}:focus ~ &,
   .form-control.@{name}:not(.empty) ~ & {
     top: @floating-label-size-ratio * -@size;
@@ -92,14 +93,20 @@
   }
 }
 
+label,
 .floating-label {
+
   color: @input-placeholder-color;
+  font-size: @font-size-base; // Input sizes
+  font-weight: normal;
+}
+
+.floating-label {
   position: absolute;
   pointer-events: none;
   left: 0px;
   top: 5px;
   transition: 0.3s ease all;
-  font-size: @font-size-base; // Input sizes
 
   // sizing
   .form-control:focus ~ &,

@@ -20628,21 +20628,25 @@ fieldset[disabled] .form-control {
 .form-control:invalid {
   background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
+label,
 .floating-label {
   color: #bdbdbd;
+  font-size: 14px;
+  font-weight: normal;
+}
+.floating-label {
   position: absolute;
   pointer-events: none;
   left: 0px;
   top: 5px;
   transition: 0.3s ease all;
-  font-size: 14px;
 }
 .form-control:focus ~ .floating-label,
 .form-control:not(.empty) ~ .floating-label {
   top: -9.8px;
   font-size: 9.8px;
 }
-.input-sm + .floating-label {
+.form-control.input-sm ~ .floating-label {
   font-size: 12px;
   top: 7px;
 }
@@ -20651,7 +20655,7 @@ fieldset[disabled] .form-control {
   top: -8.4px;
   font-size: 8.4px;
 }
-.input-lg + .floating-label {
+.form-control.input-lg ~ .floating-label {
   font-size: 18px;
   top: 7px;
 }
