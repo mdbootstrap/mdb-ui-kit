@@ -3,8 +3,10 @@
 <!-- MEMO: update me with `git checkout gh-pages && git merge master && git push origin gh-pages` -->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <title>Bootstrap Material</title>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <link href="dist/css/roboto.min.css" rel="stylesheet">
   <link href="dist/css/material-fullpalette.min.css" rel="stylesheet">
   <link href="dist/css/ripples.min.css" rel="stylesheet">
@@ -246,12 +248,12 @@
 
   <div class="page-header" id="banner">
     <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="col-sm-6">
         <h1>Material Design</h1>
 
         <p class="lead">Based on Google Material design</p>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="col-sm-6">
         <div class="well infobox">
           <p><em>Material Design for Bootstrap</em> is a theme for Bootstrap 3 which lets you use the new
             <a href="http://www.google.com/design/spec/material-design/">Google Material Design</a> in your favorite front-end framework.
@@ -291,147 +293,159 @@
 
         <div class="bs-component">
           <div class="navbar navbar-default">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-            </div>
-            <div class="navbar-collapse collapse navbar-responsive-collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="javascript:void(0)">Active</a></li>
-                <li><a href="javascript:void(0)">Link</a></li>
-                <li class="dropdown">
-                  <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-                    <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Dropdown header</li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
-                    <li><a href="javascript:void(0)">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
-              </form>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="javascript:void(0)">Link</a></li>
-                <li class="dropdown">
-                  <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-                    <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+              </div>
+              <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="javascript:void(0)">Active</a></li>
+                  <li><a href="javascript:void(0)">Link</a></li>
+                  <li class="dropdown">
+                    <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+                      <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:void(0)">Action</a></li>
+                      <li><a href="javascript:void(0)">Another action</a></li>
+                      <li><a href="javascript:void(0)">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li class="dropdown-header">Dropdown header</li>
+                      <li><a href="javascript:void(0)">Separated link</a></li>
+                      <li><a href="javascript:void(0)">One more separated link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                  <div class="form-group">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="javascript:void(0)">Link</a></li>
+                  <li class="dropdown">
+                    <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+                      <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:void(0)">Action</a></li>
+                      <li><a href="javascript:void(0)">Another action</a></li>
+                      <li><a href="javascript:void(0)">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a href="javascript:void(0)">Separated link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
 
         <div class="bs-component">
           <div class="navbar navbar-warning">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-            </div>
-            <div class="navbar-collapse collapse navbar-warning-collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="javascript:void(0)">Active</a></li>
-                <li><a href="javascript:void(0)">Link</a></li>
-                <li class="dropdown">
-                  <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-                    <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Dropdown header</li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
-                    <li><a href="javascript:void(0)">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
-              </form>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="javascript:void(0)">Link</a></li>
-                <li class="dropdown">
-                  <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-                    <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+              </div>
+              <div class="navbar-collapse collapse navbar-warning-collapse">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="javascript:void(0)">Active</a></li>
+                  <li><a href="javascript:void(0)">Link</a></li>
+                  <li class="dropdown">
+                    <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+                      <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:void(0)">Action</a></li>
+                      <li><a href="javascript:void(0)">Another action</a></li>
+                      <li><a href="javascript:void(0)">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li class="dropdown-header">Dropdown header</li>
+                      <li><a href="javascript:void(0)">Separated link</a></li>
+                      <li><a href="javascript:void(0)">One more separated link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                  <div class="form-group">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="javascript:void(0)">Link</a></li>
+                  <li class="dropdown">
+                    <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+                      <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:void(0)">Action</a></li>
+                      <li><a href="javascript:void(0)">Another action</a></li>
+                      <li><a href="javascript:void(0)">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a href="javascript:void(0)">Separated link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div><!-- /example -->
 
         <div class="bs-component">
           <div class="navbar navbar-inverse">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-            </div>
-            <div class="navbar-collapse collapse navbar-inverse-collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="javascript:void(0)">Active</a></li>
-                <li><a href="javascript:void(0)">Link</a></li>
-                <li class="dropdown">
-                  <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-                    <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Dropdown header</li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
-                    <li><a href="javascript:void(0)">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-              <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
-              </form>
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="javascript:void(0)">Link</a></li>
-                <li class="dropdown">
-                  <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
-                    <b class="caret"></b></a>
-                  <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="javascript:void(0)">Brand</a>
+              </div>
+              <div class="navbar-collapse collapse navbar-inverse-collapse">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="javascript:void(0)">Active</a></li>
+                  <li><a href="javascript:void(0)">Link</a></li>
+                  <li class="dropdown">
+                    <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+                      <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:void(0)">Action</a></li>
+                      <li><a href="javascript:void(0)">Another action</a></li>
+                      <li><a href="javascript:void(0)">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li class="dropdown-header">Dropdown header</li>
+                      <li><a href="javascript:void(0)">Separated link</a></li>
+                      <li><a href="javascript:void(0)">One more separated link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                  <div class="form-group">
+                    <input type="text" class="form-control col-lg-8" placeholder="Search">
+                  </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="javascript:void(0)">Link</a></li>
+                  <li class="dropdown">
+                    <a href="bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown
+                      <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="javascript:void(0)">Action</a></li>
+                      <li><a href="javascript:void(0)">Another action</a></li>
+                      <li><a href="javascript:void(0)">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a href="javascript:void(0)">Separated link</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div><!-- /example -->
@@ -1948,7 +1962,7 @@
               </div>
               <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                  <button class="btn btn-default">Cancel</button>
+                  <button type="button" class="btn btn-default">Cancel</button>
                   <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
               </div>
@@ -2207,7 +2221,7 @@
         <h2>Alerts</h2>
 
         <div class="bs-component">
-          <div class="alert alert-dismissable alert-warning">
+          <div class="alert alert-dismissible alert-warning">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <h4>Warning!</h4>
 
@@ -2220,7 +2234,7 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="bs-component">
-          <div class="alert alert-dismissable alert-danger">
+          <div class="alert alert-dismissible alert-danger">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>Oh snap!</strong>
             <a href="javascript:void(0)" class="alert-link">Change a few things up</a> and try submitting again.
@@ -2229,7 +2243,7 @@
       </div>
       <div class="col-lg-4">
         <div class="bs-component">
-          <div class="alert alert-dismissable alert-success">
+          <div class="alert alert-dismissible alert-success">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>Well done!</strong> You successfully read
             <a href="javascript:void(0)" class="alert-link">this important alert message</a>.
@@ -2238,7 +2252,7 @@
       </div>
       <div class="col-lg-4">
         <div class="bs-component">
-          <div class="alert alert-dismissable alert-info">
+          <div class="alert alert-dismissible alert-info">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>Heads up!</strong> This
             <a href="javascript:void(0)" class="alert-link">alert needs your attention</a>, but it's not super important.
@@ -2362,15 +2376,17 @@
           <h1 id="slider">Sliders <span style="font-size: 50%">(with noUiSlider)</span></h1>
         </div>
         <div class="bs-component">
-          <div class="col-sm-6">
-            <div class="slider shor"></div>
-            <div class="slider shor slider-success"></div>
-            <div class="slider shor slider-material-pink"></div>
-          </div>
-          <div class="col-sm-6" style="height: 150px">
-            <div class="slider svert"></div>
-            <div class="slider svert slider-success"></div>
-            <div class="slider svert slider-material-pink"></div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="slider shor"></div>
+              <div class="slider shor slider-success"></div>
+              <div class="slider shor slider-material-pink"></div>
+            </div>
+            <div class="col-sm-6" style="height: 150px">
+              <div class="slider svert"></div>
+              <div class="slider svert slider-success"></div>
+              <div class="slider svert slider-material-pink"></div>
+            </div>
           </div>
         </div>
         <p>Read more about <a href="http://refreshless.com/nouislider/">noUiSlider here</a>.</p>
@@ -2739,7 +2755,7 @@
 <br>
 
 <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script>
   (function () {
 

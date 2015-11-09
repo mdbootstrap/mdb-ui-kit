@@ -1,3 +1,5 @@
+@import '_inputs-size.less';
+
 // usage: .form-group-validation-state(@input-danger);
 .form-group-validation-state(@name, @color) {
 
@@ -24,26 +26,31 @@
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
   background-position: center bottom, center calc(~"100% - 1px");
-  background-color: transparent;
   background-color: rgba(0, 0, 0, 0);
   transition: background 0s ease-out;
   &::-webkit-input-placeholder {
     color: @input-placeholder-color;
+    font-size: @md-input-font-size-base;
   }
   &::-moz-placeholder {
     color: @input-placeholder-color;
+    font-size: @md-input-font-size-base;
   }
   &:-ms-input-placeholder {
     color: @input-placeholder-color;
+    font-size: @md-input-font-size-base;
   }
 
-  fieldset[disabled] &, & {
+  fieldset[disabled] &,
+  & {
     &:textarea {
       height: 40px;
     }
 
-    &, &:focus, &.focus {
-      padding: 0;
+    &,
+    &:focus,
+    &.focus {
+      //padding: 0;
       float: none;
       border: 0;
       box-shadow: none;
@@ -58,7 +65,7 @@
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
-    background-color: transparent;
+    //background-color: transparent;
     background-color: rgba(0, 0, 0, 0);
   }
 
@@ -84,11 +91,11 @@
 .form-group {
   position: relative;
 
-  label {
+  label.control-label {
     //color: @input-placeholder-color;
-    font-size: @floating-label-size-ratio * @font-size-base; // same as focused size of floating
+    font-size: @md-input-label-font-size-base; // 12px same as focused size of floating
     font-weight: normal;
-    padding-left: 0px;
+    //padding-left: 0px;
   }
 
   // Hints
@@ -104,7 +111,8 @@
     }
   }
 
-  .variations(~" label.control-label", color, @lightbg-text);
+  //.variations(~" label.control-label", color, @lightbg-text);
+  .variations(~" label.control-label", color, @input-placeholder-color);
   .variations(~".focus label.control-label", color, @input-default);
 
   .form-group-validation-state(has-warning, @input-warning);
@@ -115,21 +123,21 @@
   // sm
   &.form-group-sm {
     label {
-      font-size: @floating-label-size-ratio * @font-size-small; // same as focused size of floating
+      font-size: @floating-label-size-ratio * @md-input-font-size-small; // same as focused size of floating
     }
-    .form-control {
-      padding-left: 0px;
-    }
+    //.form-control {
+    //  padding-left: 0px;
+    //}
   }
 
   // lg
   &.form-group-lg {
     label {
-      font-size: @floating-label-size-ratio * @font-size-large; // same as focused size of floating
+      font-size: @floating-label-size-ratio * @md-input-font-size-large; // same as focused size of floating
     }
-    .form-control {
-      padding-left: 0px;
-    }
+    //.form-control {
+    //  padding-left: 0px;
+    //}
   }
 
   textarea {
@@ -154,6 +162,9 @@
   });
 }
 
+// Reference http://www.google.com/design/spec/components/text-fields.html
+// MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+
 .input-floating-label-size(@name, @size) {
   .form-control.@{name} ~ & {
     font-size: @size;
@@ -167,27 +178,33 @@
   }
 }
 
-// Do not nest .floating-label inside .form-group - it messes with ~
-label.floating-label {
-  font-size: @font-size-base; // Input sizes
+// Do not nest label.floating-label inside .form-group - it messes with ~ selector
+label.control-label.floating-label {
+  font-size: @md-input-font-size-base; // Input sizes
   position: absolute;
   pointer-events: none;
   left: 0px;
   top: 5px;
   transition: 0.3s ease all;
 
+  .form-group.focus & {
+    label.control-label {
+      font-size: @md-input-label-font-size-base; // 12px
+    }
+  }
+
   // sizing
   .form-control:focus ~ &,
   .form-control:not(.empty) ~ & {
-    top: @floating-label-size-ratio * -@font-size-base;
-    font-size: @floating-label-size-ratio * @font-size-base;
+    top: -1 * @md-input-label-font-size-base;
+    font-size: @md-input-label-font-size-base;
   }
 
-  .input-floating-label-size(input-sm, @font-size-small);
-  .input-floating-label-size(input-lg, @font-size-large);
+  .input-floating-label-size(input-sm, @md-input-font-size-small);
+  .input-floating-label-size(input-lg, @md-input-font-size-large);
 
 
-  .form-control:not(.empty):invalid ~ &, // FIXME: where does the invalid class come from? it isnt' bs3.
+  .form-control:not(.empty):invalid ~ &,
   .form-control.focus:invalid ~ & {
     color: @input-danger;
   }
