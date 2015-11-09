@@ -74,9 +74,67 @@
 @font-size-large: ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small: ceil((@font-size-base * 0.85)); // ~12px
 
+@screen-sm:                  768px;
+@screen-sm-min:              @screen-sm;
+
+
 // Global Material variables
 @material-border-radius: 2px;
+
+// --------------------
+// inputs
+@input-placeholder-color: #BDBDBD;
+@floating-label-size-ratio: 75 / 100;
 @input-underline-color: #D2D2D2;
+
+@md-input-font-size-base: 16px;
+@md-input-font-size-large: ceil((@font-size-base * 1.25)); // ~20px
+@md-input-font-size-small: ceil((@font-size-base * 0.75)); // ~12px
+
+// size when static or floating with focus i.e. 16px
+@md-input-label-font-size-base: @floating-label-size-ratio * @md-input-font-size-base;
+
+//** Unit-less `line-height` for use in components like buttons.
+@md-input-line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@md-input-line-height-computed:    floor((@md-input-font-size-base * @md-input-line-height-base)); // ~20px
+
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+@md-input-padding-base-vertical:     4px; // 6
+@md-input-padding-base-horizontal:   0px; // 12
+
+@md-input-padding-large-vertical:    8px; // 10
+@md-input-padding-large-horizontal:  0px; // 16
+
+@md-input-padding-small-vertical:    2px; // 5
+@md-input-padding-small-horizontal:  0px; // 10
+
+@md-input-padding-xs-vertical:       1px; // 1
+@md-input-padding-xs-horizontal:     0px; // 5
+
+@md-input-line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
+@md-input-line-height-small:         1.5;
+
+@md-input-border-radius-base:        4px;
+@md-input-border-radius-large:       6px;
+@md-input-border-radius-small:       3px;
+
+
+//** Default `.form-control` height
+@md-input-height-base:              (@md-input-line-height-computed + (@md-input-padding-base-vertical * 2) + 2);
+//** Large `.form-control` height
+@md-input-height-large:             (ceil(@md-input-font-size-large * @md-input-line-height-large) + (@md-input-padding-large-vertical * 2) + 2);
+//** Small `.form-control` height
+@md-input-height-small:             (floor(@md-input-font-size-small * @md-input-line-height-small) + (@md-input-padding-small-vertical * 2) + 2);
+
+
+
+
+
+
+
+
+
 
 // Card
 @card-body-text: @lightbg-text;
@@ -94,10 +152,6 @@
 // Popovers and Popups
 @popover-background: rgba(101, 101, 101, 0.9);
 @popover-color: #ececec;
-
-// Inputs
-@input-placeholder-color: #BDBDBD;
-@floating-label-size-ratio: 70 / 100;
 
 // Dropdown Menu
 @dropdown-radius: 2px;

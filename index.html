@@ -386,13 +386,13 @@
               <div class="form-group form-group-sm has-error">
                 <label for="i4" class="control-label floating-label">Floating label form-group-sm has-error</label>
                 <input type="email" class="form-control input-sm" id="i4">
-                <span class="help-block hint">This is a hint</span>
+                <span class="help-block hint">Please enter a valid email address <code>span.help-block.hint</code></span>
               </div>
 
               <div class="form-group form-group-lg">
-                <label for="i6" class="control-label floating-label">Floating label input-lg</label>
+                <label for="i6" class="control-label floating-label">Floating label form-group-lg</label>
                 <input type="email" class="form-control" id="i6">
-                <span class="help-block hint">This is a hint</span>
+                <span class="help-block hint">Please enter a valid email address <code>span.help-block.hint</code></span>
               </div>
 
               <h2>Input - static labels
@@ -1240,47 +1240,7 @@
 
             <h2>Dialog with header and footer</h2>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#complete-dialog">Open dialog</button>
-
-            <div id="simple-dialog" class="modal fade" tabindex="-1">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <p>E dolore commodo, id anim aute sint cupidatat eu est anim tamen ad possumus,
-                      legam officia firmissimum. Eram deserunt domesticarum, iis ita praetermissum,
-                      nam aliquip quo probant, incididunt et occaecat an nam enim exquisitaque a
-                      nescius velit admodum, non ad cohaerescant, probant o nulla tempor. Aute aut te
-                      quis arbitror ubi ne aliqua consequat aliquip. Ad sunt laborum senserit, de do
-                      quem possumus. Sint tractavissent cupidatat aute possumus ita elit ad cupidatat.
-                      Arbitror ab fabulas o eu e veniam pariatur. Non voluptate comprehenderit ad nisi
-                      id voluptate. Quis distinguantur quibusdam quae mentitum o si minim illum nisi
-                      mandaremus.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="complete-dialog" class="modal fade" tabindex="-1">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Dialog</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>Fore aut non quem incididunt, varias reprehenderit deserunt quem offendit,
-                      cillum proident ne reprehenderit, quem ad laborum, quo possumus praetermissum,
-                      si ne illustriora, hic appellat coniunctione, do labore aliqua quo probant. In
-                      probant voluptatibus quo mentitum est laboris. Quorum mandaremus graviterque.
-                      Mentitum id velit, dolor aut litteris, ea varias illustriora, ita commodo ita
-                      ingeniis, iis nulla appellat incurreret, aut irure amet summis pariatur ita ubi
-                      quis dolore veniam proident, consequat sed ingeniis.</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Dismiss</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- dialog samples are at the end of the body to avoid z-index conflicts -->
           </div>
           <div class="well page" id="shadow">
             <h1 class="header">Shadow</h1>
@@ -1319,14 +1279,50 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-2">
-      <button type="button" class="btn btn-fab btn-material-grey-200 opensource"><i class="mdi-action-open-in-new"></i>
-      </button>
+  </div>
+</div>
+
+<!--Modals-->
+<div id="simple-dialog" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>E dolore commodo, id anim aute sint cupidatat eu est anim tamen ad possumus,
+          legam officia firmissimum. Eram deserunt domesticarum, iis ita praetermissum,
+          nam aliquip quo probant, incididunt et occaecat an nam enim exquisitaque a
+          nescius velit admodum, non ad cohaerescant, probant o nulla tempor. Aute aut te
+          quis arbitror ubi ne aliqua consequat aliquip. Ad sunt laborum senserit, de do
+          quem possumus. Sint tractavissent cupidatat aute possumus ita elit ad cupidatat.
+          Arbitror ab fabulas o eu e veniam pariatur. Non voluptate comprehenderit ad nisi
+          id voluptate. Quis distinguantur quibusdam quae mentitum o si minim illum nisi
+          mandaremus.</p>
+      </div>
     </div>
   </div>
 </div>
-<!--</div>-->
-<!--</div>-->
+
+<div id="complete-dialog" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Dialog</h4>
+      </div>
+      <div class="modal-body">
+        <p>Fore aut non quem incididunt, varias reprehenderit deserunt quem offendit,
+          cillum proident ne reprehenderit, quem ad laborum, quo possumus praetermissum,
+          si ne illustriora, hic appellat coniunctione, do labore aliqua quo probant. In
+          probant voluptatibus quo mentitum est laboris. Quorum mandaremus graviterque.
+          Mentitum id velit, dolor aut litteris, ea varias illustriora, ita commodo ita
+          ingeniis, iis nulla appellat incurreret, aut irure amet summis pariatur ita ubi
+          quis dolore veniam proident, consequat sed ingeniis.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="source-modal" class="modal fade" tabindex="-1">
   <div class="modal-dialog modal-lg">

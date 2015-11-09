@@ -20563,24 +20563,177 @@ body .jumbotron-material-blue-grey-A700,
     opacity: 0;
   }
 }
+legend {
+  margin-bottom: 22px;
+  font-size: 24px;
+}
+output {
+  padding-top: 5px;
+  font-size: 16px;
+  line-height: 1.42857143;
+}
+.form-control {
+  height: 32px;
+  padding: 4px 0px;
+  font-size: 16px;
+  line-height: 1.42857143;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="date"].form-control,
+  input[type="time"].form-control,
+  input[type="datetime-local"].form-control,
+  input[type="month"].form-control {
+    line-height: 32px;
+  }
+  input[type="date"].input-sm,
+  input[type="time"].input-sm,
+  input[type="datetime-local"].input-sm,
+  input[type="month"].input-sm,
+  .input-group-sm input[type="date"],
+  .input-group-sm input[type="time"],
+  .input-group-sm input[type="datetime-local"],
+  .input-group-sm input[type="month"] {
+    line-height: 22px;
+  }
+  input[type="date"].input-lg,
+  input[type="time"].input-lg,
+  input[type="datetime-local"].input-lg,
+  input[type="month"].input-lg,
+  .input-group-lg input[type="date"],
+  .input-group-lg input[type="time"],
+  .input-group-lg input[type="datetime-local"],
+  .input-group-lg input[type="month"] {
+    line-height: 42px;
+  }
+}
+.radio label,
+.checkbox label {
+  min-height: 22px;
+}
+.form-control-static {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  min-height: 38px;
+}
+.input-sm {
+  height: 22px;
+  padding: 2px 0px;
+  font-size: 11px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.input-sm {
+  height: 22px;
+  line-height: 22px;
+}
+textarea.input-sm,
+select[multiple].input-sm {
+  height: auto;
+}
+.form-group-sm .form-control {
+  height: 22px;
+  padding: 2px 0px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.form-group-sm select.form-control {
+  height: 22px;
+  line-height: 22px;
+}
+.form-group-sm textarea.form-control,
+.form-group-sm select[multiple].form-control {
+  height: auto;
+}
+.form-group-sm .form-control-static {
+  height: 22px;
+  min-height: 33px;
+  padding: 3px 0px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.input-lg {
+  height: 42px;
+  padding: 8px 0px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+select.input-lg {
+  height: 42px;
+  line-height: 42px;
+}
+textarea.input-lg,
+select[multiple].input-lg {
+  height: auto;
+}
+.form-group-lg .form-control {
+  height: 42px;
+  padding: 8px 0px;
+  font-size: 18px;
+  line-height: 1.3333333;
+}
+.form-group-lg select.form-control {
+  height: 42px;
+  line-height: 42px;
+}
+.form-group-lg textarea.form-control,
+.form-group-lg select[multiple].form-control {
+  height: auto;
+}
+.form-group-lg .form-control-static {
+  height: 42px;
+  min-height: 40px;
+  padding: 9px 0px;
+  font-size: 18px;
+  line-height: 1.3333333;
+}
+.form-horizontal .radio,
+.form-horizontal .checkbox,
+.form-horizontal .radio-inline,
+.form-horizontal .checkbox-inline {
+  padding-top: 5px;
+}
+.form-horizontal .radio,
+.form-horizontal .checkbox {
+  min-height: 27px;
+}
+@media (min-width: 768px) {
+  .form-horizontal .control-label {
+    padding-top: 5px;
+  }
+}
+@media (min-width: 768px) {
+  .form-horizontal .form-group-lg .control-label {
+    padding-top: 11.6666664px;
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) {
+  .form-horizontal .form-group-sm .control-label {
+    padding-top: 3px;
+    font-size: 11px;
+  }
+}
 .form-control {
   border: 0;
   background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
   background-position: center bottom, center calc(100% - 1px);
-  background-color: transparent;
   background-color: rgba(0, 0, 0, 0);
   transition: background 0s ease-out;
 }
 .form-control::-webkit-input-placeholder {
   color: #bdbdbd;
+  font-size: 16px;
 }
 .form-control::-moz-placeholder {
   color: #bdbdbd;
+  font-size: 16px;
 }
 .form-control:-ms-input-placeholder {
   color: #bdbdbd;
+  font-size: 16px;
 }
 fieldset[disabled] .form-control:textarea,
 .form-control:textarea {
@@ -20592,7 +20745,6 @@ fieldset[disabled] .form-control:focus,
 .form-control:focus,
 fieldset[disabled] .form-control.focus,
 .form-control.focus {
-  padding: 0;
   float: none;
   border: 0;
   box-shadow: none;
@@ -20610,7 +20762,6 @@ fieldset[disabled] .form-control.focus:disabled,
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
-  background-color: transparent;
   background-color: rgba(0, 0, 0, 0);
 }
 .form-control:focus,
@@ -20631,10 +20782,9 @@ fieldset[disabled] .form-control {
 .form-group {
   position: relative;
 }
-.form-group label {
-  font-size: 9.8px;
+.form-group label.control-label {
+  font-size: 12px;
   font-weight: normal;
-  padding-left: 0px;
 }
 .form-group .hint {
   position: absolute;
@@ -20646,7 +20796,7 @@ fieldset[disabled] .form-control {
 }
 .form-group label.control-label,
 .form-group-default label.control-label {
-  color: rgba(0, 0, 0, 0.84);
+  color: #bdbdbd;
 }
 .form-group-black label.control-label {
   color: #000000;
@@ -22463,16 +22613,10 @@ fieldset[disabled] .form-control {
   color: #03a9f4;
 }
 .form-group.form-group-sm label {
-  font-size: 8.4px;
-}
-.form-group.form-group-sm .form-control {
-  padding-left: 0px;
+  font-size: 8.25px;
 }
 .form-group.form-group-lg label {
-  font-size: 12.6px;
-}
-.form-group.form-group-lg .form-control {
-  padding-left: 0px;
+  font-size: 13.5px;
 }
 .form-group textarea {
   resize: none;
@@ -23369,39 +23513,42 @@ fieldset[disabled] .form-control {
 .form-group-material-blue-grey-A700 .form-control:focus {
   background-image: linear-gradient(#455a64, #455a64), linear-gradient(#d2d2d2, #d2d2d2);
 }
-label.floating-label {
-  font-size: 14px;
+label.control-label.floating-label {
+  font-size: 16px;
   position: absolute;
   pointer-events: none;
   left: 0px;
   top: 5px;
   transition: 0.3s ease all;
 }
-.form-control:focus ~ label.floating-label,
-.form-control:not(.empty) ~ label.floating-label {
-  top: -9.8px;
-  font-size: 9.8px;
-}
-.form-control.input-sm ~ label.floating-label {
+.form-group.focus label.control-label.floating-label label.control-label {
   font-size: 12px;
+}
+.form-control:focus ~ label.control-label.floating-label,
+.form-control:not(.empty) ~ label.control-label.floating-label {
+  top: -12px;
+  font-size: 12px;
+}
+.form-control.input-sm ~ label.control-label.floating-label {
+  font-size: 11px;
   top: 7px;
 }
-.form-control.input-sm:focus ~ label.floating-label,
-.form-control.input-sm:not(.empty) ~ label.floating-label {
-  top: -8.4px;
-  font-size: 8.4px;
+.form-control.input-sm:focus ~ label.control-label.floating-label,
+.form-control.input-sm:not(.empty) ~ label.control-label.floating-label {
+  top: -8.25px;
+  font-size: 8.25px;
 }
-.form-control.input-lg ~ label.floating-label {
+.form-control.input-lg ~ label.control-label.floating-label {
   font-size: 18px;
   top: 7px;
 }
-.form-control.input-lg:focus ~ label.floating-label,
-.form-control.input-lg:not(.empty) ~ label.floating-label {
-  top: -12.6px;
-  font-size: 12.6px;
+.form-control.input-lg:focus ~ label.control-label.floating-label,
+.form-control.input-lg:not(.empty) ~ label.control-label.floating-label {
+  top: -13.5px;
+  font-size: 13.5px;
 }
-.form-control:not(.empty):invalid ~ label.floating-label,
-.form-control.focus:invalid ~ label.floating-label {
+.form-control:not(.empty):invalid ~ label.control-label.floating-label,
+.form-control.focus:invalid ~ label.control-label.floating-label {
   color: #f44336;
 }
 .input-group .form-group {
