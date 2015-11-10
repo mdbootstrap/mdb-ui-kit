@@ -113,11 +113,9 @@
   // sizing of focused/open/labels
   &.is-focused,
   &:not(.is-empty) {
-    label.control-label{
-      &.floating-label {
-        top: @label-as-placeholder-top - (@md-input-label-font-size-base + @md-input-padding-base-vertical); // FIXME this needs to be calculated and moved up to .is-focused !!!
-        font-size: @md-input-label-font-size-base;
-      }
+    label.control-label.floating-label {
+      top: @label-as-placeholder-top - (@md-input-label-font-size-base + @md-input-padding-base-vertical);
+      font-size: @md-input-label-font-size-base;
     }
   }
 
@@ -130,10 +128,19 @@
     }
 
     label.control-label { // static label
-      font-size: @floating-label-size-ratio * @md-input-font-size-small; // static
+      font-size: @md-input-label-font-size-small; // static
       //margin: 12px 0 0 0; // sm only
       &.floating-label {
         font-size: @md-input-font-size-small; // as placeholder
+      }
+    }
+
+    // sm floating size/location
+    &.is-focused,
+    &:not(.is-empty) {
+      label.control-label.floating-label {
+        top: @label-as-placeholder-top - (@md-input-label-font-size-small + @md-input-padding-small-vertical);
+        font-size: @md-input-label-font-size-small;
       }
     }
   }
@@ -150,6 +157,15 @@
       font-size: @floating-label-size-ratio * @md-input-font-size-large; // same as focused size of floating
       &.floating-label {
         font-size: @md-input-font-size-large; // as placeholder (never larger than size-base)
+      }
+    }
+
+    // lg floating size/location
+    &.is-focused,
+    &:not(.is-empty) {
+      label.control-label.floating-label {
+        top: @label-as-placeholder-top - (@md-input-label-font-size-large + @md-input-padding-large-vertical);
+        font-size: @md-input-label-font-size-large;
       }
     }
   }
