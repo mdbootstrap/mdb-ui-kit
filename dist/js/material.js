@@ -73,10 +73,10 @@
         var $input = $(this);
 
         // Now using/requiring form-group standard markup (instead of the old div.form-control-wrapper)
-        var formGroup = $input.parent(".form-group");
-        if(formGroup.length === 0){
+        var $formGroup = $input.parent(".form-group");
+        if($formGroup.length === 0){
           //console.debug("Generating form-group for input", $this);
-          formGroup = $input.wrap("<div class='form-group'></div>");
+          $formGroup = $input.wrap("<div class='form-group'></div>");
         }
 
         // Legacy - Add floating label if using old shorthand <input class="floating-label" placeholder="foo">
@@ -94,7 +94,7 @@
           // If it has a label, based on the way the css is written with the adjacent sibling selector `~`,
           //  we need the label to be *after* the input for it to work properly.
           //  See: http://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
-          var $label = formGroup.find("label.floating-label");
+          var $label = $formGroup.find("label.floating-label");
           if($label.length > 0){
             $label.detach();
             $input.after($label);
@@ -112,12 +112,12 @@
         }
 
         // Add at the end of the form-group
-        formGroup.append("<span class='material-input'></span>");
+        $formGroup.append("<span class='material-input'></span>");
 
         // Support for file input
-        if (formGroup.next().is("[type=file]")) {
-          formGroup.addClass("fileinput");
-          var $nextInput = formGroup.next().detach();
+        if ($formGroup.next().is("[type=file]")) {
+          $formGroup.addClass("fileinput");
+          var $nextInput = $formGroup.next().detach();
           $input.after($nextInput);
         }
       });
@@ -131,20 +131,33 @@
         }
       })
       .on("keyup change", ".form-control", function() {
-        var $this = $(this);
-        if ($this.val() === "" && (typeof $this[0].checkValidity === "undefined" || $this[0].checkValidity())) {
-          $this.addClass("empty");
-        } else {
-          $this.removeClass("empty");
+        var $input = $(this);
+        var $formGroup = $input.parent(".form-group");
+        var isValid = (typeof $input[0].checkValidity === "undefined" || $input[0].checkValidity());
+
+        if ($input.val() === "" && isValid) {
+          $input.addClass("empty");
+        }
+        else {
+          $input.removeClass("empty");
+        }
+
+        // Validation events do not bubble, so they must be attached directly to the input: http://jsfiddle.net/PEpRM/1/
+        //  Further, even the bind method is being caught, but since we are already calling #checkValidity here, just alter
+        //  the form-group on change.
+        if(isValid){
+          $formGroup.removeClass("has-error");
+        }
+        else{
+          $formGroup.addClass("has-error");
         }
       })
       .on("focus", ".form-group input, .form-group select, .form-group.fileinput", function() {
-        //$(this).find("input").addClass("focus");
-        $(this).parent().addClass("focus"); // add class to form-group
+        $(this).parent().addClass("is-focused"); // add class to form-group
       })
       .on("blur", ".form-group input, .form-group select, .form-group.fileinput", function() {
-        //$(this).find("input").removeClass("focus");
-        $(this).parent().removeClass("focus"); // remove class from form-group
+        $(this).parent().removeClass("is-focused"); // remove class from form-group
+        // .is(":invalid"))
       })
       .on("change", ".form-group.fileinput [type=file]", function() {
         var $this = $(this);
