@@ -81,20 +81,25 @@ output {
 // Relative text size, padding, and border-radii changes for form controls. For
 // horizontal sizing, wrap controls in the predefined grid classes. `<select>`
 // element gets special love because it's special, and that's a fact!
-.input-size(@input-height; @padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
-  height: @input-height;
-  padding: @padding-vertical @padding-horizontal;
-  font-size: @font-size;
-  line-height: @line-height;
-  border-radius: @border-radius;
 
-  select& {
+// mixin pulled from bootstrap and altered for less/sass compatibility
+.input-size(@parent, @input-height, @padding-vertical, @padding-horizontal, @font-size, @line-height, @border-radius) {
+
+  @{parent} {
+    height: @input-height;
+    padding: @padding-vertical @padding-horizontal;
+    font-size: @font-size;
+    line-height: @line-height;
+    border-radius: @border-radius;
+  }
+
+  select@{parent} {
     height: @input-height;
     line-height: @input-height;
   }
 
-  textarea&,
-  select[multiple]& {
+  textarea@{parent},
+  select[multiple]@{parent} {
     height: auto;
   }
 }
@@ -109,7 +114,7 @@ output {
 // The `.form-group-* form-control` variations are sadly duplicated to avoid the
 // issue documented in https://github.com/twbs/bootstrap/issues/15074.
 .input-sm {
-  .input-size(@md-input-height-small; @md-input-padding-small-vertical; @md-input-padding-small-horizontal; @md-input-font-size-small; @md-input-line-height-small; @md-input-border-radius-small);
+  .input-size('.input-sm', @md-input-height-small, @md-input-padding-small-vertical, @md-input-padding-small-horizontal, @md-input-font-size-small, @md-input-line-height-small, @md-input-border-radius-small);
 }
 .form-group-sm {
   .form-control {
@@ -136,7 +141,7 @@ output {
 }
 
 .input-lg {
-  .input-size(@md-input-height-large; @md-input-padding-large-vertical; @md-input-padding-large-horizontal; @md-input-font-size-large; @md-input-line-height-large; @md-input-border-radius-large);
+  .input-size('.input-lg', @md-input-height-large, @md-input-padding-large-vertical, @md-input-padding-large-horizontal, @md-input-font-size-large, @md-input-line-height-large, @md-input-border-radius-large);
 }
 .form-group-lg {
   .form-control {
