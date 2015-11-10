@@ -40,38 +40,15 @@
     }
   }
 
-  @include material-placeholder {
-    color: $input-placeholder-color;
-    font-size: $md-input-font-size-base;
-    font-weight: normal;
-  
-}
+  &,
+  fieldset[disabled] & {
 
-  //&::-moz-placeholder {
-  //  color: $input-placeholder-color;
-  //  font-size: $md-input-font-size-base;
-  //  font-weight: normal;
-  //}
-  //&:-ms-input-placeholder {
-  //  color: $input-placeholder-color;
-  //  font-size: $md-input-font-size-base;
-  //  font-weight: normal;
-  //}
-  //&::-webkit-input-placeholder {
-  //  color: $input-placeholder-color;
-  //  font-size: $md-input-font-size-base;
-  //  font-weight: normal;
-  //}
-
-  fieldset[disabled] &,
-  & {
     &:textarea {
       height: 40px;
     }
 
     &,
     .form-group.is-focused & {
-      //padding: 0;
       float: none;
       border: 0;
       box-shadow: none;
@@ -91,41 +68,92 @@
   }
 }
 
+@mixin form-group-size-variant($placeholder-font-size, $vertical-padding){
+  $label-as-placeholder-top: -1 * $vertical-padding !default;
+  $static-font-size: ceil(($floating-label-size-ratio * $placeholder-font-size)) !default;
+  $hint-font-size: ceil(($hint-size-ratio * $placeholder-font-size)) !default;
+
+  .form-control {
+    @include material-placeholder {
+      font-size: $placeholder-font-size;
+    
+}
+  }
+
+  .hint {
+    font-size: $hint-font-size;
+  }
+
+  label.control-label { // static label
+    font-size: $static-font-size; // static (smaller of the two)
+    &.floating-label {
+      top: $label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
+      font-size: $placeholder-font-size; // as placeholder (full size)
+    }
+  }
+
+  // sizing of focused/open/labels
+  &.is-focused,
+  &:not(.is-empty) {
+    label.control-label.floating-label {
+      top: $label-as-placeholder-top - ($placeholder-font-size + $vertical-padding);
+      font-size: $static-font-size;
+    }
+  }
+}
+
 .form-group {
   position: relative;
 
+  // ----
+  // Placeholders and and floating-labels should look the same
+  .form-control {
+    @include material-placeholder {
+      color: $input-placeholder-color;
+      font-weight: normal;
+    
+}
+  }
+
+  // -----
   // Labels
+  //
+  // Reference http://www.google.com/design/spec/components/text-fields.html
+  // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+
   label.control-label { // static label
 
     // same label properties as form-group placeholder.  could be shared with a ruleset but makes sass conversion painful
     color: $input-placeholder-color;
-    font-size: $md-input-font-size-base;
     font-weight: normal;
-
     margin: 16px 0 0 0; // std and lg
-  }
-  //.variations(unquote(" label.control-label"), color, $input-placeholder-color); // FIXME: not sure if necessary
-  //.variations(unquote(".is-focused label.control-label"), color, $input-default);
 
-  // sm
+    &.floating-label {
+      position: absolute;
+      pointer-events: none;
+      left: 0px;
+      transition: 0.3s ease all;
+    }
+  }
+  @include variations(unquote(" label.control-label"), color, $input-placeholder-color);  // default label color variations
+  @include variations(unquote(".is-focused label.control-label"), color, $input-default); // focused label color variations
+
+  // default floating size/location
+  @include form-group-size-variant($md-input-font-size-base, $md-input-padding-base-vertical);
+
+  // sm floating size/location
   &.form-group-sm {
-    label.control-label { // static label
-      font-size: $floating-label-size-ratio * $md-input-font-size-small; // same as focused size of floating FIXME shouldn't this be full size?
-      margin: 12px 0 0 0; // sm only
-    }
+    @include form-group-size-variant($md-input-font-size-small, $md-input-padding-small-vertical);
   }
 
-  // lg
+  // lg floating size/location
   &.form-group-lg {
-    label.control-label { // static label
-      font-size: $floating-label-size-ratio * $md-input-font-size-large; // same as focused size of floating FIXME shouldn't this be full size?
-    }
+    @include form-group-size-variant($md-input-font-size-large, $md-input-padding-large-vertical);
   }
 
   // Hints
   .hint {
     position: absolute;
-    font-size: 80%;
     display: none;
   }
 
@@ -177,49 +205,6 @@ select.form-control {
       height: 85px;
     }
   }
-}
-
-// Reference http://www.google.com/design/spec/components/text-fields.html
-// MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-
-// this is for input-sm and input-lg directly on input.  Recommended way is form-group-sm and form-group-lg instead.
-@mixin input-size-floating-label($name, $size){
-  .form-control.#{$name} ~ & {
-    font-size: $size;
-    top: 7px;
-  }
-
-  .form-group.is-focused .form-control.#{$name} ~ .form-group.is-focused &,
-  .form-group.is-empty .form-control.#{$name} ~ .form-group.is-empty & {
-    top: $floating-label-size-ratio * -$size;
-    font-size: $floating-label-size-ratio * $size;
-  }
-}
-
-// Do not nest label.floating-label inside .form-group - it messes with ~ selector
-label.control-label.floating-label {
-  font-size: $md-input-font-size-base; // Input sizes
-  position: absolute;
-  pointer-events: none;
-  left: 0px;
-  top: -1 * $md-input-padding-base-vertical; // place the floating label to look like a placeholder with input padding
-  transition: 0.3s ease all;
-
-  .form-group.is-focused & {
-    label.control-label {
-      font-size: $md-input-label-font-size-base; // 12px
-    }
-  }
-
-  // sizing
-  .form-group.is-focused &,
-  .form-group:not(.is-empty) & {
-    top: -1 * ($md-input-label-font-size-base + $md-input-padding-base-vertical); // FIXME this needs to be calculated and moved up to .is-focused !!!
-    font-size: $md-input-label-font-size-base;
-  }
-
-  @include input-size-floating-label(input-sm, $md-input-font-size-small);
-  @include input-size-floating-label(input-lg, $md-input-font-size-large);
 }
 
 .input-group {
