@@ -145,6 +145,9 @@
         // Validation events do not bubble, so they must be attached directly to the input: http://jsfiddle.net/PEpRM/1/
         //  Further, even the bind method is being caught, but since we are already calling #checkValidity here, just alter
         //  the form-group on change.
+        //
+        // NOTE: I'm not sure we should be intervening regarding validation, this seems better as a README and snippet of code.
+        //        BUT, I've left it here for backwards compatibility.
         if(isValid){
           $formGroup.removeClass("has-error");
         }
@@ -152,12 +155,11 @@
           $formGroup.addClass("has-error");
         }
       })
-      .on("focus", ".form-group input, .form-group select, .form-group.fileinput", function() {
+      .on("focus", ".form-control, .form-group.fileinput", function() {
         $(this).parent().addClass("is-focused"); // add class to form-group
       })
-      .on("blur", ".form-group input, .form-group select, .form-group.fileinput", function() {
+      .on("blur", ".form-control, .form-group.fileinput", function() {
         $(this).parent().removeClass("is-focused"); // remove class from form-group
-        // .is(":invalid"))
       })
       .on("change", ".form-group.fileinput [type=file]", function() {
         var $this = $(this);
