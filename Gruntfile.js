@@ -35,7 +35,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: "less",
-          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less"],
+          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less", "!_mixins-shared.less"],
           ext: ".scss",
           dest: "sass"
         }],
@@ -104,6 +104,12 @@ module.exports = function (grunt) {
               order: 24
             },
 
+            // material-placehorder
+            { // Multi-line replacement - https://regex101.com/r/eS2vQ3/2
+              pattern: /.material-placeholder\({$\n([\s\S]+?)}\);$\n/mg,
+              replacement: "@include material-placeholder {\n$1\n}\n",
+              order: 24
+            },
 
             // fix calc references
             { // https://regex101.com/r/aZ8iI5/1

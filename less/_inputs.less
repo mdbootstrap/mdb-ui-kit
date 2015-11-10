@@ -3,7 +3,7 @@
 // usage: .form-group-validation-state(@input-danger);
 .form-group-validation-state(@name, @color) {
 
-  &.@{name} {  // e.g. has-error
+  &.@{name} { // e.g. has-error
     .form-control {
       box-shadow: none;
     }
@@ -38,10 +38,27 @@
     }
   }
 
-  .material-placeholder() {
+  .material-placeholder({
     color: @input-placeholder-color;
     font-size: @md-input-font-size-base;
-  }
+    font-weight: normal;
+  });
+
+  //&::-moz-placeholder {
+  //  color: @input-placeholder-color;
+  //  font-size: @md-input-font-size-base;
+  //  font-weight: normal;
+  //}
+  //&:-ms-input-placeholder {
+  //  color: @input-placeholder-color;
+  //  font-size: @md-input-font-size-base;
+  //  font-weight: normal;
+  //}
+  //&::-webkit-input-placeholder {
+  //  color: @input-placeholder-color;
+  //  font-size: @md-input-font-size-base;
+  //  font-weight: normal;
+  //}
 
   fieldset[disabled] &,
   & {
@@ -75,17 +92,21 @@
   position: relative;
 
   // Labels
-  label.control-label {
-    font-size: @md-input-label-font-size-base; // 12px same as focused size of floating
+  label.control-label { // static label
+
+    // same label properties as form-group placeholder.  could be shared with a ruleset but makes sass conversion painful
+    color: @input-placeholder-color;
+    font-size: @floating-label-size-ratio * @md-input-font-size-base; // same as focused size of floating
     font-weight: normal;
+
     margin: 16px 0 0 0; // std and lg
   }
-  .variations(~" label.control-label", color, @input-placeholder-color);
-  .variations(~".is-focused label.control-label", color, @input-default);
+  .variations(~" label.control-label", color, @input-placeholder-color);  // default label color variations
+  .variations(~".is-focused label.control-label", color, @input-default); // focused label color variations
 
   // sm
   &.form-group-sm {
-    label.control-label {
+    label.control-label { // static label
       font-size: @floating-label-size-ratio * @md-input-font-size-small; // same as focused size of floating
       margin: 12px 0 0 0; // sm only
     }
@@ -93,7 +114,7 @@
 
   // lg
   &.form-group-lg {
-    label.control-label {
+    label.control-label { // static label
       font-size: @floating-label-size-ratio * @md-input-font-size-large; // same as focused size of floating
     }
   }
@@ -115,7 +136,6 @@
   .generic-variations(~".is-focused .form-control", @primary, {
     background-image: linear-gradient(@material-color, @material-color), linear-gradient(@input-underline-color, @input-underline-color);
   });
-
 
   .form-group-validation-state(has-warning, @input-warning);
   .form-group-validation-state(has-error, @input-danger);
@@ -219,7 +239,6 @@ label.control-label.floating-label {
   }
 }
 
-
 // Input files (kinda hack)
 .form-group input[type=file] {
   opacity: 0;
@@ -237,11 +256,9 @@ label.control-label.floating-label {
 fieldset[disabled] .form-control:disabled,
 .form-group .form-control:disabled,
 .form-control:disabled,
-
 fieldset[disabled] .form-control:focus:disabled,
 .form-group .form-control:focus:disabled,
 .form-control:focus:disabled,
-
 .form-group.is-focused fieldset[disabled] .form-control:disabled,
 .form-group.is-focused .form-group .form-control:disabled,
 .form-group.is-focused .form-control:disabled {
