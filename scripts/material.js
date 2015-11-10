@@ -76,7 +76,14 @@
         var $formGroup = $input.parent(".form-group");
         if($formGroup.length === 0){
           //console.debug("Generating form-group for input", $this);
-          $formGroup = $input.wrap("<div class='form-group'></div>");
+          $input.wrap("<div class='form-group'></div>");
+          $formGroup = $input.parent(".form-group"); // find node after attached (otherwise additional attachments don't work)
+        }
+
+        // Legacy - Add hint label if using the old shorthand data-hint attribute on the input
+        if ($input.attr("data-hint")) {
+          $input.after("<p class='help-block hint'>" + $input.attr("data-hint") + "</p>");
+          $input.removeAttr("data-hint");
         }
 
         // Legacy - Add floating label if using old shorthand <input class="floating-label" placeholder="foo">
@@ -88,7 +95,7 @@
           if(id) {
             forAttribute = "for='" + id + "'";
           }
-          $input.after("<label " + forAttribute + "class='floating-label'>" + placeholder + "</label>");
+          $input.after("<label " + forAttribute + "class='control-label floating-label'>" + placeholder + "</label>");
         }
         else {
           // If it has a label, based on the way the css is written with the adjacent sibling selector `~`,
@@ -99,11 +106,6 @@
             $label.detach();
             $input.after($label);
           }
-        }
-
-        // Legacy - Add hint label if using the old shorthand data-hint attribute on the input
-        if ($input.attr("data-hint")) {
-          $input.after("<p class='help-block hint'>" + $input.attr("data-hint") + "</p>");
         }
 
         // Set as empty if is empty (damn I must improve this...)
