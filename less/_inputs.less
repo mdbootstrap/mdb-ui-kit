@@ -75,31 +75,82 @@
 .form-group {
   position: relative;
 
+  // -----
   // Labels
+  //
+  // Reference http://www.google.com/design/spec/components/text-fields.html
+  // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+
+  @label-as-placeholder-top: -1 * @md-input-padding-base-vertical;
   label.control-label { // static label
 
     // same label properties as form-group placeholder.  could be shared with a ruleset but makes sass conversion painful
     color: @input-placeholder-color;
     font-size: @floating-label-size-ratio * @md-input-font-size-base; // same as focused size of floating
     font-weight: normal;
-
     margin: 16px 0 0 0; // std and lg
+
+    &.floating-label {
+      font-size: @md-input-font-size-base; // as placeholder
+      position: absolute;
+      pointer-events: none;
+      left: 0px;
+      top: @label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
+      transition: 0.3s ease all;
+    }
   }
   .variations(~" label.control-label", color, @input-placeholder-color);  // default label color variations
   .variations(~".is-focused label.control-label", color, @input-default); // focused label color variations
 
+  &.is-focused {
+    label.control-label{
+      &.floating-label{
+        font-size: @md-input-label-font-size-base; // 12px
+      }
+    }
+  }
+
+  // sizing of focused/open/labels
+  &.is-focused,
+  &:not(.is-empty) {
+    label.control-label{
+      &.floating-label {
+        top: @label-as-placeholder-top - (@md-input-label-font-size-base + @md-input-padding-base-vertical); // FIXME this needs to be calculated and moved up to .is-focused !!!
+        font-size: @md-input-label-font-size-base;
+      }
+    }
+  }
+
   // sm
   &.form-group-sm {
+    .form-control {
+      .material-placeholder({
+        font-size: @md-input-font-size-small;
+      });
+    }
+
     label.control-label { // static label
-      font-size: @floating-label-size-ratio * @md-input-font-size-small; // same as focused size of floating
-      margin: 12px 0 0 0; // sm only
+      font-size: @floating-label-size-ratio * @md-input-font-size-small; // static
+      //margin: 12px 0 0 0; // sm only
+      &.floating-label {
+        font-size: @md-input-font-size-small; // as placeholder
+      }
     }
   }
 
   // lg
   &.form-group-lg {
+    .form-control {
+      .material-placeholder({
+        font-size: @md-input-font-size-large;
+      });
+    }
+
     label.control-label { // static label
       font-size: @floating-label-size-ratio * @md-input-font-size-large; // same as focused size of floating
+      &.floating-label {
+        font-size: @md-input-font-size-large; // as placeholder (never larger than size-base)
+      }
     }
   }
 
@@ -159,33 +210,6 @@ select.form-control {
     .form-group.is-focused & {
       height: 85px;
     }
-  }
-}
-
-// Reference http://www.google.com/design/spec/components/text-fields.html
-// MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-
-label.control-label.floating-label {
-  @label-as-placeholder-top: -1 * @md-input-padding-base-vertical;
-
-  font-size: @md-input-font-size-base; // Input sizes
-  position: absolute;
-  pointer-events: none;
-  left: 0px;
-  top: @label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
-  transition: 0.3s ease all;
-
-  .form-group.is-focused & {
-    label.control-label {
-      font-size: @md-input-label-font-size-base; // 12px
-    }
-  }
-
-  // sizing
-  .form-group.is-focused &,
-  .form-group:not(.is-empty) & {
-    top: @label-as-placeholder-top - (@md-input-label-font-size-base + @md-input-padding-base-vertical); // FIXME this needs to be calculated and moved up to .is-focused !!!
-    font-size: @md-input-label-font-size-base;
   }
 }
 
