@@ -86,6 +86,18 @@
           $input.removeAttr("data-hint");
         }
 
+        // Legacy - Change input-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
+        var legacySizes = {
+          "input-lg": "form-group-lg",
+          "input-sm": "form-group-sm"
+        };
+        $.each( legacySizes, function( legacySize, standardSize ) {
+          if ($input.hasClass(legacySize)) {
+            $input.removeClass(legacySize);
+            $formGroup.addClass(standardSize);
+          }
+        });
+
         // Legacy - Add floating label if using old shorthand <input class="floating-label" placeholder="foo">
         if ($input.hasClass("floating-label")) {
           var placeholder = $input.attr("placeholder");
