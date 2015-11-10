@@ -44,31 +44,15 @@
     font-weight: normal;
   });
 
-  //&::-moz-placeholder {
-  //  color: @input-placeholder-color;
-  //  font-size: @md-input-font-size-base;
-  //  font-weight: normal;
-  //}
-  //&:-ms-input-placeholder {
-  //  color: @input-placeholder-color;
-  //  font-size: @md-input-font-size-base;
-  //  font-weight: normal;
-  //}
-  //&::-webkit-input-placeholder {
-  //  color: @input-placeholder-color;
-  //  font-size: @md-input-font-size-base;
-  //  font-weight: normal;
-  //}
+  &,
+  fieldset[disabled] & {
 
-  fieldset[disabled] &,
-  & {
     &:textarea {
       height: 40px;
     }
 
     &,
     .form-group.is-focused & {
-      //padding: 0;
       float: none;
       border: 0;
       box-shadow: none;
@@ -182,26 +166,28 @@ select.form-control {
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 
 // this is for input-sm and input-lg directly on input.  Recommended way is form-group-sm and form-group-lg instead.
-.input-size-floating-label(@name, @size) {
-  .form-control.@{name} ~ & {
-    font-size: @size;
-    top: 7px;
-  }
-
-  .form-group.is-focused .form-control.@{name} ~ .form-group.is-focused &,
-  .form-group.is-empty .form-control.@{name} ~ .form-group.is-empty & {
-    top: @floating-label-size-ratio * -@size;
-    font-size: @floating-label-size-ratio * @size;
-  }
-}
+//.input-size-floating-label(@name, @size) {
+//  .form-control.@{name} ~ & {
+//    font-size: @size;
+//    top: 7px;
+//  }
+//
+//  .form-group.is-focused .form-control.@{name} ~ .form-group.is-focused &,
+//  .form-group.is-empty .form-control.@{name} ~ .form-group.is-empty & {
+//    top: @floating-label-size-ratio * -@size;
+//    font-size: @floating-label-size-ratio * @size;
+//  }
+//}
 
 // Do not nest label.floating-label inside .form-group - it messes with ~ selector
 label.control-label.floating-label {
+  @label-as-placeholder-top: -1 * @md-input-padding-base-vertical;
+
   font-size: @md-input-font-size-base; // Input sizes
   position: absolute;
   pointer-events: none;
   left: 0px;
-  top: -1 * @md-input-padding-base-vertical; // place the floating label to look like a placeholder with input padding
+  top: @label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
   transition: 0.3s ease all;
 
   .form-group.is-focused & {
@@ -213,12 +199,12 @@ label.control-label.floating-label {
   // sizing
   .form-group.is-focused &,
   .form-group:not(.is-empty) & {
-    top: -1 * (@md-input-label-font-size-base + @md-input-padding-base-vertical); // FIXME this needs to be calculated and moved up to .is-focused !!!
+    top: @label-as-placeholder-top - (@md-input-label-font-size-base + @md-input-padding-base-vertical); // FIXME this needs to be calculated and moved up to .is-focused !!!
     font-size: @md-input-label-font-size-base;
   }
 
-  .input-size-floating-label(input-sm, @md-input-font-size-small);
-  .input-size-floating-label(input-lg, @md-input-font-size-large);
+  //.input-size-floating-label(input-sm, @md-input-font-size-small);
+  //.input-size-floating-label(input-lg, @md-input-font-size-large);
 }
 
 .input-group {

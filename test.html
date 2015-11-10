@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Material Design for Bootstrap</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Twitter Bootstrap -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Material Design for Bootstrap -->
+  <link href="dist/css/roboto.css" rel="stylesheet">
+  <link href="dist/css/material-fullpalette.css" rel="stylesheet">
+  <link href="dist/css/ripples.css" rel="stylesheet">
+
+  <!-- Dropdown.js -->
+  <link href="//cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.css" rel="stylesheet">
+
+  <!-- Page style -->
+  <link href="index.css" rel="stylesheet">
+
+  <!-- jQuery -->
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+
+</head>
+<body>
+
+<div class="container-fluid">
+
+  <h2>Input - Legacy</h2>
+  <!-- Exercise backwards compatibility without form-group -->
+  <input type="text" class="form-control floating-label" placeholder="Legacy floating label as placeholder attribute" data-hint="This is a hint using a legacy data-hint attribute on the input">
+
+</div>
+
+
+<!-- Twitter Bootstrap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- Material Design for Bootstrap -->
+<script src="dist/js/material.js"></script>
+<script src="dist/js/ripples.js"></script>
+<script>
+  $.material.init();
+</script>
+
+
+<!-- Sliders -->
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/noUiSlider/6.2.0/jquery.nouislider.min.js"></script>-->
+<!--<script>-->
+<!--$(function () {-->
+<!--$.material.init();-->
+<!--$(".shor").noUiSlider({-->
+<!--start: 40,-->
+<!--connect: "lower",-->
+<!--range: {-->
+<!--min: 0,-->
+<!--max: 100-->
+<!--}-->
+<!--});-->
+
+<!--$(".svert").noUiSlider({-->
+<!--orientation: "vertical",-->
+<!--start: 40,-->
+<!--connect: "lower",-->
+<!--range: {-->
+<!--min: 0,-->
+<!--max: 100-->
+<!--}-->
+<!--});-->
+<!--});-->
+<!--</script>-->
+
+<!-- Dropdown.js -->
+<!--<script src="https://cdn.rawgit.com/FezVrasta/dropdown.js/master/jquery.dropdown.js"></script>-->
+<!--<script>-->
+  <!--$("#dropdown-menu select").dropdown();-->
+<!--</script>-->
+
+</body>
+</html>
