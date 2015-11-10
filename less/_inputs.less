@@ -38,12 +38,6 @@
     }
   }
 
-  .material-placeholder({
-    color: @input-placeholder-color;
-    font-size: @md-input-font-size-base;
-    font-weight: normal;
-  });
-
   &,
   fieldset[disabled] & {
 
@@ -72,41 +66,26 @@
   }
 }
 
-.form-group {
-  position: relative;
+.form-group-size-variant(@placeholder-font-size, @vertical-padding){
+  @label-as-placeholder-top: -1 * @vertical-padding;
+  @static-font-size: ceil((@floating-label-size-ratio * @placeholder-font-size));
+  @hint-font-size: ceil((@hint-size-ratio * @placeholder-font-size));
 
-  // -----
-  // Labels
-  //
-  // Reference http://www.google.com/design/spec/components/text-fields.html
-  // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-
-  @label-as-placeholder-top: -1 * @md-input-padding-base-vertical;
-  label.control-label { // static label
-
-    // same label properties as form-group placeholder.  could be shared with a ruleset but makes sass conversion painful
-    color: @input-placeholder-color;
-    font-size: @floating-label-size-ratio * @md-input-font-size-base; // same as focused size of floating
-    font-weight: normal;
-    margin: 16px 0 0 0; // std and lg
-
-    &.floating-label {
-      font-size: @md-input-font-size-base; // as placeholder
-      position: absolute;
-      pointer-events: none;
-      left: 0px;
-      top: @label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
-      transition: 0.3s ease all;
-    }
+  .form-control {
+    .material-placeholder({
+      font-size: @placeholder-font-size;
+    });
   }
-  .variations(~" label.control-label", color, @input-placeholder-color);  // default label color variations
-  .variations(~".is-focused label.control-label", color, @input-default); // focused label color variations
 
-  &.is-focused {
-    label.control-label{
-      &.floating-label{
-        font-size: @md-input-label-font-size-base; // 12px
-      }
+  .hint {
+    font-size: @hint-font-size;
+  }
+
+  label.control-label { // static label
+    font-size: @static-font-size; // static (smaller of the two)
+    &.floating-label {
+      top: @label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
+      font-size: @placeholder-font-size; // as placeholder (full size)
     }
   }
 
@@ -114,66 +93,63 @@
   &.is-focused,
   &:not(.is-empty) {
     label.control-label.floating-label {
-      top: @label-as-placeholder-top - (@md-input-label-font-size-base + @md-input-padding-base-vertical);
-      font-size: @md-input-label-font-size-base;
+      top: @label-as-placeholder-top - (@placeholder-font-size + @vertical-padding);
+      font-size: @static-font-size;
     }
   }
+}
 
-  // sm
+.form-group {
+  position: relative;
+
+  // ----
+  // Placeholders and and floating-labels should look the same
+  .form-control {
+    .material-placeholder({
+      color: @input-placeholder-color;
+      font-weight: normal;
+    });
+  }
+
+  // -----
+  // Labels
+  //
+  // Reference http://www.google.com/design/spec/components/text-fields.html
+  // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+
+  label.control-label { // static label
+
+    // same label properties as form-group placeholder.  could be shared with a ruleset but makes sass conversion painful
+    color: @input-placeholder-color;
+    font-weight: normal;
+    margin: 16px 0 0 0; // std and lg
+
+    &.floating-label {
+      position: absolute;
+      pointer-events: none;
+      left: 0px;
+      transition: 0.3s ease all;
+    }
+  }
+  .variations(~" label.control-label", color, @input-placeholder-color);  // default label color variations
+  .variations(~".is-focused label.control-label", color, @input-default); // focused label color variations
+
+  // default floating size/location
+  .form-group-size-variant(@md-input-font-size-base, @md-input-padding-base-vertical);
+
+  // sm floating size/location
   &.form-group-sm {
-    .form-control {
-      .material-placeholder({
-        font-size: @md-input-font-size-small;
-      });
-    }
-
-    label.control-label { // static label
-      font-size: @md-input-label-font-size-small; // static
-      //margin: 12px 0 0 0; // sm only
-      &.floating-label {
-        font-size: @md-input-font-size-small; // as placeholder
-      }
-    }
-
-    // sm floating size/location
-    &.is-focused,
-    &:not(.is-empty) {
-      label.control-label.floating-label {
-        top: @label-as-placeholder-top - (@md-input-label-font-size-small + @md-input-padding-small-vertical);
-        font-size: @md-input-label-font-size-small;
-      }
-    }
+    .form-group-size-variant(@md-input-font-size-small, @md-input-padding-small-vertical);
   }
 
-  // lg
+  // lg floating size/location
   &.form-group-lg {
-    .form-control {
-      .material-placeholder({
-        font-size: @md-input-font-size-large;
-      });
-    }
-
-    label.control-label { // static label
-      font-size: @floating-label-size-ratio * @md-input-font-size-large; // same as focused size of floating
-      &.floating-label {
-        font-size: @md-input-font-size-large; // as placeholder (never larger than size-base)
-      }
-    }
-
-    // lg floating size/location
-    &.is-focused,
-    &:not(.is-empty) {
-      label.control-label.floating-label {
-        top: @label-as-placeholder-top - (@md-input-label-font-size-large + @md-input-padding-large-vertical);
-        font-size: @md-input-label-font-size-large;
-      }
-    }
+    .form-group-size-variant(@md-input-font-size-large, @md-input-padding-large-vertical);
   }
 
   // Hints
   .hint {
     position: absolute;
-    font-size: 80%;
     display: none;
   }
 

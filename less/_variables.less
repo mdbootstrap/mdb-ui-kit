@@ -85,6 +85,7 @@
 // inputs
 @input-placeholder-color: #BDBDBD;
 @floating-label-size-ratio: 75 / 100;
+@hint-size-ratio: 75 / 100;
 @input-underline-color: #D2D2D2;
 
 @md-input-font-size-base: 16px;
@@ -92,9 +93,9 @@
 @md-input-font-size-small: ceil((@font-size-base * 0.75)); // ~12px
 
 // size when static or floating with focus i.e. 16px
-@md-input-label-font-size-base: @floating-label-size-ratio * @md-input-font-size-base;
-@md-input-label-font-size-small: @floating-label-size-ratio * @md-input-font-size-small;
-@md-input-label-font-size-large: @floating-label-size-ratio * @md-input-font-size-large;
+//@md-input-label-font-size-base: ceil((@floating-label-size-ratio * @md-input-font-size-base));
+//@md-input-label-font-size-small:ceil(( @floating-label-size-ratio * @md-input-font-size-small));
+//@md-input-label-font-size-large: ceil((@floating-label-size-ratio * @md-input-font-size-large));
 
 //** Unit-less `line-height` for use in components like buttons.
 @md-input-line-height-base:        1.428571429; // 20/14

@@ -87,6 +87,7 @@ $material-border-radius: 2px !default;
 // inputs
 $input-placeholder-color: #BDBDBD !default;
 $floating-label-size-ratio: 75 / 100 !default;
+$hint-size-ratio: 75 / 100 !default;
 $input-underline-color: #D2D2D2 !default;
 
 $md-input-font-size-base: 16px !default;
@@ -94,7 +95,9 @@ $md-input-font-size-large: ceil(($font-size-base * 1.25)) !default; // ~20px
 $md-input-font-size-small: ceil(($font-size-base * 0.75)) !default; // ~12px
 
 // size when static or floating with focus i.e. 16px
-$md-input-label-font-size-base: $floating-label-size-ratio * $md-input-font-size-base !default;
+//$md-input-label-font-size-base: ceil(($floating-label-size-ratio * $md-input-font-size-base)) !default;
+//$md-input-label-font-size-small:ceil(( $floating-label-size-ratio * $md-input-font-size-small)) !default;
+//$md-input-label-font-size-large: ceil(($floating-label-size-ratio * $md-input-font-size-large)) !default;
 
 //** Unit-less `line-height` for use in components like buttons.
 $md-input-line-height-base:        1.428571429 !default; // 20/14
@@ -105,7 +108,7 @@ $md-input-line-height-computed:    floor(($md-input-font-size-base * $md-input-l
 $md-input-padding-base-vertical:     8px !default; // was 6.
 $md-input-padding-base-horizontal:   0px !default; // was 12.
 
-$md-input-padding-large-vertical:    8px !default; // 10
+$md-input-padding-large-vertical:    10px !default; // 10
 $md-input-padding-large-horizontal:  0px !default; // 16
 
 $md-input-padding-small-vertical:    4px !default; // 5
