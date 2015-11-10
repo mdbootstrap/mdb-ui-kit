@@ -5257,14 +5257,96 @@ fieldset[disabled] .form-control {
 .form-group.is-focused .hint {
   display: block;
 }
+.form-group.is-focused .form-control,
+.form-group-default.is-focused .form-control {
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-black.is-focused .form-control {
+  background-image: linear-gradient(#000000, #000000), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-white.is-focused .form-control {
+  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-inverse.is-focused .form-control {
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-primary.is-focused .form-control {
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-success.is-focused .form-control {
+  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-info.is-focused .form-control {
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-warning.is-focused .form-control {
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-danger.is-focused .form-control {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-red.is-focused .form-control {
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-pink.is-focused .form-control {
+  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-purple.is-focused .form-control {
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-deep-purple.is-focused .form-control {
+  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-indigo.is-focused .form-control {
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-blue.is-focused .form-control {
+  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-light-blue.is-focused .form-control {
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-cyan.is-focused .form-control {
+  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-teal.is-focused .form-control {
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-green.is-focused .form-control {
+  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-light-green.is-focused .form-control {
+  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-lime.is-focused .form-control {
+  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-yellow.is-focused .form-control {
+  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-amber.is-focused .form-control {
+  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-orange.is-focused .form-control {
+  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-deep-orange.is-focused .form-control {
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-brown.is-focused .form-control {
+  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-grey.is-focused .form-control {
+  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.form-group-material-blue-grey.is-focused .form-control {
+  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
+}
 .form-group.has-warning .form-control {
   box-shadow: none;
 }
-.form-group.has-warning .material-input:focus,
-.form-group.has-warning .form-control:focus,
 .form-group.has-warning.is-focused .form-control {
   background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
-  box-shadow: none;
 }
 .form-group.has-warning label.control-label,
 .form-group.has-warning .help-block {
@@ -5273,11 +5355,8 @@ fieldset[disabled] .form-control {
 .form-group.has-error .form-control {
   box-shadow: none;
 }
-.form-group.has-error .material-input:focus,
-.form-group.has-error .form-control:focus,
 .form-group.has-error.is-focused .form-control {
   background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
-  box-shadow: none;
 }
 .form-group.has-error label.control-label,
 .form-group.has-error .help-block {
@@ -5286,11 +5365,8 @@ fieldset[disabled] .form-control {
 .form-group.has-success .form-control {
   box-shadow: none;
 }
-.form-group.has-success .material-input:focus,
-.form-group.has-success .form-control:focus,
 .form-group.has-success.is-focused .form-control {
   background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
-  box-shadow: none;
 }
 .form-group.has-success label.control-label,
 .form-group.has-success .help-block {
@@ -5299,11 +5375,8 @@ fieldset[disabled] .form-control {
 .form-group.has-info .form-control {
   box-shadow: none;
 }
-.form-group.has-info .material-input:focus,
-.form-group.has-info .form-control:focus,
 .form-group.has-info.is-focused .form-control {
   background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
-  box-shadow: none;
 }
 .form-group.has-info label.control-label,
 .form-group.has-info .help-block {
@@ -5321,90 +5394,18 @@ fieldset[disabled] .form-control {
 .form-group select {
   appearance: none;
 }
-.form-group .form-control:focus,
-.form-group-default .form-control:focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
+select.form-control {
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
 }
-.form-group-black .form-control:focus {
-  background-image: linear-gradient(#000000, #000000), linear-gradient(#d2d2d2, #d2d2d2);
+.form-group.is-focused select.form-control {
+  box-shadow: none;
+  border-color: #757575;
 }
-.form-group-white .form-control:focus {
-  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-inverse .form-control:focus {
-  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-primary .form-control:focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-success .form-control:focus {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-info .form-control:focus {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-warning .form-control:focus {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-danger .form-control:focus {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-red .form-control:focus {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-pink .form-control:focus {
-  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-purple .form-control:focus {
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-purple .form-control:focus {
-  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-indigo .form-control:focus {
-  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue .form-control:focus {
-  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-blue .form-control:focus {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-cyan .form-control:focus {
-  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-teal .form-control:focus {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-green .form-control:focus {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-light-green .form-control:focus {
-  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-lime .form-control:focus {
-  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-yellow .form-control:focus {
-  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-amber .form-control:focus {
-  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-orange .form-control:focus {
-  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-deep-orange .form-control:focus {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-brown .form-control:focus {
-  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-grey .form-control:focus {
-  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
-}
-.form-group-material-blue-grey .form-control:focus {
-  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
+select.form-control[multiple],
+.form-group.is-focused select.form-control[multiple] {
+  height: 85px;
 }
 label.control-label.floating-label {
   font-size: 16px;
@@ -5417,8 +5418,8 @@ label.control-label.floating-label {
 .form-group.is-focused label.control-label.floating-label label.control-label {
   font-size: 12px;
 }
-.form-control:focus ~ label.control-label.floating-label,
-.form-control:not(.empty) ~ label.control-label.floating-label {
+.form-group.is-focused label.control-label.floating-label,
+.form-group:not(.is-empty) label.control-label.floating-label {
   top: -20px;
   font-size: 12px;
 }
@@ -5426,8 +5427,8 @@ label.control-label.floating-label {
   font-size: 11px;
   top: 7px;
 }
-.form-control.input-sm:focus ~ label.control-label.floating-label,
-.form-control.input-sm:not(.empty) ~ label.control-label.floating-label {
+.form-group.is-focused .form-control.input-sm ~ .form-group.is-focused label.control-label.floating-label,
+.form-group.is-empty .form-control.input-sm ~ .form-group.is-empty label.control-label.floating-label {
   top: -8.25px;
   font-size: 8.25px;
 }
@@ -5435,8 +5436,8 @@ label.control-label.floating-label {
   font-size: 18px;
   top: 7px;
 }
-.form-control.input-lg:focus ~ label.control-label.floating-label,
-.form-control.input-lg:not(.empty) ~ label.control-label.floating-label {
+.form-group.is-focused .form-control.input-lg ~ .form-group.is-focused label.control-label.floating-label,
+.form-group.is-empty .form-control.input-lg ~ .form-group.is-empty label.control-label.floating-label {
   top: -13.5px;
   font-size: 13.5px;
 }
@@ -5454,21 +5455,6 @@ label.control-label.floating-label {
 .input-group .input-group-btn .btn {
   border-radius: 4px;
   margin: 0;
-}
-select[multiple].form-control,
-select[multiple].form-control:focus,
-select[multiple].form-control.is-focused {
-  height: 85px;
-}
-select.form-control {
-  border: 0;
-  box-shadow: none;
-  border-radius: 0;
-}
-select.form-control:focus,
-select.form-control.is-focused {
-  box-shadow: none;
-  border-color: #757575;
 }
 .form-group input[type=file] {
   opacity: 0;

@@ -108,7 +108,7 @@
 
         // Set as empty if is empty (damn I must improve this...)
         if ($input.val() === null || $input.val() == "undefined" || $input.val() === "") {
-          $input.addClass("empty");
+          $formGroup.addClass("is-empty");
         }
 
         // Add at the end of the form-group
@@ -127,7 +127,7 @@
       .on("change", ".checkbox input[type=checkbox]", function() { $(this).blur(); })
       .on("keydown paste", ".form-control", function(e) {
         if(_isChar(e)) {
-          $(this).removeClass("empty");
+          $(this).parent(".form-group").removeClass("is-empty");
         }
       })
       .on("keyup change", ".form-control", function() {
@@ -136,10 +136,10 @@
         var isValid = (typeof $input[0].checkValidity === "undefined" || $input[0].checkValidity());
 
         if ($input.val() === "" && isValid) {
-          $input.addClass("empty");
+          $formGroup.addClass("is-empty");
         }
         else {
-          $input.removeClass("empty");
+          $formGroup.removeClass("is-empty");
         }
 
         // Validation events do not bubble, so they must be attached directly to the input: http://jsfiddle.net/PEpRM/1/
@@ -166,10 +166,11 @@
           value += file.name + ", ";
         });
         value = value.substring(0, value.length - 2);
+        var $formGroup = $this.parent(".form-group");
         if (value) {
-          $this.prev().removeClass("empty");
+          $formGroup.removeClass("is-empty");
         } else {
-          $this.prev().addClass("empty");
+          $formGroup.addClass("is-empty");
         }
         $this.prev().val(value);
       });
