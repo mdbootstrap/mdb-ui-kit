@@ -31,10 +31,32 @@
 
 <div class="container-fluid">
 
-  <h2>Input - Legacy</h2>
-  <!-- Exercise backwards compatibility without form-group -->
-  <input type="text" class="form-control floating-label" placeholder="Legacy floating label as placeholder attribute" data-hint="This is a hint using a legacy data-hint attribute on the input">
+  <h2>Input - static labels
+    <small>form-group sizing</small>
+  </h2>
 
+  <div class="form-group form-group-sm">
+    <label for="i1" class="control-label">Static label</label>
+    <input type="email" class="form-control" id="i1" placeholder="Placeholder text">
+
+    <p class="help-block hint">This is a hint</p>
+  </div>
+
+  <div class="form-group">
+    <label for="i2" class="control-label">Static label</label>
+    <input type="email" class="form-control" id="i2" placeholder="Placeholder text">
+
+    <p class="help-block hint">This is a hint</p>
+  </div>
+  
+  <div class="form-group form-group-lg">
+    <label for="i3" class="control-label">Static label</label>
+    <input type="email" class="form-control" id="i3" placeholder="Placeholder text">
+
+    <p class="help-block hint">This is a hint</p>
+  </div>
+  
+  
 </div>
 
 
