@@ -165,21 +165,6 @@ select.form-control {
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 
-// this is for input-sm and input-lg directly on input.  Recommended way is form-group-sm and form-group-lg instead.
-//.input-size-floating-label(@name, @size) {
-//  .form-control.@{name} ~ & {
-//    font-size: @size;
-//    top: 7px;
-//  }
-//
-//  .form-group.is-focused .form-control.@{name} ~ .form-group.is-focused &,
-//  .form-group.is-empty .form-control.@{name} ~ .form-group.is-empty & {
-//    top: @floating-label-size-ratio * -@size;
-//    font-size: @floating-label-size-ratio * @size;
-//  }
-//}
-
-// Do not nest label.floating-label inside .form-group - it messes with ~ selector
 label.control-label.floating-label {
   @label-as-placeholder-top: -1 * @md-input-padding-base-vertical;
 
@@ -202,9 +187,6 @@ label.control-label.floating-label {
     top: @label-as-placeholder-top - (@md-input-label-font-size-base + @md-input-padding-base-vertical); // FIXME this needs to be calculated and moved up to .is-focused !!!
     font-size: @md-input-label-font-size-base;
   }
-
-  //.input-size-floating-label(input-sm, @md-input-font-size-small);
-  //.input-size-floating-label(input-lg, @md-input-font-size-large);
 }
 
 .input-group {
