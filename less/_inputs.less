@@ -9,7 +9,7 @@
     }
     .material-input:focus,
     .form-control:focus,
-    &.focus .form-control {
+    &.is-focused .form-control {
       background-image: linear-gradient(@color, @color), linear-gradient(@input-underline-color, @input-underline-color);
       box-shadow: none;
     }
@@ -28,15 +28,20 @@
   background-position: center bottom, center calc(~"100% - 1px");
   background-color: rgba(0, 0, 0, 0);
   transition: background 0s ease-out;
-  &::-webkit-input-placeholder {
-    color: @input-placeholder-color;
-    font-size: @md-input-font-size-base;
+
+  .form-group.is-focused & {
+    outline: none;
+    background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
+    background-size: 100% 2px, 100% 1px;
+    box-shadow: none;
+    transition-duration: 0.3s;
+
+    .material-input:after {
+      background-color: @input-default;
+    }
   }
-  &::-moz-placeholder {
-    color: @input-placeholder-color;
-    font-size: @md-input-font-size-base;
-  }
-  &:-ms-input-placeholder {
+
+  .material-placeholder() {
     color: @input-placeholder-color;
     font-size: @md-input-font-size-base;
   }
@@ -48,8 +53,7 @@
     }
 
     &,
-    &:focus,
-    &.focus {
+    .form-group.is-focused & {
       //padding: 0;
       float: none;
       border: 0;
@@ -68,34 +72,33 @@
     //background-color: transparent;
     background-color: rgba(0, 0, 0, 0);
   }
-
-  &:focus,
-  &.focus {
-    outline: none;
-    background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
-    background-size: 100% 2px, 100% 1px;
-    box-shadow: none;
-    transition-duration: 0.3s;
-  }
-
-  &:focus ~ .material-input:after,
-  &.focus ~ .material-input:after {
-    background-color: @input-default;
-  }
-
-  &:invalid {
-    background-image: linear-gradient(@input-danger, @input-danger), linear-gradient(@input-underline-color, @input-underline-color);
-  }
 }
 
 .form-group {
   position: relative;
 
+  // Labels
   label.control-label {
-    //color: @input-placeholder-color;
     font-size: @md-input-label-font-size-base; // 12px same as focused size of floating
     font-weight: normal;
-    //padding-left: 0px;
+    margin: 16px 0 0 0; // std and lg
+  }
+  .variations(~" label.control-label", color, @input-placeholder-color);
+  .variations(~".is-focused label.control-label", color, @input-default);
+
+  // sm
+  &.form-group-sm {
+    label.control-label {
+      font-size: @floating-label-size-ratio * @md-input-font-size-small; // same as focused size of floating
+      margin: 12px 0 0 0; // sm only
+    }
+  }
+
+  // lg
+  &.form-group-lg {
+    label.control-label {
+      font-size: @floating-label-size-ratio * @md-input-font-size-large; // same as focused size of floating
+    }
   }
 
   // Hints
@@ -105,40 +108,16 @@
     display: none;
   }
 
-  &.focus {
+  &.is-focused {
     .hint {
       display: block;
     }
   }
 
-  //.variations(~" label.control-label", color, @lightbg-text);
-  .variations(~" label.control-label", color, @input-placeholder-color);
-  .variations(~".focus label.control-label", color, @input-default);
-
   .form-group-validation-state(has-warning, @input-warning);
   .form-group-validation-state(has-error, @input-danger);
   .form-group-validation-state(has-success, @input-success);
   .form-group-validation-state(has-info, @input-info);
-
-  // sm
-  &.form-group-sm {
-    label {
-      font-size: @floating-label-size-ratio * @md-input-font-size-small; // same as focused size of floating
-    }
-    //.form-control {
-    //  padding-left: 0px;
-    //}
-  }
-
-  // lg
-  &.form-group-lg {
-    label {
-      font-size: @floating-label-size-ratio * @md-input-font-size-large; // same as focused size of floating
-    }
-    //.form-control {
-    //  padding-left: 0px;
-    //}
-  }
 
   textarea {
     resize: none;
@@ -184,10 +163,10 @@ label.control-label.floating-label {
   position: absolute;
   pointer-events: none;
   left: 0px;
-  top: 5px;
+  top: -1 * @md-input-padding-base-vertical; // place the floating label to look like a placeholder with input padding
   transition: 0.3s ease all;
 
-  .form-group.focus & {
+  .form-group.is-focused & {
     label.control-label {
       font-size: @md-input-label-font-size-base; // 12px
     }
@@ -196,18 +175,12 @@ label.control-label.floating-label {
   // sizing
   .form-control:focus ~ &,
   .form-control:not(.empty) ~ & {
-    top: -1 * @md-input-label-font-size-base;
+    top: -1 * (@md-input-label-font-size-base + @md-input-padding-base-vertical); // FIXME this needs to be calculated and moved up to .is-focused !!!
     font-size: @md-input-label-font-size-base;
   }
 
   .input-floating-label-size(input-sm, @md-input-font-size-small);
   .input-floating-label-size(input-lg, @md-input-font-size-large);
-
-
-  .form-control:not(.empty):invalid ~ &,
-  .form-control.focus:invalid ~ & {
-    color: @input-danger;
-  }
 }
 
 .input-group {
@@ -229,7 +202,7 @@ label.control-label.floating-label {
 }
 
 select[multiple].form-control {
-  &, &:focus, &.focus {
+  &, &:focus, &.is-focused {
     height: 85px;
   }
 }
@@ -238,7 +211,7 @@ select.form-control {
   border: 0;
   box-shadow: none;
   border-radius: 0;
-  &:focus, &.focus {
+  &:focus, &.is-focused {
     box-shadow: none;
     border-color: #757575;
   }
@@ -261,11 +234,13 @@ select.form-control {
 fieldset[disabled] .form-control:disabled,
 .form-group .form-control:disabled,
 .form-control:disabled,
+
 fieldset[disabled] .form-control:focus:disabled,
 .form-group .form-control:focus:disabled,
 .form-control:focus:disabled,
-fieldset[disabled] .form-control.focus:disabled,
-.form-group .form-control.focus:disabled,
-.form-control.focus:disabled {
+
+.form-group.is-focused fieldset[disabled] .form-control:disabled,
+.form-group.is-focused .form-group .form-control:disabled,
+.form-group.is-focused .form-control:disabled {
   border: 0;
 }

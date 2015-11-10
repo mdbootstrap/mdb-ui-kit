@@ -1,3 +1,10 @@
+// Placeholder text
+.material-placeholder(@func) {
+  &::-moz-placeholder { @func(); } // Firefox
+  &:-ms-input-placeholder { @func(); } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { @func(); } // Safari and Chrome
+}
+
 // usage: .variations(~" .check", color, transparent);
 .variations(@extra, @property, @default) {
   .generic-variations(@extra, @default, {
