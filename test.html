@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Material Design for Bootstrap</title>
+  <title>TEST Material Design for Bootstrap</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -31,32 +31,58 @@
 
 <div class="container-fluid">
 
-  <h2>Input - static labels
-    <small>form-group sizing</small>
-  </h2>
+  <div class="well bs-component">
+    <form class="form-horizontal">
+      <fieldset>
+        <legend>Legend</legend>
 
-  <div class="form-group form-group-sm">
-    <label for="i1" class="control-label">Static label</label>
-    <input type="email" class="form-control" id="i1" placeholder="Placeholder text">
+  <!--<div class="form-group">-->
+    <!--<label for="inputFile" class="col-lg-2 control-label">File</label>-->
 
-    <p class="help-block hint">This is a hint</p>
-  </div>
+    <!--<div class="col-lg-10">-->
+      <!--<input type="text" readonly class="form-control floating-label" placeholder="Browse...">-->
+      <!--<input type="file" id="inputFile" multiple>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <div class="form-group">
-    <label for="i2" class="control-label">Static label</label>
-    <input type="email" class="form-control" id="i2" placeholder="Placeholder text">
 
-    <p class="help-block hint">This is a hint</p>
-  </div>
-  
-  <div class="form-group form-group-lg">
-    <label for="i3" class="control-label">Static label</label>
-    <input type="email" class="form-control" id="i3" placeholder="Placeholder text">
+        <div class="form-group">
+          <label class="control-label floating-label" for="addon2">Input addons with floating label</label>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" id="addon2" class="form-control">
+              <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button">Button</button>
+              </span>
+          </div>
+        </div>
 
-    <p class="help-block hint">This is a hint</p>
-  </div>
-  
-  
+        <!--<h2>File inputs</h2>-->
+
+        <!--<div class="form-group">-->
+          <!--<label class="control-label floating-label" for="faddon1">Input group with file</label>-->
+          <!--<div class="input-group">-->
+            <!--<span class="input-group-addon"><i class="mdi-editor-attach-file"></i></span>-->
+            <!--<input type="text" class="form-control" id="faddon1">-->
+          <!--</div>-->
+        <!--</div>-->
+        
+        
+        
+        <!--<div class="form-group">-->
+          <!--<label for="f1" class="control-label floating-label">Browse...(floating label)</label>-->
+          <!--<input type="file" id="f1" class="form-control">-->
+          <!--<p class="help-block">Example block-level help text here.</p>-->
+        <!--</div>-->
+
+        <!--<div class="form-group">-->
+          <!--<label for="f2" class="form-control">Browse...(static label)</label>-->
+          <!--<input type="file" id="f2" class="form-control">-->
+          <!--<p class="help-block">Example block-level help text here.</p>-->
+        <!--</div>-->
+        </fieldset>
+      </form>
+    </div>
 </div>
 
 

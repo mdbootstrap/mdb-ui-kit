@@ -221,6 +221,14 @@ select.form-control {
   }
 }
 
+.input-group-button-variation(@vertical-padding) {
+  .input-group-btn {
+    .btn {
+      margin: 0 0 @vertical-padding 0;
+    }
+  }
+}
+
 .input-group {
   .form-group {
     .form-control {
@@ -228,28 +236,42 @@ select.form-control {
     }
     margin-right: 5px;
     margin-left: 5px;
+
+    // sm margin
+    &.form-group-sm {
+      .input-group-button-variation(@md-input-padding-small-vertical);
+    }
+
+    // lg margin
+    &.form-group-lg {
+      .input-group-button-variation(@md-input-padding-large-vertical);
+    }
   }
+
+  // default margin
+  .input-group-button-variation(@md-input-padding-base-vertical);
+
+  .input-group-btn {
+    padding: 0 12px; // match addon spacing
+  }
+
   .input-group-addon {
     border: 0;
     background: transparent;
-  }
-  .input-group-btn .btn {
-    border-radius: 4px;
-    margin: 0;
   }
 }
 
 // Input files (kinda hack)
 .form-group input[type=file] {
   opacity: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
+  //position: absolute;
+  //top: 0;
+  //right: 0;
+  //bottom: 0;
+  //left: 0;
+  //width: 100%;
+  //height: 100%;
+  //z-index: 100;
 }
 
 // Ugly override of Bootstrap border
