@@ -82,7 +82,7 @@
 
         // Legacy - Add hint label if using the old shorthand data-hint attribute on the input
         if ($input.attr("data-hint")) {
-          $input.after("<p class='help-block hint'>" + $input.attr("data-hint") + "</p>");
+          $input.after("<p class='help-block'>" + $input.attr("data-hint") + "</p>");
           $input.removeAttr("data-hint");
         }
 
