@@ -73,8 +73,8 @@
   @label-as-placeholder-top: -1 * (@vertical-padding + @label-as-placeholder-shim);
   //@label-as-placeholder-top: -1 * (@line-height * @static-font-size); way too much on anything but sm
 
-  @hint-font-size: ceil((@hint-size-ratio * @placeholder-font-size));
-  @hint-line-height: (@hint-size-ratio * @line-height);
+  @help-block-font-size: ceil((@help-block-size-ratio * @placeholder-font-size));
+  @help-block-line-height: (@help-block-size-ratio * @line-height);
 
   .form-control {
     .material-placeholder({
@@ -85,9 +85,9 @@
     //border: 1px solid;
   }
 
-  .hint {
-    margin-top: 0px; // allow the input margin to set-off the top of the hint
-    font-size: @hint-font-size;
+  .help-block {
+    margin-top: 0px; // allow the input margin to set-off the top of the help-block
+    font-size: @help-block-font-size;
 
     //border: 1px solid;
   }
@@ -164,13 +164,13 @@
   }
 
   // Hints
-  .hint {
+  .help-block {
     position: absolute;
     display: none;
   }
 
   &.is-focused {
-    .hint {
+    .help-block {
       display: block;
     }
   }
