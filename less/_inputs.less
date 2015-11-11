@@ -66,27 +66,42 @@
   }
 }
 
-.form-group-size-variant(@placeholder-font-size, @vertical-padding){
-  @label-as-placeholder-top: -1 * @vertical-padding;
+.form-group-size-variant(@placeholder-font-size, @vertical-padding, @line-height, @label-as-placeholder-shim){
   @static-font-size: ceil((@floating-label-size-ratio * @placeholder-font-size));
+  @static-line-height: (@floating-label-size-ratio * @line-height);
+
+  @label-as-placeholder-top: -1 * (@vertical-padding + @label-as-placeholder-shim);
+  //@label-as-placeholder-top: -1 * (@line-height * @static-font-size); way too much on anything but sm
+
   @hint-font-size: ceil((@hint-size-ratio * @placeholder-font-size));
+  @hint-line-height: (@hint-size-ratio * @line-height);
 
   .form-control {
     .material-placeholder({
       font-size: @placeholder-font-size;
     });
+    margin-bottom: @vertical-padding;
+
+    //border: 1px solid;
   }
 
   .hint {
+    margin-top: 0px; // allow the input margin to set-off the top of the hint
     font-size: @hint-font-size;
+
+    //border: 1px solid;
   }
 
   label.control-label { // static label
     font-size: @static-font-size; // static (smaller of the two)
+    line-height: @static-line-height;
     &.floating-label {
       top: @label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
       font-size: @placeholder-font-size; // as placeholder (full size)
+      line-height: @line-height;
     }
+
+    //border: 1px solid;
   }
 
   // sizing of focused/open/labels
@@ -95,6 +110,7 @@
     label.control-label.floating-label {
       top: @label-as-placeholder-top - (@placeholder-font-size + @vertical-padding);
       font-size: @static-font-size;
+      line-height: @static-line-height;
     }
   }
 }
@@ -135,16 +151,16 @@
   .variations(~".is-focused label.control-label", color, @input-default); // focused label color variations
 
   // default floating size/location
-  .form-group-size-variant(@md-input-font-size-base, @md-input-padding-base-vertical);
+  .form-group-size-variant(@md-input-font-size-base, @md-input-padding-base-vertical, @md-input-line-height-base, @md-label-as-placeholder-shim-base);
 
   // sm floating size/location
   &.form-group-sm {
-    .form-group-size-variant(@md-input-font-size-small, @md-input-padding-small-vertical);
+    .form-group-size-variant(@md-input-font-size-small, @md-input-padding-small-vertical, @md-input-line-height-small, @md-label-as-placeholder-shim-small);
   }
 
   // lg floating size/location
   &.form-group-lg {
-    .form-group-size-variant(@md-input-font-size-large, @md-input-padding-large-vertical);
+    .form-group-size-variant(@md-input-font-size-large, @md-input-padding-large-vertical, @md-input-line-height-large, @md-label-as-placeholder-shim-large);
   }
 
   // Hints
