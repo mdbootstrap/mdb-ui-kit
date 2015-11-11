@@ -72,12 +72,11 @@
       .each( function() {
         var $input = $(this);
 
-        // Now using/requiring form-group standard markup (instead of the old div.form-control-wrapper)
-        var $formGroup = $input.parent(".form-group");
+        // Requires form-group standard markup (will add it if necessary)
+        var $formGroup = $input.closest(".form-group"); // note that form-group may be grandparent in the case of an input-group
         if($formGroup.length === 0){
-          //console.debug("Generating form-group for input", $this);
           $input.wrap("<div class='form-group'></div>");
-          $formGroup = $input.parent(".form-group"); // find node after attached (otherwise additional attachments don't work)
+          $formGroup = $input.closest(".form-group"); // find node after attached (otherwise additional attachments don't work)
         }
 
         // Legacy - Add hint label if using the old shorthand data-hint attribute on the input
@@ -115,6 +114,7 @@
           //  See: http://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
           var $label = $formGroup.find("label.floating-label");
           if($label.length > 0){
+            console.debug("FIXME moving label"); // FIXME not sure we want to do this for input-groups
             $label.detach();
             $input.after($label);
           }
@@ -141,12 +141,12 @@
       .on("change", ".checkbox input[type=checkbox]", function() { $(this).blur(); })
       .on("keydown paste", ".form-control", function(e) {
         if(_isChar(e)) {
-          $(this).parent(".form-group").removeClass("is-empty");
+          $(this).closest(".form-group").removeClass("is-empty");
         }
       })
       .on("keyup change", ".form-control", function() {
         var $input = $(this);
-        var $formGroup = $input.parent(".form-group");
+        var $formGroup = $input.closest(".form-group");
         var isValid = (typeof $input[0].checkValidity === "undefined" || $input[0].checkValidity());
 
         if ($input.val() === "" && isValid) {
@@ -170,10 +170,10 @@
         }
       })
       .on("focus", ".form-control, .form-group.fileinput", function() {
-        $(this).parent().addClass("is-focused"); // add class to form-group
+        $(this).closest(".form-group").addClass("is-focused"); // add class to form-group
       })
       .on("blur", ".form-control, .form-group.fileinput", function() {
-        $(this).parent().removeClass("is-focused"); // remove class from form-group
+        $(this).closest(".form-group").removeClass("is-focused"); // remove class from form-group
       })
       .on("change", ".form-group.fileinput [type=file]", function() {
         var $this = $(this);
@@ -182,7 +182,7 @@
           value += file.name + ", ";
         });
         value = value.substring(0, value.length - 2);
-        var $formGroup = $this.parent(".form-group");
+        var $formGroup = $this.closest(".form-group");
         if (value) {
           $formGroup.removeClass("is-empty");
         } else {
@@ -215,7 +215,6 @@
       var focused;
       $(document)
       .on("focus", "input", function() {
-        console.log($(this).parent());
         var $inputs = $(this).parents("form").find("input").not("[type=file]");
         focused = setInterval(function() {
           $inputs.each(function() {
