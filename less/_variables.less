@@ -101,22 +101,24 @@
 @md-input-line-height-base:        1.428571429; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 @md-input-line-height-computed:    floor((@md-input-font-size-base * @md-input-line-height-base)); // ~20px
+@md-input-line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
+@md-input-line-height-small:         1.5;
 
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 @md-input-padding-base-vertical:     8px; // was 6.
 @md-input-padding-base-horizontal:   0px; // was 12.
+@md-label-as-placeholder-shim-base:  0px; // manual adjustment of label top when positioned as placeholder
 
 @md-input-padding-large-vertical:    10px; // 10
-@md-input-padding-large-horizontal:  0px; // 16
+@md-input-padding-large-horizontal:  0px;  // 16
+@md-label-as-placeholder-shim-large: -4px; // manual adjustment of label top when positioned as placeholder
 
 @md-input-padding-small-vertical:    4px; // 5
 @md-input-padding-small-horizontal:  0px; // 10
+@md-label-as-placeholder-shim-small: 8px; // manual adjustment of label top when positioned as placeholder
 
 @md-input-padding-xs-vertical:       2px; // 1
 @md-input-padding-xs-horizontal:     0px; // 5
-
-@md-input-line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
-@md-input-line-height-small:         1.5;
 
 @md-input-border-radius-base:        4px;
 @md-input-border-radius-large:       6px;
