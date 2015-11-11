@@ -229,28 +229,29 @@ select.form-control {
   }
 }
 
-.input-group {
-  .form-group {
-    .form-control {
-      float: none;
-    }
-    margin-right: 5px;
-    margin-left: 5px;
+// ----------------
+// input group/addon related styles
 
-    // sm margin
-    &.form-group-sm {
-      .input-group-button-variation(@md-input-padding-small-vertical);
-    }
+// default margin
+.input-group-button-variation(@md-input-padding-base-vertical);
 
-    // lg margin
-    &.form-group-lg {
-      .input-group-button-variation(@md-input-padding-large-vertical);
-    }
+.form-group {
+  //.form-control {
+  //  float: none;
+  //}
+
+  // sm margin
+  &.form-group-sm {
+    .input-group-button-variation(@md-input-padding-small-vertical);
   }
 
-  // default margin
-  .input-group-button-variation(@md-input-padding-base-vertical);
+  // lg margin
+  &.form-group-lg {
+    .input-group-button-variation(@md-input-padding-large-vertical);
+  }
+}
 
+.input-group {  // may be in or outside of form-group
   .input-group-btn {
     padding: 0 12px; // match addon spacing
   }
