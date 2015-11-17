@@ -269,9 +269,9 @@
     width: 80%;
 }
 
-#input .form-group {
-    margin: 30px 0;
-}
+/*#input .form-group {*/
+    /*margin: 30px 0;*/
+/*}*/
 
 #slider .sample1, #slider .sample2 {
     padding: 20px 0;

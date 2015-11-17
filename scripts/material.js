@@ -85,6 +85,12 @@
           $input.removeAttr("data-hint");
         }
 
+        // Always add a help block for uniform vertical spacing using visibility:hidden/visible.
+        //var $helpBlock = $formGroup.find(".help-block");
+        //if($helpBlock.length === 0) {
+        //  $input.after("<p class='help-block'>&nbsp;</p>");
+        //}
+
         // Legacy - Change input-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
         var legacySizes = {
           "input-lg": "form-group-lg",
@@ -129,7 +135,7 @@
           $formGroup.addClass("is-empty");
         }
 
-        // Add at the end of the form-group
+          // Add at the end of the form-group
         $formGroup.append("<span class='material-input'></span>");
 
         // Support for file input

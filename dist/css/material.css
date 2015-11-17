@@ -3430,29 +3430,36 @@ body .jumbotron-material-blue-grey,
 .btn-material-blue-grey.btn-flat:hover:not(.btn-link) {
   background-color: rgba(96, 125, 139, 0.2);
 }
-.btn.btn-flat {
+.btn.btn-flat,
+.input-group-btn .btn.btn-flat {
   background: none;
   box-shadow: none;
   font-weight: 500;
 }
-.btn.btn-flat:disabled {
+.btn.btn-flat:disabled,
+.input-group-btn .btn.btn-flat:disabled {
   color: #a8a8a8 !important;
 }
-.btn.btn-sm {
+.btn.btn-sm,
+.input-group-btn .btn.btn-sm {
   padding: 5px 20px;
 }
-.btn.btn-xs {
+.btn.btn-xs,
+.input-group-btn .btn.btn-xs {
   padding: 4px 15px;
   font-size: 10px;
 }
-.btn.btn-raised {
+.btn.btn-raised,
+.input-group-btn .btn.btn-raised {
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.btn.btn-raised:active:not(.btn-link) {
+.btn.btn-raised:active:not(.btn-link),
+.input-group-btn .btn.btn-raised:active:not(.btn-link) {
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
-.btn.btn-fab {
+.btn.btn-fab,
+.input-group-btn .btn.btn-fab {
   margin: 0;
   padding: 15px;
   font-size: 26px;
@@ -3460,166 +3467,260 @@ body .jumbotron-material-blue-grey,
   height: 56px;
 }
 .btn.btn-fab,
+.input-group-btn .btn.btn-fab,
 .btn.btn-fab:hover,
+.input-group-btn .btn.btn-fab:hover,
 .btn.btn-fab:active,
+.input-group-btn .btn.btn-fab:active,
 .btn.btn-fab-default,
+.input-group-btn .btn.btn-fab-default,
 .btn.btn-fab:hover-default,
-.btn.btn-fab:active-default {
+.input-group-btn .btn.btn-fab:hover-default,
+.btn.btn-fab:active-default,
+.input-group-btn .btn.btn-fab:active-default {
   background-color: transparent;
 }
 .btn.btn-fab-black,
+.input-group-btn .btn.btn-fab-black,
 .btn.btn-fab:hover-black,
-.btn.btn-fab:active-black {
+.input-group-btn .btn.btn-fab:hover-black,
+.btn.btn-fab:active-black,
+.input-group-btn .btn.btn-fab:active-black {
   background-color: #000000;
 }
 .btn.btn-fab-white,
+.input-group-btn .btn.btn-fab-white,
 .btn.btn-fab:hover-white,
-.btn.btn-fab:active-white {
+.input-group-btn .btn.btn-fab:hover-white,
+.btn.btn-fab:active-white,
+.input-group-btn .btn.btn-fab:active-white {
   background-color: #ffffff;
 }
 .btn.btn-fab-inverse,
+.input-group-btn .btn.btn-fab-inverse,
 .btn.btn-fab:hover-inverse,
-.btn.btn-fab:active-inverse {
+.input-group-btn .btn.btn-fab:hover-inverse,
+.btn.btn-fab:active-inverse,
+.input-group-btn .btn.btn-fab:active-inverse {
   background-color: #3f51b5;
 }
 .btn.btn-fab-primary,
+.input-group-btn .btn.btn-fab-primary,
 .btn.btn-fab:hover-primary,
-.btn.btn-fab:active-primary {
+.input-group-btn .btn.btn-fab:hover-primary,
+.btn.btn-fab:active-primary,
+.input-group-btn .btn.btn-fab:active-primary {
   background-color: #009688;
 }
 .btn.btn-fab-success,
+.input-group-btn .btn.btn-fab-success,
 .btn.btn-fab:hover-success,
-.btn.btn-fab:active-success {
+.input-group-btn .btn.btn-fab:hover-success,
+.btn.btn-fab:active-success,
+.input-group-btn .btn.btn-fab:active-success {
   background-color: #4caf50;
 }
 .btn.btn-fab-info,
+.input-group-btn .btn.btn-fab-info,
 .btn.btn-fab:hover-info,
-.btn.btn-fab:active-info {
+.input-group-btn .btn.btn-fab:hover-info,
+.btn.btn-fab:active-info,
+.input-group-btn .btn.btn-fab:active-info {
   background-color: #03a9f4;
 }
 .btn.btn-fab-warning,
+.input-group-btn .btn.btn-fab-warning,
 .btn.btn-fab:hover-warning,
-.btn.btn-fab:active-warning {
+.input-group-btn .btn.btn-fab:hover-warning,
+.btn.btn-fab:active-warning,
+.input-group-btn .btn.btn-fab:active-warning {
   background-color: #ff5722;
 }
 .btn.btn-fab-danger,
+.input-group-btn .btn.btn-fab-danger,
 .btn.btn-fab:hover-danger,
-.btn.btn-fab:active-danger {
+.input-group-btn .btn.btn-fab:hover-danger,
+.btn.btn-fab:active-danger,
+.input-group-btn .btn.btn-fab:active-danger {
   background-color: #f44336;
 }
 .btn.btn-fab-material-red,
+.input-group-btn .btn.btn-fab-material-red,
 .btn.btn-fab:hover-material-red,
-.btn.btn-fab:active-material-red {
+.input-group-btn .btn.btn-fab:hover-material-red,
+.btn.btn-fab:active-material-red,
+.input-group-btn .btn.btn-fab:active-material-red {
   background-color: #f44336;
 }
 .btn.btn-fab-material-pink,
+.input-group-btn .btn.btn-fab-material-pink,
 .btn.btn-fab:hover-material-pink,
-.btn.btn-fab:active-material-pink {
+.input-group-btn .btn.btn-fab:hover-material-pink,
+.btn.btn-fab:active-material-pink,
+.input-group-btn .btn.btn-fab:active-material-pink {
   background-color: #e91e63;
 }
 .btn.btn-fab-material-purple,
+.input-group-btn .btn.btn-fab-material-purple,
 .btn.btn-fab:hover-material-purple,
-.btn.btn-fab:active-material-purple {
+.input-group-btn .btn.btn-fab:hover-material-purple,
+.btn.btn-fab:active-material-purple,
+.input-group-btn .btn.btn-fab:active-material-purple {
   background-color: #9c27b0;
 }
 .btn.btn-fab-material-deep-purple,
+.input-group-btn .btn.btn-fab-material-deep-purple,
 .btn.btn-fab:hover-material-deep-purple,
-.btn.btn-fab:active-material-deep-purple {
+.input-group-btn .btn.btn-fab:hover-material-deep-purple,
+.btn.btn-fab:active-material-deep-purple,
+.input-group-btn .btn.btn-fab:active-material-deep-purple {
   background-color: #673ab7;
 }
 .btn.btn-fab-material-indigo,
+.input-group-btn .btn.btn-fab-material-indigo,
 .btn.btn-fab:hover-material-indigo,
-.btn.btn-fab:active-material-indigo {
+.input-group-btn .btn.btn-fab:hover-material-indigo,
+.btn.btn-fab:active-material-indigo,
+.input-group-btn .btn.btn-fab:active-material-indigo {
   background-color: #3f51b5;
 }
 .btn.btn-fab-material-blue,
+.input-group-btn .btn.btn-fab-material-blue,
 .btn.btn-fab:hover-material-blue,
-.btn.btn-fab:active-material-blue {
+.input-group-btn .btn.btn-fab:hover-material-blue,
+.btn.btn-fab:active-material-blue,
+.input-group-btn .btn.btn-fab:active-material-blue {
   background-color: #2196f3;
 }
 .btn.btn-fab-material-light-blue,
+.input-group-btn .btn.btn-fab-material-light-blue,
 .btn.btn-fab:hover-material-light-blue,
-.btn.btn-fab:active-material-light-blue {
+.input-group-btn .btn.btn-fab:hover-material-light-blue,
+.btn.btn-fab:active-material-light-blue,
+.input-group-btn .btn.btn-fab:active-material-light-blue {
   background-color: #03a9f4;
 }
 .btn.btn-fab-material-cyan,
+.input-group-btn .btn.btn-fab-material-cyan,
 .btn.btn-fab:hover-material-cyan,
-.btn.btn-fab:active-material-cyan {
+.input-group-btn .btn.btn-fab:hover-material-cyan,
+.btn.btn-fab:active-material-cyan,
+.input-group-btn .btn.btn-fab:active-material-cyan {
   background-color: #00bcd4;
 }
 .btn.btn-fab-material-teal,
+.input-group-btn .btn.btn-fab-material-teal,
 .btn.btn-fab:hover-material-teal,
-.btn.btn-fab:active-material-teal {
+.input-group-btn .btn.btn-fab:hover-material-teal,
+.btn.btn-fab:active-material-teal,
+.input-group-btn .btn.btn-fab:active-material-teal {
   background-color: #009688;
 }
 .btn.btn-fab-material-green,
+.input-group-btn .btn.btn-fab-material-green,
 .btn.btn-fab:hover-material-green,
-.btn.btn-fab:active-material-green {
+.input-group-btn .btn.btn-fab:hover-material-green,
+.btn.btn-fab:active-material-green,
+.input-group-btn .btn.btn-fab:active-material-green {
   background-color: #4caf50;
 }
 .btn.btn-fab-material-light-green,
+.input-group-btn .btn.btn-fab-material-light-green,
 .btn.btn-fab:hover-material-light-green,
-.btn.btn-fab:active-material-light-green {
+.input-group-btn .btn.btn-fab:hover-material-light-green,
+.btn.btn-fab:active-material-light-green,
+.input-group-btn .btn.btn-fab:active-material-light-green {
   background-color: #8bc34a;
 }
 .btn.btn-fab-material-lime,
+.input-group-btn .btn.btn-fab-material-lime,
 .btn.btn-fab:hover-material-lime,
-.btn.btn-fab:active-material-lime {
+.input-group-btn .btn.btn-fab:hover-material-lime,
+.btn.btn-fab:active-material-lime,
+.input-group-btn .btn.btn-fab:active-material-lime {
   background-color: #cddc39;
 }
 .btn.btn-fab-material-yellow,
+.input-group-btn .btn.btn-fab-material-yellow,
 .btn.btn-fab:hover-material-yellow,
-.btn.btn-fab:active-material-yellow {
+.input-group-btn .btn.btn-fab:hover-material-yellow,
+.btn.btn-fab:active-material-yellow,
+.input-group-btn .btn.btn-fab:active-material-yellow {
   background-color: #ffeb3b;
 }
 .btn.btn-fab-material-amber,
+.input-group-btn .btn.btn-fab-material-amber,
 .btn.btn-fab:hover-material-amber,
-.btn.btn-fab:active-material-amber {
+.input-group-btn .btn.btn-fab:hover-material-amber,
+.btn.btn-fab:active-material-amber,
+.input-group-btn .btn.btn-fab:active-material-amber {
   background-color: #ffc107;
 }
 .btn.btn-fab-material-orange,
+.input-group-btn .btn.btn-fab-material-orange,
 .btn.btn-fab:hover-material-orange,
-.btn.btn-fab:active-material-orange {
+.input-group-btn .btn.btn-fab:hover-material-orange,
+.btn.btn-fab:active-material-orange,
+.input-group-btn .btn.btn-fab:active-material-orange {
   background-color: #ff9800;
 }
 .btn.btn-fab-material-deep-orange,
+.input-group-btn .btn.btn-fab-material-deep-orange,
 .btn.btn-fab:hover-material-deep-orange,
-.btn.btn-fab:active-material-deep-orange {
+.input-group-btn .btn.btn-fab:hover-material-deep-orange,
+.btn.btn-fab:active-material-deep-orange,
+.input-group-btn .btn.btn-fab:active-material-deep-orange {
   background-color: #ff5722;
 }
 .btn.btn-fab-material-brown,
+.input-group-btn .btn.btn-fab-material-brown,
 .btn.btn-fab:hover-material-brown,
-.btn.btn-fab:active-material-brown {
+.input-group-btn .btn.btn-fab:hover-material-brown,
+.btn.btn-fab:active-material-brown,
+.input-group-btn .btn.btn-fab:active-material-brown {
   background-color: #795548;
 }
 .btn.btn-fab-material-grey,
+.input-group-btn .btn.btn-fab-material-grey,
 .btn.btn-fab:hover-material-grey,
-.btn.btn-fab:active-material-grey {
+.input-group-btn .btn.btn-fab:hover-material-grey,
+.btn.btn-fab:active-material-grey,
+.input-group-btn .btn.btn-fab:active-material-grey {
   background-color: #9e9e9e;
 }
 .btn.btn-fab-material-blue-grey,
+.input-group-btn .btn.btn-fab-material-blue-grey,
 .btn.btn-fab:hover-material-blue-grey,
-.btn.btn-fab:active-material-blue-grey {
+.input-group-btn .btn.btn-fab:hover-material-blue-grey,
+.btn.btn-fab:active-material-blue-grey,
+.input-group-btn .btn.btn-fab:active-material-blue-grey {
   background-color: #607d8b;
 }
 .btn.btn-fab,
-.btn.btn-fab:hover {
+.input-group-btn .btn.btn-fab,
+.btn.btn-fab:hover,
+.input-group-btn .btn.btn-fab:hover {
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
-.btn.btn-fab:active {
+.btn.btn-fab:active,
+.input-group-btn .btn.btn-fab:active {
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn.btn-fab,
-.btn.btn-fab .ripple-wrapper {
+.input-group-btn .btn.btn-fab,
+.btn.btn-fab .ripple-wrapper,
+.input-group-btn .btn.btn-fab .ripple-wrapper {
   border-radius: 100%;
 }
-.btn.btn-fab.btn-fab-mini {
+.btn.btn-fab.btn-fab-mini,
+.input-group-btn .btn.btn-fab.btn-fab-mini {
   width: 40px;
   height: 40px;
   padding: 13px 0;
   font-size: 15px;
 }
-.btn.btn-fab i {
+.btn.btn-fab i,
+.input-group-btn .btn.btn-fab i {
   position: relative;
   top: -5px;
   margin: 0 auto;
@@ -4909,7 +5010,7 @@ output {
   .input-group-lg input[type="time"],
   .input-group-lg input[type="datetime-local"],
   .input-group-lg input[type="month"] {
-    line-height: 42px;
+    line-height: 46px;
   }
 }
 .radio label,
@@ -4958,38 +5059,38 @@ output {
   line-height: 1.5;
 }
 .input-lg '.input-lg' {
-  height: 42px;
-  padding: 8px 0px;
+  height: 46px;
+  padding: 10px 0px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
 .input-lg select'.input-lg' {
-  height: 42px;
-  line-height: 42px;
+  height: 46px;
+  line-height: 46px;
 }
 .input-lg textarea'.input-lg',
 .input-lg select[multiple]'.input-lg' {
   height: auto;
 }
 .form-group-lg .form-control {
-  height: 42px;
-  padding: 8px 0px;
+  height: 46px;
+  padding: 10px 0px;
   font-size: 18px;
   line-height: 1.3333333;
 }
 .form-group-lg select.form-control {
-  height: 42px;
-  line-height: 42px;
+  height: 46px;
+  line-height: 46px;
 }
 .form-group-lg textarea.form-control,
 .form-group-lg select[multiple].form-control {
   height: auto;
 }
 .form-group-lg .form-control-static {
-  height: 42px;
+  height: 46px;
   min-height: 40px;
-  padding: 9px 0px;
+  padding: 11px 0px;
   font-size: 18px;
   line-height: 1.3333333;
 }
@@ -5010,7 +5111,7 @@ output {
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-lg .control-label {
-    padding-top: 11.6666664px;
+    padding-top: 14.333333px;
     font-size: 18px;
   }
 }
@@ -5039,38 +5140,23 @@ output {
 .form-group.is-focused .form-control .material-input:after {
   background-color: #009688;
 }
-.form-control::-moz-placeholder {
-  color: #BDBDBD;
-  font-size: 16px;
-  font-weight: normal;
-}
-.form-control:-ms-input-placeholder {
-  color: #BDBDBD;
-  font-size: 16px;
-  font-weight: normal;
-}
-.form-control::-webkit-input-placeholder {
-  color: #BDBDBD;
-  font-size: 16px;
-  font-weight: normal;
-}
-fieldset[disabled] .form-control:textarea,
-.form-control:textarea {
+.form-control:textarea,
+fieldset[disabled] .form-control:textarea {
   height: 40px;
 }
-fieldset[disabled] .form-control,
 .form-control,
-.form-group.is-focused fieldset[disabled] .form-control,
-.form-group.is-focused .form-control {
+fieldset[disabled] .form-control,
+.form-group.is-focused .form-control,
+.form-group.is-focused fieldset[disabled] .form-control {
   float: none;
   border: 0;
   box-shadow: none;
   border-radius: 0;
 }
-fieldset[disabled] .form-control:disabled,
 .form-control:disabled,
-.form-group.is-focused fieldset[disabled] .form-control:disabled,
-.form-group.is-focused .form-control:disabled {
+fieldset[disabled] .form-control:disabled,
+.form-group.is-focused .form-control:disabled,
+.form-group.is-focused fieldset[disabled] .form-control:disabled {
   border-style: dashed;
   border-bottom: 1px solid #757575;
 }
@@ -5080,13 +5166,31 @@ fieldset[disabled] .form-control {
   background-color: rgba(0, 0, 0, 0);
 }
 .form-group {
+  border: solid 1px red;
   position: relative;
+}
+.form-group .form-control::-moz-placeholder {
+  color: #BDBDBD;
+  font-weight: normal;
+}
+.form-group .form-control:-ms-input-placeholder {
+  color: #BDBDBD;
+  font-weight: normal;
+}
+.form-group .form-control::-webkit-input-placeholder {
+  color: #BDBDBD;
+  font-weight: normal;
 }
 .form-group label.control-label {
   color: #BDBDBD;
-  font-size: 12px;
   font-weight: normal;
   margin: 16px 0 0 0;
+}
+.form-group label.control-label.floating-label {
+  position: absolute;
+  pointer-events: none;
+  left: 0px;
+  transition: 0.3s ease all;
 }
 .form-group label.control-label,
 .form-group-default label.control-label {
@@ -5258,19 +5362,104 @@ fieldset[disabled] .form-control {
 .form-group-material-blue-grey.is-focused label.control-label {
   color: #607d8b;
 }
+.form-group .form-control {
+  margin-bottom: 8px;
+}
+.form-group .form-control::-moz-placeholder {
+  font-size: 16px;
+}
+.form-group .form-control:-ms-input-placeholder {
+  font-size: 16px;
+}
+.form-group .form-control::-webkit-input-placeholder {
+  font-size: 16px;
+}
+.form-group .help-block {
+  margin-top: 0px;
+  font-size: 12px;
+}
+.form-group label.control-label {
+  font-size: 12px;
+  line-height: 1.07142857;
+}
+.form-group label.control-label.floating-label {
+  top: -8px;
+  font-size: 16px;
+  line-height: 1.42857143;
+}
+.form-group.is-focused label.control-label.floating-label,
+.form-group:not(.is-empty) label.control-label.floating-label {
+  top: -32px;
+  font-size: 12px;
+  line-height: 1.07142857;
+}
+.form-group.form-group-sm .form-control {
+  margin-bottom: 4px;
+}
+.form-group.form-group-sm .form-control::-moz-placeholder {
+  font-size: 11px;
+}
+.form-group.form-group-sm .form-control:-ms-input-placeholder {
+  font-size: 11px;
+}
+.form-group.form-group-sm .form-control::-webkit-input-placeholder {
+  font-size: 11px;
+}
+.form-group.form-group-sm .help-block {
+  margin-top: 0px;
+  font-size: 9px;
+}
 .form-group.form-group-sm label.control-label {
-  font-size: 8.25px;
-  margin: 12px 0 0 0;
+  font-size: 9px;
+  line-height: 1.125;
+}
+.form-group.form-group-sm label.control-label.floating-label {
+  top: -12px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.form-group.form-group-sm.is-focused label.control-label.floating-label,
+.form-group.form-group-sm:not(.is-empty) label.control-label.floating-label {
+  top: -27px;
+  font-size: 9px;
+  line-height: 1.125;
+}
+.form-group.form-group-lg .form-control {
+  margin-bottom: 10px;
+}
+.form-group.form-group-lg .form-control::-moz-placeholder {
+  font-size: 18px;
+}
+.form-group.form-group-lg .form-control:-ms-input-placeholder {
+  font-size: 18px;
+}
+.form-group.form-group-lg .form-control::-webkit-input-placeholder {
+  font-size: 18px;
+}
+.form-group.form-group-lg .help-block {
+  margin-top: 0px;
+  font-size: 14px;
 }
 .form-group.form-group-lg label.control-label {
-  font-size: 13.5px;
+  font-size: 14px;
+  line-height: 0.99999998;
 }
-.form-group .hint {
+.form-group.form-group-lg label.control-label.floating-label {
+  top: -6px;
+  font-size: 18px;
+  line-height: 1.3333333;
+}
+.form-group.form-group-lg.is-focused label.control-label.floating-label,
+.form-group.form-group-lg:not(.is-empty) label.control-label.floating-label {
+  top: -34px;
+  font-size: 14px;
+  line-height: 0.99999998;
+}
+.form-group .help-block {
   position: absolute;
-  font-size: 80%;
   display: none;
 }
-.form-group.is-focused .hint {
+.form-group.is-focused .help-block {
   display: block;
 }
 .form-group.is-focused .form-control,
@@ -5423,54 +5612,21 @@ select.form-control[multiple],
 .form-group.is-focused select.form-control[multiple] {
   height: 85px;
 }
-label.control-label.floating-label {
-  font-size: 16px;
-  position: absolute;
-  pointer-events: none;
-  left: 0px;
-  top: -8px;
-  transition: 0.3s ease all;
+.input-group-btn .btn {
+  margin: 0 0 8px 0;
 }
-.form-group.is-focused label.control-label.floating-label label.control-label {
-  font-size: 12px;
+.form-group.form-group-sm .input-group-btn .btn {
+  margin: 0 0 4px 0;
 }
-.form-group.is-focused label.control-label.floating-label,
-.form-group:not(.is-empty) label.control-label.floating-label {
-  top: -20px;
-  font-size: 12px;
+.form-group.form-group-lg .input-group-btn .btn {
+  margin: 0 0 10px 0;
 }
-.form-control.input-sm ~ label.control-label.floating-label {
-  font-size: 11px;
-  top: 7px;
-}
-.form-group.is-focused .form-control.input-sm ~ .form-group.is-focused label.control-label.floating-label,
-.form-group.is-empty .form-control.input-sm ~ .form-group.is-empty label.control-label.floating-label {
-  top: -8.25px;
-  font-size: 8.25px;
-}
-.form-control.input-lg ~ label.control-label.floating-label {
-  font-size: 18px;
-  top: 7px;
-}
-.form-group.is-focused .form-control.input-lg ~ .form-group.is-focused label.control-label.floating-label,
-.form-group.is-empty .form-control.input-lg ~ .form-group.is-empty label.control-label.floating-label {
-  top: -13.5px;
-  font-size: 13.5px;
-}
-.input-group .form-group {
-  margin-right: 5px;
-  margin-left: 5px;
-}
-.input-group .form-group .form-control {
-  float: none;
+.input-group .input-group-btn {
+  padding: 0 12px;
 }
 .input-group .input-group-addon {
   border: 0;
   background: transparent;
-}
-.input-group .input-group-btn .btn {
-  border-radius: 4px;
-  margin: 0;
 }
 .form-group input[type=file] {
   opacity: 0;
