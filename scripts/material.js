@@ -110,13 +110,17 @@
         }
         else {
           // If it has a label, based on the way the css is written with the adjacent sibling selector `~`,
-          //  we need the label to be *after* the input for it to work properly.
-          //  See: http://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
+          //  we need the label to be *after* the input for it to work properly. (we use these infrequently now that
+          //  .is-focused and .is-empty is standardized on the .form-group.
+          //  @see: http://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
+          // Attach it to the same parent, regardless (not necessarily after input) which could cause problems,
+          //  but this is up to the user.
           var $label = $formGroup.find("label.floating-label");
           if($label.length > 0){
-            console.debug("FIXME moving label"); // FIXME not sure we want to do this for input-groups
+            var $labelParent = $label.parent(); // likely the form-group, but may not be in the case of input-groups
             $label.detach();
-            $input.after($label);
+            $labelParent.append($label);
+            //$input.after($label);
           }
         }
 
@@ -129,10 +133,10 @@
         $formGroup.append("<span class='material-input'></span>");
 
         // Support for file input
-        if ($formGroup.next().is("[type=file]")) {
-          $formGroup.addClass("fileinput");
-          var $nextInput = $formGroup.next().detach();
-          $input.after($nextInput);
+        if ($formGroup.find("input[type=file]").length > 0) {
+          $formGroup.addClass("is-fileinput");
+          //var $nextInput = $formGroup.next().detach();
+          //$input.after($nextInput);
         }
       });
     },
@@ -169,26 +173,27 @@
           $formGroup.addClass("has-error");
         }
       })
-      .on("focus", ".form-control, .form-group.fileinput", function() {
+      .on("focus", ".form-control, .form-group.is-fileinput", function() {
         $(this).closest(".form-group").addClass("is-focused"); // add class to form-group
       })
-      .on("blur", ".form-control, .form-group.fileinput", function() {
+      .on("blur", ".form-control, .form-group.is-fileinput", function() {
         $(this).closest(".form-group").removeClass("is-focused"); // remove class from form-group
       })
-      .on("change", ".form-group.fileinput [type=file]", function() {
-        var $this = $(this);
+      // set the fileinput readonly field with the name of the file
+      .on("change", ".form-group.is-fileinput input[type='file']", function() {
+        var $input = $(this);
+        var $formGroup = $input.closest(".form-group");
         var value = "";
         $.each(this.files, function(i, file) {
           value += file.name + ", ";
         });
         value = value.substring(0, value.length - 2);
-        var $formGroup = $this.closest(".form-group");
         if (value) {
           $formGroup.removeClass("is-empty");
         } else {
           $formGroup.addClass("is-empty");
         }
-        $this.prev().val(value);
+        $formGroup.find("input.form-control[readonly]").val(value);
       });
     },
     "ripples": function(selector) {
