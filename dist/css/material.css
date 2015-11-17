@@ -4975,13 +4975,13 @@ legend {
   font-size: 24px;
 }
 output {
-  padding-top: 9px;
+  padding-top: 8px;
   font-size: 16px;
   line-height: 1.42857143;
 }
 .form-control {
-  height: 40px;
-  padding: 8px 0px;
+  height: 38px;
+  padding: 7px 0px;
   font-size: 16px;
   line-height: 1.42857143;
 }
@@ -4990,7 +4990,7 @@ output {
   input[type="time"].form-control,
   input[type="datetime-local"].form-control,
   input[type="month"].form-control {
-    line-height: 40px;
+    line-height: 38px;
   }
   input[type="date"].input-sm,
   input[type="time"].input-sm,
@@ -5000,7 +5000,7 @@ output {
   .input-group-sm input[type="time"],
   .input-group-sm input[type="datetime-local"],
   .input-group-sm input[type="month"] {
-    line-height: 26px;
+    line-height: 24px;
   }
   input[type="date"].input-lg,
   input[type="time"].input-lg,
@@ -5010,7 +5010,7 @@ output {
   .input-group-lg input[type="time"],
   .input-group-lg input[type="datetime-local"],
   .input-group-lg input[type="month"] {
-    line-height: 46px;
+    line-height: 44px;
   }
 }
 .radio label,
@@ -5018,79 +5018,79 @@ output {
   min-height: 22px;
 }
 .form-control-static {
-  padding-top: 9px;
-  padding-bottom: 9px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   min-height: 38px;
 }
 .input-sm '.input-sm' {
-  height: 26px;
-  padding: 4px 0px;
+  height: 24px;
+  padding: 3px 0px;
   font-size: 11px;
   line-height: 1.5;
   border-radius: 3px;
 }
 .input-sm select'.input-sm' {
-  height: 26px;
-  line-height: 26px;
+  height: 24px;
+  line-height: 24px;
 }
 .input-sm textarea'.input-sm',
 .input-sm select[multiple]'.input-sm' {
   height: auto;
 }
 .form-group-sm .form-control {
-  height: 26px;
-  padding: 4px 0px;
+  height: 24px;
+  padding: 3px 0px;
   font-size: 11px;
   line-height: 1.5;
 }
 .form-group-sm select.form-control {
-  height: 26px;
-  line-height: 26px;
+  height: 24px;
+  line-height: 24px;
 }
 .form-group-sm textarea.form-control,
 .form-group-sm select[multiple].form-control {
   height: auto;
 }
 .form-group-sm .form-control-static {
-  height: 26px;
+  height: 24px;
   min-height: 33px;
-  padding: 5px 0px;
+  padding: 4px 0px;
   font-size: 11px;
   line-height: 1.5;
 }
 .input-lg '.input-lg' {
-  height: 46px;
-  padding: 10px 0px;
+  height: 44px;
+  padding: 9px 0px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
 .input-lg select'.input-lg' {
-  height: 46px;
-  line-height: 46px;
+  height: 44px;
+  line-height: 44px;
 }
 .input-lg textarea'.input-lg',
 .input-lg select[multiple]'.input-lg' {
   height: auto;
 }
 .form-group-lg .form-control {
-  height: 46px;
-  padding: 10px 0px;
+  height: 44px;
+  padding: 9px 0px;
   font-size: 18px;
   line-height: 1.3333333;
 }
 .form-group-lg select.form-control {
-  height: 46px;
-  line-height: 46px;
+  height: 44px;
+  line-height: 44px;
 }
 .form-group-lg textarea.form-control,
 .form-group-lg select[multiple].form-control {
   height: auto;
 }
 .form-group-lg .form-control-static {
-  height: 46px;
+  height: 44px;
   min-height: 40px;
-  padding: 11px 0px;
+  padding: 10px 0px;
   font-size: 18px;
   line-height: 1.3333333;
 }
@@ -5098,26 +5098,26 @@ output {
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
 .form-horizontal .checkbox-inline {
-  padding-top: 9px;
+  padding-top: 8px;
 }
 .form-horizontal .radio,
 .form-horizontal .checkbox {
-  min-height: 31px;
+  min-height: 30px;
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {
-    padding-top: 9px;
+    padding-top: 8px;
   }
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-lg .control-label {
-    padding-top: 14.333333px;
+    padding-top: 12.9999997px;
     font-size: 18px;
   }
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-sm .control-label {
-    padding-top: 5px;
+    padding-top: 4px;
     font-size: 11px;
   }
 }
@@ -5166,8 +5166,9 @@ fieldset[disabled] .form-control {
   background-color: rgba(0, 0, 0, 0);
 }
 .form-group {
-  border: solid 1px red;
   position: relative;
+  margin: 28px 0 0 0;
+  padding-bottom: 7px;
 }
 .form-group .form-control::-moz-placeholder {
   color: #BDBDBD;
@@ -5181,16 +5182,21 @@ fieldset[disabled] .form-control {
   color: #BDBDBD;
   font-weight: normal;
 }
+.form-group.label-static label.control-label,
+.form-group.label-placeholder label.control-label,
+.form-group.label-floating label.control-label {
+  position: absolute;
+  left: 0px;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
 .form-group label.control-label {
   color: #BDBDBD;
   font-weight: normal;
   margin: 16px 0 0 0;
 }
-.form-group label.control-label.floating-label {
-  position: absolute;
-  pointer-events: none;
-  left: 0px;
-  transition: 0.3s ease all;
+.form-group.label-placeholder:not(.is-empty) label.control-label {
+  display: none;
 }
 .form-group label.control-label,
 .form-group-default label.control-label {
@@ -5362,8 +5368,93 @@ fieldset[disabled] .form-control {
 .form-group-material-blue-grey.is-focused label.control-label {
   color: #607d8b;
 }
+.form-group.is-focused.label-placeholder label.control-label,
+.form-group-default.is-focused.label-placeholder label.control-label {
+  color: #BDBDBD;
+}
+.form-group-black.is-focused.label-placeholder label.control-label {
+  color: #000000;
+}
+.form-group-white.is-focused.label-placeholder label.control-label {
+  color: #ffffff;
+}
+.form-group-inverse.is-focused.label-placeholder label.control-label {
+  color: #3f51b5;
+}
+.form-group-primary.is-focused.label-placeholder label.control-label {
+  color: #009688;
+}
+.form-group-success.is-focused.label-placeholder label.control-label {
+  color: #4caf50;
+}
+.form-group-info.is-focused.label-placeholder label.control-label {
+  color: #03a9f4;
+}
+.form-group-warning.is-focused.label-placeholder label.control-label {
+  color: #ff5722;
+}
+.form-group-danger.is-focused.label-placeholder label.control-label {
+  color: #f44336;
+}
+.form-group-material-red.is-focused.label-placeholder label.control-label {
+  color: #f44336;
+}
+.form-group-material-pink.is-focused.label-placeholder label.control-label {
+  color: #e91e63;
+}
+.form-group-material-purple.is-focused.label-placeholder label.control-label {
+  color: #9c27b0;
+}
+.form-group-material-deep-purple.is-focused.label-placeholder label.control-label {
+  color: #673ab7;
+}
+.form-group-material-indigo.is-focused.label-placeholder label.control-label {
+  color: #3f51b5;
+}
+.form-group-material-blue.is-focused.label-placeholder label.control-label {
+  color: #2196f3;
+}
+.form-group-material-light-blue.is-focused.label-placeholder label.control-label {
+  color: #03a9f4;
+}
+.form-group-material-cyan.is-focused.label-placeholder label.control-label {
+  color: #00bcd4;
+}
+.form-group-material-teal.is-focused.label-placeholder label.control-label {
+  color: #009688;
+}
+.form-group-material-green.is-focused.label-placeholder label.control-label {
+  color: #4caf50;
+}
+.form-group-material-light-green.is-focused.label-placeholder label.control-label {
+  color: #8bc34a;
+}
+.form-group-material-lime.is-focused.label-placeholder label.control-label {
+  color: #cddc39;
+}
+.form-group-material-yellow.is-focused.label-placeholder label.control-label {
+  color: #ffeb3b;
+}
+.form-group-material-amber.is-focused.label-placeholder label.control-label {
+  color: #ffc107;
+}
+.form-group-material-orange.is-focused.label-placeholder label.control-label {
+  color: #ff9800;
+}
+.form-group-material-deep-orange.is-focused.label-placeholder label.control-label {
+  color: #ff5722;
+}
+.form-group-material-brown.is-focused.label-placeholder label.control-label {
+  color: #795548;
+}
+.form-group-material-grey.is-focused.label-placeholder label.control-label {
+  color: #9e9e9e;
+}
+.form-group-material-blue-grey.is-focused.label-placeholder label.control-label {
+  color: #607d8b;
+}
 .form-group .form-control {
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 .form-group .form-control::-moz-placeholder {
   font-size: 16px;
@@ -5382,19 +5473,23 @@ fieldset[disabled] .form-control {
   font-size: 12px;
   line-height: 1.07142857;
 }
-.form-group label.control-label.floating-label {
-  top: -8px;
+.form-group.label-floating label.control-label,
+.form-group.label-placeholder label.control-label {
+  top: -7px;
   font-size: 16px;
   line-height: 1.42857143;
 }
-.form-group.is-focused label.control-label.floating-label,
-.form-group:not(.is-empty) label.control-label.floating-label {
-  top: -32px;
-  font-size: 12px;
-  line-height: 1.07142857;
+.form-group.label-static label.control-label,
+.form-group.label-floating.is-focused label.control-label,
+.form-group.label-floating:not(.is-empty) label.control-label {
+  top: -30px;
+}
+.form-group.form-group-sm {
+  margin: 21px 0 0 0;
+  padding-bottom: 3px;
 }
 .form-group.form-group-sm .form-control {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 .form-group.form-group-sm .form-control::-moz-placeholder {
   font-size: 11px;
@@ -5413,19 +5508,23 @@ fieldset[disabled] .form-control {
   font-size: 9px;
   line-height: 1.125;
 }
-.form-group.form-group-sm label.control-label.floating-label {
-  top: -12px;
+.form-group.form-group-sm.label-floating label.control-label,
+.form-group.form-group-sm.label-placeholder label.control-label {
+  top: -11px;
   font-size: 11px;
   line-height: 1.5;
 }
-.form-group.form-group-sm.is-focused label.control-label.floating-label,
-.form-group.form-group-sm:not(.is-empty) label.control-label.floating-label {
-  top: -27px;
-  font-size: 9px;
-  line-height: 1.125;
+.form-group.form-group-sm.label-static label.control-label,
+.form-group.form-group-sm.label-floating.is-focused label.control-label,
+.form-group.form-group-sm.label-floating:not(.is-empty) label.control-label {
+  top: -25px;
+}
+.form-group.form-group-lg {
+  margin: 30px 0 0 0;
+  padding-bottom: 9px;
 }
 .form-group.form-group-lg .form-control {
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 .form-group.form-group-lg .form-control::-moz-placeholder {
   font-size: 18px;
@@ -5444,16 +5543,16 @@ fieldset[disabled] .form-control {
   font-size: 14px;
   line-height: 0.99999998;
 }
-.form-group.form-group-lg label.control-label.floating-label {
-  top: -6px;
+.form-group.form-group-lg.label-floating label.control-label,
+.form-group.form-group-lg.label-placeholder label.control-label {
+  top: -5px;
   font-size: 18px;
   line-height: 1.3333333;
 }
-.form-group.form-group-lg.is-focused label.control-label.floating-label,
-.form-group.form-group-lg:not(.is-empty) label.control-label.floating-label {
-  top: -34px;
-  font-size: 14px;
-  line-height: 0.99999998;
+.form-group.form-group-lg.label-static label.control-label,
+.form-group.form-group-lg.label-floating.is-focused label.control-label,
+.form-group.form-group-lg.label-floating:not(.is-empty) label.control-label {
+  top: -32px;
 }
 .form-group .help-block {
   position: absolute;
@@ -5613,13 +5712,13 @@ select.form-control[multiple],
   height: 85px;
 }
 .input-group-btn .btn {
-  margin: 0 0 8px 0;
+  margin: 0 0 7px 0;
 }
 .form-group.form-group-sm .input-group-btn .btn {
-  margin: 0 0 4px 0;
+  margin: 0 0 3px 0;
 }
 .form-group.form-group-lg .input-group-btn .btn {
-  margin: 0 0 10px 0;
+  margin: 0 0 9px 0;
 }
 .input-group .input-group-btn {
   padding: 0 12px;
@@ -8523,10 +8622,10 @@ hr.on-light {
   border: 0px;
   background: transparent;
 }
-.selectize-control.single .selectize-input.floating-label-fix input,
-.selectize-control.multi .selectize-input.floating-label-fix input,
-.selectize-control.single .selectize-input.input-active.floating-label-fix input,
-.selectize-control.multi .selectize-input.input-active.floating-label-fix input {
+.selectize-control.single .selectize-input.label-floating-fix input,
+.selectize-control.multi .selectize-input.label-floating-fix input,
+.selectize-control.single .selectize-input.input-active.label-floating-fix input,
+.selectize-control.multi .selectize-input.input-active.label-floating-fix input {
   opacity: 0;
 }
 .selectize-control.single .selectize-input > div,
