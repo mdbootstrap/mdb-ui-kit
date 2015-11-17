@@ -103,7 +103,7 @@
           }
         });
 
-        // Legacy - Add floating label if using old shorthand <input class="floating-label" placeholder="foo">
+        // Legacy - Add label-floating if using old shorthand <input class="floating-label" placeholder="foo">
         if ($input.hasClass("floating-label")) {
           var placeholder = $input.attr("placeholder");
           $input.attr("placeholder", null).removeClass("floating-label");
@@ -112,23 +112,24 @@
           if(id) {
             forAttribute = "for='" + id + "'";
           }
-          $input.after("<label " + forAttribute + "class='control-label floating-label'>" + placeholder + "</label>");
+          $formGroup.addClass('label-floating');
+          $input.after("<label " + forAttribute + "class='control-label'>" + placeholder + "</label>");
         }
-        else {
-          // If it has a label, based on the way the css is written with the adjacent sibling selector `~`,
-          //  we need the label to be *after* the input for it to work properly. (we use these infrequently now that
-          //  .is-focused and .is-empty is standardized on the .form-group.
-          //  @see: http://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
-          // Attach it to the same parent, regardless (not necessarily after input) which could cause problems,
-          //  but this is up to the user.
-          var $label = $formGroup.find("label.floating-label");
-          if($label.length > 0){
-            var $labelParent = $label.parent(); // likely the form-group, but may not be in the case of input-groups
-            $label.detach();
-            $labelParent.append($label);
-            //$input.after($label);
-          }
-        }
+        //else {
+        //  // If it has a label, based on the way the css is written with the adjacent sibling selector `~`,
+        //  //  we need the label to be *after* the input for it to work properly. (we use these infrequently now that
+        //  //  .is-focused and .is-empty is standardized on the .form-group.
+        //  //  @see: http://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
+        //  // Attach it to the same parent, regardless (not necessarily after input) which could cause problems,
+        //  //  but this is up to the user.
+        //  var $label = $formGroup.find("label.control-label");
+        //  if($label.length > 0){
+        //    var $labelParent = $label.parent(); // likely the form-group, but may not be in the case of input-groups
+        //    $label.detach();
+        //    $labelParent.append($label);
+        //    //$input.after($label);
+        //  }
+        //}
 
         // Set as empty if is empty (damn I must improve this...)
         if ($input.val() === null || $input.val() == "undefined" || $input.val() === "") {

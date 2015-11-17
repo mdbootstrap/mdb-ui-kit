@@ -21467,13 +21467,13 @@ legend {
   font-size: 24px;
 }
 output {
-  padding-top: 9px;
+  padding-top: 8px;
   font-size: 16px;
   line-height: 1.42857143;
 }
 .form-control {
-  height: 40px;
-  padding: 8px 0px;
+  height: 38px;
+  padding: 7px 0px;
   font-size: 16px;
   line-height: 1.42857143;
 }
@@ -21482,7 +21482,7 @@ output {
   input[type="time"].form-control,
   input[type="datetime-local"].form-control,
   input[type="month"].form-control {
-    line-height: 40px;
+    line-height: 38px;
   }
   input[type="date"].input-sm,
   input[type="time"].input-sm,
@@ -21492,7 +21492,7 @@ output {
   .input-group-sm input[type="time"],
   .input-group-sm input[type="datetime-local"],
   .input-group-sm input[type="month"] {
-    line-height: 26px;
+    line-height: 24px;
   }
   input[type="date"].input-lg,
   input[type="time"].input-lg,
@@ -21502,7 +21502,7 @@ output {
   .input-group-lg input[type="time"],
   .input-group-lg input[type="datetime-local"],
   .input-group-lg input[type="month"] {
-    line-height: 46px;
+    line-height: 44px;
   }
 }
 .radio label,
@@ -21510,79 +21510,79 @@ output {
   min-height: 22px;
 }
 .form-control-static {
-  padding-top: 9px;
-  padding-bottom: 9px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   min-height: 38px;
 }
 .input-sm '.input-sm' {
-  height: 26px;
-  padding: 4px 0px;
+  height: 24px;
+  padding: 3px 0px;
   font-size: 11px;
   line-height: 1.5;
   border-radius: 3px;
 }
 .input-sm select'.input-sm' {
-  height: 26px;
-  line-height: 26px;
+  height: 24px;
+  line-height: 24px;
 }
 .input-sm textarea'.input-sm',
 .input-sm select[multiple]'.input-sm' {
   height: auto;
 }
 .form-group-sm .form-control {
-  height: 26px;
-  padding: 4px 0px;
+  height: 24px;
+  padding: 3px 0px;
   font-size: 11px;
   line-height: 1.5;
 }
 .form-group-sm select.form-control {
-  height: 26px;
-  line-height: 26px;
+  height: 24px;
+  line-height: 24px;
 }
 .form-group-sm textarea.form-control,
 .form-group-sm select[multiple].form-control {
   height: auto;
 }
 .form-group-sm .form-control-static {
-  height: 26px;
+  height: 24px;
   min-height: 33px;
-  padding: 5px 0px;
+  padding: 4px 0px;
   font-size: 11px;
   line-height: 1.5;
 }
 .input-lg '.input-lg' {
-  height: 46px;
-  padding: 10px 0px;
+  height: 44px;
+  padding: 9px 0px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
 .input-lg select'.input-lg' {
-  height: 46px;
-  line-height: 46px;
+  height: 44px;
+  line-height: 44px;
 }
 .input-lg textarea'.input-lg',
 .input-lg select[multiple]'.input-lg' {
   height: auto;
 }
 .form-group-lg .form-control {
-  height: 46px;
-  padding: 10px 0px;
+  height: 44px;
+  padding: 9px 0px;
   font-size: 18px;
   line-height: 1.3333333;
 }
 .form-group-lg select.form-control {
-  height: 46px;
-  line-height: 46px;
+  height: 44px;
+  line-height: 44px;
 }
 .form-group-lg textarea.form-control,
 .form-group-lg select[multiple].form-control {
   height: auto;
 }
 .form-group-lg .form-control-static {
-  height: 46px;
+  height: 44px;
   min-height: 40px;
-  padding: 11px 0px;
+  padding: 10px 0px;
   font-size: 18px;
   line-height: 1.3333333;
 }
@@ -21590,26 +21590,26 @@ output {
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
 .form-horizontal .checkbox-inline {
-  padding-top: 9px;
+  padding-top: 8px;
 }
 .form-horizontal .radio,
 .form-horizontal .checkbox {
-  min-height: 31px;
+  min-height: 30px;
 }
 @media (min-width: 768px) {
   .form-horizontal .control-label {
-    padding-top: 9px;
+    padding-top: 8px;
   }
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-lg .control-label {
-    padding-top: 14.333333px;
+    padding-top: 12.9999997px;
     font-size: 18px;
   }
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-sm .control-label {
-    padding-top: 5px;
+    padding-top: 4px;
     font-size: 11px;
   }
 }
@@ -21658,8 +21658,9 @@ fieldset[disabled] .form-control {
   background-color: rgba(0, 0, 0, 0);
 }
 .form-group {
-  border: solid 1px red;
   position: relative;
+  margin: 28px 0 0 0;
+  padding-bottom: 7px;
 }
 .form-group .form-control::-moz-placeholder {
   color: #BDBDBD;
@@ -21673,16 +21674,21 @@ fieldset[disabled] .form-control {
   color: #BDBDBD;
   font-weight: normal;
 }
+.form-group.label-static label.control-label,
+.form-group.label-placeholder label.control-label,
+.form-group.label-floating label.control-label {
+  position: absolute;
+  left: 0px;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
 .form-group label.control-label {
   color: #BDBDBD;
   font-weight: normal;
   margin: 16px 0 0 0;
 }
-.form-group label.control-label.floating-label {
-  position: absolute;
-  pointer-events: none;
-  left: 0px;
-  transition: 0.3s ease all;
+.form-group.label-placeholder:not(.is-empty) label.control-label {
+  display: none;
 }
 .form-group label.control-label,
 .form-group-default label.control-label {
@@ -23450,8 +23456,891 @@ fieldset[disabled] .form-control {
 .form-group-material-blue-grey-A700.is-focused label.control-label {
   color: #455a64;
 }
+.form-group.is-focused.label-placeholder label.control-label,
+.form-group-default.is-focused.label-placeholder label.control-label {
+  color: #BDBDBD;
+}
+.form-group-black.is-focused.label-placeholder label.control-label {
+  color: #000000;
+}
+.form-group-white.is-focused.label-placeholder label.control-label {
+  color: #ffffff;
+}
+.form-group-inverse.is-focused.label-placeholder label.control-label {
+  color: #3f51b5;
+}
+.form-group-primary.is-focused.label-placeholder label.control-label {
+  color: #009688;
+}
+.form-group-success.is-focused.label-placeholder label.control-label {
+  color: #4caf50;
+}
+.form-group-info.is-focused.label-placeholder label.control-label {
+  color: #03a9f4;
+}
+.form-group-warning.is-focused.label-placeholder label.control-label {
+  color: #ff5722;
+}
+.form-group-danger.is-focused.label-placeholder label.control-label {
+  color: #f44336;
+}
+.form-group-material-red.is-focused.label-placeholder label.control-label {
+  color: #f44336;
+}
+.form-group-material-red-50.is-focused.label-placeholder label.control-label {
+  color: #ffebee;
+}
+.form-group-material-red-100.is-focused.label-placeholder label.control-label {
+  color: #ffcdd2;
+}
+.form-group-material-red-200.is-focused.label-placeholder label.control-label {
+  color: #ef9a9a;
+}
+.form-group-material-red-300.is-focused.label-placeholder label.control-label {
+  color: #e57373;
+}
+.form-group-material-red-400.is-focused.label-placeholder label.control-label {
+  color: #ef5350;
+}
+.form-group-material-red-500.is-focused.label-placeholder label.control-label {
+  color: #f44336;
+}
+.form-group-material-red-600.is-focused.label-placeholder label.control-label {
+  color: #e53935;
+}
+.form-group-material-red-700.is-focused.label-placeholder label.control-label {
+  color: #d32f2f;
+}
+.form-group-material-red-800.is-focused.label-placeholder label.control-label {
+  color: #c62828;
+}
+.form-group-material-red-900.is-focused.label-placeholder label.control-label {
+  color: #b71c1c;
+}
+.form-group-material-red-A100.is-focused.label-placeholder label.control-label {
+  color: #ff8a80;
+}
+.form-group-material-red-A200.is-focused.label-placeholder label.control-label {
+  color: #ff5252;
+}
+.form-group-material-red-A400.is-focused.label-placeholder label.control-label {
+  color: #ff1744;
+}
+.form-group-material-red-A700.is-focused.label-placeholder label.control-label {
+  color: #d50000;
+}
+.form-group-material-pink.is-focused.label-placeholder label.control-label {
+  color: #e91e63;
+}
+.form-group-material-pink-50.is-focused.label-placeholder label.control-label {
+  color: #fce4ec;
+}
+.form-group-material-pink-100.is-focused.label-placeholder label.control-label {
+  color: #f8bbd0;
+}
+.form-group-material-pink-200.is-focused.label-placeholder label.control-label {
+  color: #f48fb1;
+}
+.form-group-material-pink-300.is-focused.label-placeholder label.control-label {
+  color: #f06292;
+}
+.form-group-material-pink-400.is-focused.label-placeholder label.control-label {
+  color: #ec407a;
+}
+.form-group-material-pink-500.is-focused.label-placeholder label.control-label {
+  color: #e91e63;
+}
+.form-group-material-pink-600.is-focused.label-placeholder label.control-label {
+  color: #d81b60;
+}
+.form-group-material-pink-700.is-focused.label-placeholder label.control-label {
+  color: #c2185b;
+}
+.form-group-material-pink-800.is-focused.label-placeholder label.control-label {
+  color: #ad1457;
+}
+.form-group-material-pink-900.is-focused.label-placeholder label.control-label {
+  color: #880e4f;
+}
+.form-group-material-pink-A100.is-focused.label-placeholder label.control-label {
+  color: #ff80ab;
+}
+.form-group-material-pink-A200.is-focused.label-placeholder label.control-label {
+  color: #ff4081;
+}
+.form-group-material-pink-A400.is-focused.label-placeholder label.control-label {
+  color: #f50057;
+}
+.form-group-material-pink-A700.is-focused.label-placeholder label.control-label {
+  color: #c51162;
+}
+.form-group-material-purple.is-focused.label-placeholder label.control-label {
+  color: #9c27b0;
+}
+.form-group-material-purple-50.is-focused.label-placeholder label.control-label {
+  color: #f3e5f5;
+}
+.form-group-material-purple-100.is-focused.label-placeholder label.control-label {
+  color: #e1bee7;
+}
+.form-group-material-purple-200.is-focused.label-placeholder label.control-label {
+  color: #ce93d8;
+}
+.form-group-material-purple-300.is-focused.label-placeholder label.control-label {
+  color: #ba68c8;
+}
+.form-group-material-purple-400.is-focused.label-placeholder label.control-label {
+  color: #ab47bc;
+}
+.form-group-material-purple-500.is-focused.label-placeholder label.control-label {
+  color: #9c27b0;
+}
+.form-group-material-purple-600.is-focused.label-placeholder label.control-label {
+  color: #8e24aa;
+}
+.form-group-material-purple-700.is-focused.label-placeholder label.control-label {
+  color: #7b1fa2;
+}
+.form-group-material-purple-800.is-focused.label-placeholder label.control-label {
+  color: #6a1b9a;
+}
+.form-group-material-purple-900.is-focused.label-placeholder label.control-label {
+  color: #4a148c;
+}
+.form-group-material-purple-A100.is-focused.label-placeholder label.control-label {
+  color: #ea80fc;
+}
+.form-group-material-purple-A200.is-focused.label-placeholder label.control-label {
+  color: #e040fb;
+}
+.form-group-material-purple-A400.is-focused.label-placeholder label.control-label {
+  color: #d500f9;
+}
+.form-group-material-purple-A700.is-focused.label-placeholder label.control-label {
+  color: #aa00ff;
+}
+.form-group-material-deep-purple.is-focused.label-placeholder label.control-label {
+  color: #673ab7;
+}
+.form-group-material-deep-purple-50.is-focused.label-placeholder label.control-label {
+  color: #ede7f6;
+}
+.form-group-material-deep-purple-100.is-focused.label-placeholder label.control-label {
+  color: #d1c4e9;
+}
+.form-group-material-deep-purple-200.is-focused.label-placeholder label.control-label {
+  color: #b39ddb;
+}
+.form-group-material-deep-purple-300.is-focused.label-placeholder label.control-label {
+  color: #9575cd;
+}
+.form-group-material-deep-purple-400.is-focused.label-placeholder label.control-label {
+  color: #7e57c2;
+}
+.form-group-material-deep-purple-500.is-focused.label-placeholder label.control-label {
+  color: #673ab7;
+}
+.form-group-material-deep-purple-600.is-focused.label-placeholder label.control-label {
+  color: #5e35b1;
+}
+.form-group-material-deep-purple-700.is-focused.label-placeholder label.control-label {
+  color: #512da8;
+}
+.form-group-material-deep-purple-800.is-focused.label-placeholder label.control-label {
+  color: #4527a0;
+}
+.form-group-material-deep-purple-900.is-focused.label-placeholder label.control-label {
+  color: #311b92;
+}
+.form-group-material-deep-purple-A100.is-focused.label-placeholder label.control-label {
+  color: #b388ff;
+}
+.form-group-material-deep-purple-A200.is-focused.label-placeholder label.control-label {
+  color: #7c4dff;
+}
+.form-group-material-deep-purple-A400.is-focused.label-placeholder label.control-label {
+  color: #651fff;
+}
+.form-group-material-deep-purple-A700.is-focused.label-placeholder label.control-label {
+  color: #6200ea;
+}
+.form-group-material-indigo.is-focused.label-placeholder label.control-label {
+  color: #3f51b5;
+}
+.form-group-material-indigo-50.is-focused.label-placeholder label.control-label {
+  color: #e8eaf6;
+}
+.form-group-material-indigo-100.is-focused.label-placeholder label.control-label {
+  color: #c5cae9;
+}
+.form-group-material-indigo-200.is-focused.label-placeholder label.control-label {
+  color: #9fa8da;
+}
+.form-group-material-indigo-300.is-focused.label-placeholder label.control-label {
+  color: #7986cb;
+}
+.form-group-material-indigo-400.is-focused.label-placeholder label.control-label {
+  color: #5c6bc0;
+}
+.form-group-material-indigo-500.is-focused.label-placeholder label.control-label {
+  color: #3f51b5;
+}
+.form-group-material-indigo-600.is-focused.label-placeholder label.control-label {
+  color: #3949ab;
+}
+.form-group-material-indigo-700.is-focused.label-placeholder label.control-label {
+  color: #303f9f;
+}
+.form-group-material-indigo-800.is-focused.label-placeholder label.control-label {
+  color: #283593;
+}
+.form-group-material-indigo-900.is-focused.label-placeholder label.control-label {
+  color: #1a237e;
+}
+.form-group-material-indigo-A100.is-focused.label-placeholder label.control-label {
+  color: #8c9eff;
+}
+.form-group-material-indigo-A200.is-focused.label-placeholder label.control-label {
+  color: #536dfe;
+}
+.form-group-material-indigo-A400.is-focused.label-placeholder label.control-label {
+  color: #3d5afe;
+}
+.form-group-material-indigo-A700.is-focused.label-placeholder label.control-label {
+  color: #304ffe;
+}
+.form-group-material-blue.is-focused.label-placeholder label.control-label {
+  color: #2196f3;
+}
+.form-group-material-blue-50.is-focused.label-placeholder label.control-label {
+  color: #e3f2fd;
+}
+.form-group-material-blue-100.is-focused.label-placeholder label.control-label {
+  color: #bbdefb;
+}
+.form-group-material-blue-200.is-focused.label-placeholder label.control-label {
+  color: #90caf9;
+}
+.form-group-material-blue-300.is-focused.label-placeholder label.control-label {
+  color: #64b5f6;
+}
+.form-group-material-blue-400.is-focused.label-placeholder label.control-label {
+  color: #42a5f5;
+}
+.form-group-material-blue-500.is-focused.label-placeholder label.control-label {
+  color: #2196f3;
+}
+.form-group-material-blue-600.is-focused.label-placeholder label.control-label {
+  color: #1e88e5;
+}
+.form-group-material-blue-700.is-focused.label-placeholder label.control-label {
+  color: #1976d2;
+}
+.form-group-material-blue-800.is-focused.label-placeholder label.control-label {
+  color: #1565c0;
+}
+.form-group-material-blue-900.is-focused.label-placeholder label.control-label {
+  color: #0d47a1;
+}
+.form-group-material-blue-A100.is-focused.label-placeholder label.control-label {
+  color: #82b1ff;
+}
+.form-group-material-blue-A200.is-focused.label-placeholder label.control-label {
+  color: #448aff;
+}
+.form-group-material-blue-A400.is-focused.label-placeholder label.control-label {
+  color: #2979ff;
+}
+.form-group-material-blue-A700.is-focused.label-placeholder label.control-label {
+  color: #2962ff;
+}
+.form-group-material-light-blue.is-focused.label-placeholder label.control-label {
+  color: #03a9f4;
+}
+.form-group-material-light-blue-50.is-focused.label-placeholder label.control-label {
+  color: #e1f5fe;
+}
+.form-group-material-light-blue-100.is-focused.label-placeholder label.control-label {
+  color: #b3e5fc;
+}
+.form-group-material-light-blue-200.is-focused.label-placeholder label.control-label {
+  color: #81d4fa;
+}
+.form-group-material-light-blue-300.is-focused.label-placeholder label.control-label {
+  color: #4fc3f7;
+}
+.form-group-material-light-blue-400.is-focused.label-placeholder label.control-label {
+  color: #29b6f6;
+}
+.form-group-material-light-blue-500.is-focused.label-placeholder label.control-label {
+  color: #03a9f4;
+}
+.form-group-material-light-blue-600.is-focused.label-placeholder label.control-label {
+  color: #039be5;
+}
+.form-group-material-light-blue-700.is-focused.label-placeholder label.control-label {
+  color: #0288d1;
+}
+.form-group-material-light-blue-800.is-focused.label-placeholder label.control-label {
+  color: #0277bd;
+}
+.form-group-material-light-blue-900.is-focused.label-placeholder label.control-label {
+  color: #01579b;
+}
+.form-group-material-light-blue-A100.is-focused.label-placeholder label.control-label {
+  color: #80d8ff;
+}
+.form-group-material-light-blue-A200.is-focused.label-placeholder label.control-label {
+  color: #40c4ff;
+}
+.form-group-material-light-blue-A400.is-focused.label-placeholder label.control-label {
+  color: #00b0ff;
+}
+.form-group-material-light-blue-A700.is-focused.label-placeholder label.control-label {
+  color: #0091ea;
+}
+.form-group-material-cyan.is-focused.label-placeholder label.control-label {
+  color: #00bcd4;
+}
+.form-group-material-cyan-50.is-focused.label-placeholder label.control-label {
+  color: #e0f7fa;
+}
+.form-group-material-cyan-100.is-focused.label-placeholder label.control-label {
+  color: #b2ebf2;
+}
+.form-group-material-cyan-200.is-focused.label-placeholder label.control-label {
+  color: #80deea;
+}
+.form-group-material-cyan-300.is-focused.label-placeholder label.control-label {
+  color: #4dd0e1;
+}
+.form-group-material-cyan-400.is-focused.label-placeholder label.control-label {
+  color: #26c6da;
+}
+.form-group-material-cyan-500.is-focused.label-placeholder label.control-label {
+  color: #00bcd4;
+}
+.form-group-material-cyan-600.is-focused.label-placeholder label.control-label {
+  color: #00acc1;
+}
+.form-group-material-cyan-700.is-focused.label-placeholder label.control-label {
+  color: #0097a7;
+}
+.form-group-material-cyan-800.is-focused.label-placeholder label.control-label {
+  color: #00838f;
+}
+.form-group-material-cyan-900.is-focused.label-placeholder label.control-label {
+  color: #006064;
+}
+.form-group-material-cyan-A100.is-focused.label-placeholder label.control-label {
+  color: #84ffff;
+}
+.form-group-material-cyan-A200.is-focused.label-placeholder label.control-label {
+  color: #18ffff;
+}
+.form-group-material-cyan-A400.is-focused.label-placeholder label.control-label {
+  color: #00e5ff;
+}
+.form-group-material-cyan-A700.is-focused.label-placeholder label.control-label {
+  color: #00b8d4;
+}
+.form-group-material-teal.is-focused.label-placeholder label.control-label {
+  color: #009688;
+}
+.form-group-material-teal-50.is-focused.label-placeholder label.control-label {
+  color: #e0f2f1;
+}
+.form-group-material-teal-100.is-focused.label-placeholder label.control-label {
+  color: #b2dfdb;
+}
+.form-group-material-teal-200.is-focused.label-placeholder label.control-label {
+  color: #80cbc4;
+}
+.form-group-material-teal-300.is-focused.label-placeholder label.control-label {
+  color: #4db6ac;
+}
+.form-group-material-teal-400.is-focused.label-placeholder label.control-label {
+  color: #26a69a;
+}
+.form-group-material-teal-500.is-focused.label-placeholder label.control-label {
+  color: #009688;
+}
+.form-group-material-teal-600.is-focused.label-placeholder label.control-label {
+  color: #00897b;
+}
+.form-group-material-teal-700.is-focused.label-placeholder label.control-label {
+  color: #00796b;
+}
+.form-group-material-teal-800.is-focused.label-placeholder label.control-label {
+  color: #00695c;
+}
+.form-group-material-teal-900.is-focused.label-placeholder label.control-label {
+  color: #004d40;
+}
+.form-group-material-teal-A100.is-focused.label-placeholder label.control-label {
+  color: #a7ffeb;
+}
+.form-group-material-teal-A200.is-focused.label-placeholder label.control-label {
+  color: #64ffda;
+}
+.form-group-material-teal-A400.is-focused.label-placeholder label.control-label {
+  color: #1de9b6;
+}
+.form-group-material-teal-A700.is-focused.label-placeholder label.control-label {
+  color: #00bfa5;
+}
+.form-group-material-green.is-focused.label-placeholder label.control-label {
+  color: #4caf50;
+}
+.form-group-material-green-50.is-focused.label-placeholder label.control-label {
+  color: #e8f5e9;
+}
+.form-group-material-green-100.is-focused.label-placeholder label.control-label {
+  color: #c8e6c9;
+}
+.form-group-material-green-200.is-focused.label-placeholder label.control-label {
+  color: #a5d6a7;
+}
+.form-group-material-green-300.is-focused.label-placeholder label.control-label {
+  color: #81c784;
+}
+.form-group-material-green-400.is-focused.label-placeholder label.control-label {
+  color: #66bb6a;
+}
+.form-group-material-green-500.is-focused.label-placeholder label.control-label {
+  color: #4caf50;
+}
+.form-group-material-green-600.is-focused.label-placeholder label.control-label {
+  color: #43a047;
+}
+.form-group-material-green-700.is-focused.label-placeholder label.control-label {
+  color: #388e3c;
+}
+.form-group-material-green-800.is-focused.label-placeholder label.control-label {
+  color: #2e7d32;
+}
+.form-group-material-green-900.is-focused.label-placeholder label.control-label {
+  color: #1b5e20;
+}
+.form-group-material-green-A100.is-focused.label-placeholder label.control-label {
+  color: #b9f6ca;
+}
+.form-group-material-green-A200.is-focused.label-placeholder label.control-label {
+  color: #69f0ae;
+}
+.form-group-material-green-A400.is-focused.label-placeholder label.control-label {
+  color: #00e676;
+}
+.form-group-material-green-A700.is-focused.label-placeholder label.control-label {
+  color: #00c853;
+}
+.form-group-material-light-green.is-focused.label-placeholder label.control-label {
+  color: #8bc34a;
+}
+.form-group-material-light-green-50.is-focused.label-placeholder label.control-label {
+  color: #f1f8e9;
+}
+.form-group-material-light-green-100.is-focused.label-placeholder label.control-label {
+  color: #dcedc8;
+}
+.form-group-material-light-green-200.is-focused.label-placeholder label.control-label {
+  color: #c5e1a5;
+}
+.form-group-material-light-green-300.is-focused.label-placeholder label.control-label {
+  color: #aed581;
+}
+.form-group-material-light-green-400.is-focused.label-placeholder label.control-label {
+  color: #9ccc65;
+}
+.form-group-material-light-green-500.is-focused.label-placeholder label.control-label {
+  color: #8bc34a;
+}
+.form-group-material-light-green-600.is-focused.label-placeholder label.control-label {
+  color: #7cb342;
+}
+.form-group-material-light-green-700.is-focused.label-placeholder label.control-label {
+  color: #689f38;
+}
+.form-group-material-light-green-800.is-focused.label-placeholder label.control-label {
+  color: #558b2f;
+}
+.form-group-material-light-green-900.is-focused.label-placeholder label.control-label {
+  color: #33691e;
+}
+.form-group-material-light-green-A100.is-focused.label-placeholder label.control-label {
+  color: #ccff90;
+}
+.form-group-material-light-green-A200.is-focused.label-placeholder label.control-label {
+  color: #b2ff59;
+}
+.form-group-material-light-green-A400.is-focused.label-placeholder label.control-label {
+  color: #76ff03;
+}
+.form-group-material-light-green-A700.is-focused.label-placeholder label.control-label {
+  color: #64dd17;
+}
+.form-group-material-lime.is-focused.label-placeholder label.control-label {
+  color: #cddc39;
+}
+.form-group-material-lime-50.is-focused.label-placeholder label.control-label {
+  color: #f9fbe7;
+}
+.form-group-material-lime-100.is-focused.label-placeholder label.control-label {
+  color: #f0f4c3;
+}
+.form-group-material-lime-200.is-focused.label-placeholder label.control-label {
+  color: #e6ee9c;
+}
+.form-group-material-lime-300.is-focused.label-placeholder label.control-label {
+  color: #dce775;
+}
+.form-group-material-lime-400.is-focused.label-placeholder label.control-label {
+  color: #d4e157;
+}
+.form-group-material-lime-500.is-focused.label-placeholder label.control-label {
+  color: #cddc39;
+}
+.form-group-material-lime-600.is-focused.label-placeholder label.control-label {
+  color: #c0ca33;
+}
+.form-group-material-lime-700.is-focused.label-placeholder label.control-label {
+  color: #afb42b;
+}
+.form-group-material-lime-800.is-focused.label-placeholder label.control-label {
+  color: #9e9d24;
+}
+.form-group-material-lime-900.is-focused.label-placeholder label.control-label {
+  color: #827717;
+}
+.form-group-material-lime-A100.is-focused.label-placeholder label.control-label {
+  color: #f4ff81;
+}
+.form-group-material-lime-A200.is-focused.label-placeholder label.control-label {
+  color: #eeff41;
+}
+.form-group-material-lime-A400.is-focused.label-placeholder label.control-label {
+  color: #c6ff00;
+}
+.form-group-material-lime-A700.is-focused.label-placeholder label.control-label {
+  color: #aeea00;
+}
+.form-group-material-yellow.is-focused.label-placeholder label.control-label {
+  color: #ffeb3b;
+}
+.form-group-material-yellow-50.is-focused.label-placeholder label.control-label {
+  color: #fffde7;
+}
+.form-group-material-yellow-100.is-focused.label-placeholder label.control-label {
+  color: #fff9c4;
+}
+.form-group-material-yellow-200.is-focused.label-placeholder label.control-label {
+  color: #fff59d;
+}
+.form-group-material-yellow-300.is-focused.label-placeholder label.control-label {
+  color: #fff176;
+}
+.form-group-material-yellow-400.is-focused.label-placeholder label.control-label {
+  color: #ffee58;
+}
+.form-group-material-yellow-500.is-focused.label-placeholder label.control-label {
+  color: #ffeb3b;
+}
+.form-group-material-yellow-600.is-focused.label-placeholder label.control-label {
+  color: #fdd835;
+}
+.form-group-material-yellow-700.is-focused.label-placeholder label.control-label {
+  color: #fbc02d;
+}
+.form-group-material-yellow-800.is-focused.label-placeholder label.control-label {
+  color: #f9a825;
+}
+.form-group-material-yellow-900.is-focused.label-placeholder label.control-label {
+  color: #f57f17;
+}
+.form-group-material-yellow-A100.is-focused.label-placeholder label.control-label {
+  color: #ffff8d;
+}
+.form-group-material-yellow-A200.is-focused.label-placeholder label.control-label {
+  color: #ffff00;
+}
+.form-group-material-yellow-A400.is-focused.label-placeholder label.control-label {
+  color: #ffea00;
+}
+.form-group-material-yellow-A700.is-focused.label-placeholder label.control-label {
+  color: #ffd600;
+}
+.form-group-material-amber.is-focused.label-placeholder label.control-label {
+  color: #ffc107;
+}
+.form-group-material-amber-50.is-focused.label-placeholder label.control-label {
+  color: #fff8e1;
+}
+.form-group-material-amber-100.is-focused.label-placeholder label.control-label {
+  color: #ffecb3;
+}
+.form-group-material-amber-200.is-focused.label-placeholder label.control-label {
+  color: #ffe082;
+}
+.form-group-material-amber-300.is-focused.label-placeholder label.control-label {
+  color: #ffd54f;
+}
+.form-group-material-amber-400.is-focused.label-placeholder label.control-label {
+  color: #ffca28;
+}
+.form-group-material-amber-500.is-focused.label-placeholder label.control-label {
+  color: #ffc107;
+}
+.form-group-material-amber-600.is-focused.label-placeholder label.control-label {
+  color: #ffb300;
+}
+.form-group-material-amber-700.is-focused.label-placeholder label.control-label {
+  color: #ffa000;
+}
+.form-group-material-amber-800.is-focused.label-placeholder label.control-label {
+  color: #ff8f00;
+}
+.form-group-material-amber-900.is-focused.label-placeholder label.control-label {
+  color: #ff6f00;
+}
+.form-group-material-amber-A100.is-focused.label-placeholder label.control-label {
+  color: #ffe57f;
+}
+.form-group-material-amber-A200.is-focused.label-placeholder label.control-label {
+  color: #ffd740;
+}
+.form-group-material-amber-A400.is-focused.label-placeholder label.control-label {
+  color: #ffc400;
+}
+.form-group-material-amber-A700.is-focused.label-placeholder label.control-label {
+  color: #ffab00;
+}
+.form-group-material-orange.is-focused.label-placeholder label.control-label {
+  color: #ff9800;
+}
+.form-group-material-orange-50.is-focused.label-placeholder label.control-label {
+  color: #fff3e0;
+}
+.form-group-material-orange-100.is-focused.label-placeholder label.control-label {
+  color: #ffe0b2;
+}
+.form-group-material-orange-200.is-focused.label-placeholder label.control-label {
+  color: #ffcc80;
+}
+.form-group-material-orange-300.is-focused.label-placeholder label.control-label {
+  color: #ffb74d;
+}
+.form-group-material-orange-400.is-focused.label-placeholder label.control-label {
+  color: #ffa726;
+}
+.form-group-material-orange-500.is-focused.label-placeholder label.control-label {
+  color: #ff9800;
+}
+.form-group-material-orange-600.is-focused.label-placeholder label.control-label {
+  color: #fb8c00;
+}
+.form-group-material-orange-700.is-focused.label-placeholder label.control-label {
+  color: #f57c00;
+}
+.form-group-material-orange-800.is-focused.label-placeholder label.control-label {
+  color: #ef6c00;
+}
+.form-group-material-orange-900.is-focused.label-placeholder label.control-label {
+  color: #e65100;
+}
+.form-group-material-orange-A100.is-focused.label-placeholder label.control-label {
+  color: #ffd180;
+}
+.form-group-material-orange-A200.is-focused.label-placeholder label.control-label {
+  color: #ffab40;
+}
+.form-group-material-orange-A400.is-focused.label-placeholder label.control-label {
+  color: #ff9100;
+}
+.form-group-material-orange-A700.is-focused.label-placeholder label.control-label {
+  color: #ff6d00;
+}
+.form-group-material-deep-orange.is-focused.label-placeholder label.control-label {
+  color: #ff5722;
+}
+.form-group-material-deep-orange-50.is-focused.label-placeholder label.control-label {
+  color: #fbe9e7;
+}
+.form-group-material-deep-orange-100.is-focused.label-placeholder label.control-label {
+  color: #ffccbc;
+}
+.form-group-material-deep-orange-200.is-focused.label-placeholder label.control-label {
+  color: #ffab91;
+}
+.form-group-material-deep-orange-300.is-focused.label-placeholder label.control-label {
+  color: #ff8a65;
+}
+.form-group-material-deep-orange-400.is-focused.label-placeholder label.control-label {
+  color: #ff7043;
+}
+.form-group-material-deep-orange-500.is-focused.label-placeholder label.control-label {
+  color: #ff5722;
+}
+.form-group-material-deep-orange-600.is-focused.label-placeholder label.control-label {
+  color: #f4511e;
+}
+.form-group-material-deep-orange-700.is-focused.label-placeholder label.control-label {
+  color: #e64a19;
+}
+.form-group-material-deep-orange-800.is-focused.label-placeholder label.control-label {
+  color: #d84315;
+}
+.form-group-material-deep-orange-900.is-focused.label-placeholder label.control-label {
+  color: #bf360c;
+}
+.form-group-material-deep-orange-A100.is-focused.label-placeholder label.control-label {
+  color: #ff9e80;
+}
+.form-group-material-deep-orange-A200.is-focused.label-placeholder label.control-label {
+  color: #ff6e40;
+}
+.form-group-material-deep-orange-A400.is-focused.label-placeholder label.control-label {
+  color: #ff3d00;
+}
+.form-group-material-deep-orange-A700.is-focused.label-placeholder label.control-label {
+  color: #dd2c00;
+}
+.form-group-material-brown.is-focused.label-placeholder label.control-label {
+  color: #795548;
+}
+.form-group-material-brown-50.is-focused.label-placeholder label.control-label {
+  color: #efebe9;
+}
+.form-group-material-brown-100.is-focused.label-placeholder label.control-label {
+  color: #d7ccc8;
+}
+.form-group-material-brown-200.is-focused.label-placeholder label.control-label {
+  color: #bcaaa4;
+}
+.form-group-material-brown-300.is-focused.label-placeholder label.control-label {
+  color: #a1887f;
+}
+.form-group-material-brown-400.is-focused.label-placeholder label.control-label {
+  color: #8d6e63;
+}
+.form-group-material-brown-500.is-focused.label-placeholder label.control-label {
+  color: #795548;
+}
+.form-group-material-brown-600.is-focused.label-placeholder label.control-label {
+  color: #6d4c41;
+}
+.form-group-material-brown-700.is-focused.label-placeholder label.control-label {
+  color: #5d4037;
+}
+.form-group-material-brown-800.is-focused.label-placeholder label.control-label {
+  color: #4e342e;
+}
+.form-group-material-brown-900.is-focused.label-placeholder label.control-label {
+  color: #3e2723;
+}
+.form-group-material-brown-A100.is-focused.label-placeholder label.control-label {
+  color: #d7ccc8;
+}
+.form-group-material-brown-A200.is-focused.label-placeholder label.control-label {
+  color: #bcaaa4;
+}
+.form-group-material-brown-A400.is-focused.label-placeholder label.control-label {
+  color: #8d6e63;
+}
+.form-group-material-brown-A700.is-focused.label-placeholder label.control-label {
+  color: #5d4037;
+}
+.form-group-material-grey.is-focused.label-placeholder label.control-label {
+  color: #9e9e9e;
+}
+.form-group-material-grey-50.is-focused.label-placeholder label.control-label {
+  color: #fafafa;
+}
+.form-group-material-grey-100.is-focused.label-placeholder label.control-label {
+  color: #f5f5f5;
+}
+.form-group-material-grey-200.is-focused.label-placeholder label.control-label {
+  color: #eeeeee;
+}
+.form-group-material-grey-300.is-focused.label-placeholder label.control-label {
+  color: #e0e0e0;
+}
+.form-group-material-grey-400.is-focused.label-placeholder label.control-label {
+  color: #bdbdbd;
+}
+.form-group-material-grey-500.is-focused.label-placeholder label.control-label {
+  color: #9e9e9e;
+}
+.form-group-material-grey-600.is-focused.label-placeholder label.control-label {
+  color: #757575;
+}
+.form-group-material-grey-700.is-focused.label-placeholder label.control-label {
+  color: #616161;
+}
+.form-group-material-grey-800.is-focused.label-placeholder label.control-label {
+  color: #424242;
+}
+.form-group-material-grey-900.is-focused.label-placeholder label.control-label {
+  color: #212121;
+}
+.form-group-material-grey-A100.is-focused.label-placeholder label.control-label {
+  color: #f5f5f5;
+}
+.form-group-material-grey-A200.is-focused.label-placeholder label.control-label {
+  color: #eeeeee;
+}
+.form-group-material-grey-A400.is-focused.label-placeholder label.control-label {
+  color: #bdbdbd;
+}
+.form-group-material-grey-A700.is-focused.label-placeholder label.control-label {
+  color: #616161;
+}
+.form-group-material-blue-grey.is-focused.label-placeholder label.control-label {
+  color: #607d8b;
+}
+.form-group-material-blue-grey-50.is-focused.label-placeholder label.control-label {
+  color: #eceff1;
+}
+.form-group-material-blue-grey-100.is-focused.label-placeholder label.control-label {
+  color: #cfd8dc;
+}
+.form-group-material-blue-grey-200.is-focused.label-placeholder label.control-label {
+  color: #b0bec5;
+}
+.form-group-material-blue-grey-300.is-focused.label-placeholder label.control-label {
+  color: #90a4ae;
+}
+.form-group-material-blue-grey-400.is-focused.label-placeholder label.control-label {
+  color: #78909c;
+}
+.form-group-material-blue-grey-500.is-focused.label-placeholder label.control-label {
+  color: #607d8b;
+}
+.form-group-material-blue-grey-600.is-focused.label-placeholder label.control-label {
+  color: #546e7a;
+}
+.form-group-material-blue-grey-700.is-focused.label-placeholder label.control-label {
+  color: #455a64;
+}
+.form-group-material-blue-grey-800.is-focused.label-placeholder label.control-label {
+  color: #37474f;
+}
+.form-group-material-blue-grey-900.is-focused.label-placeholder label.control-label {
+  color: #263238;
+}
+.form-group-material-blue-grey-A100.is-focused.label-placeholder label.control-label {
+  color: #cfd8dc;
+}
+.form-group-material-blue-grey-A200.is-focused.label-placeholder label.control-label {
+  color: #b0bec5;
+}
+.form-group-material-blue-grey-A400.is-focused.label-placeholder label.control-label {
+  color: #78909c;
+}
+.form-group-material-blue-grey-A700.is-focused.label-placeholder label.control-label {
+  color: #455a64;
+}
 .form-group .form-control {
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 .form-group .form-control::-moz-placeholder {
   font-size: 16px;
@@ -23470,19 +24359,23 @@ fieldset[disabled] .form-control {
   font-size: 12px;
   line-height: 1.07142857;
 }
-.form-group label.control-label.floating-label {
-  top: -8px;
+.form-group.label-floating label.control-label,
+.form-group.label-placeholder label.control-label {
+  top: -7px;
   font-size: 16px;
   line-height: 1.42857143;
 }
-.form-group.is-focused label.control-label.floating-label,
-.form-group:not(.is-empty) label.control-label.floating-label {
-  top: -32px;
-  font-size: 12px;
-  line-height: 1.07142857;
+.form-group.label-static label.control-label,
+.form-group.label-floating.is-focused label.control-label,
+.form-group.label-floating:not(.is-empty) label.control-label {
+  top: -30px;
+}
+.form-group.form-group-sm {
+  margin: 21px 0 0 0;
+  padding-bottom: 3px;
 }
 .form-group.form-group-sm .form-control {
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 .form-group.form-group-sm .form-control::-moz-placeholder {
   font-size: 11px;
@@ -23501,19 +24394,23 @@ fieldset[disabled] .form-control {
   font-size: 9px;
   line-height: 1.125;
 }
-.form-group.form-group-sm label.control-label.floating-label {
-  top: -12px;
+.form-group.form-group-sm.label-floating label.control-label,
+.form-group.form-group-sm.label-placeholder label.control-label {
+  top: -11px;
   font-size: 11px;
   line-height: 1.5;
 }
-.form-group.form-group-sm.is-focused label.control-label.floating-label,
-.form-group.form-group-sm:not(.is-empty) label.control-label.floating-label {
-  top: -27px;
-  font-size: 9px;
-  line-height: 1.125;
+.form-group.form-group-sm.label-static label.control-label,
+.form-group.form-group-sm.label-floating.is-focused label.control-label,
+.form-group.form-group-sm.label-floating:not(.is-empty) label.control-label {
+  top: -25px;
+}
+.form-group.form-group-lg {
+  margin: 30px 0 0 0;
+  padding-bottom: 9px;
 }
 .form-group.form-group-lg .form-control {
-  margin-bottom: 10px;
+  margin-bottom: 9px;
 }
 .form-group.form-group-lg .form-control::-moz-placeholder {
   font-size: 18px;
@@ -23532,16 +24429,16 @@ fieldset[disabled] .form-control {
   font-size: 14px;
   line-height: 0.99999998;
 }
-.form-group.form-group-lg label.control-label.floating-label {
-  top: -6px;
+.form-group.form-group-lg.label-floating label.control-label,
+.form-group.form-group-lg.label-placeholder label.control-label {
+  top: -5px;
   font-size: 18px;
   line-height: 1.3333333;
 }
-.form-group.form-group-lg.is-focused label.control-label.floating-label,
-.form-group.form-group-lg:not(.is-empty) label.control-label.floating-label {
-  top: -34px;
-  font-size: 14px;
-  line-height: 0.99999998;
+.form-group.form-group-lg.label-static label.control-label,
+.form-group.form-group-lg.label-floating.is-focused label.control-label,
+.form-group.form-group-lg.label-floating:not(.is-empty) label.control-label {
+  top: -32px;
 }
 .form-group .help-block {
   position: absolute;
@@ -24499,13 +25396,13 @@ select.form-control[multiple],
   height: 85px;
 }
 .input-group-btn .btn {
-  margin: 0 0 8px 0;
+  margin: 0 0 7px 0;
 }
 .form-group.form-group-sm .input-group-btn .btn {
-  margin: 0 0 4px 0;
+  margin: 0 0 3px 0;
 }
 .form-group.form-group-lg .input-group-btn .btn {
-  margin: 0 0 10px 0;
+  margin: 0 0 9px 0;
 }
 .input-group .input-group-btn {
   padding: 0 12px;
@@ -47625,10 +48522,10 @@ hr.on-light {
   border: 0px;
   background: transparent;
 }
-.selectize-control.single .selectize-input.floating-label-fix input,
-.selectize-control.multi .selectize-input.floating-label-fix input,
-.selectize-control.single .selectize-input.input-active.floating-label-fix input,
-.selectize-control.multi .selectize-input.input-active.floating-label-fix input {
+.selectize-control.single .selectize-input.label-floating-fix input,
+.selectize-control.multi .selectize-input.label-floating-fix input,
+.selectize-control.single .selectize-input.input-active.label-floating-fix input,
+.selectize-control.multi .selectize-input.input-active.label-floating-fix input {
   opacity: 0;
 }
 .selectize-control.single .selectize-input > div,
