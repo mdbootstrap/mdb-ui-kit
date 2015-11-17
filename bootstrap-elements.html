@@ -1973,12 +1973,15 @@
       <div class="col-lg-4 col-lg-offset-1">
 
         <form class="bs-component">
-          <div class="form-group">
-            <input class="form-control floating-label" id="focusedInput1" type="text" placeholder="Write something to make the label float">
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput1">Write something to make the label float</label>
+            <input class="form-control" id="focusedInput1" type="text">
           </div>
 
-          <div class="form-group">
-            <input class="form-control floating-label" id="focusedInput2" type="text" placeholder="Focus to show the help-block" data-hint="You should really write something here">
+          <div class="form-group label-floating">
+            <label class="control-label" for="focusedInput2">Focus to show the help-block</label>
+            <input class="form-control" id="focusedInput2" type="text">
+            <p class="help-block">You should really write something here</p>
           </div>
 
           <div class="form-group">
@@ -2027,8 +2030,8 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="control-label floating-label" for="addon2">Floating label addon <small>(right only)</small></label>
+          <div class="form-group label-floating">
+            <label class="control-label" for="addon2">Floating label addon <small>(right only)</small></label>
             <div class="input-group">
               <input type="text" id="addon2" class="form-control">
               <span class="input-group-btn">
