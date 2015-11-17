@@ -95,9 +95,9 @@
   label.control-label { // static label
     font-size: @static-font-size; // static (smaller of the two)
     line-height: @static-line-height;
-    &.floating-label {
+    &.floating-label { // as placeholder (full size)
       top: @label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
-      font-size: @placeholder-font-size; // as placeholder (full size)
+      font-size: @placeholder-font-size;
       line-height: @line-height;
     }
 
@@ -116,6 +116,7 @@
 }
 
 .form-group {
+  border: solid 1px red;
   position: relative;
 
   // ----
@@ -163,9 +164,9 @@
     .form-group-size-variant(@md-input-font-size-large, @md-input-padding-large-vertical, @md-input-line-height-large, @md-label-as-placeholder-shim-large);
   }
 
-  // Hints
+  // Hints - position: absolute approach - uses no vertical space, text wrapping - not so good.
   .help-block {
-    position: absolute;
+    position: absolute; // do not use position: absolute because width/wrapping isn't automatic and overflows occur
     display: none;
   }
 
@@ -174,6 +175,19 @@
       display: block;
     }
   }
+
+  // Hints - visibility approach - uses a bit too much vertical space, no jumping on blur, good text wrapping
+  //          May need to generate help-block for those without one for even vertical spacing (not a good thing).
+  //.help-block {
+  //  visibility: hidden; // reserve the vertical space to avoid jumping inputs on blur
+  //  margin-bottom: 0;   // keep vertical space to a minimum
+  //}
+  //
+  //&.is-focused {
+  //  .help-block {
+  //    visibility: visible;
+  //  }
+  //}
 
   // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-img-variations-content
   .generic-variations(~".is-focused .form-control", @primary, {

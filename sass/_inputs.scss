@@ -68,28 +68,43 @@
   }
 }
 
-@mixin form-group-size-variant($placeholder-font-size, $vertical-padding){
-  $label-as-placeholder-top: -1 * $vertical-padding !default;
+@mixin form-group-size-variant($placeholder-font-size, $vertical-padding, $line-height, $label-as-placeholder-shim){
   $static-font-size: ceil(($floating-label-size-ratio * $placeholder-font-size)) !default;
-  $hint-font-size: ceil(($hint-size-ratio * $placeholder-font-size)) !default;
+  $static-line-height: ($floating-label-size-ratio * $line-height) !default;
+
+  $label-as-placeholder-top: -1 * ($vertical-padding + $label-as-placeholder-shim) !default;
+  //$label-as-placeholder-top: -1 * ($line-height * $static-font-size) !default; way too much on anything but sm
+
+  $help-block-font-size: ceil(($help-block-size-ratio * $placeholder-font-size)) !default;
+  $help-block-line-height: ($help-block-size-ratio * $line-height) !default;
 
   .form-control {
     @include material-placeholder {
       font-size: $placeholder-font-size;
     
 }
+    margin-bottom: $vertical-padding;
+
+    //border: 1px solid;
   }
 
-  .hint {
-    font-size: $hint-font-size;
+  .help-block {
+    margin-top: 0px; // allow the input margin to set-off the top of the help-block
+    font-size: $help-block-font-size;
+
+    //border: 1px solid;
   }
 
   label.control-label { // static label
     font-size: $static-font-size; // static (smaller of the two)
+    line-height: $static-line-height;
     &.floating-label {
       top: $label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
       font-size: $placeholder-font-size; // as placeholder (full size)
+      line-height: $line-height;
     }
+
+    //border: 1px solid;
   }
 
   // sizing of focused/open/labels
@@ -98,6 +113,7 @@
     label.control-label.floating-label {
       top: $label-as-placeholder-top - ($placeholder-font-size + $vertical-padding);
       font-size: $static-font-size;
+      line-height: $static-line-height;
     }
   }
 }
@@ -139,26 +155,26 @@
   @include variations(unquote(".is-focused label.control-label"), color, $input-default); // focused label color variations
 
   // default floating size/location
-  @include form-group-size-variant($md-input-font-size-base, $md-input-padding-base-vertical);
+  @include form-group-size-variant($md-input-font-size-base, $md-input-padding-base-vertical, $md-input-line-height-base, $md-label-as-placeholder-shim-base);
 
   // sm floating size/location
   &.form-group-sm {
-    @include form-group-size-variant($md-input-font-size-small, $md-input-padding-small-vertical);
+    @include form-group-size-variant($md-input-font-size-small, $md-input-padding-small-vertical, $md-input-line-height-small, $md-label-as-placeholder-shim-small);
   }
 
   // lg floating size/location
   &.form-group-lg {
-    @include form-group-size-variant($md-input-font-size-large, $md-input-padding-large-vertical);
+    @include form-group-size-variant($md-input-font-size-large, $md-input-padding-large-vertical, $md-input-line-height-large, $md-label-as-placeholder-shim-large);
   }
 
   // Hints
-  .hint {
+  .help-block {
     position: absolute;
     display: none;
   }
 
   &.is-focused {
-    .hint {
+    .help-block {
       display: block;
     }
   }
@@ -207,21 +223,44 @@ select.form-control {
   }
 }
 
-.input-group {
-  .form-group {
-    .form-control {
-      float: none;
+@mixin input-group-button-variation($vertical-padding){
+  .input-group-btn {
+    .btn {
+      margin: 0 0 $vertical-padding 0;
     }
-    margin-right: 5px;
-    margin-left: 5px;
   }
+}
+
+// ----------------
+// input group/addon related styles
+
+// default margin
+@include input-group-button-variation($md-input-padding-base-vertical);
+
+.form-group {
+  //.form-control {
+  //  float: none;
+  //}
+
+  // sm margin
+  &.form-group-sm {
+    @include input-group-button-variation($md-input-padding-small-vertical);
+  }
+
+  // lg margin
+  &.form-group-lg {
+    @include input-group-button-variation($md-input-padding-large-vertical);
+  }
+}
+
+.input-group {  // may be in or outside of form-group
+  .input-group-btn {
+    padding: 0 12px; // match addon spacing
+  }
+
   .input-group-addon {
     border: 0;
     background: transparent;
-  }
-  .input-group-btn .btn {
-    border-radius: 4px;
-    margin: 0;
   }
 }
 
