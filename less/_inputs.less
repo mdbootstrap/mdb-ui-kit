@@ -66,57 +66,63 @@
   }
 }
 
-.form-group-size-variant(@placeholder-font-size, @vertical-padding, @line-height, @label-as-placeholder-shim){
-  @static-font-size: ceil((@floating-label-size-ratio * @placeholder-font-size));
-  @static-line-height: (@floating-label-size-ratio * @line-height);
+.form-group-size-variant(@placeholder-font-size, @label-top-margin, @vertical-padding, @line-height, @label-as-placeholder-shim){
+  @static-font-size: ceil((@label-floating-size-ratio * @placeholder-font-size));
+  @static-line-height: (@label-floating-size-ratio * @line-height);
 
   @label-as-placeholder-top: -1 * (@vertical-padding + @label-as-placeholder-shim);
-  //@label-as-placeholder-top: -1 * (@line-height * @static-font-size); way too much on anything but sm
+  @label-top: @label-as-placeholder-top - (@placeholder-font-size + @vertical-padding);
 
   @help-block-font-size: ceil((@help-block-size-ratio * @placeholder-font-size));
   @help-block-line-height: (@help-block-size-ratio * @line-height);
+
+  // form-group margin-top must be large enough for the label and the label's top padding since label is absolutely positioned
+  margin: (@label-top-margin + @static-font-size) 0 0 0;
 
   .form-control {
     .material-placeholder({
       font-size: @placeholder-font-size;
     });
-    margin-bottom: @vertical-padding;
-
-    //border: 1px solid;
+    margin-bottom: @vertical-padding; // must be specified to give help-block vertical space
   }
+
+  // upon collapsing margins, the largest margin is honored which collapses the form-control margin, so the form-control margin
+  //  must also be expressed as form-group padding
+  padding-bottom: @vertical-padding;
 
   .help-block {
     margin-top: 0px; // allow the input margin to set-off the top of the help-block
     font-size: @help-block-font-size;
-
-    //border: 1px solid;
   }
 
-  label.control-label { // static label
-    font-size: @static-font-size; // static (smaller of the two)
+  // smaller focused or static size
+  label.control-label {
+    font-size: @static-font-size;
     line-height: @static-line-height;
-    &.floating-label { // as placeholder (full size)
+  }
+
+  // larger labels as placeholders
+  &.label-floating,
+  &.label-placeholder {
+    label.control-label {
       top: @label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
       font-size: @placeholder-font-size;
       line-height: @line-height;
     }
-
-    //border: 1px solid;
   }
 
-  // sizing of focused/open/labels
-  &.is-focused,
-  &:not(.is-empty) {
-    label.control-label.floating-label {
-      top: @label-as-placeholder-top - (@placeholder-font-size + @vertical-padding);
-      font-size: @static-font-size;
-      line-height: @static-line-height;
+  // static or focused floating labels
+  &.label-static,
+  &.label-floating.is-focused,
+  &.label-floating:not(.is-empty) {
+    label.control-label {
+      top: @label-top;
     }
   }
 }
 
 .form-group {
-  border: solid 1px red;
+  //border: solid 1px red;
   position: relative;
 
   // ----
@@ -134,34 +140,45 @@
   // Reference http://www.google.com/design/spec/components/text-fields.html
   // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 
-  label.control-label { // static label
-
-    // same label properties as form-group placeholder.  could be shared with a ruleset but makes sass conversion painful
-    color: @input-placeholder-color;
-    font-weight: normal;
-    margin: 16px 0 0 0; // std and lg
-
-    &.floating-label {
+  &.label-static,
+  &.label-placeholder,
+  &.label-floating {
+    label.control-label {
       position: absolute;
-      pointer-events: none;
       left: 0px;
+      pointer-events: none;
       transition: 0.3s ease all;
     }
   }
+
+  label.control-label {
+    // same label properties as form-group placeholder
+    color: @input-placeholder-color;
+    font-weight: normal;
+    margin: 16px 0 0 0; // std and lg
+  }
+  // hide label-placeholders when the field is not empty
+  &.label-placeholder:not(.is-empty){
+    label.control-label{
+      display: none;
+    }
+  }
+
   .variations(~" label.control-label", color, @input-placeholder-color);  // default label color variations
   .variations(~".is-focused label.control-label", color, @input-default); // focused label color variations
+  .variations(~".is-focused.label-placeholder label.control-label", color, @input-placeholder-color);  // default label color variations
 
   // default floating size/location
-  .form-group-size-variant(@md-input-font-size-base, @md-input-padding-base-vertical, @md-input-line-height-base, @md-label-as-placeholder-shim-base);
+  .form-group-size-variant(@md-input-font-size-base, @md-label-top-margin-base, @md-input-padding-base-vertical, @md-input-line-height-base, @md-label-as-placeholder-shim-base);
 
   // sm floating size/location
   &.form-group-sm {
-    .form-group-size-variant(@md-input-font-size-small, @md-input-padding-small-vertical, @md-input-line-height-small, @md-label-as-placeholder-shim-small);
+    .form-group-size-variant(@md-input-font-size-small, @md-label-top-margin-small, @md-input-padding-small-vertical, @md-input-line-height-small, @md-label-as-placeholder-shim-small);
   }
 
   // lg floating size/location
   &.form-group-lg {
-    .form-group-size-variant(@md-input-font-size-large, @md-input-padding-large-vertical, @md-input-line-height-large, @md-label-as-placeholder-shim-large);
+    .form-group-size-variant(@md-input-font-size-large, @md-label-top-margin-large, @md-input-padding-large-vertical, @md-input-line-height-large, @md-label-as-placeholder-shim-large);
   }
 
   // Hints - position: absolute approach - uses no vertical space, text wrapping - not so good.
