@@ -37,9 +37,9 @@ select[multiple].form-control {
     color: @input-placeholder-color;
   }
   &::-moz-placeholder {
-    color: @input-placeholder-color; 
+    color: @input-placeholder-color;
   }
-  &:-ms-input-placeholder {  
+  &:-ms-input-placeholder {
     color: @input-placeholder-color;
   }
 }
@@ -47,14 +47,14 @@ select[multiple].form-control {
   background-color: transparent;
   background-color: rgba(0,0,0,0);
 }
-fieldset[disabled] .form-control:disabled, 
-.form-control-wrapper .form-control:disabled, 
-.form-control:disabled, 
-fieldset[disabled] .form-control:focus:disabled, 
-.form-control-wrapper .form-control:focus:disabled, 
-.form-control:focus:disabled, 
-fieldset[disabled] .form-control.focus:disabled, 
-.form-control-wrapper .form-control.focus:disabled, 
+fieldset[disabled] .form-control:disabled,
+.form-control-wrapper .form-control:disabled,
+.form-control:disabled,
+fieldset[disabled] .form-control:focus:disabled,
+.form-control-wrapper .form-control:focus:disabled,
+.form-control:focus:disabled,
+fieldset[disabled] .form-control.focus:disabled,
+.form-control-wrapper .form-control.focus:disabled,
 .form-control.focus:disabled {
   border: 0; // Ugly override of Bootstrap border
 }
@@ -85,7 +85,8 @@ fieldset[disabled] .form-control.focus:disabled,
     font-size: @font-size-base;
   }
   .form-control:focus ~ .floating-label,
-  .form-control:not(.empty) ~ .floating-label {
+  .form-control:not(.empty) ~ .floating-label,
+  .form-control:-webkit-autofill ~ .floating-label {
     top: @floating-label-size-ratio * -@font-size-base;
     font-size: @floating-label-size-ratio * @font-size-base;
   }
@@ -95,7 +96,8 @@ fieldset[disabled] .form-control.focus:disabled,
     top: 7px;
   }
   .form-control.input-sm:focus ~ .floating-label,
-  .form-control.input-sm:not(.empty) ~.floating-label {
+  .form-control.input-sm:not(.empty) ~.floating-label,
+  .form-control.input-sm:-webkit-autofill ~ .floating-label {
     top: @floating-label-size-ratio * -@font-size-small;
     font-size: @floating-label-size-ratio * @font-size-small;
   }
@@ -105,7 +107,8 @@ fieldset[disabled] .form-control.focus:disabled,
     top: 10px;
   }
   .form-control.input-lg:focus ~ .floating-label,
-  .form-control.input-lg:not(.empty) ~ .floating-label {
+  .form-control.input-lg:not(.empty) ~ .floating-label,
+  .form-control.input-lg:-webkit-autofill ~ .floating-label {
     top: @floating-label-size-ratio * -@font-size-large;
     font-size: @floating-label-size-ratio * @font-size-large;
   }
