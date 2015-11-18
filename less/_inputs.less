@@ -1,5 +1,19 @@
 @import '_inputs-size.less';
 
+// Ugly reset of Bootstrap border
+fieldset[disabled] .form-control:disabled,
+.form-group .form-control:disabled,
+.form-control:disabled,
+fieldset[disabled] .form-control:focus:disabled,
+.form-group .form-control:focus:disabled,
+.form-control:focus:disabled,
+.form-group.is-focused fieldset[disabled] .form-control:disabled,
+.form-group.is-focused .form-group .form-control:disabled,
+.form-group.is-focused .form-control:disabled {
+  border: 0;
+}
+
+
 // usage: .form-group-validation-state(@input-danger);
 .form-group-validation-state(@name, @color) {
 
@@ -17,52 +31,53 @@
   }
 }
 
-.form-control {
-  border: 0;
-  background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
-  background-size: 0 2px, 100% 1px;
-  background-repeat: no-repeat;
-  background-position: center bottom, center calc(~"100% - 1px");
-  background-color: rgba(0, 0, 0, 0);
-  transition: background 0s ease-out;
-
-  .form-group.is-focused & {
-    outline: none;
+.form-group {
+  .form-control {
+    border: 0;
     background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
-    background-size: 100% 2px, 100% 1px;
-    box-shadow: none;
-    transition-duration: 0.3s;
+    background-size: 0 2px, 100% 1px;
+    background-repeat: no-repeat;
+    background-position: center bottom, center calc(~"100% - 1px");
+    background-color: rgba(0, 0, 0, 0);
+    transition: background 0s ease-out;
 
-    .material-input:after {
-      background-color: @input-default;
-    }
-  }
+    .form-group.is-focused & {
+      outline: none;
+      background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
+      background-size: 100% 2px, 100% 1px;
+      box-shadow: none;
+      transition-duration: 0.3s;
 
-  &,
-  fieldset[disabled] & {
-
-    &:textarea {
-      height: 40px;
+      .material-input:after {
+        background-color: @input-default;
+      }
     }
 
     &,
-    .form-group.is-focused & {
-      float: none;
-      border: 0;
-      box-shadow: none;
-      border-radius: 0;
-      &:disabled {
-        border-style: dashed;
-        border-bottom: 1px solid #757575;
+    fieldset[disabled] & {
+
+      &:textarea {
+        height: 40px;
+      }
+
+      &,
+      .form-group.is-focused & {
+        float: none;
+        border: 0;
+        box-shadow: none;
+        border-radius: 0;
+        &:disabled {
+          background-image: none;
+          border-bottom: 1px dotted @input-underline-color;
+        }
       }
     }
-  }
 
-  &[disabled],
-  &[readonly],
-  fieldset[disabled] & {
-    //background-color: transparent;
-    background-color: rgba(0, 0, 0, 0);
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+      background-color: rgba(0, 0, 0, 0);
+    }
   }
 }
 
@@ -309,15 +324,3 @@ select.form-control {
   z-index: 100;
 }
 
-// Ugly override of Bootstrap border
-fieldset[disabled] .form-control:disabled,
-.form-group .form-control:disabled,
-.form-control:disabled,
-fieldset[disabled] .form-control:focus:disabled,
-.form-group .form-control:focus:disabled,
-.form-control:focus:disabled,
-.form-group.is-focused fieldset[disabled] .form-control:disabled,
-.form-group.is-focused .form-group .form-control:disabled,
-.form-group.is-focused .form-control:disabled {
-  border: 0;
-}
