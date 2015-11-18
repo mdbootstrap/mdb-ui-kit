@@ -97,29 +97,38 @@ These colors are taken from the Material Design color palette and are reported b
 
 To take advantage of all the shades please use `material-fullpalette.css`, but please be aware of its huge size.
 
-### Buttons
+### Forms
+
+All inputs should be surrounded by a standard `.form-group`, and as such `material.js` will enforce this.  The `.form-group` is
+used to signal different input styles and variations.  See the examples for variations.
+
+#### Sizing
+
+In general, it is preferred that sizing be altered with either `.form-group-sm` or `.form-group-lg`.  Due to the interconnected
+nature of inputs, labels, margins and padding, `material.js` will convert any use of `.input-sm` or `.input-lg` to 
+`.form-group-sm` or `.form-group-lg` in order to reduce the necessary markup/variations and get a standard sizing with
+fewer side effects.
+
+#### Buttons
 
 Add `.btn-flat` to a button to make it flat, without shadows.
 Add `.btn-raised` to a button to add a permanent shadow to it.
 
-### Inputs
+#### Inputs
 
-All inputs should be surrounded by a standard `.form-group`, and as such `material.js` will enforce this.  The `.form-group` is
-used to signal different input styles and variations.  
-
-Labels:
+##### Labels
 
 - `.label-floating` - renders label as a placeholder, that animates above the field upon focus
 - `.label-static` - renders label above the field. `input placeholder` attribute can also be used in conjunction
 - `.label-placeholder` - renders a label as a placeholder only 
 - no label, but use of `input placeholder` attribute - same rendering as `.label-placeholder`
 
-Hints:
+##### Hints
 
 Upon focus, a hint can be displayed.  Use any `p | span` with `.help-block`.
 
 
-Examples:
+##### Examples
 
 ```html
   <div class="form-group label-static">
@@ -142,7 +151,7 @@ Examples:
 ```
 
 
-### Radio, Checkbox, Toggle
+#### Radio, Checkbox, Toggle
 
 Be sure to inspect the source of the demos to find proper markup examples. Remember to use the proper HTML markup.
 
