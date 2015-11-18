@@ -68,6 +68,7 @@
   &.label-floating:not(.is-empty) {
     label.control-label {
       top: @label-top;
+      left: 0;
       // must repeat because the selector above is more specific than the general label sizing
       font-size: @static-font-size;
       line-height: @static-line-height;
@@ -143,7 +144,6 @@
 
     label.control-label {
       position: absolute;
-      left: 0px;
       pointer-events: none;
       transition: 0.3s ease all;
     }
