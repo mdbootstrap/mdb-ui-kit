@@ -42,10 +42,10 @@ Is often asked how to change the primary color of this theme without edit the bo
 You can do it by creating a less file in your project:
 
 ```css
-    @import "../bower_components/bootstrap-material-design/less/material.less";
+@import "../bower_components/bootstrap-material-design/less/material.less";
 
-    // Override @primary color with one took from _colors.less
-    @primary: @deep-purple;
+// Override @primary color with one took from _colors.less
+@primary: @deep-purple;
 ```    
 
 Then, compiling this file, the entire theme will be compiled using the color chosen by you.
@@ -92,7 +92,7 @@ They can be used by adding the class suffix `-material-color` to the desired ele
 Example:
 
 ```html
-    <button class="btn btn-material-deep-purple">Deep purple button</button>
+<button class="btn btn-material-deep-purple">Deep purple button</button>
 ```
 
 These colors are taken from the Material Design color palette and are reported below:
@@ -121,6 +121,8 @@ Add `.btn-raised` to a button to add a permanent shadow to it.
 #### Inputs
 
 ##### Labels
+
+The following classes should be placed on the `.form-group` to indicate the label style:
 
 - `.label-floating` - renders label as a placeholder, that animates above the field upon focus
 - `.label-static` - renders label above the field. `input placeholder` attribute can also be used in conjunction
@@ -195,7 +197,7 @@ Variations are available for every icon, including the original Bootstrap icons.
 The syntax to add a Material icon is:
 
 ```html
-     <i class="icon icon-material-favorite"></i>
+<i class="icon icon-material-favorite"></i>
 ```
 
 ### Cards 
@@ -267,12 +269,12 @@ The functions that allows an optional selector are `$.material.ripples`, `$.mate
 You can even override the default values using the `$.material.options` function. The default values are:
 
 ```javascript
-    $.material.options = {
-        "withRipples": ".btn:not(.btn-link), .card-image, .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple",
-        "inputElements": "input.form-control, textarea.form-control, select.form-control",
-        "checkboxElements": ".checkbox > label > input[type=checkbox]",
-        "radioElements": ".radio > label > input[type=radio]"
-    }
+$.material.options = {
+    "withRipples": ".btn:not(.btn-link), .card-image, .navbar a:not(.withoutripple), .nav-tabs a:not(.withoutripple), .withripple",
+    "inputElements": "input.form-control, textarea.form-control, select.form-control",
+    "checkboxElements": ".checkbox > label > input[type=checkbox]",
+    "radioElements": ".radio > label > input[type=radio]"
+}
 ```    
 
 ### Arrive.js support
@@ -295,7 +297,7 @@ At the moment RipplesJS does not have its own repository but it will probably ha
 You may want to set a custom color to the ripples of a specific element, to do so write:
 
 ```html
-    <button class="btn btn-default" data-ripple-color="#F0F0F0">Custom ripple</button>
+<button class="btn btn-default" data-ripple-color="#F0F0F0">Custom ripple</button>
 ```
 
 ### noUiSlider
