@@ -3874,15 +3874,28 @@ body .jumbotron-material-blue-grey,
 .form-horizontal .checkbox {
   padding-top: 20px;
 }
-.checkbox {
+.form-group .checkbox label {
+  font-size: 16px;
+  line-height: 1.42857143;
+}
+.form-group.form-group-sm .checkbox label {
+  font-size: 11px;
+  line-height: 1.5;
+}
+.form-group.form-group-lg .checkbox label {
+  font-size: 18px;
+  line-height: 1.3333333;
+}
+.form-group .checkbox {
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
 }
-.checkbox label {
+.form-group .checkbox label {
   cursor: pointer;
   padding-left: 0;
+  color: rgba(0, 0, 0, 0.54);
 }
-.checkbox input[type=checkbox] {
+.form-group .checkbox input[type=checkbox] {
   opacity: 0;
   position: absolute;
   margin: 0;
@@ -3893,12 +3906,12 @@ body .jumbotron-material-blue-grey,
   left: 0;
   pointer-events: none;
 }
-.checkbox .checkbox-material {
+.form-group .checkbox .checkbox-material {
   vertical-align: middle;
   position: relative;
   top: 3px;
 }
-.checkbox .checkbox-material:before {
+.form-group .checkbox .checkbox-material:before {
   display: block;
   position: absolute;
   left: 0;
@@ -3913,17 +3926,17 @@ body .jumbotron-material-blue-grey,
   -webkit-transform: scale3d(2.3, 2.3, 1);
           transform: scale3d(2.3, 2.3, 1);
 }
-.checkbox .checkbox-material .check {
+.form-group .checkbox .checkbox-material .check {
   position: relative;
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 2px solid;
+  border: 2px solid rgba(0, 0, 0, 0.54);
   border-radius: 2px;
   overflow: hidden;
   z-index: 1;
 }
-.checkbox .checkbox-material .check:before {
+.form-group .checkbox .checkbox-material .check:before {
   position: absolute;
   content: "";
   -webkit-transform: rotate(45deg);
@@ -3935,303 +3948,391 @@ body .jumbotron-material-blue-grey,
   width: 0;
   height: 0;
   box-shadow: 0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0 inset;
+          0 0 0 0,
+          0 0 0 0,
+          0 0 0 0,
+          0 0 0 0,
+          0 0 0 0,
+          0 0 0 0 inset;
   -webkit-animation: checkbox-off 0.3s forwards;
           animation: checkbox-off 0.3s forwards;
 }
-.checkbox input[type=checkbox]:focus + .checkbox-material .check:after {
+.form-group .checkbox input[type=checkbox]:focus + .checkbox-material .check:after {
   opacity: 0.2;
 }
-.checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
   box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
   -webkit-animation: checkbox-on 0.3s forwards;
           animation: checkbox-on 0.3s forwards;
 }
-.checkbox input[type=checkbox]:not(:checked) + .checkbox-material:before {
+.form-group .checkbox input[type=checkbox]:not(:checked) + .checkbox-material:before {
   -webkit-animation: rippleOff 500ms;
           animation: rippleOff 500ms;
 }
-.checkbox input[type=checkbox]:checked + .checkbox-material:before {
+.form-group .checkbox input[type=checkbox]:checked + .checkbox-material:before {
   -webkit-animation: rippleOn 500ms;
           animation: rippleOn 500ms;
 }
-.checkbox input[type=checkbox]:not(:checked) + .checkbox-material .check:after {
+.form-group .checkbox input[type=checkbox]:not(:checked) + .checkbox-material .check:after {
   -webkit-animation: rippleOff 500ms forwards;
           animation: rippleOff 500ms forwards;
 }
-.checkbox input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox input[type=checkbox]:checked + .checkbox-material .check:after {
   -webkit-animation: rippleOn 500ms forwards;
           animation: rippleOn 500ms forwards;
 }
-.checkbox input[type=checkbox][disabled]:not(:checked) ~ .checkbox-material .check:before,
-.checkbox input[type=checkbox][disabled] + .circle {
+fieldset[disabled] .form-group .checkbox,
+fieldset[disabled] .form-group .checkbox input[type=checkbox],
+.form-group .checkbox input[type=checkbox][disabled]:not(:checked) ~ .checkbox-material .check:before,
+.form-group .checkbox input[type=checkbox][disabled]:not(:checked) ~ .checkbox-material .check,
+.form-group .checkbox input[type=checkbox][disabled] + .circle {
   opacity: 0.5;
 }
-.checkbox input[type=checkbox][disabled] + .checkbox-material .check:after {
+.form-group .checkbox input[type=checkbox][disabled] + .checkbox-material .check:after {
   background-color: rgba(0, 0, 0, 0.84);
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-.checkbox input[type=checkbox]:checked + .checkbox-material .check:after,
-.checkbox-default input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox input[type=checkbox]:checked + .checkbox-material .check:after,
+.form-group .checkbox-default input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #4caf50;
 }
-.checkbox-black input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-black input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #000000;
 }
-.checkbox-white input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-white input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #ffffff;
 }
-.checkbox-inverse input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-inverse input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #3f51b5;
 }
-.checkbox-primary input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-primary input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #009688;
 }
-.checkbox-success input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-success input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #4caf50;
 }
-.checkbox-info input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-info input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #03a9f4;
 }
-.checkbox-warning input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-warning input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #ff5722;
 }
-.checkbox-danger input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-danger input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #f44336;
 }
-.checkbox-material-red input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-red input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #f44336;
 }
-.checkbox-material-pink input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-pink input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #e91e63;
 }
-.checkbox-material-purple input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-purple input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #9c27b0;
 }
-.checkbox-material-deep-purple input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-deep-purple input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #673ab7;
 }
-.checkbox-material-indigo input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-indigo input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #3f51b5;
 }
-.checkbox-material-blue input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-blue input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #2196f3;
 }
-.checkbox-material-light-blue input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-light-blue input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #03a9f4;
 }
-.checkbox-material-cyan input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-cyan input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #00bcd4;
 }
-.checkbox-material-teal input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-teal input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #009688;
 }
-.checkbox-material-green input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-green input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #4caf50;
 }
-.checkbox-material-light-green input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-light-green input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #8bc34a;
 }
-.checkbox-material-lime input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-lime input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #cddc39;
 }
-.checkbox-material-yellow input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-yellow input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #ffeb3b;
 }
-.checkbox-material-amber input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-amber input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #ffc107;
 }
-.checkbox-material-orange input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-orange input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #ff9800;
 }
-.checkbox-material-deep-orange input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-deep-orange input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #ff5722;
 }
-.checkbox-material-brown input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-brown input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #795548;
 }
-.checkbox-material-grey input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-grey input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #9e9e9e;
 }
-.checkbox-material-blue-grey input[type=checkbox]:checked + .checkbox-material .check:after {
+.form-group .checkbox-material-blue-grey input[type=checkbox]:checked + .checkbox-material .check:after {
   background-color: #607d8b;
 }
-.checkbox input[type=checkbox]:checked + .checkbox-material .check:before,
-.checkbox-default input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox input[type=checkbox]:checked + .checkbox-material .check:before,
+.form-group .checkbox-default input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #4caf50;
 }
-.checkbox-black input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-black input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #000000;
 }
-.checkbox-white input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-white input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #ffffff;
 }
-.checkbox-inverse input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-inverse input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #3f51b5;
 }
-.checkbox-primary input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-primary input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #009688;
 }
-.checkbox-success input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-success input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #4caf50;
 }
-.checkbox-info input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-info input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #03a9f4;
 }
-.checkbox-warning input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-warning input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #ff5722;
 }
-.checkbox-danger input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-danger input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #f44336;
 }
-.checkbox-material-red input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-red input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #f44336;
 }
-.checkbox-material-pink input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-pink input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #e91e63;
 }
-.checkbox-material-purple input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-purple input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #9c27b0;
 }
-.checkbox-material-deep-purple input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-deep-purple input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #673ab7;
 }
-.checkbox-material-indigo input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-indigo input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #3f51b5;
 }
-.checkbox-material-blue input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-blue input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #2196f3;
 }
-.checkbox-material-light-blue input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-light-blue input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #03a9f4;
 }
-.checkbox-material-cyan input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-cyan input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #00bcd4;
 }
-.checkbox-material-teal input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-teal input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #009688;
 }
-.checkbox-material-green input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-green input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #4caf50;
 }
-.checkbox-material-light-green input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-light-green input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #8bc34a;
 }
-.checkbox-material-lime input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-lime input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #cddc39;
 }
-.checkbox-material-yellow input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-yellow input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #ffeb3b;
 }
-.checkbox-material-amber input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-amber input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #ffc107;
 }
-.checkbox-material-orange input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-orange input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #ff9800;
 }
-.checkbox-material-deep-orange input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-deep-orange input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #ff5722;
 }
-.checkbox-material-brown input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-brown input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #795548;
 }
-.checkbox-material-grey input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-grey input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #9e9e9e;
 }
-.checkbox-material-blue-grey input[type=checkbox]:checked + .checkbox-material .check:before {
+.form-group .checkbox-material-blue-grey input[type=checkbox]:checked + .checkbox-material .check:before {
   color: #607d8b;
 }
-.checkbox input[type=checkbox]:checked + .checkbox-material .check,
-.checkbox-default input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox input[type=checkbox]:checked + .checkbox-material .check,
+.form-group .checkbox-default input[type=checkbox]:checked + .checkbox-material .check {
   color: #4caf50;
 }
-.checkbox-black input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-black input[type=checkbox]:checked + .checkbox-material .check {
   color: #000000;
 }
-.checkbox-white input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-white input[type=checkbox]:checked + .checkbox-material .check {
   color: #ffffff;
 }
-.checkbox-inverse input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-inverse input[type=checkbox]:checked + .checkbox-material .check {
   color: #3f51b5;
 }
-.checkbox-primary input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-primary input[type=checkbox]:checked + .checkbox-material .check {
   color: #009688;
 }
-.checkbox-success input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-success input[type=checkbox]:checked + .checkbox-material .check {
   color: #4caf50;
 }
-.checkbox-info input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-info input[type=checkbox]:checked + .checkbox-material .check {
   color: #03a9f4;
 }
-.checkbox-warning input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-warning input[type=checkbox]:checked + .checkbox-material .check {
   color: #ff5722;
 }
-.checkbox-danger input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-danger input[type=checkbox]:checked + .checkbox-material .check {
   color: #f44336;
 }
-.checkbox-material-red input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-red input[type=checkbox]:checked + .checkbox-material .check {
   color: #f44336;
 }
-.checkbox-material-pink input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-pink input[type=checkbox]:checked + .checkbox-material .check {
   color: #e91e63;
 }
-.checkbox-material-purple input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-purple input[type=checkbox]:checked + .checkbox-material .check {
   color: #9c27b0;
 }
-.checkbox-material-deep-purple input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-deep-purple input[type=checkbox]:checked + .checkbox-material .check {
   color: #673ab7;
 }
-.checkbox-material-indigo input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-indigo input[type=checkbox]:checked + .checkbox-material .check {
   color: #3f51b5;
 }
-.checkbox-material-blue input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-blue input[type=checkbox]:checked + .checkbox-material .check {
   color: #2196f3;
 }
-.checkbox-material-light-blue input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-light-blue input[type=checkbox]:checked + .checkbox-material .check {
   color: #03a9f4;
 }
-.checkbox-material-cyan input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-cyan input[type=checkbox]:checked + .checkbox-material .check {
   color: #00bcd4;
 }
-.checkbox-material-teal input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-teal input[type=checkbox]:checked + .checkbox-material .check {
   color: #009688;
 }
-.checkbox-material-green input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-green input[type=checkbox]:checked + .checkbox-material .check {
   color: #4caf50;
 }
-.checkbox-material-light-green input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-light-green input[type=checkbox]:checked + .checkbox-material .check {
   color: #8bc34a;
 }
-.checkbox-material-lime input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-lime input[type=checkbox]:checked + .checkbox-material .check {
   color: #cddc39;
 }
-.checkbox-material-yellow input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-yellow input[type=checkbox]:checked + .checkbox-material .check {
   color: #ffeb3b;
 }
-.checkbox-material-amber input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-amber input[type=checkbox]:checked + .checkbox-material .check {
   color: #ffc107;
 }
-.checkbox-material-orange input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-orange input[type=checkbox]:checked + .checkbox-material .check {
   color: #ff9800;
 }
-.checkbox-material-deep-orange input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-deep-orange input[type=checkbox]:checked + .checkbox-material .check {
   color: #ff5722;
 }
-.checkbox-material-brown input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-brown input[type=checkbox]:checked + .checkbox-material .check {
   color: #795548;
 }
-.checkbox-material-grey input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-grey input[type=checkbox]:checked + .checkbox-material .check {
   color: #9e9e9e;
 }
-.checkbox-material-blue-grey input[type=checkbox]:checked + .checkbox-material .check {
+.form-group .checkbox-material-blue-grey input[type=checkbox]:checked + .checkbox-material .check {
   color: #607d8b;
+}
+.form-group .checkbox input[type=checkbox]:checked + .checkbox-material .check,
+.form-group .checkbox-default input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #4caf50;
+}
+.form-group .checkbox-black input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #000000;
+}
+.form-group .checkbox-white input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #ffffff;
+}
+.form-group .checkbox-inverse input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #3f51b5;
+}
+.form-group .checkbox-primary input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #009688;
+}
+.form-group .checkbox-success input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #4caf50;
+}
+.form-group .checkbox-info input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #03a9f4;
+}
+.form-group .checkbox-warning input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #ff5722;
+}
+.form-group .checkbox-danger input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #f44336;
+}
+.form-group .checkbox-material-red input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #f44336;
+}
+.form-group .checkbox-material-pink input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #e91e63;
+}
+.form-group .checkbox-material-purple input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #9c27b0;
+}
+.form-group .checkbox-material-deep-purple input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #673ab7;
+}
+.form-group .checkbox-material-indigo input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #3f51b5;
+}
+.form-group .checkbox-material-blue input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #2196f3;
+}
+.form-group .checkbox-material-light-blue input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #03a9f4;
+}
+.form-group .checkbox-material-cyan input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #00bcd4;
+}
+.form-group .checkbox-material-teal input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #009688;
+}
+.form-group .checkbox-material-green input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #4caf50;
+}
+.form-group .checkbox-material-light-green input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #8bc34a;
+}
+.form-group .checkbox-material-lime input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #cddc39;
+}
+.form-group .checkbox-material-yellow input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #ffeb3b;
+}
+.form-group .checkbox-material-amber input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #ffc107;
+}
+.form-group .checkbox-material-orange input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #ff9800;
+}
+.form-group .checkbox-material-deep-orange input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #ff5722;
+}
+.form-group .checkbox-material-brown input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #795548;
+}
+.form-group .checkbox-material-grey input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #9e9e9e;
+}
+.form-group .checkbox-material-blue-grey input[type=checkbox]:checked + .checkbox-material .check {
+  border-color: #607d8b;
 }
 @-webkit-keyframes checkbox-on {
   0% {
@@ -5121,7 +5222,12 @@ output {
     font-size: 11px;
   }
 }
-.form-control {
+.form-group {
+  position: relative;
+  margin: 28px 0 0 0;
+  padding-bottom: 7px;
+}
+.form-group .form-control {
   border: 0;
   background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
   background-size: 0 2px, 100% 1px;
@@ -5129,46 +5235,9 @@ output {
   background-position: center bottom, center calc(100% - 1px);
   background-color: rgba(0, 0, 0, 0);
   transition: background 0s ease-out;
-}
-.form-group.is-focused .form-control {
-  outline: none;
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
-  background-size: 100% 2px, 100% 1px;
-  box-shadow: none;
-  transition-duration: 0.3s;
-}
-.form-group.is-focused .form-control .material-input:after {
-  background-color: #009688;
-}
-.form-control:textarea,
-fieldset[disabled] .form-control:textarea {
-  height: 40px;
-}
-.form-control,
-fieldset[disabled] .form-control,
-.form-group.is-focused .form-control,
-.form-group.is-focused fieldset[disabled] .form-control {
   float: none;
-  border: 0;
   box-shadow: none;
   border-radius: 0;
-}
-.form-control:disabled,
-fieldset[disabled] .form-control:disabled,
-.form-group.is-focused .form-control:disabled,
-.form-group.is-focused fieldset[disabled] .form-control:disabled {
-  border-style: dashed;
-  border-bottom: 1px solid #757575;
-}
-.form-control[disabled],
-.form-control[readonly],
-fieldset[disabled] .form-control {
-  background-color: rgba(0, 0, 0, 0);
-}
-.form-group {
-  position: relative;
-  margin: 28px 0 0 0;
-  padding-bottom: 7px;
 }
 .form-group .form-control::-moz-placeholder {
   color: #BDBDBD;
@@ -5181,6 +5250,26 @@ fieldset[disabled] .form-control {
 .form-group .form-control::-webkit-input-placeholder {
   color: #BDBDBD;
   font-weight: normal;
+}
+.form-group .form-control[readonly],
+.form-group .form-control[disabled],
+fieldset[disabled] .form-group .form-control {
+  background-color: rgba(0, 0, 0, 0);
+}
+.form-group .form-control[disabled],
+fieldset[disabled] .form-group .form-control {
+  background-image: none;
+  border-bottom: 1px dotted #D2D2D2;
+}
+.form-group.is-focused .form-control {
+  outline: none;
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
+  background-size: 100% 2px, 100% 1px;
+  box-shadow: none;
+  transition-duration: 0.3s;
+}
+.form-group.is-focused .form-control .material-input:after {
+  background-color: #009688;
 }
 .form-group.label-static label.control-label,
 .form-group.label-placeholder label.control-label,
@@ -5698,11 +5787,11 @@ fieldset[disabled] .form-control {
 .form-group textarea ~ .form-control-highlight {
   margin-top: -11px;
 }
-.form-group select ~ .material-input:after {
-  display: none;
-}
 .form-group select {
   appearance: none;
+}
+.form-group select ~ .material-input:after {
+  display: none;
 }
 select.form-control {
   border: 0;
@@ -5711,7 +5800,7 @@ select.form-control {
 }
 .form-group.is-focused select.form-control {
   box-shadow: none;
-  border-color: #757575;
+  border-color: #D2D2D2;
 }
 select.form-control[multiple],
 .form-group.is-focused select.form-control[multiple] {
@@ -5743,17 +5832,6 @@ select.form-control[multiple],
   width: 100%;
   height: 100%;
   z-index: 100;
-}
-fieldset[disabled] .form-control:disabled,
-.form-group .form-control:disabled,
-.form-control:disabled,
-fieldset[disabled] .form-control:focus:disabled,
-.form-group .form-control:focus:disabled,
-.form-control:focus:disabled,
-.form-group.is-focused fieldset[disabled] .form-control:disabled,
-.form-group.is-focused .form-group .form-control:disabled,
-.form-group.is-focused .form-control:disabled {
-  border: 0;
 }
 legend {
   border-bottom: 0;

@@ -19,16 +19,112 @@
   }
 }
 
-.form-control {
-  border: 0;
-  background-image: linear-gradient($primary, $primary), linear-gradient($input-underline-color, $input-underline-color);
-  background-size: 0 2px, 100% 1px;
-  background-repeat: no-repeat;
-  background-position: center bottom, center calc(100% - 1px);
-  background-color: rgba(0, 0, 0, 0);
-  transition: background 0s ease-out;
+@mixin form-group-size-variant($placeholder-font-size, $label-top-margin, $vertical-padding, $line-height, $label-as-placeholder-shim){
+  $static-font-size: ceil(($label-floating-size-ratio * $placeholder-font-size)) !default;
+  $static-line-height: ($label-floating-size-ratio * $line-height) !default;
 
-  .form-group.is-focused & {
+  $label-as-placeholder-top: -1 * ($vertical-padding + $label-as-placeholder-shim) !default;
+  $label-top: $label-as-placeholder-top - ($placeholder-font-size + $vertical-padding) !default;
+
+  $help-block-font-size: ceil(($help-block-size-ratio * $placeholder-font-size)) !default;
+  $help-block-line-height: ($help-block-size-ratio * $line-height) !default;
+
+  // form-group margin-top must be large enough for the label and the label's top padding since label is absolutely positioned
+  margin: ($label-top-margin + $static-font-size) 0 0 0;
+
+  .form-control {
+    @include material-placeholder {
+      font-size: $placeholder-font-size;
+    
+}
+    margin-bottom: $vertical-padding; // must be specified to give help-block vertical space
+  }
+
+  // upon collapsing margins, the largest margin is honored which collapses the form-control margin, so the form-control margin
+  //  must also be expressed as form-group padding
+  padding-bottom: $vertical-padding;
+
+  .help-block {
+    margin-top: 0px; // allow the input margin to set-off the top of the help-block
+    font-size: $help-block-font-size;
+  }
+
+  // smaller focused or static size
+  label.control-label {
+    font-size: $static-font-size;
+    line-height: $static-line-height;
+  }
+
+  // larger labels as placeholders
+  &.label-floating,
+  &.label-placeholder {
+    label.control-label {
+      top: $label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
+      font-size: $placeholder-font-size;
+      line-height: $line-height;
+    }
+  }
+
+  // static or focused floating labels
+  &.label-static,
+  &.label-floating.is-focused,
+  &.label-floating:not(.is-empty) {
+    label.control-label {
+      top: $label-top;
+      // must repeat because the selector above is more specific than the general label sizing
+      font-size: $static-font-size;
+      line-height: $static-line-height;
+    }
+  }
+}
+
+.form-group {
+  //border: solid 1px red;
+  position: relative;
+
+  // -----
+  // Inputs
+  //
+  // Reference http://www.google.com/design/spec/components/text-fields.html
+  // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+  .form-control {
+    border: 0;
+    background-image: linear-gradient($primary, $primary), linear-gradient($input-underline-color, $input-underline-color);
+    background-size: 0 2px, 100% 1px;
+    background-repeat: no-repeat;
+    background-position: center bottom, center calc(100% - 1px);
+    background-color: rgba(0, 0, 0, 0);
+    transition: background 0s ease-out;
+    float: none;
+    box-shadow: none;
+    border-radius: 0;
+
+    // Placeholders and and labels-as-placeholders should look the same
+    @include material-placeholder {
+      color: $input-placeholder-color;
+      font-weight: normal;
+    
+}
+
+
+    //&:textarea {    // appears to be an invalid selector
+    //  height: 40px;
+    //}
+
+    &[readonly],
+    &[disabled],
+    fieldset[disabled] & {
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    &[disabled],
+    fieldset[disabled] & {
+      background-image: none;
+      border-bottom: 1px dotted $input-underline-color;
+    }
+  }
+
+  &.is-focused .form-control {
     outline: none;
     background-image: linear-gradient($primary, $primary), linear-gradient($input-underline-color, $input-underline-color);
     background-size: 100% 2px, 100% 1px;
@@ -40,136 +136,57 @@
     }
   }
 
-  &,
-  fieldset[disabled] & {
-
-    &:textarea {
-      height: 40px;
-    }
-
-    &,
-    .form-group.is-focused & {
-      float: none;
-      border: 0;
-      box-shadow: none;
-      border-radius: 0;
-      &:disabled {
-        border-style: dashed;
-        border-bottom: 1px solid #757575;
-      }
-    }
-  }
-
-  &[disabled],
-  &[readonly],
-  fieldset[disabled] & {
-    //background-color: transparent;
-    background-color: rgba(0, 0, 0, 0);
-  }
-}
-
-@mixin form-group-size-variant($placeholder-font-size, $vertical-padding, $line-height, $label-as-placeholder-shim){
-  $static-font-size: ceil(($floating-label-size-ratio * $placeholder-font-size)) !default;
-  $static-line-height: ($floating-label-size-ratio * $line-height) !default;
-
-  $label-as-placeholder-top: -1 * ($vertical-padding + $label-as-placeholder-shim) !default;
-  //$label-as-placeholder-top: -1 * ($line-height * $static-font-size) !default; way too much on anything but sm
-
-  $help-block-font-size: ceil(($help-block-size-ratio * $placeholder-font-size)) !default;
-  $help-block-line-height: ($help-block-size-ratio * $line-height) !default;
-
-  .form-control {
-    @include material-placeholder {
-      font-size: $placeholder-font-size;
-    
-}
-    margin-bottom: $vertical-padding;
-
-    //border: 1px solid;
-  }
-
-  .help-block {
-    margin-top: 0px; // allow the input margin to set-off the top of the help-block
-    font-size: $help-block-font-size;
-
-    //border: 1px solid;
-  }
-
-  label.control-label { // static label
-    font-size: $static-font-size; // static (smaller of the two)
-    line-height: $static-line-height;
-    &.floating-label {
-      top: $label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
-      font-size: $placeholder-font-size; // as placeholder (full size)
-      line-height: $line-height;
-    }
-
-    //border: 1px solid;
-  }
-
-  // sizing of focused/open/labels
-  &.is-focused,
-  &:not(.is-empty) {
-    label.control-label.floating-label {
-      top: $label-as-placeholder-top - ($placeholder-font-size + $vertical-padding);
-      font-size: $static-font-size;
-      line-height: $static-line-height;
-    }
-  }
-}
-
-.form-group {
-  position: relative;
-
-  // ----
-  // Placeholders and and floating-labels should look the same
-  .form-control {
-    @include material-placeholder {
-      color: $input-placeholder-color;
-      font-weight: normal;
-    
-}
-  }
-
   // -----
   // Labels
   //
   // Reference http://www.google.com/design/spec/components/text-fields.html
   // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+  &.label-static,
+  &.label-placeholder,
+  &.label-floating {
 
-  label.control-label { // static label
-
-    // same label properties as form-group placeholder.  could be shared with a ruleset but makes sass conversion painful
-    color: $input-placeholder-color;
-    font-weight: normal;
-    margin: 16px 0 0 0; // std and lg
-
-    &.floating-label {
+    label.control-label {
       position: absolute;
-      pointer-events: none;
       left: 0px;
+      pointer-events: none;
       transition: 0.3s ease all;
     }
   }
+
+  label.control-label {
+    // same label properties as form-group placeholder
+    color: $input-placeholder-color;
+    font-weight: normal;
+    margin: 16px 0 0 0; // std and lg
+  }
+
+  // hide label-placeholders when the field is not empty
+  &.label-placeholder:not(.is-empty){
+    label.control-label{
+      display: none;
+    }
+  }
+
   @include variations(unquote(" label.control-label"), color, $input-placeholder-color);  // default label color variations
   @include variations(unquote(".is-focused label.control-label"), color, $input-default); // focused label color variations
+  @include variations(unquote(".is-focused.label-placeholder label.control-label"), color, $input-placeholder-color);  // default label color variations
 
   // default floating size/location
-  @include form-group-size-variant($md-input-font-size-base, $md-input-padding-base-vertical, $md-input-line-height-base, $md-label-as-placeholder-shim-base);
+  @include form-group-size-variant($md-input-font-size-base, $md-label-top-margin-base, $md-input-padding-base-vertical, $md-input-line-height-base, $md-label-as-placeholder-shim-base);
 
   // sm floating size/location
   &.form-group-sm {
-    @include form-group-size-variant($md-input-font-size-small, $md-input-padding-small-vertical, $md-input-line-height-small, $md-label-as-placeholder-shim-small);
+    @include form-group-size-variant($md-input-font-size-small, $md-label-top-margin-small, $md-input-padding-small-vertical, $md-input-line-height-small, $md-label-as-placeholder-shim-small);
   }
 
   // lg floating size/location
   &.form-group-lg {
-    @include form-group-size-variant($md-input-font-size-large, $md-input-padding-large-vertical, $md-input-line-height-large, $md-label-as-placeholder-shim-large);
+    @include form-group-size-variant($md-input-font-size-large, $md-label-top-margin-large, $md-input-padding-large-vertical, $md-input-line-height-large, $md-label-as-placeholder-shim-large);
   }
 
-  // Hints
+  // Hints - position: absolute approach - uses no vertical space, text wrapping - not so good.
   .help-block {
-    position: absolute;
+    position: absolute; // do not use position: absolute because width/wrapping isn't automatic and overflows occur
     display: none;
   }
 
@@ -189,18 +206,17 @@
 
   textarea {
     resize: none;
-  }
-  textarea ~ .form-control-highlight {
-    margin-top: -11px;
-  }
-
-  select ~ .material-input:after {
-    display: none;
+    & ~ .form-control-highlight {
+      margin-top: -11px;
+    }
   }
 
-  // Fix for OS X
   select {
-    appearance: none;
+    appearance: none; // Fix for OS X
+
+    & ~ .material-input:after {
+      display: none;
+    }
   }
 }
 
@@ -212,7 +228,7 @@ select.form-control {
 
   .form-group.is-focused & {
     box-shadow: none;
-    border-color: #757575;
+    border-color: $input-underline-color;
   }
 
   &[multiple] {
@@ -264,7 +280,7 @@ select.form-control {
   }
 }
 
-// Input files (kinda hack)
+// Input files - hide actual input - requires specific markup in the sample.
 .form-group input[type=file] {
   opacity: 0;
   position: absolute;
@@ -277,15 +293,3 @@ select.form-control {
   z-index: 100;
 }
 
-// Ugly override of Bootstrap border
-fieldset[disabled] .form-control:disabled,
-.form-group .form-control:disabled,
-.form-control:disabled,
-fieldset[disabled] .form-control:focus:disabled,
-.form-group .form-control:focus:disabled,
-.form-control:focus:disabled,
-.form-group.is-focused fieldset[disabled] .form-control:disabled,
-.form-group.is-focused .form-group .form-control:disabled,
-.form-group.is-focused .form-control:disabled {
-  border: 0;
-}
