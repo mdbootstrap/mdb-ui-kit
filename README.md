@@ -1,3 +1,5 @@
+# bootstrap-material-design
+
 [![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
 [![gratipay](https://img.shields.io/gratipay/FezVrasta.svg)](https://gratipay.com/FezVrasta)
 [![Bower version](https://badge.fury.io/bo/bootstrap-material-design.svg)](https://github.com/FezVrasta/bootstrap-material-design)
@@ -29,11 +31,11 @@ If you prefer, you can include this framework in your project using our official
 Navigate to the `dist/` folder in this repository, and you will see the `test.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
 You need to copy the `dist/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
 
-#### material-fullpalette.css or material.css?
+### material-fullpalette.css or material.css?
 
 The only difference is that `material-fullpalette.css` has the full colors palette available, the other one has just the primary colors.
 
-#### Use custom color as primary
+### Use custom color as primary
 
 Is often asked how to change the primary color of this theme without edit the bower package directly.
 
@@ -57,10 +59,11 @@ Run the `grunt test` command for browser-based Jasmine unit tests.
 
 Run the `grunt serve` command to build and fire up an http server with live-reload and a watch for development purposes.
 
-### LESS & SASS
+## LESS & SASS
 
-Currently only LESS is maintained. The SASS version no longer has a maintainer (#256).
-The SASS files are in the source just in case someone wants to update the source from SASS and use these files as a base.
+The bootstrap 3.x compatible version (master) is developed using LESS, with an automated conversion to SASS.
+
+The upcoming 4.x version (no branch yet) will be developed using SASS.
 
 ## Support me
 
@@ -74,11 +77,12 @@ If you like this project you may support me by donating something on Gittip, sta
 Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 
-# Documentation
+## Documentation
 
-Material Design for Bootstrap provides some additional stuff to get the best from Material Design.
+Material Design ([spec](http://www.google.com/design/spec/material-design/introduction.html)) for Bootstrap provides 
+styles for bootstrap based markup to comply with Material Design concepts.
 
-### Variations
+### Color Variations
 
 There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progress bars and more.
 They can be used by adding the class suffix `-material-color` to the desired element and replacing `color` with the desired one.
@@ -91,7 +95,7 @@ These colors are taken from the Material Design color palette and are reported b
 
 ![palette](demo/imgs/palette.jpg)
 
-To take advantage of all the shades please use `material-fullpalette.css`, be aware of its huge size.
+To take advantage of all the shades please use `material-fullpalette.css`, but please be aware of its huge size.
 
 ### Buttons
 
@@ -100,18 +104,71 @@ Add `.btn-raised` to a button to add a permanent shadow to it.
 
 ### Inputs
 
-Add `.floating-label` to an input field with a `placeholder` to transform the placeholder in a floating label.
+All inputs should be surrounded by a standard `.form-group`, and as such `material.js` will enforce this.  The `.form-group` is
+used to signal different input styles and variations.  
 
-Add `data-hint="some hint"` to show an hint under the input when the user focus it.
+Labels:
 
-Remember to use the proper HTML markup to get radio and checkboxes styled correctly (choose between *radio* or *checkbox*):
+- `.label-floating` - renders label as a placeholder, that animates above the field upon focus
+- `.label-static` - renders label above the field. `input placeholder` attribute can also be used in conjunction
+- `.label-placeholder` - renders a label as a placeholder only 
+- no label, but use of `input placeholder` attribute - same rendering as `.label-placeholder`
 
-    <div class="radio/checkbox radio-primary">
+Hints:
+
+Upon focus, a hint can be displayed.  Use any `p | span` with `.help-block`.
+
+
+Examples:
+
+```html
+  <div class="form-group label-static">
+    <label for="i2" class="control-label">label-static</label>
+    <input type="email" class="form-control" id="i2" placeholder="placeholder attribute">
+    <p class="help-block">This is a hint as a <code>p.help-block.hint</code></p>
+  </div>
+
+  <div class="form-group label-floating">
+    <label for="i5" class="control-label">label-floating</label>
+    <input type="email" class="form-control" id="i5">
+    <span class="help-block">This is a hint as a <code>span.help-block.hint</code></span>
+  </div>
+
+  <div class="form-group label-placeholder">
+    <label for="i5p" class="control-label">label-placeholder</label>
+    <input type="email" class="form-control" id="i5p">
+    <span class="help-block">This is a hint as a <code>span.help-block.hint</code></span>
+  </div>
+```
+
+
+### Radio, Checkbox, Toggle
+
+Be sure to inspect the source of the demos to find proper markup examples. Remember to use the proper HTML markup.
+
+Radio example:
+```html
+  <div class="form-group">
+    <label class="col-lg-2 control-label">Radios</label>
+
+    <div class="col-lg-10">
+      <div class="radio radio-primary">
         <label>
-            <input type="radio/checkbox" checked>
-            Option one is this
+          <input type="radio" name="optionsRadios" checked="">
+          Option one
         </label>
+      </div>
+      <div class="radio radio-primary">
+        <label>
+          <input type="radio" name="optionsRadios">
+          Option two
+        </label>
+      </div>
     </div>
+  </div>
+```      
+        
+        
 
 ### Icons
 
@@ -131,29 +188,32 @@ A card will expand to fill all of the available width (e.g. column's width). Car
 
 Here is an example on how to use it:
 
-    <div class="card">
+```html
+<div class="card">
 
-        <div class="card-height-indicator"></div>
+    <div class="card-height-indicator"></div>
 
-        <div class="card-content">
+    <div class="card-content">
 
-            <div class="card-image">
-                <img src="./image.jpg" alt="Loading image...">
-                <h3 class="card-image-headline">Lorem Ipsum Dolor</h3>
-            </div>
-
-            <div class="card-body">
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-
-            <footer class="card-footer">
-                <button class="btn btn-flat">Share</button>
-                <button class="btn btn-flat btn-warning">Learn More</button>
-            </footer>
-
+        <div class="card-image">
+            <img src="./image.jpg" alt="Loading image...">
+            <h3 class="card-image-headline">Lorem Ipsum Dolor</h3>
         </div>
 
+        <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </div>
+
+        <footer class="card-footer">
+            <button class="btn btn-flat">Share</button>
+            <button class="btn btn-flat btn-warning">Learn More</button>
+        </footer>
+
     </div>
+
+</div>
+```    
+    
 Cards will adapt to column's width. The card below will have width equal to col-lg-6:
 
     <div class="row">

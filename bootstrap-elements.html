@@ -2028,7 +2028,7 @@
           </div>
 
           <div class="form-group">
-            <label class="control-label" for="addon1">Input addons</label>
+            <label class="control-label" for="addon1">Default label w/input addons</label>
             <div class="input-group">
               <span class="input-group-addon">$</span>
               <input type="text" id="addon1" class="form-control">
@@ -2039,14 +2039,45 @@
           </div>
 
           <div class="form-group label-floating">
-            <label class="control-label" for="addon2">Floating label addon <small>(right only)</small></label>
             <div class="input-group">
-              <input type="text" id="addon2" class="form-control">
+              <span class="input-group-addon">$</span>
+              <label class="control-label" for="addon3a">Floating label w/2 addons</label>
+              <input type="text" id="addon3a" class="form-control">
+              <p class="help-block">The label is inside the <code>input-group</code> so that it is positioned properly as a placeholder.</p>
               <span class="input-group-btn">
-                  <button class="btn btn-primary" type="button">Button</button>
+                <button type="button" class="btn btn-fab btn-fab-mini">
+                  <i class="mdi-content-send"></i>
+                </button>
               </span>
             </div>
           </div>
+
+          <div class="form-group label-floating">
+
+            <label class="control-label" for="addon2">Floating label w/right addon</label>
+            <div class="input-group">
+              <input type="text" id="addon2" class="form-control">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-fab btn-fab-mini">
+                  <i class="mdi-editor-functions"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="file" id="inputFile4" multiple>
+            <div class="input-group">
+              <input type="text" readonly class="form-control" placeholder="Placeholder w/file chooser...">
+                <span class="input-group-btn input-group-sm">
+                  <button type="button" class="btn btn-fab btn-fab-mini">
+                    <i class="mdi-editor-attach-file"></i>
+                  </button>
+                </span>
+            </div>
+          </div>
+
+
         </form>
 
       </div>
