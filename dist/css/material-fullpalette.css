@@ -26590,14 +26590,23 @@ fieldset[disabled] .navbar .btn-link:focus {
 .navbar .navbar-form {
   margin-top: 16px;
 }
+.navbar .navbar-form .form-group {
+  margin: 0;
+  padding: 0;
+}
+.navbar .navbar-form .form-group .material-input:before,
+.navbar .navbar-form .form-group.is-focused .material-input:after {
+  background-color: inherit;
+}
 .navbar .navbar-form .form-group .form-control,
 .navbar .navbar-form .form-control {
   border-color: inherit;
   color: inherit;
-}
-.navbar .navbar-form .form-group .material-input:before,
-.navbar .navbar-form .form-group input:focus ~ .material-input:after {
-  background-color: inherit;
+  padding: 0;
+  margin: 0;
+  height: 28px;
+  font-size: 14px;
+  line-height: 1.42857143;
 }
 .navbar.navbar,
 .navbar-default.navbar {

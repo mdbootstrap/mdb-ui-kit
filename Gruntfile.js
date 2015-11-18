@@ -420,6 +420,7 @@ module.exports = function (grunt) {
   grunt.registerTask("material", [
     "material:less",
     "material:js",
+    "material:fonts",
     "material:sass"
   ]);
 
@@ -444,6 +445,9 @@ module.exports = function (grunt) {
   grunt.registerTask("material:js", [
     "copy:material",
     "uglify:material"
+  ]);
+  grunt.registerTask("material:fonts", [
+    "copy:fonts"
   ]);
 
   grunt.registerTask("ripples", [

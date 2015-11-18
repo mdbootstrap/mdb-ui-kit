@@ -157,15 +157,32 @@
 
   .navbar-form {
     margin-top: 16px;
-    .form-group .form-control, .form-control {
-      border-color: inherit;
-      color: inherit;
-    }
     .form-group {
+      margin: 0;
+      padding: 0;
+
       .material-input:before,
-      input:focus ~ .material-input:after {
+      &.is-focused .material-input:after {
         background-color: inherit;
       }
+    }
+
+    .form-group .form-control,
+    .form-control {
+      border-color: inherit;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+
+      // re-normalize inputs in a navbar the size of standard bootstrap since our normal inputs are larger by spec than bootstrap
+      //---
+      //height: $input-height-base;
+      $bs-line-height-base: 1.428571429 !default;
+      $bs-line-height-computed:    floor(($font-size-base * $bs-line-height-base)) !default; // ~20px
+      height: ($bs-line-height-computed + 8px);
+      font-size: $font-size-base;
+      line-height: $bs-line-height-base;
+      //---
     }
   }
 
