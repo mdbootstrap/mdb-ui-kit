@@ -1,18 +1,5 @@
 @import '_inputs-size.less';
 
-// Ugly reset of Bootstrap border
-//fieldset[disabled] .form-control:disabled,
-//.form-group .form-control:disabled,
-//.form-control:disabled,
-//fieldset[disabled] .form-control:focus:disabled,
-//.form-group .form-control:focus:disabled,
-//.form-control:focus:disabled,
-//.form-group.is-focused fieldset[disabled] .form-control:disabled,
-//.form-group.is-focused .form-group .form-control:disabled,
-//.form-group.is-focused .form-control:disabled {
-//  border: 0;
-//}
-
 // usage: .form-group-validation-state(@input-danger);
 .form-group-validation-state(@name, @color) {
 
@@ -26,57 +13,6 @@
     label.control-label,
     .help-block {
       color: @color;
-    }
-  }
-}
-
-.form-group {
-  .form-control {
-    border: 0;
-    background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
-    background-size: 0 2px, 100% 1px;
-    background-repeat: no-repeat;
-    background-position: center bottom, center calc(~"100% - 1px");
-    background-color: rgba(0, 0, 0, 0);
-    transition: background 0s ease-out;
-    float: none;
-    box-shadow: none;
-    border-radius: 0;
-
-    // Placeholders and and labels-as-placeholders should look the same
-    .material-placeholder({
-      color: @input-placeholder-color;
-      font-weight: normal;
-    });
-
-
-    &:textarea {
-      height: 40px;
-    }
-
-
-    &[readonly],
-    &[disabled],
-    fieldset[disabled] & {
-      background-color: rgba(0, 0, 0, 0);
-    }
-
-    &[disabled],
-    fieldset[disabled] & {
-      background-image: none;
-      border-bottom: 1px dotted @input-underline-color;
-    }
-  }
-
-  &.is-focused .form-control {
-    outline: none;
-    background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
-    background-size: 100% 2px, 100% 1px;
-    box-shadow: none;
-    transition-duration: 0.3s;
-
-    .material-input:after {
-      background-color: @input-default;
     }
   }
 }
@@ -144,14 +80,67 @@
   position: relative;
 
   // -----
+  // Inputs
+  //
+  // Reference http://www.google.com/design/spec/components/text-fields.html
+  // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+  .form-control {
+    border: 0;
+    background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
+    background-size: 0 2px, 100% 1px;
+    background-repeat: no-repeat;
+    background-position: center bottom, center calc(~"100% - 1px");
+    background-color: rgba(0, 0, 0, 0);
+    transition: background 0s ease-out;
+    float: none;
+    box-shadow: none;
+    border-radius: 0;
+
+    // Placeholders and and labels-as-placeholders should look the same
+    .material-placeholder({
+      color: @input-placeholder-color;
+      font-weight: normal;
+    });
+
+
+    //&:textarea {    // appears to be an invalid selector
+    //  height: 40px;
+    //}
+
+    &[readonly],
+    &[disabled],
+    fieldset[disabled] & {
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    &[disabled],
+    fieldset[disabled] & {
+      background-image: none;
+      border-bottom: 1px dotted @input-underline-color;
+    }
+  }
+
+  &.is-focused .form-control {
+    outline: none;
+    background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
+    background-size: 100% 2px, 100% 1px;
+    box-shadow: none;
+    transition-duration: 0.3s;
+
+    .material-input:after {
+      background-color: @input-default;
+    }
+  }
+
+  // -----
   // Labels
   //
   // Reference http://www.google.com/design/spec/components/text-fields.html
   // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-
   &.label-static,
   &.label-placeholder,
   &.label-floating {
+
     label.control-label {
       position: absolute;
       left: 0px;
@@ -166,6 +155,7 @@
     font-weight: normal;
     margin: 16px 0 0 0; // std and lg
   }
+
   // hide label-placeholders when the field is not empty
   &.label-placeholder:not(.is-empty){
     label.control-label{
@@ -288,7 +278,7 @@ select.form-control {
   }
 }
 
-// Input files (kinda hack)
+// Input files - hide actual input - requires specific markup in the sample.
 .form-group input[type=file] {
   opacity: 0;
   position: absolute;
