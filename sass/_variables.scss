@@ -140,12 +140,6 @@ $md-input-height-small:             (floor($md-input-font-size-small * $md-input
 
 
 
-
-
-
-
-
-
 // Card
 $card-body-text: $lightbg-text !default;
 $card-body-background: #fff !default;
@@ -158,6 +152,9 @@ $background-disabled: #eaeaea !default;
 $checkbox-size: 20px !default;
 $checkbox-animation-ripple: 500ms !default;
 $checkbox-animation-check: 0.3s !default;
+$checkbox-checked-color: #4caf50 !default;
+$checkbox-label-color: rgba(0, 0, 0, .54) !default;
+$checkbox-border-color: $checkbox-label-color !default;
 
 // Popovers and Popups
 $popover-background: rgba(101, 101, 101, 0.9) !default;
@@ -166,3 +163,10 @@ $popover-color: #ececec !default;
 // Dropdown Menu
 $dropdown-radius: 2px !default;
 $dropdown-font-size: 16px !default;
+
+// Toggle
+$togglebutton-label-color: $checkbox-label-color !default;
+
+// Radio:
+$radio-label-color: $checkbox-label-color !default;
+$radio-border-color: $checkbox-border-color !default;
