@@ -1,18 +1,17 @@
 @import '_inputs-size.less';
 
 // Ugly reset of Bootstrap border
-fieldset[disabled] .form-control:disabled,
-.form-group .form-control:disabled,
-.form-control:disabled,
-fieldset[disabled] .form-control:focus:disabled,
-.form-group .form-control:focus:disabled,
-.form-control:focus:disabled,
-.form-group.is-focused fieldset[disabled] .form-control:disabled,
-.form-group.is-focused .form-group .form-control:disabled,
-.form-group.is-focused .form-control:disabled {
-  border: 0;
-}
-
+//fieldset[disabled] .form-control:disabled,
+//.form-group .form-control:disabled,
+//.form-control:disabled,
+//fieldset[disabled] .form-control:focus:disabled,
+//.form-group .form-control:focus:disabled,
+//.form-control:focus:disabled,
+//.form-group.is-focused fieldset[disabled] .form-control:disabled,
+//.form-group.is-focused .form-group .form-control:disabled,
+//.form-group.is-focused .form-control:disabled {
+//  border: 0;
+//}
 
 // usage: .form-group-validation-state(@input-danger);
 .form-group-validation-state(@name, @color) {
@@ -40,43 +39,44 @@ fieldset[disabled] .form-control:focus:disabled,
     background-position: center bottom, center calc(~"100% - 1px");
     background-color: rgba(0, 0, 0, 0);
     transition: background 0s ease-out;
+    float: none;
+    box-shadow: none;
+    border-radius: 0;
 
-    .form-group.is-focused & {
-      outline: none;
-      background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
-      background-size: 100% 2px, 100% 1px;
-      box-shadow: none;
-      transition-duration: 0.3s;
+    // Placeholders and and labels-as-placeholders should look the same
+    .material-placeholder({
+      color: @input-placeholder-color;
+      font-weight: normal;
+    });
 
-      .material-input:after {
-        background-color: @input-default;
-      }
+
+    &:textarea {
+      height: 40px;
     }
 
-    &,
+
+    &[readonly],
+    &[disabled],
     fieldset[disabled] & {
-
-      &:textarea {
-        height: 40px;
-      }
-
-      &,
-      .form-group.is-focused & {
-        float: none;
-        border: 0;
-        box-shadow: none;
-        border-radius: 0;
-        &:disabled {
-          background-image: none;
-          border-bottom: 1px dotted @input-underline-color;
-        }
-      }
+      background-color: rgba(0, 0, 0, 0);
     }
 
     &[disabled],
-    &[readonly],
     fieldset[disabled] & {
-      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      border-bottom: 1px dotted @input-underline-color;
+    }
+  }
+
+  &.is-focused .form-control {
+    outline: none;
+    background-image: linear-gradient(@primary, @primary), linear-gradient(@input-underline-color, @input-underline-color);
+    background-size: 100% 2px, 100% 1px;
+    box-shadow: none;
+    transition-duration: 0.3s;
+
+    .material-input:after {
+      background-color: @input-default;
     }
   }
 }
@@ -143,15 +143,6 @@ fieldset[disabled] .form-control:focus:disabled,
   //border: solid 1px red;
   position: relative;
 
-  // ----
-  // Placeholders and and floating-labels should look the same
-  .form-control {
-    .material-placeholder({
-      color: @input-placeholder-color;
-      font-weight: normal;
-    });
-  }
-
   // -----
   // Labels
   //
@@ -211,19 +202,6 @@ fieldset[disabled] .form-control:focus:disabled,
     }
   }
 
-  // Hints - visibility approach - uses a bit too much vertical space, no jumping on blur, good text wrapping
-  //          May need to generate help-block for those without one for even vertical spacing (not a good thing).
-  //.help-block {
-  //  visibility: hidden; // reserve the vertical space to avoid jumping inputs on blur
-  //  margin-bottom: 0;   // keep vertical space to a minimum
-  //}
-  //
-  //&.is-focused {
-  //  .help-block {
-  //    visibility: visible;
-  //  }
-  //}
-
   // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-img-variations-content
   .generic-variations(~".is-focused .form-control", @primary, {
     background-image: linear-gradient(@material-color, @material-color), linear-gradient(@input-underline-color, @input-underline-color);
@@ -236,18 +214,17 @@ fieldset[disabled] .form-control:focus:disabled,
 
   textarea {
     resize: none;
-  }
-  textarea ~ .form-control-highlight {
-    margin-top: -11px;
-  }
-
-  select ~ .material-input:after {
-    display: none;
+    & ~ .form-control-highlight {
+      margin-top: -11px;
+    }
   }
 
-  // Fix for OS X
   select {
-    appearance: none;
+    appearance: none; // Fix for OS X
+
+    & ~ .material-input:after {
+      display: none;
+    }
   }
 }
 
@@ -259,7 +236,7 @@ select.form-control {
 
   .form-group.is-focused & {
     box-shadow: none;
-    border-color: #757575;
+    border-color: @input-underline-color;
   }
 
   &[multiple] {
