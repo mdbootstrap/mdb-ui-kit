@@ -164,24 +164,24 @@ Be sure to inspect the source of the demos to find proper markup examples. Remem
 Radio example:
 
 ```html
-  <div class="form-group">
-    <label class="col-lg-2 control-label">Radios</label>
+<div class="form-group">
+  <label class="col-lg-2 control-label">Radios</label>
 
-    <div class="col-lg-10">
-      <div class="radio radio-primary">
-        <label>
-          <input type="radio" name="optionsRadios" checked="">
-          Option one
-        </label>
-      </div>
-      <div class="radio radio-primary">
-        <label>
-          <input type="radio" name="optionsRadios">
-          Option two
-        </label>
-      </div>
+  <div class="col-lg-10">
+    <div class="radio radio-primary">
+      <label>
+        <input type="radio" name="optionsRadios" checked="">
+        Option one
+      </label>
+    </div>
+    <div class="radio radio-primary">
+      <label>
+        <input type="radio" name="optionsRadios">
+        Option two
+      </label>
     </div>
   </div>
+</div>
 ```      
         
         
@@ -235,17 +235,17 @@ Here is an example on how to use it:
 Cards will adapt to column's width. The card below will have width equal to col-lg-6:
 
 ```html
-    <div class="row">
-        <div class="col-lg-3"></div>
+<div class="row">
+    <div class="col-lg-3"></div>
 
-        <div class="col-lg-6">
-            <div class="card">
-                ...
-            </div>
+    <div class="col-lg-6">
+        <div class="card">
+            ...
         </div>
-
-        <div class="col-lg-3"></div>
     </div>
+
+    <div class="col-lg-3"></div>
+</div>
 ```
 
 ## Material.js
