@@ -155,14 +155,32 @@
 
   .navbar-form {
     margin-top: 16px;
-    .form-control-wrapper .form-control, .form-control {
-      border-color: inherit;
-      color: inherit;
-    }
-    .form-control-wrapper {
-      .material-input:before, input:focus ~ .material-input:after {
+    .form-group {
+      margin: 0;
+      padding: 0;
+
+      .material-input:before,
+      &.is-focused .material-input:after {
         background-color: inherit;
       }
+    }
+
+    .form-group .form-control,
+    .form-control {
+      border-color: inherit;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+
+      // re-normalize inputs in a navbar the size of standard bootstrap since our normal inputs are larger by spec than bootstrap
+      //---
+      //height: @input-height-base;
+      @bs-line-height-base: 1.428571429;
+      @bs-line-height-computed:    floor((@font-size-base * @bs-line-height-base)); // ~20px
+      height: (@bs-line-height-computed + 8px);
+      font-size: @font-size-base;
+      line-height: @bs-line-height-base;
+      //---
     }
   }
 
@@ -171,7 +189,7 @@
     background-color: @material-color;
     color: @material-text-color;
     // deeply defined to override welljumbo class without !impotant need
-    .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
+    .navbar-form .form-group input.form-control::placeholder, .navbar-form input.form-control::placeholder {
       color: @material-text-color;
     }
     .dropdown-menu {
