@@ -70,36 +70,57 @@
       .filter(":notmdproc")
       .data("mdproc", true)
       .each( function() {
-        var $this = $(this);
+        var $input = $(this);
 
-        if (!$this.attr("data-hint") && !$this.hasClass("floating-label")) {
-          return;
-        }
-        $this.wrap("<div class=form-control-wrapper></div>");
-        $this.after("<span class=material-input></span>");
-
-        // Add floating label if required
-        if ($this.hasClass("floating-label")) {
-          var placeholder = $this.attr("placeholder");
-          $this.attr("placeholder", null).removeClass("floating-label");
-          $this.after("<div class=floating-label>" + placeholder + "</div>");
+        // Requires form-group standard markup (will add it if necessary)
+        var $formGroup = $input.closest(".form-group"); // note that form-group may be grandparent in the case of an input-group
+        if($formGroup.length === 0){
+          $input.wrap("<div class='form-group'></div>");
+          $formGroup = $input.closest(".form-group"); // find node after attached (otherwise additional attachments don't work)
         }
 
-        // Add hint label if required
-        if ($this.attr("data-hint")) {
-          $this.after("<div class=hint>" + $this.attr("data-hint") + "</div>");
+        // Legacy - Add hint label if using the old shorthand data-hint attribute on the input
+        if ($input.attr("data-hint")) {
+          $input.after("<p class='help-block'>" + $input.attr("data-hint") + "</p>");
+          $input.removeAttr("data-hint");
+        }
+
+        // Legacy - Change input-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
+        var legacySizes = {
+          "input-lg": "form-group-lg",
+          "input-sm": "form-group-sm"
+        };
+        $.each( legacySizes, function( legacySize, standardSize ) {
+          if ($input.hasClass(legacySize)) {
+            $input.removeClass(legacySize);
+            $formGroup.addClass(standardSize);
+          }
+        });
+
+        // Legacy - Add label-floating if using old shorthand <input class="floating-label" placeholder="foo">
+        if ($input.hasClass("floating-label")) {
+          var placeholder = $input.attr("placeholder");
+          $input.attr("placeholder", null).removeClass("floating-label");
+          var id = $input.attr("id");
+          var forAttribute = "";
+          if(id) {
+            forAttribute = "for='" + id + "'";
+          }
+          $formGroup.addClass("label-floating");
+          $input.after("<label " + forAttribute + "class='control-label'>" + placeholder + "</label>");
         }
 
         // Set as empty if is empty (damn I must improve this...)
-        if ($this.val() === null || $this.val() == "undefined" || $this.val() === "") {
-          $this.addClass("empty");
+        if ($input.val() === null || $input.val() == "undefined" || $input.val() === "") {
+          $formGroup.addClass("is-empty");
         }
 
+          // Add at the end of the form-group
+        $formGroup.append("<span class='material-input'></span>");
+
         // Support for file input
-        if ($this.parent().next().is("[type=file]")) {
-          $this.parent().addClass("fileinput");
-          var $input = $this.parent().next().detach();
-          $this.after($input);
+        if ($formGroup.find("input[type=file]").length > 0) {
+          $formGroup.addClass("is-fileinput");
         }
       });
     },
@@ -108,36 +129,71 @@
       .on("change", ".checkbox input[type=checkbox]", function() { $(this).blur(); })
       .on("keydown paste", ".form-control", function(e) {
         if(_isChar(e)) {
-          $(this).removeClass("empty");
+          $(this).closest(".form-group").removeClass("is-empty");
         }
       })
       .on("keyup change", ".form-control", function() {
-        var $this = $(this);
-        if ($this.val() === "" && (typeof $this[0].checkValidity === "undefined" || $this[0].checkValidity())) {
-          $this.addClass("empty");
-        } else {
-          $this.removeClass("empty");
+        var $input = $(this);
+        var $formGroup = $input.closest(".form-group");
+        var isValid = (typeof $input[0].checkValidity === "undefined" || $input[0].checkValidity());
+
+        if ($input.val() === "" && isValid) {
+          $formGroup.addClass("is-empty");
+        }
+        else {
+          $formGroup.removeClass("is-empty");
+        }
+
+        // Validation events do not bubble, so they must be attached directly to the input: http://jsfiddle.net/PEpRM/1/
+        //  Further, even the bind method is being caught, but since we are already calling #checkValidity here, just alter
+        //  the form-group on change.
+        //
+        // NOTE: I'm not sure we should be intervening regarding validation, this seems better as a README and snippet of code.
+        //        BUT, I've left it here for backwards compatibility.
+        if(isValid){
+          $formGroup.removeClass("has-error");
+        }
+        else{
+          $formGroup.addClass("has-error");
         }
       })
-      .on("focus", ".form-control-wrapper.fileinput", function() {
-        $(this).find("input").addClass("focus");
+      .on("focus", ".form-control, .form-group.is-fileinput", function() {
+        $(this).closest(".form-group").addClass("is-focused"); // add class to form-group
       })
-      .on("blur", ".form-control-wrapper.fileinput", function() {
-        $(this).find("input").removeClass("focus");
+      .on("blur", ".form-control, .form-group.is-fileinput", function() {
+        $(this).closest(".form-group").removeClass("is-focused"); // remove class from form-group
       })
-      .on("change", ".form-control-wrapper.fileinput [type=file]", function() {
-        var $this = $(this);
+      // make sure empty is added back when there is a programmatic value change.
+      //  NOTE: programmatic changing of value using $.val() must trigger the change event i.e. $.val('x').trigger('change')
+      .on("change", ".form-group input", function() {
+        var $input = $(this);
+        if($input.attr("type") == "file") {
+          return;
+        }
+
+        var $formGroup = $input.closest(".form-group");
+        var value = $input.val();
+        if (value) {
+          $formGroup.removeClass("is-empty");
+        } else {
+          $formGroup.addClass("is-empty");
+        }
+      })
+      // set the fileinput readonly field with the name of the file
+      .on("change", ".form-group.is-fileinput input[type='file']", function() {
+        var $input = $(this);
+        var $formGroup = $input.closest(".form-group");
         var value = "";
         $.each(this.files, function(i, file) {
           value += file.name + ", ";
         });
         value = value.substring(0, value.length - 2);
         if (value) {
-          $this.prev().removeClass("empty");
+          $formGroup.removeClass("is-empty");
         } else {
-          $this.prev().addClass("empty");
+          $formGroup.addClass("is-empty");
         }
-        $this.prev().val(value);
+        $formGroup.find("input.form-control[readonly]").val(value);
       });
     },
     "ripples": function(selector) {
@@ -174,7 +230,7 @@
           });
         }, 100);
       })
-      .on("blur", "input", function() {
+      .on("blur", ".form-group input", function() {
         clearInterval(focused);
       });
     },

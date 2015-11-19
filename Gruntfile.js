@@ -5,13 +5,37 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
 
+    htmllint: {
+      //options: {
+      //  stoponerror: false,
+      //  relaxerror: []
+      //},
+      //files: ['index.html', 'bootstrap-elements.html']
+      all: {
+        options: {
+          ignore: '“&” did not start a character reference. (“&” probably should have been escaped as “&amp;”.)'
+        },
+        src: ["*.html"]
+      }
+    },
+
+
+    // Make sure we are structurally correct for bootstrap
+    bootlint: {
+      options: {
+        stoponerror: false,
+        relaxerror: []
+      },
+      files: ['index.html', 'bootstrap-elements.html']
+    },
+
     // Convert from less to sass
     lessToSass: {
       convert: {
         files: [{
           expand: true,
           cwd: "less",
-          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less"],
+          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less", "!_mixins-shared.less"],
           ext: ".scss",
           dest: "sass"
         }],
@@ -80,6 +104,12 @@ module.exports = function (grunt) {
               order: 24
             },
 
+            // material-placehorder
+            { // Multi-line replacement - https://regex101.com/r/eS2vQ3/2
+              pattern: /.material-placeholder\({$\n([\s\S]+?)}\);$\n/mg,
+              replacement: "@include material-placeholder {\n$1\n}\n",
+              order: 24
+            },
 
             // fix calc references
             { // https://regex101.com/r/aZ8iI5/1
@@ -320,9 +350,13 @@ module.exports = function (grunt) {
       }
     },
     watch: {
+      html: {
+        files: ["index.html", "bootstrap-elements.html", "test.html"],
+        tasks: ["htmllint", "bootlint"]
+      },
       js: {
         files: ["Gruntfile.js", "scripts/**/*.js", "template/**/*.js"],
-        tasks: ["newer:jshint:all"]
+        tasks: ["newer:jshint:all", "material:js"]
       },
       jsTest: {
         files: ["test/**/*.js"],
@@ -330,18 +364,20 @@ module.exports = function (grunt) {
       },
       less: {
         files: ["less/**/*.less"],
-        tasks: ["material:less", "material:sass"]
+        tasks: ["material:less"]//, "material:sass"]
       },
-      sass: {
-        files: ["sass/*.scss"],
-        tasks: ["material:sass"]
-      },
+      //sass: {
+      //  files: ["sass/*.scss"],
+      //  tasks: ["material:sass"]
+      //},
       livereload: {
         options: {
           livereload: "<%= connect.options.livereload %>"
         },
         files: [
           "index.html",
+          "bootstrap-elements.html",
+          "dist/js/**/*.js",
           "dist/css/**/*.css",
           "demo/**/*.{png,jpg,jpeg,gif,webp,svg}"
         ]
@@ -384,6 +420,7 @@ module.exports = function (grunt) {
   grunt.registerTask("material", [
     "material:less",
     "material:js",
+    "material:fonts",
     "material:sass"
   ]);
 
@@ -393,6 +430,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask("material:less", [
+    "htmllint",
+    "bootlint",
     "less:material",
     "less:materialfullpalette",
     "less:roboto",
@@ -406,6 +445,9 @@ module.exports = function (grunt) {
   grunt.registerTask("material:js", [
     "copy:material",
     "uglify:material"
+  ]);
+  grunt.registerTask("material:fonts", [
+    "copy:fonts"
   ]);
 
   grunt.registerTask("ripples", [
@@ -448,6 +490,6 @@ module.exports = function (grunt) {
   grunt.registerTask("meteor-publish", ["exec:meteor-init", "exec:meteor-publish", "exec:meteor-cleanup"]);
   grunt.registerTask("meteor", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-publish", "exec:meteor-cleanup"]);
 
-  grunt.registerTask("cibuild", ["newer:jshint", "meteor-test"]);
-
+  //grunt.registerTask("cibuild", ["newer:jshint", "meteor-test"]);
+  grunt.registerTask("cibuild", ["build"]);
 };
