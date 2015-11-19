@@ -26,6 +26,8 @@ restrictions:
 
 * Please **do not** open issues or pull requests regarding the code in dependencies such as:
   [`Bootstrap`](https://github.com/twbs/bootstrap) (open them in their respective repositories).
+  
+* Please **close your own issue** once it is resolved.
 
 
 ## Issues and labels
