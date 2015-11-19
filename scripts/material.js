@@ -85,12 +85,6 @@
           $input.removeAttr("data-hint");
         }
 
-        // Always add a help block for uniform vertical spacing using visibility:hidden/visible.
-        //var $helpBlock = $formGroup.find(".help-block");
-        //if($helpBlock.length === 0) {
-        //  $input.after("<p class='help-block'>&nbsp;</p>");
-        //}
-
         // Legacy - Change input-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
         var legacySizes = {
           "input-lg": "form-group-lg",
@@ -115,21 +109,6 @@
           $formGroup.addClass("label-floating");
           $input.after("<label " + forAttribute + "class='control-label'>" + placeholder + "</label>");
         }
-        //else {
-        //  // If it has a label, based on the way the css is written with the adjacent sibling selector `~`,
-        //  //  we need the label to be *after* the input for it to work properly. (we use these infrequently now that
-        //  //  .is-focused and .is-empty is standardized on the .form-group.
-        //  //  @see: http://stackoverflow.com/questions/1817792/is-there-a-previous-sibling-selector
-        //  // Attach it to the same parent, regardless (not necessarily after input) which could cause problems,
-        //  //  but this is up to the user.
-        //  var $label = $formGroup.find("label.control-label");
-        //  if($label.length > 0){
-        //    var $labelParent = $label.parent(); // likely the form-group, but may not be in the case of input-groups
-        //    $label.detach();
-        //    $labelParent.append($label);
-        //    //$input.after($label);
-        //  }
-        //}
 
         // Set as empty if is empty (damn I must improve this...)
         if ($input.val() === null || $input.val() == "undefined" || $input.val() === "") {
@@ -142,8 +121,6 @@
         // Support for file input
         if ($formGroup.find("input[type=file]").length > 0) {
           $formGroup.addClass("is-fileinput");
-          //var $nextInput = $formGroup.next().detach();
-          //$input.after($nextInput);
         }
       });
     },
