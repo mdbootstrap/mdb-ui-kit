@@ -65,10 +65,12 @@
     }
   }
 
-  // static or focused floating labels
+  // static, focused, or autofill floating labels
   &.label-static,
   &.label-floating.is-focused,
-  &.label-floating:not(.is-empty) {
+  &.label-floating:not(.is-empty),
+  &.label-floating input.form-control:-webkit-autofill {
+    & ~ label.control-label, // #559 webkit chrome autofill - input.form-control:-webkit-autofill ~ label.control-label
     label.control-label {
       top: $label-top;
       left: 0;

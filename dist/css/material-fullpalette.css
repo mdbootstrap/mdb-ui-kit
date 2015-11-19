@@ -25281,9 +25281,14 @@ fieldset[disabled] .form-group .form-control {
   font-size: 16px;
   line-height: 1.42857143;
 }
+.form-group.label-static ~ label.control-label,
+.form-group.label-floating.is-focused ~ label.control-label,
+.form-group.label-floating:not(.is-empty) ~ label.control-label,
+.form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label,
 .form-group.label-static label.control-label,
 .form-group.label-floating.is-focused label.control-label,
-.form-group.label-floating:not(.is-empty) label.control-label {
+.form-group.label-floating:not(.is-empty) label.control-label,
+.form-group.label-floating input.form-control:-webkit-autofill label.control-label {
   top: -30px;
   left: 0;
   font-size: 12px;
@@ -25319,9 +25324,14 @@ fieldset[disabled] .form-group .form-control {
   font-size: 11px;
   line-height: 1.5;
 }
+.form-group.form-group-sm.label-static ~ label.control-label,
+.form-group.form-group-sm.label-floating.is-focused ~ label.control-label,
+.form-group.form-group-sm.label-floating:not(.is-empty) ~ label.control-label,
+.form-group.form-group-sm.label-floating input.form-control:-webkit-autofill ~ label.control-label,
 .form-group.form-group-sm.label-static label.control-label,
 .form-group.form-group-sm.label-floating.is-focused label.control-label,
-.form-group.form-group-sm.label-floating:not(.is-empty) label.control-label {
+.form-group.form-group-sm.label-floating:not(.is-empty) label.control-label,
+.form-group.form-group-sm.label-floating input.form-control:-webkit-autofill label.control-label {
   top: -25px;
   left: 0;
   font-size: 9px;
@@ -25357,9 +25367,14 @@ fieldset[disabled] .form-group .form-control {
   font-size: 18px;
   line-height: 1.3333333;
 }
+.form-group.form-group-lg.label-static ~ label.control-label,
+.form-group.form-group-lg.label-floating.is-focused ~ label.control-label,
+.form-group.form-group-lg.label-floating:not(.is-empty) ~ label.control-label,
+.form-group.form-group-lg.label-floating input.form-control:-webkit-autofill ~ label.control-label,
 .form-group.form-group-lg.label-static label.control-label,
 .form-group.form-group-lg.label-floating.is-focused label.control-label,
-.form-group.form-group-lg.label-floating:not(.is-empty) label.control-label {
+.form-group.form-group-lg.label-floating:not(.is-empty) label.control-label,
+.form-group.form-group-lg.label-floating input.form-control:-webkit-autofill label.control-label {
   top: -32px;
   left: 0;
   font-size: 14px;
