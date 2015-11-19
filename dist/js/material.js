@@ -186,6 +186,22 @@
       .on("blur", ".form-control, .form-group.is-fileinput", function() {
         $(this).closest(".form-group").removeClass("is-focused"); // remove class from form-group
       })
+      // make sure empty is added back when there is a programmatic value change.
+      //  NOTE: programmatic changing of value using $.val() must trigger the change event i.e. $.val('x').trigger('change')
+      .on("change", ".form-group input", function() {
+        var $input = $(this);
+        if($input.attr("type") == "file") {
+          return;
+        }
+
+        var $formGroup = $input.closest(".form-group");
+        var value = $input.val();
+        if (value) {
+          $formGroup.removeClass("is-empty");
+        } else {
+          $formGroup.addClass("is-empty");
+        }
+      })
       // set the fileinput readonly field with the name of the file
       .on("change", ".form-group.is-fileinput input[type='file']", function() {
         var $input = $(this);
