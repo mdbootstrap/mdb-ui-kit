@@ -1,6 +1,5 @@
 {
   "name": "bootstrap-material-design",
-  "version": "0.3.0",
   "homepage": "http://fezvrasta.github.io/bootstrap-material-design",
   "authors": [
     "Federico Zivolo <info@mywebexpression.com>"
@@ -43,6 +42,7 @@
   ],
   "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md",
   "dependencies": {
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "bootstrap": "~3.3.5"
   }
 }

@@ -2,12 +2,13 @@
     border: 0px;
     border-radius: 0;
 
+    // SASS conversion note: please mirror any content change in _mixins-shared.scss alert-variations-content
     .generic-variations(~"", @darkbg-text, {
         background-color: @material-color;
-        color: @text-color;
+        color: @material-text-color;
 
         a, .alert-link {
-            color: @text-color;
+            color: @material-text-color;
         }
     });
 

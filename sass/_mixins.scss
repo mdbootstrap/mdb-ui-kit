@@ -1,32 +1,41 @@
-@mixin card-variant($background, $color, $border) {
-  background-color: $background;
-  color: $color;
+// This file is NOT automatically converted and must be manually merged
+@import 'mixins-shared';
 
-  .card-footer, .card-header {
-    border-color: $border;
+@mixin generic-variations-colors($args) {
+
+  $material-colors: (
+          "red": $red,
+          "pink": $pink,
+          "purple": $purple,
+          "deep-purple": $deep-purple,
+          "indigo": $indigo,
+          "blue": $blue,
+          "light-blue": $light-blue,
+          "cyan": $cyan,
+          "teal": $teal,
+          "green": $green,
+          "light-green": $light-green,
+          "lime": $lime,
+          "yellow": $yellow,
+          "amber": $amber,
+          "orange": $orange,
+          "deep-orange": $deep-orange,
+          "brown": $brown,
+          "grey": $grey,
+          "blue-grey": $blue-grey
+  );
+
+  @each $material-color-name, $material-color in $material-colors {
+    // build a single depth color palette
+    $args-variation-color: map-merge($args, (
+            material-color-name: $material-color-name,
+            material-color: $material-color,
+            material-color-number: ""
+    ));
+
+    @include generic-variations-color($args-variation-color)
   }
-
-  a {
-    color: $color;
-  }
 }
 
-@mixin button-variant($color) {
-    background-color: $color;
-}
-
-@mixin alert-variant($color) {
-    background-color: $color;
-}
-
-@mixin progress-bar-variant($color) {
-    background-color: $color;
-}
-
-@mixin navbar-variant($color) {
-    background-color: $color;
-}
-
-@mixin icon-variant($color) {
-    color: $color;
-}
+// http://hugogiraudel.com/2014/01/27/casting-types-in-sass/
+// https://github.com/HugoGiraudel/SassyJSON/blob/master/stylesheets/decode/helpers/color/_color.scss
