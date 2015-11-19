@@ -5,6 +5,19 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
 
+    jekyll: {
+      options: {
+        config: '_config.yml'
+      },
+      docs: {},
+      github: {
+        options: {
+          raw: 'github: true'
+        }
+      }
+    },
+
+
     // Convert from less to sass
     lessToSass: {
       convert: {
@@ -377,9 +390,16 @@ module.exports = function (grunt) {
 
   });
 
+
+  require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
+  //require('time-grunt')(grunt);
+
+  // Docs HTML validation task
+  grunt.registerTask('validate-html', ['jekyll:docs', 'htmllint']);
+
   grunt.loadNpmTasks("grunt-less-to-sass");
 
-  grunt.registerTask("default", ["material", "ripples"]);
+  grunt.registerTask("default", ["material", "ripples", "jekyll:github"]);
 
   grunt.registerTask("material", [
     "material:less",
