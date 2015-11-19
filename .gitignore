@@ -2,6 +2,12 @@
 # https://help.github.com/articles/ignoring-files
 # Example .gitignore files: https://github.com/github/gitignore
 
+
+# Jekyll metadata
+_gh_pages
+_site
+docs/.jekyll-metadata
+
 *.log
 .sass-cache
 Thumbs.db

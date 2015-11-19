@@ -2,7 +2,7 @@ module Jekyll
   module BugFilter
     def bugify(input)
       upstream_map = {
-        "Bootstrap" => "https://github.com/twbs/bootstrap/issues/",
+        "Bootstrap" => "https://github.com/fezvrasta/bootstrap-material-design/issues/",
         "IE" => ["https://connect.microsoft.com/IE/feedback/details/", "IE bug"],
         "Mozilla" => ["https://bugzilla.mozilla.org/show_bug.cgi?id=", "Mozilla bug"],
         "Chromium" => ["https://code.google.com/p/chromium/issues/detail?id=", "Chromium issue"],
