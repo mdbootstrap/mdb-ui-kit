@@ -31,7 +31,6 @@
   }
 
   .checkbox {
-    transform: translateZ(0); // Force 3d rendering
     label {
       cursor: pointer;
       padding-left: 0; // Reset for Bootstrap rule
