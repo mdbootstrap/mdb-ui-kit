@@ -72,7 +72,7 @@ h4 code {
   text-align: center;
   cursor: default;
   background-color: #563d7c;
-  border-radius: 15%;
+  border-radius: 15px;
 }
 .bs-docs-booticon-sm {
   width: 30px;
@@ -81,7 +81,7 @@ h4 code {
   line-height: 28px;
 }
 .bs-docs-booticon-lg {
-  width: 144px;
+  width: 284px;
   height: 144px;
   font-size: 108px;
   line-height: 140px;

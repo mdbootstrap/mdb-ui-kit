@@ -107,7 +107,7 @@
   <p>IE8 does not fully support <code>box-sizing: border-box;</code> when combined with <code>min-width</code>, <code>max-width</code>, <code>min-height</code>, or <code>max-height</code>. For that reason, as of v3.0.1, we no longer use <code>max-width</code> on <code>.container</code>s.</p>
 
   <h2 id="support-ie8-font-face">Internet Explorer 8 and @font-face</h2>
-  <p>IE8 has some issues with <code>@font-face</code> when combined with <code>:before</code>. Bootstrap uses that combination with its Glyphicons. If a page is cached, and loaded without the mouse over the window (i.e. hit the refresh button or load something in an iframe) then the page gets rendered before the font loads. Hovering over the page (body) will show some of the icons and hovering over the remaining icons will show those as well. <a href="https://github.com/twbs/bootstrap/issues/13863">See issue #13863</a> for details.</p>
+  <p>IE8 has some issues with <code>@font-face</code> when combined with <code>:before</code>. Bootstrap uses that combination with its Glyphicons. If a page is cached, and loaded without the mouse over the window (i.e. hit the refresh button or load something in an iframe) then the page gets rendered before the font loads. Hovering over the page (body) will show some of the icons and hovering over the remaining icons will show those as well. <a href="https://github.com/fezvrasta/bootstrap-material-design/issues/13863">See issue #13863</a> for details.</p>
 
   <h2 id="support-ie-compatibility-modes">IE Compatibility modes</h2>
   <p>Bootstrap is not supported in the old Internet Explorer compatibility modes. To be sure you're using the latest rendering mode for IE, consider including the appropriate <code>&lt;meta&gt;</code> tag in your pages:</p>
@@ -134,7 +134,7 @@
 
 {% highlight js %}
 // Copyright 2014-2015 Twitter, Inc.
-// Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+// Licensed under MIT (https://github.com/fezvrasta/bootstrap-material-design/blob/master/LICENSE)
 if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   var msViewportStyle = document.createElement('style')
   msViewportStyle.appendChild(
@@ -171,13 +171,13 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 
   <h2 id="support-printing">Printing</h2>
   <p>Even in some modern browsers, printing can be quirky.</p>
-  <p>In particular, as of Chrome v32 and regardless of margin settings, Chrome uses a viewport width significantly narrower than the physical paper size when resolving media queries while printing a webpage. This can result in Bootstrap's extra-small grid being unexpectedly activated when printing. <a href="https://github.com/twbs/bootstrap/issues/12078">See #12078 for some details.</a> Suggested workarounds:</p>
+  <p>In particular, as of Chrome v32 and regardless of margin settings, Chrome uses a viewport width significantly narrower than the physical paper size when resolving media queries while printing a webpage. This can result in Bootstrap's extra-small grid being unexpectedly activated when printing. <a href="https://github.com/fezvrasta/bootstrap-material-design/issues/12078">See #12078 for some details.</a> Suggested workarounds:</p>
   <ul>
     <li>Embrace the extra-small grid and make sure your page looks acceptable under it.</li>
     <li>Customize the values of the <code>@screen-*</code> Less variables so that your printer paper is considered larger than extra-small.</li>
     <li>Add custom media queries to change the grid size breakpoints for print media only.</li>
   </ul>
-  <p>Also, as of Safari v8.0, fixed-width <code>.container</code>s can cause Safari to use an unusually small font size when printing. See <a href="https://github.com/twbs/bootstrap/issues/14868">#14868</a> for more details. One potential workaround for this is adding the following CSS:</p>
+  <p>Also, as of Safari v8.0, fixed-width <code>.container</code>s can cause Safari to use an unusually small font size when printing. See <a href="https://github.com/fezvrasta/bootstrap-material-design/issues/14868">#14868</a> for more details. One potential workaround for this is adding the following CSS:</p>
 {% highlight css %}
 @media print {
   .container {
