@@ -3889,10 +3889,6 @@ body .jumbotron-material-blue-grey,
   line-height: 1.3333333;
   font-weight: normal;
 }
-.form-group .checkbox {
-  -webkit-transform: translateZ(0);
-          transform: translateZ(0);
-}
 .form-group .checkbox label {
   cursor: pointer;
   padding-left: 0;
