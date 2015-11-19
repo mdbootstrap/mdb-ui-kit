@@ -33,7 +33,7 @@ You need to copy the `dist/` folder to the root of your project, ensuring that a
 
 ### material-fullpalette.css or material.css?
 
-The only difference is that `material-fullpalette.css` has the full colors palette available, the other one has just the primary colors.
+The only difference is that `material-fullpalette.css` has the full colors palette available (large file), the other one has just the primary colors (small file).
 
 ### Use custom color as primary
 
@@ -50,33 +50,33 @@ You can do it by creating a less file in your project:
 
 Then, compiling this file, the entire theme will be compiled using the color chosen by you.
 
-## Development
+## Support
 
-We are using Grunt to automate the workflow and build process. Ensure you have nodejs installed and grunt-cli installed globally.
-After cloning the repo, run `npm install` to ensure you have all dev dependencies.
-
-Run the `grunt build` command to run the tests and compile the less/sass. See [Gruntfile.js](Gruntfile.js) for details on targets.
-
-Run the `grunt test` command for browser-based Jasmine unit tests.
-
-Run the `grunt serve` command to build and fire up an http server with live-reload and a watch for development purposes.
-
-## LESS & SASS
-
-The bootstrap 3.x compatible version (master) is developed using LESS, with an automated conversion to SASS.
-
-The upcoming 4.x version (no branch yet) will be developed using SASS.
-
-## Support me
-
-If you like this project you may support me by donating something on Gittip, starring this repository or reporting bugs and ideas in the issue section.
+If you like this project you may support it by donating via Gittip, starring this repository or reporting issues.  All issues filed should be reduced to a [CodePen](http://codepen.io/rosskevin/pen/VvRgrN) test case where possible.
 
 [![gittip](demo/imgs/gittip-button.jpg)](https://www.gratipay.com/FezVrasta/)
 [![issues](demo/imgs/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design/issues)
 
 ## Contribute
 
-Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file.  
+
+## Development
+
+We are using Grunt to automate the workflow and build process. Ensure you have nodejs installed and grunt-cli installed globally.
+After cloning the repo, run `npm install` to ensure you have all dev dependencies.
+
+### Grunt
+
+- `grunt build` - run the tests and compile the less/sass. See [Gruntfile.js](Gruntfile.js) for details on targets.
+- `grunt test` - browser-based Jasmine unit tests.
+- `grunt serve` - build and fire up an http server with live-reload and a watch for development purposes.
+
+### LESS & SASS
+
+The bootstrap 3.x compatible version (master) is developed using LESS, with an automated conversion to SASS.
+
+The upcoming 4.x version (no branch yet) will be developed using SASS.
 
 
 ## Documentation
@@ -248,9 +248,9 @@ Cards will adapt to column's width. The card below will have width equal to col-
 </div>
 ```
 
-## Material.js
+## material.js
 
-`Material.js` is a jQuery plugin that adds some magic to your markup and allows Material Design for Bootstrap to style some elements like inputs, checkboxes, radios etc.
+`material.js` is a jQuery plugin that adds some magic to your markup and allows Material Design for Bootstrap to style some elements like inputs, checkboxes, radios etc.
 
 ### Functions
 
@@ -260,7 +260,7 @@ Cards will adapt to column's width. The card below will have width equal to col-
 * `$.material.checkbox():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the [Inputs section](#inputs).
 * `$.material.radio():` will enable the MD style to the checkboxes (remember to follow the markup guidelines explained in the Inputs section.
 
-### Apply Material.js only to specific elements
+### Apply only to specific elements
 
 Every function expects an optional value that will be used as a selector for the function; for example,
 `$.material.ripples("#selector, #foobar")` will apply Ripples.js only to `#selector` and `#foobar`.
@@ -279,7 +279,7 @@ $.material.options = {
 
 ### Arrive.js support
 
-If you need to dynamically add elements to your DOM then you may need to include `Arrive.js` before `Material.js`. This will automatically apply `Material.js` to every new element added via JavaScript.
+If you need to dynamically add elements to your DOM then you may need to include `Arrive.js` before `Material.js`. This will automatically apply `material.js` to every new element added via JavaScript.
 
 ## Plugins
 
@@ -323,3 +323,7 @@ Read more about [Bootstrap Material Datepicker](https://github.com/T00rk/bootstr
 ## Compatibility
 
 Currently, Material Design for Bootstrap supports Google Chrome (tested v37+), Mozilla Firefox (tested 30+), and Internet Explorer (tested 11+). Mobile browsers are not currently tested but they may work.
+
+
+## License
+[MIT License](LICENSE) 
