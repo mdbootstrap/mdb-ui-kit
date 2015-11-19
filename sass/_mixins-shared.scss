@@ -1,6 +1,13 @@
 // This file is NOT automatically converted and must be manually merged
-
 @import "mixins-utilities";
+
+// Placeholder text
+@mixin material-placeholder() {
+  &::-moz-placeholder {@content; } // Firefox
+  &:-ms-input-placeholder {@content; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  {@content; } // Safari and Chrome
+}
+
 
 // variations(unquote(""), background-color, #FFF);
 @mixin variations($extra, $material-param-1, $default) {
@@ -89,7 +96,7 @@
   background-color: $material-color;
   color: $material-text-color;
   // deeply defined to override welljumbo class without !impotant need
-  .navbar-form .form-control-wrapper input.form-control::placeholder, .navbar-form input.form-control::placeholder {
+  .navbar-form .form-group input.form-control::placeholder, .navbar-form input.form-control::placeholder {
     color: $material-text-color;
   }
   .dropdown-menu {

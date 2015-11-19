@@ -1,11 +1,40 @@
 .form-horizontal .radio {
   margin-bottom: 10px;
 }
+
+.form-group-radio-variant(@placeholder-font-size, @line-height){
+  .radio {
+    label {
+      font-size: @placeholder-font-size;
+      line-height: @line-height;
+      font-weight: normal;
+    }
+  }
+}
+
+.form-group {
+
+  // default label size/location
+  .form-group-radio-variant(@md-input-font-size-base, @md-input-line-height-base);
+
+  // sm label size/location
+  &.form-group-sm {
+    .form-group-radio-variant(@md-input-font-size-small, @md-input-line-height-small);
+  }
+
+  // lg label size/location
+  &.form-group-lg {
+    .form-group-radio-variant(@md-input-font-size-large, @md-input-line-height-large);
+  }     
+}
+
 .radio {
   label {
     cursor: pointer;
     padding-left: 45px;
     position: relative;
+    color: @radio-label-color;
+
     span {
       display: block;
       position: absolute;
@@ -14,7 +43,7 @@
       transition-duration: 0.2s;
     }
     .circle {
-      border: 2px solid @lightbg-text;
+      border: 2px solid @radio-border-color;
       height: 15px;
       width: 15px;
       border-radius: 100%;
@@ -72,7 +101,6 @@
   input[type=radio][disabled] ~ .check {
     background-color: @lightbg-text;
   }
-
 }
 
 @keyframes rippleOn {

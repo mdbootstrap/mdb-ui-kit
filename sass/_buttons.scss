@@ -48,7 +48,8 @@
 
 }
 
-.btn {
+.btn,
+.input-group-btn .btn {
   &.btn-flat {
     background: none;
     box-shadow: none;
@@ -86,7 +87,8 @@
     &:active {
       @include shadow-z-1-hover();
     }
-    &, .ripple-wrapper {
+    &,
+    .ripple-wrapper {
       border-radius: 100%;
     }
     &.btn-fab-mini {
