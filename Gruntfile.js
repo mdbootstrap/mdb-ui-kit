@@ -258,6 +258,18 @@ module.exports = function (grunt) {
         files: {
           "dist/css/ripples.css": "less/ripples.less",
         }
+      },
+      docs: {
+        options: {
+          paths: ["less"],
+          sourceMap: true,
+          sourceMapRootpath: "/",
+          sourceMapFilename: "docs/assets/css/src/docs.css.map",
+          sourceMapURL: "docs.css.map"
+        },
+        files: {
+          "docs/assets/css/src/docs.css": "docs/assets/css/src/docs.less",
+        }
       }
     },
 
@@ -657,7 +669,7 @@ module.exports = function (grunt) {
 
   // Docs task.
   grunt.registerTask('build-icons-data', function () { generateIconsData.call(this, grunt); });
-  grunt.registerTask('docs-css', ['autoprefixer:docs', 'autoprefixer:examples', 'cssmin:docs']);
+  grunt.registerTask('docs-css', ['less:docs','autoprefixer:docs', 'autoprefixer:examples', 'cssmin:docs']);
   grunt.registerTask('lint-docs-css', ['csslint:docs', 'csslint:examples']);
   grunt.registerTask('docs-js', ['uglify:docsJs', 'uglify:customize']);
   grunt.registerTask('lint-docs-js', ['jshint:assets', 'jscs:assets']);
