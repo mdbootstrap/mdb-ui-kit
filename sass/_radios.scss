@@ -6,11 +6,7 @@
 
 @mixin form-group-radio-variant($placeholder-font-size, $line-height){
   .radio {
-    label {
-      font-size: $placeholder-font-size;
-      line-height: $line-height;
-      font-weight: normal;
-    }
+    // Label is set in _inputs.less
   }
 }
 
@@ -27,7 +23,7 @@
   // lg label size/location
   &.form-group-lg {
     @include form-group-radio-variant($md-input-font-size-large, $md-input-line-height-large);
-  }     
+  }
 }
 
 .radio {

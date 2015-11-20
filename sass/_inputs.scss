@@ -49,13 +49,20 @@
     font-size: $help-block-font-size;
   }
 
+  // generic labels used anywhere in the form (not control-label)
+  label {
+    font-size: $placeholder-font-size;
+    line-height: $line-height;
+    font-weight: normal;
+  }
+
   // smaller focused or static size
   label.control-label {
     font-size: $static-font-size;
     line-height: $static-line-height;
   }
 
-  // larger labels as placeholders
+    // larger labels as placeholders
   &.label-floating,
   &.label-placeholder {
     label.control-label {
@@ -70,7 +77,7 @@
   &.label-floating.is-focused,
   &.label-floating:not(.is-empty),
   &.label-floating input.form-control:-webkit-autofill {
-    & ~ label.control-label, // #559 webkit chrome autofill - input.form-control:-webkit-autofill ~ label.control-label
+    & ~ label.control-label, // #559 webkit chrome autofill `.form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label`
     label.control-label {
       top: $label-top;
       left: 0;
@@ -155,10 +162,16 @@
     }
   }
 
+  // generic labels and control labels
+  label,
   label.control-label {
     // same label properties as form-group placeholder
     color: $input-placeholder-color;
     font-weight: normal;
+  }
+
+  label.control-label {
+    // same label properties as form-group placeholder
     margin: 16px 0 0 0; // std and lg
   }
 
