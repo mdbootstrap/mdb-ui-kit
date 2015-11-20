@@ -4,6 +4,11 @@
 include:
   - .nojekyll
 
+gems: ['jekyll-less']
+
+sass:
+    sass_dir: sass
+
 # Dependencies
 markdown:         kramdown
 highlighter:      rouge

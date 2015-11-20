@@ -1,0 +1,56 @@
+/*
+ * Icons
+ *
+ * Special styles for displaying the icons and their classes in the docs.
+ */
+
+.bmd-icons {
+  margin: 0 -10px 20px;
+  overflow: hidden;
+}
+
+.bmd-icons-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.bmd-icons li {
+  float: left;
+  width: 25%;
+  height: 115px;
+  padding: 10px;
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #fff;
+}
+
+.bmd-icons i {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.bmd-icons .bmd-icon-class {
+  display: block;
+  text-align: center;
+  word-wrap: break-word; /* Help out IE10+ with class names */
+}
+
+.bmd-icons li:hover {
+  color: #fff;
+  background-color: @site-color-dark;
+}
+
+@media (min-width: 768px) {
+  .bmd-icons {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .bmd-icons li {
+    width: 12.5%;
+    font-size: 12px;
+  }
+}
