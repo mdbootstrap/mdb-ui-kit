@@ -52,6 +52,8 @@ a, a:hover, a:focus {
 // Text inputs
 @import '_inputs';
 
+@import '_form';
+
 legend {
   border-bottom: 0;
 }
@@ -86,21 +88,7 @@ legend {
 @import '_progress';
 
 // Typography
-.text-warning {
-  color: $btn-warning;
-}
-.text-primary {
-  color: $btn-primary;
-}
-.text-danger {
-  color: $btn-danger;
-}
-.text-success {
-  color: $btn-success;
-}
-.text-info {
-  color: $btn-info;
-}
+@import '_typography';
 
 @import '_tabs';
 

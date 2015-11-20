@@ -218,72 +218,65 @@
             <pre><code>$.material.init()</code></pre>
           </div>
           <div class="well page" id="checkbox">
-            <h1 class="header">Checkbox</h1>
+            <h1 class="header">Checkbox <small>default checkboxes</small></h1>
 
             <!-- Simple checkbox with label -->
-            <div class="sample1">
+            <div class="form-group">
               <div class="checkbox">
                 <label>
                   <input type="checkbox"> Notifications
                 </label>
               </div>
-              <p class="hint">Notify me about updates to apps or games that I've downloaded</p>
+              <p class="help-block">Notify me about updates to apps or games that I've downloaded</p>
             </div>
 
             <!-- Simple checkbox with label, checked -->
-            <div class="sample1">
+            <div class="form-group">
               <div class="checkbox">
                 <label>
                   <input type="checkbox" checked> Auto-updates
                 </label>
               </div>
-              <p class="hint">Auto-update apps over wifi only</p>
+              <p class="help-block">Auto-update apps over wifi only</p>
             </div>
 
-            <!-- Simple checkbox with label -->
-            <div class="sample1">
-              <div class="checkbox">
-                <label>
-                  <input type="checkbox"> Clear search history
-                </label>
-              </div>
-              <p class="hint">Remove all the searches you have ever performed</p>
-            </div>
 
-            <h2>Sound</h2>
-
+            <h2>Sound <small>horizontal form with column label variations and <code>checkbox-primary</code> color</small></h2>
             <!-- Checkboxes with labels on the left -->
-            <div class="sample2">
-              <div class="text">Touch sounds</div>
-              <div class="checkbox checkbox-primary">
-                <label>
-                  <input type="checkbox" checked>
-                </label>
+
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2" for="ch1">Touch sounds</label>
+                <div class="col-sm-10">
+                  <div class="checkbox checkbox-primary">
+                    <label>
+                      <input id="ch1" type="checkbox" checked>
+                    </label>
+                  </div>
+                  <p class="help-block">This shows the generic label variant.</p>
+                </div>
               </div>
-            </div>
-            <div class="sample2">
-              <div class="text">Screen lock sound</div>
-              <div class="checkbox checkbox-primary">
-                <label>
-                  <input type="checkbox">
-                </label>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="ch3">Vibrate on touch</label>
+                <div class="col-sm-10">
+                  <div class="checkbox checkbox-primary">
+                    <label>
+                      <input id="ch3" type="checkbox">
+                    </label>
+                  </div>
+                  <p class="help-block">This shows the <code>control-label</code> variant.</p>
+                </div>
               </div>
-            </div>
-            <div class="sample2">
-              <div class="text">Vibrate on touch</div>
-              <div class="checkbox checkbox-primary">
-                <label>
-                  <input type="checkbox">
-                </label>
-              </div>
-            </div>
+
+            </form>
           </div>
           <div class="well page" id="radio-button">
             <h1 class="header">Checkbox</h1>
 
             <h2>Keep Wi-Fi on during sleep</h2>
 
-            <div class="sample1">
+            <div class="form-group">
               <div class="radio radio-success">
                 <label>
                   <input type="radio" name="sample1" value="option1" checked="">
@@ -373,6 +366,7 @@
               <div class="form-group label-static">
                 <label for="i2" class="control-label">label-static</label>
                 <input type="email" class="form-control" id="i2" placeholder="placeholder attribute">
+
                 <p class="help-block">This is a hint as a <code>p.help-block.hint</code></p>
               </div>
 
@@ -391,6 +385,7 @@
               <form>
                 <div class="form-group">
                   <label for="i5ps" class="control-label col-lg-2">Column label</label>
+
                   <div class="col-lg-10">
                     <input type="email" class="form-control" id="i5ps" placeholder="placeholder attribute">
                     <span class="help-block">This is a hint as a <code>span.help-block.hint</code></span>
@@ -532,11 +527,13 @@
               <div class="form-group label-floating">
                 <label for="555" class="control-label">label</label>
                 <input type="text" class="form-control" id="555">
+
                 <p class="help-block">Some helpful hint</p>
               </div>
               <div class="form-group label-floating">
                 <label for="676" class="control-label">label</label>
                 <input type="email" class="form-control" id="676">
+
                 <p class="help-block">A valid email contains an @ character</p>
               </div>
 
