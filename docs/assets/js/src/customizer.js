@@ -201,7 +201,7 @@ window.onload = function () { // wait for load in a dumb way because B-0
   }
 
   function generateFonts() {
-    var $glyphicons = $('#less-section [value="glyphicons.less"]:checked')
+    var $glyphicons = $('#less-section [value="icons.less"]:checked')
     if ($glyphicons.length) {
       return __fonts
     }

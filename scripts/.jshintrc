@@ -15,7 +15,6 @@
     "nonbsp": true,
     "nonew": true,
     "plusplus": false,
-    "quotmark": "double",
     "undef": true,
     "unused": true,
     "strict": false,
@@ -39,9 +38,6 @@
         "brackets": true,
         "define": true,
         "Mustache": true,
-        "window": true,
-        "expect": true,
-        "describe": true,
-        "it": true
+        "window": true
     }
 }
