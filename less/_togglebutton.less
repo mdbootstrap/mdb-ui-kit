@@ -1,16 +1,12 @@
 .form-group-toggle-variant(@placeholder-font-size, @line-height){
   .togglebutton {
-    label {
-      font-size: @placeholder-font-size;
-      line-height: @line-height;
-      font-weight: normal;
-    }
+    // Label is set in _inputs.less
   }
 }
 
 .form-group {
 
-  // default label size/location
+  //// default label size/location
   .form-group-toggle-variant(@md-input-font-size-base, @md-input-line-height-base);
 
   // sm label size/location
@@ -47,7 +43,7 @@
         height: 15px;
         background-color: rgba(80, 80, 80, 0.7);
         border-radius: 15px;
-        margin-right: 10px;
+        margin-right: 15px;
         transition: background 0.3s ease;
         vertical-align: middle;
       }
