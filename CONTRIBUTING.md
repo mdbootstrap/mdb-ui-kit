@@ -217,3 +217,37 @@ Run `grunt build` before committing to ensure your changes follow our coding sta
 
 By contributing your code, you agree to license your contribution under the [MIT License](LICENSE).
 By contributing to the documentation, you agree to license your contribution under the [Creative Commons Attribution 3.0 Unported License](docs/LICENSE).
+
+## Building documentation
+
+1. Checkout the master branch from the project root directory 
+
+    ```bash
+    $ git checkout master
+    ```
+
+2. Checkout the `gh-pages` branch in `_gh_pages` directory
+
+    ```bash
+    $ git clone git@github.com:FezVrasta/bootstrap-material-design.git -b gh-pages _gh_pages
+    ```
+    
+    **rosskevin only note** when ready kill all files and commit a clean gh-pages directory for a clean start.
+    
+    The `_gh_pages` directory is already in `.gitignore` so we are just fine.
+
+3. Let's test changes to the documentation:
+
+    ```bash
+    $ jekyll serve
+    ```
+4. Browse to [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
+
+5. Push the newly generated site on github:
+
+    ```bash
+    $ cd _gh_pages
+    $ git add .
+    $ git commit -m "First generation"
+    $ git push
+    ```

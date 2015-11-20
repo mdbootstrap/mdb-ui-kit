@@ -15,6 +15,7 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
 
+    pkg: grunt.file.readJSON('package.json'),
     jqueryCheck: configBridge.config.jqueryCheck.join('\n'),
     jqueryVersionCheck: configBridge.config.jqueryVersionCheck.join('\n'),
 
@@ -34,6 +35,26 @@ module.exports = function (grunt) {
         options: {
           raw: 'github: true'
         }
+      }
+    },
+
+    htmlmin: {
+      dist: {
+        options: {
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+          minifyCSS: true,
+          minifyJS: true,
+          removeAttributeQuotes: true,
+          removeComments: true
+        },
+        expand: true,
+        cwd: '_gh_pages',
+        dest: '_gh_pages',
+        src: [
+          '**/*.html',
+          '!examples/**/*.html'
+        ]
       }
     },
 
@@ -496,6 +517,26 @@ module.exports = function (grunt) {
         ]
       }
     },
+
+    compress: {
+      main: {
+        options: {
+          archive: 'bootstrap-material-design-<%= pkg.version %>-dist.zip',
+          mode: 'zip',
+          level: 9,
+          pretty: true
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/',
+            src: ['**'],
+            dest: 'bootstrap-material-design-<%= pkg.version %>-dist'
+          }
+        ]
+      }
+    },
+
     exec: {
       "meteor-init": {
         command: [
@@ -624,5 +665,5 @@ module.exports = function (grunt) {
     'docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-icons-data'
   ]);
 
-  grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin', 'compress']);
+  grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin']); //, 'compress']);
 };
