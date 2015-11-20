@@ -18,6 +18,14 @@
     }
     return false;
   }
+  
+  function _addFormGroupFocus(element){
+    $(element).closest(".form-group").addClass("is-focused");
+  }
+  
+  function _removeFormGroupFocus(element){
+    $(element).closest(".form-group").removeClass("is-focused"); // remove class from form-group
+  }
 
   $.material =  {
     "options": {
@@ -49,21 +57,21 @@
       $((selector) ? selector : this.options.checkboxElements)
       .filter(":notmdproc")
       .data("mdproc", true)
-      .after("<span class=checkbox-material><span class=check></span></span>");
+      .after("<span class='checkbox-material'><span class='check'></span></span>");
     },
     "togglebutton": function(selector) {
       // Add fake-checkbox to material checkboxes
       $((selector) ? selector : this.options.togglebuttonElements)
       .filter(":notmdproc")
       .data("mdproc", true)
-      .after("<span class=toggle></span>");
+      .after("<span class='toggle'></span>");
     },
     "radio": function(selector) {
       // Add fake-radio to material radios
       $((selector) ? selector : this.options.radioElements)
       .filter(":notmdproc")
       .data("mdproc", true)
-      .after("<span class=circle></span><span class=check></span>");
+      .after("<span class='circle'></span><span class='check'></span>");
     },
     "input": function(selector) {
       $((selector) ? selector : this.options.inputElements)
@@ -125,6 +133,14 @@
       });
     },
     "attachInputEventHandlers": function() {
+
+      // checkboxes didn't appear to bubble to the document, so we'll bind these directly
+      $(".form-group .checkbox label").hover(function() {
+        _addFormGroupFocus(this);
+      }, function() {
+        _removeFormGroupFocus(this);
+      });
+
       $(document)
       .on("change", ".checkbox input[type=checkbox]", function() { $(this).blur(); })
       .on("keydown paste", ".form-control", function(e) {
@@ -158,10 +174,10 @@
         }
       })
       .on("focus", ".form-control, .form-group.is-fileinput", function() {
-        $(this).closest(".form-group").addClass("is-focused"); // add class to form-group
+        _addFormGroupFocus(this);
       })
       .on("blur", ".form-control, .form-group.is-fileinput", function() {
-        $(this).closest(".form-group").removeClass("is-focused"); // remove class from form-group
+        _removeFormGroupFocus(this);
       })
       // make sure empty is added back when there is a programmatic value change.
       //  NOTE: programmatic changing of value using $.val() must trigger the change event i.e. $.val('x').trigger('change')

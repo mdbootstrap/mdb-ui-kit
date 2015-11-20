@@ -5,17 +5,13 @@
 
 .form-group-checkbox-variant(@placeholder-font-size, @line-height){
   .checkbox {
-    label {
-      font-size: @placeholder-font-size;
-      line-height: @line-height;
-      font-weight: normal;
-    }
+    // Label is set in _inputs.less
   }
 }
 
 .form-group {
 
-  // default label size/location
+  //// default label size/location
   .form-group-checkbox-variant(@md-input-font-size-base, @md-input-line-height-base);
 
   // sm label size/location

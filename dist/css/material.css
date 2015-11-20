@@ -2571,7 +2571,7 @@ Then, run this script to get the list.
   box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
 }
 body {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
 }
 body.inverse {
   background: #333333;
@@ -2655,7 +2655,7 @@ body .well-default,
 body .jumbotron-default,
 .container .jumbotron-default,
 .container-fluid .jumbotron-default {
-  background-color: #FFF;
+  background-color: #ffffff;
 }
 body .well-black,
 .container .well-black,
@@ -3875,21 +3875,6 @@ body .jumbotron-material-blue-grey,
   padding-top: 20px;
 }
 .form-group .checkbox label {
-  font-size: 16px;
-  line-height: 1.42857143;
-  font-weight: normal;
-}
-.form-group.form-group-sm .checkbox label {
-  font-size: 11px;
-  line-height: 1.5;
-  font-weight: normal;
-}
-.form-group.form-group-lg .checkbox label {
-  font-size: 18px;
-  line-height: 1.3333333;
-  font-weight: normal;
-}
-.form-group .checkbox label {
   cursor: pointer;
   padding-left: 0;
   color: rgba(0, 0, 0, 0.54);
@@ -4493,21 +4478,6 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
     opacity: 0;
   }
 }
-.form-group .togglebutton label {
-  font-size: 16px;
-  line-height: 1.42857143;
-  font-weight: normal;
-}
-.form-group.form-group-sm .togglebutton label {
-  font-size: 11px;
-  line-height: 1.5;
-  font-weight: normal;
-}
-.form-group.form-group-lg .togglebutton label {
-  font-size: 18px;
-  line-height: 1.3333333;
-  font-weight: normal;
-}
 .form-group .togglebutton {
   vertical-align: middle;
 }
@@ -4537,7 +4507,7 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
   height: 15px;
   background-color: rgba(80, 80, 80, 0.7);
   border-radius: 15px;
-  margin-right: 10px;
+  margin-right: 15px;
   transition: background 0.3s ease;
   vertical-align: middle;
 }
@@ -4822,21 +4792,6 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
 }
 .form-horizontal .radio {
   margin-bottom: 10px;
-}
-.form-group .radio label {
-  font-size: 16px;
-  line-height: 1.42857143;
-  font-weight: normal;
-}
-.form-group.form-group-sm .radio label {
-  font-size: 11px;
-  line-height: 1.5;
-  font-weight: normal;
-}
-.form-group.form-group-lg .radio label {
-  font-size: 18px;
-  line-height: 1.3333333;
-  font-weight: normal;
 }
 .radio label {
   cursor: pointer;
@@ -5259,7 +5214,7 @@ output {
 }
 .form-group .form-control {
   border: 0;
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
   background-position: center bottom, center calc(100% - 1px);
@@ -5270,15 +5225,15 @@ output {
   border-radius: 0;
 }
 .form-group .form-control::-moz-placeholder {
-  color: #BDBDBD;
+  color: #bdbdbd;
   font-weight: normal;
 }
 .form-group .form-control:-ms-input-placeholder {
-  color: #BDBDBD;
+  color: #bdbdbd;
   font-weight: normal;
 }
 .form-group .form-control::-webkit-input-placeholder {
-  color: #BDBDBD;
+  color: #bdbdbd;
   font-weight: normal;
 }
 .form-group .form-control[readonly],
@@ -5289,11 +5244,11 @@ fieldset[disabled] .form-group .form-control {
 .form-group .form-control[disabled],
 fieldset[disabled] .form-group .form-control {
   background-image: none;
-  border-bottom: 1px dotted #D2D2D2;
+  border-bottom: 1px dotted #d2d2d2;
 }
 .form-group.is-focused .form-control {
   outline: none;
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
   background-size: 100% 2px, 100% 1px;
   box-shadow: none;
   transition-duration: 0.3s;
@@ -5308,9 +5263,12 @@ fieldset[disabled] .form-group .form-control {
   pointer-events: none;
   transition: 0.3s ease all;
 }
+.form-group label,
 .form-group label.control-label {
-  color: #BDBDBD;
+  color: #bdbdbd;
   font-weight: normal;
+}
+.form-group label.control-label {
   margin: 16px 0 0 0;
 }
 .form-group.label-placeholder:not(.is-empty) label.control-label {
@@ -5318,7 +5276,7 @@ fieldset[disabled] .form-group .form-control {
 }
 .form-group label.control-label,
 .form-group-default label.control-label {
-  color: #BDBDBD;
+  color: #bdbdbd;
 }
 .form-group-black label.control-label {
   color: #000000;
@@ -5488,7 +5446,7 @@ fieldset[disabled] .form-group .form-control {
 }
 .form-group.is-focused.label-placeholder label.control-label,
 .form-group-default.is-focused.label-placeholder label.control-label {
-  color: #BDBDBD;
+  color: #bdbdbd;
 }
 .form-group-black.is-focused.label-placeholder label.control-label {
   color: #000000;
@@ -5587,6 +5545,11 @@ fieldset[disabled] .form-group .form-control {
   margin-top: 0px;
   font-size: 12px;
 }
+.form-group label {
+  font-size: 16px;
+  line-height: 1.42857143;
+  font-weight: normal;
+}
 .form-group label.control-label {
   font-size: 12px;
   line-height: 1.07142857;
@@ -5629,6 +5592,11 @@ fieldset[disabled] .form-group .form-control {
 .form-group.form-group-sm .help-block {
   margin-top: 0px;
   font-size: 9px;
+}
+.form-group.form-group-sm label {
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: normal;
 }
 .form-group.form-group-sm label.control-label {
   font-size: 9px;
@@ -5673,6 +5641,11 @@ fieldset[disabled] .form-group .form-control {
   margin-top: 0px;
   font-size: 14px;
 }
+.form-group.form-group-lg label {
+  font-size: 18px;
+  line-height: 1.3333333;
+  font-weight: normal;
+}
 .form-group.form-group-lg label.control-label {
   font-size: 14px;
   line-height: 0.99999998;
@@ -5705,94 +5678,94 @@ fieldset[disabled] .form-group .form-control {
 }
 .form-group.is-focused .form-control,
 .form-group-default.is-focused .form-control {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-black.is-focused .form-control {
-  background-image: linear-gradient(#000000, #000000), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#000000, #000000), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-white.is-focused .form-control {
-  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-inverse.is-focused .form-control {
-  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-primary.is-focused .form-control {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-success.is-focused .form-control {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-info.is-focused .form-control {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-warning.is-focused .form-control {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-danger.is-focused .form-control {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-red.is-focused .form-control {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-pink.is-focused .form-control {
-  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-purple.is-focused .form-control {
-  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-deep-purple.is-focused .form-control {
-  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-indigo.is-focused .form-control {
-  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-blue.is-focused .form-control {
-  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-light-blue.is-focused .form-control {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-cyan.is-focused .form-control {
-  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-teal.is-focused .form-control {
-  background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#009688, #009688), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-green.is-focused .form-control {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-light-green.is-focused .form-control {
-  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-lime.is-focused .form-control {
-  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-yellow.is-focused .form-control {
-  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-amber.is-focused .form-control {
-  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-orange.is-focused .form-control {
-  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-deep-orange.is-focused .form-control {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-brown.is-focused .form-control {
-  background-image: linear-gradient(#795548, #795548), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#795548, #795548), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-grey.is-focused .form-control {
-  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group-material-blue-grey.is-focused .form-control {
-  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group.has-warning .form-control {
   box-shadow: none;
 }
 .form-group.has-warning.is-focused .form-control {
-  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group.has-warning label.control-label,
 .form-group.has-warning .help-block {
@@ -5802,7 +5775,7 @@ fieldset[disabled] .form-group .form-control {
   box-shadow: none;
 }
 .form-group.has-error.is-focused .form-control {
-  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#f44336, #f44336), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group.has-error label.control-label,
 .form-group.has-error .help-block {
@@ -5812,7 +5785,7 @@ fieldset[disabled] .form-group .form-control {
   box-shadow: none;
 }
 .form-group.has-success.is-focused .form-control {
-  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group.has-success label.control-label,
 .form-group.has-success .help-block {
@@ -5822,7 +5795,7 @@ fieldset[disabled] .form-group .form-control {
   box-shadow: none;
 }
 .form-group.has-info.is-focused .form-control {
-  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#D2D2D2, #D2D2D2);
+  background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#d2d2d2, #d2d2d2);
 }
 .form-group.has-info label.control-label,
 .form-group.has-info .help-block {
@@ -5847,7 +5820,7 @@ select.form-control {
 }
 .form-group.is-focused select.form-control {
   box-shadow: none;
-  border-color: #D2D2D2;
+  border-color: #d2d2d2;
 }
 select.form-control[multiple],
 .form-group.is-focused select.form-control[multiple] {
@@ -5879,6 +5852,18 @@ select.form-control[multiple],
   width: 100%;
   height: 100%;
   z-index: 100;
+}
+.form-horizontal .radio,
+.form-horizontal .checkbox,
+.form-horizontal .radio-inline,
+.form-horizontal .checkbox-inline {
+  padding-top: 0px;
+}
+.form-horizontal label {
+  text-align: right;
+}
+.form-horizontal label.control-label {
+  margin: 0;
 }
 legend {
   border-bottom: 0;
@@ -7911,7 +7896,7 @@ icon-material-blue-grey {
   /**************************************************************************/
   border-radius: 2px;
   color: rgba(0, 0, 0, 0.84);
-  background: #fff;
+  background: #ffffff;
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card .card-height-indicator {
@@ -7940,7 +7925,7 @@ icon-material-blue-grey {
   position: absolute;
   bottom: 16px;
   left: 18px;
-  color: #fff;
+  color: #ffffff;
   font-size: 2em;
 }
 .card .card-body {
