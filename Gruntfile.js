@@ -5,6 +5,12 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
 
+    // Task configuration.
+    clean: {
+      dist: 'dist',
+      docs: 'docs/dist'
+    },
+
     jekyll: {
       options: {
         config: '_config.yml'
@@ -229,32 +235,36 @@ module.exports = function (grunt) {
       },
       material: {
         files: {
-          "dist/css/material.css": "dist/css/material.css",
-          "dist/css/material.min.css": "dist/css/material.min.css"
+          "dist/css/material.css": "dist/css/material.css"
         }
       },
       materialfullpalette: {
         files: {
-          "dist/css/material-fullpalette.css": "dist/css/material-fullpalette.css",
-          "dist/css/material-fullpalette.min.css": "dist/css/material-fullpalette.min.css"
+          "dist/css/material-fullpalette.css": "dist/css/material-fullpalette.css"
         }
       },
       roboto: {
         files: {
-          "dist/css/roboto.css": "dist/css/roboto.css",
-          "dist/css/roboto.min.css": "dist/css/roboto.min.css"
+          "dist/css/roboto.css": "dist/css/roboto.css"
         }
       },
       ripples: {
         files: {
-          "dist/css/ripples.css": "dist/css/ripples.css",
-          "dist/css/ripples.min.css": "dist/css/ripples.min.css"
+          "dist/css/ripples.css": "dist/css/ripples.css"
         }
       }
     },
 
     // Minify CSS and adapt maps
-    csswring: {
+    cssmin: {
+      options: {
+        // TODO: disable `zeroUnits` optimization once clean-css 3.2 is released
+        //    and then simplify the fix for https://github.com/twbs/bootstrap/issues/14837 accordingly
+        compatibility: 'ie8',
+        keepSpecialComments: '*',
+        sourceMap: true,
+        advanced: false
+      },
       material: {
         src: "dist/css/material.css",
         dest: "dist/css/material.min.css"
@@ -270,6 +280,14 @@ module.exports = function (grunt) {
       ripples: {
         src: "dist/css/ripples.css",
         dest: "dist/css/ripples.min.css"
+      },
+      docs: {
+        src: [
+          'docs/assets/css/ie10-viewport-bug-workaround.css',
+          'docs/assets/css/src/pygments-manni.css',
+          'docs/assets/css/src/docs.css'
+        ],
+        dest: 'docs/assets/css/docs.min.css'
       }
     },
 
@@ -368,7 +386,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ["Gruntfile.js", "scripts/**/*.js", "template/**/*.js"],
-        tasks: ["newer:jshint:all", "material:js"]
+        tasks: ["newer:jshint:all", "dist-js"]
       },
       jsTest: {
         files: ["test/**/*.js"],
@@ -376,11 +394,11 @@ module.exports = function (grunt) {
       },
       less: {
         files: ["less/**/*.less"],
-        tasks: ["material:less"]//, "material:sass"]
+        tasks: ["dist-less"]//, "dist-sass"]
       },
       //sass: {
       //  files: ["sass/*.scss"],
-      //  tasks: ["material:sass"]
+      //  tasks: ["dist-sass"]
       //},
       livereload: {
         options: {
@@ -426,7 +444,7 @@ module.exports = function (grunt) {
   });
 
 
-  require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
+  require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
   //require('time-grunt')(grunt);
 
   // Docs HTML validation task
@@ -434,75 +452,78 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks("grunt-less-to-sass");
 
-  grunt.registerTask("default", ["material", "ripples", "jekyll:github"]);
-
-  grunt.registerTask("material", [
-    "material:less",
-    "material:js",
-    "material:fonts",
-    "material:sass"
-  ]);
-
-  grunt.registerTask("material:sass", [
+  // CSS distribution tasks
+  grunt.registerTask("dist-sass", [
     "lessToSass:convert",
     "sass:compile"
   ]);
 
-  grunt.registerTask("material:less", [
-    "htmllint",
-    "bootlint",
+  grunt.registerTask('less-compile', [
     "less:material",
     "less:materialfullpalette",
     "less:roboto",
-    "csswring:material",
-    "csswring:materialfullpalette",
-    "csswring:roboto",
-    "autoprefixer:material",
-    "autoprefixer:materialfullpalette",
-    "autoprefixer:roboto"
-  ]);
-  grunt.registerTask("material:js", [
-    "copy:material",
-    "uglify:material"
-  ]);
-  grunt.registerTask("material:fonts", [
-    "copy:fonts"
+    "less:ripples"
   ]);
 
-  grunt.registerTask("ripples", [
-    "ripples:less",
-    "ripples:js"
+  grunt.registerTask("dist-less", [
+    "less-compile",
+
+    "autoprefixer:material",
+    "autoprefixer:materialfullpalette",
+    "autoprefixer:roboto",
+    "autoprefixer:ripples",
+
+    "cssmin:material",
+    "cssmin:materialfullpalette",
+    "cssmin:roboto",
+    "cssmin:ripples"
   ]);
-  grunt.registerTask("ripples:less", [
-    "less:ripples",
-    "csswring:ripples",
-    "autoprefixer:ripples"
-  ]);
-  grunt.registerTask("ripples:js", [
+
+  grunt.registerTask("dist-js", [
+    "newer:jshint",
+    "copy:material",
+    "uglify:material",
     "copy:ripples",
     "uglify:ripples"
   ]);
 
-  grunt.registerTask("build", function () {
-    grunt.task.run(["newer:jshint", "default"]);
-  });
+  grunt.registerTask("dist-fonts", [
+    "copy:fonts"
+  ]);
+
+  // Full distribution
+  grunt.registerTask("dist", [
+    "clean:dist",
+
+    "htmllint",
+    "bootlint",
+
+    "dist-less",
+    "dist-js",
+    "dist-fonts",
+    "dist-sass"
+  ]);
+
+  // Default task.
+  grunt.registerTask('default', ['dist']);
+  //grunt.registerTask('default', ['test']);
+
 
   grunt.registerTask("test", [
+    "dist",
     "jasmine:scripts:build",
     "connect:test:keepalive"
   ]);
 
-  grunt.registerTask("serve", function (target) {
-    var buildTarget = "material:less";
-    if (target && target === "scss") {
-      buildTarget = "scss";
-    }
-    grunt.task.run([
-      "build:" + buildTarget,
-      "connect:livereload",
-      "watch"
-    ]);
-  });
+  grunt.registerTask("serve", [
+    "htmllint",
+    "bootlint",
+    "dist-less",
+    "dist-js",
+    "dist-fonts",
+    "connect:livereload",
+    "watch"
+  ]);
 
   // Meteor tasks
   grunt.registerTask("meteor-test", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-cleanup"]);
@@ -510,5 +531,5 @@ module.exports = function (grunt) {
   grunt.registerTask("meteor", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-publish", "exec:meteor-cleanup"]);
 
   //grunt.registerTask("cibuild", ["newer:jshint", "meteor-test"]);
-  grunt.registerTask("cibuild", ["build"]);
+  grunt.registerTask("cibuild", ["default"]);
 };
