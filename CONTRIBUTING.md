@@ -225,8 +225,13 @@ By contributing to the documentation, you agree to license your contribution und
     ```bash
     $ git checkout master
     ```
+    
+1. Bundle install (if not already done)
+    ```bash
+    $ bundle install
+    ```
 
-2. Checkout the `gh-pages` branch in `_gh_pages` directory
+1. Checkout the `gh-pages` branch in `_gh_pages` directory
 
     ```bash
     $ git clone git@github.com:FezVrasta/bootstrap-material-design.git -b gh-pages _gh_pages
@@ -236,14 +241,21 @@ By contributing to the documentation, you agree to license your contribution und
     
     The `_gh_pages` directory is already in `.gitignore` so we are just fine.
 
-3. Let's test changes to the documentation:
+1. Copy the latest code to the `docs/dist` (if not already done)
+    ```bash
+    $ grunt docs
+    ```
+
+1. Let's test changes to the documentation:
 
     ```bash
     $ jekyll serve
     ```
-4. Browse to [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
+1. Browse to [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
 
-5. Push the newly generated site on github:
+1. Make some changes to files in the `docs` directory and review them
+
+1. Commit and push the newly generated site on github:
 
     ```bash
     $ cd _gh_pages
