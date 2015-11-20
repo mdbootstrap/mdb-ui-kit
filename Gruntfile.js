@@ -3,7 +3,21 @@ module.exports = function (grunt) {
 
   require("load-grunt-tasks")(grunt);
 
+  var path = require('path');
+  var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
+  var generateIconsData = require('./grunt/bmd-icons-data-generator.js');
+  
+  Object.keys(configBridge.paths).forEach(function (key) {
+    configBridge.paths[key].forEach(function (val, i, arr) {
+      arr[i] = path.join('./docs/assets', val);
+    });
+  });
+
   grunt.initConfig({
+
+    jqueryCheck: configBridge.config.jqueryCheck.join('\n'),
+    jqueryVersionCheck: configBridge.config.jqueryVersionCheck.join('\n'),
+
 
     // Task configuration.
     clean: {
@@ -231,7 +245,7 @@ module.exports = function (grunt) {
     autoprefixer: {
       options: {
         map: true,
-        browsers: ["last 3 versions", "ie 8", "ie 9", "ie 10", "ie 11"]
+        browsers: configBridge.config.autoprefixerBrowsers
       },
       material: {
         files: {
@@ -252,6 +266,35 @@ module.exports = function (grunt) {
         files: {
           "dist/css/ripples.css": "dist/css/ripples.css"
         }
+      },
+      docs: {
+        src: ['docs/assets/css/src/docs.css']
+      },
+      examples: {
+        expand: true,
+        cwd: 'docs/examples/',
+        src: ['**/*.css'],
+        dest: 'docs/examples/'
+      }
+    },
+
+    csslint: {
+      options: {
+        csslintrc: 'less/.csslintrc'
+      },
+      dist: [
+        'dist/css/material.css',
+        'dist/css/material-fullpalette.css'
+      ],
+      examples: [
+        'docs/examples/**/*.css'
+      ],
+      docs: {
+        options: {
+          ids: false,
+          'overqualified-elements': false
+        },
+        src: 'docs/assets/css/src/docs.css'
       }
     },
 
@@ -308,6 +351,14 @@ module.exports = function (grunt) {
         dest: "dist/fonts/",
         flatten: true,
         filter: "isFile"
+      },
+      docs: {
+        expand: true,
+        cwd: 'dist/',
+        src: [
+          '**/*'
+        ],
+        dest: 'docs/dist/'
       }
     },
 
@@ -325,6 +376,14 @@ module.exports = function (grunt) {
         files: {
           "dist/js/ripples.min.js": "dist/js/ripples.js"
         }
+      },
+      customize: {
+        src: configBridge.paths.customizerJs,
+        dest: 'docs/assets/js/customize.min.js'
+      },
+      docsJs: {
+        src: configBridge.paths.docsJs,
+        dest: 'docs/assets/js/docs.min.js'
       }
     },
 
@@ -363,43 +422,67 @@ module.exports = function (grunt) {
     },
     jshint: {
       options: {
-        jshintrc: ".jshintrc",
+        jshintrc: "scripts/.jshintrc",
         reporter: require("jshint-stylish")
       },
-      all: [
-        //"Gruntfile.js", regex lines are too long for desired style guide.
+      grunt: {
+        options: {
+          jshintrc: 'grunt/.jshintrc'
+        },
+        src: ['Gruntfile.js', 'package.js']
+      },
+      core: [
         "scripts/**/*.js",
-        "template/**/*.js",
-        "!template/**/*.min.js"
       ],
       test: {
+        src: ["test/**/*.js"]
+      },
+      assets: {
         options: {
-          jshintrc: "test/.jshintrc",
-          src: ["test/**/*.js"]
-        }
+          jshintrc: "docs/assets/js/.jshintrc"
+        },
+        src: ['docs/assets/js/src/*.js', 'docs/assets/js/*.js', '!docs/assets/js/*.min.js']
       }
     },
+
+    jscs: {
+      options: {
+        config: 'scripts/.jscsrc'
+      },
+      grunt: {
+        src: '<%= jshint.grunt.src %>'
+      },
+      core: {
+        src: '<%= jshint.core.src %>'
+      },
+      test: {
+        src: '<%= jshint.test.src %>'
+      },
+      assets: {
+        options: {
+          requireCamelCaseOrUpperCaseIdentifiers: null
+        },
+        src: '<%= jshint.assets.src %>'
+      }
+    },
+
     watch: {
       html: {
         files: ["index.html", "bootstrap-elements.html", "test.html"],
         tasks: ["htmllint", "bootlint"]
       },
-      js: {
-        files: ["Gruntfile.js", "scripts/**/*.js", "template/**/*.js"],
-        tasks: ["newer:jshint:all", "dist-js"]
+      src: {
+        files: '<%= jshint.core.src %>',
+        tasks: ['jshint:core', 'dist-js'] // add tests when working again
       },
-      jsTest: {
+      test: {
         files: ["test/**/*.js"],
-        tasks: ["newer:jshint:test", "jasmine"]
+        tasks: ["jshint:test", "jasmine"]
       },
       less: {
         files: ["less/**/*.less"],
-        tasks: ["dist-less"]//, "dist-sass"]
+        tasks: ["dist-less"]
       },
-      //sass: {
-      //  files: ["sass/*.scss"],
-      //  tasks: ["dist-sass"]
-      //},
       livereload: {
         options: {
           livereload: "<%= connect.options.livereload %>"
@@ -447,6 +530,13 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
   //require('time-grunt')(grunt);
 
+  grunt.registerTask('test-js', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
+  grunt.registerTask("test", [
+    "dist",
+    "jasmine:scripts:build",
+    "connect:test:keepalive"
+  ]);
+
   // Docs HTML validation task
   grunt.registerTask('validate-html', ['jekyll:docs', 'htmllint']);
 
@@ -480,7 +570,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask("dist-js", [
-    "newer:jshint",
+    "jshint",
     "copy:material",
     "uglify:material",
     "copy:ripples",
@@ -505,15 +595,8 @@ module.exports = function (grunt) {
   ]);
 
   // Default task.
-  grunt.registerTask('default', ['dist']);
-  //grunt.registerTask('default', ['test']);
+  grunt.registerTask('default', ['dist']); // test as well when it works?
 
-
-  grunt.registerTask("test", [
-    "dist",
-    "jasmine:scripts:build",
-    "connect:test:keepalive"
-  ]);
 
   grunt.registerTask("serve", [
     "htmllint",
@@ -530,6 +613,16 @@ module.exports = function (grunt) {
   grunt.registerTask("meteor-publish", ["exec:meteor-init", "exec:meteor-publish", "exec:meteor-cleanup"]);
   grunt.registerTask("meteor", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-publish", "exec:meteor-cleanup"]);
 
-  //grunt.registerTask("cibuild", ["newer:jshint", "meteor-test"]);
-  grunt.registerTask("cibuild", ["default"]);
+
+  // Docs task.
+  grunt.registerTask('build-icons-data', function () { generateIconsData.call(this, grunt); });
+  grunt.registerTask('docs-css', ['autoprefixer:docs', 'autoprefixer:examples', 'cssmin:docs']);
+  grunt.registerTask('lint-docs-css', ['csslint:docs', 'csslint:examples']);
+  grunt.registerTask('docs-js', ['uglify:docsJs', 'uglify:customize']);
+  grunt.registerTask('lint-docs-js', ['jshint:assets', 'jscs:assets']);
+  grunt.registerTask('docs', [
+    'docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-icons-data'
+  ]);
+
+  grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin', 'compress']);
 };
