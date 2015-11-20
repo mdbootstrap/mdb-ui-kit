@@ -2,15 +2,19 @@
 @import "@{dir}/_colors";
 
 // original
+@site-color-footer: #2a2730;
 @site-color-darker: #463265;
 @site-color-dark: #563d7c;
 @site-color-base: #6f5499;
 @site-color-light: #9783b9;
+@site-color-lighter: #cdbfe3;
 
 @site-color-base: @blue-500;
 @site-color-dark: darken(@site-color-base, 20%);
-@site-color-light: lighten(@site-color-base, 20%);
 @site-color-darker: darken(@site-color-base, 40%);
+@site-color-footer: darken(@site-color-base, 60%);
+@site-color-light: lighten(@site-color-base, 20%);
+@site-color-lighter: lighten(@site-color-base, 40%);
 
 /*
  * Bootstrap Material Design Documentation
@@ -59,7 +63,7 @@ h4 code {
 .btn-outline-inverse {
   color: #fff;
   background-color: transparent;
-  border-color: #cdbfe3;
+  border-color: @site-color-lighter;
 }
 
 .btn-outline-inverse:hover,
@@ -103,7 +107,7 @@ h4 code {
 
 .bs-docs-booticon-outline {
   background-color: transparent;
-  border: 1px solid #cdbfe3;
+  border: 1px solid @site-color-lighter;
 }
 
 @import "_nav";
