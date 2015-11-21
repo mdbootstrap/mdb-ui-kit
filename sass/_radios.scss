@@ -13,16 +13,16 @@
 .form-group {
 
   // default label size/location
-  @include form-group-radio-variant($md-input-font-size-base, $md-input-line-height-base);
+  @include form-group-radio-variant($mdb-input-font-size-base, $mdb-input-line-height-base);
 
   // sm label size/location
   &.form-group-sm {
-    @include form-group-radio-variant($md-input-font-size-small, $md-input-line-height-small);
+    @include form-group-radio-variant($mdb-input-font-size-small, $mdb-input-line-height-small);
   }
 
   // lg label size/location
   &.form-group-lg {
-    @include form-group-radio-variant($md-input-font-size-large, $md-input-line-height-large);
+    @include form-group-radio-variant($mdb-input-font-size-large, $mdb-input-line-height-large);
   }
 }
 
@@ -31,7 +31,7 @@
     cursor: pointer;
     padding-left: 45px;
     position: relative;
-    color: $radio-label-color;
+    color: $mdb-radio-label-color;
 
     span {
       display: block;
@@ -41,7 +41,7 @@
       transition-duration: 0.2s;
     }
     .circle {
-      border: 2px solid $radio-border-color;
+      border: 2px solid $mdb-radio-border-color;
       height: 15px;
       width: 15px;
       border-radius: 100%;
@@ -50,7 +50,7 @@
       height: 15px;
       width: 15px;
       border-radius: 100%;
-      background-color: $radio-default;
+      background-color: $mdb-radio-default;
       transform: scale3d(0, 0, 0);
     }
     .check:after {
@@ -76,8 +76,8 @@
     }
 
   }
-  @include variations(unquote(" input[type=radio]:checked ~ .check"), background-color, $radio-default);
-  @include variations(unquote(" input[type=radio]:checked ~ .circle"), border-color, $radio-default);
+  @include variations(unquote(" input[type=radio]:checked ~ .check"), background-color, $mdb-radio-default);
+  @include variations(unquote(" input[type=radio]:checked ~ .circle"), border-color, $mdb-radio-default);
 
   input[type=radio][disabled] ~ .check,
   input[type=radio][disabled] ~ .circle {

@@ -47,35 +47,35 @@
   &-primary@{extra} {
     @mdb-color-name: "primary";
     @mdb-color-full-name: @mdb-color-name;
-    @mdb-color: @primary;
+    @mdb-color: @brand-primary;
     @mdb-text-color: @darkbg-text;
     @func();
   }
   &-success@{extra} {
     @mdb-color-name: "success";
     @mdb-color-full-name: @mdb-color-name;
-    @mdb-color: @success;
+    @mdb-color: @brand-success;
     @mdb-text-color: @darkbg-text;
     @func();
   }
   &-info@{extra} {
     @mdb-color-name: "info";
     @mdb-color-full-name: @mdb-color-name;
-    @mdb-color: @info;
+    @mdb-color: @brand-info;
     @mdb-text-color: @darkbg-text;
     @func();
   }
   &-warning@{extra} {
     @mdb-color-name: "warning";
     @mdb-color-full-name: @mdb-color-name;
-    @mdb-color: @warning;
+    @mdb-color: @brand-warning;
     @mdb-text-color: @darkbg-text;
     @func();
   }
   &-danger@{extra} {
     @mdb-color-name: "danger";
     @mdb-color-full-name: @mdb-color-name;
-    @mdb-color: @danger;
+    @mdb-color: @brand-danger;
     @mdb-text-color: @darkbg-text;
     @func();
   }
@@ -86,9 +86,9 @@
     // given a color and its deph build css
     .generic-variations-factory-deep(@mdb-color-number) {
 
-      &-material-@{material-color-name}@{material-color-number}@{extra} {
-        @mdb-color-full-name: "@{material-color-name}@{material-color-number}";
-        @mdb-color: @@material-color-full-name;
+      &-material-@{mdb-color-name}@{mdb-color-number}@{extra} {
+        @mdb-color-full-name: "@{mdb-color-name}@{mdb-color-number}";
+        @mdb-color: @@mdb-color-full-name;
         @mdb-text-color: contrast(@mdb-color, @lightbg-text, @darkbg-text, @contrast-factor);
         @func();
       }

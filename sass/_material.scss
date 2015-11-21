@@ -31,7 +31,7 @@ h5, h6{
 }
 
 a, a:hover, a:focus {
-  color: $primary;
+  color: $brand-primary;
 }
 
 // Well and Jumbotrons
@@ -75,10 +75,10 @@ legend {
     position: relative;
     a:hover {
       background-color: transparent;
-      color: $primary;
+      color: $brand-primary;
     }
   }
-  @include variations(unquote(" li a:hover"), color, $primary);
+  @include variations(unquote(" li a:hover"), color, $brand-primary);
 }
 
 // Alerts

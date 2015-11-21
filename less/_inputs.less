@@ -102,7 +102,7 @@
   // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
   .form-control {
     border: 0;
-    background-image: linear-gradient(@primary, @primary), linear-gradient(@mdb-input-underline-color, @mdb-input-underline-color);
+    background-image: linear-gradient(@brand-primary, @brand-primary), linear-gradient(@mdb-input-underline-color, @mdb-input-underline-color);
     background-size: 0 2px, 100% 1px;
     background-repeat: no-repeat;
     background-position: center bottom, center calc(~"100% - 1px");
@@ -138,7 +138,7 @@
 
   &.is-focused .form-control {
     outline: none;
-    background-image: linear-gradient(@primary, @primary), linear-gradient(@mdb-input-underline-color, @mdb-input-underline-color);
+    background-image: linear-gradient(@brand-primary, @brand-primary), linear-gradient(@mdb-input-underline-color, @mdb-input-underline-color);
     background-size: 100% 2px, 100% 1px;
     box-shadow: none;
     transition-duration: 0.3s;
@@ -214,7 +214,7 @@
   }
 
   // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-img-variations-content
-  .generic-variations(~".is-focused .form-control", @primary, {
+  .generic-variations(~".is-focused .form-control", @brand-primary, {
     background-image: linear-gradient(@mdb-color, @mdb-color), linear-gradient(@mdb-input-underline-color, @mdb-input-underline-color);
   });
 

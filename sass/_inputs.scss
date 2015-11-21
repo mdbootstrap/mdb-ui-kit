@@ -20,7 +20,7 @@
       box-shadow: none;
     }
     &.is-focused .form-control {
-      background-image: linear-gradient($color, $color), linear-gradient($input-underline-color, $input-underline-color);
+      background-image: linear-gradient($color, $color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
     }
     label.control-label,
     .help-block {
@@ -30,14 +30,14 @@
 }
 
 @mixin form-group-size-variant($placeholder-font-size, $label-top-margin, $vertical-padding, $line-height, $label-as-placeholder-shim){
-  $static-font-size: ceil(($label-floating-size-ratio * $placeholder-font-size)) !default;
-  $static-line-height: ($label-floating-size-ratio * $line-height) !default;
+  $static-font-size: ceil(($mdb-label-static-size-ratio * $placeholder-font-size)) !default;
+  $static-line-height: ($mdb-label-static-size-ratio * $line-height) !default;
 
   $label-as-placeholder-top: -1 * ($vertical-padding + $label-as-placeholder-shim) !default;
   $label-top: $label-as-placeholder-top - ($placeholder-font-size + $vertical-padding) !default;
 
-  $help-block-font-size: ceil(($help-block-size-ratio * $placeholder-font-size)) !default;
-  $help-block-line-height: ($help-block-size-ratio * $line-height) !default;
+  $help-block-font-size: ceil(($mdb-help-block-size-ratio * $placeholder-font-size)) !default;
+  $help-block-line-height: ($mdb-help-block-size-ratio * $line-height) !default;
 
   // form-group margin-top must be large enough for the label and the label's top padding since label is absolutely positioned
   margin: ($label-top-margin + $static-font-size) 0 0 0;
@@ -105,7 +105,7 @@
   // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
   .form-control {
     border: 0;
-    background-image: linear-gradient($primary, $primary), linear-gradient($input-underline-color, $input-underline-color);
+    background-image: linear-gradient($brand-primary, $brand-primary), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
     background-size: 0 2px, 100% 1px;
     background-repeat: no-repeat;
     background-position: center bottom, center calc(100% - 1px);
@@ -117,7 +117,7 @@
 
     // Placeholders and and labels-as-placeholders should look the same
     @include material-placeholder {
-      color: $input-placeholder-color;
+      color: $mdb-input-placeholder-color;
       font-weight: normal;
     
 }
@@ -136,19 +136,19 @@
     &[disabled],
     fieldset[disabled] & {
       background-image: none;
-      border-bottom: 1px dotted $input-underline-color;
+      border-bottom: 1px dotted $mdb-input-underline-color;
     }
   }
 
   &.is-focused .form-control {
     outline: none;
-    background-image: linear-gradient($primary, $primary), linear-gradient($input-underline-color, $input-underline-color);
+    background-image: linear-gradient($brand-primary, $brand-primary), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
     background-size: 100% 2px, 100% 1px;
     box-shadow: none;
     transition-duration: 0.3s;
 
     .material-input:after {
-      background-color: $input-default;
+      background-color: $mdb-input-default;
     }
   }
 
@@ -172,7 +172,7 @@
   label,
   label.control-label {
     // same label properties as form-group placeholder
-    color: $input-placeholder-color;
+    color: $mdb-input-placeholder-color;
     font-weight: normal;
   }
 
@@ -188,21 +188,21 @@
     }
   }
 
-  @include variations(unquote(" label.control-label"), color, $input-placeholder-color);  // default label color variations
-  @include variations(unquote(".is-focused label.control-label"), color, $input-default); // focused label color variations
-  @include variations(unquote(".is-focused.label-placeholder label.control-label"), color, $input-placeholder-color);  // default label color variations
+  @include variations(unquote(" label.control-label"), color, $mdb-input-placeholder-color);  // default label color variations
+  @include variations(unquote(".is-focused label.control-label"), color, $mdb-input-default); // focused label color variations
+  @include variations(unquote(".is-focused.label-placeholder label.control-label"), color, $mdb-input-placeholder-color);  // default label color variations
 
   // default floating size/location
-  @include form-group-size-variant($md-input-font-size-base, $md-label-top-margin-base, $md-input-padding-base-vertical, $md-input-line-height-base, $md-label-as-placeholder-shim-base);
+  @include form-group-size-variant($mdb-input-font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-base-vertical, $mdb-input-line-height-base, $mdb-label-as-placeholder-shim-base);
 
   // sm floating size/location
   &.form-group-sm {
-    @include form-group-size-variant($md-input-font-size-small, $md-label-top-margin-small, $md-input-padding-small-vertical, $md-input-line-height-small, $md-label-as-placeholder-shim-small);
+    @include form-group-size-variant($mdb-input-font-size-small, $mdb-label-top-margin-small, $mdb-input-padding-small-vertical, $mdb-input-line-height-small, $mdb-label-as-placeholder-shim-small);
   }
 
   // lg floating size/location
   &.form-group-lg {
-    @include form-group-size-variant($md-input-font-size-large, $md-label-top-margin-large, $md-input-padding-large-vertical, $md-input-line-height-large, $md-label-as-placeholder-shim-large);
+    @include form-group-size-variant($mdb-input-font-size-large, $mdb-label-top-margin-large, $mdb-input-padding-large-vertical, $mdb-input-line-height-large, $mdb-label-as-placeholder-shim-large);
   }
 
   // Hints - position: absolute approach - uses no vertical space, text wrapping - not so good.
@@ -218,12 +218,12 @@
   }
 
   // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-img-variations-content
-  @include bg-img-variations(unquote(".is-focused .form-control"), $primary);
+  @include bg-img-variations(unquote(".is-focused .form-control"), $brand-primary);
 
-  @include form-group-validation-state(has-warning, $input-warning);
-  @include form-group-validation-state(has-error, $input-danger);
-  @include form-group-validation-state(has-success, $input-success);
-  @include form-group-validation-state(has-info, $input-info);
+  @include form-group-validation-state(has-warning, $mdb-input-warning);
+  @include form-group-validation-state(has-error, $mdb-input-danger);
+  @include form-group-validation-state(has-success, $mdb-input-success);
+  @include form-group-validation-state(has-info, $mdb-input-info);
 
   textarea {
     resize: none;
@@ -249,7 +249,7 @@ select.form-control {
 
   .form-group.is-focused & {
     box-shadow: none;
-    border-color: $input-underline-color;
+    border-color: $mdb-input-underline-color;
   }
 
   &[multiple] {
@@ -272,7 +272,7 @@ select.form-control {
 // input group/addon related styles
 
 // default margin
-@include input-group-button-variation($md-input-padding-base-vertical);
+@include input-group-button-variation($mdb-input-padding-base-vertical);
 
 .form-group {
   //.form-control {
@@ -281,12 +281,12 @@ select.form-control {
 
   // sm margin
   &.form-group-sm {
-    @include input-group-button-variation($md-input-padding-small-vertical);
+    @include input-group-button-variation($mdb-input-padding-small-vertical);
   }
 
   // lg margin
   &.form-group-lg {
-    @include input-group-button-variation($md-input-padding-large-vertical);
+    @include input-group-button-variation($mdb-input-padding-large-vertical);
   }
 }
 

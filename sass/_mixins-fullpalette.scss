@@ -5,7 +5,7 @@
 
   //@debug "multi-palette generic-variations-colors called with #{inspect($args)}";
 
-  $material-colors: (
+  $mdb-colors: (
           "red-50": (name: "red", color: $red-50, number: "-50"),
           "red-100": (name: "red", color: $red-100, number: "-100"),
           "red-200": (name: "red", color: $red-200, number: "-200"),
@@ -293,7 +293,7 @@
           "blue-grey": (name: "blue-grey", color: $blue-grey, number: "")
   );
 
-  @each $material-color-combination, $color-attributes in $material-colors {
+  @each $mdb-color-combination, $color-attributes in $mdb-colors {
     // build a single depth color palette
     $args-variation-color: map-merge($args, (
             material-color-name: map-get($color-attributes, name),

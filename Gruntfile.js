@@ -88,7 +88,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: "less",
-          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less", "!_mixins-shared.less"],
+          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less", "!_mixins-shared.less", "!_import-bs*"],
           ext: ".scss",
           dest: "sass"
         }],
@@ -471,9 +471,9 @@ module.exports = function (grunt) {
         },
         src: ['Gruntfile.js', 'package.js']
       },
-      core: [
-        "scripts/**/*.js",
-      ],
+      core: {
+        src: ["scripts/**/*.js"]
+      },
       test: {
         src: ["test/**/*.js"]
       },
@@ -511,10 +511,10 @@ module.exports = function (grunt) {
         files: ["index.html", "bootstrap-elements.html", "test.html"],
         tasks: ["htmllint", "bootlint"]
       },
-      src: {
-        files: '<%= jshint.core.src %>',
-        tasks: ['jshint:core', 'dist-js'] // add tests when working again
-      },
+      //src: {
+      //  files: '<%= jshint.core.src %>',
+      //  tasks: ['jshint:core', 'dist-js'] // add tests when working again
+      //},
       test: {
         files: ["test/**/*.js"],
         tasks: ["jshint:test", "jasmine"]

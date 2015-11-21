@@ -3,7 +3,7 @@
 
 @mixin generic-variations-colors($args) {
 
-  $material-colors: (
+  $mdb-colors: (
           "red": $red,
           "pink": $pink,
           "purple": $purple,
@@ -25,11 +25,11 @@
           "blue-grey": $blue-grey
   );
 
-  @each $material-color-name, $material-color in $material-colors {
+  @each $mdb-color-name, $mdb-color in $mdb-colors {
     // build a single depth color palette
     $args-variation-color: map-merge($args, (
-            material-color-name: $material-color-name,
-            material-color: $material-color,
+            material-color-name: $mdb-color-name,
+            material-color: $mdb-color,
             material-color-number: ""
     ));
 
