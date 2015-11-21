@@ -11,6 +11,7 @@ rvm:
 
 before_script:
   - npm install -g grunt-cli
+  - npm install -g bower
   #- export DISPLAY=:99.0
   #- sh -e /etc/init.d/xvfb start
   # Install meteor
@@ -18,4 +19,4 @@ before_script:
   # Install spacejam, Meteor's CI helper
   #- npm install -g spacejam
 
-script: bundle install && grunt
+script: bower install && bundle install && grunt
