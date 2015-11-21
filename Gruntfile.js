@@ -95,6 +95,13 @@ module.exports = function (grunt) {
         options: {
           replacements: [
 
+            // convert bootstrap imports
+            { // https://regex101.com/r/bM6cP0/2
+              pattern: /bower_components\/(bootstrap\/less\/)/gi,
+              replacement: "bower_components\/bootstrap-sass\/assets\/stylesheets\/bootstrap\/",
+              order: 2
+            },
+
             // convert all shadow mixins
             { // https://regex101.com/r/sJ2lH4/1
               pattern: /.shadow-z-(\d+)((?:-hover)?) {/gi,
