@@ -2,7 +2,7 @@
 @zero: 0;
 
 // material icons path
-@material-font-path: "../fonts";
+@mdb-font-path: "../fonts";
 
 // Bootstrap shades
 @primary: @teal;
@@ -44,21 +44,21 @@
 @btn-danger: @danger;
 @btn-danger-text: @darkbg-text;
 
-@input-unchecked: rgba(137, 137, 137, 0.3);
-@input-checked: rgba(15, 157, 88, 0.3);
+@mdb-input-unchecked: rgba(137, 137, 137, 0.3);
+@mdb-input-checked: rgba(15, 157, 88, 0.3);
 
-@radio-default: @lightbg-text;
-@radio-primary: @primary;
-@radio-success: @success;
-@radio-info:    @info;
-@radio-warning: @warning;
-@radio-danger:  @danger;
+@mdb-radio-default: @lightbg-text;
+@mdb-radio-primary: @primary;
+@mdb-radio-success: @success;
+@mdb-radio-info:    @info;
+@mdb-radio-warning: @warning;
+@mdb-radio-danger:  @danger;
 
-@input-danger: @danger;
-@input-default: @primary;
-@input-warning: @warning;
-@input-success: @success;
-@input-info:    @info;
+@mdb-input-danger: @danger;
+@mdb-input-default: @primary;
+@mdb-input-warning: @warning;
+@mdb-input-success: @success;
+@mdb-input-info:    @info;
 
 @alert-success: @success;
 @alert-info: @info;
@@ -79,92 +79,88 @@
 
 
 // Global Material variables
-@material-border-radius: 2px;
+@mdb-border-radius: 2px;
 
 // --------------------
 // inputs
-@input-placeholder-color: #BDBDBD;
-@label-floating-size-ratio: 75 / 100;
-@help-block-size-ratio: 75 / 100;
-@input-underline-color: #D2D2D2;
+@mdb-input-placeholder-color: #BDBDBD;
+@mdb-input-underline-color: #D2D2D2;
+@mdb-label-static-size-ratio: 75 / 100;
+@mdb-help-block-size-ratio: 75 / 100;
 
-@md-input-font-size-base: 16px;
-@md-input-font-size-large: ceil((@font-size-base * 1.25)); // ~20px
-@md-input-font-size-small: ceil((@font-size-base * 0.75)); // ~12px
+@mdb-input-font-size-base: 16px;
+@mdb-input-font-size-large: ceil((@font-size-base * 1.25)); // ~20px
+@mdb-input-font-size-small: ceil((@font-size-base * 0.75)); // ~12px
 
-// size when static or floating with focus i.e. 16px
-//@md-input-label-font-size-base: ceil((@label-floating-size-ratio * @md-input-font-size-base));
-//@md-input-label-font-size-small:ceil(( @label-floating-size-ratio * @md-input-font-size-small));
-//@md-input-label-font-size-large: ceil((@label-floating-size-ratio * @md-input-font-size-large));
-
+// FIXME: with #733 customization of bootstrap, consider how these could be based on the original bs customized variables
 //** Unit-less `line-height` for use in components like buttons.
-@md-input-line-height-base:        1.428571429; // 20/14
+@mdb-input-line-height-base:        1.428571429; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@md-input-line-height-computed:    floor((@md-input-font-size-base * @md-input-line-height-base)); // ~20px
-@md-input-line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
-@md-input-line-height-small:         1.5;
+@mdb-input-line-height-computed:    floor((@mdb-input-font-size-base * @mdb-input-line-height-base)); // ~20px
+@mdb-input-line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
+@mdb-input-line-height-small:         1.5;
 
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
-@md-input-padding-base-vertical:     8px - 1px; // was 6.
-@md-input-padding-base-horizontal:   0px; // was 12.
-@md-label-as-placeholder-shim-base:  0px; // manual adjustment of label top when positioned as placeholder
-@md-label-top-margin-base:           16px;
+@mdb-input-padding-base-vertical:     8px - 1px; // was 6.
+@mdb-input-padding-base-horizontal:   0px; // was 12.
+@mdb-label-as-placeholder-shim-base:  0px; // manual adjustment of label top when positioned as placeholder
+@mdb-label-top-margin-base:           16px;
 
-@md-input-padding-large-vertical:    10px - 1px; // 10
-@md-input-padding-large-horizontal:  0px;  // 16
-@md-label-as-placeholder-shim-large: -4px; // manual adjustment of label top when positioned as placeholder
-@md-label-top-margin-large:          16px;
+@mdb-input-padding-large-vertical:    10px - 1px; // 10
+@mdb-input-padding-large-horizontal:  0px;  // 16
+@mdb-label-as-placeholder-shim-large: -4px; // manual adjustment of label top when positioned as placeholder
+@mdb-label-top-margin-large:          16px;
 
-@md-input-padding-small-vertical:    4px - 1px; // 5
-@md-input-padding-small-horizontal:  0px; // 10
-@md-label-as-placeholder-shim-small: 8px; // manual adjustment of label top when positioned as placeholder
-@md-label-top-margin-small:          12px;
+@mdb-input-padding-small-vertical:    4px - 1px; // 5
+@mdb-input-padding-small-horizontal:  0px; // 10
+@mdb-label-as-placeholder-shim-small: 8px; // manual adjustment of label top when positioned as placeholder
+@mdb-label-top-margin-small:          12px;
 
-@md-input-padding-xs-vertical:       2px; // 1
-@md-input-padding-xs-horizontal:     0px; // 5
+@mdb-input-padding-xs-vertical:       2px; // 1
+@mdb-input-padding-xs-horizontal:     0px; // 5
 
-@md-input-border-radius-base:        4px;
-@md-input-border-radius-large:       6px;
-@md-input-border-radius-small:       3px;
+@mdb-input-border-radius-base:        4px;
+@mdb-input-border-radius-large:       6px;
+@mdb-input-border-radius-small:       3px;
 
 
 //** Default `.form-control` height
-@md-input-height-base:              (@md-input-line-height-computed + (@md-input-padding-base-vertical * 2) + 2);
+@mdb-input-height-base:              (@mdb-input-line-height-computed + (@mdb-input-padding-base-vertical * 2) + 2);
 //** Large `.form-control` height
-@md-input-height-large:             (ceil(@md-input-font-size-large * @md-input-line-height-large) + (@md-input-padding-large-vertical * 2) + 2);
+@mdb-input-height-large:             (ceil(@mdb-input-font-size-large * @mdb-input-line-height-large) + (@mdb-input-padding-large-vertical * 2) + 2);
 //** Small `.form-control` height
-@md-input-height-small:             (floor(@md-input-font-size-small * @md-input-line-height-small) + (@md-input-padding-small-vertical * 2) + 2);
+@mdb-input-height-small:             (floor(@mdb-input-font-size-small * @mdb-input-line-height-small) + (@mdb-input-padding-small-vertical * 2) + 2);
 
 
 
 
 // Card
-@card-body-text: @lightbg-text;
-@card-body-background: #fff;
-@card-image-headline: #fff;
+@mdb-card-body-text: @lightbg-text;
+@mdb-card-body-background: #fff;
+@mdb-card-image-headline: #fff;
 
 @text-disabled: #a8a8a8;
 @background-disabled: #eaeaea;
 
 // Checkboxes
-@checkbox-size: 20px;
-@checkbox-animation-ripple: 500ms;
-@checkbox-animation-check: 0.3s;
-@checkbox-checked-color: #4caf50;
-@checkbox-label-color: rgba(0, 0, 0, .54);
-@checkbox-border-color: @checkbox-label-color;
+@mdb-checkbox-size: 20px;
+@mdb-checkbox-animation-ripple: 500ms;
+@mdb-checkbox-animation-check: 0.3s;
+@mdb-checkbox-checked-color: #4caf50;
+@mdb-checkbox-label-color: rgba(0, 0, 0, .54);
+@mdb-checkbox-border-color: @mdb-checkbox-label-color;
 
 // Popovers and Popups
-@popover-background: rgba(101, 101, 101, 0.9);
-@popover-color: #ececec;
+@mdb-popover-background: rgba(101, 101, 101, 0.9);
+@mdb-popover-color: #ececec;
 
 // Dropdown Menu
-@dropdown-radius: 2px;
-@dropdown-font-size: 16px;
+@mdb-dropdown-radius: 2px;
+@mdb-dropdown-font-size: 16px;
 
 // Toggle
-@togglebutton-label-color: @checkbox-label-color;
+@mdb-toggle-label-color: @mdb-checkbox-label-color;
 
 // Radio:
-@radio-label-color: @checkbox-label-color;
-@radio-border-color: @checkbox-border-color;
+@mdb-radio-label-color: @mdb-checkbox-label-color;
+@mdb-radio-border-color: @mdb-checkbox-border-color;

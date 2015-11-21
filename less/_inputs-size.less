@@ -8,22 +8,22 @@
 // --------------------------------------------------
 
 legend {
-  margin-bottom: @md-input-line-height-computed;
-  font-size: (@md-input-font-size-base * 1.5);
+  margin-bottom: @mdb-input-line-height-computed;
+  font-size: (@mdb-input-font-size-base * 1.5);
 }
 
 // Adjust output element
 output {
-  padding-top: (@md-input-padding-base-vertical + 1);
-  font-size: @md-input-font-size-base;
-  line-height: @md-input-line-height-base;
+  padding-top: (@mdb-input-padding-base-vertical + 1);
+  font-size: @mdb-input-font-size-base;
+  line-height: @mdb-input-line-height-base;
 }
 
 .form-control {
-  height: @md-input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
-  padding: @md-input-padding-base-vertical @md-input-padding-base-horizontal;
-  font-size: @md-input-font-size-base;
-  line-height: @md-input-line-height-base;
+  height: @mdb-input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: @mdb-input-padding-base-vertical @mdb-input-padding-base-horizontal;
+  font-size: @mdb-input-font-size-base;
+  line-height: @mdb-input-line-height-base;
 }
 
 // Special styles for iOS temporal inputs
@@ -41,17 +41,17 @@ output {
   input[type="datetime-local"],
   input[type="month"] {
     &.form-control {
-      line-height: @md-input-height-base;
+      line-height: @mdb-input-height-base;
     }
 
     &.input-sm,
     .input-group-sm & {
-      line-height: @md-input-height-small;
+      line-height: @mdb-input-height-small;
     }
 
     &.input-lg,
     .input-group-lg & {
-      line-height: @md-input-height-large;
+      line-height: @mdb-input-height-large;
     }
   }
 }
@@ -60,7 +60,7 @@ output {
 .checkbox {
 
   label {
-    min-height: @md-input-line-height-computed; // Ensure the input doesn't jump when there is no text
+    min-height: @mdb-input-line-height-computed; // Ensure the input doesn't jump when there is no text
   }
 }
 
@@ -72,9 +72,9 @@ output {
 
 .form-control-static {
   // Size it appropriately next to real form controls
-  padding-top: (@md-input-padding-base-vertical + 1);
-  padding-bottom: (@md-input-padding-base-vertical + 1);
-  min-height: (@md-input-line-height-computed + @md-input-font-size-base);
+  padding-top: (@mdb-input-padding-base-vertical + 1);
+  padding-bottom: (@mdb-input-padding-base-vertical + 1);
+  min-height: (@mdb-input-line-height-computed + @mdb-input-font-size-base);
 }
 
 
@@ -84,11 +84,12 @@ output {
 // horizontal sizing, wrap controls in the predefined grid classes. `<select>`
 // element gets special love because it's special, and that's a fact!
 
-// mixin pulled from bootstrap and altered for less/sass compatibility
-.input-size(@parent, @input-height, @padding-vertical, @padding-horizontal, @font-size, @line-height, @border-radius) {
+// mixin pulled from bootstrap and altered for less/sass compatibility with sass parent hack.
+//  bootstrap-sass has this one, but we would have to then convert it back to less.  chicken meet egg.
+.input-size(@parent, @mdb-input-height, @padding-vertical, @padding-horizontal, @font-size, @line-height, @border-radius) {
 
   @{parent} {
-    height: @input-height;
+    height: @mdb-input-height;
     padding: @padding-vertical @padding-horizontal;
     font-size: @font-size;
     line-height: @line-height;
@@ -96,8 +97,8 @@ output {
   }
 
   select@{parent} {
-    height: @input-height;
-    line-height: @input-height;
+    height: @mdb-input-height;
+    line-height: @mdb-input-height;
   }
 
   textarea@{parent},
@@ -116,56 +117,56 @@ output {
 // The `.form-group-* form-control` variations are sadly duplicated to avoid the
 // issue documented in https://github.com/twbs/bootstrap/issues/15074.
 .input-sm {
-  .input-size('.input-sm', @md-input-height-small, @md-input-padding-small-vertical, @md-input-padding-small-horizontal, @md-input-font-size-small, @md-input-line-height-small, @md-input-border-radius-small);
+  .input-size('.input-sm', @mdb-input-height-small, @mdb-input-padding-small-vertical, @mdb-input-padding-small-horizontal, @mdb-input-font-size-small, @mdb-input-line-height-small, @mdb-input-border-radius-small);
 }
 .form-group-sm {
   .form-control {
-    height: @md-input-height-small;
-    padding: @md-input-padding-small-vertical @md-input-padding-small-horizontal;
-    font-size: @md-input-font-size-small;
-    line-height: @md-input-line-height-small;
+    height: @mdb-input-height-small;
+    padding: @mdb-input-padding-small-vertical @mdb-input-padding-small-horizontal;
+    font-size: @mdb-input-font-size-small;
+    line-height: @mdb-input-line-height-small;
   }
   select.form-control {
-    height: @md-input-height-small;
-    line-height: @md-input-height-small;
+    height: @mdb-input-height-small;
+    line-height: @mdb-input-height-small;
   }
   textarea.form-control,
   select[multiple].form-control {
     height: auto;
   }
   .form-control-static {
-    height: @md-input-height-small;
-    min-height: (@md-input-line-height-computed + @md-input-font-size-small);
-    padding: (@md-input-padding-small-vertical + 1) @md-input-padding-small-horizontal;
-    font-size: @md-input-font-size-small;
-    line-height: @md-input-line-height-small;
+    height: @mdb-input-height-small;
+    min-height: (@mdb-input-line-height-computed + @mdb-input-font-size-small);
+    padding: (@mdb-input-padding-small-vertical + 1) @mdb-input-padding-small-horizontal;
+    font-size: @mdb-input-font-size-small;
+    line-height: @mdb-input-line-height-small;
   }
 }
 
 .input-lg {
-  .input-size('.input-lg', @md-input-height-large, @md-input-padding-large-vertical, @md-input-padding-large-horizontal, @md-input-font-size-large, @md-input-line-height-large, @md-input-border-radius-large);
+  .input-size('.input-lg', @mdb-input-height-large, @mdb-input-padding-large-vertical, @mdb-input-padding-large-horizontal, @mdb-input-font-size-large, @mdb-input-line-height-large, @mdb-input-border-radius-large);
 }
 .form-group-lg {
   .form-control {
-    height: @md-input-height-large;
-    padding: @md-input-padding-large-vertical @md-input-padding-large-horizontal;
-    font-size: @md-input-font-size-large;
-    line-height: @md-input-line-height-large;
+    height: @mdb-input-height-large;
+    padding: @mdb-input-padding-large-vertical @mdb-input-padding-large-horizontal;
+    font-size: @mdb-input-font-size-large;
+    line-height: @mdb-input-line-height-large;
   }
   select.form-control {
-    height: @md-input-height-large;
-    line-height: @md-input-height-large;
+    height: @mdb-input-height-large;
+    line-height: @mdb-input-height-large;
   }
   textarea.form-control,
   select[multiple].form-control {
     height: auto;
   }
   .form-control-static {
-    height: @md-input-height-large;
-    min-height: (@md-input-line-height-computed + @md-input-font-size-large);
-    padding: (@md-input-padding-large-vertical + 1) @md-input-padding-large-horizontal;
-    font-size: @md-input-font-size-large;
-    line-height: @md-input-line-height-large;
+    height: @mdb-input-height-large;
+    min-height: (@mdb-input-line-height-computed + @mdb-input-font-size-large);
+    padding: (@mdb-input-padding-large-vertical + 1) @mdb-input-padding-large-horizontal;
+    font-size: @mdb-input-font-size-large;
+    line-height: @mdb-input-line-height-large;
   }
 }
 
@@ -179,20 +180,20 @@ output {
   .checkbox,
   .radio-inline,
   .checkbox-inline {
-    padding-top: (@md-input-padding-base-vertical + 1); // Default padding plus a border
+    padding-top: (@mdb-input-padding-base-vertical + 1); // Default padding plus a border
   }
   // Account for padding we're adding to ensure the alignment and of help text
   // and other content below items
   .radio,
   .checkbox {
-    min-height: (@md-input-line-height-computed + (@md-input-padding-base-vertical + 1));
+    min-height: (@mdb-input-line-height-computed + (@mdb-input-padding-base-vertical + 1));
   }
 
   // Reset spacing and right align labels, but scope to media queries so that
   // labels on narrow viewports stack the same as a default form example.
   @media (min-width: @screen-sm-min) {
     .control-label {
-      padding-top: (@md-input-padding-base-vertical + 1); // Default padding plus a border
+      padding-top: (@mdb-input-padding-base-vertical + 1); // Default padding plus a border
     }
   }
 
@@ -204,16 +205,16 @@ output {
   .form-group-lg {
     @media (min-width: @screen-sm-min) {
       .control-label {
-        padding-top: ((@md-input-padding-large-vertical * @md-input-line-height-large) + 1);
-        font-size: @md-input-font-size-large;
+        padding-top: ((@mdb-input-padding-large-vertical * @mdb-input-line-height-large) + 1);
+        font-size: @mdb-input-font-size-large;
       }
     }
   }
   .form-group-sm {
     @media (min-width: @screen-sm-min) {
       .control-label {
-        padding-top: (@md-input-padding-small-vertical + 1);
-        font-size: @md-input-font-size-small;
+        padding-top: (@mdb-input-padding-small-vertical + 1);
+        font-size: @mdb-input-font-size-small;
       }
     }
   }

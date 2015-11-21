@@ -4,10 +4,10 @@
 // To use this mixin you should pass a function as final parameter to define
 // the style. In that definition you can use the following variables to define it.
 //
-// @material-color-name ---> "red", "green", "indigo" ...
-// @material-color-full-name ---> "red", "green-50", "indigo-400" ...
-// @material-color ---> #f44336, #e8f5e9, #5c6bc0 ...
-// @material-text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
+// @mdb-color-name ---> "red", "green", "indigo" ...
+// @mdb-color-full-name ---> "red", "green-50", "indigo-400" ...
+// @mdb-color ---> #f44336, #e8f5e9, #5c6bc0 ...
+// @mdb-text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
 //
 
 .generic-variations(@extra, @default, @func) {
@@ -16,79 +16,79 @@
 
   // bootstrap styles
   &@{extra}, &-default@{extra} {
-    @material-color-name: "default";
-    @material-color-full-name: @material-color-name;
-    @material-color: @default;
-    @material-text-color: @darkbg-text;
+    @mdb-color-name: "default";
+    @mdb-color-full-name: @mdb-color-name;
+    @mdb-color: @default;
+    @mdb-text-color: @darkbg-text;
     @func();
   }
   &-black@{extra} {
-    @material-color-name: "black";
-    @material-color-full-name: @material-color-name;
-    @material-color: @black;
-    @material-text-color: @darkbg-text;
+    @mdb-color-name: "black";
+    @mdb-color-full-name: @mdb-color-name;
+    @mdb-color: @black;
+    @mdb-text-color: @darkbg-text;
     @func();
   }
   &-white@{extra} {
-    @material-color-name: "white";
-    @material-color-full-name: @material-color-name;
-    @material-color: @white;
-    @material-text-color: @lightbg-text;
+    @mdb-color-name: "white";
+    @mdb-color-full-name: @mdb-color-name;
+    @mdb-color: @white;
+    @mdb-text-color: @lightbg-text;
     @func();
   }
   &-inverse@{extra} {
-    @material-color-name: "inverse";
-    @material-color-full-name: @material-color-name;
-    @material-color: @inverse;
-    @material-text-color: contrast(@inverse, @lightbg-text, @darkbg-text, @contrast-factor);
+    @mdb-color-name: "inverse";
+    @mdb-color-full-name: @mdb-color-name;
+    @mdb-color: @inverse;
+    @mdb-text-color: contrast(@inverse, @lightbg-text, @darkbg-text, @contrast-factor);
     @func();
   }
   &-primary@{extra} {
-    @material-color-name: "primary";
-    @material-color-full-name: @material-color-name;
-    @material-color: @primary;
-    @material-text-color: @darkbg-text;
+    @mdb-color-name: "primary";
+    @mdb-color-full-name: @mdb-color-name;
+    @mdb-color: @primary;
+    @mdb-text-color: @darkbg-text;
     @func();
   }
   &-success@{extra} {
-    @material-color-name: "success";
-    @material-color-full-name: @material-color-name;
-    @material-color: @success;
-    @material-text-color: @darkbg-text;
+    @mdb-color-name: "success";
+    @mdb-color-full-name: @mdb-color-name;
+    @mdb-color: @success;
+    @mdb-text-color: @darkbg-text;
     @func();
   }
   &-info@{extra} {
-    @material-color-name: "info";
-    @material-color-full-name: @material-color-name;
-    @material-color: @info;
-    @material-text-color: @darkbg-text;
+    @mdb-color-name: "info";
+    @mdb-color-full-name: @mdb-color-name;
+    @mdb-color: @info;
+    @mdb-text-color: @darkbg-text;
     @func();
   }
   &-warning@{extra} {
-    @material-color-name: "warning";
-    @material-color-full-name: @material-color-name;
-    @material-color: @warning;
-    @material-text-color: @darkbg-text;
+    @mdb-color-name: "warning";
+    @mdb-color-full-name: @mdb-color-name;
+    @mdb-color: @warning;
+    @mdb-text-color: @darkbg-text;
     @func();
   }
   &-danger@{extra} {
-    @material-color-name: "danger";
-    @material-color-full-name: @material-color-name;
-    @material-color: @danger;
-    @material-text-color: @darkbg-text;
+    @mdb-color-name: "danger";
+    @mdb-color-full-name: @mdb-color-name;
+    @mdb-color: @danger;
+    @mdb-text-color: @darkbg-text;
     @func();
   }
 
   // given a color build multiples dephs
-  .generic-variations-factory(@material-color-name) {
+  .generic-variations-factory(@mdb-color-name) {
 
     // given a color and its deph build css
-    .generic-variations-factory-deep(@material-color-number) {
+    .generic-variations-factory-deep(@mdb-color-number) {
 
       &-material-@{material-color-name}@{material-color-number}@{extra} {
-        @material-color-full-name: "@{material-color-name}@{material-color-number}";
-        @material-color: @@material-color-full-name;
-        @material-text-color: contrast(@material-color, @lightbg-text, @darkbg-text, @contrast-factor);
+        @mdb-color-full-name: "@{material-color-name}@{material-color-number}";
+        @mdb-color: @@material-color-full-name;
+        @mdb-text-color: contrast(@mdb-color, @lightbg-text, @darkbg-text, @contrast-factor);
         @func();
       }
 

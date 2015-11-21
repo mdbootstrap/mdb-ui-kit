@@ -8,24 +8,24 @@
 // usage: .variations(~" .check", color, transparent);
 .variations(@extra, @property, @default) {
   .generic-variations(@extra, @default, {
-    @{property}: @material-color;
+    @{property}: @mdb-color;
   });
 }
 
 .background-variations(@extra, @default) {
   .generic-variations(@extra, @default, {
-    background-color: @material-color;
-    & when (@material-color = @btn-default) {
+    background-color: @mdb-color;
+    & when (@mdb-color = @btn-default) {
       color: @lightbg-text;
     }
-    & when not (@material-color = @btn-default) {
-      color: @material-text-color;
+    & when not (@mdb-color = @btn-default) {
+      color: @mdb-text-color;
     }
   });
 }
 
 .text-variations(@extra, @default) {
   .generic-variations(@extra, @default, {
-    color: @material-color;
+    color: @mdb-color;
   });
 }

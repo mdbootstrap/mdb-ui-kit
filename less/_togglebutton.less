@@ -7,16 +7,16 @@
 .form-group {
 
   //// default label size/location
-  .form-group-toggle-variant(@md-input-font-size-base, @md-input-line-height-base);
+  .form-group-toggle-variant(@mdb-input-font-size-base, @mdb-input-line-height-base);
 
   // sm label size/location
   &.form-group-sm {
-    .form-group-toggle-variant(@md-input-font-size-small, @md-input-line-height-small);
+    .form-group-toggle-variant(@mdb-input-font-size-small, @mdb-input-line-height-small);
   }
 
   // lg label size/location
   &.form-group-lg {
-    .form-group-toggle-variant(@md-input-font-size-large, @md-input-line-height-large);
+    .form-group-toggle-variant(@mdb-input-font-size-large, @mdb-input-line-height-large);
   }
 
   .togglebutton {
@@ -26,7 +26,7 @@
     }
     label {
       cursor: pointer;
-      color: @togglebutton-label-color;
+      color: @mdb-toggle-label-color;
 
       // Hide original checkbox
       input[type=checkbox] {
@@ -79,14 +79,14 @@
     // Switch bg on
     // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-color-variations-content
     .generic-variations(~" label input[type=checkbox]:checked + .toggle", @primary, {
-      background-color: fade(@material-color, 50%);
+      background-color: fade(@mdb-color, 50%);
     });
     // Handle on
     // SASS conversion note: please mirror any content change in _mixins-shared.scss variations-content
     .variations(~" label input[type=checkbox]:checked + .toggle:after", background-color, @primary);
     // Ripple on
     .generic-variations(~" label input[type=checkbox]:checked + .toggle:active:after", @primary, {
-      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px fade(@material-color, 10%);
+      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px fade(@mdb-color, 10%);
     });
   }
 }
