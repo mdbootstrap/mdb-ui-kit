@@ -102,6 +102,20 @@ module.exports = function (grunt) {
               order: 2
             },
 
+            // convert conditional when not
+            { // https://regex101.com/r/cX6uF4/1
+              pattern: /& when not \(isstring\(\$parent\)\)/gi,
+              replacement: "@if not $parent",
+              order: 2
+            },
+
+            // convert conditional when
+            { // https://regex101.com/r/gH0jP0/2
+              pattern: /& when \(isstring\(\$parent\)\)/gi,
+              replacement: "@else",
+              order: 2
+            },
+
             // convert all shadow mixins
             { // https://regex101.com/r/sJ2lH4/1
               pattern: /.shadow-z-(\d+)((?:-hover)?) {/gi,
