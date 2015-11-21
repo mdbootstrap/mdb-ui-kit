@@ -37,56 +37,8 @@
 @btn-default-text: @lightbg-text;
 //---
 
-@btn-primary: @brand-primary;
-@btn-primary-text: @darkbg-text;
-
-@btn-success: @brand-success;
-@btn-success-text: @darkbg-text;
-
-@btn-info: @brand-info;
-@btn-info-text: @darkbg-text;
-
-@btn-warning: @brand-warning;
-@btn-warning-text: @darkbg-text;
-
-@btn-danger: @brand-danger;
-@btn-danger-text: @darkbg-text;
-
-@mdb-input-unchecked: rgba(137, 137, 137, 0.3);
-@mdb-input-checked: rgba(15, 157, 88, 0.3);
 
 @mdb-radio-default: @lightbg-text;
-@mdb-radio-primary: @brand-primary;
-@mdb-radio-success: @brand-success;
-@mdb-radio-info:    @brand-info;
-@mdb-radio-warning: @brand-warning;
-@mdb-radio-danger:  @brand-danger;
-
-@mdb-input-danger: @brand-danger;
-@mdb-input-default: @brand-primary;
-@mdb-input-warning: @brand-warning;
-@mdb-input-success: @brand-success;
-@mdb-input-info:    @brand-info;
-
-@alert-success: @brand-success;
-@alert-info: @brand-info;
-@alert-warning: @brand-warning;
-@alert-danger: @brand-danger;
-
-@progress-success: @brand-success;
-@progress-info: @brand-info;
-@progress-warning: @brand-warning;
-@progress-danger: @brand-danger;
-
-@font-size-base: 14px;
-@font-size-large: ceil((@font-size-base * 1.25)); // ~18px
-@font-size-small: ceil((@font-size-base * 0.85)); // ~12px
-
-@screen-sm:                  768px;
-@screen-sm-min:              @screen-sm;
-
-
-// Global Material variables
 @mdb-border-radius: 2px;
 
 // --------------------
@@ -102,7 +54,7 @@
 
 // FIXME: with #733 customization of bootstrap, consider how these could be based on the original bs customized variables
 //** Unit-less `line-height` for use in components like buttons.
-@mdb-input-line-height-base:        1.428571429; // 20/14
+@mdb-input-line-height-base:        @line-height-base; //1.428571429; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 @mdb-input-line-height-computed:    floor((@mdb-input-font-size-base * @mdb-input-line-height-base)); // ~20px
 @mdb-input-line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
