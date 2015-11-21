@@ -217,10 +217,11 @@
             <p>Once copied you need to initialize the material javascript by adding the following javascript to your site,</p>
             <pre><code>$.material.init()</code></pre>
           </div>
-          <div class="well page" id="checkbox">
-            <h1 class="header">Checkbox <small>default checkboxes</small></h1>
 
-            <!-- Simple checkbox with label -->
+          <div class="well page" id="checkbox">
+            <h1 class="header">Checkbox</h1>
+
+            <h2>Default <small>inside a <code>.form-group</code></small></h2>
             <div class="form-group">
               <div class="checkbox">
                 <label>
@@ -229,8 +230,6 @@
               </div>
               <p class="help-block">Notify me about updates to apps or games that I've downloaded</p>
             </div>
-
-            <!-- Simple checkbox with label, checked -->
             <div class="form-group">
               <div class="checkbox">
                 <label>
@@ -240,10 +239,7 @@
               <p class="help-block">Auto-update apps over wifi only</p>
             </div>
 
-
-            <h2>Sound <small>horizontal form with column label variations and <code>checkbox-primary</code> color</small></h2>
-            <!-- Checkboxes with labels on the left -->
-
+            <h2>Horizontal form <small>with column label variations and <code>checkbox-primary</code> color</small></h2>
             <form class="form-horizontal">
               <div class="form-group">
                 <label class="col-sm-2" for="ch1">Touch sounds</label>
@@ -256,7 +252,6 @@
                   <p class="help-block">This shows the generic label variant.</p>
                 </div>
               </div>
-
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="ch3">Vibrate on touch</label>
                 <div class="col-sm-10">
@@ -268,14 +263,41 @@
                   <p class="help-block">This shows the <code>control-label</code> variant.</p>
                 </div>
               </div>
-
             </form>
+
+            <h2>Default <small>outside a <code>.form-group</code></small></h2>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Notifications
+              </label>
+            </div>
+            <p class="help-block">Without a <code>.form-group</code>, <code>.help-block</code> always shows</p>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" checked> Auto-updates
+              </label>
+            </div>
+            <p class="help-block">Without a <code>.form-group</code>, <code>.help-block</code> sizing is the same as the <code>label</code></p>
+
           </div>
           <div class="well page" id="radio-button">
-            <h1 class="header">Checkbox</h1>
+            <h1 class="header">Radio buttons</h1>
 
-            <h2>Keep Wi-Fi on during sleep</h2>
+            <h2>Default <small>outside a <code>.form-group</code></small></h2>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="sample1" value="option1" checked="">
+                  Always
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="sample1" value="option1">
+                  Only when plugged in
+                </label>
+              </div>
 
+            <h2><small><code>.radio-success</code> inside a <code>.form-group</code></small></h2>
             <div class="form-group">
               <div class="radio radio-success">
                 <label>
@@ -289,18 +311,9 @@
                   Only when plugged in
                 </label>
               </div>
-              <div class="radio radio-success">
-                <label>
-                  <input type="radio" name="sample1" value="option1">
-                  Never
-                </label>
-              </div>
             </div>
 
-
-            <h2>Wi-Fi frequency band</h2>
-
-            <div class="sample2">
+            <h2><small><code>.radio-primary</code> outside a <code>.form-group</code></small></h2>
               <div class="radio radio-primary">
                 <label>
                   <input type="radio" name="sample2" value="option1" checked="">
@@ -313,13 +326,7 @@
                   5 GHz only
                 </label>
               </div>
-              <div class="radio radio-primary">
-                <label>
-                  <input type="radio" name="sample2" value="option1">
-                  2.4 GHz only
-                </label>
-              </div>
-            </div>
+
           </div>
           <div class="well page" id="toggle-button">
 
