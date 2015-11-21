@@ -88,7 +88,7 @@
       }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: $grid-float-breakpoint-max) {
       .navbar-text {
         color: inherit;
         margin-top: 15px;
@@ -193,7 +193,7 @@
     background-color: $indigo;
   }
 
-  @media (max-width: 1199px) {
+  @media (max-width: $screen-md-max) {
 
     .navbar-brand {
       height: 50px;

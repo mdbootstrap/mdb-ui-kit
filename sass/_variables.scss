@@ -39,56 +39,8 @@ $btn-default: transparent !default;
 $btn-default-text: $lightbg-text !default;
 //---
 
-$btn-primary: $brand-primary !default;
-$btn-primary-text: $darkbg-text !default;
-
-$btn-success: $brand-success !default;
-$btn-success-text: $darkbg-text !default;
-
-$btn-info: $brand-info !default;
-$btn-info-text: $darkbg-text !default;
-
-$btn-warning: $brand-warning !default;
-$btn-warning-text: $darkbg-text !default;
-
-$btn-danger: $brand-danger !default;
-$btn-danger-text: $darkbg-text !default;
-
-$mdb-input-unchecked: rgba(137, 137, 137, 0.3) !default;
-$mdb-input-checked: rgba(15, 157, 88, 0.3) !default;
 
 $mdb-radio-default: $lightbg-text !default;
-$mdb-radio-primary: $brand-primary !default;
-$mdb-radio-success: $brand-success !default;
-$mdb-radio-info:    $brand-info !default;
-$mdb-radio-warning: $brand-warning !default;
-$mdb-radio-danger:  $brand-danger !default;
-
-$mdb-input-danger: $brand-danger !default;
-$mdb-input-default: $brand-primary !default;
-$mdb-input-warning: $brand-warning !default;
-$mdb-input-success: $brand-success !default;
-$mdb-input-info:    $brand-info !default;
-
-$alert-success: $brand-success !default;
-$alert-info: $brand-info !default;
-$alert-warning: $brand-warning !default;
-$alert-danger: $brand-danger !default;
-
-$progress-success: $brand-success !default;
-$progress-info: $brand-info !default;
-$progress-warning: $brand-warning !default;
-$progress-danger: $brand-danger !default;
-
-$font-size-base: 14px !default;
-$font-size-large: ceil(($font-size-base * 1.25)) !default; // ~18px
-$font-size-small: ceil(($font-size-base * 0.85)) !default; // ~12px
-
-$screen-sm:                  768px !default;
-$screen-sm-min:              $screen-sm !default;
-
-
-// Global Material variables
 $mdb-border-radius: 2px !default;
 
 // --------------------
@@ -104,7 +56,7 @@ $mdb-input-font-size-small: ceil(($font-size-base * 0.75)) !default; // ~12px
 
 // FIXME: with #733 customization of bootstrap, consider how these could be based on the original bs customized variables
 //** Unit-less `line-height` for use in components like buttons.
-$mdb-input-line-height-base:        1.428571429 !default; // 20/14
+$mdb-input-line-height-base:        $line-height-base; //1.428571429 !default; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $mdb-input-line-height-computed:    floor(($mdb-input-font-size-base * $mdb-input-line-height-base)) !default; // ~20px
 $mdb-input-line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
