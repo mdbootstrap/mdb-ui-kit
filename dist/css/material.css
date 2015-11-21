@@ -53,7 +53,6 @@ Then, run this script to get the list.
   -moz-osx-font-smoothing: grayscale;
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
-       -o-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 [class^="mdi-"]:before,
@@ -178,19 +177,15 @@ Then, run this script to get the list.
 }
 .mdi-spin {
   -webkit-animation: mdi-spin 2s infinite linear;
-  -o-animation: mdi-spin 2s infinite linear;
-     animation: mdi-spin 2s infinite linear;
+  animation: mdi-spin 2s infinite linear;
   -webkit-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
       transform-origin: 50% 50%;
 }
 .mdi-pulse {
   -webkit-animation: mdi-spin 1s steps(8) infinite;
-  -o-animation: mdi-spin 1s steps(8) infinite;
-     animation: mdi-spin 1s steps(8) infinite;
+  animation: mdi-spin 1s steps(8) infinite;
   -webkit-transform-origin: 50% 50%;
-  -o-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
       transform-origin: 50% 50%;
 }
@@ -204,64 +199,45 @@ Then, run this script to get the list.
     transform: rotate(359deg);
   }
 }
-@-o-keyframes mdi-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-       transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-       transform: rotate(359deg);
-  }
-}
 @keyframes mdi-spin {
   0% {
     -webkit-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-       transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(359deg);
-    -o-transform: rotate(359deg);
-       transform: rotate(359deg);
+    transform: rotate(359deg);
   }
 }
 .mdi-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-     transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 .mdi-rotate-180 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-     transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .mdi-rotate-270 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   -webkit-transform: rotate(270deg);
   -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-     transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 .mdi-flip-horizontal {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
   -webkit-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
-  -o-transform: scale(-1, 1);
-     transform: scale(-1, 1);
+  transform: scale(-1, 1);
 }
 .mdi-flip-vertical {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
   -webkit-transform: scale(1, -1);
   -ms-transform: scale(1, -1);
-  -o-transform: scale(1, -1);
-     transform: scale(1, -1);
+  transform: scale(1, -1);
 }
 :root .mdi-rotate-90,
 :root .mdi-rotate-180,
@@ -2577,28 +2553,22 @@ Then, run this script to get the list.
   content: "\e8f5";
 }
 .shadow-z-1 {
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .shadow-z-1-hover {
-  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .shadow-z-2 {
-  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .shadow-z-3 {
-  -webkit-box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 .shadow-z-4 {
-  -webkit-box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
-          box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 }
 .shadow-z-5 {
-  -webkit-box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
-          box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
 }
 body {
   background-color: #EEEEEE;
@@ -2661,8 +2631,7 @@ body .jumbotron,
   background-color: #fff;
   padding: 19px;
   margin-bottom: 20px;
-  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 2px;
   border: 0;
 }
@@ -2914,18 +2883,14 @@ body .jumbotron-material-blue-grey,
   text-transform: uppercase;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.84);
-  -webkit-transition: background-color 0.2s ease, -webkit-box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-       -o-transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
 }
 .btn:hover:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .btn:active:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn.btn-flat:not(.btn-link),
 .btn-default.btn-flat:not(.btn-link) {
@@ -3468,8 +3433,7 @@ body .jumbotron-material-blue-grey,
 .btn.btn-flat,
 .input-group-btn .btn.btn-flat {
   background: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   font-weight: 500;
 }
 .btn.btn-flat:disabled,
@@ -3487,16 +3451,12 @@ body .jumbotron-material-blue-grey,
 }
 .btn.btn-raised,
 .input-group-btn .btn.btn-raised {
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-  -webkit-transition: -webkit-box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-       -o-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn.btn-raised:active:not(.btn-link),
 .input-group-btn .btn.btn-raised:active:not(.btn-link) {
-  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn.btn-fab,
 .input-group-btn .btn.btn-fab {
@@ -3740,13 +3700,11 @@ body .jumbotron-material-blue-grey,
 .input-group-btn .btn.btn-fab,
 .btn.btn-fab:hover,
 .input-group-btn .btn.btn-fab:hover {
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .btn.btn-fab:active,
 .input-group-btn .btn.btn-fab:active {
-  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn.btn-fab,
 .input-group-btn .btn.btn-fab,
@@ -3881,34 +3839,25 @@ body .jumbotron-material-blue-grey,
   position: relative;
   border-radius: 2px;
   margin: 10px 1px;
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-  -webkit-transition: -webkit-box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-       -o-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group:active:not(.btn-link),
 .btn-group-vertical:active:not(.btn-link) {
-  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn-group.open .dropdown-toggle,
 .btn-group-vertical.open .dropdown-toggle {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .btn-group.btn-group-raised,
 .btn-group-vertical.btn-group-raised {
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-  -webkit-transition: -webkit-box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-       -o-transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-          transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-group.btn-group-raised:active:not(.btn-link),
 .btn-group-vertical.btn-group-raised:active:not(.btn-link) {
-  -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-          box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
 .btn-group .btn,
 .btn-group-vertical .btn,
@@ -3916,13 +3865,11 @@ body .jumbotron-material-blue-grey,
 .btn-group-vertical .btn:active,
 .btn-group .btn-group,
 .btn-group-vertical .btn-group {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   margin: 0;
 }
 .btn-group-flat {
-  -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 .form-horizontal .checkbox {
   padding-top: 20px;
@@ -3978,21 +3925,13 @@ body .jumbotron-material-blue-grey,
   content: "";
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
-       -o-transform: rotate(45deg);
           transform: rotate(45deg);
   display: block;
   margin-top: -4px;
   margin-left: 6px;
   width: 0;
   height: 0;
-  -webkit-box-shadow: 0 0 0 0,
-          0 0 0 0,
-          0 0 0 0,
-          0 0 0 0,
-          0 0 0 0,
-          0 0 0 0,
-          0 0 0 0 inset;
-          box-shadow: 0 0 0 0,
+  box-shadow: 0 0 0 0,
           0 0 0 0,
           0 0 0 0,
           0 0 0 0,
@@ -4000,37 +3939,30 @@ body .jumbotron-material-blue-grey,
           0 0 0 0,
           0 0 0 0 inset;
   -webkit-animation: checkbox-off 0.3s forwards;
-       -o-animation: checkbox-off 0.3s forwards;
           animation: checkbox-off 0.3s forwards;
 }
 .form-group .checkbox input[type=checkbox]:focus + .checkbox-material .check:after {
   opacity: 0.2;
 }
 .form-group .checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
-  -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
-          box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
+  box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
   -webkit-animation: checkbox-on 0.3s forwards;
-       -o-animation: checkbox-on 0.3s forwards;
           animation: checkbox-on 0.3s forwards;
 }
 .form-group .checkbox input[type=checkbox]:not(:checked) + .checkbox-material:before {
   -webkit-animation: rippleOff 500ms;
-       -o-animation: rippleOff 500ms;
           animation: rippleOff 500ms;
 }
 .form-group .checkbox input[type=checkbox]:checked + .checkbox-material:before {
   -webkit-animation: rippleOn 500ms;
-       -o-animation: rippleOn 500ms;
           animation: rippleOn 500ms;
 }
 .form-group .checkbox input[type=checkbox]:not(:checked) + .checkbox-material .check:after {
   -webkit-animation: rippleOff 500ms forwards;
-       -o-animation: rippleOff 500ms forwards;
           animation: rippleOff 500ms forwards;
 }
 .form-group .checkbox input[type=checkbox]:checked + .checkbox-material .check:after {
   -webkit-animation: rippleOn 500ms forwards;
-       -o-animation: rippleOn 500ms forwards;
           animation: rippleOn 500ms forwards;
 }
 fieldset[disabled] .form-group .checkbox,
@@ -4044,7 +3976,6 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
   background-color: rgba(0, 0, 0, 0.84);
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
-       -o-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 .form-group .checkbox input[type=checkbox]:checked + .checkbox-material .check:after,
@@ -4389,20 +4320,6 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
 }
 @-webkit-keyframes checkbox-on {
   0% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
-  }
-  50% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;
-  }
-  100% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
-  }
-}
-@-o-keyframes checkbox-on {
-  0% {
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
   }
   50% {
@@ -4414,26 +4331,21 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
 }
 @keyframes checkbox-on {
   0% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px;
   }
   50% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px 2px 0 11px;
   }
   100% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
   }
 }
 @-webkit-keyframes checkbox-off {
   0% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
   }
   25% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
   }
   50% {
     -webkit-transform: rotate(45deg);
@@ -4442,73 +4354,11 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
     margin-left: 6px;
     width: 0px;
     height: 0px;
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;
-  }
-  51% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    margin-top: -2px;
-    margin-left: -2px;
-    width: 20px;
-    height: 20px;
-    -webkit-box-shadow: 0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0px 0px 0 10px inset;
-            box-shadow: 0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0px 0px 0 10px inset;
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    margin-top: -2px;
-    margin-left: -2px;
-    width: 20px;
-    height: 20px;
-    -webkit-box-shadow: 0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0px 0px 0 0px inset;
-            box-shadow: 0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0px 0px 0 0px inset;
-  }
-}
-@-o-keyframes checkbox-off {
-  0% {
-    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
-  }
-  25% {
-    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
-  }
-  50% {
-    -o-transform: rotate(45deg);
-       transform: rotate(45deg);
-    margin-top: -4px;
-    margin-left: 6px;
-    width: 0px;
-    height: 0px;
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;
   }
   51% {
-    -o-transform: rotate(0deg);
-       transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
     margin-top: -2px;
     margin-left: -2px;
     width: 20px;
@@ -4522,8 +4372,8 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
       0px 0px 0 10px inset;
   }
   100% {
-    -o-transform: rotate(0deg);
-       transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
     margin-top: -2px;
     margin-left: -2px;
     width: 20px;
@@ -4539,40 +4389,28 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
 }
 @keyframes checkbox-off {
   0% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
   }
   25% {
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
   }
   50% {
     -webkit-transform: rotate(45deg);
-         -o-transform: rotate(45deg);
             transform: rotate(45deg);
     margin-top: -4px;
     margin-left: 6px;
     width: 0px;
     height: 0px;
-    -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;
-            box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;
   }
   51% {
     -webkit-transform: rotate(0deg);
-         -o-transform: rotate(0deg);
             transform: rotate(0deg);
     margin-top: -2px;
     margin-left: -2px;
     width: 20px;
     height: 20px;
-    -webkit-box-shadow: 0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0px 0px 0 10px inset;
-            box-shadow: 0 0 0 0,
+    box-shadow: 0 0 0 0,
       0 0 0 0,
       0 0 0 0,
       0 0 0 0,
@@ -4582,20 +4420,12 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
   }
   100% {
     -webkit-transform: rotate(0deg);
-         -o-transform: rotate(0deg);
             transform: rotate(0deg);
     margin-top: -2px;
     margin-left: -2px;
     width: 20px;
     height: 20px;
-    -webkit-box-shadow: 0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0px 0px 0 0px inset;
-            box-shadow: 0 0 0 0,
+    box-shadow: 0 0 0 0,
       0 0 0 0,
       0 0 0 0,
       0 0 0 0,
@@ -4605,17 +4435,6 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
   }
 }
 @-webkit-keyframes rippleOn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-o-keyframes rippleOn {
   0% {
     opacity: 0;
   }
@@ -4638,17 +4457,6 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
   }
 }
 @-webkit-keyframes rippleOff {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-o-keyframes rippleOff {
   0% {
     opacity: 0;
   }
@@ -4700,9 +4508,7 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
   background-color: rgba(80, 80, 80, 0.7);
   border-radius: 15px;
   margin-right: 15px;
-  -webkit-transition: background 0.3s ease;
-       -o-transition: background 0.3s ease;
-          transition: background 0.3s ease;
+  transition: background 0.3s ease;
   vertical-align: middle;
 }
 .form-group .togglebutton label .toggle:after {
@@ -4713,13 +4519,10 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
   background-color: #F1F1F1;
   border-radius: 20px;
   position: relative;
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
   left: -5px;
   top: -2px;
-  -webkit-transition: left 0.3s ease, background 0.3s ease, -webkit-box-shadow 0.1s ease;
-       -o-transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
-          transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
+  transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
 }
 .form-group .togglebutton label input[type=checkbox][disabled] + .toggle:after,
 .form-group .togglebutton label input[type=checkbox][disabled]:checked + .toggle:after {
@@ -4727,8 +4530,7 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
 }
 .form-group .togglebutton label input[type=checkbox] + .toggle:active:after,
 .form-group .togglebutton label input[type=checkbox][disabled] + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .form-group .togglebutton label input[type=checkbox]:checked + .toggle:after {
   left: 15px;
@@ -4905,116 +4707,88 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
 }
 .form-group .togglebutton label input[type=checkbox]:checked + .toggle:active:after,
 .form-group .togglebutton-default label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
 }
 .form-group .togglebutton-black label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
 }
 .form-group .togglebutton-white label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 255, 255, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 255, 255, 0.1);
 }
 .form-group .togglebutton-inverse label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1);
 }
 .form-group .togglebutton-primary label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
 }
 .form-group .togglebutton-success label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(76, 175, 80, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(76, 175, 80, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(76, 175, 80, 0.1);
 }
 .form-group .togglebutton-info label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1);
 }
 .form-group .togglebutton-warning label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1);
 }
 .form-group .togglebutton-danger label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(244, 67, 54, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(244, 67, 54, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(244, 67, 54, 0.1);
 }
 .form-group .togglebutton-material-red label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(244, 67, 54, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(244, 67, 54, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(244, 67, 54, 0.1);
 }
 .form-group .togglebutton-material-pink label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(233, 30, 99, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(233, 30, 99, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(233, 30, 99, 0.1);
 }
 .form-group .togglebutton-material-purple label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(156, 39, 176, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(156, 39, 176, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(156, 39, 176, 0.1);
 }
 .form-group .togglebutton-material-deep-purple label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(103, 58, 183, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(103, 58, 183, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(103, 58, 183, 0.1);
 }
 .form-group .togglebutton-material-indigo label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(63, 81, 181, 0.1);
 }
 .form-group .togglebutton-material-blue label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(33, 150, 243, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(33, 150, 243, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(33, 150, 243, 0.1);
 }
 .form-group .togglebutton-material-light-blue label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(3, 169, 244, 0.1);
 }
 .form-group .togglebutton-material-cyan label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 188, 212, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 188, 212, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 188, 212, 0.1);
 }
 .form-group .togglebutton-material-teal label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
 }
 .form-group .togglebutton-material-green label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(76, 175, 80, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(76, 175, 80, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(76, 175, 80, 0.1);
 }
 .form-group .togglebutton-material-light-green label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(139, 195, 74, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(139, 195, 74, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(139, 195, 74, 0.1);
 }
 .form-group .togglebutton-material-lime label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(205, 220, 57, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(205, 220, 57, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(205, 220, 57, 0.1);
 }
 .form-group .togglebutton-material-yellow label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 235, 59, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 235, 59, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 235, 59, 0.1);
 }
 .form-group .togglebutton-material-amber label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 193, 7, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 193, 7, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 193, 7, 0.1);
 }
 .form-group .togglebutton-material-orange label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 152, 0, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 152, 0, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 152, 0, 0.1);
 }
 .form-group .togglebutton-material-deep-orange label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(255, 87, 34, 0.1);
 }
 .form-group .togglebutton-material-brown label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(121, 85, 72, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(121, 85, 72, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(121, 85, 72, 0.1);
 }
 .form-group .togglebutton-material-grey label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(158, 158, 158, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(158, 158, 158, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(158, 158, 158, 0.1);
 }
 .form-group .togglebutton-material-blue-grey label input[type=checkbox]:checked + .toggle:active:after {
-  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(96, 125, 139, 0.1);
-          box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(96, 125, 139, 0.1);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(96, 125, 139, 0.1);
 }
 .form-horizontal .radio {
   margin-bottom: 10px;
@@ -5030,9 +4804,7 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
   position: absolute;
   left: 10px;
   top: 2px;
-  -webkit-transition-duration: 0.2s;
-       -o-transition-duration: 0.2s;
-          transition-duration: 0.2s;
+  transition-duration: 0.2s;
 }
 .radio label .circle {
   border: 2px solid rgba(0, 0, 0, 0.54);
@@ -5066,12 +4838,10 @@ fieldset[disabled] .form-group .checkbox input[type=checkbox],
 }
 .radio label input[type=radio]:not(:checked) ~ .check:after {
   -webkit-animation: rippleOff 500ms;
-       -o-animation: rippleOff 500ms;
           animation: rippleOff 500ms;
 }
 .radio label input[type=radio]:checked ~ .check:after {
   -webkit-animation: rippleOn 500ms;
-       -o-animation: rippleOn 500ms;
           animation: rippleOn 500ms;
 }
 .radio input[type=radio]:checked ~ .check,
@@ -5444,22 +5214,14 @@ output {
 }
 .form-group .form-control {
   border: 0;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#009688, #009688), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
-  -webkit-background-size: 0 2px, 100% 1px;
-          background-size: 0 2px, 100% 1px;
+  background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
-  background-position: center bottom, center -webkit-calc(100% - 1px);
   background-position: center bottom, center calc(100% - 1px);
   background-color: rgba(0, 0, 0, 0);
-  -webkit-transition: background 0s ease-out;
-       -o-transition: background 0s ease-out;
-          transition: background 0s ease-out;
+  transition: background 0s ease-out;
   float: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-radius: 0;
 }
 .form-group .form-control::-moz-placeholder {
@@ -5486,17 +5248,10 @@ fieldset[disabled] .form-group .form-control {
 }
 .form-group.is-focused .form-control {
   outline: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#009688, #009688), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
-  -webkit-background-size: 100% 2px, 100% 1px;
-          background-size: 100% 2px, 100% 1px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transition-duration: 0.3s;
-       -o-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+  background-size: 100% 2px, 100% 1px;
+  box-shadow: none;
+  transition-duration: 0.3s;
 }
 .form-group.is-focused .form-control .material-input:after {
   background-color: #009688;
@@ -5506,9 +5261,7 @@ fieldset[disabled] .form-group .form-control {
 .form-group.label-floating label.control-label {
   position: absolute;
   pointer-events: none;
-  -webkit-transition: 0.3s ease all;
-       -o-transition: 0.3s ease all;
-          transition: 0.3s ease all;
+  transition: 0.3s ease all;
 }
 .form-group label,
 .form-group label.control-label {
@@ -5807,14 +5560,15 @@ fieldset[disabled] .form-group .form-control {
   font-size: 16px;
   line-height: 1.42857143;
 }
-.form-group.label-static ~ label.control-label,
-.form-group.label-floating.is-focused ~ label.control-label,
-.form-group.label-floating:not(.is-empty) ~ label.control-label,
-.form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label,
 .form-group.label-static label.control-label,
 .form-group.label-floating.is-focused label.control-label,
-.form-group.label-floating:not(.is-empty) label.control-label,
-.form-group.label-floating input.form-control:-webkit-autofill label.control-label {
+.form-group.label-floating:not(.is-empty) label.control-label {
+  top: -30px;
+  left: 0;
+  font-size: 12px;
+  line-height: 1.07142857;
+}
+.form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
   top: -30px;
   left: 0;
   font-size: 12px;
@@ -5855,14 +5609,15 @@ fieldset[disabled] .form-group .form-control {
   font-size: 11px;
   line-height: 1.5;
 }
-.form-group.form-group-sm.label-static ~ label.control-label,
-.form-group.form-group-sm.label-floating.is-focused ~ label.control-label,
-.form-group.form-group-sm.label-floating:not(.is-empty) ~ label.control-label,
-.form-group.form-group-sm.label-floating input.form-control:-webkit-autofill ~ label.control-label,
 .form-group.form-group-sm.label-static label.control-label,
 .form-group.form-group-sm.label-floating.is-focused label.control-label,
-.form-group.form-group-sm.label-floating:not(.is-empty) label.control-label,
-.form-group.form-group-sm.label-floating input.form-control:-webkit-autofill label.control-label {
+.form-group.form-group-sm.label-floating:not(.is-empty) label.control-label {
+  top: -25px;
+  left: 0;
+  font-size: 9px;
+  line-height: 1.125;
+}
+.form-group.form-group-sm.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
   top: -25px;
   left: 0;
   font-size: 9px;
@@ -5903,14 +5658,15 @@ fieldset[disabled] .form-group .form-control {
   font-size: 18px;
   line-height: 1.3333333;
 }
-.form-group.form-group-lg.label-static ~ label.control-label,
-.form-group.form-group-lg.label-floating.is-focused ~ label.control-label,
-.form-group.form-group-lg.label-floating:not(.is-empty) ~ label.control-label,
-.form-group.form-group-lg.label-floating input.form-control:-webkit-autofill ~ label.control-label,
 .form-group.form-group-lg.label-static label.control-label,
 .form-group.form-group-lg.label-floating.is-focused label.control-label,
-.form-group.form-group-lg.label-floating:not(.is-empty) label.control-label,
-.form-group.form-group-lg.label-floating input.form-control:-webkit-autofill label.control-label {
+.form-group.form-group-lg.label-floating:not(.is-empty) label.control-label {
+  top: -32px;
+  left: 0;
+  font-size: 14px;
+  line-height: 0.99999998;
+}
+.form-group.form-group-lg.label-floating input.form-control:-webkit-autofill ~ label.control-label label.control-label {
   top: -32px;
   left: 0;
   font-size: 14px;
@@ -5925,181 +5681,93 @@ fieldset[disabled] .form-group .form-control {
 }
 .form-group.is-focused .form-control,
 .form-group-default.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#009688, #009688), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-black.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#000000)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#000000, #000000), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#000000, #000000), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#000000, #000000), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-white.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#ffffff, #ffffff), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#ffffff, #ffffff), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-inverse.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#3f51b5), to(#3f51b5)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#3f51b5, #3f51b5), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#3f51b5, #3f51b5), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-primary.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#009688, #009688), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-success.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#4caf50), to(#4caf50)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#4caf50, #4caf50), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#4caf50, #4caf50), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-info.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#03a9f4)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#03a9f4, #03a9f4), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#03a9f4, #03a9f4), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-warning.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff5722), to(#ff5722)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#ff5722, #ff5722), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#ff5722, #ff5722), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-danger.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f44336), to(#f44336)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#f44336, #f44336), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#f44336, #f44336), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-red.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f44336), to(#f44336)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#f44336, #f44336), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#f44336, #f44336), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-pink.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#e91e63), to(#e91e63)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#e91e63, #e91e63), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#e91e63, #e91e63), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#e91e63, #e91e63), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-purple.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#9c27b0), to(#9c27b0)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#9c27b0, #9c27b0), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#9c27b0, #9c27b0), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-deep-purple.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#673ab7), to(#673ab7)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#673ab7, #673ab7), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#673ab7, #673ab7), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#673ab7, #673ab7), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-indigo.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#3f51b5), to(#3f51b5)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#3f51b5, #3f51b5), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#3f51b5, #3f51b5), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#3f51b5, #3f51b5), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-blue.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#2196f3), to(#2196f3)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#2196f3, #2196f3), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#2196f3, #2196f3), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#2196f3, #2196f3), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-light-blue.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#03a9f4)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#03a9f4, #03a9f4), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#03a9f4, #03a9f4), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-cyan.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#00bcd4), to(#00bcd4)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#00bcd4, #00bcd4), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#00bcd4, #00bcd4), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#00bcd4, #00bcd4), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-teal.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#009688), to(#009688)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#009688, #009688), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#009688, #009688), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#009688, #009688), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-green.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#4caf50), to(#4caf50)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#4caf50, #4caf50), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#4caf50, #4caf50), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-light-green.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#8bc34a), to(#8bc34a)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#8bc34a, #8bc34a), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#8bc34a, #8bc34a), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#8bc34a, #8bc34a), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-lime.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#cddc39), to(#cddc39)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#cddc39, #cddc39), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#cddc39, #cddc39), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#cddc39, #cddc39), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-yellow.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffeb3b), to(#ffeb3b)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#ffeb3b, #ffeb3b), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#ffeb3b, #ffeb3b), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-amber.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffc107), to(#ffc107)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#ffc107, #ffc107), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#ffc107, #ffc107), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#ffc107, #ffc107), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-orange.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff9800), to(#ff9800)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#ff9800, #ff9800), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#ff9800, #ff9800), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#ff9800, #ff9800), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-deep-orange.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff5722), to(#ff5722)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#ff5722, #ff5722), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#ff5722, #ff5722), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-brown.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#795548), to(#795548)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#795548, #795548), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#795548, #795548), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#795548, #795548), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-grey.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#9e9e9e), to(#9e9e9e)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#9e9e9e, #9e9e9e), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#9e9e9e, #9e9e9e), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#9e9e9e, #9e9e9e), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group-material-blue-grey.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#607d8b), to(#607d8b)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#607d8b, #607d8b), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#607d8b, #607d8b), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#607d8b, #607d8b), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.has-warning .form-control {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .form-group.has-warning.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff5722), to(#ff5722)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#ff5722, #ff5722), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#ff5722, #ff5722), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#ff5722, #ff5722), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.has-warning label.control-label,
@@ -6107,13 +5775,9 @@ fieldset[disabled] .form-group .form-control {
   color: #ff5722;
 }
 .form-group.has-error .form-control {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .form-group.has-error.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f44336), to(#f44336)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#f44336, #f44336), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#f44336, #f44336), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#f44336, #f44336), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.has-error label.control-label,
@@ -6121,13 +5785,9 @@ fieldset[disabled] .form-group .form-control {
   color: #f44336;
 }
 .form-group.has-success .form-control {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .form-group.has-success.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#4caf50), to(#4caf50)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#4caf50, #4caf50), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#4caf50, #4caf50), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#4caf50, #4caf50), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.has-success label.control-label,
@@ -6135,13 +5795,9 @@ fieldset[disabled] .form-group .form-control {
   color: #4caf50;
 }
 .form-group.has-info .form-control {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .form-group.has-info.is-focused .form-control {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#03a9f4), to(#03a9f4)), -webkit-gradient(linear, left top, left bottom, from(#D2D2D2), to(#D2D2D2));
-  background-image: -webkit-linear-gradient(#03a9f4, #03a9f4), -webkit-linear-gradient(#D2D2D2, #D2D2D2);
-  background-image: -o-linear-gradient(#03a9f4, #03a9f4), -o-linear-gradient(#D2D2D2, #D2D2D2);
   background-image: linear-gradient(#03a9f4, #03a9f4), linear-gradient(#D2D2D2, #D2D2D2);
 }
 .form-group.has-info label.control-label,
@@ -6155,22 +5811,18 @@ fieldset[disabled] .form-group .form-control {
   margin-top: -11px;
 }
 .form-group select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
 }
 .form-group select ~ .material-input:after {
   display: none;
 }
 select.form-control {
   border: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-radius: 0;
 }
 .form-group.is-focused select.form-control {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border-color: #D2D2D2;
 }
 select.form-control[multiple],
@@ -6282,7 +5934,6 @@ legend {
 }
 .list-group .list-group-item .row-content {
   display: inline-block;
-  width: -webkit-calc(100% - 92px);
   width: calc(100% - 92px);
   min-height: 66px;
 }
@@ -6297,7 +5948,6 @@ legend {
   cursor: pointer;
 }
 .list-group .list-group-item .row-content .action-secondary ~ * {
-  max-width: -webkit-calc(100% - 30px);
   max-width: calc(100% - 30px);
 }
 .list-group .list-group-item .row-content .least-content {
@@ -6329,7 +5979,6 @@ legend {
 }
 .list-group .list-group-separator:before {
   content: "";
-  width: -webkit-calc(100% - 90px);
   width: calc(100% - 90px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   float: right;
@@ -7632,8 +7281,7 @@ fieldset[disabled] .navbar .btn-link:focus {
 }
 .dropdown-menu {
   border: 0;
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 .dropdown-menu .divider {
   background-color: rgba(229, 229, 229, 0.12);
@@ -7975,13 +7623,11 @@ fieldset[disabled] .navbar .btn-link:focus {
 .progress {
   height: 4px;
   border-radius: 0;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   background: #c8c8c8;
 }
 .progress .progress-bar {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 .progress .progress-bar,
 .progress .progress-bar-default {
@@ -8114,8 +7760,7 @@ fieldset[disabled] .navbar .btn-link:focus {
   background: rgba(101, 101, 101, 0.9);
   border: none;
   border-radius: 2px;
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .tooltip,
 .tooltip.in {
@@ -8255,8 +7900,7 @@ icon-material-blue-grey {
   border-radius: 2px;
   color: rgba(0, 0, 0, 0.84);
   background: #fff;
-  -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card .card-height-indicator {
   margin-top: 100%;
@@ -8305,8 +7949,7 @@ icon-material-blue-grey {
   left: -15px;
 }
 .modal-content {
-  -webkit-box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
-          box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
   border-radius: 2px;
   border: none;
 }
@@ -8439,8 +8082,7 @@ icon-material-blue-grey {
 .panel {
   border-radius: 2px;
   border: 0;
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .panel > .panel-heading,
 .panel-default > .panel-heading {
@@ -8544,37 +8186,37 @@ hr.on-dark {
 hr.on-light {
   color: #ffffff;
 }
-@media (-webkit-min-device-pixel-ratio: 0.75), (min--moz-device-pixel-ratio: 0.75), (-o-device-pixel-ratio: 3/4), (min-device-pixel-ratio: 0.75), (-o-min-device-pixel-ratio: 3/4), (min-resolution: 0.75dppx), (-webkit-min-device-pixel-ratio: 1.25), (-o-min-device-pixel-ratio: 5/4), (min-resolution: 120dpi) {
+@media (-webkit-min-device-pixel-ratio: 0.75), (min--moz-device-pixel-ratio: 0.75), (-o-device-pixel-ratio: 3/4), (min-device-pixel-ratio: 0.75), (min-resolution: 0.75dppx), (min-resolution: 120dpi) {
   hr {
     height: 0.75px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 1), (min--moz-device-pixel-ratio: 1), (-o-device-pixel-ratio: 1), (min-device-pixel-ratio: 1), (-o-min-device-pixel-ratio: 1/1), (min-resolution: 1dppx), (-webkit-min-device-pixel-ratio: 1.6666666666666667), (-o-min-device-pixel-ratio: 5/3), (min-resolution: 160dpi) {
+@media (-webkit-min-device-pixel-ratio: 1), (min--moz-device-pixel-ratio: 1), (-o-device-pixel-ratio: 1), (min-device-pixel-ratio: 1), (min-resolution: 1dppx), (min-resolution: 160dpi) {
   hr {
     height: 1px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 1.33), (min--moz-device-pixel-ratio: 1.33), (-o-device-pixel-ratio: 133/100), (min-device-pixel-ratio: 1.33), (-o-min-device-pixel-ratio: 133/100), (min-resolution: 1.33dppx), (-webkit-min-device-pixel-ratio: 2.21875), (-o-min-device-pixel-ratio: 71/32), (min-resolution: 213dpi) {
+@media (-webkit-min-device-pixel-ratio: 1.33), (min--moz-device-pixel-ratio: 1.33), (-o-device-pixel-ratio: 133/100), (min-device-pixel-ratio: 1.33), (min-resolution: 1.33dppx), (min-resolution: 213dpi) {
   hr {
     height: 1.333px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-resolution: 1.5dppx), (-webkit-min-device-pixel-ratio: 2.5), (-o-min-device-pixel-ratio: 5/2), (min-resolution: 240dpi) {
+@media (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx), (min-resolution: 240dpi) {
   hr {
     height: 1.5px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (min-resolution: 2dppx), (-webkit-min-device-pixel-ratio: 3.9583333333333335), (-o-min-device-pixel-ratio: 95/24), (min-resolution: 380dpi) {
+@media (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2), (-o-device-pixel-ratio: 2/1), (min-device-pixel-ratio: 2), (min-resolution: 2dppx), (min-resolution: 380dpi) {
   hr {
     height: 2px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 3), (min--moz-device-pixel-ratio: 3), (-o-device-pixel-ratio: 3/1), (min-device-pixel-ratio: 3), (-o-min-device-pixel-ratio: 3/1), (min-resolution: 3dppx), (-webkit-min-device-pixel-ratio: 5), (-o-min-device-pixel-ratio: 5/1), (min-resolution: 480dpi) {
+@media (-webkit-min-device-pixel-ratio: 3), (min--moz-device-pixel-ratio: 3), (-o-device-pixel-ratio: 3/1), (min-device-pixel-ratio: 3), (min-resolution: 3dppx), (min-resolution: 480dpi) {
   hr {
     height: 3px;
   }
 }
-@media (-webkit-min-device-pixel-ratio: 4), (min--moz-device-pixel-ratio: 4), (-o-device-pixel-ratio: 4/1), (min-device-pixel-ratio: 3), (-o-min-device-pixel-ratio: 4/1), (min-resolution: 4dppx), (-webkit-min-device-pixel-ratio: 6.666666666666667), (-o-min-device-pixel-ratio: 20/3), (min-resolution: 640dpi) {
+@media (-webkit-min-device-pixel-ratio: 4), (min--moz-device-pixel-ratio: 4), (-o-device-pixel-ratio: 4/1), (min-device-pixel-ratio: 3), (min-resolution: 4dppx), (min-resolution: 640dpi) {
   hr {
     height: 4px;
   }
@@ -8591,27 +8233,22 @@ hr.on-light {
   color: rgba(255, 255, 255, 0.84);
   font-size: 14px;
   border-radius: 2px;
-  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
-          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   height: 0;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
-       -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
-          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
   -webkit-transform: translateY(200%);
       -ms-transform: translateY(200%);
-       -o-transform: translateY(200%);
           transform: translateY(200%);
 }
 .snackbar.snackbar-opened {
   padding: 14px 15px;
   margin-bottom: 20px;
   height: auto;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
-       -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
-          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+  transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
   -webkit-transform: none;
       -ms-transform: none;
-       -o-transform: none;
           transform: none;
 }
 .snackbar.toast {
@@ -8625,9 +8262,7 @@ hr.on-light {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .noUi-base {
   width: 100%;
@@ -8644,9 +8279,7 @@ hr.on-light {
 .noUi-handle {
   position: relative;
   z-index: 1;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .noUi-stacking .noUi-handle {
   z-index: 10;
@@ -8655,9 +8288,7 @@ hr.on-light {
   *z-index: -1;
 }
 .noUi-state-tap .noUi-origin {
-  -webkit-transition: left 0.3s, top 0.3s;
-       -o-transition: left 0.3s, top 0.3s;
-          transition: left 0.3s, top 0.3s;
+  transition: left 0.3s, top 0.3s;
 }
 .noUi-state-drag * {
   cursor: inherit !important;
@@ -8666,18 +8297,14 @@ hr.on-light {
   height: 10px;
 }
 .noUi-handle {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   width: 12px;
   height: 12px;
   left: -10px;
   top: -5px;
   cursor: ew-resize;
   border-radius: 100%;
-  -webkit-transition: all 0.2s ease-out;
-       -o-transition: all 0.2s ease-out;
-          transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   border: 1px solid;
 }
 .noUi-vertical .noUi-handle {
@@ -9083,8 +8710,7 @@ hr.on-light {
 .selectize-control.multi .selectize-input.input-active {
   cursor: text;
   background: transparent;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: 0;
   padding: 0;
   height: 100%;
@@ -9185,8 +8811,7 @@ hr.on-light {
   left: 0 !important;
   height: auto;
   background-color: #FFF;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 2px;
   padding: 0;
   margin-top: 3px;
