@@ -105,8 +105,8 @@
 }
 
 .slider {
-    @include variations(unquote(".noUi-connect"), background-color, $primary);
-    @include variations(unquote(" .noUi-connect"), background-color, $primary);
-    @include variations(unquote(" .noUi-handle"), background-color, $primary);
-    @include variations(unquote(" .noUi-handle"), border-color, $primary);
+    @include variations(unquote(".noUi-connect"), background-color, $brand-primary);
+    @include variations(unquote(" .noUi-connect"), background-color, $brand-primary);
+    @include variations(unquote(" .noUi-handle"), background-color, $brand-primary);
+    @include variations(unquote(" .noUi-handle"), border-color, $brand-primary);
 }

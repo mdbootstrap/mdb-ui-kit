@@ -1,5 +1,5 @@
 .navbar {
-  background-color: @primary;
+  background-color: @brand-primary;
   border: @zero;
   border-radius: @zero;
 
@@ -86,7 +86,7 @@
       }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: @grid-float-breakpoint-max) {
       .navbar-text {
         color: inherit;
         margin-top: 15px;
@@ -174,7 +174,7 @@
 
       // re-normalize inputs in a navbar the size of standard bootstrap since our normal inputs are larger by spec than bootstrap
       //---
-      //height: @input-height-base;
+      //height: @mdb-input-height-base;
       @bs-line-height-base: 1.428571429;
       @bs-line-height-computed:    floor((@font-size-base * @bs-line-height-base)); // ~20px
       height: (@bs-line-height-computed + 8px);
@@ -185,31 +185,31 @@
   }
 
   // SASS conversion note: please mirror any content change in _mixins-shared.scss navbar-variations-content
-  .generic-variations(~".navbar", @primary, {
-    background-color: @material-color;
-    color: @material-text-color;
+  .generic-variations(~".navbar", @brand-primary, {
+    background-color: @mdb-color;
+    color: @mdb-text-color;
     // deeply defined to override welljumbo class without !impotant need
     .navbar-form .form-group input.form-control::placeholder, .navbar-form input.form-control::placeholder {
-      color: @material-text-color;
+      color: @mdb-text-color;
     }
     .dropdown-menu {
-      border-radius: @dropdown-radius;
+      border-radius: @mdb-dropdown-radius;
       li > a {
-        font-size: @dropdown-font-size;
+        font-size: @mdb-dropdown-font-size;
         padding: 13px 16px;
         &:hover,
         &:focus {
-          color: @material-color;
+          color: @mdb-color;
           background-color: @grey-200;
         }
       }
       .active > a {
         &:hover,
         &:focus {
-          color: @material-text-color;
+          color: @mdb-text-color;
         }
-        background-color: @material-color;
-        color: @material-text-color;
+        background-color: @mdb-color;
+        color: @mdb-text-color;
       }
     }
   });
@@ -218,7 +218,7 @@
     background-color: @indigo;
   }
 
-  @media (max-width: 1199px) {
+  @media (max-width: @screen-md-max) {
 
     .navbar-brand {
       height: 50px;

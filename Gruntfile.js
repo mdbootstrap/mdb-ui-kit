@@ -3,7 +3,60 @@ module.exports = function (grunt) {
 
   require("load-grunt-tasks")(grunt);
 
+  var path = require('path');
+  var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
+  var generateIconsData = require('./grunt/bmd-icons-data-generator.js');
+  
+  Object.keys(configBridge.paths).forEach(function (key) {
+    configBridge.paths[key].forEach(function (val, i, arr) {
+      arr[i] = path.join('./docs/assets', val);
+    });
+  });
+
   grunt.initConfig({
+
+    pkg: grunt.file.readJSON('package.json'),
+    jqueryCheck: configBridge.config.jqueryCheck.join('\n'),
+    jqueryVersionCheck: configBridge.config.jqueryVersionCheck.join('\n'),
+
+
+    // Task configuration.
+    clean: {
+      dist: 'dist',
+      docs: 'docs/dist'
+    },
+
+    jekyll: {
+      options: {
+        config: '_config.yml'
+      },
+      docs: {},
+      github: {
+        options: {
+          raw: 'github: true'
+        }
+      }
+    },
+
+    htmlmin: {
+      dist: {
+        options: {
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+          minifyCSS: true,
+          minifyJS: true,
+          removeAttributeQuotes: true,
+          removeComments: true
+        },
+        expand: true,
+        cwd: '_gh_pages',
+        dest: '_gh_pages',
+        src: [
+          '**/*.html',
+          '!examples/**/*.html'
+        ]
+      }
+    },
 
     htmllint: {
       //options: {
@@ -35,12 +88,33 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: "less",
-          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less", "!_mixins-shared.less"],
+          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less", "!_mixins-shared.less", "!_import-bs*"],
           ext: ".scss",
           dest: "sass"
         }],
         options: {
           replacements: [
+
+            // convert bootstrap imports
+            { // https://regex101.com/r/bM6cP0/2
+              pattern: /bower_components\/(bootstrap\/less\/)/gi,
+              replacement: "bower_components\/bootstrap-sass\/assets\/stylesheets\/bootstrap\/",
+              order: 2
+            },
+
+            // convert conditional when not
+            { // https://regex101.com/r/cX6uF4/1
+              pattern: /& when not \(isstring\(\$parent\)\)/gi,
+              replacement: "@if not $parent",
+              order: 2
+            },
+
+            // convert conditional when
+            { // https://regex101.com/r/gH0jP0/2
+              pattern: /& when \(isstring\(\$parent\)\)/gi,
+              replacement: "@else",
+              order: 2
+            },
 
             // convert all shadow mixins
             { // https://regex101.com/r/sJ2lH4/1
@@ -205,6 +279,18 @@ module.exports = function (grunt) {
         files: {
           "dist/css/ripples.css": "less/ripples.less",
         }
+      },
+      docs: {
+        options: {
+          paths: ["less"],
+          sourceMap: true,
+          sourceMapRootpath: "/",
+          sourceMapFilename: "docs/assets/css/src/docs.css.map",
+          sourceMapURL: "docs.css.map"
+        },
+        files: {
+          "docs/assets/css/src/docs.css": "docs/assets/css/src/docs.less",
+        }
       }
     },
 
@@ -213,36 +299,69 @@ module.exports = function (grunt) {
     autoprefixer: {
       options: {
         map: true,
-        browsers: ["last 3 versions", "ie 8", "ie 9", "ie 10", "ie 11"]
+        browsers: configBridge.config.autoprefixerBrowsers
       },
       material: {
         files: {
-          "dist/css/material.css": "dist/css/material.css",
-          "dist/css/material.min.css": "dist/css/material.min.css"
+          "dist/css/material.css": "dist/css/material.css"
         }
       },
       materialfullpalette: {
         files: {
-          "dist/css/material-fullpalette.css": "dist/css/material-fullpalette.css",
-          "dist/css/material-fullpalette.min.css": "dist/css/material-fullpalette.min.css"
+          "dist/css/material-fullpalette.css": "dist/css/material-fullpalette.css"
         }
       },
       roboto: {
         files: {
-          "dist/css/roboto.css": "dist/css/roboto.css",
-          "dist/css/roboto.min.css": "dist/css/roboto.min.css"
+          "dist/css/roboto.css": "dist/css/roboto.css"
         }
       },
       ripples: {
         files: {
-          "dist/css/ripples.css": "dist/css/ripples.css",
-          "dist/css/ripples.min.css": "dist/css/ripples.min.css"
+          "dist/css/ripples.css": "dist/css/ripples.css"
         }
+      },
+      docs: {
+        src: ['docs/assets/css/src/docs.css']
+      },
+      examples: {
+        expand: true,
+        cwd: 'docs/examples/',
+        src: ['**/*.css'],
+        dest: 'docs/examples/'
+      }
+    },
+
+    csslint: {
+      options: {
+        csslintrc: 'less/.csslintrc'
+      },
+      dist: [
+        'dist/css/material.css',
+        'dist/css/material-fullpalette.css'
+      ],
+      examples: [
+        'docs/examples/**/*.css'
+      ],
+      docs: {
+        options: {
+          ids: false,
+          'overqualified-elements': false
+        },
+        src: 'docs/assets/css/src/docs.css'
       }
     },
 
     // Minify CSS and adapt maps
-    csswring: {
+    cssmin: {
+      options: {
+        // TODO: disable `zeroUnits` optimization once clean-css 3.2 is released
+        //    and then simplify the fix for https://github.com/twbs/bootstrap/issues/14837 accordingly
+        compatibility: 'ie8',
+        keepSpecialComments: '*',
+        sourceMap: true,
+        advanced: false
+      },
       material: {
         src: "dist/css/material.css",
         dest: "dist/css/material.min.css"
@@ -258,6 +377,14 @@ module.exports = function (grunt) {
       ripples: {
         src: "dist/css/ripples.css",
         dest: "dist/css/ripples.min.css"
+      },
+      docs: {
+        src: [
+          'docs/assets/css/ie10-viewport-bug-workaround.css',
+          'docs/assets/css/src/pygments-manni.css',
+          'docs/assets/css/src/docs.css'
+        ],
+        dest: 'docs/assets/css/docs.min.css'
       }
     },
 
@@ -278,6 +405,14 @@ module.exports = function (grunt) {
         dest: "dist/fonts/",
         flatten: true,
         filter: "isFile"
+      },
+      docs: {
+        expand: true,
+        cwd: 'dist/',
+        src: [
+          '**/*'
+        ],
+        dest: 'docs/dist/'
       }
     },
 
@@ -295,6 +430,14 @@ module.exports = function (grunt) {
         files: {
           "dist/js/ripples.min.js": "dist/js/ripples.js"
         }
+      },
+      customize: {
+        src: configBridge.paths.customizerJs,
+        dest: 'docs/assets/js/customize.min.js'
+      },
+      docsJs: {
+        src: configBridge.paths.docsJs,
+        dest: 'docs/assets/js/docs.min.js'
       }
     },
 
@@ -333,43 +476,67 @@ module.exports = function (grunt) {
     },
     jshint: {
       options: {
-        jshintrc: ".jshintrc",
+        jshintrc: "scripts/.jshintrc",
         reporter: require("jshint-stylish")
       },
-      all: [
-        //"Gruntfile.js", regex lines are too long for desired style guide.
-        "scripts/**/*.js",
-        "template/**/*.js",
-        "!template/**/*.min.js"
-      ],
-      test: {
+      grunt: {
         options: {
-          jshintrc: "test/.jshintrc",
-          src: ["test/**/*.js"]
-        }
+          jshintrc: 'grunt/.jshintrc'
+        },
+        src: ['Gruntfile.js', 'package.js']
+      },
+      core: {
+        src: ["scripts/**/*.js"]
+      },
+      test: {
+        src: ["test/**/*.js"]
+      },
+      assets: {
+        options: {
+          jshintrc: "docs/assets/js/.jshintrc"
+        },
+        src: ['docs/assets/js/src/*.js', 'docs/assets/js/*.js', '!docs/assets/js/*.min.js']
       }
     },
+
+    jscs: {
+      options: {
+        config: 'scripts/.jscsrc'
+      },
+      grunt: {
+        src: '<%= jshint.grunt.src %>'
+      },
+      core: {
+        src: '<%= jshint.core.src %>'
+      },
+      test: {
+        src: '<%= jshint.test.src %>'
+      },
+      assets: {
+        options: {
+          requireCamelCaseOrUpperCaseIdentifiers: null
+        },
+        src: '<%= jshint.assets.src %>'
+      }
+    },
+
     watch: {
       html: {
         files: ["index.html", "bootstrap-elements.html", "test.html"],
         tasks: ["htmllint", "bootlint"]
       },
-      js: {
-        files: ["Gruntfile.js", "scripts/**/*.js", "template/**/*.js"],
-        tasks: ["newer:jshint:all", "material:js"]
-      },
-      jsTest: {
+      //src: {
+      //  files: '<%= jshint.core.src %>',
+      //  tasks: ['jshint:core', 'dist-js'] // add tests when working again
+      //},
+      test: {
         files: ["test/**/*.js"],
-        tasks: ["newer:jshint:test", "jasmine"]
+        tasks: ["jshint:test", "jasmine"]
       },
       less: {
         files: ["less/**/*.less"],
-        tasks: ["material:less"]//, "material:sass"]
+        tasks: ["dist-less"]
       },
-      //sass: {
-      //  files: ["sass/*.scss"],
-      //  tasks: ["material:sass"]
-      //},
       livereload: {
         options: {
           livereload: "<%= connect.options.livereload %>"
@@ -383,6 +550,26 @@ module.exports = function (grunt) {
         ]
       }
     },
+
+    compress: {
+      main: {
+        options: {
+          archive: 'bootstrap-material-design-<%= pkg.version %>-dist.zip',
+          mode: 'zip',
+          level: 9,
+          pretty: true
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/',
+            src: ['**'],
+            dest: 'bootstrap-material-design-<%= pkg.version %>-dist'
+          }
+        ]
+      }
+    },
+
     exec: {
       "meteor-init": {
         command: [
@@ -413,83 +600,103 @@ module.exports = function (grunt) {
 
   });
 
-  grunt.loadNpmTasks("grunt-less-to-sass");
 
-  grunt.registerTask("default", ["material", "ripples"]);
+  require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
+  //require('time-grunt')(grunt);
 
-  grunt.registerTask("material", [
-    "material:less",
-    "material:js",
-    "material:fonts",
-    "material:sass"
-  ]);
-
-  grunt.registerTask("material:sass", [
-    "lessToSass:convert",
-    "sass:compile"
-  ]);
-
-  grunt.registerTask("material:less", [
-    "htmllint",
-    "bootlint",
-    "less:material",
-    "less:materialfullpalette",
-    "less:roboto",
-    "csswring:material",
-    "csswring:materialfullpalette",
-    "csswring:roboto",
-    "autoprefixer:material",
-    "autoprefixer:materialfullpalette",
-    "autoprefixer:roboto"
-  ]);
-  grunt.registerTask("material:js", [
-    "copy:material",
-    "uglify:material"
-  ]);
-  grunt.registerTask("material:fonts", [
-    "copy:fonts"
-  ]);
-
-  grunt.registerTask("ripples", [
-    "ripples:less",
-    "ripples:js"
-  ]);
-  grunt.registerTask("ripples:less", [
-    "less:ripples",
-    "csswring:ripples",
-    "autoprefixer:ripples"
-  ]);
-  grunt.registerTask("ripples:js", [
-    "copy:ripples",
-    "uglify:ripples"
-  ]);
-
-  grunt.registerTask("build", function () {
-    grunt.task.run(["newer:jshint", "default"]);
-  });
-
+  grunt.registerTask('test-js', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
   grunt.registerTask("test", [
+    "dist",
     "jasmine:scripts:build",
     "connect:test:keepalive"
   ]);
 
-  grunt.registerTask("serve", function (target) {
-    var buildTarget = "material:less";
-    if (target && target === "scss") {
-      buildTarget = "scss";
-    }
-    grunt.task.run([
-      "build:" + buildTarget,
-      "connect:livereload",
-      "watch"
-    ]);
-  });
+  // Docs HTML validation task
+  grunt.registerTask('validate-html', ['jekyll:docs', 'htmllint']);
+
+  grunt.loadNpmTasks("grunt-less-to-sass");
+
+  // CSS distribution tasks
+  grunt.registerTask("dist-sass", [
+    "lessToSass:convert",
+    "sass:compile"
+  ]);
+
+  grunt.registerTask('less-compile', [
+    "less:material",
+    "less:materialfullpalette",
+    "less:roboto",
+    "less:ripples"
+  ]);
+
+  grunt.registerTask("dist-less", [
+    "less-compile",
+
+    "autoprefixer:material",
+    "autoprefixer:materialfullpalette",
+    "autoprefixer:roboto",
+    "autoprefixer:ripples",
+
+    "cssmin:material",
+    "cssmin:materialfullpalette",
+    "cssmin:roboto",
+    "cssmin:ripples"
+  ]);
+
+  grunt.registerTask("dist-js", [
+    "jshint",
+    "copy:material",
+    "uglify:material",
+    "copy:ripples",
+    "uglify:ripples"
+  ]);
+
+  grunt.registerTask("dist-fonts", [
+    "copy:fonts"
+  ]);
+
+  // Full distribution
+  grunt.registerTask("dist", [
+    "clean:dist",
+
+    "htmllint",
+    "bootlint",
+
+    "dist-less",
+    "dist-js",
+    "dist-fonts",
+    "dist-sass"
+  ]);
+
+  // Default task.
+  grunt.registerTask('default', ['dist']); // test as well when it works?
+
+
+  grunt.registerTask("serve", [
+    "htmllint",
+    "bootlint",
+    "dist-less",
+    "dist-js",
+    "dist-fonts",
+    "connect:livereload",
+    "watch"
+  ]);
 
   // Meteor tasks
   grunt.registerTask("meteor-test", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-cleanup"]);
   grunt.registerTask("meteor-publish", ["exec:meteor-init", "exec:meteor-publish", "exec:meteor-cleanup"]);
   grunt.registerTask("meteor", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-publish", "exec:meteor-cleanup"]);
 
-  //grunt.registerTask("cibuild", ["newer:jshint", "meteor-test"]);
-  grunt.registerTask("cibuild", ["build"]);
+
+  // Docs task.
+  grunt.registerTask('build-icons-data', function () { generateIconsData.call(this, grunt); });
+  grunt.registerTask('docs-css', ['less:docs','autoprefixer:docs', 'autoprefixer:examples', 'cssmin:docs']);
+  grunt.registerTask('lint-docs-css', ['csslint:docs', 'csslint:examples']);
+  grunt.registerTask('docs-js', ['uglify:docsJs', 'uglify:customize']);
+  grunt.registerTask('lint-docs-js', ['jshint:assets', 'jscs:assets']);
+  grunt.registerTask('docs', [
+    'docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-icons-data'
+  ]);
+
+  grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin']); //, 'compress']);
 };

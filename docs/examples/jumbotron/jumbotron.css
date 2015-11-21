@@ -1,0 +1,6 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImp1bWJvdHJvbi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsd0VBQXdFO0FBQ3hFO0VBQ0Usa0JBQWtCO0VBQ2xCLHFCQUFxQjtDQUN0QiIsImZpbGUiOiJqdW1ib3Ryb24uY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLyogTW92ZSBkb3duIGNvbnRlbnQgYmVjYXVzZSB3ZSBoYXZlIGEgZml4ZWQgbmF2YmFyIHRoYXQgaXMgNTBweCB0YWxsICovXG5ib2R5IHtcbiAgcGFkZGluZy10b3A6IDUwcHg7XG4gIHBhZGRpbmctYm90dG9tOiAyMHB4O1xufVxuIl19 */

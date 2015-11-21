@@ -1,5 +1,8 @@
 // package metadata file for Meteor.js
-'use strict';
+
+/* jshint strict:false */
+/* global Package:true */
+/* global Npm:true */
 
 var packageName = 'fezvrasta:bootstrap-material-design';  // https://atmospherejs.com/fezvrasta/bootstrap-material-design
 var where = 'client';  // where to install: 'client' or 'server'. For both, pass nothing.

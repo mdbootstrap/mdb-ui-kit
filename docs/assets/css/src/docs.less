@@ -1,0 +1,163 @@
+@dir: '../../../../less';
+@import "@{dir}/_colors";
+
+// original
+@site-color-footer: #2a2730;
+@site-color-darker: #463265;
+@site-color-dark: #563d7c;
+@site-color-base: #6f5499;
+@site-color-light: #9783b9;
+@site-color-lighter: #cdbfe3;
+
+@site-color-base: @blue-500;
+@site-color-dark: darken(@site-color-base, 20%);
+@site-color-darker: darken(@site-color-base, 40%);
+@site-color-footer: darken(@site-color-base, 60%);
+@site-color-light: lighten(@site-color-base, 20%);
+@site-color-lighter: lighten(@site-color-base, 40%);
+
+/*
+ * Bootstrap Material Design Documentation
+ * Special styles for presenting Bootstrap's documentation and code examples.
+ */
+
+/*
+ * Scaffolding
+ *
+ * Update the basics of our documents to prep for docs content.
+ */
+
+body {
+  position: relative; /* For scrollspy */
+}
+
+/* Keep code small in tables on account of limited space */
+.table code {
+  font-size: 13px;
+  font-weight: normal;
+}
+
+/* Inline code within headings retain the heading's background-color */
+h2 code,
+h3 code,
+h4 code {
+  background-color: inherit;
+}
+
+/* Outline button for use within the docs */
+.btn-outline {
+  color: @site-color-dark;
+  background-color: transparent;
+  border-color: @site-color-dark;
+}
+
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active {
+  color: #fff;
+  background-color: @site-color-dark;
+  border-color: @site-color-dark;
+}
+
+/* Inverted outline button (white on dark) */
+.btn-outline-inverse {
+  color: #fff;
+  background-color: transparent;
+  border-color: @site-color-lighter;
+}
+
+.btn-outline-inverse:hover,
+.btn-outline-inverse:focus,
+.btn-outline-inverse:active {
+  color: @site-color-dark;
+  text-shadow: none;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+/* Bootstrap "B" icon */
+.bs-docs-booticon {
+  display: block;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  cursor: default;
+  background-color: @site-color-dark;
+  border-radius: 15px;
+}
+
+.bs-docs-booticon-sm {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.bs-docs-booticon-lg {
+  width: 284px;
+  height: 144px;
+  font-size: 108px;
+  line-height: 140px;
+}
+
+.bs-docs-booticon-inverse {
+  color: @site-color-dark;
+  background-color: #fff;
+}
+
+.bs-docs-booticon-outline {
+  background-color: transparent;
+  border: 1px solid @site-color-lighter;
+}
+
+@import "_nav";
+@import "_footer";
+@import "_home";
+@import "_header";
+@import "_ads";
+@import "_featurette";
+@import "_featured";
+@import "_examples";
+@import "_sidebar";
+@import "_sections";
+@import "_callouts";
+@import "_color-swatches";
+@import "_team";
+@import "_grid";
+@import "_code";
+@import "_responsive";
+@import "_icons";
+@import "_customizer";
+@import "_brand";
+@import "_clipboard";
+@import "_anchors";
+
+/*
+ * Miscellaneous
+ *
+ * Odds and ends for optimum docs display.
+ */
+
+/* Pseudo :focus state for showing how it looks in the docs */
+#focusedInput {
+  border-color: rgb(204, 204, 204); /* Restate unfocused value to make CSSLint happy that there's a pre-CSS3 fallback*/
+  border-color: rgba(82, 168, 236, .8);
+  outline: 0;
+  outline: thin dotted \9; /* IE6-9 */
+  -webkit-box-shadow: 0 0 8px rgba(82, 168, 236, .6);
+  box-shadow: 0 0 8px rgba(82, 168, 236, .6);
+}
+
+/*
+ * Wall of Browser Bugs
+ *
+ * Better display for the responsive table on the Wall of Browser Bugs.
+ */
+
+.bs-docs-browser-bugs td p {
+  margin-bottom: 0;
+}
+
+.bs-docs-browser-bugs th:first-child {
+  width: 18%;
+}

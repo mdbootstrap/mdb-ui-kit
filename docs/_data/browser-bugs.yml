@@ -1,0 +1,10 @@
+-
+  browser: >
+    Internet Explorer 11 & Microsoft Edge
+  summary: >
+    Sample bug list item
+  upstream_bug: >
+    IE#926665
+  origin: >
+    BMD#14211
+

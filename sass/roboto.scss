@@ -11,8 +11,8 @@
   src: local('RobotoDraft'),
        local('RobotoDraft-Regular'),
        local('Roboto-Regular'),
-       url('#{$material-font-path}/RobotoDraftRegular.woff2') format('woff2'),
-       url('#{$material-font-path}/RobotoDraftRegular.woff') format('woff');
+       url('#{$mdb-font-path}/RobotoDraftRegular.woff2') format('woff2'),
+       url('#{$mdb-font-path}/RobotoDraftRegular.woff') format('woff');
 }
 
 @font-face {
@@ -23,8 +23,8 @@
   src: local('RobotoDraft Medium'),
        local('RobotoDraft-Medium'),
        local('Roboto-Medium'),
-       url('#{$material-font-path}/RobotoDraftMedium.woff2') format('woff2'),
-       url('#{$material-font-path}/RobotoDraftMedium.woff') format('woff');
+       url('#{$mdb-font-path}/RobotoDraftMedium.woff2') format('woff2'),
+       url('#{$mdb-font-path}/RobotoDraftMedium.woff') format('woff');
 }
 
 @font-face {
@@ -35,8 +35,8 @@
   src: local('RobotoDraft Bold'),
        local('RobotoDraft-Bold'),
        local('Roboto-Bold'),
-       url('#{$material-font-path}/RobotoDraftBold.woff2') format('woff2'),
-       url('#{$material-font-path}/RobotoDraftBold.woff') format('woff');
+       url('#{$mdb-font-path}/RobotoDraftBold.woff2') format('woff2'),
+       url('#{$mdb-font-path}/RobotoDraftBold.woff') format('woff');
 }
 
 @font-face {
@@ -47,6 +47,6 @@
   src: local('RobotoDraft Italic'),
        local('RobotoDraft-Italic'),
        local('Roboto-Italic'),
-       url('#{$material-font-path}/RobotoDraftItalic.woff2') format('woff2'),
-       url('#{$material-font-path}/RobotoDraftItalic.woff') format('woff');
+       url('#{$mdb-font-path}/RobotoDraftItalic.woff2') format('woff2'),
+       url('#{$mdb-font-path}/RobotoDraftItalic.woff') format('woff');
 }

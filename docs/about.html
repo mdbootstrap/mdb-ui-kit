@@ -1,0 +1,37 @@
+---
+layout: default
+title: About
+slug: about
+lead: "Learn about the project's history and meet the maintaining teams."
+---
+
+
+<!-- History
+================================================== -->
+<div class="bs-docs-section">
+  <h1 id="history" class="page-header">History</h1>
+
+  <p class="lead">Originally created by FezVrasta</p>
+</div>
+
+
+<!-- Team
+================================================== -->
+<div class="bs-docs-section">
+  <h1 id="team" class="page-header">Team</h1>
+
+  <p class="lead">BMD is maintained by the FezVrasta and a small group of invaluable core contributors, with the support and involvement of our community.</p>
+
+  <div class="list-group bs-team">
+    {% for member in site.data.core-team %}
+      <div class="list-group-item">
+        <iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user={{ member.user }}&amp;type=follow"></iframe>
+        <a class="team-member" href="https://github.com/{{ member.user }}">
+          <img src="https://secure.gravatar.com/avatar/{{ member.gravatar }}.jpg?s=32" alt="@{{ member.user }} avatar" width="32" height="32">
+          <strong>{{ member.name }}</strong> <small>@{{ member.user }}</small>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <p>Get involved with BMD development by <a href="https://github.com/fezvrasta/bootstrap-material-design/issues/new">opening an issue</a> or submitting a pull request. Read our <a href="https://github.com/fezvrasta/bootstrap-material-design/blob/master/CONTRIBUTING.md">contributing guidelines</a> for information on how we develop.</p>
+</div>

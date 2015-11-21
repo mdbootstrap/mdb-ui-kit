@@ -1,0 +1,43 @@
+/*
+ * Main navigation
+ *
+ * Turn the `.navbar` at the top of the docs purple.
+ */
+
+.navbar.bs-docs-nav {
+  margin-bottom: 0;
+  background-color: #fff;
+  border-bottom: 0;
+
+  .bs-home-nav .bs-nav-b {
+    display: none;
+  }
+
+  .navbar-brand,
+  .navbar-nav > li > a {
+    font-weight: 500;
+    color: @site-color-dark;
+  }
+
+  .navbar-nav > li > a:hover,
+  .navbar-nav > .active > a,
+  .navbar-nav > .active > a:hover {
+    color: @site-color-darker;
+    background-color: #f9f9f9;
+  }
+
+  .navbar-toggle .icon-bar {
+    background-color: @site-color-dark;
+  }
+
+  .navbar-header {
+    .navbar-toggle {
+      border-color: #fff;
+      &:hover,
+      &:focus {
+        background-color: #f9f9f9;
+        border-color: #f9f9f9;
+      }
+    }
+  }
+}
