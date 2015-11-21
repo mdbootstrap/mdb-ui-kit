@@ -1,29 +1,3 @@
-.form-horizontal .radio {
-  margin-bottom: 10px;
-}
-
-.form-group-radio-variant(@placeholder-font-size, @line-height){
-  .radio {
-    // Label is set in _inputs.less
-  }
-}
-
-.form-group {
-
-  // default label size/location
-  .form-group-radio-variant(@mdb-input-font-size-base, @mdb-input-line-height-base);
-
-  // sm label size/location
-  &.form-group-sm {
-    .form-group-radio-variant(@mdb-input-font-size-small, @mdb-input-line-height-small);
-  }
-
-  // lg label size/location
-  &.form-group-lg {
-    .form-group-radio-variant(@mdb-input-font-size-large, @mdb-input-line-height-large);
-  }
-}
-
 .radio {
   label {
     cursor: pointer;
