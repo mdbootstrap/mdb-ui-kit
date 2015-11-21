@@ -1,6 +1,16 @@
 @import '_inputs-size.less';
 
-// usage: .form-group-validation-state(@input-danger);
+// must be broken out for reuse - webkit selector breaks firefox
+.label-position(@label-top, @static-font-size, @static-line-height) {
+  label.control-label {
+    top: @label-top;
+    left: 0;
+    // must repeat because the selector above is more specific than the general label sizing
+    font-size: @static-font-size;
+    line-height: @static-line-height;
+  }
+}
+
 .form-group-validation-state(@name, @color) {
 
   &.@{name} { // e.g. has-error
@@ -72,16 +82,12 @@
   // static, focused, or autofill floating labels
   &.label-static,
   &.label-floating.is-focused,
-  &.label-floating:not(.is-empty),
-  &.label-floating input.form-control:-webkit-autofill {
-    & ~ label.control-label, // #559 webkit chrome autofill `.form-group.label-floating input.form-control:-webkit-autofill ~ label.control-label`
-    label.control-label {
-      top: @label-top;
-      left: 0;
-      // must repeat because the selector above is more specific than the general label sizing
-      font-size: @static-font-size;
-      line-height: @static-line-height;
-    }
+  &.label-floating:not(.is-empty) {
+    .label-position(@label-top, @static-font-size, @static-line-height);
+  }
+  // #559 Fix for webkit/chrome autofill - rule must be separate because it breaks firefox otherwise #731
+  &.label-floating input.form-control:-webkit-autofill ~ label.control-label {
+    .label-position(@label-top, @static-font-size, @static-line-height);
   }
 }
 
