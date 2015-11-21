@@ -22,8 +22,8 @@
 
 
     border-radius: 2px;
-    color: $card-body-text;
-    background: $card-body-background;
+    color: $mdb-card-body-text;
+    background: $mdb-card-body-background;
 
     @include shadow-z-2();
 
@@ -42,7 +42,7 @@
             position: absolute;
             bottom: 16px;
             left: 18px;
-            color: $card-image-headline;
+            color: $mdb-card-image-headline;
             font-size: 2em;
         }
     }

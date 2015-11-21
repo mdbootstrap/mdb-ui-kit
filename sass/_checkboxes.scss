@@ -14,23 +14,23 @@
 .form-group {
 
   //// default label size/location
-  @include form-group-checkbox-variant($md-input-font-size-base, $md-input-line-height-base);
+  @include form-group-checkbox-variant($mdb-input-font-size-base, $mdb-input-line-height-base);
 
   // sm label size/location
   &.form-group-sm {
-    @include form-group-checkbox-variant($md-input-font-size-small, $md-input-line-height-small);
+    @include form-group-checkbox-variant($mdb-input-font-size-small, $mdb-input-line-height-small);
   }
 
   // lg label size/location
   &.form-group-lg {
-    @include form-group-checkbox-variant($md-input-font-size-large, $md-input-line-height-large);
+    @include form-group-checkbox-variant($mdb-input-font-size-large, $mdb-input-line-height-large);
   }
 
   .checkbox {
     label {
       cursor: pointer;
       padding-left: 0; // Reset for Bootstrap rule
-      color: $checkbox-label-color;
+      color: $mdb-checkbox-label-color;
     }
 
     // Hide native checkbox
@@ -56,8 +56,8 @@
         left: 0;
         content: "";
         background-color: rgba(0,0,0,.84);
-        height: $checkbox-size;
-        width: $checkbox-size;
+        height: $mdb-checkbox-size;
+        width: $mdb-checkbox-size;
         border-radius: 100%;
         z-index: 1;
         opacity: 0;
@@ -68,9 +68,9 @@
       .check {
         position: relative;
         display: inline-block;
-        width: $checkbox-size;
-        height: $checkbox-size;
-        border: 2px solid $checkbox-border-color;
+        width: $mdb-checkbox-size;
+        height: $mdb-checkbox-size;
+        border: 2px solid $mdb-checkbox-border-color;
         border-radius: 2px;
         overflow: hidden;
         z-index: 1;
@@ -92,7 +92,7 @@
           0 0 0 0,
           0 0 0 0,
           0 0 0 0 inset;
-        animation: checkbox-off $checkbox-animation-check forwards;
+        animation: checkbox-off $mdb-checkbox-animation-check forwards;
       }
     }
 
@@ -107,22 +107,22 @@
         0px 32px 0 20px,
         -5px 5px 0 10px,
         20px -12px 0 11px;
-      animation: checkbox-on $checkbox-animation-check forwards;
+      animation: checkbox-on $mdb-checkbox-animation-check forwards;
     }
 
     input[type=checkbox]:not(:checked) + .checkbox-material:before {
-      animation: rippleOff $checkbox-animation-ripple;
+      animation: rippleOff $mdb-checkbox-animation-ripple;
     }
     input[type=checkbox]:checked + .checkbox-material:before {
-      animation: rippleOn $checkbox-animation-ripple;
+      animation: rippleOn $mdb-checkbox-animation-ripple;
     }
 
     // Ripple effect on click
     input[type=checkbox]:not(:checked) + .checkbox-material .check:after {
-      animation: rippleOff $checkbox-animation-ripple forwards;
+      animation: rippleOff $mdb-checkbox-animation-ripple forwards;
     }
     input[type=checkbox]:checked + .checkbox-material .check:after {
-      animation: rippleOn $checkbox-animation-ripple forwards;
+      animation: rippleOn $mdb-checkbox-animation-ripple forwards;
     }
 
     // Style for disabled inputs
@@ -138,10 +138,10 @@
       transform: rotate(-45deg);
     }
 
-    @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check:after"), background-color, $success);
-    @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check:before"), color, $checkbox-checked-color);
-    @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check"), color, $checkbox-checked-color);
-    @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check"), border-color, $checkbox-checked-color);
+    @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check:after"), background-color, $brand-success);
+    @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check:before"), color, $mdb-checkbox-checked-color);
+    @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check"), color, $mdb-checkbox-checked-color);
+    @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check"), border-color, $mdb-checkbox-checked-color);
   }
 }
 

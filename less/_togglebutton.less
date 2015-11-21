@@ -78,14 +78,14 @@
 
     // Switch bg on
     // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-color-variations-content
-    .generic-variations(~" label input[type=checkbox]:checked + .toggle", @primary, {
+    .generic-variations(~" label input[type=checkbox]:checked + .toggle", @brand-primary, {
       background-color: fade(@mdb-color, 50%);
     });
     // Handle on
     // SASS conversion note: please mirror any content change in _mixins-shared.scss variations-content
-    .variations(~" label input[type=checkbox]:checked + .toggle:after", background-color, @primary);
+    .variations(~" label input[type=checkbox]:checked + .toggle:after", background-color, @brand-primary);
     // Ripple on
-    .generic-variations(~" label input[type=checkbox]:checked + .toggle:active:after", @primary, {
+    .generic-variations(~" label input[type=checkbox]:checked + .toggle:active:after", @brand-primary, {
       box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px fade(@mdb-color, 10%);
     });
   }
