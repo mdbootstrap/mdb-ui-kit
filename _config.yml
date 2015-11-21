@@ -1,5 +1,6 @@
-#baseurl: "/bootstrap-material-design"
+baseurl: "/bootstrap-material-design"
 #url: "http://fezvrasta.github.io"
+url: "http://rosskevin.github.io"
 
 include:
   - .nojekyll
