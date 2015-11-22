@@ -17,17 +17,26 @@
   text-decoration: none;
   color: @darkbg-text;
 
-  &:hover:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-    .shadow-z-1();
+  &:not(.btn-link):not(.btn-flat) {
+    background-color: @btn-default;
+    color: @lightbg-text;
+
+    &:not(.btn-fab) {
+      &:hover {
+        .shadow-z-1();
+      }
+      &:active {
+        .shadow-z-1-hover();
+      }
+    }
   }
-  &:active:not(.btn-link):not(.btn-flat):not(.btn-fab) {
-    .shadow-z-1-hover();
-  }
+
   transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none !important;
 
-
-  .variations(~".btn-flat:not(.btn-link)", color, @lightbg-text);
+  .btn-flat:not(.btn-link){
+    color: @lightbg-text;
+  }
 
   .background-variations(~":not(.btn-link):not(.btn-flat)", @btn-default);
 
