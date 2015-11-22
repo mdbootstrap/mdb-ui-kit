@@ -88,7 +88,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: "less",
-          src: ["*.less", "!_mixins.less", "!_mixins-fullpalette.less", "!_mixins-shared.less", "!_import-bs*"],
+          src: ["*.less", "!_mixins.less", "!_import-bs*"],
           ext: ".scss",
           dest: "sass"
         }],
@@ -218,7 +218,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: "sass",
           //src: ['material.scss', 'material-fullpalette.scss', 'ripples.scss', 'roboto.scss'],
-          src: ["material.scss", "material-fullpalette.scss", "roboto.scss", "ripples.scss"],
+          src: ["bootstrap-material-design.scss", "roboto.scss", "ripples.scss"],
           dest: "dist/sassc", // added to gitignore, only used for local testing
           ext: ".css"
         }]
@@ -234,24 +234,11 @@ module.exports = function (grunt) {
           paths: ["less"],
           sourceMap: true,
           sourceMapRootpath: "/",
-          sourceMapFilename: "dist/css/material.css.map",
-          sourceMapURL: "material.css.map"
+          sourceMapFilename: "dist/css/bootstrap-material-design.css.map",
+          sourceMapURL: "bootstrap-material-design.css.map"
         },
         files: {
-          "dist/css/material.css": "less/material.less",
-        }
-      },
-      materialfullpalette: {
-        options: {
-          paths: ["less"],
-          sourceMap: true,
-          sourceMapRootpath: "/",
-          sourceMapFilename: "dist/css/material-fullpalette.css.map",
-          sourceMapURL: "material-fullpalette.css.map",
-          outputSourceFiles: true
-        },
-        files: {
-          "dist/css/material-fullpalette.css": "less/material-fullpalette.less",
+          "dist/css/bootstrap-material-design.css": "less/bootstrap-material-design.less",
         }
       },
       roboto: {
@@ -303,12 +290,7 @@ module.exports = function (grunt) {
       },
       material: {
         files: {
-          "dist/css/material.css": "dist/css/material.css"
-        }
-      },
-      materialfullpalette: {
-        files: {
-          "dist/css/material-fullpalette.css": "dist/css/material-fullpalette.css"
+          "dist/css/bootstrap-material-design.css": "dist/css/bootstrap-material-design.css"
         }
       },
       roboto: {
@@ -337,8 +319,14 @@ module.exports = function (grunt) {
         csslintrc: 'less/.csslintrc'
       },
       dist: [
-        'dist/css/material.css',
-        'dist/css/material-fullpalette.css'
+        'dist/css/bootstrap-material-design.css',
+        'dist/css/ripples.css',
+        'dist/css/roboto.css'
+      ],
+      distmin: [
+        'dist/css/bootstrap-material-design.min.css',
+        'dist/css/ripples.min.css',
+        'dist/css/roboto.min.css'
       ],
       examples: [
         'docs/examples/**/*.css'
@@ -363,12 +351,8 @@ module.exports = function (grunt) {
         advanced: false
       },
       material: {
-        src: "dist/css/material.css",
-        dest: "dist/css/material.min.css"
-      },
-      materialfullpalette: {
-        src: "dist/css/material-fullpalette.css",
-        dest: "dist/css/material-fullpalette.min.css"
+        src: "dist/css/bootstrap-material-design.css",
+        dest: "dist/css/bootstrap-material-design.min.css"
       },
       roboto: {
         src: "dist/css/roboto.css",
@@ -624,7 +608,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('less-compile', [
     "less:material",
-    "less:materialfullpalette",
     "less:roboto",
     "less:ripples"
   ]);
@@ -633,14 +616,13 @@ module.exports = function (grunt) {
     "less-compile",
 
     "autoprefixer:material",
-    "autoprefixer:materialfullpalette",
     "autoprefixer:roboto",
     "autoprefixer:ripples",
-
+    //"csslint:dist",
     "cssmin:material",
-    "cssmin:materialfullpalette",
     "cssmin:roboto",
-    "cssmin:ripples"
+    "cssmin:ripples",
+    //"csslint:distmin"
   ]);
 
   grunt.registerTask("dist-js", [

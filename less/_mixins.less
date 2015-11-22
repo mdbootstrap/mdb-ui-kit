@@ -1,4 +1,39 @@
-@import '_mixins-shared.less';
+// Placeholder text
+.material-placeholder(@rules) {
+  &::-moz-placeholder { @rules(); } // Firefox
+  &:-ms-input-placeholder { @rules(); } // Internet Explorer 10+
+  &::-webkit-input-placeholder  { @rules(); } // Safari and Chrome
+}
+
+
+// usage: .variations(~" .check", color, transparent);
+.variations(@extra, @property, @default) {
+  .generic-variations(@extra, @default, {
+    @{property}: @mdb-color;
+  });
+}
+
+
+
+.background-variations(@extra, @default) {
+  .generic-variations(@extra, @default, {
+    background-color: @mdb-color;
+    & when (@mdb-color = @btn-default) {
+      color: @lightbg-text;
+    }
+    & when not (@mdb-color = @btn-default) {
+      color: @mdb-text-color;
+    }
+  });
+}
+
+.text-variations(@extra, @default) {
+  .generic-variations(@extra, @default, {
+    color: @mdb-color;
+  });
+}
+
+
 
 //
 // To use this mixin you should pass a function as final parameter to define
@@ -16,109 +51,110 @@
   @contrast-factor: 40%;
 
   // bootstrap styles
-  &@{extra}, &-default@{extra} {
-    @mdb-color-name: "default";
-    @mdb-color-full-name: @mdb-color-name;
+  &@{extra},
+  &-default@{extra} {
+    //@mdb-color-name: "default";
+    //@mdb-color-full-name: @mdb-color-name;
     @mdb-color: @default;
     @mdb-text-color: @darkbg-text;
     @func();
   }
-  &-black@{extra} {
-    @mdb-color-name: "black";
-    @mdb-color-full-name: @mdb-color-name;
-    @mdb-color: @black;
-    @mdb-text-color: @darkbg-text;
-    @func();
-  }
-  &-white@{extra} {
-    @mdb-color-name: "white";
-    @mdb-color-full-name: @mdb-color-name;
-    @mdb-color: @white;
-    @mdb-text-color: @lightbg-text;
-    @func();
-  }
+  //&-black@{extra} {
+  //  //@mdb-color-name: "black";
+  //  //@mdb-color-full-name: @mdb-color-name;
+  //  @mdb-color: @black;
+  //  @mdb-text-color: @darkbg-text;
+  //  @func();
+  //}
+  //&-white@{extra} {
+  //  //@mdb-color-name: "white";
+  //  //@mdb-color-full-name: @mdb-color-name;
+  //  @mdb-color: @white;
+  //  @mdb-text-color: @lightbg-text;
+  //  @func();
+  //}
   &-inverse@{extra} {
-    @mdb-color-name: "inverse";
-    @mdb-color-full-name: @mdb-color-name;
+    //@mdb-color-name: "inverse";
+    //@mdb-color-full-name: @mdb-color-name;
     @mdb-color: @inverse;
     @mdb-text-color: contrast(@inverse, @lightbg-text, @darkbg-text, @contrast-factor);
     @func();
   }
   &-primary@{extra} {
-    @mdb-color-name: "primary";
-    @mdb-color-full-name: @mdb-color-name;
+    //@mdb-color-name: "primary";
+    //@mdb-color-full-name: @mdb-color-name;
     @mdb-color: @brand-primary;
     @mdb-text-color: @darkbg-text;
     @func();
   }
   &-success@{extra} {
-    @mdb-color-name: "success";
-    @mdb-color-full-name: @mdb-color-name;
+    //@mdb-color-name: "success";
+    //@mdb-color-full-name: @mdb-color-name;
     @mdb-color: @brand-success;
     @mdb-text-color: @darkbg-text;
     @func();
   }
   &-info@{extra} {
-    @mdb-color-name: "info";
-    @mdb-color-full-name: @mdb-color-name;
+    //@mdb-color-name: "info";
+    //@mdb-color-full-name: @mdb-color-name;
     @mdb-color: @brand-info;
     @mdb-text-color: @darkbg-text;
     @func();
   }
   &-warning@{extra} {
-    @mdb-color-name: "warning";
-    @mdb-color-full-name: @mdb-color-name;
+    //@mdb-color-name: "warning";
+    //@mdb-color-full-name: @mdb-color-name;
     @mdb-color: @brand-warning;
     @mdb-text-color: @darkbg-text;
     @func();
   }
   &-danger@{extra} {
-    @mdb-color-name: "danger";
-    @mdb-color-full-name: @mdb-color-name;
+    //@mdb-color-name: "danger";
+    //@mdb-color-full-name: @mdb-color-name;
     @mdb-color: @brand-danger;
     @mdb-text-color: @darkbg-text;
     @func();
   }
 
-  // given a color build multiples dephs
-  .generic-variations-factory(@mdb-color-name) {
-
-    // given a color and its deph build css
-    .generic-variations-factory-deep(@mdb-color-number) {
-
-      &-material-@{mdb-color-name}@{mdb-color-number}@{extra} {
-        @mdb-color-full-name: "@{mdb-color-name}@{mdb-color-number}";
-        @mdb-color: @@mdb-color-full-name;
-        @mdb-text-color: contrast(@mdb-color, @lightbg-text, @darkbg-text, @contrast-factor);
-        @func();
-      }
-
-    }
-
-    .generic-variations-factory-deep(~"");
-  }
-
-  .generic-variations-factory(~"red");
-  .generic-variations-factory(~"pink");
-  .generic-variations-factory(~"purple");
-  .generic-variations-factory(~"deep-purple");
-  .generic-variations-factory(~"indigo");
-  .generic-variations-factory(~"blue");
-  .generic-variations-factory(~"light-blue");
-  .generic-variations-factory(~"cyan");
-  .generic-variations-factory(~"teal");
-  .generic-variations-factory(~"green");
-  .generic-variations-factory(~"light-green");
-  .generic-variations-factory(~"lime");
-  .generic-variations-factory(~"yellow");
-  .generic-variations-factory(~"amber");
-  .generic-variations-factory(~"orange");
-  .generic-variations-factory(~"deep-orange");
-  .generic-variations-factory(~"brown");
-  .generic-variations-factory(~"grey");
-  .generic-variations-factory(~"blue-grey");
+  //// given a color build multiples dephs
+  //.generic-variations-factory(@mdb-color-name) {
+  //
+  //  // given a color and its deph build css
+  //  .generic-variations-factory-deep(@mdb-color-number) {
+  //
+  //    &-material-@{mdb-color-name}@{mdb-color-number}@{extra} {
+  //      @mdb-color-full-name: "@{mdb-color-name}@{mdb-color-number}";
+  //      @mdb-color: @@mdb-color-full-name;
+  //      @mdb-text-color: contrast(@mdb-color, @lightbg-text, @darkbg-text, @contrast-factor);
+  //      @func();
+  //    }
+  //
+  //  }
+  //
+  //  .generic-variations-factory-deep(~"");
+  //}
+  //
+  //.generic-variations-factory(~"red");
+  //.generic-variations-factory(~"pink");
+  //.generic-variations-factory(~"purple");
+  //.generic-variations-factory(~"deep-purple");
+  //.generic-variations-factory(~"indigo");
+  //.generic-variations-factory(~"blue");
+  //.generic-variations-factory(~"light-blue");
+  //.generic-variations-factory(~"cyan");
+  //.generic-variations-factory(~"teal");
+  //.generic-variations-factory(~"green");
+  //.generic-variations-factory(~"light-green");
+  //.generic-variations-factory(~"lime");
+  //.generic-variations-factory(~"yellow");
+  //.generic-variations-factory(~"amber");
+  //.generic-variations-factory(~"orange");
+  //.generic-variations-factory(~"deep-orange");
+  //.generic-variations-factory(~"brown");
+  //.generic-variations-factory(~"grey");
+  //.generic-variations-factory(~"blue-grey");
 
 }
 
 
-@all-variations: ~"-default, -primary, -info, -success, -warning, -danger";
+//@all-variations: ~"-default, -primary, -info, -success, -warning, -danger";
