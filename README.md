@@ -1,5 +1,7 @@
 # bootstrap-material-design
 
+WARNING: THESE DOCS RELATE TO 0.5.0, WHICH IS A SIGNIFICANT CHANGE FROM PREVIOUS VERSIONS.
+
 [![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
 [![gratipay](https://img.shields.io/gratipay/FezVrasta.svg)](https://gratipay.com/FezVrasta)
 [![Bower version](https://badge.fury.io/bo/bootstrap-material-design.svg)](https://github.com/FezVrasta/bootstrap-material-design)
@@ -28,27 +30,10 @@ If you prefer, you can include this framework in your project using our official
 
 ## Getting started
 
-Navigate to the `dist/` folder in this repository, and you will see the `test.html` file, which has the CSS include statements, in the `head` section and the JS includes just before `body` section closes.
-You need to copy the `dist/` folder to the root of your project, ensuring that all the files in your project can access the files through the relative URL, supplied in the CSS and the JS includes.
+TODO: link for font
+TODO: link for icon font
+TODO: link for bmd
 
-### material-fullpalette.css or material.css?
-
-The only difference is that `material-fullpalette.css` has the full colors palette available (large file), the other one has just the primary colors (small file).
-
-### Use custom color as primary
-
-Is often asked how to change the primary color of this theme without edit the bower package directly.
-
-You can do it by creating a less file in your project:
-
-```css
-@import "../bower_components/bootstrap-material-design/less/material.less";
-
-// Override @primary color with one took from _colors.less
-@primary: @deep-purple;
-```    
-
-Then, compiling this file, the entire theme will be compiled using the color chosen by you.
 
 ## Support
 
@@ -84,22 +69,20 @@ The upcoming 4.x version (no branch yet) will be developed using SASS.
 Material Design ([spec](http://www.google.com/design/spec/material-design/introduction.html)) for Bootstrap provides 
 styles for bootstrap based markup to comply with Material Design concepts.
 
-### Color Variations
 
-There are 17 additional color variations (in addition to the classic 4 variations) for buttons, inputs, checkboxes, radios, alerts, navbars, tabs, labels, paginations, progress bars and more.
-They can be used by adding the class suffix `-material-color` to the desired element and replacing `color` with the desired one.
+### Customization
 
-Example:
+#### Colors
 
-```html
-<button class="btn btn-material-deep-purple">Deep purple button</button>
-```
+There are 17 color variations (in addition to the classic 4 variations) described by the Material Design color palette:
 
-These colors are taken from the Material Design color palette and are reported below:
+![palette](docs/assets/img/material-design-color-palette.jpg)
 
-![palette](demo/imgs/palette.jpg)
+##### TODO: Describe variable override via less/sass
+- describe variables, and the well defined material design colors in _colors.less
 
-To take advantage of all the shades please use `material-fullpalette.css`, but please be aware of its huge size.
+##### TODO: Describe customization/compilation of static css 
+
 
 ### Forms
 
