@@ -18,8 +18,8 @@ the preferred channel for [bug reports](#bug-reports), [features requests](#feat
 and [submitting pull requests](#pull-requests), but please respect the following
 restrictions:
 
-* Please **do not** use the issue tracker for personal support requests. Stack
-  Overflow ([`bootstrap-material-design`](https://stackoverflow.com/questions/tagged/bootstrap-material-design) tag) is the best place to get help.
+* Please **do not** use the issue tracker for personal support requests. [Stack
+  Overflow `bootstrap-material-design`](https://stackoverflow.com/questions/tagged/bootstrap-material-design) tag) is the best place to get help.
 
 * Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
@@ -27,6 +27,8 @@ restrictions:
 * Please **do not** open issues or pull requests regarding the code in dependencies such as:
   [`Bootstrap`](https://github.com/twbs/bootstrap) (open them in their respective repositories).
   
+* Please **do not** open issues without clearly stating the problem and desired result. [See the bug reports section](#bug-reports) for more information on creating effective issues.
+
 * Please **close your own issue** once it is resolved.
 
 
