@@ -30,6 +30,13 @@ If you prefer, you can include this framework in your project using our official
 
 ## Getting started
 
+### Add fonts
+To embed Roboto into your web page, copy the code as the first element in the <head> of your HTML document.
+```
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+```
+
 TODO: link for font
 TODO: link for icon font
 TODO: link for bmd
@@ -309,4 +316,4 @@ Currently, Material Design for Bootstrap supports Google Chrome (tested v37+), M
 
 
 ## License
-[MIT License](LICENSE) 
+[MIT License](LICENSE.md) 

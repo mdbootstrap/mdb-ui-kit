@@ -10,8 +10,8 @@
 
 
 // variations(unquote(""), background-color, #FFF);
-@mixin variations($extra, $mdb-param-1, $default) {
-  @include generic-variations($extra, $default, "variations-content", $mdb-param-1);
+@mixin variations($component, $selector-suffix, $mdb-param-1, $color-default) {
+  @include generic-variations($selector-suffix, $color-default, "variations-content", $mdb-param-1);
 }
 
 @mixin variations-content($args) {
@@ -21,8 +21,8 @@
   #{map-get($args, material-param-1)}: map-get($args, material-color);
 }
 
-@mixin background-variations($extra, $default) {
-  @include generic-variations($extra, $default, "background-variations-content", null);
+@mixin background-variations($component, $selector-suffix, $color-default) {
+  @include generic-variations($selector-suffix, $color-default, "background-variations-content", null);
 }
 
 @mixin background-variations-content($args) {
@@ -34,70 +34,73 @@
   }
 }
 
-@mixin text-variations($extra, $default) {
-  @include generic-variations($extra, $default, "text-variations-content", null);
-}
-
-@mixin text-variations-content($args) {
-  color: map-get($args, material-color);
-}
-
-@mixin button-variations($extra, $default, $mdb-param-1) {
-  @include generic-variations($extra, $default, "button-variations-content", $mdb-param-1);
-}
-
-@mixin button-variations-content($args) {
-  //@debug "#{inspect($args)}";
-  $mdb-color: map-get($args, material-color);
-  $mdb-param-1: map-get($args, material-param-1);
-  background-color: contrast-color($mdb-color,
-          darken($mdb-color, $mdb-param-1),
-          lighten($mdb-color, $mdb-param-1));
-}
-
-@mixin bg-color-variations($extra, $default, $mdb-param-1) {
-  @include generic-variations($extra, $default, "bg-color-variations-content", $mdb-param-1);
-}
-
-@mixin bg-color-variations-content($args) {
-  background-color: rgba(map-get($args, material-color), map-get($args, material-param-1));
-}
-
-// bg-box-shadow-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
-@mixin bg-box-shadow-variations($extra, $default) {
-  @include generic-variations($extra, $default, "bg-box-shadow-variations-content", null);
-}
-
-@mixin bg-box-shadow-variations-content($args){
-  $mdb-color: map-get($args, material-color);
-  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba($mdb-color, (10/100));
-}
-
-// bg-img-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
-@mixin bg-img-variations($extra, $default) {
-  @include generic-variations($extra, $default, "bg-img-variations-content", null);
-}
-
-@mixin bg-img-variations-content($args){
-  $mdb-color: map-get($args, material-color);
-  //@debug "bg-img-variations-content called for #{map-get($args, extra)} #{map-get($args, default)} #{map-get($args, material-color-name)} #{map-get($args, material-color)}"; //#{inspect($args)}";
-  background-image: linear-gradient($mdb-color, $mdb-color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
-}
+//@mixin text-variations($component, $selector-suffix, $color-default) {
+//  @include generic-variations($selector-suffix, $color-default, "text-variations-content", null);
+//}
+//
+//@mixin text-variations-content($args) {
+//  color: map-get($args, material-color);
+//}
+//
+//@mixin button-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
+//  @include generic-variations($selector-suffix, $color-default, "button-variations-content", $mdb-param-1);
+//}
+//
+//@mixin button-variations-content($args) {
+//  //@debug "#{inspect($args)}";
+//  $variation-color: map-get($args, material-color);
+//  $mdb-param-1: map-get($args, material-param-1);
+//  background-color: contrast-color($variation-color,
+//          darken($variation-color, $mdb-param-1),
+//          lighten($variation-color, $mdb-param-1));
+//}
+//
+//@mixin bg-color-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
+//  @include generic-variations($selector-suffix, $color-default, "bg-color-variations-content", $mdb-param-1);
+//}
+//
+//@mixin bg-color-variations-content($args) {
+//  background-color: rgba(map-get($args, material-color), map-get($args, material-param-1));
+//}
+//
+//// bg-box-shadow-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
+//@mixin bg-box-shadow-variations($component, $selector-suffix, $color-default) {
+//  @include generic-variations($selector-suffix, $color-default, "bg-box-shadow-variations-content", null);
+//}
+//
+//@mixin bg-box-shadow-variations-content($args){
+//  $variation-color: map-get($args, material-color);
+//  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba($variation-color, (10/100));
+//}
+//
+//// bg-img-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
+//@mixin bg-img-variations($component, $selector-suffix, $color-default) {
+//  @include generic-variations($selector-suffix, $color-default, "bg-img-variations-content", null);
+//}
+//
+//@mixin bg-img-variations-content($args){
+//  $variation-color: map-get($args, material-color);
+//  //@debug "bg-img-variations-content called for #{map-get($args, extra)} #{map-get($args, default)} #{map-get($args, material-color-name)} #{map-get($args, material-color)}"; //#{inspect($args)}";
+//  background-image: linear-gradient($variation-color, $variation-color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
+//}
 
 // navbar-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
-@mixin navbar-variations($extra, $default) {
-  @include generic-variations($extra, $default, "navbar-variations-content", null);
+@mixin navbar-variations($component, $selector-suffix, $color-default) {
+  @include generic-variations($selector-suffix, $color-default, "navbar-variations-content", null);
 }
 
 @mixin navbar-variations-content($args){
-  $mdb-color: map-get($args, material-color);
-  $mdb-text-color: map-get($args, material-text-color);
+  $variation-color: map-get($args, material-color);
+  $variation-color-text: map-get($args, material-text-color);
 
-  background-color: $mdb-color;
-  color: $mdb-text-color;
+  background-color: $variation-color;
+  color: $variation-color-text;
   // deeply defined to override welljumbo class without !impotant need
-  .navbar-form .form-group input.form-control::placeholder, .navbar-form input.form-control::placeholder {
-    color: $mdb-text-color;
+  .navbar-form .form-group input.form-control,
+  .navbar-form input.form-control {
+    @include material-placeholder {
+      color: $variation-color-text;
+    }
   }
   .dropdown-menu {
     border-radius: $mdb-dropdown-radius;
@@ -106,35 +109,35 @@
       padding: 13px 16px;
       &:hover,
       &:focus {
-        color: $mdb-color;
+        color: $variation-color;
         background-color: $grey-200;
       }
     }
     .active > a {
       &:hover,
       &:focus {
-        color: $mdb-text-color;
+        color: $variation-color-text;
       }
-      background-color: $mdb-color;
-      color: $mdb-text-color;
+      background-color: $variation-color;
+      color: $variation-color-text;
     }
   }
 }
 
 // alert-variations("", $brand-primary)
-@mixin alert-variations($extra, $default) {
-  @include generic-variations($extra, $default, "alert-variations-content", null);
+@mixin alert-variations($component, $selector-suffix, $color-default) {
+  @include generic-variations($component, $selector-suffix, $color-default, "alert-variations-content", null);
 }
 
 @mixin alert-variations-content($args){
-  $mdb-color: map-get($args, material-color);
-  $mdb-text-color: map-get($args, material-text-color);
+  $variation-color: map-get($args, material-color);
+  $variation-color-text: map-get($args, material-text-color);
 
-  background-color: $mdb-color;
-  color: $mdb-text-color;
+  background-color: $variation-color;
+  color: $variation-color-text;
 
   a, .alert-link {
-    color: $mdb-text-color;
+    color: $variation-color-text;
   }
 }
 
@@ -168,62 +171,44 @@
 // To use this mixin you should pass a function as final parameter to define
 // the style. In that definition you can use the following variables to define it.
 //
-// $mdb-color-name ---> "red", "green", "indigo" ...
-// $mdb-color-full-name ---> "red", "green-50", "indigo-400" ...
-// $mdb-color ---> #f44336, #e8f5e9, #5c6bc0 ...
-// $mdb-text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
+// $variation-color-name ---> "red", "green", "indigo" ...
+// $variation-color-full-name ---> "red", "green-50", "indigo-400" ...
+// $variation-color ---> #f44336, #e8f5e9, #5c6bc0 ...
+// $variation-color-text ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
 //
 
-@mixin generic-variations($extra, $default, $mixin-name, $mdb-param-1) {
+@mixin generic-variations($component, $selector-suffix, $color-default, $mixin-name, $mdb-param-1) {
 
   //setup map to pass parameters (instead of the incredibly long-error-prone list for each and every @include)
   $args: (
-          //extra: $extra,
-          //default: $default,
+          //extra: $selector-suffix,
+          //default: $color-default,
           mixin-name: $mixin-name,
           material-param-1: $mdb-param-1
   );
 
   // bootstrap styles
-  &#{$extra},
-  &-default#{$extra} {
+  //&#{$selector-suffix},
+  &#{$component}-default#{$selector-suffix} {
 
     $args-extra: map-merge($args, (
             //material-color-name: "default",
             //material-color-full-name: "default",
-            material-color: $default,
+            material-color: $color-default,
             material-text-color: $darkbg-text
     ));
     @include call-variations-content-mixin($args-extra);
   }
-  //&-black#{$extra} {
-  //  $args-black: map-merge($args, (
-  //          //material-color-name: "black",
-  //          //material-color-full-name: "black",
-  //          material-color: $black,
-  //          material-text-color: $darkbg-text
-  //  ));
-  //  @include call-variations-content-mixin($args-black);
-  //}
-  //&-white#{$extra} {
-  //  $args-white: map-merge($args, (
-  //          //material-color-name: "white",
-  //          //material-color-full-name: "white",
-  //          material-color: $white,
-  //          material-text-color: $lightbg-text
-  //  ));
-  //  @include call-variations-content-mixin($args-white);
-  //}
-  &-inverse#{$extra} {
+  &#{$component}-inverse#{$selector-suffix} {
     $args-inverse: map-merge($args, (
             //material-color-name: "inverse",
             //material-color-full-name: "inverse",
-            material-color: $inverse,
-            material-text-color: contrast-color($inverse, $lightbg-text, $darkbg-text)
+            material-color: $mdb-brand-inverse,
+            material-text-color: contrast-color($mdb-brand-inverse, $lightbg-text, $darkbg-text)
     ));
     @include call-variations-content-mixin($args-inverse);
   }
-  &-primary#{$extra} {
+  &#{$component}-primary#{$selector-suffix} {
     $args-primary: map-merge($args, (
             //material-color-name: "primary",
             //material-color-full-name: "primary",
@@ -232,7 +217,7 @@
     ));
     @include call-variations-content-mixin($args-primary);
   }
-  &-success#{$extra} {
+  &#{$component}-success#{$selector-suffix} {
     $args-success: map-merge($args, (
             //material-color-name: "success",
             //material-color-full-name: "success",
@@ -241,7 +226,7 @@
     ));
     @include call-variations-content-mixin($args-success);
   }
-  &-info#{$extra} {
+  &#{$component}-info#{$selector-suffix} {
     $args-info: map-merge($args, (
             //material-color-name: "info",
             //material-color-full-name: "info",
@@ -250,7 +235,7 @@
     ));
     @include call-variations-content-mixin($args-info);
   }
-  &-warning#{$extra} {
+  &#{$component}-warning#{$selector-suffix} {
     $args-warning: map-merge($args, (
             //material-color-name: "warning",
             //material-color-full-name: "warning",
@@ -259,7 +244,7 @@
     ));
     @include call-variations-content-mixin($args-warning);
   }
-  &-danger#{$extra} {
+  &#{$component}-danger#{$selector-suffix} {
     $args-danger: map-merge($args, (
             //material-color-name: "danger",
             //material-color-full-name: "danger",

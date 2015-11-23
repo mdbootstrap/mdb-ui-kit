@@ -3,22 +3,22 @@
     border-radius: 0;
 
     // SASS conversion note: please mirror any content change in _mixins-shared.scss alert-variations-content
-    .generic-variations(~"", @darkbg-text, {
-        background-color: @mdb-color;
-        color: @mdb-text-color;
+    .generic-variations(~".alert", ~"", @mdb-text-color-light, {
+        background-color: @variation-color;
+        color: @variation-color-text;
 
         a, .alert-link {
-            color: @mdb-text-color;
+            color: @variation-color-text;
         }
     });
 
     &-info, &-danger, &-warning, &-success {
-        color: @darkbg-text;
+        color: @mdb-text-color-light;
     }
 
     &-default {
         a, .alert-link {
-            color: @lightbg-text;
+            color: @mdb-text-color-primary;
         }
     }
 }
