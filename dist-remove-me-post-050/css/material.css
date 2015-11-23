@@ -3750,8 +3750,8 @@ body .jumbotron-material-blue-grey,
 }
 .btn.btn-fab,
 .input-group-btn .btn.btn-fab,
-.btn.btn-fab .ripple-wrapper,
-.input-group-btn .btn.btn-fab .ripple-wrapper {
+.btn.btn-fab .ripple-container,
+.input-group-btn .btn.btn-fab .ripple-container {
   border-radius: 100%;
 }
 .btn.btn-fab.btn-fab-mini,

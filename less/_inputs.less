@@ -1,5 +1,11 @@
 @import '_inputs-size.less';
 
+// label variations
+.label {
+  border-radius: 1px;
+  .variations(~".label", ~"", background-color, @grey);
+}
+
 // must be broken out for reuse - webkit selector breaks firefox
 .label-static(@label-top, @static-font-size, @static-line-height) {
   label.control-label {
@@ -184,6 +190,12 @@
     }
   }
 
+  // hint to browser for optimization
+  //    TODO: evaluate effectiveness - looking for community feedback
+  &.label-floating label.control-label {
+    will-change: left, top, contents;
+  }
+
   // hide label-placeholders when the field is not empty
   &.label-placeholder:not(.is-empty){
     label.control-label{
@@ -229,11 +241,6 @@
       display: block;
     }
   }
-
-  // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-img-variations-content
-  .generic-variations(~".is-focused .form-control", @brand-primary, {
-    background-image: linear-gradient(@mdb-color, @mdb-color), linear-gradient(@mdb-input-underline-color, @mdb-input-underline-color);
-  });
 
   .form-group-validation-state(has-warning, @brand-warning);
   .form-group-validation-state(has-error, @brand-danger);

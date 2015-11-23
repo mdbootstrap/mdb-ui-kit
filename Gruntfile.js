@@ -217,8 +217,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: "sass",
-          //src: ['material.scss', 'material-fullpalette.scss', 'ripples.scss', 'roboto.scss'],
-          src: ["bootstrap-material-design.scss", "roboto.scss", "ripples.scss"],
+          src: ["bootstrap-material-design.scss", "ripples.scss"],
           dest: "dist/sassc", // added to gitignore, only used for local testing
           ext: ".css"
         }]
@@ -239,19 +238,6 @@ module.exports = function (grunt) {
         },
         files: {
           "dist/css/bootstrap-material-design.css": "less/bootstrap-material-design.less",
-        }
-      },
-      roboto: {
-        options: {
-          paths: ["less"],
-          sourceMap: true,
-          sourceMapRootpath: "/",
-          sourceMapFilename: "dist/css/roboto.css.map",
-          sourceMapURL: "roboto.css.map",
-          outputSourceFiles: true
-        },
-        files: {
-          "dist/css/roboto.css": "less/roboto.less",
         }
       },
       ripples: {
@@ -293,11 +279,6 @@ module.exports = function (grunt) {
           "dist/css/bootstrap-material-design.css": "dist/css/bootstrap-material-design.css"
         }
       },
-      roboto: {
-        files: {
-          "dist/css/roboto.css": "dist/css/roboto.css"
-        }
-      },
       ripples: {
         files: {
           "dist/css/ripples.css": "dist/css/ripples.css"
@@ -321,12 +302,10 @@ module.exports = function (grunt) {
       dist: [
         'dist/css/bootstrap-material-design.css',
         'dist/css/ripples.css',
-        'dist/css/roboto.css'
       ],
       distmin: [
         'dist/css/bootstrap-material-design.min.css',
         'dist/css/ripples.min.css',
-        'dist/css/roboto.min.css'
       ],
       examples: [
         'docs/examples/**/*.css'
@@ -353,10 +332,6 @@ module.exports = function (grunt) {
       material: {
         src: "dist/css/bootstrap-material-design.css",
         dest: "dist/css/bootstrap-material-design.min.css"
-      },
-      roboto: {
-        src: "dist/css/roboto.css",
-        dest: "dist/css/roboto.min.css"
       },
       ripples: {
         src: "dist/css/ripples.css",
@@ -608,7 +583,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('less-compile', [
     "less:material",
-    "less:roboto",
     "less:ripples"
   ]);
 
@@ -616,11 +590,9 @@ module.exports = function (grunt) {
     "less-compile",
 
     "autoprefixer:material",
-    "autoprefixer:roboto",
     "autoprefixer:ripples",
     //"csslint:dist",
     "cssmin:material",
-    "cssmin:roboto",
     "cssmin:ripples",
     //"csslint:distmin"
   ]);

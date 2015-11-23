@@ -1,17 +1,16 @@
 @import "_colors.less";
 
-// Material Global vars
-@zero: 0;
+// Paths
+@mdb-dependency-packages: "../bower_components";
 
+// Typography elements
 @mdb-font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-
-// material icons path
-@mdb-font-path: "../fonts";
-
-// Typography elements for Material
-@darkbg-text: rgba(255,255,255,0.84);
-@lightbg-text: rgba(0,0,0,0.84);
+@mdb-text-color-light:  ~"rgba(@{rgb-white}, 0.84)";
+@mdb-text-color-light-hex: @white; // for contrast function in inverse
+@mdb-text-color-primary: ~"rgba(@{rgb-black}, 0.87)";
+@mdb-text-color-primary-hex: @black; // for contrast function in inverse
 @icon-color: rgba(0,0,0,0.5);
+
 
 // import bs variables for less, last declared wins.
 @import "_import-bs-less.less";
@@ -26,22 +25,35 @@
 @brand-warning: @deep-orange;
 @brand-info: @light-blue;
 
+// Typography
+@font-family-sans-serif: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+@headings-font-weight: 300;
+
 @body-bg: #EEEEEE;
 //---
 
 // import bs variables for sass, first declared wins.
 @import "_import-bs-sass.less";
 
+// Bootstrap Material Design variables start with mdb-
+@mdb-brand-inverse: @indigo;
+
+
+/* ANIMATION */
+@mdb-animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1);
+@mdb-animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
+@mdb-animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1);
+@mdb-animation-curve-default: @mdb-animation-curve-fast-out-slow-in;
+
+
 //---
 // FIXME: Similar but not quite the same as Bootstrap variables
 // FIXME: these need to either a) be converted to @mdb- or b) converted to bs variables
 @contrast-factor: 40%;
-@btn-default: transparent;
-@btn-default-text: @lightbg-text;
 //---
 
 
-@mdb-radio-default: @lightbg-text;
+@mdb-radio-default: @mdb-text-color-primary;
 @mdb-border-radius: 2px;
 
 // --------------------
@@ -98,7 +110,7 @@
 
 
 // Card
-@mdb-card-body-text: @lightbg-text;
+@mdb-card-body-text: @mdb-text-color-primary;
 @mdb-card-body-background: #fff;
 @mdb-card-image-headline: #fff;
 
@@ -127,3 +139,23 @@
 // Radio:
 @mdb-radio-label-color: @mdb-checkbox-label-color;
 @mdb-radio-border-color: @mdb-checkbox-border-color;
+
+// Buttons:
+@mdb-btn-background-color: transparent;
+@mdb-btn-background-color-text: @mdb-text-color-primary;
+
+
+@mdl-btn-border-radus: 2px;
+@mdb-btn-primary-color: ~"rgba(@{rgb-grey-500}, 0.20)";
+
+@mdb-btn-fab-size: 56px;
+@mdb-btn-fab-size-mini: 40px;
+@mdb-btn-fab-font-size: 24px;
+
+@mdb-btn-icon-size: 32px;
+@mdb-btn-icon-size-mini: 24px;
+
+/* SHADOWS */
+@mdb-shadow-key-umbra-opacity: 0.2;
+@mdb-shadow-key-penumbra-opacity: 0.14;
+@mdb-shadow-ambient-shadow-opacity: 0.12;

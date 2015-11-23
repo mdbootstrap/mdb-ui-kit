@@ -29,7 +29,7 @@
       display: block;
       position: absolute;
       content: "";
-      background-color: @lightbg-text;
+      background-color: @mdb-text-color-primary;
       left: -18px;
       top: -18px;
       height: 50px;
@@ -48,8 +48,14 @@
     }
 
   }
-  .variations(~" input[type=radio]:checked ~ .check", background-color, @mdb-radio-default);
-  .variations(~" input[type=radio]:checked ~ .circle", border-color, @mdb-radio-default);
+  & input[type=radio]:checked {
+    & ~ .check {
+      background-color: @mdb-radio-default;
+    }
+    & ~ .circle {
+      border-color: @mdb-radio-default;
+    }
+  }
 
   input[type=radio][disabled] ~ .check,
   input[type=radio][disabled] ~ .circle {
@@ -66,10 +72,10 @@
     transform: scale3d(0.55, 0.55, 1);
   }
   input[type=radio][disabled] ~ .circle {
-    border-color: @lightbg-text;
+    border-color: @mdb-text-color-primary;
   }
   input[type=radio][disabled] ~ .check {
-    background-color: @lightbg-text;
+    background-color: @mdb-text-color-primary;
   }
 }
 
