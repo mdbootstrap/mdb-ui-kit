@@ -505,7 +505,7 @@
 
         <fieldset disabled>
 
-          <h3>Flat buttons <small>default - no class needed</small></h3>
+          <h3><small>flat - default - no class needed</small></h3>
           <p class="bs-component">
             <a href="javascript:void(0)" class="btn"><code>btn</code> only</a>
             <a href="javascript:void(0)" class="btn active"><code>.active</code></a>
@@ -519,7 +519,7 @@
           </p>
 
 
-          <h3>Raised buttons <small><code>.btn-raised</code></small></h3>
+          <h3><small><code>.btn-raised</code></small></h3>
           <p class="bs-component">
             <a href="javascript:void(0)" class="btn btn-raised active"><code>.active</code></a>
             <a href="javascript:void(0)" class="btn btn-raised btn-default">Default</a>
@@ -531,14 +531,51 @@
             <a href="javascript:void(0)" class="btn btn-raised btn-link">Link</a>
           </p>
         </fieldset>
+        
+        <h3>Button sizes</h3>
+
+        <p class="bs-component">
+          <a href="javascript:void(0)" class="btn btn-primary btn-lg">Large button</a>
+          <a href="javascript:void(0)" class="btn btn-primary">Default button</a>
+          <a href="javascript:void(0)" class="btn btn-primary btn-sm">Small button</a>
+          <a href="javascript:void(0)" class="btn btn-primary btn-xs">Mini button</a>
+        </p>
+
+        <h3>Floating action buttons</h3>
+        <p class="bs-component">
+          <a href="javascript:void(0)" class="btn btn-default btn-fab btn-raised "><i class="material-icons">grade</i></a>
+          <a href="javascript:void(0)" class="btn btn-primary btn-fab btn-raised "><i class="material-icons">grade</i></a>
+          <a href="javascript:void(0)" class="btn btn-success btn-fab btn-raised "><i class="material-icons">grade</i></a>
+          <a href="javascript:void(0)" class="btn btn-info btn-fab btn-raised "><i class="material-icons">grade</i></a>
+          <a href="javascript:void(0)" class="btn btn-warning btn-fab btn-raised "><i class="material-icons">grade</i></a>
+          <a href="javascript:void(0)" class="btn btn-danger btn-fab btn-raised "><i class="material-icons">grade</i></a>
+        </p>
+
+      </div>
+      <div class="col-md-6">
+        <h2>Group variations with <small><code>.btn-raised</code></small></h2>
 
         <h3>Button groups</h3>
-
         <div style="margin-bottom: 15px;">
           <div class="btn-toolbar bs-component" style="margin: 0;">
+
             <div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn-default">Default</a>
-              <a href="bootstrap-elements.html" data-target="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+              <a href="javascript:void(0)" class="btn">btn only</a>
+              <a href="bootstrap-elements.html" data-target="#" class="btn dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="javascript:void(0)">Action</a></li>
+                <li><a href="javascript:void(0)">Another action</a></li>
+                <li><a href="javascript:void(0)">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="javascript:void(0)">Separated link</a></li>
+              </ul>
+            </div>
+
+
+
+            <div class="btn-group">
+              <a href="javascript:void(0)" class="btn btn-default btn-raised">Default raised</a>
+              <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="javascript:void(0)">Action</a></li>
                 <li><a href="javascript:void(0)">Another action</a></li>
@@ -549,8 +586,8 @@
             </div>
 
             <div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn-primary">Primary</a>
-              <a href="bootstrap-elements.html" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+              <a href="javascript:void(0)" class="btn btn-primary btn-raised">Primary raised</a>
+              <a href="bootstrap-elements.html" data-target="#" class="btn btn-primary btn-raised dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="javascript:void(0)">Action</a></li>
                 <li><a href="javascript:void(0)">Another action</a></li>
@@ -609,62 +646,45 @@
             </div>
           </div>
         </div>
-
-        <h3>Button sizes</h3>
-
+        
+        
+        
+        <h3><small><code>btn-lg.btn-block.btn-raised</code></small></h3>
         <p class="bs-component">
-          <a href="javascript:void(0)" class="btn btn-primary btn-lg">Large button</a>
-          <a href="javascript:void(0)" class="btn btn-primary">Default button</a>
-          <a href="javascript:void(0)" class="btn btn-primary btn-sm">Small button</a>
-          <a href="javascript:void(0)" class="btn btn-primary btn-xs">Mini button</a>
-        </p>
-
-        <h3>Floating action buttons</h3>
-        <p class="bs-component">
-          <a href="javascript:void(0)" class="btn btn-default btn-fab btn-raised "><i class="material-icons">grade</i></a>
-          <a href="javascript:void(0)" class="btn btn-primary btn-fab btn-raised "><i class="material-icons">grade</i></a>
-          <a href="javascript:void(0)" class="btn btn-success btn-fab btn-raised "><i class="material-icons">grade</i></a>
-          <a href="javascript:void(0)" class="btn btn-info btn-fab btn-raised "><i class="material-icons">grade</i></a>
-          <a href="javascript:void(0)" class="btn btn-warning btn-fab btn-raised "><i class="material-icons">grade</i></a>
-          <a href="javascript:void(0)" class="btn btn-danger btn-fab btn-raised "><i class="material-icons">grade</i></a>
-        </p>
-
-      </div>
-      <div class="col-md-6">
-
-        <p class="bs-component">
-          <a href="javascript:void(0)" class="btn btn-default btn-lg btn-block">Block level button</a>
+          <a href="javascript:void(0)" class="btn btn-default btn-lg btn-block btn-raised">Block level button</a>
         </p>
 
 
         <div class="bs-component" style="margin-bottom: 15px;">
-          <div class="btn-group btn-group-justified">
-            <a href="javascript:void(0)" class="btn btn-default">Left</a>
-            <a href="javascript:void(0)" class="btn btn-default">Middle</a>
-            <a href="javascript:void(0)" class="btn btn-default">Right</a>
+          <h3><small><code>btn-group.btn-group-justified.btn-group-raised</code></small></h3>
+          <div class="btn-group btn-group-justified btn-group-raised">
+            <a href="javascript:void(0)" class="btn ">Left</a>
+            <a href="javascript:void(0)" class="btn ">Middle</a>
+            <a href="javascript:void(0)" class="btn ">Right</a>
           </div>
         </div>
 
         <div class="bs-component" style="margin-bottom: 15px;">
+          <h3><small><code>btn-toolbar</code></small></h3>
           <div class="btn-toolbar">
             <div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn-default">1</a>
-              <a href="javascript:void(0)" class="btn btn-default">2</a>
-              <a href="javascript:void(0)" class="btn btn-default">3</a>
-              <a href="javascript:void(0)" class="btn btn-default">4</a>
+              <a href="javascript:void(0)" class="btn">1</a>
+              <a href="javascript:void(0)" class="btn">2</a>
+              <a href="javascript:void(0)" class="btn">3</a>
+              <a href="javascript:void(0)" class="btn">4</a>
             </div>
 
             <div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn-default">5</a>
-              <a href="javascript:void(0)" class="btn btn-default">6</a>
-              <a href="javascript:void(0)" class="btn btn-default">7</a>
+              <a href="javascript:void(0)" class="btn btn-raised">5</a>
+              <a href="javascript:void(0)" class="btn btn-raised">6</a>
+              <a href="javascript:void(0)" class="btn btn-raised">7</a>
             </div>
 
             <div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn-default">8</a>
+              <a href="javascript:void(0)" class="btn btn-raised">8</a>
 
               <div class="btn-group">
-                <a href="bootstrap-elements.html" data-target="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <a href="bootstrap-elements.html" data-target="#" class="btn btn-raised dropdown-toggle" data-toggle="dropdown">
                   Dropdown
                   <span class="caret"></span>
                 </a>
@@ -679,14 +699,16 @@
         </div>
 
         <div class="bs-component">
+          <h3><small><code>.btn-group-vertical</code></small></h3>
           <div class="btn-group-vertical">
-            <a href="javascript:void(0)" class="btn btn-default">Button</a>
-            <a href="javascript:void(0)" class="btn btn-default">Button</a>
-            <a href="javascript:void(0)" class="btn btn-default">Button</a>
-            <a href="javascript:void(0)" class="btn btn-default">Button</a>
+            <a href="javascript:void(0)" class="btn btn-raised">Button</a>
+            <a href="javascript:void(0)" class="btn btn-raised">Button</a>
+            <a href="javascript:void(0)" class="btn btn-raised">Button</a>
+            <a href="javascript:void(0)" class="btn btn-raised">Button</a>
           </div>
         </div>
 
+        
       </div>
     </div>
   </div>
