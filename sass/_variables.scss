@@ -55,8 +55,6 @@ $contrast-factor: 40% !default;
 //---
 
 
-$mdb-radio-default: $mdb-text-color-primary !default;
-
 // --------------------
 // inputs
 $mdb-input-placeholder-color: #BDBDBD !default;
@@ -78,22 +76,22 @@ $mdb-input-line-height-small:         1.5 !default;
 
 //## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
 $mdb-input-padding-base-vertical:     8px - 1px !default; // was 6.
-$mdb-input-padding-base-horizontal:   0px !default; // was 12.
-$mdb-label-as-placeholder-shim-base:  0px !default; // manual adjustment of label top when positioned as placeholder
+$mdb-input-padding-base-horizontal:   0 !default; // was 12.
+$mdb-label-as-placeholder-shim-base:  0 !default; // manual adjustment of label top when positioned as placeholder
 $mdb-label-top-margin-base:           16px !default;
 
 $mdb-input-padding-large-vertical:    10px - 1px !default; // 10
-$mdb-input-padding-large-horizontal:  0px !default;  // 16
+$mdb-input-padding-large-horizontal:  0 !default;  // 16
 $mdb-label-as-placeholder-shim-large: -4px !default; // manual adjustment of label top when positioned as placeholder
 $mdb-label-top-margin-large:          16px !default;
 
 $mdb-input-padding-small-vertical:    4px - 1px !default; // 5
-$mdb-input-padding-small-horizontal:  0px !default; // 10
+$mdb-input-padding-small-horizontal:  0 !default; // 10
 $mdb-label-as-placeholder-shim-small: 8px !default; // manual adjustment of label top when positioned as placeholder
 $mdb-label-top-margin-small:          12px !default;
 
 $mdb-input-padding-xs-vertical:       2px !default; // 1
-$mdb-input-padding-xs-horizontal:     0px !default; // 5
+$mdb-input-padding-xs-horizontal:     0 !default; // 5
 
 $mdb-input-border-radius-base:        0 !default;
 $mdb-input-border-radius-large:       0 !default;
@@ -138,7 +136,8 @@ $mdb-toggle-label-color: $mdb-checkbox-label-color !default;
 
 // Radio:
 $mdb-radio-label-color: $mdb-checkbox-label-color !default;
-$mdb-radio-border-color: $mdb-checkbox-border-color !default;
+$mdb-radio-color-off: $mdb-checkbox-border-color !default;
+$mdb-radio-color-on: $brand-primary !default;
 
 // Buttons:
 $mdb-btn-font-size-base: 14px !default;

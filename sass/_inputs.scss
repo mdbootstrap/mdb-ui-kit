@@ -53,7 +53,7 @@
   }
 
   .help-block {
-    margin-top: 0px; // allow the input margin to set-off the top of the help-block
+    margin-top: 0; // allow the input margin to set-off the top of the help-block
     font-size: $help-block-font-size;
   }
 }

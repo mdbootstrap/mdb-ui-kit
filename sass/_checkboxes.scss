@@ -91,7 +91,7 @@
         color: $mdb-checkbox-checked-color;
         box-shadow: 0 0 0 10px,
           10px -10px 0 10px,
-        32px 0px 0 20px,
+        32px 0 0 20px,
         0px 32px 0 20px,
         -5px 5px 0 10px,
           20px -12px 0 11px;
@@ -139,7 +139,7 @@
     box-shadow:
       0 0 0 10px,
       10px -10px 0 10px,
-      32px 0px 0 20px,
+      32px 0 0 20px,
       0px 32px 0 20px,
       -5px 5px 0 10px,
       15px 2px 0 11px;
@@ -148,7 +148,7 @@
     box-shadow:
       0 0 0 10px,
       10px -10px 0 10px,
-      32px 0px 0 20px,
+      32px 0 0 20px,
       0px 32px 0 20px,
       -5px 5px 0 10px,
       20px 2px 0 11px;
@@ -157,7 +157,7 @@
     box-shadow:
       0 0 0 10px,
       10px -10px 0 10px,
-      32px 0px 0 20px,
+      32px 0 0 20px,
       0px 32px 0 20px,
       -5px 5px 0 10px,
       20px -12px 0 11px;
@@ -168,7 +168,7 @@
     box-shadow:
       0 0 0 10px,
       10px -10px 0 10px,
-      32px 0px 0 20px,
+      32px 0 0 20px,
       0px 32px 0 20px,
       -5px 5px 0 10px,
       20px -12px 0 11px,
@@ -179,7 +179,7 @@
     box-shadow:
       0 0 0 10px,
       10px -10px 0 10px,
-      32px 0px 0 20px,
+      32px 0 0 20px,
       0px 32px 0 20px,
       -5px 5px 0 10px,
       20px -12px 0 11px,
@@ -189,12 +189,12 @@
     transform: rotate(45deg);
     margin-top: -4px;
     margin-left: 6px;
-    width: 0px;
-    height: 0px;
+    width: 0;
+    height: 0;
     box-shadow:
       0 0 0 10px,
       10px -10px 0 10px,
-      32px 0px 0 20px,
+      32px 0 0 20px,
       0px 32px 0 20px,
       -5px 5px 0 10px,
       15px 2px 0 11px,
@@ -213,7 +213,7 @@
       0 0 0 0,
       0 0 0 0,
       0 0 0 0,
-      0px 0px 0 10px inset;
+      0px 0 0 10px inset;
   }
   100% {
     transform: rotate(0deg);
@@ -228,7 +228,7 @@
       0 0 0 0,
       0 0 0 0,
       0 0 0 0,
-      0px 0px 0 0px inset;
+      0px 0 0 0 inset;
   }
 }
 @keyframes rippleOn {
