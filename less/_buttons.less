@@ -62,6 +62,7 @@
 
     &:not(.btn-link) {
       .shadow-2dp();
+
       &:hover {
 
         // Spec:
@@ -160,20 +161,36 @@
   i.material-icons {
     vertical-align: middle;
   }
+}
 
-  // Disabled text
-  // Spec:
-  //  - light theme: Disabled text: 26% #000000
-  //  - dark theme: Disabled text: 30% #FFFFFF
-  fieldset[disabled] &,
+// Disabled buttons and button groups
+.btn,
+.input-group-btn .btn,
+.btn-group {
+  // have to ratchet up the specificity to kill drop shadows on disabled raised buttons
+  fieldset[disabled][disabled] &,
   &.disabled,
-  &:disabled {
+  &:disabled,
+  &[disabled][disabled] {
+    // spec: light theme: Disabled text: 26% #000000
     color: fade(#000000, 26%);
     .theme-dark & {
+      // spec: dark theme: Disabled text: 30% #FFFFFF
       color: fade(#FFFFFF, 30%);
     }
 
     background: transparent;
+
+    // no box-shadow on disabled
+    &.btn-raised,
+    &.btn-group-raised {
+      &,
+      &.active,
+      &:active,
+      &:focus:not(:active) {
+        box-shadow: none;
+      }
+    }
   }
 }
 
@@ -203,7 +220,7 @@
     .shadow-2dp();
   }
 
-  & .btn+.btn,
+  & .btn + .btn,
   .btn,
   .btn:active,
   .btn-group {
