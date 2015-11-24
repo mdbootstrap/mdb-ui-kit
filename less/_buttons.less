@@ -1,15 +1,7 @@
 // specification: https://www.google.com/design/spec/components/buttons.html
 
-//.btn-shadow() {
-//  .shadow-z-1();
-//  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-//  &:active:not(.btn-link) {
-//    .shadow-z-1-hover();
-//  }
-//}
-
 .typo-button(@colorContrast: false) {
-  font-size: 14px;
+  font-size: @mdb-btn-font-size-base;
   font-weight: 500;
   text-transform: uppercase;
   //line-height: 1;
@@ -63,7 +55,8 @@
     }
   }
 
-  // **raised** only styles (we are raised buttons by default)
+  //---
+  // btn-raised
   &.btn-raised {
     .background-variations(~".btn", ~"", @mdb-btn-background-color);
 
@@ -95,17 +88,20 @@
   }
 
   // Size variations
-  &.btn-sm {
+  &.btn-lg,
+  .btn-group-lg & {
+    font-size: @mdb-btn-font-size-lg;
+  }
+  &.btn-sm,
+  .btn-group-sm & {
     padding: 5px 20px;
+    font-size: @mdb-btn-font-size-sm;
   }
-  &.btn-xs {
+  &.btn-xs,
+  .btn-group-xs & {
     padding: 4px 15px;
-    font-size: 10px;
+    font-size: @mdb-btn-font-size-xs;
   }
-
-  //&.btn-raised {
-  //  .btn-shadow();
-  //}
 
   &.btn-fab {
     border-radius: 50%;
