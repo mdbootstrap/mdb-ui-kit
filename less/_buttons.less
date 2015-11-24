@@ -25,7 +25,7 @@
 .btn,
 .input-group-btn .btn {
   border: none;
-  border-radius: @mdl-btn-border-radus;
+  border-radius: @border-radius-base;
   position: relative;
   padding: 8px 30px;
   margin: 10px 1px;
@@ -41,7 +41,6 @@
   &::-moz-focus-inner {
     border: 0;
   }
-
 
   //---
   // btn-flat
@@ -94,33 +93,6 @@
       }
     }
   }
-
-  //&:not(.btn-link):not(.btn-flat) {
-  //  background-color: @mdb-btn-background-color;
-  //  color: @mdb-text-color-primary;
-  //
-  //  &:not(.btn-fab) {
-  //    &:hover {
-  //      .shadow-z-1();
-  //    }
-  //    &:active {
-  //      .shadow-z-1-hover();
-  //    }
-  //  }
-  //}
-
-  //transition: background-color 0.2s ease, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-  //outline: none !important;
-
-  //.btn-flat:not(.btn-link){
-  //  color: @mdb-text-color-primary;
-  //}
-
-  //// BTN flat hover effect
-  //// SASS conversion note: please mirror any content change in _mixins-shared.scss bg-color-variations-content
-  //.generic-variations(~".btn-flat:hover:not(.btn-link)", @mdb-btn-background-color, {
-  //  background-color: fade(@variation-color, 20%);
-  //});
 
   // Size variations
   &.btn-sm {
@@ -204,46 +176,41 @@
     .theme-dark & {
       color: fade(#FFFFFF, 30%);
     }
+
+    background: transparent;
   }
 }
 
-// This is needed to style buttons which has not a variation suffix (they must be stiled as btn-default)
-//.btn-link,
-//.btn:not([class*="btn-"]),
-//.btn-default {
-//  color: @mdb-text-color-primary;
-//  &:hover {
-//    color: @mdb-text-color-primary;
-//  }
-//}
-//.btn:not([class*="btn-"]), .btn-default, .btn-flat:not(.btn-link) {
-//  &:hover, &.active {
-//    background-color: rgba(255,255,255,0.5);
-//  }
-//}
-//.open > .dropdown-toggle.btn {
-//  .variations(~"", background-color, @mdb-btn-background-color);
-//}
-//.btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
-//  margin-left: 0;
-//}
-//.btn-group, .btn-group-vertical {
-//  position: relative;
-//  border-radius: 2px;
-//  margin: 10px 1px;
-//
-//  .btn-shadow();
-//  &.open .dropdown-toggle {
-//    box-shadow: none;
-//  }
-//  &.btn-group-raised {
-//    .btn-shadow();
-//  }
-//  .btn, .btn:active, .btn-group {
-//    box-shadow: none !important;
-//    margin: 0;
-//  }
-//}
-//.btn-group-flat {
-//  box-shadow: none !important;
-//}
+// btn-group variations
+.btn-group,
+.btn-group-vertical {
+
+  position: relative;
+  //border-radius: 2px;
+  margin: 10px 1px;
+
+  &.open {
+    .dropdown-toggle {
+      //box-shadow: none;
+    }
+
+    & > .dropdown-toggle.btn {
+      .variations(~".btn", ~"", background-color, @mdb-btn-background-color);
+    }
+  }
+
+  .dropdown-menu {
+    border-radius: 0 0 @border-radius-base @border-radius-base;
+  }
+
+  &.btn-group-raised {
+    .shadow-2dp();
+  }
+
+  & .btn+.btn,
+  .btn,
+  .btn:active,
+  .btn-group {
+    margin: 0;
+  }
+}
