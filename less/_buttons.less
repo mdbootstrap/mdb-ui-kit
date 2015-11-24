@@ -1,3 +1,5 @@
+// specification: https://www.google.com/design/spec/components/buttons.html
+
 //.btn-shadow() {
 //  .shadow-z-1();
 //  transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -18,11 +20,10 @@
   }
 }
 
-// mdb default buttons are _not_ flat, but colored.
+// mdb default buttons are flat by default
+// synchronized with mdl 11/23/15
 .btn,
 .input-group-btn .btn {
-
-  .background-variations(~".btn", ~"", @mdb-btn-background-color);
   border: none;
   border-radius: @mdl-btn-border-radus;
   position: relative;
@@ -31,32 +32,68 @@
   .typo-button();
   will-change: box-shadow, transform;
   transition: box-shadow 0.2s @mdb-animation-curve-fast-out-linear-in,
-              background-color 0.2s @mdb-animation-curve-default,
-              color 0.2s @mdb-animation-curve-default;
+  background-color 0.2s @mdb-animation-curve-default,
+  color 0.2s @mdb-animation-curve-default;
   outline: none;
   cursor: pointer;
   text-decoration: none;
 
-  //---
-  // btn-flat
-  &.btn-flat {
-    background: transparent;
-    .variations(~".btn", ~"", color, @mdb-text-color-primary);
-
-    box-shadow: none;
-
-    // hover
-    // FIXME: check suffix generation
-    .generic-variations(~".btn", ~"&:hover", @mdb-btn-background-color, {
-      background-color: fade(@variation-color, 20%);
-    });
-
-    &:disabled {
-      color: @text-disabled !important;
-    }
-
+  &::-moz-focus-inner {
+    border: 0;
   }
 
+
+  //---
+  // btn-flat
+  background: transparent;
+  &:not(.btn-raised) {
+    .variations(~".btn", ~"", color, @mdb-text-color-primary);
+    box-shadow: none;
+
+    &:not(.btn-link) {
+      &:hover,
+      &:focus {
+        // spec: flat/light bg Hover: 20% #999999
+        background-color: fade(#999999, 20%);
+
+        .theme-dark & {
+          // spec: dark bg Hover: 15% #CCCCCC
+          background-color: fade(#CCCCCC, 15%);
+        }
+      }
+    }
+  }
+
+  // **raised** only styles (we are raised buttons by default)
+  &.btn-raised {
+    .background-variations(~".btn", ~"", @mdb-btn-background-color);
+
+    &:not(.btn-link) {
+      .shadow-2dp();
+      &:hover {
+
+        // Spec:
+        //  - Raised Light/Light theme no hover.
+        //  - Raised Dark/Dark theme Hover color: 600
+        .theme-dark & {
+          //// SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
+          //.generic-variations(~".btn", ~"", @mdb-btn-background-color, {
+          //  // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
+          //  background-color: contrast(@variation-color, darken(@variation-color, 4%), lighten(@variation-color, 4%), @contrast-factor);
+          //});
+        }
+      }
+
+      &.active,
+      &:active {
+        .shadow-4dp();
+      }
+
+      &:focus:not(:active) {
+        .focus-shadow();
+      }
+    }
+  }
 
   //&:not(.btn-link):not(.btn-flat) {
   //  background-color: @mdb-btn-background-color;
@@ -79,30 +116,11 @@
   //  color: @mdb-text-color-primary;
   //}
 
-  //.background-variations(~":not(.btn-link):not(.btn-flat)", @mdb-btn-background-color);
-  //
-  //// BTN hover effect
-  //// SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
-  //.generic-variations(~":hover:not(.btn-link):not(.btn-flat)", @mdb-btn-background-color, {
-  //  background-color: contrast(@variation-color, darken(@variation-color, 4%), lighten(@variation-color, 4%), @contrast-factor);
-  //});
-  //// BTN active effect
-  //// SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
-  //.generic-variations(~":active:not(.btn-link):not(.btn-flat)", @mdb-btn-background-color, {
-  //  background-color: contrast(@variation-color, darken(@variation-color, 6%), lighten(@variation-color, 6%), @contrast-factor);
-  //});
-  //// BTN .active effect
-  //// SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
-  //.generic-variations(~".active:not(.btn-link):not(.btn-flat)", @mdb-btn-background-color, {
-  //  background-color: contrast(@variation-color, darken(@variation-color, 6%), lighten(@variation-color, 6%), @contrast-factor);
-  //});
   //// BTN flat hover effect
   //// SASS conversion note: please mirror any content change in _mixins-shared.scss bg-color-variations-content
   //.generic-variations(~".btn-flat:hover:not(.btn-link)", @mdb-btn-background-color, {
   //  background-color: fade(@variation-color, 20%);
   //});
-
-
 
   // Size variations
   &.btn-sm {
@@ -126,10 +144,10 @@
     width: @mdb-btn-fab-size;
     padding: 0;
     overflow: hidden;
-    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
+    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
     position: relative;
     line-height: normal;
-    
+
     //&,
     //&:hover,
     //&:active {
@@ -173,6 +191,19 @@
   // Align icons inside buttons with text
   i.material-icons {
     vertical-align: middle;
+  }
+
+  // Disabled text
+  // Spec:
+  //  - light theme: Disabled text: 26% #000000
+  //  - dark theme: Disabled text: 30% #FFFFFF
+  fieldset[disabled] &,
+  &.disabled,
+  &:disabled {
+    color: fade(#000000, 26%);
+    .theme-dark & {
+      color: fade(#FFFFFF, 30%);
+    }
   }
 }
 
