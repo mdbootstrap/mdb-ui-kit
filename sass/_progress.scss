@@ -7,6 +7,6 @@
     background: #c8c8c8;
     .progress-bar {
         box-shadow: none;
-        @include variations(unquote(""), background-color, $brand-primary);
+        @include variations(unquote(".progress-bar"), unquote(""), background-color, $brand-primary);
     }
 }

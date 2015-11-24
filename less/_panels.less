@@ -2,18 +2,18 @@
   border-radius: 2px;
   border: 0;
 
-  .variations(~" > .panel-heading", background-color, @grey-200);
+  .variations(~".panel", ~" > .panel-heading", background-color, @grey-200);
   .shadow-z-1;
 }
 
 
 [class*="panel-"] > .panel-heading {
-  color: @darkbg-text;
+  color: @mdb-text-color-light;
   border: 0;
 }
 .panel-default, .panel:not([class*="panel-"]) {
   > .panel-heading {
-    color: @lightbg-text;
+    color: @mdb-text-color-primary;
   }
 }
 .panel-footer {

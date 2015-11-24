@@ -1,4 +1,6 @@
 {
+  "zero-units": false,
+  "overqualified-elements": false,
   "adjoining-classes": false,
   "box-sizing": false,
   "box-model": false,
@@ -15,5 +17,6 @@
   "text-indent": false,
   "unique-headings": false,
   "universal-selector": false,
-  "unqualified-attributes": false
+  "unqualified-attributes": false,
+  "fallback-colors": false
 }

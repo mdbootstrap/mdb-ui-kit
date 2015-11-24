@@ -25,3 +25,6 @@ Acknowledgements:
 
 # Some original Bootstrap code and documentation http://getbootstrap.com
 Copyright (c) 2011-2015 Twitter, Inc
+
+# Some original MDL code http://www.getmdl.io/
+Copyright 2015 Google Inc. All Rights Reserved.

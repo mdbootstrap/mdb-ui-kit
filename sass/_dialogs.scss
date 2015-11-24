@@ -6,7 +6,7 @@
 // --------------------------------------------------
 .modal-content {
   @include shadow-z-5();
-  border-radius: 2px;
+  border-radius: $border-radius-base;
   border: none;
   // Modal header
   // Top section of the modal w/ title and dismiss
@@ -14,7 +14,7 @@
     border-bottom: none;
     padding-top:    24px;
     padding-right:  24px;
-    padding-bottom: 0px;
+    padding-bottom: 0;
     padding-left:   24px;
   }
   // Modal body
