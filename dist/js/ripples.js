@@ -59,15 +59,15 @@
        * Verify if the current element already has a ripple wrapper element and
        * creates if it doesn't
        */
-      if(!($element.find(".ripple-wrapper").length)) {
-        $element.append("<div class=\"ripple-wrapper\"></div>");
+      if(!($element.find(".ripple-container").length)) {
+        $element.append("<div class=\"ripple-container\"></div>");
       }
 
 
       /**
        * Find the ripple wrapper
        */
-      var $wrapper = $element.children(".ripple-wrapper");
+      var $wrapper = $element.children(".ripple-container");
 
 
       /**

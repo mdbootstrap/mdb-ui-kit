@@ -1,7 +1,7 @@
 .navbar {
   background-color: @brand-primary;
-  border: @zero;
-  border-radius: @zero;
+  border: 0;
+  border-radius: 0;
 
   .navbar-brand {
     position: relative;
@@ -54,7 +54,7 @@
 
   // Darken the responsive nav toggle
   .navbar-toggle {
-    border: @zero;
+    border: 0;
     &:hover,
     &:focus {
       background-color: transparent;
@@ -96,7 +96,7 @@
       // Dropdowns get custom display
       .open .dropdown-menu {
         > .dropdown-header {
-          border: @zero;
+          border: 0;
           color: inherit;
         }
         .divider {
@@ -185,31 +185,34 @@
   }
 
   // SASS conversion note: please mirror any content change in _mixins-shared.scss navbar-variations-content
-  .generic-variations(~".navbar", @brand-primary, {
-    background-color: @mdb-color;
-    color: @mdb-text-color;
+  .generic-variations(~".navbar", ~"", @brand-primary, {
+    background-color: @variation-color;
+    color: @variation-color-text;
     // deeply defined to override welljumbo class without !impotant need
-    .navbar-form .form-group input.form-control::placeholder, .navbar-form input.form-control::placeholder {
-      color: @mdb-text-color;
+    .navbar-form .form-group input.form-control,
+    .navbar-form input.form-control {
+      .material-placeholder({
+        color: @variation-color-text;
+      });
     }
     .dropdown-menu {
-      border-radius: @mdb-dropdown-radius;
+      border-radius: @border-radius-base;
       li > a {
         font-size: @mdb-dropdown-font-size;
         padding: 13px 16px;
         &:hover,
         &:focus {
-          color: @mdb-color;
+          color: @variation-color;
           background-color: @grey-200;
         }
       }
       .active > a {
         &:hover,
         &:focus {
-          color: @mdb-text-color;
+          color: @variation-color-text;
         }
-        background-color: @mdb-color;
-        color: @mdb-text-color;
+        background-color: @variation-color;
+        color: @variation-color-text;
       }
     }
   });

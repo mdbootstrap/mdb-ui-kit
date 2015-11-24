@@ -13,7 +13,7 @@
       }
     }
     .row-picture, .row-action-primary {
-      float: left;
+      //float: left; WARNING: float can't be used with display: inline-block. Certain properties shouldn't be used with certain display property values. (display-property-grouping) Browsers: All
       display: inline-block;
       padding-right: 16px;
       img, i, label {
@@ -66,7 +66,7 @@
       .least-content {
         position: absolute;
         right: 16px;
-        top: 0px;
+        top: 0;
         color: rgba(0,0,0,0.54);
         font-size: 14px;
       }
@@ -83,7 +83,7 @@
       outline: 10px solid rgba(0,0,0,.15);
     }
     .list-group-item-heading, .list-group-item-text {
-      color: @lightbg-text;
+      color: @mdb-text-color-primary;
     }
 
   }
