@@ -11,44 +11,44 @@
 
 // variations(unquote(""), background-color, #FFF);
 @mixin variations($component, $selector-suffix, $mdb-param-1, $color-default) {
-  @include generic-variations($selector-suffix, $color-default, "variations-content", $mdb-param-1);
+  @include generic-variations($component, $selector-suffix, $color-default, "variations-content", $mdb-param-1);
 }
 
 @mixin variations-content($args) {
-  //@debug "#{map-get($args, mixin-name)}{ #{map-get($args, material-param-1)}: #{map-get($args, material-color)}; }";
+  //@debug "#{map-get($args, mixin-name)}{ #{map-get($args, material-param-1)}: #{map-get($args, variation-color)}; }";
   //@debug "#{inspect($args)}";
   //@error "break here";
-  #{map-get($args, material-param-1)}: map-get($args, material-color);
+  #{map-get($args, material-param-1)}: map-get($args, variation-color);
 }
 
 @mixin background-variations($component, $selector-suffix, $color-default) {
-  @include generic-variations($selector-suffix, $color-default, "background-variations-content", null);
+  @include generic-variations($component, $selector-suffix, $color-default, "background-variations-content", null);
 }
 
 @mixin background-variations-content($args) {
-  background-color: map-get($args, material-color);
-  @if (map-get($args, material-color) == $btn-default) {
-    color: $lightbg-text;
+  background-color: map-get($args, variation-color);
+  @if (map-get($args, variation-color) == $mdb-btn-background-color) {
+    color: $mdb-text-color-primary;
   } @else {
-    color: map-get($args, material-text-color);
+    color: map-get($args, variation-color-text);
   }
 }
 
 //@mixin text-variations($component, $selector-suffix, $color-default) {
-//  @include generic-variations($selector-suffix, $color-default, "text-variations-content", null);
+//  @include generic-variations($component, $selector-suffix, $color-default, "text-variations-content", null);
 //}
 //
 //@mixin text-variations-content($args) {
-//  color: map-get($args, material-color);
+//  color: map-get($args, variation-color);
 //}
 //
 //@mixin button-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
-//  @include generic-variations($selector-suffix, $color-default, "button-variations-content", $mdb-param-1);
+//  @include generic-variations($component, $selector-suffix, $color-default, "button-variations-content", $mdb-param-1);
 //}
 //
 //@mixin button-variations-content($args) {
 //  //@debug "#{inspect($args)}";
-//  $variation-color: map-get($args, material-color);
+//  $variation-color: map-get($args, variation-color);
 //  $mdb-param-1: map-get($args, material-param-1);
 //  background-color: contrast-color($variation-color,
 //          darken($variation-color, $mdb-param-1),
@@ -56,42 +56,42 @@
 //}
 //
 //@mixin bg-color-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
-//  @include generic-variations($selector-suffix, $color-default, "bg-color-variations-content", $mdb-param-1);
+//  @include generic-variations($component, $selector-suffix, $color-default, "bg-color-variations-content", $mdb-param-1);
 //}
 //
 //@mixin bg-color-variations-content($args) {
-//  background-color: rgba(map-get($args, material-color), map-get($args, material-param-1));
+//  background-color: rgba(map-get($args, variation-color), map-get($args, material-param-1));
 //}
 //
 //// bg-box-shadow-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
 //@mixin bg-box-shadow-variations($component, $selector-suffix, $color-default) {
-//  @include generic-variations($selector-suffix, $color-default, "bg-box-shadow-variations-content", null);
+//  @include generic-variations($component, $selector-suffix, $color-default, "bg-box-shadow-variations-content", null);
 //}
 //
 //@mixin bg-box-shadow-variations-content($args){
-//  $variation-color: map-get($args, material-color);
+//  $variation-color: map-get($args, variation-color);
 //  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba($variation-color, (10/100));
 //}
 //
 //// bg-img-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
 //@mixin bg-img-variations($component, $selector-suffix, $color-default) {
-//  @include generic-variations($selector-suffix, $color-default, "bg-img-variations-content", null);
+//  @include generic-variations($component, $selector-suffix, $color-default, "bg-img-variations-content", null);
 //}
 //
 //@mixin bg-img-variations-content($args){
-//  $variation-color: map-get($args, material-color);
-//  //@debug "bg-img-variations-content called for #{map-get($args, extra)} #{map-get($args, default)} #{map-get($args, material-color-name)} #{map-get($args, material-color)}"; //#{inspect($args)}";
+//  $variation-color: map-get($args, variation-color);
+//  //@debug "bg-img-variations-content called for #{map-get($args, extra)} #{map-get($args, default)} #{map-get($args, variation-color-name)} #{map-get($args, variation-color)}"; //#{inspect($args)}";
 //  background-image: linear-gradient($variation-color, $variation-color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
 //}
 
 // navbar-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
 @mixin navbar-variations($component, $selector-suffix, $color-default) {
-  @include generic-variations($selector-suffix, $color-default, "navbar-variations-content", null);
+  @include generic-variations($component, $selector-suffix, $color-default, "navbar-variations-content", null);
 }
 
 @mixin navbar-variations-content($args){
-  $variation-color: map-get($args, material-color);
-  $variation-color-text: map-get($args, material-text-color);
+  $variation-color: map-get($args, variation-color);
+  $variation-color-text: map-get($args, variation-color-text);
 
   background-color: $variation-color;
   color: $variation-color-text;
@@ -103,7 +103,7 @@
     }
   }
   .dropdown-menu {
-    border-radius: $mdb-dropdown-radius;
+    border-radius: $border-radius-base;
     li > a {
       font-size: $mdb-dropdown-font-size;
       padding: 13px 16px;
@@ -130,8 +130,8 @@
 }
 
 @mixin alert-variations-content($args){
-  $variation-color: map-get($args, material-color);
-  $variation-color-text: map-get($args, material-text-color);
+  $variation-color: map-get($args, variation-color);
+  $variation-color-text: map-get($args, variation-color-text);
 
   background-color: $variation-color;
   color: $variation-color-text;
@@ -192,67 +192,51 @@
   &#{$component}-default#{$selector-suffix} {
 
     $args-extra: map-merge($args, (
-            //material-color-name: "default",
-            //material-color-full-name: "default",
-            material-color: $color-default,
-            material-text-color: $darkbg-text
+            variation-color: $color-default,
+            variation-color-text: $mdb-text-color-light
     ));
     @include call-variations-content-mixin($args-extra);
   }
   &#{$component}-inverse#{$selector-suffix} {
     $args-inverse: map-merge($args, (
-            //material-color-name: "inverse",
-            //material-color-full-name: "inverse",
-            material-color: $mdb-brand-inverse,
-            material-text-color: contrast-color($mdb-brand-inverse, $lightbg-text, $darkbg-text)
+            variation-color: $mdb-brand-inverse,
+            variation-color-text: contrast-color($mdb-brand-inverse, $mdb-text-color-primary-hex, $mdb-text-color-light-hex)
     ));
     @include call-variations-content-mixin($args-inverse);
   }
   &#{$component}-primary#{$selector-suffix} {
     $args-primary: map-merge($args, (
-            //material-color-name: "primary",
-            //material-color-full-name: "primary",
-            material-color: $brand-primary,
-            material-text-color: $darkbg-text
+            variation-color: $brand-primary,
+            variation-color-text: $mdb-text-color-light
     ));
     @include call-variations-content-mixin($args-primary);
   }
   &#{$component}-success#{$selector-suffix} {
     $args-success: map-merge($args, (
-            //material-color-name: "success",
-            //material-color-full-name: "success",
-            material-color: $brand-success,
-            material-text-color: $darkbg-text
+            variation-color: $brand-success,
+            variation-color-text: $mdb-text-color-light
     ));
     @include call-variations-content-mixin($args-success);
   }
   &#{$component}-info#{$selector-suffix} {
     $args-info: map-merge($args, (
-            //material-color-name: "info",
-            //material-color-full-name: "info",
-            material-color: $brand-info,
-            material-text-color: $darkbg-text
+            variation-color: $brand-info,
+            variation-color-text: $mdb-text-color-light
     ));
     @include call-variations-content-mixin($args-info);
   }
   &#{$component}-warning#{$selector-suffix} {
     $args-warning: map-merge($args, (
-            //material-color-name: "warning",
-            //material-color-full-name: "warning",
-            material-color: $brand-warning,
-            material-text-color: $darkbg-text
+            variation-color: $brand-warning,
+            variation-color-text: $mdb-text-color-light
     ));
     @include call-variations-content-mixin($args-warning);
   }
   &#{$component}-danger#{$selector-suffix} {
     $args-danger: map-merge($args, (
-            //material-color-name: "danger",
-            //material-color-full-name: "danger",
-            material-color: $brand-danger,
-            material-text-color: $darkbg-text
+            variation-color: $brand-danger,
+            variation-color-text: $mdb-text-color-light
     ));
     @include call-variations-content-mixin($args-danger);
   }
 }
-
-//$all-variations: unquote("-default, -primary, -info, -success, -warning, -danger");

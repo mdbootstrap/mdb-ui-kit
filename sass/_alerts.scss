@@ -5,15 +5,15 @@
     border-radius: 0;
 
     // SASS conversion note: please mirror any content change in _mixins-shared.scss alert-variations-content
-    @include alert-variations(unquote(""), $darkbg-text);
+    @include alert-variations(unquote(".alert"), unquote(""), $mdb-text-color-light);
 
     &-info, &-danger, &-warning, &-success {
-        color: $darkbg-text;
+        color: $mdb-text-color-light;
     }
 
     &-default {
         a, .alert-link {
-            color: $lightbg-text;
+            color: $mdb-text-color-primary;
         }
     }
 }

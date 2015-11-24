@@ -78,7 +78,7 @@
     }
 }
 .noUi-target {
-    border-radius: 2px;
+    border-radius: $border-radius-base;
 }
 .noUi-horizontal {
     height: 2px;
@@ -105,8 +105,8 @@
 }
 
 .slider {
-    @include variations(unquote(".noUi-connect"), background-color, $brand-primary);
-    @include variations(unquote(" .noUi-connect"), background-color, $brand-primary);
-    @include variations(unquote(" .noUi-handle"), background-color, $brand-primary);
-    @include variations(unquote(" .noUi-handle"), border-color, $brand-primary);
+    @include variations(unquote(".slider"), unquote(".noUi-connect"), background-color, $brand-primary);
+    @include variations(unquote(".slider"), unquote(" .noUi-connect"), background-color, $brand-primary);
+    @include variations(unquote(".slider"), unquote(" .noUi-handle"), background-color, $brand-primary);
+    @include variations(unquote(".slider"), unquote(" .noUi-handle"), border-color, $brand-primary);
 }

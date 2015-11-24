@@ -48,8 +48,7 @@
       display: inline-block;
       width: $mdb-checkbox-size;
       height: $mdb-checkbox-size;
-      border: 2px solid $mdb-checkbox-border-color;
-      border-radius: 2px;
+      border: $border-radius-base solid $mdb-checkbox-border-color;
       overflow: hidden;
       z-index: 1;
     }
@@ -74,33 +73,51 @@
     }
   }
 
-  input[type=checkbox]:focus + .checkbox-material .check:after {
-    opacity: 0.2;
-  }
-  input[type=checkbox]:checked + .checkbox-material .check:before {
-    box-shadow:
-      0 0 0 10px,
-      10px -10px 0 10px,
-      32px 0px 0 20px,
-      0px 32px 0 20px,
-      -5px 5px 0 10px,
-      20px -12px 0 11px;
-    animation: checkbox-on $mdb-checkbox-animation-check forwards;
-  }
+  input[type=checkbox] {
 
-  input[type=checkbox]:not(:checked) + .checkbox-material:before {
-    animation: rippleOff $mdb-checkbox-animation-ripple;
-  }
-  input[type=checkbox]:checked + .checkbox-material:before {
-    animation: rippleOn $mdb-checkbox-animation-ripple;
-  }
+    &:focus + .checkbox-material .check:after {
+      opacity: 0.2;
+    }
 
-  // Ripple effect on click
-  input[type=checkbox]:not(:checked) + .checkbox-material .check:after {
-    animation: rippleOff $mdb-checkbox-animation-ripple forwards;
-  }
-  input[type=checkbox]:checked + .checkbox-material .check:after {
-    animation: rippleOn $mdb-checkbox-animation-ripple forwards;
+    &:checked {
+
+      // FIXME: once working - combine further to reduce code
+      & + .checkbox-material .check {
+        color: $mdb-checkbox-checked-color;
+        border-color: $mdb-checkbox-checked-color;
+      }
+
+      & + .checkbox-material .check:before {
+        color: $mdb-checkbox-checked-color;
+        box-shadow: 0 0 0 10px,
+          10px -10px 0 10px,
+        32px 0px 0 20px,
+        0px 32px 0 20px,
+        -5px 5px 0 10px,
+          20px -12px 0 11px;
+        animation: checkbox-on $mdb-checkbox-animation-check forwards;
+      }
+
+      & + .checkbox-material:before {
+        animation: rippleOn $mdb-checkbox-animation-ripple;
+      }
+
+      & + .checkbox-material .check:after {
+        //background-color: $brand-success; // FIXME: seems like tho wrong color, test and make sure it can be removed
+        animation: rippleOn $mdb-checkbox-animation-ripple forwards; // Ripple effect on check
+      }
+    }
+
+    &:not(:checked) {
+      & + .checkbox-material:before {
+        animation: rippleOff $mdb-checkbox-animation-ripple;
+      }
+
+      & + .checkbox-material .check:after {
+        animation: rippleOff $mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
+
+      }
+    }
   }
 
   // Style for disabled inputs
@@ -112,14 +129,9 @@
     opacity: 0.5;
   }
   input[type=checkbox][disabled] + .checkbox-material .check:after {
-    background-color: $lightbg-text;
+    background-color: $mdb-text-color-primary;
     transform: rotate(-45deg);
   }
-
-  @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check:after"), background-color, $brand-success);
-  @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check:before"), color, $mdb-checkbox-checked-color);
-  @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check"), color, $mdb-checkbox-checked-color);
-  @include variations(unquote(" input[type=checkbox]:checked + .checkbox-material .check"), border-color, $mdb-checkbox-checked-color);
 }
 
 @keyframes checkbox-on {

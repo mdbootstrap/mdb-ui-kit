@@ -55,11 +55,17 @@
     }
   }
 
+  //--
+  // color variations
+  &.btn-raised,
+  &.btn-fab {
+    .background-variations(~".btn", ~"", @mdb-btn-background-color);
+  }
+
+
   //---
   // btn-raised
   &.btn-raised {
-    .background-variations(~".btn", ~"", @mdb-btn-background-color);
-
     &:not(.btn-link) {
       .shadow-2dp();
 
@@ -88,23 +94,8 @@
     }
   }
 
-  // Size variations
-  &.btn-lg,
-  .btn-group-lg & {
-    font-size: @mdb-btn-font-size-lg;
-  }
-  &.btn-sm,
-  .btn-group-sm & {
-    padding: 5px 20px;
-    font-size: @mdb-btn-font-size-sm;
-  }
-  &.btn-xs,
-  .btn-group-xs & {
-    padding: 4px 15px;
-    font-size: @mdb-btn-font-size-xs;
-  }
-
   &.btn-fab {
+    // see above for color variations
     border-radius: 50%;
     font-size: @mdb-btn-fab-font-size;
     height: @mdb-btn-fab-size;
@@ -117,29 +108,15 @@
     position: relative;
     line-height: normal;
 
-    //&,
-    //&:hover,
-    //&:active {
-    //  //.variations(~"", background-color, transparent);
-    //  //.variations(~".btn", ~"", background-color, @mdb-btn-primary-color);
-    //}
-    //&,
-    //&:hover {
-    //  .shadow-z-1();
-    //}
-    //&:active {
-    //  .shadow-z-1-hover();
-    //}
-
     .ripple-container {
       border-radius: 50%;
     }
 
-    &.btn-fab-mini {
-      width: 40px;
-      height: 40px;
-      padding: 13px 0;
-      font-size: 15px;
+    &.btn-fab-mini,
+    .btn-group-sm & {
+      height: @mdb-btn-fab-size-mini;
+      min-width: @mdb-btn-fab-size-mini;
+      width: @mdb-btn-fab-size-mini;
 
       &.material-icons {
         top: (@mdb-btn-icon-size-mini - @mdb-btn-fab-font-size) / 2;
@@ -161,12 +138,30 @@
   i.material-icons {
     vertical-align: middle;
   }
+
+
+  // Size variations
+  &.btn-lg,
+  .btn-group-lg & {
+    font-size: @mdb-btn-font-size-lg;
+  }
+  &.btn-sm,
+  .btn-group-sm & {
+    padding: 5px 20px;
+    font-size: @mdb-btn-font-size-sm;
+  }
+  &.btn-xs,
+  .btn-group-xs & {
+    padding: 4px 15px;
+    font-size: @mdb-btn-font-size-xs;
+  }
 }
 
 // Disabled buttons and button groups
 .btn,
 .input-group-btn .btn,
-.btn-group {
+.btn-group,
+.btn-group-vertical {
   // have to ratchet up the specificity to kill drop shadows on disabled raised buttons
   fieldset[disabled][disabled] &,
   &.disabled,
@@ -179,9 +174,10 @@
       color: fade(#FFFFFF, 30%);
     }
 
+    // flat buttons lose transparency
     background: transparent;
 
-    // no box-shadow on disabled
+    // no box-shadow on raised - need specificity
     &.btn-raised,
     &.btn-group-raised {
       &,
@@ -202,6 +198,8 @@
   //border-radius: 2px;
   margin: 10px 1px;
 
+
+  // spec: https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons
   &.open {
     .dropdown-toggle {
       //box-shadow: none;

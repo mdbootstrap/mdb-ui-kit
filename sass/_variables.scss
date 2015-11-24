@@ -2,18 +2,14 @@
 
 @import '_colors';
 
-// Material Global vars
-$zero: 0 !default;
-
+// Typography elements
 $mdb-font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
-
-// material icons path
-$mdb-font-path: "../fonts" !default;
-
-// Typography elements for Material
-$darkbg-text: rgba(255,255,255,0.84) !default;
-$lightbg-text: rgba(0,0,0,0.84) !default;
+$mdb-text-color-light:  unquote("rgba(#{$rgb-white}, 0.84)") !default;
+$mdb-text-color-light-hex: $white !default; // for contrast function in inverse
+$mdb-text-color-primary: unquote("rgba(#{$rgb-black}, 0.87)") !default;
+$mdb-text-color-primary-hex: $black !default; // for contrast function in inverse
 $icon-color: rgba(0,0,0,0.5) !default;
+
 
 // import bs variables for less, last declared wins.
 @import '_import-bs-less';
@@ -28,23 +24,38 @@ $brand-danger: $red !default;
 $brand-warning: $deep-orange !default;
 $brand-info: $light-blue !default;
 
+$border-radius-base: 2px !default;
+$border-radius-small: 1px !default;
+
+// Typography
+$font-family-sans-serif: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
+$headings-font-weight: 300 !default;
+
 $body-bg: #EEEEEE !default;
 //---
 
 // import bs variables for sass, first declared wins.
 @import '_import-bs-sass';
 
+// Bootstrap Material Design variables start with mdb-
+$mdb-brand-inverse: $indigo !default;
+
+
+/* ANIMATION */
+$mdb-animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$mdb-animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$mdb-animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+$mdb-animation-curve-default: $mdb-animation-curve-fast-out-slow-in !default;
+
+
 //---
 // FIXME: Similar but not quite the same as Bootstrap variables
 // FIXME: these need to either a) be converted to $mdb- or b) converted to bs variables
 $contrast-factor: 40% !default;
-$btn-default: transparent !default;
-$btn-default-text: $lightbg-text !default;
 //---
 
 
-$mdb-radio-default: $lightbg-text !default;
-$mdb-border-radius: 2px !default;
+$mdb-radio-default: $mdb-text-color-primary !default;
 
 // --------------------
 // inputs
@@ -84,9 +95,9 @@ $mdb-label-top-margin-small:          12px !default;
 $mdb-input-padding-xs-vertical:       2px !default; // 1
 $mdb-input-padding-xs-horizontal:     0px !default; // 5
 
-$mdb-input-border-radius-base:        4px !default;
-$mdb-input-border-radius-large:       6px !default;
-$mdb-input-border-radius-small:       3px !default;
+$mdb-input-border-radius-base:        0 !default;
+$mdb-input-border-radius-large:       0 !default;
+$mdb-input-border-radius-small:       0 !default;
 
 
 //** Default `.form-control` height
@@ -100,7 +111,7 @@ $mdb-input-height-small:             (floor($mdb-input-font-size-small * $mdb-in
 
 
 // Card
-$mdb-card-body-text: $lightbg-text !default;
+$mdb-card-body-text: $mdb-text-color-primary !default;
 $mdb-card-body-background: #fff !default;
 $mdb-card-image-headline: #fff !default;
 
@@ -120,7 +131,6 @@ $mdb-popover-background: rgba(101, 101, 101, 0.9) !default;
 $mdb-popover-color: #ececec !default;
 
 // Dropdown Menu
-$mdb-dropdown-radius: 2px !default;
 $mdb-dropdown-font-size: 16px !default;
 
 // Toggle
@@ -129,3 +139,29 @@ $mdb-toggle-label-color: $mdb-checkbox-label-color !default;
 // Radio:
 $mdb-radio-label-color: $mdb-checkbox-label-color !default;
 $mdb-radio-border-color: $mdb-checkbox-border-color !default;
+
+// Buttons:
+$mdb-btn-font-size-base: 14px !default;
+$mdb-btn-font-size-lg: 16px !default;
+$mdb-btn-font-size-sm: 12px !default;
+$mdb-btn-font-size-xs: 10px !default;
+
+
+$mdb-btn-background-color: transparent !default;
+$mdb-btn-background-color-text: $mdb-text-color-primary !default;
+
+
+$mdl-btn-border-radus: 2px !default;
+//$mdb-btn-primary-color: unquote("rgba(#{$rgb-grey-500}, 0.20)") !default;
+
+$mdb-btn-fab-size: 56px !default;
+$mdb-btn-fab-size-mini: 40px !default;
+$mdb-btn-fab-font-size: 24px !default;
+
+$mdb-btn-icon-size: 32px !default;
+$mdb-btn-icon-size-mini: 24px !default;
+
+/* SHADOWS */
+$mdb-shadow-key-umbra-opacity: 0.2 !default;
+$mdb-shadow-key-penumbra-opacity: 0.14 !default;
+$mdb-shadow-ambient-shadow-opacity: 0.12 !default;

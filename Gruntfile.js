@@ -88,7 +88,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: "less",
-          src: ["*.less", "!_mixins.less", "!_import-bs*"],
+          src: ["**/*.less", "!_mixins.less", "!_import-bs*"],
           ext: ".scss",
           dest: "sass"
         }],
@@ -113,6 +113,13 @@ module.exports = function (grunt) {
             { // https://regex101.com/r/gH0jP0/2
               pattern: /& when \(isstring\(\$parent\)\)/gi,
               replacement: "@else",
+              order: 2
+            },
+
+            // convert conditional when
+            { // https://regex101.com/r/dL1lI8/2
+              pattern: /& when /gi,
+              replacement: "@if ",
               order: 2
             },
 
@@ -144,58 +151,65 @@ module.exports = function (grunt) {
             },
 
             // button variations mixin replacement(s)
-            { // Multi-line replacement - https://regex101.com/r/qD9qB8/2
-              pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)contrast[\s\S]+?(?!\r|\n)(\d+)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: "@include button-variations(unquote($1), $2, $3%);\n",
-              order: 20
-            },
+            //{ // Multi-line replacement - https://regex101.com/r/qD9qB8/2
+            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)contrast[\s\S]+?(?!\r|\n)(\d+)[\s\S]+?(?!\r|\n)}\);$\n/mg,
+            //  replacement: "@include button-variations(unquote($1), $2, $3%);\n",
+            //  order: 20
+            //},
 
-            // background-color generic-variations
-            { // Multi-line replacement - https://regex101.com/r/cW6pH8/2
-              pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-color[\s\S]+?(?!\r|\n)(\(\d+\/\d+\))[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: "@include bg-color-variations(unquote($1), $2, $3);\n",
-              order: 21
-            },
+            //// background-color generic-variations
+            //{ // Multi-line replacement - https://regex101.com/r/cW6pH8/2
+            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-color[\s\S]+?(?!\r|\n)(\(\d+\/\d+\))[\s\S]+?(?!\r|\n)}\);$\n/mg,
+            //  replacement: "@include bg-color-variations(unquote($1), $2, $3);\n",
+            //  order: 21
+            //},
 
-            // bg-box-shadow generic-variations
-            { // Multi-line replacement - https://regex101.com/r/jW8kR1/1
-              pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)box-shadow[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: "@include bg-box-shadow-variations(unquote($1), $2);\n",
-              order: 22
-            },
+            //// bg-box-shadow generic-variations
+            //{ // Multi-line replacement - https://regex101.com/r/jW8kR1/1
+            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)box-shadow[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
+            //  replacement: "@include bg-box-shadow-variations(unquote($1), $2);\n",
+            //  order: 22
+            //},
 
-            // bg-img generic-variations
-            { // Multi-line replacement - https://regex101.com/r/aP2hH2/1
-              pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-image[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: "@include bg-img-variations(unquote($1), $2);\n",
-              order: 23
-            },
+            //// bg-img generic-variations
+            //{ // Multi-line replacement - https://regex101.com/r/aP2hH2/1
+            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-image[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
+            //  replacement: "@include bg-img-variations(unquote($1), $2);\n",
+            //  order: 23
+            //},
 
-            // navbar generic-variations
-            { // Multi-line replacement - https://regex101.com/r/lX1hH1/1
-              pattern: /.generic-variations\(unquote\((".navbar")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-              replacement: "@include navbar-variations(unquote($1), $2);\n",
-              order: 24
-            },
-
-            // material-placehorder
+            // material-placeholder
             { // Multi-line replacement - https://regex101.com/r/eS2vQ3/2
               pattern: /.material-placeholder\({$\n([\s\S]+?)}\);$\n/mg,
               replacement: "@include material-placeholder {\n$1\n}\n",
               order: 24
             },
 
+            // navbar generic-variations
+            { // Multi-line replacement - https://regex101.com/r/lX1hH1/4
+              pattern: /.generic-variations\(unquote\((".navbar"), ~("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$/mg,
+              replacement: "@include navbar-variations(unquote($1), unquote($2), $4);\n",
+              order: 25
+            },
+
             // fix calc references
             { // https://regex101.com/r/aZ8iI5/1
               pattern: /calc\(unquote\("([^"]+)"\)\)/gi,
               replacement: "calc($1)",
-              order: 24
+              order: 100
+            },
+
+            // fix unquote("", ~"")
+            { //  https://regex101.com/r/vX4nO9/6
+              pattern: /\(unquote\(("([^"]+)?"), ~("([^"]+)?")\),/gi,
+              replacement: "(unquote($1), unquote($3),",
+              order: 101
             },
 
             // alert generic-variations (convert this one last - very broad search)
-            { // Multi-line replacement - https://regex101.com/r/jB1uL1/1
-              pattern: /.generic-variations\(unquote\(("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
-              replacement: "@include alert-variations(unquote($1), $3);\n",
+            { // Multi-line replacement - https://regex101.com/r/jB1uL1/2
+              pattern: /.generic-variations\(unquote\(("([^"]+)?")\), unquote\(("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
+              replacement: "@include alert-variations(unquote($1), unquote($3), $5);\n",
               order: 250 // very broad search, do this last
             },
 
