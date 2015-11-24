@@ -42,27 +42,38 @@
       top: -2px;
       transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
     }
-    // Handle disabled
-    input[type=checkbox][disabled] + .toggle:after,
-    input[type=checkbox][disabled]:checked + .toggle:after {
-      background-color: #BDBDBD;
+    input[type=checkbox] {
+      // Handle disabled
+      &[disabled] {
+        & + .toggle:after,
+        &:checked + .toggle:after {
+          background-color: #BDBDBD;
+        }
+      }
+
+      & + .toggle:active:after,
+      &[disabled] + .toggle:active:after {
+        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      // Ripple off and disabled
+      &:checked + .toggle:after {
+        left: 15px;
+      }
     }
-    // Ripple off and disabled
-    input[type=checkbox] + .toggle:active:after,
-    input[type=checkbox][disabled] + .toggle:active:after {
-      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
-    }
-    input[type=checkbox]:checked + .toggle:after {
-      left: 15px;
+
+    & label input[type=checkbox]:checked {
+      & + .toggle {
+        background-color: rgba($brand-primary, (50/100)); // Switch bg on
+      }
+
+      & + .toggle:after {
+        background-color: $brand-primary; // Handle on
+      }
+
+      & + .toggle:active:after {
+        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba($brand-primary, (10/100)); // Ripple on
+      }
     }
   }
-
-  // Switch bg on
-  // SASS conversion note: please mirror any content change in _mixins-shared.scss bg-color-variations-content
-  @include bg-color-variations(unquote(" label input[type=checkbox]:checked + .toggle"), $brand-primary, (50/100));
-  // Handle on
-  // SASS conversion note: please mirror any content change in _mixins-shared.scss variations-content
-  @include variations(unquote(" label input[type=checkbox]:checked + .toggle:after"), background-color, $brand-primary);
-  // Ripple on
-  @include bg-box-shadow-variations(unquote(" label input[type=checkbox]:checked + .toggle:active:after"), $brand-primary);
 }

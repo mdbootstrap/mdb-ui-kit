@@ -6,9 +6,9 @@
 .snackbar {
     // Style
     background-color: #323232;
-    color: $darkbg-text;
+    color: $mdb-text-color-light;
     font-size: 14px;
-    border-radius: 2px;
+    border-radius: $border-radius-base;
     @include shadow-z-1;
 
     // Animation

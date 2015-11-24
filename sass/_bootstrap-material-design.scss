@@ -5,7 +5,7 @@ body {
   &.inverse {
     background: #333333;
     &, .form-control {
-      color: $darkbg-text;
+      color: $mdb-text-color-light;
     }
     .modal,
     .panel-default,
@@ -22,8 +22,8 @@ body {
 
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-  font-family: $mdb-font-family;
-  font-weight: 300;
+  //font-family: $font-family-sans-serif;
+  //font-weight: 300;
 }
 
 h5, h6{
@@ -32,6 +32,10 @@ h5, h6{
 
 a, a:hover, a:focus {
   color: $brand-primary;
+
+  & .material-icons {
+    vertical-align: middle;
+  }
 }
 
 // Well and Jumbotrons
@@ -78,7 +82,6 @@ legend {
       color: $brand-primary;
     }
   }
-  @include variations(unquote(" li a:hover"), color, $brand-primary);
 }
 
 // Alerts
@@ -100,8 +103,6 @@ legend {
 
 @import '_dialogs';
 
-@import '_labels';
-
 @import '_panels';
 
 @import '_dividers';
@@ -116,8 +117,7 @@ legend {
 }
 
 
+@import '_themes';
+
 // External plugins
-@import '_plugin-snackbarjs';
-@import '_plugin-nouislider';
-@import '_plugin-selectize';
-@import '_plugin-dropdownjs';
+@import '_plugins';
