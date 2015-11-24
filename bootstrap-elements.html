@@ -508,7 +508,6 @@
           <h3><small>flat - default - no class needed</small></h3>
           <p class="bs-component">
             <a href="javascript:void(0)" class="btn"><code>btn</code> only</a>
-            <a href="javascript:void(0)" class="btn active"><code>.active</code></a>
             <a href="javascript:void(0)" class="btn btn-default">Default</a>
             <a href="javascript:void(0)" class="btn btn-primary">Primary</a>
             <a href="javascript:void(0)" class="btn btn-success">Success</a>
@@ -521,7 +520,6 @@
 
           <h3><small><code>.btn-raised</code></small></h3>
           <p class="bs-component">
-            <a href="javascript:void(0)" class="btn btn-raised active"><code>.active</code></a>
             <a href="javascript:void(0)" class="btn btn-raised btn-default">Default</a>
             <a href="javascript:void(0)" class="btn btn-raised btn-primary">Primary</a>
             <a href="javascript:void(0)" class="btn btn-raised btn-success">Success</a>
@@ -650,9 +648,12 @@
         
         
         <h3><small><code>btn-lg.btn-block.btn-raised</code></small></h3>
-        <p class="bs-component">
+        <div class="bs-component">
           <a href="javascript:void(0)" class="btn btn-default btn-lg btn-block btn-raised">Block level button</a>
-        </p>
+          <fieldset disabled>
+            <a href="javascript:void(0)" class="btn btn-default btn-lg btn-block btn-raised">Block level button disabled</a>
+          </fieldset>
+        </div>
 
 
         <div class="bs-component" style="margin-bottom: 15px;">
@@ -662,6 +663,15 @@
             <a href="javascript:void(0)" class="btn ">Middle</a>
             <a href="javascript:void(0)" class="btn ">Right</a>
           </div>
+
+          <h3><small>disabled <code>btn-group.btn-group-justified.btn-group-raised</code></small></h3>
+          <fieldset disabled>
+            <div class="btn-group btn-group-justified btn-group-raised">
+              <a href="javascript:void(0)" class="btn ">Left</a>
+              <a href="javascript:void(0)" class="btn ">Middle</a>
+              <a href="javascript:void(0)" class="btn ">Right</a>
+            </div>
+          </fieldset>
         </div>
 
         <div class="bs-component" style="margin-bottom: 15px;">
