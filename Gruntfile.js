@@ -605,10 +605,10 @@ module.exports = function (grunt) {
 
     "autoprefixer:material",
     "autoprefixer:ripples",
-    //"csslint:dist",
+    "csslint:dist",
     "cssmin:material",
     "cssmin:ripples",
-    //"csslint:distmin"
+    "csslint:distmin"
   ]);
 
   grunt.registerTask("dist-js", [
