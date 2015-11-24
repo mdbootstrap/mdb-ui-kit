@@ -188,7 +188,7 @@
   );
 
   // bootstrap styles
-  //&#{$selector-suffix},
+  &#{$selector-suffix},
   &#{$component}-default#{$selector-suffix} {
 
     $args-extra: map-merge($args, (

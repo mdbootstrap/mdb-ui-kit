@@ -79,6 +79,17 @@ styles for bootstrap based markup to comply with Material Design concepts.
 
 ### Customization
 
+#### Themes
+
+NOTE: (In active) development
+First, this is probably not what you think when a 'theme' is mentioned.
+
+The [material design specification mentions `light` vs. `dark` themes](https://www.google.com/design/spec/style/color.html#) 
+throughout.  By default, the source is written assuming a light theme is being used, but as reviews/refactorings 
+occur, the `.theme-dark` marker class is being used to denote differences.  
+This could be used on the top level elements such as `body` or `.container`.  Effort on 
+this is just beginning, but search the codebase for `.theme-dark` to see variations.  Help/PR's welcome.
+
 #### Colors
 
 There are 17 color variations (in addition to the classic 4 variations) described by the Material Design color palette:

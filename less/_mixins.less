@@ -46,7 +46,7 @@
 .generic-variations(@component, @selector-suffix, @color-default, @func) {
   @contrast-factor: 40%;
   // bootstrap styles
-  //&@{selector-suffix},
+  &@{selector-suffix},
   &@{component}-default@{selector-suffix} {
     @variation-color: @color-default;
     @variation-color-text: @mdb-text-color-light;
