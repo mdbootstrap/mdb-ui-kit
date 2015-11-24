@@ -30,17 +30,20 @@ If you prefer, you can include this framework in your project using our official
 
 ## Getting started
 
-### Add fonts
+Add the necessary links to your `<head` element for fonts
 To embed Roboto into your web page, copy the code as the first element in the <head> of your HTML document.
-```
-<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-```
+```html
+  <!-- Material Design fonts -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-TODO: link for font
-TODO: link for icon font
-TODO: link for bmd
+  <!-- Bootstrap -->
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- Bootstrap Material Design -->
+  <link href="dist/css/bootstrap-material-design.css" rel="stylesheet">
+  <link href="dist/css/ripples.min.css" rel="stylesheet">
+```
 
 ## Support
 
