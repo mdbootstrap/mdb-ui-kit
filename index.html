@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -51,7 +52,6 @@
         <li class="withripple" data-target="#getting-started">Getting Started</li>
         <li><a href="bootstrap-elements.html" target="_blank">Bootstrap elements <i class="mdi-action-open-in-new"></i></a>
         </li>
-        <li class="withripple" data-target="#material-colors">Material Colors</li>
         <li class="withripple" data-target="#checkbox">Checkbox</li>
         <li class="withripple" data-target="#radio-button">Radio Button</li>
         <li class="withripple" data-target="#toggle-button">Toggle Button</li>
@@ -60,14 +60,9 @@
         <li class="withripple" data-target="#navbar">Navbar</li>
         <li class="withripple" data-target="#progress-bar">Progress Bar</li>
         <li class="withripple" data-target="#slider">Slider</li>
-        <li class="withripple">Tabs (To do)</li>
-        <li class="withripple" data-target="#button">Button</li>
-        <li class="withripple">Icon button (To do)</li>
-        <li class="withripple" data-target="#floating-action-button">Floating Action Button</li>
         <li class="withripple" data-target="#dropdown">Dropdown (Work in progress)</li>
         <li class="withripple" data-target="#dropdown-menu">Dropdown Menu</li>
         <li class="withripple" data-target="#dialog">Dialog</li>
-        <li class="withripple" data-target="#shadow">Shadow</li>
       </ul>
     </nav>
     <div class="pages col-xs-9">
@@ -287,18 +282,18 @@
             <h1 class="header">Radio buttons</h1>
 
             <h2>Default <small>outside a <code>.form-group</code></small></h2>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="sample1" value="option1" checked="">
-                  Always
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="sample1" value="option1">
-                  Only when plugged in
-                </label>
-              </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="sample1" value="option1" checked="">
+                Always
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="sample1" value="option1">
+                Only when plugged in
+              </label>
+            </div>
 
             <h2><small><code>.radio-success</code> inside a <code>.form-group</code></small></h2>
             <div class="form-group">
@@ -317,18 +312,18 @@
             </div>
 
             <h2><small><code>.radio-primary</code> outside a <code>.form-group</code></small></h2>
-              <div class="radio radio-primary">
-                <label>
-                  <input type="radio" name="sample2" value="option1" checked="">
-                  Auto
-                </label>
-              </div>
-              <div class="radio radio-primary">
-                <label>
-                  <input type="radio" name="sample2" value="option1">
-                  5 GHz only
-                </label>
-              </div>
+            <div class="radio radio-primary">
+              <label>
+                <input type="radio" name="sample2" value="option1" checked="">
+                Auto
+              </label>
+            </div>
+            <div class="radio radio-primary">
+              <label>
+                <input type="radio" name="sample2" value="option1">
+                5 GHz only
+              </label>
+            </div>
 
           </div>
           <div class="well page" id="toggle-button">
@@ -873,52 +868,6 @@
 
             <p>Sliders are powered by <a href="http://refreshless.com/nouislider/" target="_blank">noUiSlider</a></p>
           </div>
-          <div class="well page" id="button">
-            <h1 class="header">Button</h1>
-
-            <div class="sample1">
-              <h2>Normal buttons</h2>
-              <button type="button" class="btn btn-default">Button</button>
-              <button type="button" class="btn btn-primary">Colored</button>
-              <button type="button" class="btn btn-default" disabled>Disabled</button>
-              <button type="button" class="btn btn-default btn-link">Noink</button>
-            </div>
-            <div class="sample1">
-              <h2>Flat buttons</h2>
-              <button type="button" class="btn btn-default btn-flat">Button</button>
-              <button type="button" class="btn btn-primary btn-flat">Colored</button>
-              <button type="button" class="btn btn-default btn-flat" disabled>Disabled</button>
-              <button type="button" class="btn btn-default btn-flat btn-link">Noink</button>
-            </div>
-            <div class="sample2">
-              <h2>Raised buttons</h2>
-              <button type="button" class="btn btn-default btn-raised">Button</button>
-              <button type="button" class="btn btn-primary btn-raised">Colored</button>
-              <button type="button" class="btn btn-default btn-raised" disabled>Disabled</button>
-              <button type="button" class="btn btn-default btn-raised btn-link">Noink</button>
-            </div>
-            <div class="sample3">
-              <h2>Custom button content</h2>
-              <button type="button" class="btn btn-primary btn-flat"><i class="mdi-navigation-check"></i> Ok</button>
-              <button type="button" class="btn btn-default btn-flat"><i class="mdi-navigation-close"></i> Cancel
-              </button>
-            </div>
-          </div>
-          <div class="well page" id="floating-action-button">
-            <h1 class="header">Floating Action Button</h1>
-
-            <h2>Regular</h2>
-            <button type="button" class="btn btn-fab btn-raised btn-material-red">
-              <i class="mdi-navigation-arrow-forward"></i>
-            </button>
-            <button type="button" class="btn btn-fab btn-raised btn-primary"><i class="mdi-image-edit"></i></button>
-
-            <h2>Mini</h2>
-            <button type="button" class="btn btn-fab btn-fab-mini btn-raised btn-sm btn-success">
-              <i class="mdi-navigation-check"></i></button>
-            <button type="button" class="btn btn-fab btn-fab-mini btn-raised btn-material-lightyellow">
-              <i class="mdi-content-reply"></i></button>
-          </div>
           <div class="well page" id="dropdown">
             <h1 class="header">Dropdown</h1>
 
@@ -967,35 +916,6 @@
             <h2>Dialog with header and footer</h2>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#complete-dialog">Open dialog</button>
             <!-- dialog samples are at the end of the body to avoid z-index conflicts -->
-          </div>
-          <div class="well page" id="shadow">
-            <h1 class="header">Shadow</h1>
-
-            <h2>Shadows</h2>
-
-            <div class="sample">z = 0</div>
-            <div class="sample shadow-z-1">z = 1</div>
-            <div class="sample shadow-z-2">z = 2</div>
-            <div class="sample shadow-z-3">z = 3</div>
-            <div class="sample shadow-z-4">z = 4</div>
-            <div class="sample shadow-z-5">z = 5</div>
-
-            <h2>Animated</h2>
-
-            <div id="shadow-sample2" data-tap="0">tap</div>
-            <div id="shadow-sample3" data-tap="0">tap</div>
-
-            <script>
-              $(document).on("click", "#shadow-sample2, #shadow-sample3", function () {
-                var tap = ($(this).data("tap") * 1) + 1;
-                if (tap === 6) {
-                  tap = 0;
-                }
-                $(this).data("tap", tap);
-                var shadow = "shadow-z-" + tap;
-                $(this).attr("class", shadow);
-              });
-            </script>
           </div>
         </div>
         <div class="col-xs-2">
