@@ -23,7 +23,7 @@ SOFTWARE.
 
 Acknowledgements:
 
-# Some original Bootstrap code and documentation http://getbootstrap.com
+# Some original Bootstrap tooling code and documentation http://getbootstrap.com
 Copyright (c) 2011-2015 Twitter, Inc
 
 # Some original MDL code http://www.getmdl.io/

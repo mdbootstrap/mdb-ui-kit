@@ -1,95 +1,72 @@
 ---
 layout: home
-title: bootstrap-material-design &middot; Material Design for Bootstrap, the world's most popular mobile-first and responsive front-end framework.
+title: Material Design for Bootstrap, the world's most popular mobile-first and responsive front-end framework.
 ---
 
-
-<main class="bs-docs-masthead" id="content" role="main" tabindex="-1">
+<main class="bd-masthead" id="content" role="main">
   <div class="container">
-    <span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline">BMD</span>
-
+    <span class="bd-booticon outline">BMD</span>
     <p class="lead">Material Design for Bootstrap, the world's most popular mobile-first and responsive front-end framework.</p>
-
     <p class="lead">
-      <a href="getting-started#download" class="btn btn-outline-inverse btn-lg" onclick="ga('send', 'event', 'Jumbotron actions', 'Download', 'Download {{ site.current_version }}');">Download Bootstrap Material Design</a>
+      <a href="{{ site.baseurl }}/getting-started/download" class="btn btn-outline-inverse btn-lg" onclick="ga('send', 'event', 'Jumbotron actions', 'Download', 'Download {{ site.current_version }}');">Download</a>
     </p>
-
     <p class="version">Currently v{{ site.current_version }}</p>
     {% include ads.html %}
   </div>
 </main>
 
-<div class="bs-docs-featurette">
+<div class="bd-featurette">
   <div class="container">
+    <h2 class="bd-featurette-title">Easy to get started.</h2>
+    <p class="lead">Quickly include Material Design for Bootstrap's CSS and JS into any project. Use your favorite package manager, download the source, or use the Material Design for Bootstrap CDN.</p>
 
     <div class="row">
-      <div class="col-sm-4">
-        <img src="assets/img/sass-less.png" alt="Sass and Less support" class="img-responsive">
-
-        <h3>Preprocessors</h3>
-
-        <p>BMD ships with vanilla CSS, but its source code utilizes the two most popular CSS preprocessors,
-          <a href="../css/#less">Less</a> and
-          <a href="../css/#sass">Sass</a>. Quickly get started with precompiled CSS or build on the source.</p>
+      <div class="col-sm-6 m-b-lg">
+        <h4>Managed dependencies</h4>
+        <p>Include Material Design for Bootstrap's source Sass and JavaScript files via Bower, Composer, Meteor, or npm. Package managed installs don't include documentation, but do include our Gruntfile and readme.</p>
+        <p>
+          <a class="btn btn-bs btn-outline" href="{{ site.baseurl }}/getting-started/download/#package-managers">View install methods</a>
+        </p>
       </div>
-      <div class="col-sm-4">
-        <img src="assets/img/devices.png" alt="Responsive across devices" class="img-responsive">
-
-        <h3>One framework, every device.</h3>
-
-        <p>BMD easily and efficiently scales your websites and applications with a single code base, from phones to tablets to desktops with CSS media queries.</p>
-      </div>
-      <div class="col-sm-4">
-        <img src="assets/img/components.png" alt="Components" class="img-responsive">
-
-        <h3>Full of features</h3>
-
-        <p>With BMB, you get beautiful documentation for common HTML elements, dozens of custom HTML and CSS components, and awesome jQuery plugins.</p>
+      <div class="col-sm-6 m-b-lg">
+        <h4>Material Design for Bootstrap CDN</h4>
+        <p>When you just need to include Material Design for Bootstrap's compiled CSS and JS, use the Material Design for Bootstrap CDN, free from the Max CDN folks.</p>
+{% highlight html %}
+<link rel="stylesheet" href="{{ site.cdn.css }}" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
+<script src="{{ site.cdn.js }}" integrity="{{ site.cdn.js_hash }}" crossorigin="anonymous"></script>
+{% endhighlight %}
+        <p class="text-muted">Not yet available, but hopefully soon!</p>
       </div>
     </div>
-
-    <hr class="half-rule">
-
-    <p class="lead">BMD is open source under the MIT License. It's hosted, developed, and maintained on GitHub.</p>
-    <a href="{{ site.repo }}" class="btn btn-outline btn-lg">View the GitHub project</a>
   </div>
 </div>
 
-<div class="bs-docs-featurette">
+<div class="bd-featurette">
   <div class="container">
-    <h2 class="bs-docs-featurette-title">Support BMD development.</h2>
+    <h2 class="bd-featurette-title">Designed for everyone, everywhere.</h2>
+    <p class="lead">Material Design for Bootstrap makes front-end web development faster and easier. It's made for folks of all skill levels, devices of all shapes, and projects of all sizes.</p>
 
-    <hr class="half-rule">
-
-    <div class="row bs-docs-featured-sites">
-      <p>If you want support the development of this project please consider donating:</p>
-      <a href="https://www.gratipay.com/FezVrasta/" target="_blank" class="btn btn-primary">Donate with Gratipay</a>
-
-      <form action="https://www.paypal.com/cgi-bin/webscr" id="paypal" method="post" target="_blank" style="display: inline-block;">
-        <input type="hidden" name="cmd" value="_s-xclick">
-
-        <div class="btn btn-primary">
-          <select name="hosted_button_id" title="I can't accept less than 5 euro due to accounting troubles">
-            <option value="DAAK965W2DKYE">&euro; 5,00</option>
-            <option value="28PH77JK5QWFE">&euro; 10,00</option>
-            <option value="6B6TJAJ2R99HS">&euro; 15,00</option>
-            <option value="GJCEKCQFMBVHA">&euro; 20,00</option>
-            <option value="U7QXM95C8RJ9W">&euro; 25,00</option>
-            <option value="55S3VBB3U4NAS">&euro; 50,00</option>
-          </select>
-          <input type="submit" value="DONATE WITH PAYPAL" name="submit">
-        </div>
-      </form>
-      <p>Thanks to all the people that have donated on Gratipay and PayPal! You are great guys!</p>
-
-      <hr class="half-rule">
-
-      <h2 class="bs-docs-featurette-title">Interested in hiring commercial development help?</h2>
-
-      <p class="lead">Visit
-        <a href="http://www.mywebexpression.com">MyWebExpression</a> and contact Fez Vrasta using the form on the bottom of the page.
-      </p>
+    <div class="row">
+      <div class="col-sm-4 m-b-lg">
+        <img src="assets/img/sass.png" alt="Sass support" class="img-fluid">
+        <h4>Preprocessor</h4>
+        <p>Material Design for Bootstrap ships with vanilla CSS, but its source code utilizes <a href="http://sass-lang.com/">Sass</a>, a popular CSS preprocessor. Quickly get started with precompiled CSS or build on the source.</p>
+      </div>
+      <div class="col-sm-4 m-b-lg">
+        <img src="assets/img/devices.png" alt="Responsive across devices" class="img-fluid">
+        <h4>One framework, every device.</h4>
+        <p>Material Design for Bootstrap easily and efficiently scales your websites and applications with a single code base, from phones to tablets to desktops with CSS media queries.</p>
+      </div>
+      <div class="col-sm-4 m-b-lg">
+        <img src="assets/img/components.png" alt="Components" class="img-fluid">
+        <h4>Full of features</h4>
+        <p>With Material Design for Bootstrap, you get extensive and beautiful documentation for common HTML elements, dozens of custom HTML and CSS components, and awesome jQuery plugins.</p>
+      </div>
     </div>
 
+    <hr class="half-rule m-t-0">
+
+    <p><strong>Material Design for Bootstrap is open source!</strong> It's hosted, developed, and maintained on GitHub by folks like you.</p>
+    <a href="{{ site.repo }}" class="btn btn-bs btn-outline">View the GitHub project</a>
   </div>
 </div>

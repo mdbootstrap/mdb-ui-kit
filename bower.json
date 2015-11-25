@@ -1,49 +1,37 @@
 {
   "name": "bootstrap-material-design",
-  "homepage": "http://fezvrasta.github.io/bootstrap-material-design",
-  "authors": [
-    "Federico Zivolo <info@mywebexpression.com>"
-  ],
-  "description": "Material Design theme for Bootstrap 3",
-  "main": [
-    "dist/css/material.css",
-    "dist/js/material.js",
-    "dist/css/ripples.css",
-    "dist/js/ripples.js",
-    "dist/fonts/Material-Design-Icons.eot",
-    "dist/fonts/Material-Design-Icons.svg",
-    "dist/fonts/Material-Design-Icons.ttf",
-    "dist/fonts/Material-Design-Icons.woff"
-  ],
-  "ignore": [
-    "test",
-    "screenshots",
-    "demo",
-    ".editorconfig",
-    ".gitignore",
-    ".jshintrc",
-    ".travis.yml",
-    "CONTRIBUTING.md",
-    "Gruntfile.json",
-    "index.html",
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
+  "description": "Bootstrap Material Design for Bootstrap 4",
   "keywords": [
     "material",
     "design",
     "bootstrap",
-    "theme",
-    "google",
-    "android"
+    "css",
+    "js",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
   ],
-  "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md",
+  "homepage": "http://fezvrasta.github.io/bootstrap-material-design",
+  "license": "MIT",
+  "moduleType": "globals",
+  "main": [
+    "scss/bootstrap-material-design.scss",
+    "dist/js/bootstrap-material-design.js"
+  ],
+  "ignore": [
+    "/.*",
+    "_config.yml",
+    "CNAME",
+    "composer.json",
+    "CONTRIBUTING.md",
+    "docs",
+    "js/tests",
+    "test-infra"
+  ],
   "dependencies": {
-    "jquery": "~2.1.1",
-    "bootstrap": "~3.3.5",
-    "bootstrap-sass": "~3.3.5"
+    "bootstrap": "v4-dev"
   }
 }

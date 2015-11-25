@@ -36,6 +36,8 @@ restrictions:
 
 Our bug tracker utilizes several labels to help organize and identify issues. Here's what they represent and how we use them:
 
+- `spec compliance` - Issues that are not conforming to the [Material Design Specification](https://www.google.com/design/spec/material-design/introduction.html).
+- `bootstrap compliance` - Issues that are implemented in Bootstrap, but have no Material Design implementation
 - `bug confirmed` - Issues that have been confirmed with a reduced test case and identify a bug in Bootstrap.
 - `docs & examples` - Issues for improving or updating our documentation or examples.
 - `feature` - Issues asking for a new feature to be added, or an existing one to be extended or modified. New features require a minor version bump (e.g., `v3.0.0` to `v3.1.0`).

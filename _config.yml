@@ -1,11 +1,10 @@
-baseurl: "/bootstrap-material-design"
+#baseurl: "/bootstrap-material-design"
 #url: "http://fezvrasta.github.io"
-url: "http://rosskevin.github.io"
+#url: "http://rosskevin.github.io"
 
 include:
   - .nojekyll
 
-gems: ['jekyll-less']
 
 sass:
     sass_dir: sass
@@ -13,6 +12,9 @@ sass:
 # Dependencies
 markdown:         kramdown
 highlighter:      rouge
+
+kramdown:
+  auto_ids: true
 
 # Permalinks
 permalink:        pretty
@@ -25,26 +27,27 @@ port:             9001
 url:              http://fezvrasta.github.io/bootstrap-material-design
 encoding:         UTF-8
 
+gems:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+
 # Custom vars
-current_version:  0.4.1
+current_version:  4.0.0-alpha
 repo:             https://github.com/fezvrasta/bootstrap-material-design
-#sass_repo:        https://github.com/fezvrasta/bootstrap-material-design-sass
 
 download:
   source:         https://github.com/fezvrasta/bootstrap-material-design/archive/v0.4.1.zip
   dist:           https://github.com/fezvrasta/bootstrap-material-design/releases/download/v0.4.1/bootstrap-0.4.1-dist.zip
-#  sass:           https://github.com/fezvrasta/bootstrap-material-design-sass/archive/v0.4.1.tar.gz
 
 #blog:             http://blog.getbootstrap.com
 #expo:             http://expo.getbootstrap.com
+#themes:           http://themes.getbootstrap.com
+
 #
-#cdn:
+cdn:
 #  # See https://www.srihash.org for info on how to generate the hashes
-#  css:            https://maxcdn.bootstrapcdn.com/bootstrap/0.4.1/css/bootstrap.min.css
-#  css_hash:       "sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-#  css_theme:      https://maxcdn.bootstrapcdn.com/bootstrap/0.4.1/css/bootstrap-theme.min.css
-#  css_theme_hash: "sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX"
-#  js:             https://maxcdn.bootstrapcdn.com/bootstrap/0.4.1/js/bootstrap.min.js
-#  js_hash:        "sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
-
-
+  css:            https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/v4-dev/dist/css/bootstrap-material-design.css
+#  css_hash:       "sha384-XXXXXXXX"
+  js:             https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/v4-dev/dist/js/bootstrap-material-design.js
+#  js_hash:        "sha384-XXXXXXXX"
+  jquery:         https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js

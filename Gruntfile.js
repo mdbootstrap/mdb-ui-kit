@@ -1,24 +1,65 @@
 module.exports = function (grunt) {
-  "use strict";
+  'use strict';
 
-  require("load-grunt-tasks")(grunt);
+  // Force use of Unix newlines
+  grunt.util.linefeed = '\n';
 
+  RegExp.quote = function (string) {
+    return string.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
+  };
+
+  var fs = require('fs');
   var path = require('path');
-  var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
-  var generateIconsData = require('./grunt/bmd-icons-data-generator.js');
-  
+  var glob = require('glob');
+  var isTravis = require('is-travis');
+  var npmShrinkwrap = require('npm-shrinkwrap');
+  var mq4HoverShim = require('mq4-hover-shim');
+  var autoprefixer = require('autoprefixer')({
+    browsers: [
+      'Android 2.3',
+      'Android >= 4',
+      'Chrome >= 35',
+      'Firefox >= 31',
+      // Note: Edge versions in Autoprefixer & Can I Use refer to the EdgeHTML rendering engine version,
+      // NOT the Edge app version shown in Edge's "About" screen.
+      // For example, at the time of writing, Edge 20 on an up-to-date system uses EdgeHTML 12.
+      // See also https://github.com/Fyrd/caniuse/issues/1928
+      'Edge >= 12',
+      'Explorer >= 9',
+      'iOS >= 7',
+      'Opera >= 12',
+      'Safari >= 7.1'
+    ]
+  });
+
+  var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
+  var configBridge = grunt.file.readJSON('./grunt/configBridge.json', { encoding: 'utf8' });
+
   Object.keys(configBridge.paths).forEach(function (key) {
     configBridge.paths[key].forEach(function (val, i, arr) {
       arr[i] = path.join('./docs/assets', val);
     });
   });
 
+  // Project configuration.
   grunt.initConfig({
 
+    // Metadata.
     pkg: grunt.file.readJSON('package.json'),
-    jqueryCheck: configBridge.config.jqueryCheck.join('\n'),
-    jqueryVersionCheck: configBridge.config.jqueryVersionCheck.join('\n'),
-
+    banner: '/*!\n' +
+    ' * Bootstrap Material Design v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+    ' * Copyright 2014-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+    ' * Licensed under MIT (https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE)\n' +
+    ' */\n',
+    jqueryCheck: 'if (typeof jQuery === \'undefined\') {\n' +
+    '  throw new Error(\'Bootstrap Material Design\\\'s JavaScript requires jQuery\')\n' +
+    '}\n',
+    jqueryVersionCheck: '+function ($) {\n' +
+    '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')\n' +
+    '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 3)) {\n' +
+    '    throw new Error(\'Bootstrap Material Design\\\'s JavaScript requires at least jQuery v1.9.1 but less than v3.0.0\')\n' +
+    '  }\n' +
+    '}(jQuery);\n\n',
 
     // Task configuration.
     clean: {
@@ -26,282 +67,188 @@ module.exports = function (grunt) {
       docs: 'docs/dist'
     },
 
-    jekyll: {
-      options: {
-        config: '_config.yml'
-      },
-      docs: {},
-      github: {
+    // JS build configuration
+    lineremover: {
+      es6Import: {
+        files: {
+          '<%= concat.bootstrap.dest %>': '<%= concat.bootstrap.dest %>'
+        },
         options: {
-          raw: 'github: true'
+          exclusionPattern: /^(import|export)/g
         }
       }
     },
 
-    htmlmin: {
+    babel: {
+      dev: {
+        options: {
+          sourceMap: true,
+          modules: 'ignore'
+        },
+        files: {
+          'js/dist/util.js'      : 'js/src/util.js',
+          'js/dist/alert.js'     : 'js/src/alert.js',
+          'js/dist/button.js'    : 'js/src/button.js',
+          'js/dist/carousel.js'  : 'js/src/carousel.js',
+          'js/dist/collapse.js'  : 'js/src/collapse.js',
+          'js/dist/dropdown.js'  : 'js/src/dropdown.js',
+          'js/dist/modal.js'     : 'js/src/modal.js',
+          'js/dist/scrollspy.js' : 'js/src/scrollspy.js',
+          'js/dist/tab.js'       : 'js/src/tab.js',
+          'js/dist/tooltip.js'   : 'js/src/tooltip.js',
+          'js/dist/popover.js'   : 'js/src/popover.js'
+        }
+      },
       dist: {
         options: {
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          minifyCSS: true,
-          minifyJS: true,
-          removeAttributeQuotes: true,
-          removeComments: true
+          modules: 'ignore'
         },
-        expand: true,
-        cwd: '_gh_pages',
-        dest: '_gh_pages',
+        files: {
+          '<%= concat.bootstrap.dest %>' : '<%= concat.bootstrap.dest %>'
+        }
+      },
+      umd: {
+        options: {
+          modules: 'umd'
+        },
+        files: {
+          'dist/js/umd/util.js'      : 'js/src/util.js',
+          'dist/js/umd/alert.js'     : 'js/src/alert.js',
+          'dist/js/umd/button.js'    : 'js/src/button.js',
+          'dist/js/umd/carousel.js'  : 'js/src/carousel.js',
+          'dist/js/umd/collapse.js'  : 'js/src/collapse.js',
+          'dist/js/umd/dropdown.js'  : 'js/src/dropdown.js',
+          'dist/js/umd/modal.js'     : 'js/src/modal.js',
+          'dist/js/umd/scrollspy.js' : 'js/src/scrollspy.js',
+          'dist/js/umd/tab.js'       : 'js/src/tab.js',
+          'dist/js/umd/tooltip.js'   : 'js/src/tooltip.js',
+          'dist/js/umd/popover.js'   : 'js/src/popover.js'
+        }
+      }
+    },
+
+    eslint: {
+      options: {
+        configFile: 'js/.eslintrc'
+      },
+      target: 'js/src/*.js'
+    },
+
+    jscs: {
+      options: {
+        config: 'js/.jscsrc'
+      },
+      grunt: {
+        src: ['Gruntfile.js', 'grunt/*.js']
+      },
+      core: {
+        src: 'js/src/*.js'
+      },
+      test: {
+        src: 'js/tests/unit/*.js'
+      },
+      assets: {
+        options: {
+          requireCamelCaseOrUpperCaseIdentifiers: null
+        },
+        src: ['docs/assets/js/src/*.js', 'docs/assets/js/*.js', '!docs/assets/js/*.min.js']
+      }
+    },
+
+    stamp: {
+      options: {
+        banner: '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>\n+function ($) {\n',
+        footer: '\n}(jQuery);'
+      },
+      bootstrap: {
+        files: {
+          src: '<%= concat.bootstrap.dest %>'
+        }
+      }
+    },
+
+    concat: {
+      options: {
+        stripBanners: false
+      },
+      bootstrap: {
         src: [
-          '**/*.html',
-          '!examples/**/*.html'
-        ]
+          'js/src/util.js',
+          'js/src/alert.js',
+          'js/src/button.js',
+          'js/src/carousel.js',
+          'js/src/collapse.js',
+          'js/src/dropdown.js',
+          'js/src/modal.js',
+          'js/src/scrollspy.js',
+          'js/src/tab.js',
+          'js/src/tooltip.js',
+          'js/src/popover.js'
+        ],
+        dest: 'dist/js/<%= pkg.name %>.js'
       }
     },
 
-    htmllint: {
-      //options: {
-      //  stoponerror: false,
-      //  relaxerror: []
-      //},
-      //files: ['index.html', 'bootstrap-elements.html']
-      all: {
-        options: {
-          ignore: '“&” did not start a character reference. (“&” probably should have been escaped as “&amp;”.)'
-        },
-        src: ["*.html"]
-      }
-    },
-
-
-    // Make sure we are structurally correct for bootstrap
-    bootlint: {
+    uglify: {
       options: {
-        stoponerror: false,
-        relaxerror: []
+        compress: {
+          warnings: false
+        },
+        mangle: true,
+        preserveComments: /^!|@preserve|@license|@cc_on/i
       },
-      files: ['index.html', 'bootstrap-elements.html']
+      core: {
+        src: '<%= concat.bootstrap.dest %>',
+        dest: 'dist/js/<%= pkg.name %>.min.js'
+      },
+      docsJs: {
+        src: configBridge.paths.docsJs,
+        dest: 'docs/assets/js/docs.min.js'
+      }
     },
 
-    // Convert from less to sass
-    lessToSass: {
-      convert: {
-        files: [{
-          expand: true,
-          cwd: "less",
-          src: ["**/*.less", "!_mixins.less", "!_import-bs*"],
-          ext: ".scss",
-          dest: "sass"
-        }],
+    qunit: {
+      options: {
+        inject: 'js/tests/unit/phantom.js'
+      },
+      files: 'js/tests/index.html'
+    },
+
+    // CSS build configuration
+    scsslint: {
+      options: {
+        bundleExec: true,
+        config: 'scss/.scss-lint.yml',
+        reporterOutput: null
+      },
+      src: ['scss/*.scss', '!scss/_normalize.scss']
+    },
+
+    postcss: {
+      core: {
         options: {
-          replacements: [
-
-            // convert bootstrap imports
-            { // https://regex101.com/r/bM6cP0/2
-              pattern: /bower_components\/(bootstrap\/less\/)/gi,
-              replacement: "bower_components\/bootstrap-sass\/assets\/stylesheets\/bootstrap\/",
-              order: 2
-            },
-
-            // convert conditional when not
-            { // https://regex101.com/r/cX6uF4/1
-              pattern: /& when not \(isstring\(\$parent\)\)/gi,
-              replacement: "@if not $parent",
-              order: 2
-            },
-
-            // convert conditional when
-            { // https://regex101.com/r/gH0jP0/2
-              pattern: /& when \(isstring\(\$parent\)\)/gi,
-              replacement: "@else",
-              order: 2
-            },
-
-            // convert conditional when
-            { // https://regex101.com/r/dL1lI8/2
-              pattern: /& when /gi,
-              replacement: "@if ",
-              order: 2
-            },
-
-            // convert all shadow mixins
-            { // https://regex101.com/r/sJ2lH4/1
-              pattern: /.shadow-z-(\d+)((?:-hover)?) {/gi,
-              replacement: "@mixin shadow-z-$1$2 {",
-              order: 2
-            },
-            // bad conversions of .shadow-z-*
-            { // https://regex101.com/r/pV0yB0/3
-              pattern: /\.shadow-z-(\d+)((?:-hover)?)(?:\(\))?;/gi,
-              replacement: "@include shadow-z-$1$2;",
-              order: 2
-            },
-
-            // bad conversions to @include instead of @extend
-            {
-              pattern: /@include (foo1|foo2)\(\);/gi,
-              replacement: "@extend .$1;",
-              order: 2
-            },
-
-            // hack - (no conditional replacements)
-            { // https://regex101.com/r/pV0yB0/2
-              pattern: /@extend @extend/gi,
-              replacement: "@extend",
-              order: 10
-            },
-
-            // button variations mixin replacement(s)
-            //{ // Multi-line replacement - https://regex101.com/r/qD9qB8/2
-            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)contrast[\s\S]+?(?!\r|\n)(\d+)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-            //  replacement: "@include button-variations(unquote($1), $2, $3%);\n",
-            //  order: 20
-            //},
-
-            //// background-color generic-variations
-            //{ // Multi-line replacement - https://regex101.com/r/cW6pH8/2
-            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-color[\s\S]+?(?!\r|\n)(\(\d+\/\d+\))[\s\S]+?(?!\r|\n)}\);$\n/mg,
-            //  replacement: "@include bg-color-variations(unquote($1), $2, $3);\n",
-            //  order: 21
-            //},
-
-            //// bg-box-shadow generic-variations
-            //{ // Multi-line replacement - https://regex101.com/r/jW8kR1/1
-            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)box-shadow[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-            //  replacement: "@include bg-box-shadow-variations(unquote($1), $2);\n",
-            //  order: 22
-            //},
-
-            //// bg-img generic-variations
-            //{ // Multi-line replacement - https://regex101.com/r/aP2hH2/1
-            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)background-image[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-            //  replacement: "@include bg-img-variations(unquote($1), $2);\n",
-            //  order: 23
-            //},
-
-            // material-placeholder
-            { // Multi-line replacement - https://regex101.com/r/eS2vQ3/2
-              pattern: /.material-placeholder\({$\n([\s\S]+?)}\);$\n/mg,
-              replacement: "@include material-placeholder {\n$1\n}\n",
-              order: 24
-            },
-
-            // navbar generic-variations
-            { // Multi-line replacement - https://regex101.com/r/lX1hH1/4
-              pattern: /.generic-variations\(unquote\((".navbar"), ~("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)[\s\S]+?(?!\r|\n)}\);$/mg,
-              replacement: "@include navbar-variations(unquote($1), unquote($2), $4);\n",
-              order: 25
-            },
-
-            // fix calc references
-            { // https://regex101.com/r/aZ8iI5/1
-              pattern: /calc\(unquote\("([^"]+)"\)\)/gi,
-              replacement: "calc($1)",
-              order: 100
-            },
-
-            // fix unquote("", ~"")
-            { //  https://regex101.com/r/vX4nO9/6
-              pattern: /\(unquote\(("([^"]+)?"), ~("([^"]+)?")\),/gi,
-              replacement: "(unquote($1), unquote($3),",
-              order: 101
-            },
-
-            // alert generic-variations (convert this one last - very broad search)
-            { // Multi-line replacement - https://regex101.com/r/jB1uL1/2
-              pattern: /.generic-variations\(unquote\(("([^"]+)?")\), unquote\(("([^"]+)?")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+}\);$\n/mg,
-              replacement: "@include alert-variations(unquote($1), unquote($3), $5);\n",
-              order: 250 // very broad search, do this last
-            },
-
-            // auto generated notice
-            { // Multi-line replacement - https://regex101.com/r/aR2kT5/1
-              pattern: /([\s\S]+)/mg,
-              replacement: "\/\/ This file has been autogenerated by grunt task lessToSass. Any changes will be overwritten.\n\n$1",
-              order: 1000 // very broad search, do this last
-            },
-
+          map: true,
+          processors: [
+            mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.bs-true-hover ' }),
+            autoprefixer
           ]
-        }
-      }
-    },
-
-    // Test compile sass
-    sass: {
-      compile: {
-        files: [{
-          expand: true,
-          cwd: "sass",
-          src: ["bootstrap-material-design.scss", "ripples.scss"],
-          dest: "dist/sassc", // added to gitignore, only used for local testing
-          ext: ".css"
-        }]
-      }
-    },
-
-    // Compile less to .css
-    // Compile less to .min.css
-    // Create source maps of both
-    less: {
-      material: {
-        options: {
-          paths: ["less"],
-          sourceMap: true,
-          sourceMapRootpath: "/",
-          sourceMapFilename: "dist/css/bootstrap-material-design.css.map",
-          sourceMapURL: "bootstrap-material-design.css.map"
         },
-        files: {
-          "dist/css/bootstrap-material-design.css": "less/bootstrap-material-design.less",
-        }
-      },
-      ripples: {
-        options: {
-          paths: ["less"],
-          sourceMap: true,
-          sourceMapRootpath: "/",
-          sourceMapFilename: "dist/css/ripples.css.map",
-          sourceMapURL: "ripples.css.map",
-          outputSourceFiles: true
-        },
-        files: {
-          "dist/css/ripples.css": "less/ripples.less",
-        }
+        src: 'dist/css/*.css'
       },
       docs: {
         options: {
-          paths: ["less"],
-          sourceMap: true,
-          sourceMapRootpath: "/",
-          sourceMapFilename: "docs/assets/css/src/docs.css.map",
-          sourceMapURL: "docs.css.map"
+          processors: [
+            autoprefixer
+          ]
         },
-        files: {
-          "docs/assets/css/src/docs.css": "docs/assets/css/src/docs.less",
-        }
-      }
-    },
-
-    // Autoprefix .css and edit its source map
-    // Autoprefix .min.css an edit its source map
-    autoprefixer: {
-      options: {
-        map: true,
-        browsers: configBridge.config.autoprefixerBrowsers
-      },
-      material: {
-        files: {
-          "dist/css/bootstrap-material-design.css": "dist/css/bootstrap-material-design.css"
-        }
-      },
-      ripples: {
-        files: {
-          "dist/css/ripples.css": "dist/css/ripples.css"
-        }
-      },
-      docs: {
-        src: ['docs/assets/css/src/docs.css']
+        src: 'docs/assets/css/docs.min.css'
       },
       examples: {
+        options: {
+          processors: [
+            autoprefixer
+          ]
+        },
         expand: true,
         cwd: 'docs/examples/',
         src: ['**/*.css'],
@@ -309,76 +256,55 @@ module.exports = function (grunt) {
       }
     },
 
-    csslint: {
-      options: {
-        csslintrc: 'less/.csslintrc'
-      },
-      dist: [
-        'dist/css/bootstrap-material-design.css',
-        'dist/css/ripples.css',
-      ],
-      distmin: [
-        'dist/css/bootstrap-material-design.min.css',
-        'dist/css/ripples.min.css',
-      ],
-      examples: [
-        'docs/examples/**/*.css'
-      ],
-      docs: {
-        options: {
-          ids: false,
-          'overqualified-elements': false
-        },
-        src: 'docs/assets/css/src/docs.css'
-      }
-    },
-
-    // Minify CSS and adapt maps
     cssmin: {
       options: {
         // TODO: disable `zeroUnits` optimization once clean-css 3.2 is released
         //    and then simplify the fix for https://github.com/twbs/bootstrap/issues/14837 accordingly
-        compatibility: 'ie8',
+        compatibility: 'ie9',
         keepSpecialComments: '*',
         sourceMap: true,
-        advanced: false
+        noAdvanced: true
       },
-      material: {
-        src: "dist/css/bootstrap-material-design.css",
-        dest: "dist/css/bootstrap-material-design.min.css"
-      },
-      ripples: {
-        src: "dist/css/ripples.css",
-        dest: "dist/css/ripples.min.css"
+      core: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/css',
+            src: ['*.css', '!*.min.css'],
+            dest: 'dist/css',
+            ext: '.min.css'
+          }
+        ]
       },
       docs: {
-        src: [
-          'docs/assets/css/ie10-viewport-bug-workaround.css',
-          'docs/assets/css/src/pygments-manni.css',
-          'docs/assets/css/src/docs.css'
-        ],
+        src: 'docs/assets/css/docs.min.css',
         dest: 'docs/assets/css/docs.min.css'
       }
     },
 
-    // Copy .js to dist/js/ folder
-    copy: {
-      material: {
-        src: "scripts/material.js",
-        dest: "dist/js/material.js"
+    csscomb: {
+      options: {
+        config: 'scss/.csscomb.json'
       },
-      ripples: {
-        src: "scripts/ripples.js",
-        dest: "dist/js/ripples.js"
-      },
-      fonts: {
+      dist: {
         expand: true,
-        cwd: "fonts/",
-        src: "**",
-        dest: "dist/fonts/",
-        flatten: true,
-        filter: "isFile"
+        cwd: 'dist/css/',
+        src: ['*.css', '!*.min.css'],
+        dest: 'dist/css/'
       },
+      examples: {
+        expand: true,
+        cwd: 'docs/examples/',
+        src: '**/*.css',
+        dest: 'docs/examples/'
+      },
+      docs: {
+        src: 'docs/assets/css/src/docs.css',
+        dest: 'docs/assets/css/src/docs.css'
+      }
+    },
+
+    copy: {
       docs: {
         expand: true,
         cwd: 'dist/',
@@ -389,282 +315,209 @@ module.exports = function (grunt) {
       }
     },
 
-    // Compile .js to .min.js
-    uglify: {
-      options: {
-        sourceMap: true
-      },
-      material: {
-        files: {
-          "dist/js/material.min.js": "dist/js/material.js"
-        }
-      },
-      ripples: {
-        files: {
-          "dist/js/ripples.min.js": "dist/js/ripples.js"
-        }
-      },
-      customize: {
-        src: configBridge.paths.customizerJs,
-        dest: 'docs/assets/js/customize.min.js'
-      },
-      docsJs: {
-        src: configBridge.paths.docsJs,
-        dest: 'docs/assets/js/docs.min.js'
-      }
-    },
-
     connect: {
-      options: {
-        port: 8040,
-        hostname: "localhost",
-        livereload: 35729
-
-      },
-      livereload: {
+      server: {
         options: {
-          open: true,
-          base: "."
-        }
-      },
-      test: {
-        options: {
-          port: 8041,
-          open: "http://localhost:8041/_SpecRunner.html",
-          base: "."
+          port: 3000,
+          base: '.'
         }
       }
     },
-    jasmine: {
-      scripts: "scripts/**/*.js",
+
+    jekyll: {
       options: {
-        build: true,
-        specs: "test/*Spec.js",
-        helpers: "test/*Helper.js",
-        vendor: [
-          "https://code.jquery.com/jquery-1.10.2.min.js",
-          "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+        bundleExec: true,
+        config: '_config.yml',
+        incremental: false
+      },
+      docs: {},
+      github: {
+        options: {
+          raw: 'github: true'
+        }
+      }
+    },
+
+    htmllint: {
+      options: {
+        ignore: [
+          'Element “img” is missing required attribute “src”.',
+          'Attribute “autocomplete” is only allowed when the input type is “color”, “date”, “datetime”, “datetime-local”, “email”, “month”, “number”, “password”, “range”, “search”, “tel”, “text”, “time”, “url”, or “week”.',
+          'Attribute “autocomplete” not allowed on element “button” at this point.',
+          'Element “div” not allowed as child of element “progress” in this context. (Suppressing further errors from this subtree.)',
+          'Consider using the “h1” element as a top-level heading only (all “h1” elements are treated as top-level headings by many screen readers and other tools).',
+          'The “datetime” input type is not supported in all browsers. Please be sure to test, and consider using a polyfill.'
         ]
-      }
-    },
-    jshint: {
-      options: {
-        jshintrc: "scripts/.jshintrc",
-        reporter: require("jshint-stylish")
       },
-      grunt: {
-        options: {
-          jshintrc: 'grunt/.jshintrc'
-        },
-        src: ['Gruntfile.js', 'package.js']
-      },
-      core: {
-        src: ["scripts/**/*.js"]
-      },
-      test: {
-        src: ["test/**/*.js"]
-      },
-      assets: {
-        options: {
-          jshintrc: "docs/assets/js/.jshintrc"
-        },
-        src: ['docs/assets/js/src/*.js', 'docs/assets/js/*.js', '!docs/assets/js/*.min.js']
-      }
-    },
-
-    jscs: {
-      options: {
-        config: 'scripts/.jscsrc'
-      },
-      grunt: {
-        src: '<%= jshint.grunt.src %>'
-      },
-      core: {
-        src: '<%= jshint.core.src %>'
-      },
-      test: {
-        src: '<%= jshint.test.src %>'
-      },
-      assets: {
-        options: {
-          requireCamelCaseOrUpperCaseIdentifiers: null
-        },
-        src: '<%= jshint.assets.src %>'
-      }
+      src: ['_gh_pages/**/*.html', 'js/tests/visual/*.html']
     },
 
     watch: {
-      html: {
-        files: ["index.html", "bootstrap-elements.html", "test.html"],
-        tasks: ["htmllint", "bootlint"]
+      src: {
+        files: '<%= jscs.core.src %>',
+        tasks: ['babel:dev']
       },
-      //src: {
-      //  files: '<%= jshint.core.src %>',
-      //  tasks: ['jshint:core', 'dist-js'] // add tests when working again
-      //},
-      test: {
-        files: ["test/**/*.js"],
-        tasks: ["jshint:test", "jasmine"]
+      sass: {
+        files: 'scss/**/*.scss',
+        tasks: ['dist-css', 'docs']
       },
-      less: {
-        files: ["less/**/*.less"],
-        tasks: ["dist-less"]
-      },
-      livereload: {
-        options: {
-          livereload: "<%= connect.options.livereload %>"
-        },
-        files: [
-          "index.html",
-          "bootstrap-elements.html",
-          "dist/js/**/*.js",
-          "dist/css/**/*.css",
-          "demo/**/*.{png,jpg,jpeg,gif,webp,svg}"
-        ]
+      docs: {
+        files: 'docs/assets/scss/**/*.scss',
+        tasks: ['dist-css', 'docs']
       }
     },
 
-    compress: {
-      main: {
+    sed: {
+      versionNumber: {
+        pattern: (function () {
+          var old = grunt.option('oldver');
+          return old ? RegExp.quote(old) : old;
+        })(),
+        replacement: grunt.option('newver'),
+        recursive: true
+      }
+    },
+
+    'saucelabs-qunit': {
+      all: {
         options: {
-          archive: 'bootstrap-material-design-<%= pkg.version %>-dist.zip',
-          mode: 'zip',
-          level: 9,
-          pretty: true
-        },
-        files: [
-          {
-            expand: true,
-            cwd: 'dist/',
-            src: ['**'],
-            dest: 'bootstrap-material-design-<%= pkg.version %>-dist'
-          }
-        ]
+          build: process.env.TRAVIS_JOB_ID,
+          concurrency: 10,
+          maxRetries: 3,
+          maxPollRetries: 4,
+          urls: ['http://127.0.0.1:3000/js/tests/index.html?hidepassed'],
+          browsers: grunt.file.readYAML('grunt/sauce_browsers.yml')
+        }
       }
     },
 
     exec: {
-      "meteor-init": {
-        command: [
-          // Make sure Meteor is installed, per https://meteor.com/install.
-          // The curl'ed script is safe; takes 2 minutes to read source & check.
-          "type meteor >/dev/null 2>&1 || { curl https://install.meteor.com/ | sh; }",
-          // Meteor expects package.js to be in the root directory of
-          // the checkout, so copy it there temporarily
-          "cp meteor/package.js ."
-        ].join(";")
+      npmUpdate: {
+        command: 'npm update'
+      }
+    },
+
+    buildcontrol: {
+      options: {
+        dir: '_gh_pages',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
-      "meteor-cleanup": {
-        // remove build files and package.js
-        command: "rm -rf .build.* versions.json package.js"
-      },
-      "meteor-test": {
-        command: "node_modules/.bin/spacejam --mongo-url mongodb:// test-packages ./"
-      },
-      "meteor-publish": {
-        command: [
-          "ALL_EXIT_CODE=0; for PACKAGE_FILE in meteor/package*.js",
-          "do cp $PACKAGE_FILE ./package.js && meteor publish $@",
-          "ALL_EXIT_CODE=$(echo $ALL_EXIT_CODE + $? | bc); done",
-          "exit $ALL_EXIT_CODE"
-        ].join(";")
+      pages: {
+        options: {
+          remote: 'git@github.com:twbs/derpstrap.git',
+          branch: 'gh-pages'
+        }
       }
     }
-
   });
 
 
-  require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
-  //require('time-grunt')(grunt);
-
-  grunt.registerTask('test-js', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
-  grunt.registerTask("test", [
-    "dist",
-    "jasmine:scripts:build",
-    "connect:test:keepalive"
-  ]);
+  // These plugins provide necessary tasks.
+  require('load-grunt-tasks')(grunt, { scope: 'devDependencies',
+    // Exclude Sass compilers. We choose the one to load later on.
+    pattern: ['grunt-*', '!grunt-sass', '!grunt-contrib-sass'] });
+  require('time-grunt')(grunt);
 
   // Docs HTML validation task
   grunt.registerTask('validate-html', ['jekyll:docs', 'htmllint']);
 
-  grunt.loadNpmTasks("grunt-less-to-sass");
+  var runSubset = function (subset) {
+    return !process.env.BMD_TEST || process.env.BMD_TEST === subset;
+  };
+  var isUndefOrNonZero = function (val) {
+    return val === undefined || val !== '0';
+  };
 
-  // CSS distribution tasks
-  grunt.registerTask("dist-sass", [
-    "lessToSass:convert",
-    "sass:compile"
-  ]);
+  // Test task.
+  var testSubtasks = [];
+  // Skip core tests if running a different subset of the test suite
+  if (runSubset('core') &&
+      // Skip core tests if this is a Savage build
+    process.env.TRAVIS_REPO_SLUG !== 'twbs-savage/bootstrap') {
+    testSubtasks = testSubtasks.concat(['dist-css', 'dist-js', 'test-scss', 'test-js', 'docs']);
+  }
+  // Skip HTML validation if running a different subset of the test suite
+  if (runSubset('validate-html') &&
+    isTravis &&
+      // Skip HTML5 validator when [skip validator] is in the commit message
+    isUndefOrNonZero(process.env.BMD_DO_VALIDATOR)) {
+    testSubtasks.push('validate-html');
+  }
+  // Only run Sauce Labs tests if there's a Sauce access key
+  if (typeof process.env.SAUCE_ACCESS_KEY !== 'undefined' &&
+      // Skip Sauce if running a different subset of the test suite
+    runSubset('sauce-js-unit') &&
+      // Skip Sauce on Travis when [skip sauce] is in the commit message
+    isUndefOrNonZero(process.env.BMD_DO_SAUCE)) {
+    testSubtasks.push('babel:dev');
+    testSubtasks.push('connect');
+    testSubtasks.push('saucelabs-qunit');
+  }
+  grunt.registerTask('test', testSubtasks);
+  grunt.registerTask('test-js', ['eslint', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
 
-  grunt.registerTask('less-compile', [
-    "less:material",
-    "less:ripples"
-  ]);
+  // JS distribution task.
+  grunt.registerTask('dist-js', ['babel:dev', 'concat', 'lineremover', 'babel:dist', 'stamp', 'uglify:core', 'commonjs']);
 
-  grunt.registerTask("dist-less", [
-    "less-compile",
+  grunt.registerTask('test-scss', ['scsslint']);
 
-    "autoprefixer:material",
-    "autoprefixer:ripples",
-    "csslint:dist",
-    "cssmin:material",
-    "cssmin:ripples",
-    "csslint:distmin"
-  ]);
+  // CSS distribution task.
+  // Supported Compilers: sass (Ruby) and libsass.
+  (function (sassCompilerName) {
+    require('./grunt/bs-sass-compile/' + sassCompilerName + '.js')(grunt);
+  })(process.env.BMD_SASS || 'libsass');
+  // grunt.registerTask('sass-compile', ['sass:core', 'sass:extras', 'sass:docs']);
+  grunt.registerTask('sass-compile', ['sass:core', 'sass:docs']);
 
-  grunt.registerTask("dist-js", [
-    "jshint",
-    "copy:material",
-    "uglify:material",
-    "copy:ripples",
-    "uglify:ripples"
-  ]);
+  grunt.registerTask('dist-css', ['sass-compile', 'postcss:core', 'csscomb:dist', 'cssmin:core', 'cssmin:docs']);
 
-  grunt.registerTask("dist-fonts", [
-    "copy:fonts"
-  ]);
-
-  // Full distribution
-  grunt.registerTask("dist", [
-    "clean:dist",
-
-    "htmllint",
-    "bootlint",
-
-    "dist-less",
-    "dist-js",
-    "dist-fonts",
-    "dist-sass"
-  ]);
+  // Full distribution task.
+  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'dist-js']);
 
   // Default task.
-  grunt.registerTask('default', ['dist']); // test as well when it works?
+  grunt.registerTask('default', ['clean:dist', 'test']);
 
+  // Version numbering task.
+  // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
+  // This can be overzealous, so its changes should always be manually reviewed!
+  grunt.registerTask('change-version-number', 'sed');
 
-  grunt.registerTask("serve", [
-    "htmllint",
-    "bootlint",
-    "dist-less",
-    "dist-js",
-    "dist-fonts",
-    "connect:livereload",
-    "watch"
-  ]);
+  grunt.registerTask('commonjs', ['babel:umd', 'npm-js']);
 
-  // Meteor tasks
-  grunt.registerTask("meteor-test", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-cleanup"]);
-  grunt.registerTask("meteor-publish", ["exec:meteor-init", "exec:meteor-publish", "exec:meteor-cleanup"]);
-  grunt.registerTask("meteor", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-publish", "exec:meteor-cleanup"]);
-
+  grunt.registerTask('npm-js', 'Generate npm-js entrypoint module in dist dir.', function () {
+    var srcFiles = Object.keys(grunt.config.get('babel.umd.files')).map(function (filename) {
+      return './' + path.join('umd', path.basename(filename))
+    })
+    var destFilepath = 'dist/js/npm.js';
+    generateCommonJSModule(grunt, srcFiles, destFilepath);
+  });
 
   // Docs task.
-  grunt.registerTask('build-icons-data', function () { generateIconsData.call(this, grunt); });
-  grunt.registerTask('docs-css', ['less:docs','autoprefixer:docs', 'autoprefixer:examples', 'cssmin:docs']);
-  grunt.registerTask('lint-docs-css', ['csslint:docs', 'csslint:examples']);
-  grunt.registerTask('docs-js', ['uglify:docsJs', 'uglify:customize']);
-  grunt.registerTask('lint-docs-js', ['jshint:assets', 'jscs:assets']);
-  grunt.registerTask('docs', [
-    'docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-icons-data'
-  ]);
+  grunt.registerTask('docs-css', ['postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
+  grunt.registerTask('docs-js', ['uglify:docsJs']);
+  grunt.registerTask('lint-docs-js', ['jscs:assets']);
+  grunt.registerTask('docs', ['docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs']);
 
-  grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin']); //, 'compress']);
+  grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin', 'compress']);
+
+  // Publish to GitHub
+  grunt.registerTask('publish', ['buildcontrol:pages']);
+
+  // Task for updating the cached npm packages used by the Travis build (which are controlled by test-infra/npm-shrinkwrap.json).
+  // This task should be run and the updated file should be committed whenever Bootstrap's dependencies change.
+  grunt.registerTask('update-shrinkwrap', ['exec:npmUpdate', '_update-shrinkwrap']);
+  grunt.registerTask('_update-shrinkwrap', function () {
+    var done = this.async();
+    npmShrinkwrap({ dev: true, dirname: __dirname }, function (err) {
+      if (err) {
+        grunt.fail.warn(err);
+      }
+      var dest = 'grunt/npm-shrinkwrap.json';
+      fs.renameSync('npm-shrinkwrap.json', dest);
+      grunt.log.writeln('File ' + dest.cyan + ' updated.');
+      done();
+    });
+  });
 };

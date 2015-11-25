@@ -1,22 +1,56 @@
-# https://git-scm.com/docs/gitignore
-# https://help.github.com/articles/ignoring-files
-# Example .gitignore files: https://github.com/github/gitignore
-
-
-# Jekyll metadata
+# Ignore docs files
 _gh_pages
 _site
-docs/.jekyll-metadata
-docs/dist
 
+# Ignore ruby files
+.ruby-version
+.bundle
+vendor/cache
+vendor/bundle
+
+# Numerous always-ignore extensions
+*.diff
+*.err
 *.log
-.sass-cache
-Thumbs.db
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*.zip
+*~
+
+# OS or Editor folders
+._*
+.cache
 .DS_Store
-/node_modules/
-.grunt/
-/bower_components/
-.build*
-/_SpecRunner.html
-Gemfile.lock
-dist/sassc
+.idea
+.project
+.settings
+.tmproj
+*.esproj
+*.sublime-project
+*.sublime-workspace
+nbproject
+Thumbs.db
+
+# Komodo
+.komodotools
+*.komodoproject
+
+# grunt-html-validation
+validation-report.json
+validation-status.json
+
+# SCSS-Lint
+scss-lint-report.xml
+
+# grunt-contrib-sass cache
+.sass-cache
+
+# Jekyll metadata
+docs/.jekyll-metadata
+
+# Folders to ignore
+bower_components
+node_modules

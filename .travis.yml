@@ -1,22 +1,48 @@
+sudo: false # use the container infrastructure
 language: node_js
-
-node_js: 0.10.33
-
-sudo: false # use new container infrastructure
-
-# sass setup
-cache: bundler # speeds up bundler
+git:
+  depth: 10
+node_js:
+  - "4"
+  - "stable"
 rvm:
   - 2.2.2
+before_install:
+  - npm install -g npm@3
+  - "export TRAVIS_COMMIT_MSG=\"$(git log --format=%B --no-merges -n 1)\""
+  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip validator\]'; export BMD_DO_VALIDATOR=$?; true
+  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip sauce\]'; export BMD_DO_SAUCE=$?; true
+#  - if [ "$TRAVIS_REPO_SLUG" = twbs-savage/bootstrap ]; then export BMD_DO_VALIDATOR=0; fi
 
-before_script:
+install:
+  - bundle install --deployment --jobs=3
+  - cp grunt/npm-shrinkwrap.json ./
   - npm install -g grunt-cli
   - npm install -g bower
-  #- export DISPLAY=:99.0
-  #- sh -e /etc/init.d/xvfb start
-  # Install meteor
-  #- curl https://install.meteor.com | /bin/sh
-  # Install spacejam, Meteor's CI helper
-  #- npm install -g spacejam
+  - bower install
 
-script: bower install && bundle install && grunt
+cache:
+  directories:
+    - node_modules
+    - vendor/bundle
+    - bower-components
+
+addons:
+  sauce_connect:
+    username: "bmaterialdesign"
+    access_key:
+      secure: "eFSRVOJsJFi8Yhh0pCQpuJELDk0/B6s5tfvR3hi8oWXmW7FjNvRMgesoBKXbEW2HBhjJFMpt+1Rf49pweqgtZQ9vfz0GD47OjwJCTzip2Wv+EANLTJESdI5E0kw7STxrjL3Y12MBQQFHUYh9mhLdpAobNIppsIB5CG4pjtFSiG0="
+
+env:
+  matrix:
+    - BMD_TEST=core
+    - BMD_TEST=validate-html
+    - BMD_TEST=sauce-js-unit
+
+matrix:
+  fast_finish: true
+  exclude:
+    - node_js: "4"
+      env: BMD_TEST=validate-html
+    - node_js: "4"
+      env: BMD_TEST=sauce-js-unit
