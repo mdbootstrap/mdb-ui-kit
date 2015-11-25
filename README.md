@@ -18,11 +18,10 @@ TLDR; <http://site#starter-template>
 
 ## Support
 
-If you like this project you may support it by donating via Gittip
-[![gittip](docs/assets/img/gittip-button.jpg)](https://www.gratipay.com/FezVrasta/)
-
-Or you can star this repository or reporting issues.  
+If you like this project you may support it by donating via Gittip, starring this repository or reporting issues.  
 All issues filed should be reduced to a [CodePen](http://codepen.io/rosskevin/pen/VvRgrN) test case where possible.
+
+[![gittip](docs/assets/img/gittip-button.jpg)](https://www.gratipay.com/FezVrasta/)
 [![issues](docs/assets/img/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design/issues)
 
 
