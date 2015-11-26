@@ -31,9 +31,6 @@
     "url": "https://github.com/FezVrasta/bootstrap-material-design/issues"
   },
   "license": "MIT",
-  "dependencies": {
-    "bootstrap": ">=4.0",
-  },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "babel-eslint": "^4.1.3",

@@ -1,0 +1,104 @@
+
+
+.list-group {
+  border-radius: 0;
+  .list-group-item {
+    background-color: transparent;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    padding: 0 16px;
+    &.baseline {
+      border-bottom: 1px solid #cecece;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    .row-picture, .row-action-primary {
+      //float: left; WARNING: float can't be used with display: inline-block. Certain properties shouldn't be used with certain display property values. (display-property-grouping) Browsers: All
+      display: inline-block;
+      padding-right: 16px;
+      img, i, label {
+        display: block;
+        width: 56px;
+        height: 56px;
+      }
+      img {
+        background: rgba(0,0,0,0.1);
+        padding: 1px;
+        &.circle {
+          border-radius: 100%;
+        }
+      }
+      i {
+        background: rgba(0,0,0,0.25);
+        border-radius: 100%;
+        text-align: center;
+        line-height: 56px;
+        font-size: 20px;
+        color: white;
+      }
+      label {
+        margin-left: 7px;
+        margin-right: -7px;
+        margin-top: 5px;
+        margin-bottom: -5px;
+        .checkbox-material {
+          left: -10px;
+        }
+      }
+    }
+    .row-content {
+      display: inline-block;
+      width: unquote("calc(100% - 92px)");
+      min-height: 66px;
+      .action-secondary {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        i {
+          font-size: 20px;
+          color: rgba(0,0,0,0.25);
+          cursor: pointer;
+        }
+      }
+      .action-secondary  ~ * {
+        max-width: unquote("calc(100% - 30px)");
+      }
+      .least-content {
+        position: absolute;
+        right: 16px;
+        top: 0;
+        color: rgba(0,0,0,0.54);
+        font-size: 14px;
+      }
+    }
+    .list-group-item-heading {
+      color: rgba(0, 0, 0, 0.77);
+      font-size: 20px;
+      line-height: 29px;
+    }
+  }
+  .list-group-item.active {
+    &:hover, &:focus {
+      background: rgba(0,0,0,.15);
+      outline: 10px solid rgba(0,0,0,.15);
+    }
+    .list-group-item-heading, .list-group-item-text {
+      color: $mdb-text-color-primary;
+    }
+
+  }
+  .list-group-separator {
+    clear: both;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    &:before {
+      content: "";
+      width: unquote("calc(100% - 90px)");
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      float: right;
+    }
+  }
+}

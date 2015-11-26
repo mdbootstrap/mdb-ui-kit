@@ -1,0 +1,12 @@
+
+
+.progress {
+    height: 4px;
+    border-radius: 0;
+    box-shadow: none;
+    background: #c8c8c8;
+    .progress-bar {
+        box-shadow: none;
+        @include variations(unquote(".progress-bar"), unquote(""), background-color, $brand-primary);
+    }
+}

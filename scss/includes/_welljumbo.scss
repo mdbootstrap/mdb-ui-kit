@@ -1,0 +1,28 @@
+
+
+body {
+  .container,
+  .container-fluid {
+
+    .well.well-sm {
+      padding: 10px;
+    }
+    .well.well-lg {
+      padding: 26px;
+    }
+    .well,
+    .jumbotron {
+
+      background-color: #fff;
+      padding: 19px;
+      margin-bottom: 20px;
+      @include shadow-z-2();
+      border-radius: $border-radius-base;
+      border: 0;
+      p {
+        font-weight: 300;
+      }
+      @include variations(unquote(""), unquote(""), background-color, $white);
+    }
+  }
+}
