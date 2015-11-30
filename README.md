@@ -30,8 +30,7 @@ If you prefer, you can include this framework in your project using our official
 
 ## Getting started
 
-Add the necessary links to your `<head` element for fonts
-To embed Roboto into your web page, copy the code as the first element in the <head> of your HTML document.
+Add the necessary links to your `<head>` element for fonts and stylsheets:
 ```html
   <!-- Material Design fonts -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
