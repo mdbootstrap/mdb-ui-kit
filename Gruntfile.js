@@ -86,17 +86,17 @@ module.exports = function (grunt) {
           modules: 'ignore'
         },
         files: {
-          'js/dist/util.js'      : 'js/src/util.js',
-          'js/dist/alert.js'     : 'js/src/alert.js',
-          'js/dist/button.js'    : 'js/src/button.js',
-          'js/dist/carousel.js'  : 'js/src/carousel.js',
-          'js/dist/collapse.js'  : 'js/src/collapse.js',
-          'js/dist/dropdown.js'  : 'js/src/dropdown.js',
-          'js/dist/modal.js'     : 'js/src/modal.js',
-          'js/dist/scrollspy.js' : 'js/src/scrollspy.js',
-          'js/dist/tab.js'       : 'js/src/tab.js',
-          'js/dist/tooltip.js'   : 'js/src/tooltip.js',
-          'js/dist/popover.js'   : 'js/src/popover.js'
+          'js/dist/ripples.js'      : 'js/src/ripples.js' //,
+          //'js/dist/alert.js'     : 'js/src/alert.js',
+          //'js/dist/button.js'    : 'js/src/button.js',
+          //'js/dist/carousel.js'  : 'js/src/carousel.js',
+          //'js/dist/collapse.js'  : 'js/src/collapse.js',
+          //'js/dist/dropdown.js'  : 'js/src/dropdown.js',
+          //'js/dist/modal.js'     : 'js/src/modal.js',
+          //'js/dist/scrollspy.js' : 'js/src/scrollspy.js',
+          //'js/dist/tab.js'       : 'js/src/tab.js',
+          //'js/dist/tooltip.js'   : 'js/src/tooltip.js',
+          //'js/dist/popover.js'   : 'js/src/popover.js'
         }
       },
       dist: {
@@ -112,17 +112,17 @@ module.exports = function (grunt) {
           modules: 'umd'
         },
         files: {
-          'dist/js/umd/util.js'      : 'js/src/util.js',
-          'dist/js/umd/alert.js'     : 'js/src/alert.js',
-          'dist/js/umd/button.js'    : 'js/src/button.js',
-          'dist/js/umd/carousel.js'  : 'js/src/carousel.js',
-          'dist/js/umd/collapse.js'  : 'js/src/collapse.js',
-          'dist/js/umd/dropdown.js'  : 'js/src/dropdown.js',
-          'dist/js/umd/modal.js'     : 'js/src/modal.js',
-          'dist/js/umd/scrollspy.js' : 'js/src/scrollspy.js',
-          'dist/js/umd/tab.js'       : 'js/src/tab.js',
-          'dist/js/umd/tooltip.js'   : 'js/src/tooltip.js',
-          'dist/js/umd/popover.js'   : 'js/src/popover.js'
+          'dist/js/umd/ripples.js'      : 'js/src/ripples.js' //,
+          //'dist/js/umd/alert.js'     : 'js/src/alert.js',
+          //'dist/js/umd/button.js'    : 'js/src/button.js',
+          //'dist/js/umd/carousel.js'  : 'js/src/carousel.js',
+          //'dist/js/umd/collapse.js'  : 'js/src/collapse.js',
+          //'dist/js/umd/dropdown.js'  : 'js/src/dropdown.js',
+          //'dist/js/umd/modal.js'     : 'js/src/modal.js',
+          //'dist/js/umd/scrollspy.js' : 'js/src/scrollspy.js',
+          //'dist/js/umd/tab.js'       : 'js/src/tab.js',
+          //'dist/js/umd/tooltip.js'   : 'js/src/tooltip.js',
+          //'dist/js/umd/popover.js'   : 'js/src/popover.js'
         }
       }
     },
@@ -173,17 +173,17 @@ module.exports = function (grunt) {
       },
       bootstrap: {
         src: [
-          'js/src/util.js',
-          'js/src/alert.js',
-          'js/src/button.js',
-          'js/src/carousel.js',
-          'js/src/collapse.js',
-          'js/src/dropdown.js',
-          'js/src/modal.js',
-          'js/src/scrollspy.js',
-          'js/src/tab.js',
-          'js/src/tooltip.js',
-          'js/src/popover.js'
+          'js/src/ripples.js',
+          //'js/src/alert.js',
+          //'js/src/button.js',
+          //'js/src/carousel.js',
+          //'js/src/collapse.js',
+          //'js/src/dropdown.js',
+          //'js/src/modal.js',
+          //'js/src/scrollspy.js',
+          //'js/src/tab.js',
+          //'js/src/tooltip.js',
+          //'js/src/popover.js'
         ],
         dest: 'dist/js/<%= pkg.name %>.js'
       }
@@ -459,7 +459,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test-js', ['eslint', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['babel:dev', 'concat', 'lineremover', 'babel:dist', 'stamp', 'uglify:core', 'commonjs']);
+  grunt.registerTask('dist-js', ['eslint', 'babel:dev', 'concat', 'lineremover', 'babel:dist', 'stamp', 'uglify:core', 'commonjs']);
 
   grunt.registerTask('test-scss', ['scsslint']);
 
