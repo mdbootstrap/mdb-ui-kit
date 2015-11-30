@@ -7,7 +7,7 @@ module.exports = function configureLibsass(grunt) {
       options: {
         includePaths: ['scss'],
         precision: 6,
-        sourceComments: false,
+        sourceComments: true,
         sourceMap: true,
         outputStyle: 'expanded'
       },
@@ -18,9 +18,9 @@ module.exports = function configureLibsass(grunt) {
       },
       extras: {
         files: {
-          'dist/css/<%= pkg.name %>-flex.css': 'scss/<%= pkg.name %>-flex.scss',
-          'dist/css/<%= pkg.name %>-grid.css': 'scss/<%= pkg.name %>-grid.scss',
-          'dist/css/<%= pkg.name %>-reboot.css': 'scss/<%= pkg.name %>-reboot.scss'
+          //'dist/css/<%= pkg.name %>-flex.css': 'scss/<%= pkg.name %>.scss',
+          //'dist/css/<%= pkg.name %>-grid.css': 'scss/<%= pkg.name %>-grid.scss',
+          //'dist/css/<%= pkg.name %>-reboot.css': 'scss/<%= pkg.name %>-reboot.scss'
         }
       },
       docs: {

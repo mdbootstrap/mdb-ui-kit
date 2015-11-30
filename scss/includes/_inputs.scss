@@ -97,7 +97,8 @@
 
       // FIXME: need to avoid top margin http://v4-alpha.getbootstrap.com/content/reboot/#approach
       // form-group margin-top must be large enough for the label and the label's top padding since label is absolutely positioned
-      margin: ($label-top-margin + $static-font-size) 0 0 0;
+      //margin: ($label-top-margin + $static-font-size) 0 0 0;
+      padding-top: ($label-top-margin + $static-font-size);
 
       // larger labels as placeholders
       &.label-floating,
@@ -265,16 +266,16 @@
 }
 
 // default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation)
-@include form-group-size-variant(null, $mdb-input-font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-base-vertical, $mdb-input-line-height-base, $mdb-label-as-placeholder-shim-base);
+@include form-group-size-variant(null, $font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-y-base, $line-height, $mdb-label-as-placeholder-shim-base);
 
 // default floating size/location with a form-group (need margin etc from a default form-group)
-@include form-group-size-variant(unquote(".form-group"), $mdb-input-font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-base-vertical, $mdb-input-line-height-base, $mdb-label-as-placeholder-shim-base);
+@include form-group-size-variant(unquote(".form-group"), $font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-y-base, $line-height, $mdb-label-as-placeholder-shim-base);
 
 // sm floating size/location
-@include form-group-size-variant(unquote(".form-group.form-group-sm"), $mdb-input-font-size-small, $mdb-label-top-margin-small, $mdb-input-padding-small-vertical, $mdb-input-line-height-small, $mdb-label-as-placeholder-shim-small);
+@include form-group-size-variant(unquote(".form-group.form-group-sm"), $font-size-sm, $mdb-label-top-margin-sm, $mdb-input-padding-y-sm, $line-height-sm, $mdb-label-as-placeholder-shim-sm);
 
 // lg floating size/location
-@include form-group-size-variant(unquote(".form-group.form-group-lg"), $mdb-input-font-size-large, $mdb-label-top-margin-large, $mdb-input-padding-large-vertical, $mdb-input-line-height-large, $mdb-label-as-placeholder-shim-large);
+@include form-group-size-variant(unquote(".form-group.form-group-lg"), $font-size-lg, $mdb-label-top-margin-lg, $mdb-input-padding-y-lg, $line-height-lg, $mdb-label-as-placeholder-shim-lg);
 
 
 select.form-control {
@@ -308,7 +309,7 @@ select.form-control {
 // input group/addon related styles
 
 // default margin - no form-group required
-@include input-group-button-variation($mdb-input-padding-base-vertical);
+@include input-group-button-variation($mdb-input-padding-y-base);
 
 .form-group {
   //.form-control {
@@ -317,12 +318,12 @@ select.form-control {
 
   // sm margin
   &.form-group-sm {
-    @include input-group-button-variation($mdb-input-padding-small-vertical);
+    @include input-group-button-variation($mdb-input-padding-y-sm);
   }
 
   // lg margin
   &.form-group-lg {
-    @include input-group-button-variation($mdb-input-padding-large-vertical);
+    @include input-group-button-variation($mdb-input-padding-y-lg);
   }
 }
 

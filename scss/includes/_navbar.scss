@@ -88,7 +88,8 @@
       }
     }
 
-    @media (max-width: $grid-float-breakpoint-max) {
+    @include media-breakpoint-down(md) {
+    //@media (max-width: $grid-float-breakpoint-max) {   //768px
       .navbar-text {
         color: inherit;
         margin-top: 15px;
@@ -177,11 +178,11 @@
       // re-normalize inputs in a navbar the size of standard bootstrap since our normal inputs are larger by spec than bootstrap
       //---
       //height: $mdb-input-height-base;
-      $bs-line-height-base: 1.428571429 !default;
-      $bs-line-height-computed:    floor(($font-size-base * $bs-line-height-base)) !default; // ~20px
-      height: ($bs-line-height-computed + 8px);
-      font-size: $font-size-base;
-      line-height: $bs-line-height-base;
+      //$bs-line-height-base: 1.428571429 !default;
+      //$bs-line-height-computed:    floor(($font-size-base * $bs-line-height-base)) !default; // ~20px
+      //height: ($bs-line-height-computed + 8px);
+      //font-size: $font-size-base;
+      //line-height: $bs-line-height-base;
       //---
     }
   }
@@ -194,7 +195,8 @@
     background-color: $indigo;
   }
 
-  @media (max-width: $screen-md-max) {
+  @include media-breakpoint-down(lg) {
+    //@media (max-width: $screen-md-max) {  // 1200-1
 
     .navbar-brand {
       height: 50px;

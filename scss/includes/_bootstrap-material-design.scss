@@ -1,0 +1,30 @@
+// This is the main scss file, provided as an underscored file so that variable contexts remain in-tact when importing from the source.
+@import 'colors';
+@import 'variables';
+
+// FIXME: V4 SCSS inclusion via an underscored file https://github.com/twbs/bootstrap/issues/18350
+@import 'bootstrap';
+
+@import 'mixins';
+@import 'mixins/shadows';  // these are mixins only, and must be placed at the top before use (sass requiremnt)
+@import 'scaffolding'; // include the material content given the mixins above (sass requirement for inclusion order of mixins)
+@import 'welljumbo';
+@import 'buttons';
+@import 'checkboxes';
+@import 'togglebutton';
+@import 'radios';
+@import 'inputs';
+@import 'form';
+@import 'lists';
+@import 'navbar';
+@import 'alerts';
+@import 'progress';
+@import 'typography';
+@import 'tabs';
+@import 'popups';
+@import 'cards';
+@import 'dialogs';
+@import 'panels';
+@import 'dividers';
+@import 'themes';
+@import 'plugins';

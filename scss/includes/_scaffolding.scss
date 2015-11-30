@@ -1,41 +1,33 @@
-
-
 body {
-  background-color: $body-bg;
-  &.inverse {
-    background: #333333;
-    &, .form-control {
-      color: $mdb-text-color-light;
-    }
-    .modal,
-    .panel-default,
-    .card {
-      &,
-      .form-control {
-        background-color: initial;
-        color: initial;
-      }
-    }
-
-  }
-}
+  // Not sure we need this now that we are customizing bootstrap
 
 
-body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
-  //font-family: $font-family-sans-serif;
-  //font-weight: 300;
-}
-
-h5, h6{
-  font-weight: 400;
-}
-
-a, a:hover, a:focus {
-  color: $brand-primary;
-
-  & .material-icons {
-    vertical-align: middle;
-  }
+  //  background-color: $body-bg;
+  //  &.inverse {
+  //    background: #333333;
+  //    &, .form-control {
+  //      color: $mdb-text-color-light;
+  //    }
+  //    .modal,
+  //    .panel-default,
+  //    .card {
+  //      &,
+  //      .form-control {
+  //        background-color: initial;
+  //        color: initial;
+  //      }
+  //    }
+  //
+  //  }
+  //}
+  //
+  //
+  //a, a:hover, a:focus {
+  //  color: $brand-primary;
+  //
+  //  & .material-icons {
+  //    vertical-align: middle;
+  //  }
 }
 
 // Prevent highlight on mobile
@@ -44,22 +36,5 @@ a, a:hover, a:focus {
   -webkit-tap-highlight-color: transparent;
   &:focus {
     outline: 0;
-  }
-}
-
-
-.dropdown-menu {
-  border: 0;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  .divider {
-    background-color: rgba(229, 229, 229, 0.12);
-  }
-  li {
-    overflow: hidden;
-    position: relative;
-    a:hover {
-      background-color: transparent;
-      color: $brand-primary;
-    }
   }
 }
