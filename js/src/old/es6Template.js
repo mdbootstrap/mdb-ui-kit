@@ -116,7 +116,7 @@ const Foo = (($) => {
    */
   $.fn[NAME] = Foo._jQueryInterface
   $.fn[NAME].Constructor = Foo
-  $.fn[NAME].noConflict = function () {
+  $.fn[NAME].noConflict = function() {
     $.fn[NAME] = JQUERY_NO_CONFLICT
     return Foo._jQueryInterface
   }
