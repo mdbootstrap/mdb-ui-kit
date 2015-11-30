@@ -86,6 +86,7 @@ module.exports = function (grunt) {
           modules: 'ignore'
         },
         files: {
+          'js/dist/util.js'         : 'js/src/util.js',
           'js/dist/ripples.js'      : 'js/src/ripples.js' //,
           //'js/dist/alert.js'     : 'js/src/alert.js',
           //'js/dist/button.js'    : 'js/src/button.js',
@@ -112,6 +113,7 @@ module.exports = function (grunt) {
           modules: 'umd'
         },
         files: {
+          'dist/js/umd/util.js'         : 'js/src/util.js',
           'dist/js/umd/ripples.js'      : 'js/src/ripples.js' //,
           //'dist/js/umd/alert.js'     : 'js/src/alert.js',
           //'dist/js/umd/button.js'    : 'js/src/button.js',
@@ -173,6 +175,7 @@ module.exports = function (grunt) {
       },
       bootstrap: {
         src: [
+          'js/src/util.js',
           'js/src/ripples.js',
           //'js/src/alert.js',
           //'js/src/button.js',

@@ -1,5 +1,6 @@
-const Foo = (($) => {
+import Util from './util'
 
+const Foo = (($) => {
 
   /**
    * ------------------------------------------------------------------------
@@ -8,20 +9,7 @@ const Foo = (($) => {
    */
   const NAME = 'foo'
   const DATA_KEY = `bmd.${NAME}`
-  const EVENT_KEY = `.${DATA_KEY}`
-  const DATA_API_KEY = '.data-api'
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-
-  const Selector = {
-    DATA_DISMISS: '[data-dismiss="foo"]'
-  }
-
-  const Event = {
-    CLOSE: `close${EVENT_KEY}`,
-    CLOSED: `closed${EVENT_KEY}`,
-    CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
-  }
-
 
   /**
    * ------------------------------------------------------------------------
@@ -31,34 +19,15 @@ const Foo = (($) => {
   class Foo {
 
     constructor(element) {
-      this._element = element
-    }
-
-    // getters
-    static get NAME() {
-      return NAME
-    }
-
-    // public
-    close(element) {
-      element = element || this._element
-
-      let rootElement = this._getRootElement(element)
-      let customEvent = this._triggerCloseEvent(rootElement)
-
-      if (customEvent.isDefaultPrevented()) {
-        return
-      }
-
-      this._removeElement(rootElement)
+      this.element = element
     }
 
     dispose() {
-      $.removeData(this._element, DATA_KEY)
-      this._element = null
+      $.removeData(this.element, DATA_KEY)
+      this.element = null
     }
 
-
+    // ------------------------------------------------------------------------
     // private
 
     _bar(element) {
@@ -66,7 +35,7 @@ const Foo = (($) => {
       return x
     }
 
-
+    // ------------------------------------------------------------------------
     // static
     static _jQueryInterface(config) {
       return this.each(function () {
@@ -83,31 +52,7 @@ const Foo = (($) => {
         }
       })
     }
-
-    static _handleClose(fooInstance) {
-      return function (event) {
-        if (event) {
-          event.preventDefault()
-        }
-
-        fooInstance.close(this)
-      }
-    }
   }
-
-
-  /**
-   * ------------------------------------------------------------------------
-   * Data Api implementation
-   * ------------------------------------------------------------------------
-   */
-
-  $(document).on(
-    Event.CLICK_DATA_API,
-    Selector.DATA_DISMISS,
-    Foo._handleClose(new Foo())
-  )
-
 
   /**
    * ------------------------------------------------------------------------
