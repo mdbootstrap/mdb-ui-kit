@@ -10,14 +10,14 @@
     }
   };
 
-  function _isChar(evt) {
-    if (typeof evt.which == "undefined") {
-      return true;
-    } else if (typeof evt.which == "number" && evt.which > 0) {
-      return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8 && evt.which != 9;
-    }
-    return false;
-  }
+  //function _isChar(evt) {
+  //  if (typeof evt.which == "undefined") {
+  //    return true;
+  //  } else if (typeof evt.which == "number" && evt.which > 0) {
+  //    return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8 && evt.which != 9;
+  //  }
+  //  return false;
+  //}
 
   function _addFormGroupFocus(element){
     $(element).closest(".form-group").addClass("is-focused");
@@ -41,11 +41,11 @@
       "withRipples": [
         ".btn:not(.btn-link)",
         ".card-image",
-        ".navbar a:not(.withoutripple)",
+        ".navbar a:not(.ripple-none)",
         ".dropdown-menu a",
-        ".nav-tabs a:not(.withoutripple)",
+        ".nav-tabs a:not(.ripple-none)",
         ".withripple",
-        ".pagination li:not(.active):not(.disabled) a:not(.withoutripple)"
+        ".pagination li:not(.active):not(.disabled) a:not(.ripple-none)"
       ].join(","),
       "inputElements": "input.form-control, textarea.form-control, select.form-control",
       "checkboxElements": ".checkbox > label > input[type=checkbox]",
@@ -75,7 +75,7 @@
     },
     "input": function(selector) {
       $((selector) ? selector : this.options.inputElements)
-      .filter(":notmdproc")
+        .filter(":notmdproc")
       .data("mdproc", true)
       .each( function() {
         var $input = $(this);
@@ -97,7 +97,7 @@
             $input.removeClass(legacySize);
             $formGroup.addClass(standardSize);
           }
-        });
+        }); // TODO: determine if we want to keep meddling this much.
 
         // Set as empty if is empty (damn I must improve this...)
         if ($input.val() === null || $input.val() == "undefined" || $input.val() === "") {
@@ -202,7 +202,7 @@
         $("input[type!=checkbox]").each(function() {
           var $this = $(this);
           if ($this.val() && $this.val() !== $this.attr("value")) {
-            $this.trigger("change");
+            $this.triggerStart("change");
           }
         });
       }, 100);
@@ -222,7 +222,7 @@
           $inputs.each(function() {
             var $this = $(this);
             if ($this.val() !== $this.attr("value")) {
-              $this.trigger("change");
+              $this.triggerStart("change");
             }
           });
         }, 100);

@@ -50,7 +50,7 @@
     })
 
     clipboard.on('success', function (e) {
-      $(e.trigger)
+      $(e.triggerStart)
         .attr('title', 'Copied!')
         .tooltip('_fixTitle')
         .tooltip('show')
@@ -63,7 +63,7 @@
     clipboard.on('error', function (e) {
       var fallbackMsg = /Mac/i.test(navigator.userAgent) ? 'Press \u2318 to copy' : 'Press Ctrl-C to copy'
 
-      $(e.trigger)
+      $(e.triggerStart)
         .attr('title', fallbackMsg)
         .tooltip('_fixTitle')
         .tooltip('show')
