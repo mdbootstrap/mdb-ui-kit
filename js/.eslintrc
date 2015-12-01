@@ -46,7 +46,7 @@
         "dot-location": 0,
         "dot-notation": 0,
         "eqeqeq": 2,
-        "guard-for-in": 2,
+//        "guard-for-in": 2,
         "no-alert": 2,
         "no-caller": 2,
         "no-div-regex": 2,
@@ -102,7 +102,7 @@
         "no-undef": 2,
         "no-undefined": 0,
         "no-undef-init": 2,
-        "no-unused-vars": 2,
+        "no-unused-vars": [2, {"argsIgnorePattern": "$"}],
         "no-use-before-define": 0,
 
         // Stylistic
@@ -150,7 +150,7 @@
         "space-after-keywords": 2,
         "space-before-blocks": 2,
         "space-before-function-paren": 0,
-        "spaced-comment": 2,
+//        "spaced-comment": 2,
         "space-infix-ops": 2,
         "space-in-parens": 2,
         "space-return-throw-case": 2,

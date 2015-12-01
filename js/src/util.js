@@ -25,7 +25,7 @@ const Util = (($) => {
 
     for (let name in TransitionEndEvent) {
       if (el.style[name] !== undefined) {
-        return TransitionEndEvent[name] //{ end: TransitionEndEvent[name] }
+        return TransitionEndEvent[name] // { end: TransitionEndEvent[name] }
       }
     }
 
@@ -34,17 +34,11 @@ const Util = (($) => {
 
   function setTransitionEndSupport() {
     transitionEnd = transitionEndTest()
-    $.fn.transitionEndSupported = () => {
-      return transitionEnd
-    }
 
-    // generate a selector
+    // generate a concatenated transition end event selector
     for (let name in TransitionEndEvent) {
       transitionEndSelector += ` ${TransitionEndEvent[name]}`
     }
-    $.fn.transitionEndSelector = () => {
-      return transitionEndSelector
-    }          // FIXME: make this a Util.* method instead?
   }
 
   /**
@@ -55,23 +49,22 @@ const Util = (($) => {
 
   let Util = {
 
-    isChar(evt) {
-      if (typeof evt.which == "undefined") {
-        return true
-      } else if (typeof evt.which == "number" && evt.which > 0) {
-        return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8 && evt.which != 9
-      }
-      else {
-        return false
-      }
+    transitionEndSupported() {
+      return transitionEnd
     },
 
-    /*    /!**
-     * Verify if the client browser has transistion support
-     *!/
-     hasTransitionSupport() {
-     return transition
-     }*/
+    transitionEndSelector()  {
+      return transitionEndSelector
+    },
+
+    isChar(evt) {
+      if (typeof evt.which === "undefined") {
+        return true
+      } else if (typeof evt.which === "number" && evt.which > 0) {
+        return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which !== 8 && evt.which !== 9
+      }
+      return false
+    }
   }
 
   setTransitionEndSupport()

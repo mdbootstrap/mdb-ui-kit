@@ -1,4 +1,4 @@
-// FIXME: look at bootstrap/Util.js for transition support functions
+import Util from './util'
 
 const Ripples = (($) => {
 
@@ -197,7 +197,7 @@ const Ripples = (($) => {
     rippleOut() {
       this.rippleElement.off()
 
-      if ($.transitionEndSupported()) {
+      if (Util.transitionEndSupported()) {
         this.rippleElement.addClass("ripple-out")
       } else {
         this.rippleElement.animate({ "opacity": 0 }, 100, () => {
@@ -205,7 +205,7 @@ const Ripples = (($) => {
         })
       }
 
-      this.rippleElement.on($.transitionEndSelector(), () => {
+      this.rippleElement.on(Util.transitionEndSelector(), () => {
         this.rippleElement.remove()
         this.rippleElement = null
       })
@@ -217,7 +217,7 @@ const Ripples = (($) => {
     rippleOn() {
       let size = this._getNewSize()
 
-      if ($.transitionEndSupported()) {
+      if (Util.transitionEndSupported()) {
         this.rippleElement
           .css({
             "-ms-transform": `scale(${size})`,
