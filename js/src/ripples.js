@@ -8,7 +8,7 @@ const Ripples = (($) => {
    * ------------------------------------------------------------------------
    */
   const NAME = 'ripples'
-  const DATA_KEY = `bmd.${NAME}`
+  const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
@@ -251,13 +251,13 @@ const Ripples = (($) => {
     // ------------------------------------------------------------------------
     // static
 
-    static _jQueryInterface(options) {
+    static _jQueryInterface(config) {
       return this.each(() => {
         let element = $(this)
         let data = element.data(DATA_KEY)
 
         if (!data) {
-          data = new Ripples(this, options)
+          data = new Ripples(this, config)
           element.data(DATA_KEY, data)
         }
       })

@@ -101,8 +101,8 @@ module.exports = function (grunt) {
         },
         files: {
           'js/dist/util.js'         : 'js/src/util.js',
-          'js/dist/ripples.js'      : 'js/src/ripples.js' //,
-          //'js/dist/alert.js'     : 'js/src/alert.js',
+          'js/dist/ripples.js'      : 'js/src/ripples.js',
+          'js/dist/autofill.js'     : 'js/src/autofill.js',
           //'js/dist/button.js'    : 'js/src/button.js',
           //'js/dist/carousel.js'  : 'js/src/carousel.js',
           //'js/dist/collapse.js'  : 'js/src/collapse.js',
@@ -128,7 +128,8 @@ module.exports = function (grunt) {
         },
         files: {
           'dist/js/umd/util.js'         : 'js/src/util.js',
-          'dist/js/umd/ripples.js'      : 'js/src/ripples.js' //,
+          'dist/js/umd/ripples.js'      : 'js/src/ripples.js',
+          'dist/js/umd/autofill.js'     : 'js/src/autofill.js',
           //'dist/js/umd/alert.js'     : 'js/src/alert.js',
           //'dist/js/umd/button.js'    : 'js/src/button.js',
           //'dist/js/umd/carousel.js'  : 'js/src/carousel.js',
@@ -191,7 +192,7 @@ module.exports = function (grunt) {
         src: [
           'js/src/util.js',
           'js/src/ripples.js',
-          //'js/src/alert.js',
+          'js/src/autofill.js',
           //'js/src/button.js',
           //'js/src/carousel.js',
           //'js/src/collapse.js',

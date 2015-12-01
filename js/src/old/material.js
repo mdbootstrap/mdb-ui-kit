@@ -196,41 +196,41 @@
     "ripples": function(selector) {
       $((selector) ? selector : this.options.withRipples).ripples();
     },
-    "autofill": function() {
-      // This part of code will detect autofill when the page is loading (username and password inputs for example)
-      var loading = setInterval(function() {
-        $("input[type!=checkbox]").each(function() {
-          var $this = $(this);
-          if ($this.val() && $this.val() !== $this.attr("value")) {
-            $this.triggerStart("change");
-          }
-        });
-      }, 100);
-
-      // After 10 seconds we are quite sure all the needed inputs are autofilled then we can stop checking them
-      setTimeout(function() {
-        clearInterval(loading);
-      }, 10000);
-    },
-    "attachAutofillEventHandlers": function() {
-      // Listen on inputs of the focused form (because user can select from the autofill dropdown only when the input has focus)
-      var focused;
-      $(document)
-      .on("focus", "input", function() {
-        var $inputs = $(this).parents("form").find("input").not("[type=file]");
-        focused = setInterval(function() {
-          $inputs.each(function() {
-            var $this = $(this);
-            if ($this.val() !== $this.attr("value")) {
-              $this.triggerStart("change");
-            }
-          });
-        }, 100);
-      })
-      .on("blur", ".form-group input", function() {
-        clearInterval(focused);
-      });
-    },
+    //"autofill": function() {
+    //  // This part of code will detect autofill when the page is loading (username and password inputs for example)
+    //  var loading = setInterval(function() {
+    //    $("input[type!=checkbox]").each(function() {
+    //      var $this = $(this);
+    //      if ($this.val() && $this.val() !== $this.attr("value")) {
+    //        $this.triggerStart("change");
+    //      }
+    //    });
+    //  }, 100);
+    //
+    //  // After 10 seconds we are quite sure all the needed inputs are autofilled then we can stop checking them
+    //  setTimeout(function() {
+    //    clearInterval(loading);
+    //  }, 10000);
+    //},
+    //"attachAutofillEventHandlers": function() {
+    //  // Listen on inputs of the focused form (because user can select from the autofill dropdown only when the input has focus)
+    //  var focused;
+    //  $(document)
+    //  .on("focus", "input", function() {
+    //    var $inputs = $(this).parents("form").find("input").not("[type=file]");
+    //    focused = setInterval(function() {
+    //      $inputs.each(function() {
+    //        var $this = $(this);
+    //        if ($this.val() !== $this.attr("value")) {
+    //          $this.triggerStart("change");
+    //        }
+    //      });
+    //    }, 100);
+    //  })
+    //  .on("blur", ".form-group input", function() {
+    //    clearInterval(focused);
+    //  });
+    //},
     "init": function() {
       var $document = $(document);
 
@@ -251,8 +251,9 @@
         this.radio();
       }
       if (this.options.autofill) {
-        this.autofill();
-        this.attachAutofillEventHandlers();
+        //this.autofill();
+        //this.attachAutofillEventHandlers();
+        new Autofill()
       }
 
       if (document.arrive && this.options.arrive) {

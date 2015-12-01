@@ -8,8 +8,10 @@ const Foo = (($) => {
    * ------------------------------------------------------------------------
    */
   const NAME = 'foo'
-  const DATA_KEY = `bmd.${NAME}`
+  const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
+
+  const Default = {}
 
   /**
    * ------------------------------------------------------------------------
@@ -18,13 +20,15 @@ const Foo = (($) => {
    */
   class Foo {
 
-    constructor(element) {
+    constructor(element, config) {
       this.element = element
+      this.config = $.extend({}, Default, config)
     }
 
     dispose() {
       $.removeData(this.element, DATA_KEY)
       this.element = null
+      this.config = null
     }
 
     // ------------------------------------------------------------------------
@@ -43,12 +47,8 @@ const Foo = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Foo(this)
+          data = new Foo(this, config)
           $element.data(DATA_KEY, data)
-        }
-
-        if (config === 'close') {
-          data[config](this)
         }
       })
     }
@@ -61,7 +61,7 @@ const Foo = (($) => {
    */
   $.fn[NAME] = Foo._jQueryInterface
   $.fn[NAME].Constructor = Foo
-  $.fn[NAME].noConflict = function() {
+  $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
     return Foo._jQueryInterface
   }
