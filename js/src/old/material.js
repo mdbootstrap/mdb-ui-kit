@@ -65,13 +65,13 @@
     //  .data("mdproc", true)
     //  .after("<span class='toggle'></span>");
     //},
-    "radio": function(selector) {
-      // Add fake-radio to material radios
-      $((selector) ? selector : this.options.radioElements)
-      .filter(":notmdproc")
-      .data("mdproc", true)
-      .after("<span class='circle'></span><span class='check'></span>");
-    },
+    //"radio": function(selector) {
+    //  // Add fake-radio to material radios
+    //  $((selector) ? selector : this.options.radioElements)
+    //  .filter(":notmdproc")
+    //  .data("mdproc", true)
+    //  .after("<span class='circle'></span><span class='check'></span>");
+    //},
     "input": function(selector) {
       $((selector) ? selector : this.options.inputElements)
         .filter(":notmdproc")
@@ -249,7 +249,8 @@
         $(this.options.togglebuttonElements).togglebutton()
       }
       if (this.options.radio) {
-        this.radio();
+        //this.radio();
+        $(this.options.radioElements).radio()
       }
       if (this.options.autofill) {
         //this.autofill();
@@ -275,7 +276,7 @@
         }
         if (this.options.radio) {
           $document.arrive(this.options.radioElements, function() {
-            $.material.radio($(this));
+            $(this).radio();
           });
         }
         if (this.options.togglebutton) {
