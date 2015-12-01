@@ -159,8 +159,8 @@
       "resolved": "https://registry.npmjs.org/babel-core/-/babel-core-5.8.34.tgz"
     },
     "babel-eslint": {
-      "version": "4.1.5",
-      "resolved": "https://registry.npmjs.org/babel-eslint/-/babel-eslint-4.1.5.tgz"
+      "version": "4.1.6",
+      "resolved": "https://registry.npmjs.org/babel-eslint/-/babel-eslint-4.1.6.tgz"
     },
     "babel-jscs": {
       "version": "2.0.5",
@@ -231,8 +231,8 @@
       "resolved": "https://registry.npmjs.org/babylon/-/babylon-5.8.34.tgz"
     },
     "balanced-match": {
-      "version": "0.2.1",
-      "resolved": "https://registry.npmjs.org/balanced-match/-/balanced-match-0.2.1.tgz"
+      "version": "0.3.0",
+      "resolved": "https://registry.npmjs.org/balanced-match/-/balanced-match-0.3.0.tgz"
     },
     "basic-auth": {
       "version": "1.0.3",
@@ -265,8 +265,8 @@
       "resolved": "https://registry.npmjs.org/boom/-/boom-0.4.2.tgz"
     },
     "brace-expansion": {
-      "version": "1.1.1",
-      "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.1.tgz"
+      "version": "1.1.2",
+      "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.2.tgz"
     },
     "breakable": {
       "version": "1.0.0",

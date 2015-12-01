@@ -1,7 +1,3 @@
-#baseurl: "/bootstrap-material-design"
-#url: "http://fezvrasta.github.io"
-#url: "http://rosskevin.github.io"
-
 include:
   - .nojekyll
 
@@ -24,8 +20,10 @@ source:           docs
 destination:      _gh_pages
 host:             0.0.0.0
 port:             9001
-url:              http://fezvrasta.github.io/bootstrap-material-design
+#baseurl: "/bootstrap-material-design"
+#url: "http://fezvrasta.github.io"
 encoding:         UTF-8
+exclude:          [assets/scss/]
 
 gems:
   - jekyll-redirect-from
