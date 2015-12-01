@@ -52,15 +52,14 @@
       "togglebuttonElements": ".togglebutton > label > input[type=checkbox]",
       "radioElements": ".radio > label > input[type=radio]"
     },
-    "checkbox": function(selector) {
-      // Add fake-checkbox to material checkboxes
-      $((selector) ? selector : this.options.checkboxElements)
-      .filter(":notmdproc")
-      .data("mdproc", true)
-      .after("<span class='checkbox-material'><span class='check'></span></span>");
-    },
+    //"checkbox": function(selector) {
+    //  // Add fake-checkbox to material checkboxes
+    //  $((selector) ? selector : this.options.checkboxElements)
+    //  .filter(":notmdproc")
+    //  .data("mdproc", true)
+    //  .after("<span class='checkbox-material'><span class='check'></span></span>");
+    //},
     "togglebutton": function(selector) {
-      // Add fake-checkbox to material checkboxes
       $((selector) ? selector : this.options.togglebuttonElements)
       .filter(":notmdproc")
       .data("mdproc", true)
@@ -243,6 +242,7 @@
       }
       if (this.options.checkbox) {
         this.checkbox();
+        $(this.options.checkboxElements).checkbox()
       }
       if (this.options.togglebutton) {
         this.togglebutton();
@@ -269,7 +269,7 @@
         }
         if (this.options.checkbox) {
           $document.arrive(this.options.checkboxElements, function() {
-            $.material.checkbox($(this));
+            $(this).checkbox();
           });
         }
         if (this.options.radio) {

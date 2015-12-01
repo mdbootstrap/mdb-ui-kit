@@ -1,18 +1,18 @@
-import Util from './util'
+//import Util from './util'
 
-const Foo = (($) => {
+const Checkbox = (($) => {
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  const NAME = 'foo'
+  const NAME = 'checkbox'
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
-    template: ``
+    template: `<span class='checkbox-material'><span class='check'></span></span>`
   }
 
   /**
@@ -20,11 +20,13 @@ const Foo = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Foo {
+  class Checkbox {
 
     constructor(element, config) {
       this.element = element
       this.config = $.extend({}, Default, config)
+
+      this.element.after(this.config.template)
     }
 
     dispose() {
@@ -36,10 +38,6 @@ const Foo = (($) => {
     // ------------------------------------------------------------------------
     // private
 
-    _bar(element) {
-      let x = 1
-      return x
-    }
 
     // ------------------------------------------------------------------------
     // static
@@ -49,7 +47,7 @@ const Foo = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Foo(this, config)
+          data = new Checkbox(this, config)
           $element.data(DATA_KEY, data)
         }
       })
@@ -61,15 +59,15 @@ const Foo = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Foo._jQueryInterface
-  $.fn[NAME].Constructor = Foo
+  $.fn[NAME] = Checkbox._jQueryInterface
+  $.fn[NAME].Constructor = Checkbox
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Foo._jQueryInterface
+    return Checkbox._jQueryInterface
   }
 
-  return Foo
+  return Checkbox
 
 })(jQuery)
 
-export default Foo
+export default Checkbox
