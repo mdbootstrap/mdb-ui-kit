@@ -1,4 +1,5 @@
-@import '_colors';
+@import 'colors';
+
 
 // Typography elements FIXME: review to see if we actually need these
 $mdb-text-color-light: unquote("rgba(#{$rgb-white}, 0.84)") !default;

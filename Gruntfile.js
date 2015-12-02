@@ -258,7 +258,7 @@ module.exports = function (grunt) {
             autoprefixer
           ]
         },
-        src: 'docs/assets/css/docs.min.css'
+        src: 'docs/assets/css/*.css'
       },
       examples: {
         options: {
@@ -294,7 +294,7 @@ module.exports = function (grunt) {
         ]
       },
       docs: {
-        src: 'docs/assets/css/docs.min.css',
+        src: 'docs/assets/css/docs.css',
         dest: 'docs/assets/css/docs.min.css'
       }
     },
@@ -378,9 +378,9 @@ module.exports = function (grunt) {
         files: 'scss/**/*.scss',
         tasks: ['dist-css', 'docs']
       },
-      docs: {
-        files: 'docs/assets/scss/**/*.scss',
-        tasks: ['dist-css', 'docs']
+      docs: { // watch both the source and docs scss
+        files: ['docs/assets/scss/**/*.scss', 'scss/**/*.scss'],
+        tasks: ['docs-css'] //['dist-css', 'docs']
       }
     },
 
@@ -501,7 +501,7 @@ module.exports = function (grunt) {
   // Version numbering task.
   // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
   // This can be overzealous, so its changes should always be manually reviewed!
-  grunt.registerTask('change-version-number', 'sed');
+  //grunt.registerTask('change-version-number', 'sed');
 
   grunt.registerTask('commonjs', ['babel:umd', 'npm-js']);
 
@@ -514,7 +514,7 @@ module.exports = function (grunt) {
   });
 
   // Docs task.
-  grunt.registerTask('docs-css', ['postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
+  grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
   grunt.registerTask('docs-js', ['uglify:docsJs']);
   grunt.registerTask('lint-docs-js', ['jscs:assets']);
   grunt.registerTask('docs', ['docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs']);
