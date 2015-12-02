@@ -24,23 +24,23 @@ const BootstrapMaterialDesign = (($) => {
 
   /**
    *
-   * Default configuration for each component.
+   * Default macro configuration for each component (primarily selectors).
    *  - selector: may be a string or an array.  Any array will be joined with a comma to generate the selector
-   *  - filter: selector to individually filter elements sent to components e.g. ripple defaults `:not(.ripple-none)`
-   *  - disable any component by defining it as false with an override. e.g. $.bootstrapMaterialDesign({ input: false })
+   *  - disable any component by defining it as false with an override. e.g. $.bootstrapMaterialDesign({ autofill: false })
+   *
+   *  @see each individual component for more configuration settings.
    */
   const Default = {
     ripples: {
       selector: [
-        '.btn:not(.btn-link)',
-        '.card-image',
-        '.navbar a',
-        '.dropdown-menu a',
-        '.nav-tabs a',
-        '.pagination li:not(.active):not(.disabled) a',
+        '.btn:not(.btn-link):not(.ripple-none)',
+        '.card-image:not(.ripple-none)',
+        '.navbar a:not(.ripple-none)',
+        '.dropdown-menu a:not(.ripple-none)',
+        '.nav-tabs a:not(.ripple-none)',
+        '.pagination li:not(.active):not(.disabled) a:not(.ripple-none)',
         '.ripple' // generic marker class to add ripple to elements
-      ],
-      filter: ':not(.ripple-none)'
+      ]
     },
     input: {
       selector: [
@@ -61,8 +61,20 @@ const BootstrapMaterialDesign = (($) => {
     fileInput: {
       selector: 'input[type=file]'
     },
-    autofill: true,
-    arrive: true
+    autofill: {
+      selector: 'body'
+    },
+    arrive: true,
+    // create an ordered component list for instantiation
+    instantiation: [
+      'ripples',
+      'input',
+      'checkbox',
+      'togglebutton',
+      'radio',
+      'fileInput',
+      'autofill'
+    ]
   }
 
   /**
@@ -75,8 +87,30 @@ const BootstrapMaterialDesign = (($) => {
     constructor(element, config) {
       this.element = element
       this.config = $.extend({}, Default, config)
+      let $document = $(document)
 
-      // create an ordered component list for instantiation
+      for (let component in this.config.instantiation) {
+
+        // the component's config fragment is passed in directly, allowing users to override
+        let componentConfig = this.config[component]
+
+        // check to make sure component config is enabled (not `false`)
+        if (componentConfig) {
+
+          // assemble the selector as it may be an array
+          let selector = this._resolveSelector(componentConfig)
+
+          // instantiate component on selector elements with config
+          $(selector)[component](componentConfig)
+
+          // add to arrive if present and enabled
+          if (document.arrive && this.config.arrive) {
+            $document.arrive(selector, (element) => {  // eslint-disable-line no-loop-func
+              $(element)[component](componentConfig)
+            })
+          }
+        }
+      }
     }
 
     dispose() {
@@ -88,9 +122,13 @@ const BootstrapMaterialDesign = (($) => {
     // ------------------------------------------------------------------------
     // private
 
-    _bar(element) {
-      let x = 1
-      return x
+    _resolveSelector(componentConfig) {
+      let selector = componentConfig['selector']
+      if (Array.isArray(selector)) {
+        selector = selector.join(', ')
+      }
+
+      return selector
     }
 
     // ------------------------------------------------------------------------

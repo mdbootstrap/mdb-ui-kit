@@ -232,69 +232,69 @@
     //  });
     //},
     "init": () => {
-      var $document = $(document);
-
-      if ($.fn.ripples && this.options.ripples) {
-        //this.ripples();
-        $(this.options.withRipples).ripples()
-      }
-      if (this.options.input) {
-        this.input();
-        this.attachInputEventHandlers();
-
-        $(this.options.inputElements).input()
-      }
-      if (this.options.checkbox) {
-        //this.checkbox();
-        $(this.options.checkboxElements).checkbox()
-      }
-      if (this.options.togglebutton) {
-        //this.togglebutton();
-        $(this.options.togglebuttonElements).togglebutton()
-      }
-      if (this.options.radio) {
-        //this.radio();
-        $(this.options.radioElements).radio()
-      }
-      if (this.options.autofill) {
-        //this.autofill();
-        //this.attachAutofillEventHandlers();
-        new Autofill()  // FIXME: if this is the best way to invoke, perhaps it shouldn't be a jquery fn as well?
-      }
-
-      $(this.options.fileInputElements).fileInput()
-
-      if (document.arrive && this.options.arrive) {
-        if ($.fn.ripples && this.options.ripples) {
-          $document.arrive(this.options.withRipples, () => {
-            $(this).ripples()
-          });
-        }
-        if (this.options.input) {
-          $document.arrive(this.options.inputElements, () => {
-            $(this).input()
-          });
-        }
-        if (this.options.checkbox) {
-          $document.arrive(this.options.checkboxElements, () => {
-            $(this).checkbox();
-          });
-        }
-        if (this.options.radio) {
-          $document.arrive(this.options.radioElements, () => {
-            $(this).radio();
-          });
-        }
-        if (this.options.togglebutton) {
-          $document.arrive(this.options.togglebuttonElements, () => {
-            $(this).togglebutton();
-          });
-        }
-
-        $document.arrive(this.options.fileInputElements, () => {
-          $(this).fileInput();
-        });
-      }
+    //  var $document = $(document);
+    //
+    //  if ($.fn.ripples && this.options.ripples) {
+    //    //this.ripples();
+    //    $(this.options.withRipples).ripples()
+    //  }
+    //  if (this.options.input) {
+    //    this.input();
+    //    this.attachInputEventHandlers();
+    //
+    //    $(this.options.inputElements).input()
+    //  }
+    //  if (this.options.checkbox) {
+    //    //this.checkbox();
+    //    $(this.options.checkboxElements).checkbox()
+    //  }
+    //  if (this.options.togglebutton) {
+    //    //this.togglebutton();
+    //    $(this.options.togglebuttonElements).togglebutton()
+    //  }
+    //  if (this.options.radio) {
+    //    //this.radio();
+    //    $(this.options.radioElements).radio()
+    //  }
+    //  if (this.options.autofill) {
+    //    //this.autofill();
+    //    //this.attachAutofillEventHandlers();
+    //    $('body').autofill();
+    //  }
+    //
+    //  $(this.options.fileInputElements).fileInput()
+    //
+    //  if (document.arrive && this.options.arrive) {
+    //    if ($.fn.ripples && this.options.ripples) {
+    //      $document.arrive(this.options.withRipples, () => {
+    //        $(this).ripples()
+    //      });
+    //    }
+    //    if (this.options.input) {
+    //      $document.arrive(this.options.inputElements, () => {
+    //        $(this).input()
+    //      });
+    //    }
+    //    if (this.options.checkbox) {
+    //      $document.arrive(this.options.checkboxElements, () => {
+    //        $(this).checkbox();
+    //      });
+    //    }
+    //    if (this.options.radio) {
+    //      $document.arrive(this.options.radioElements, () => {
+    //        $(this).radio();
+    //      });
+    //    }
+    //    if (this.options.togglebutton) {
+    //      $document.arrive(this.options.togglebuttonElements, () => {
+    //        $(this).togglebutton();
+    //      });
+    //    }
+    //
+    //    $document.arrive(this.options.fileInputElements, () => {
+    //      $(this).fileInput();
+    //    });
+    //  }
     }
   };
 

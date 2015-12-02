@@ -20,7 +20,8 @@ const Autofill = (($) => {
    */
   class Autofill {
 
-    constructor(config) {
+    constructor(element, config) {
+      this.element = element
       this.config = $.extend({}, Default, config)
 
       this._watchLoading()
@@ -29,6 +30,7 @@ const Autofill = (($) => {
 
     dispose() {
       $.removeData(this.element, DATA_KEY)
+      this.element = null
       this.config = null
     }
 
