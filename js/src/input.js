@@ -15,13 +15,13 @@ const Input = (($) => {
     convertInputSizeVariations: true,
     template: `<span class='material-input'></span>`,
     formGroup: {
-      template: `"<div class='form-group'></div>`
+      template: `<div class='form-group'></div>`
     }
   }
 
   const InputSizeConversions = {
-    "input-lg": "form-group-lg",
-    "input-sm": "form-group-sm"
+    'input-lg': 'form-group-lg',
+    'input-sm': 'form-group-sm'
   }
 
   const ClassName = {
@@ -80,9 +80,9 @@ const Input = (($) => {
           }
         })
         .on('keyup change', (event) => {
-          let isValid = (typeof this.element[0].checkValidity === "undefined" || this.element[0].checkValidity())
+          let isValid = (typeof this.element[0].checkValidity === 'undefined' || this.element[0].checkValidity())
 
-          if (this.element.val() === "" && isValid) {
+          if (this.element.val() === '' && isValid) {
             this._addIsEmpty()
           } else {
             this._removeIsEmpty()
@@ -139,7 +139,7 @@ const Input = (($) => {
     }
 
     _isEmpty() {
-      return (this.element.val() === null || this.element.val() === undefined || this.element.val() === "")
+      return (this.element.val() === null || this.element.val() === undefined || this.element.val() === '')
     }
 
     _convertInputSizeVariations() {

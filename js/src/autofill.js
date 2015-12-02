@@ -45,10 +45,10 @@ const Autofill = (($) => {
     // This part of code will detect autofill when the page is loading (username and password inputs for example)
     _onLoading() {
       setInterval(() => {
-        $("input[type!=checkbox]").each((index, element) => {
+        $('input[type!=checkbox]').each((index, element) => {
           let $element = $(element)
-          if ($element.val() && $element.val() !== $element.attr("value")) {
-            $element.triggerStart("change")
+          if ($element.val() && $element.val() !== $element.attr('value')) {
+            $element.triggerStart('change')
           }
         })
       }, 100)
@@ -59,18 +59,18 @@ const Autofill = (($) => {
       //  (because user can select from the autofill dropdown only when the input has focus)
       let focused = null
       $(document)
-        .on("focus", "input", (event) => {
-          let $inputs = $(event.currentTarget).closest("form").find("input").not("[type=file]")
+        .on('focus', 'input', (event) => {
+          let $inputs = $(event.currentTarget).closest('form').find('input').not('[type=file]')
           focused = setInterval(() => {
             $inputs.each((index, element) => {
               let $element = $(element)
-              if ($element.val() !== $element.attr("value")) {
-                $element.triggerStart("change")
+              if ($element.val() !== $element.attr('value')) {
+                $element.triggerStart('change')
               }
             })
           }, 100)
         })
-        .on("blur", ".form-group input", () => {
+        .on('blur', '.form-group input', () => {
           clearInterval(focused)
         })
     }

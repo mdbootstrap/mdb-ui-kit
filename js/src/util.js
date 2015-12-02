@@ -7,7 +7,7 @@ const Util = (($) => {
    */
 
   let transitionEnd = false
-  let transitionEndSelector = ""
+  let transitionEndSelector = ''
 
   const TransitionEndEvent = {
     WebkitTransition: 'webkitTransitionEnd',
@@ -67,9 +67,9 @@ const Util = (($) => {
     },
 
     isChar(event) {
-      if (typeof event.which === "undefined") {
+      if (typeof event.which === 'undefined') {
         return true
-      } else if (typeof event.which === "number" && event.which > 0) {
+      } else if (typeof event.which === 'number' && event.which > 0) {
         return !event.ctrlKey && !event.metaKey && !event.altKey && event.which !== 8 && event.which !== 9
       }
       return false

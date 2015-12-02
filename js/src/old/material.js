@@ -30,28 +30,28 @@
   $.material =  {
     "options": {
       // These options set what will be started by $.material.init()
-      "input": true,
-      "ripples": true,
-      "checkbox": true,
-      "togglebutton": true,
-      "radio": true,
-      "arrive": true,
-      "autofill": false,
+      //"input": true,
+      //"ripples": true,
+      //"checkbox": true,
+      //"togglebutton": true,
+      //"radio": true,
+      //"arrive": true,
+      //"autofill": false,
 
-      "withRipples": [
-        ".btn:not(.btn-link)",
-        ".card-image",
-        ".navbar a:not(.ripple-none)",
-        ".dropdown-menu a",
-        ".nav-tabs a:not(.ripple-none)",
-        ".withripple",
-        ".pagination li:not(.active):not(.disabled) a:not(.ripple-none)"
-      ].join(","),
-      "inputElements": "input.form-control, textarea.form-control, select.form-control",
-      "checkboxElements": ".checkbox > label > input[type=checkbox]",
-      "togglebuttonElements": ".togglebutton > label > input[type=checkbox]",
-      "radioElements": ".radio > label > input[type=radio]" ,
-      "fileInputElements": 'input[type=file]'
+      //"withRipples": [
+      //  ".btn:not(.btn-link)",
+      //  ".card-image",
+      //  ".navbar a:not(.ripple-none)",
+      //  ".dropdown-menu a",
+      //  ".nav-tabs a:not(.ripple-none)",
+      //  ".withripple",
+      //  ".pagination li:not(.active):not(.disabled) a:not(.ripple-none)"
+      //].join(","),
+      //"inputElements": "input.form-control, textarea.form-control, select.form-control",
+      //"checkboxElements": ".checkbox > label > input[type=checkbox]",
+      //"togglebuttonElements": ".togglebutton > label > input[type=checkbox]",
+      //"radioElements": ".radio > label > input[type=radio]" ,
+      //"fileInputElements": 'input[type=file]'
     },
     //"checkbox": function(selector) {
     //  // Add fake-checkbox to material checkboxes

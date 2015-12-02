@@ -11,14 +11,29 @@ const Ripples = (($) => {
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
+  const ClassName = {
+    CONTAINER: 'ripple-container',
+    DECORATOR: 'ripple-decorator'
+  }
+
+  const Selector = {
+    CONTAINER: `.${ClassName.CONTAINER}`,
+    DECORATOR: `.${ClassName.DECORATOR}` //,
+  }
+
+
   const Default = {
-    containerSelector: '.ripple-container',
-    rippleSelector: 'div.ripple',
-    containerTemplate: `<div class='ripple-container'></div>`,
-    rippleTemplate: `<div class='ripple'></div>`,
+    container: {
+      template: `<div class='${ClassName.CONTAINER}'></div>`
+    },
+    decorator: {
+      template: `${ClassName.DECORATOR}'></div>`
+    },
+    trigger: {
+      start: 'mousedown touchstart',
+      end: 'mouseup mouseleave touchend'
+    },
     touchUserAgentRegex: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i,
-    triggerStart: 'mousedown touchstart',
-    triggerEnd: 'mouseup mouseleave touchend',
     duration: 500
   }
 
@@ -41,7 +56,7 @@ const Ripples = (($) => {
       $.removeData(this.element, DATA_KEY)
       this.element = null
       this.containerElement = null
-      this.rippleElement = null
+      this.decoratorElement = null
       this.config = null
     }
 
@@ -51,7 +66,7 @@ const Ripples = (($) => {
     _onStartRipple(event) {
 
       // Verify if the user is just touching on a device and return if so
-      if (this.isTouch() && event.type === "mousedown") {
+      if (this.isTouch() && event.type === 'mousedown') {
         return
       }
 
@@ -68,10 +83,10 @@ const Ripples = (($) => {
       }
 
       // set the location and color each time (even if element is cached)
-      this.rippleElement.css({
-       "left": relX,
-       "top": relY,
-       "background-color": this._getRipplesColor()
+      this.decoratorElement.css({
+       'left': relX,
+       'top': relY,
+       'background-color': this._getRipplesColor()
        })
 
       // Make sure the ripple has the styles applied (ugly hack but it works)
@@ -80,16 +95,16 @@ const Ripples = (($) => {
       // Turn on the ripple animation
       this.rippleOn()
 
-      // Call the rippleEnd function when the transition "on" ends
+      // Call the rippleEnd function when the transition 'on' ends
       setTimeout(() => {
         this.rippleEnd()
       }, this.config.duration)
 
       // Detect when the user leaves the element (attach only when necessary for performance)
       this.element.on(this.config.triggerEnd, () => {
-        this.rippleElement.data("mousedown", "off")
+        this.decoratorElement.data('mousedown', 'off')
 
-        if (this.rippleElement.data("animating") === "off") {
+        if (this.decoratorElement.data('animating') === 'off') {
           this.rippleOut()
         }
       })
@@ -97,18 +112,18 @@ const Ripples = (($) => {
 
     _findOrCreateContainer() {
       if (!this.containerElement || !this.containerElement.length > 0) {
-        this.element.append(this.config.containerTemplate)
-        this.containerElement = this.element.find(this.config.containerSelector)
+        this.element.append(this.config.container.template)
+        this.containerElement = this.element.find(Selector.CONTAINER)
       }
 
       // always add the rippleElement, it is always removed
-      this.containerElement.append(this.config.rippleTemplate)
-      this.rippleElement = this.containerElement.find(this.config.rippleSelector)
+      this.containerElement.append(this.config.element.template)
+      this.decoratorElement = this.containerElement.find(Selector.DECORATOR)
     }
 
     // Make sure the ripple has the styles applied (ugly hack but it works)
     _forceStyleApplication() {
-      return window.getComputedStyle(this.rippleElement[0]).opacity
+      return window.getComputedStyle(this.decoratorElement[0]).opacity
     }
 
     /**
@@ -169,7 +184,7 @@ const Ripples = (($) => {
      * Get the ripple color
      */
     _getRipplesColor() {
-      let color = this.element.data("ripple-color") ? this.element.data("ripple-color") : window.getComputedStyle(this.element[0]).color
+      let color = this.element.data('ripple-color') ? this.element.data('ripple-color') : window.getComputedStyle(this.element[0]).color
       return color
     }
 
@@ -184,10 +199,10 @@ const Ripples = (($) => {
      * End the animation of the ripple
      */
     rippleEnd() {
-      this.rippleElement.data("animating", "off")
+      this.decoratorElement.data('animating', 'off')
 
-      if (this.rippleElement.data("mousedown") === "off") {
-        this.rippleOut(this.rippleElement)
+      if (this.decoratorElement.data('mousedown') === 'off') {
+        this.rippleOut(this.decoratorElement)
       }
     }
 
@@ -195,19 +210,19 @@ const Ripples = (($) => {
      * Turn off the ripple effect
      */
     rippleOut() {
-      this.rippleElement.off()
+      this.decoratorElement.off()
 
       if (Util.transitionEndSupported()) {
-        this.rippleElement.addClass("ripple-out")
+        this.decoratorElement.addClass('ripple-out')
       } else {
-        this.rippleElement.animate({ "opacity": 0 }, 100, () => {
-          this.rippleElement.triggerStart("transitionend")
+        this.decoratorElement.animate({ 'opacity': 0 }, 100, () => {
+          this.decoratorElement.triggerStart('transitionend')
         })
       }
 
-      this.rippleElement.on(Util.transitionEndSelector(), () => {
-        this.rippleElement.remove()
-        this.rippleElement = null
+      this.decoratorElement.on(Util.transitionEndSelector(), () => {
+        this.decoratorElement.remove()
+        this.decoratorElement = null
       })
     }
 
@@ -218,25 +233,25 @@ const Ripples = (($) => {
       let size = this._getNewSize()
 
       if (Util.transitionEndSupported()) {
-        this.rippleElement
+        this.decoratorElement
           .css({
-            "-ms-transform": `scale(${size})`,
-            "-moz-transform": `scale(${size})`,
-            "-webkit-transform": `scale(${size})`,
-            "transform": `scale(${size})`
+            '-ms-transform': `scale(${size})`,
+            '-moz-transform': `scale(${size})`,
+            '-webkit-transform': `scale(${size})`,
+            'transform': `scale(${size})`
           })
-          .addClass("ripple-on")
-          .data("animating", "on")
-          .data("mousedown", "on")
+          .addClass('ripple-on')
+          .data('animating', 'on')
+          .data('mousedown', 'on')
       } else {
-        this.rippleElement.animate({
-          "width": Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
-          "height": Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
-          "margin-left": Math.max(this.element.outerWidth(), this.element.outerHeight()) * (-1),
-          "margin-top": Math.max(this.element.outerWidth(), this.element.outerHeight()) * (-1),
-          "opacity": 0.2
+        this.decoratorElement.animate({
+          'width': Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
+          'height': Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
+          'margin-left': Math.max(this.element.outerWidth(), this.element.outerHeight()) * (-1),
+          'margin-top': Math.max(this.element.outerWidth(), this.element.outerHeight()) * (-1),
+          'opacity': 0.2
         }, this.config.duration, () => {
-          this.rippleElement.triggerStart("transitionend")
+          this.decoratorElement.triggerStart('transitionend')
         })
       }
     }
@@ -245,7 +260,7 @@ const Ripples = (($) => {
      * Get the new size based on the element height/width and the ripple width
      */
     _getNewSize() {
-      return (Math.max(this.element.outerWidth(), this.element.outerHeight()) / this.rippleElement.outerWidth()) * 2.5
+      return (Math.max(this.element.outerWidth(), this.element.outerHeight()) / this.decoratorElement.outerWidth()) * 2.5
     }
 
     // ------------------------------------------------------------------------
