@@ -1,7 +1,5 @@
 # bootstrap-material-design
 
-WARNING: THESE DOCS RELATE TO 0.5.0, WHICH IS A SIGNIFICANT CHANGE FROM PREVIOUS VERSIONS.
-
 [![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
 [![gratipay](https://img.shields.io/gratipay/FezVrasta.svg)](https://gratipay.com/FezVrasta)
 [![Bower version](https://badge.fury.io/bo/bootstrap-material-design.svg)](https://github.com/FezVrasta/bootstrap-material-design)
@@ -70,7 +68,7 @@ After cloning the repo, run `npm install` to ensure you have all dev dependencie
 
 The bootstrap 3.x compatible version (master) is developed using LESS, with an automated conversion to SASS.
 
-The upcoming 4.x version (no branch yet) will be developed using SASS.
+The upcoming 4.x compatible version is being actively developed using SASS on the `v4-dev` branch.
 
 
 ## Documentation
@@ -81,29 +79,33 @@ styles for bootstrap based markup to comply with Material Design concepts.
 
 ### Customization
 
-#### Themes
-
-NOTE: (In active) development
-First, this is probably not what you think when a 'theme' is mentioned.
-
-The [material design specification mentions `light` vs. `dark` themes](https://www.google.com/design/spec/style/color.html#) 
-throughout.  By default, the source is written assuming a light theme is being used, but as reviews/refactorings 
-occur, the `.theme-dark` marker class is being used to denote differences.  
-This could be used on the top level elements such as `body` or `.container`.  Effort on 
-this is just beginning, but search the codebase for `.theme-dark` to see variations.  Help/PR's welcome.
-
 #### Colors
 
 There are 17 color variations (in addition to the classic 4 variations) described by the Material Design color palette:
 
 ![palette](docs/assets/img/material-design-color-palette.jpg)
 
-##### TODO: Describe variable override via less/sass
-- describe variables, and the well defined material design colors in _colors.less
+##### Compile your customized distributable
 
-##### TODO: Describe customization/compilation of static css 
+If you are using the static css files, you may want to use your own color variation.  To do so:
 
+1. Download the source or obtain the source with bower
+2. Edit the `less/_variables.less` file and alter the color variables.  You are most likely interested in altering `@brand-primary`.  For a list of material design color palette variables, refer to `less/_colors.less`
 
+    ```less
+    @brand-primary: @teal;
+    @brand-success: @green;
+    @brand-danger: @red;
+    @brand-warning: @deep-orange;
+    @brand-info: @light-blue;
+    ```
+3. Compile and test your distributable css by running `grunt serve`, this will launch your browser to the test site.  Peruse and verify your color choices
+4. From your application, you may now reference the compiled css files in `dist/css`
+    
+##### Customize via less variables
+
+If you are referencing source from your own application's less file, you may simply customize the colors by redefining the color variables _after_ including bootstrap-material-design.  See above for a description of variables.  
+    
 ### Forms
 
 All inputs should be surrounded by a standard `.form-group`, and as such `material.js` will enforce this.  The `.form-group` is
@@ -118,8 +120,7 @@ fewer side effects.
 
 #### Buttons
 
-Add `.btn-flat` to a button to make it flat, without shadows.
-Add `.btn-raised` to a button to add a permanent shadow to it.
+Buttons are flat by default, without shadows.  Add `.btn-raised` to a button to add a permanent shadow to it.  See the [button examples](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html#buttons) 
 
 #### Inputs
 
@@ -191,17 +192,15 @@ Radio example:
 
 ### Icons
 
-Material Design for Bootstrap includes 490 original Material Design icons!
-These icons are extracted from the original Google sources and are licensed under the BSD license.
-They are provided as an iconic and easy to use font.
+Bootstrap Material Design supports the full range of original Material Design icons!
+[See the full set of material design icons at the material icons library.](https://www.google.com/design/icons/)
 
-Variations are available for every icon, including the original Bootstrap icons.
-
-The syntax to add a Material icon is:
-
-```html
-<i class="icon icon-material-favorite"></i>
+It’s easy to incorporate icons into your web page. [Here’s an example](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html#icon): 
 ```
+<i class="material-icons">face</i> face
+```
+
+Please be sure that the fonts are properly setup, see [Getting Started](#getting-started).
 
 ### Cards 
 
