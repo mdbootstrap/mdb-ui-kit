@@ -1,5 +1,6 @@
 //import Util from './util'
 
+// Togglebutton decorator, to be called after Input
 const Togglebutton = (($) => {
 
   /**

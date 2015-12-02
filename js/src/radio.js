@@ -1,5 +1,6 @@
 //import Util from './util'
 
+// Radio decorator, to be called after Input
 const Radio = (($) => {
 
   /**

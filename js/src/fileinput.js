@@ -1,34 +1,38 @@
 import Util from './util'
 
-// Checkbox decorator, to be called after Input
-const Checkbox = (($) => {
+// FileInput decorator, to be called after Input
+const FileInput = (($) => {
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  const NAME = 'checkbox'
+  const NAME = 'fileInput'
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-  const Default = {
-    template: `<span class='checkbox-material'><span class='check'></span></span>`
+  const Default = {}
+
+  const ClassName = {
+    IS_FILEINPUT: 'is-fileinput',
+    IS_EMPTY: 'is-empty'
   }
+
 
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Checkbox {
+  class FileInput {
 
     constructor(element, config) {
       this.element = element
       this.config = $.extend({}, Default, config)
-
-      this.element.after(this.config.template)
       this.formGroup = Util.findFormGroup(this.element)
+
+      this.formGroup.addClass(ClassName.IS_FILEINPUT)
 
       this._bindEventListeners()
     }
@@ -43,16 +47,35 @@ const Checkbox = (($) => {
     // ------------------------------------------------------------------------
     // private
     _bindEventListeners() {
-      // checkboxes didn't appear to bubble to the document, so we'll bind these directly
-      this.formGroup.find('.checkbox label').hover(() => {
-        Util.addFormGroupFocus(this.formGroup)
-      }, () => {
-        Util.removeFormGroupFocus(this.formGroup)
-      })
+      this.formGroup.on('focus', () => {
+          Util.addFormGroupFocus(this.formGroup)
+        })
+        .on('blur', () => {
+          Util.removeFormGroupFocus(this.formGroup)
+        })
 
-      this.element.change(() => {
-        this.element.blur()
+      // set the fileinput readonly field with the name of the file
+      this.element.on('change', () => {
+        let value = ''
+        $.each(this.element.files, (i, file) => {
+          value += `${file.name}  , `
+        })
+        value = value.substring(0, value.length - 2)
+        if (value) {
+          this._removeIsEmpty()
+        } else {
+          this._addIsEmpty()
+        }
+        this.formGroup.find('input.form-control[readonly]').val(value)
       })
+    }
+
+    _addIsEmpty() {
+      this.formGroup.addClass(ClassName.IS_EMPTY)
+    }
+
+    _removeIsEmpty() {
+      this.formGroup.removeClass(ClassName.IS_EMPTY)
     }
 
     // ------------------------------------------------------------------------
@@ -63,7 +86,7 @@ const Checkbox = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Checkbox(this, config)
+          data = new FileInput(this, config)
           $element.data(DATA_KEY, data)
         }
       })
@@ -75,15 +98,15 @@ const Checkbox = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Checkbox._jQueryInterface
-  $.fn[NAME].Constructor = Checkbox
+  $.fn[NAME] = FileInput._jQueryInterface
+  $.fn[NAME].Constructor = FileInput
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Checkbox._jQueryInterface
+    return FileInput._jQueryInterface
   }
 
-  return Checkbox
+  return FileInput
 
 })(jQuery)
 
-export default Checkbox
+export default FileInput

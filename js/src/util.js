@@ -16,6 +16,15 @@ const Util = (($) => {
     transition: 'transitionend'
   }
 
+  const ClassName = {
+    IS_FOCUSED: 'is-focused',
+    FORM_GROUP: 'form-group'
+  }
+
+  const Selector = {
+    FORM_GROUP: `.${ClassName.FORM_GROUP}` //,
+  }
+
   function transitionEndTest() {
     if (window.QUnit) {
       return false
@@ -57,13 +66,32 @@ const Util = (($) => {
       return transitionEndSelector
     },
 
-    isChar(evt) {
-      if (typeof evt.which === "undefined") {
+    isChar(event) {
+      if (typeof event.which === "undefined") {
         return true
-      } else if (typeof evt.which === "number" && evt.which > 0) {
-        return !evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which !== 8 && evt.which !== 9
+      } else if (typeof event.which === "number" && event.which > 0) {
+        return !event.ctrlKey && !event.metaKey && !event.altKey && event.which !== 8 && event.which !== 9
       }
       return false
+    },
+
+    addFormGroupFocus(formGroup) {
+      formGroup.addClass(ClassName.IS_FOCUSED)
+    },
+
+    removeFormGroupFocus(formGroup) {
+      formGroup.removeClass(ClassName.IS_FOCUSED)
+    },
+
+    /**
+     Find expected form-group
+     */
+    findFormGroup(element) {
+      let fg = element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
+      if (fg.length === 0) {
+        $.error(`Failed to find form-group for ${element}`)
+      }
+      return fg
     }
   }
 
