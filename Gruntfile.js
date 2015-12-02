@@ -423,7 +423,9 @@ module.exports = function (grunt) {
       },
       pages: {
         options: {
-          remote: 'git@github.com:twbs/derpstrap.git',
+          // FIXME: change this when we are ready!!!
+          //remote: 'git@github.com:FezVrasta/bootstrap-material-design.git',
+          remote: 'git@github.com:rosskevin/bootstrap-material-design.git',
           branch: 'gh-pages'
         }
       }

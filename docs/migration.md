@@ -4,7 +4,8 @@ title: Migrating to v4
 group: migration
 ---
 
-Bootstrap 4 is a major rewrite of almost the entire project. The most notable changes are summarized immediately below, followed by more specific class and behavioral changes to relevant components.
+Material Design for Bootstrap 4 is a major rewrite of almost the entire project. 
+The most notable changes are summarized immediately below, followed by more specific class and behavioral changes to relevant components.
 
 {% callout info %}
 **Heads up!** This will be in flux as work on the v4 alphas progresses. Until then consider it incomplete, and we'd love pull requests to help keep it up to date.
@@ -12,7 +13,7 @@ Bootstrap 4 is a major rewrite of almost the entire project. The most notable ch
 
 ## Summary
 
-Here are the big ticket items you'll want to be aware of when moving from v3 to v4.
+Here are the big ticket items you'll want to be aware of when moving from MDB v3 to v4.
 
 ### Browser support
 
@@ -39,7 +40,7 @@ Here are the big ticket items you'll want to be aware of when moving from v3 to 
 - Refactored nearly all components to use more unnested classes instead of children selectors.
 
 ### Misc
-- Non-responsive usage of Bootstrap is no longer supported.
+- Non-responsive usage of Material Design for Bootstrap is no longer supported.
 - Dropped the online Customizer in favor of more extensive setup documentation and customized builds.
 
 ## By component
@@ -48,7 +49,7 @@ This list highlights key changes by component between v3.x.x and v4.0.0.
 
 ### Reboot
 
-New to Bootstrap 4 is the Reboot, a new stylesheet that builds on Normalize with our own somewhat opinionated reset styles. Selectors appearing in this file only use elements—there are no classes here. This isolates our reset styles from our component styles for a more modular approach. Some of the most important resets this includes are the `box-sizing: border` change, moving from `rem` to `em` units on many elements, link styles, and many form element resets.
+New to Material Design for Bootstrap 4 is the Reboot, a new stylesheet that builds on Normalize with our own somewhat opinionated reset styles. Selectors appearing in this file only use elements—there are no classes here. This isolates our reset styles from our component styles for a more modular approach. Some of the most important resets this includes are the `box-sizing: border` change, moving from `rem` to `em` units on many elements, link styles, and many form element resets.
 
 ### Typography
 
@@ -137,7 +138,7 @@ Our documentation received an upgrade across the board as well. Here's the low d
   - `callout.rb` is a similar fork of that, but designed for our special docs callouts.
 - All docs content has been rewritten in Markdown (instead of HTML) for easier editing.
 - Pages have been reorganized for simpler content and a more approachable hierarchy.
-- We moved from regular CSS to SCSS to take full advantage of Bootstrap's variables, mixins, and more.
+- We moved from regular CSS to SCSS to take full advantage of Material Design for Bootstrap's variables, mixins, and more.
 
 ## What's new
 

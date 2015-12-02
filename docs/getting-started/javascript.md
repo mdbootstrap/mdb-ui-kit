@@ -17,7 +17,7 @@ Plugins can be included individually (using Bootstrap's individual `*.js` files)
 
 ## Dependencies
 
-Some plugins and CSS components depend on other plugins. If you include plugins individually, make sure to check for these dependencies in the docs. Also note that all plugins depend on jQuery (this means jQuery must be included **before** the plugin files). [Consult our `bower.json`]({{ site.repo }}/blob/v{{ site.current_version }}/bower.json) to see which versions of jQuery are supported.
+Some plugins and CSS components depend on other plugins. If you include plugins individually, make sure to check for these dependencies in the docs. Also note that all plugins depend on jQuery (this means jQuery must be included **before** the plugin files). [Consult our `bower.json`]({{ site.repo }}/blob/v{{ site.data.version }}/bower.json) to see which versions of jQuery are supported.
 
 ## Data attributes
 
@@ -86,7 +86,7 @@ $('#myModal').on('show.bs.modal', function (e) {
 The version of each of Bootstrap's jQuery plugins can be accessed via the `VERSION` property of the plugin's constructor. For example, for the tooltip plugin:
 
 {% highlight js %}
-$.fn.tooltip.Constructor.VERSION // => "{{ site.current_version }}"
+$.fn.tooltip.Constructor.VERSION // => "{{ site.data.version }}"
 {% endhighlight %}
 
 ## No special fallbacks when JavaScript is disabled

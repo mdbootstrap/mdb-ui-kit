@@ -21,17 +21,26 @@ Looking to quickly add Material Design for Bootstrap to your project? Use the Ma
 provided for free by the folks at MaxCDN. Using a package manager or need to download the source files? 
 [Head to the downloads page.]({{ site.baseurl }}/getting-started/download)
 
-Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
+Copy-paste the font and stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
 
 {% highlight html %}
+<!-- Material Design fonts -->
+<link rel="stylesheet" href="{{ site.cdn.font_roboto }}">
+<link rel="stylesheet" href="{{ site.cdn.font_icons }}">
+
+<!-- Material Design for Bootstrap -->
 <link rel="stylesheet" href="{{ site.cdn.css }}">
 {% endhighlight %}
 
-Add our JavaScript plugins and jQuery near the end of your pages, right before the closing `</body>` tag. Be sure to place jQuery first as our code depends on it.
+Add jQuery, Bootstrap, and our Javascript plugins near the end of your pages, right before the closing `</body>` tag. Be sure to place jQuery first as our code depends on it.
 
 {% highlight html %}
-<script src="{{ site.cdn.jquery }}"></script>
+<script src="{{ site.data.cdn.jquery }}"></script>
+<script src="{{ site.data.cdn.bootstrap }}"></script>
 <script src="{{ site.cdn.js }}"></script>
+<script>
+  $.bootstrapMaterialDesign()
+</script>
 {% endhighlight %}
 
 And that's it—you're on your way to a fully Material Design for Bootstrapped site. If you're at all unsure about the general page structure, keep reading for an example page template.
@@ -56,18 +65,22 @@ Put it all together and your pages should look like this:
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Material Design fonts -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Material Design for Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ site.cdn.css }}" integrity="{{ site.cdn.css_hash }}" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ site.cdn.font_roboto }}">
+    <link rel="stylesheet" href="{{ site.cdn.font_icons }}">
+    
+    <!-- Material Design for Bootstrap -->
+    <link rel="stylesheet" href="{{ site.cdn.css }}">
   </head>
   <body>
     <h1>Hello, world!</h1>
 
-    <!-- jQuery first, then Material Design for Bootstrap JS. -->
-    <script src="{{ site.cdn.jquery }}"></script>
-    <script src="{{ site.cdn.js }}" integrity="{{ site.cdn.js_hash }}" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Bootstrap and Material Design for Bootstrap JS. -->
+    <script src="{{ site.data.cdn.jquery }}"></script>
+    <script src="{{ site.data.cdn.bootstrap }}"></script>
+    <script src="{{ site.cdn.js }}"></script>
+    <script>
+      $.bootstrapMaterialDesign()
+    </script>
   </body>
 </html>
 {% endhighlight %}

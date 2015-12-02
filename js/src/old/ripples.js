@@ -304,17 +304,17 @@
   //    });
   //  }
   //};
-
-
-  /**
-   * Create the jquery plugin function
-   */
-  $.fn.ripples = function(options) {
-    return this.each(function() {
-      if(!$.data(this, "plugin_" + ripples)) {
-        $.data(this, "plugin_" + ripples, new Ripples(this, options));
-      }
-    });
-  };
+  //
+  //
+  ///**
+  // * Create the jquery plugin function
+  // */
+  //$.fn.ripples = function(options) {
+  //  return this.each(function() {
+  //    if(!$.data(this, "plugin_" + ripples)) {
+  //      $.data(this, "plugin_" + ripples, new Ripples(this, options));
+  //    }
+  //  });
+  //};
 
 })(jQuery, window, document);

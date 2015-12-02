@@ -4,7 +4,7 @@ title: Download
 group: getting-started
 ---
 
-**Material Design for Bootstrap v{{ site.current_version}}** is available for download in several ways, including some of your favorite package managers. Choose from the options below to snag just what you need.
+**Material Design for Bootstrap v{{ site.data.version}}** is available for download in several ways, including some of your favorite package managers. Choose from the options below to snag just what you need.
 
 <div class="row m-t-md">
   <div class="col-sm-6">
@@ -13,7 +13,7 @@ group: getting-started
 Download just the compiled and minified CSS and JavaScript. Doesn't include any documentation or original source files.
 
 {% comment %}
-<a href="{{ site.download.dist }}" class="btn btn-bs btn-outline" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download compiled');">Download Material Design for Bootstrap</a>
+<a href="{{ site.data.download.dist }}" class="btn btn-bs btn-outline" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download compiled');">Download Material Design for Bootstrap</a>
 {% endcomment %}
 <span class="text-muted">Coming soon!</span>
 {% endmarkdown %}
@@ -23,7 +23,7 @@ Download just the compiled and minified CSS and JavaScript. Doesn't include any 
 ### Source files
 Download everything: source Sass, JavaScript, and documentation files. **Requires a Sass compiler, [Autoprefixer](https://github.com/postcss/autoprefixer), and [some setup]({{ site.baseurl }}/getting-started/build-tools/#tooling-setup).**
 
-<a href="{{ site.download.source }}" class="btn btn-bs btn-outline" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
+<a href="{{ site.data.download.source }}" class="btn btn-bs btn-outline" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
 {% endmarkdown %}
   </div>
 </div>
@@ -40,13 +40,13 @@ Pull in Material Design for Bootstrap's **source files** into nearly any project
 
 Install and manage Material Design for Bootstrap's Sass and JavaScript using [Bower](http://bower.io).
 
-{% highlight bash %}$ bower install bootstrap-material-design#v{{ site.current_version }}{% endhighlight %}
+{% highlight bash %}$ bower install bootstrap-material-design#v{{ site.data.version }}{% endhighlight %}
 
 ### npm
 
 Install Material Design for Bootstrap in your Node powered apps with [the npm package](https://www.npmjs.org/package/bootstrap):
 
-{% highlight bash %}$ npm install bootstrap@{{ site.current_version }}{% endhighlight %}
+{% highlight bash %}$ npm install bootstrap@{{ site.data.version }}{% endhighlight %}
 
 `require('bootstrap-material-design')` will load all of Material Design for Bootstrap's jQuery plugins onto the jQuery object. The `bootstrap` module itself does not export anything. You can manually load Material Design for Bootstrap's jQuery plugins individually by loading the `/js/*.js` files under the package's top-level directory.
 
@@ -58,7 +58,7 @@ Material Design for Material Design for Bootstrap's `package.json` contains some
 ### Meteor
 
 {% highlight bash %}
-$ meteor add FezVrasta/bootstrap-material-design@={{ site.current_version }}
+$ meteor add FezVrasta/bootstrap-material-design@={{ site.data.version }}
 {% endhighlight %}
 
 ### Composer

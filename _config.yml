@@ -30,12 +30,10 @@ gems:
   - jekyll-sitemap
 
 # Custom vars
-current_version:  4.0.0-alpha
+#current_version:  4.0.0-alpha
 repo:             https://github.com/fezvrasta/bootstrap-material-design
 
-download:
-  source:         https://github.com/fezvrasta/bootstrap-material-design/archive/v0.4.1.zip
-  dist:           https://github.com/fezvrasta/bootstrap-material-design/releases/download/v0.4.1/bootstrap-0.4.1-dist.zip
+# other variables generated in
 
 #blog:             http://blog.getbootstrap.com
 #expo:             http://expo.getbootstrap.com
@@ -48,4 +46,11 @@ cdn:
 #  css_hash:       "sha384-XXXXXXXX"
   js:             https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/v4-dev/dist/js/bootstrap-material-design.js
 #  js_hash:        "sha384-XXXXXXXX"
-  jquery:         https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
+
+  # fonts
+  font_roboto:    http://fonts.googleapis.com/css?family=Roboto:300,400,500,700
+  font_icons:     https://fonts.googleapis.com/icon?family=Material+Icons
+
+  # VERSION is substituted in variables.rb and these are made available as site.data.cdn.*
+  jquery:         https://ajax.googleapis.com/ajax/libs/jquery/VERSION/jquery.min.js
+  bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap.js
