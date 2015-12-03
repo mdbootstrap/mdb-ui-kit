@@ -2,14 +2,13 @@
 
 
 // Typography elements FIXME: review to see if we actually need these
-$mdb-text-color-light: unquote("rgba(#{$rgb-white}, 0.84)") !default;
-$mdb-text-color-light-hex: $white !default; // for contrast function in inverse
-$mdb-text-color-primary: unquote("rgba(#{$rgb-black}, 0.87)") !default;
-$mdb-text-color-primary-hex: $black !default; // for contrast function in inverse
+$mdb-text-color-light: hsla(0, 0%, 100%, 0.84) !default; // white 0.84 //unquote("rgba(#{$rgb-white}, 0.84)") !default;
+$mdb-text-color-primary: hsla(0, 0%, 0%, 0.87) !default; // black 0.87 //unquote("rgba(#{$rgb-black}, 0.87)") !default;
 $icon-color: rgba(0, 0, 0, 0.5) !default;
 
 //---
 // Customized BS variables
+$enable-flex: true;
 
 // Bootstrap brand color customization
 $brand-primary: $teal !default;
@@ -26,12 +25,34 @@ $font-family-sans-serif: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
 $headings-font-weight: 300 !default;
 
 $body-bg: #EEEEEE !default;
+
+
+// Form states and alerts
+//
+// Define colors for form feedback states and, by default, alerts.
+
+$state-success-text:             $mdb-text-color-light !default;
+$state-success-bg:               $brand-success !default;
+//$state-success-border:           darken($state-success-bg, 5%) !default;
+
+$state-info-text:                $mdb-text-color-light !default;
+$state-info-bg:                  $brand-info !default;
+//$state-info-border:              darken($state-info-bg, 7%) !default;
+
+
+$state-warning-text:             $mdb-text-color-light !default;
+$state-warning-bg:               $brand-warning !default;
+//$state-warning-border:           darken($state-warning-bg, 5%) !default;
+
+$state-danger-text:              $mdb-text-color-light !default;
+$state-danger-bg:                $brand-danger !default;
+//$state-danger-border:            darken($state-danger-bg, 5%) !default;
+
 //---
 
 // Import our customized bootstrap
-$enable-flex: true;
-@import "../../bower_components/bootstrap/scss/variables";
-@import "../../bower_components/bootstrap/scss/mixins";
+//@import "../../bower_components/bootstrap/scss/variables";
+//@import "../../bower_components/bootstrap/scss/mixins";
 
 // Bootstrap Material Design variables start with mdb-
 $mdb-brand-inverse: $indigo !default;
