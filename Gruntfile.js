@@ -330,7 +330,7 @@ module.exports = function (grunt) {
         ],
         dest: 'docs/dist/'
       },
-      'bs-docs': {
+      'bs-docs-components': {
         expand: true,
         cwd: '../bootstrap/docs/components',
         src: [
@@ -549,7 +549,7 @@ module.exports = function (grunt) {
   grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
   grunt.registerTask('docs-js', ['uglify:docsJs']);
   grunt.registerTask('lint-docs-js', ['jscs:assets']);
-  grunt.registerTask('docs', ['docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs']);
+  grunt.registerTask('docs', ['copy:bs-docs-components', 'docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs']);
 
   grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin', 'compress']);
 
