@@ -2,6 +2,7 @@
 dist/**/*
 docs/dist/**/*
 docs/assets/css/*
+js/dist/**/*
 
 # Ignore docs files
 _gh_pages

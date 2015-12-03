@@ -19,7 +19,7 @@ permalink:        pretty
 source:           docs
 destination:      _gh_pages
 host:             0.0.0.0
-port:             9001
+port:             9000
 #baseurl: "/bootstrap-material-design"
 #url: "http://fezvrasta.github.io"
 encoding:         UTF-8

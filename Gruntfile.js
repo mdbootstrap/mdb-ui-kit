@@ -47,7 +47,7 @@ module.exports = function (grunt) {
   });
 
   var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
-  var configBridge = grunt.file.readJSON('./grunt/configBridge.json', { encoding: 'utf8' });
+  var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
 
   Object.keys(configBridge.paths).forEach(function (key) {
     configBridge.paths[key].forEach(function (val, i, arr) {
@@ -100,15 +100,15 @@ module.exports = function (grunt) {
           modules: 'ignore'
         },
         files: {
-          'js/dist/util.js'         : 'js/src/util.js',
-          'js/dist/ripples.js'      : 'js/src/ripples.js',
-          'js/dist/autofill.js'     : 'js/src/autofill.js',
-          'js/dist/input.js'  : 'js/src/input.js',
-          'js/dist/checkbox.js'    : 'js/src/checkbox.js',
-          'js/dist/togglebutton.js'  : 'js/src/togglebutton.js',
-          'js/dist/radio.js'  : 'js/src/radio.js',
-          'js/dist/fileinput.js'     : 'js/src/fileInput.js',
-          'js/dist/bootstrapMaterialDesign.js' : 'js/src/bootstrapMaterialDesign.js',
+          'js/dist/util.js': 'js/src/util.js',
+          'js/dist/ripples.js': 'js/src/ripples.js',
+          'js/dist/autofill.js': 'js/src/autofill.js',
+          'js/dist/input.js': 'js/src/input.js',
+          'js/dist/checkbox.js': 'js/src/checkbox.js',
+          'js/dist/togglebutton.js': 'js/src/togglebutton.js',
+          'js/dist/radio.js': 'js/src/radio.js',
+          'js/dist/fileinput.js': 'js/src/fileInput.js',
+          'js/dist/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
           //'js/dist/tab.js'       : 'js/src/tab.js',
           //'js/dist/tooltip.js'   : 'js/src/tooltip.js',
           //'js/dist/popover.js'   : 'js/src/popover.js'
@@ -119,7 +119,7 @@ module.exports = function (grunt) {
           modules: 'ignore'
         },
         files: {
-          '<%= concat.bootstrap.dest %>' : '<%= concat.bootstrap.dest %>'
+          '<%= concat.bootstrap.dest %>': '<%= concat.bootstrap.dest %>'
         }
       },
       umd: {
@@ -127,15 +127,15 @@ module.exports = function (grunt) {
           modules: 'umd'
         },
         files: {
-          'dist/js/umd/util.js'         : 'js/src/util.js',
-          'dist/js/umd/ripples.js'      : 'js/src/ripples.js',
-          'dist/js/umd/autofill.js'     : 'js/src/autofill.js',
-          'dist/js/umd/input.js'  : 'js/src/input.js',
-          'dist/js/umd/checkbox.js'     : 'js/src/checkbox.js',
-          'dist/js/umd/togglebutton.js'    : 'js/src/togglebutton.js',
-          'dist/js/umd/radio.js'  : 'js/src/radio.js',
-          'dist/js/umd/fileinput.js'  : 'js/src/fileInput.js',
-          'dist/js/umd/bootstrapMaterialDesign.js' : 'js/src/bootstrapMaterialDesign.js',
+          'dist/js/umd/util.js': 'js/src/util.js',
+          'dist/js/umd/ripples.js': 'js/src/ripples.js',
+          'dist/js/umd/autofill.js': 'js/src/autofill.js',
+          'dist/js/umd/input.js': 'js/src/input.js',
+          'dist/js/umd/checkbox.js': 'js/src/checkbox.js',
+          'dist/js/umd/togglebutton.js': 'js/src/togglebutton.js',
+          'dist/js/umd/radio.js': 'js/src/radio.js',
+          'dist/js/umd/fileinput.js': 'js/src/fileInput.js',
+          'dist/js/umd/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
           //'dist/js/umd/tab.js'       : 'js/src/tab.js',
           //'dist/js/umd/tooltip.js'   : 'js/src/tooltip.js',
           //'dist/js/umd/popover.js'   : 'js/src/popover.js'
@@ -246,7 +246,7 @@ module.exports = function (grunt) {
         options: {
           map: true,
           processors: [
-            mq4HoverShim.postprocessorFor({ hoverSelectorPrefix: '.bs-true-hover ' }),
+            mq4HoverShim.postprocessorFor({hoverSelectorPrefix: '.bs-true-hover '}),
             autoprefixer
           ]
         },
@@ -374,13 +374,15 @@ module.exports = function (grunt) {
         files: '<%= jscs.core.src %>',
         tasks: ['babel:dev']
       },
-      sass: {
-        files: 'scss/**/*.scss',
-        tasks: ['dist-css', 'docs']
-      },
+
+      // FIXME: restore this after getting fundamentals done, just trying to reduce churn while developing
+      //sass: {
+      //  files: 'scss/**/*.scss',
+      //  tasks: ['dist-css', 'docs']
+      //},
       docs: { // watch both the source and docs scss
         files: ['docs/assets/scss/**/*.scss', 'scss/**/*.scss'],
-        tasks: ['docs-css'] //['dist-css', 'docs']
+        tasks: ['scsslint', 'sass:docs'] //FIXME: docs-css yanks sourcemap from local docs.css, working around just doing the minimal compile here ['docs-css'] //['dist-css', 'docs']
       }
     },
 
@@ -429,21 +431,43 @@ module.exports = function (grunt) {
           branch: 'gh-pages'
         }
       }
+    },
+
+    compress: {
+      main: {
+        options: {
+          archive: 'bootstrap-material-design-<%= pkg.version %>-dist.zip',
+          mode: 'zip',
+          level: 9,
+          pretty: true
+        },
+        files: [
+          {
+            expand: true,
+            cwd: 'dist/',
+            src: ['**'],
+            dest: 'bootstrap-material-design-<%= pkg.version %>-dist'
+          }
+        ]
+      }
     }
+
   });
 
 
   // These plugins provide necessary tasks.
-  require('load-grunt-tasks')(grunt, { scope: 'devDependencies',
+  require('load-grunt-tasks')(grunt, {
+    scope: 'devDependencies',
     // Exclude Sass compilers. We choose the one to load later on.
-    pattern: ['grunt-*', '!grunt-sass', '!grunt-contrib-sass'] });
+    pattern: ['grunt-*', '!grunt-sass', '!grunt-contrib-sass']
+  });
   require('time-grunt')(grunt);
 
   // Docs HTML validation task
   grunt.registerTask('validate-html', ['jekyll:docs', 'htmllint']);
 
   var runSubset = function (subset) {
-    return !process.env.BMD_TEST || process.env.BMD_TEST === subset;
+    return !process.env.MDB_TEST || process.env.MDB_TEST === subset;
   };
   var isUndefOrNonZero = function (val) {
     return val === undefined || val !== '0';
@@ -461,7 +485,7 @@ module.exports = function (grunt) {
   if (runSubset('validate-html') &&
     isTravis &&
       // Skip HTML5 validator when [skip validator] is in the commit message
-    isUndefOrNonZero(process.env.BMD_DO_VALIDATOR)) {
+    isUndefOrNonZero(process.env.MDB_DO_VALIDATOR)) {
     testSubtasks.push('validate-html');
   }
   // Only run Sauce Labs tests if there's a Sauce access key
@@ -469,7 +493,7 @@ module.exports = function (grunt) {
       // Skip Sauce if running a different subset of the test suite
     runSubset('sauce-js-unit') &&
       // Skip Sauce on Travis when [skip sauce] is in the commit message
-    isUndefOrNonZero(process.env.BMD_DO_SAUCE)) {
+    isUndefOrNonZero(process.env.MDB_DO_SAUCE)) {
     testSubtasks.push('babel:dev');
     testSubtasks.push('connect');
     testSubtasks.push('saucelabs-qunit');
@@ -486,7 +510,7 @@ module.exports = function (grunt) {
   // Supported Compilers: sass (Ruby) and libsass.
   (function (sassCompilerName) {
     require('./grunt/bs-sass-compile/' + sassCompilerName + '.js')(grunt);
-  })(process.env.BMD_SASS || 'libsass');
+  })(process.env.MDB_SASS || 'libsass');
   // grunt.registerTask('sass-compile', ['sass:core', 'sass:extras', 'sass:docs']);
   grunt.registerTask('sass-compile', ['sass:core', 'sass:docs']);
 
@@ -529,7 +553,7 @@ module.exports = function (grunt) {
   grunt.registerTask('update-shrinkwrap', ['exec:npmUpdate', '_update-shrinkwrap']);
   grunt.registerTask('_update-shrinkwrap', function () {
     var done = this.async();
-    npmShrinkwrap({ dev: true, dirname: __dirname }, function (err) {
+    npmShrinkwrap({dev: true, dirname: __dirname}, function (err) {
       if (err) {
         grunt.fail.warn(err);
       }

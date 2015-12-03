@@ -47,7 +47,8 @@ const FileInput = (($) => {
     // ------------------------------------------------------------------------
     // private
     _bindEventListeners() {
-      this.formGroup.on('focus', () => {
+      this.formGroup
+        .on('focus', () => {
           Util.addFormGroupFocus(this.formGroup)
         })
         .on('blur', () => {

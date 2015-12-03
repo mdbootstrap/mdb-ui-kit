@@ -11,9 +11,9 @@ before_install:
   - export GEMDIR=$(rvm gemdir)
   - npm install -g npm@3
   - "export TRAVIS_COMMIT_MSG=\"$(git log --format=%B --no-merges -n 1)\""
-  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip validator\]'; export BMD_DO_VALIDATOR=$?; true
-  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip sauce\]'; export BMD_DO_SAUCE=$?; true
-#  - if [ "$TRAVIS_REPO_SLUG" = twbs-savage/bootstrap ]; then export BMD_DO_VALIDATOR=0; fi
+  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip validator\]'; export MDB_DO_VALIDATOR=$?; true
+  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip sauce\]'; export MDB_DO_SAUCE=$?; true
+#  - if [ "$TRAVIS_REPO_SLUG" = twbs-savage/bootstrap ]; then export MDB_DO_VALIDATOR=0; fi
 
 install:
   - bundle install --deployment --jobs=3
@@ -37,14 +37,14 @@ addons:
 
 env:
   matrix:
-    - BMD_TEST=core
-    - BMD_TEST=validate-html
-    - BMD_TEST=sauce-js-unit
+    - MDB_TEST=core
+    - MDB_TEST=validate-html
+    - MDB_TEST=sauce-js-unit
 
 matrix:
   fast_finish: true
   exclude:
     - node_js: "4"
-      env: BMD_TEST=validate-html
+      env: MDB_TEST=validate-html
     - node_js: "4"
-      env: BMD_TEST=sauce-js-unit
+      env: MDB_TEST=sauce-js-unit

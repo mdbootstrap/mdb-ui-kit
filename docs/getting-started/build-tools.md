@@ -38,12 +38,12 @@ Our Gruntfile includes the following commands and tasks:
 
 ## Switching Sass compilers
 
-Material Design for Bootstrap will be compiled with [libsass][libsass] by default, but you can opt into traditional Ruby Sass by setting the `BMD_SASS` environment variable. Two options are supported:
+Material Design for Bootstrap will be compiled with [libsass][libsass] by default, but you can opt into traditional Ruby Sass by setting the `MDB_SASS` environment variable. Two options are supported:
 
 * `libsass` (default) to use [libsass][libsass] via [grunt-sass][grunt-sass].
 * `sass` to use [Ruby Sass][ruby-sass] via [grunt-contrib-sass][grunt-contrib-sass].
 
-For example, run `BMD_SASS=sass grunt` to test and build Material Design for Bootstrap with Ruby Sass.
+For example, run `MDB_SASS=sass grunt` to test and build Material Design for Bootstrap with Ruby Sass.
 
 ## Autoprefixer
 

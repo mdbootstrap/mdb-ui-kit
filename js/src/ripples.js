@@ -84,10 +84,10 @@ const Ripples = (($) => {
 
       // set the location and color each time (even if element is cached)
       this.decoratorElement.css({
-       'left': relX,
-       'top': relY,
-       'background-color': this._getRipplesColor()
-       })
+        left: relX,
+        top: relY,
+        'background-color': this._getRipplesColor()
+      })
 
       // Make sure the ripple has the styles applied (ugly hack but it works)
       this._forceStyleApplication()
@@ -137,8 +137,8 @@ const Ripples = (($) => {
         // Get the mouse position relative to the ripple wrapper
         result = event.pageX - wrapperOffset.left
       } else {
-         // Make sure the user is using only one finger and then get the touch
-         //  position relative to the ripple wrapper
+        // Make sure the user is using only one finger and then get the touch
+        //  position relative to the ripple wrapper
         event = event.originalEvent
 
         if (event.touches.length === 1) {
@@ -171,7 +171,7 @@ const Ripples = (($) => {
         event = event.originalEvent
 
         if (event.touches.length === 1) {
-          result =  event.touches[0].pageY - containerOffset.top
+          result = event.touches[0].pageY - containerOffset.top
         } else {
           result = false
         }
@@ -215,7 +215,7 @@ const Ripples = (($) => {
       if (Util.transitionEndSupported()) {
         this.decoratorElement.addClass('ripple-out')
       } else {
-        this.decoratorElement.animate({ 'opacity': 0 }, 100, () => {
+        this.decoratorElement.animate({opacity: 0}, 100, () => {
           this.decoratorElement.triggerStart('transitionend')
         })
       }
@@ -238,18 +238,18 @@ const Ripples = (($) => {
             '-ms-transform': `scale(${size})`,
             '-moz-transform': `scale(${size})`,
             '-webkit-transform': `scale(${size})`,
-            'transform': `scale(${size})`
+            transform: `scale(${size})`
           })
           .addClass('ripple-on')
           .data('animating', 'on')
           .data('mousedown', 'on')
       } else {
         this.decoratorElement.animate({
-          'width': Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
-          'height': Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
+          width: Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
+          height: Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
           'margin-left': Math.max(this.element.outerWidth(), this.element.outerHeight()) * (-1),
           'margin-top': Math.max(this.element.outerWidth(), this.element.outerHeight()) * (-1),
-          'opacity': 0.2
+          opacity: 0.2
         }, this.config.duration, () => {
           this.decoratorElement.triggerStart('transitionend')
         })
