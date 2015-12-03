@@ -5,52 +5,24 @@ $mdb-text-color-light: rgba(255, 255, 255, 0.84) !default; //hsla(0, 0%, 100%, 0
 $mdb-text-color-primary: rgba(0, 0, 0, 0.87) !default;
 $icon-color: rgba(0, 0, 0, 0.5) !default;
 
+
+// redefine ? TODO: do we need this mdb variant?
+$gray-dark: $mdb-text-color-primary;
+
 //---
 // Customized BS variables
-//$enable-flex: true;
-
-// Bootstrap brand color customization
-$brand-primary: $teal !default;
-$brand-success: $green !default;
-$brand-danger: $red !default;
-$brand-warning: $deep-orange !default;
-$brand-info: $light-blue !default;
+$enable-flex: true;
+@import 'variables/brand';
 
 $border-radius-base: 2px !default;
 $border-radius-small: 1px !default;
 
-// Typography
-$font-family-sans-serif: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
-$headings-font-weight: 300 !default;
+@import 'variables/type';
+@import 'variables/body';
+@import 'variables/buttons';
 
-$body-bg: #EEEEEE !default;
-
-// Form states and alerts
-//
-// Define colors for form feedback states and, by default, alerts.
-
-$state-success-text: $mdb-text-color-light !default;
-$state-success-bg: $brand-success !default;
-//$state-success-border:           darken($state-success-bg, 5%) !default;
-
-$state-info-text: $mdb-text-color-light !default;
-$state-info-bg: $brand-info !default;
-//$state-info-border:              darken($state-info-bg, 7%) !default;
-
-$state-warning-text: $mdb-text-color-light !default;
-$state-warning-bg: $brand-warning !default;
-//$state-warning-border:           darken($state-warning-bg, 5%) !default;
-
-$state-danger-text: $mdb-text-color-light !default;
-$state-danger-bg: $brand-danger !default;
-//$state-danger-border:            darken($state-danger-bg, 5%) !default;
 
 //---
-
-// Import our customized bootstrap
-//@import "../../bower_components/bootstrap/scss/variables";
-//@import "../../bower_components/bootstrap/scss/mixins";
-
 // Bootstrap Material Design variables start with mdb-
 $mdb-brand-inverse: $indigo !default;
 
