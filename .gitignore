@@ -1,3 +1,8 @@
+# temp during major v4 development - tired of these showing up ready to commit
+dist/**/*
+docs/dist/**/*
+docs/assets/css/*
+
 # Ignore docs files
 _gh_pages
 _site
