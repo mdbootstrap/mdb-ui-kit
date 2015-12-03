@@ -337,6 +337,14 @@ module.exports = function (grunt) {
           '**/*'
         ],
         dest: 'docs/components/'
+      },
+      'bs-docs-content': {
+        expand: true,
+        cwd: '../bootstrap/docs/content',
+        src: [
+          '**/*'
+        ],
+        dest: 'docs/content/'
       }
     },
 
@@ -549,7 +557,7 @@ module.exports = function (grunt) {
   grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
   grunt.registerTask('docs-js', ['uglify:docsJs']);
   grunt.registerTask('lint-docs-js', ['jscs:assets']);
-  grunt.registerTask('docs', ['copy:bs-docs-components', 'docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs']);
+  grunt.registerTask('docs', ['copy:bs-docs-components', 'copy:bs-docs-content', 'docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs']);
 
   grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin', 'compress']);
 
