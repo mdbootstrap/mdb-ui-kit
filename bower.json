@@ -6,14 +6,10 @@
   ],
   "description": "Material Design theme for Bootstrap 3",
   "main": [
-    "dist/css/material.css",
+    "dist/css/bootstrap-material-design.css",
     "dist/js/material.js",
     "dist/css/ripples.css",
-    "dist/js/ripples.js",
-    "dist/fonts/Material-Design-Icons.eot",
-    "dist/fonts/Material-Design-Icons.svg",
-    "dist/fonts/Material-Design-Icons.ttf",
-    "dist/fonts/Material-Design-Icons.woff"
+    "dist/js/ripples.js"
   ],
   "ignore": [
     "test",
