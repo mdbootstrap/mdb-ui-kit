@@ -43,11 +43,11 @@ module Variables
       }
 
       #
-      puts "\n---------------------"
+      # puts "\n---------------------"
       # puts site.data[:package]['version']
       # puts site.data.to_yaml
-      puts repo
-      puts version
+      # puts repo
+      # puts version
     end
   end
 end

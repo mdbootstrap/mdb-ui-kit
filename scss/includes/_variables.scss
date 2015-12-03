@@ -1,14 +1,13 @@
 @import 'colors';
 
-
 // Typography elements FIXME: review to see if we actually need these
-$mdb-text-color-light: hsla(0, 0%, 100%, 0.84) !default; // white 0.84 //unquote("rgba(#{$rgb-white}, 0.84)") !default;
-$mdb-text-color-primary: hsla(0, 0%, 0%, 0.87) !default; // black 0.87 //unquote("rgba(#{$rgb-black}, 0.87)") !default;
+$mdb-text-color-light: rgba(255, 255, 255, 0.84) !default; //hsla(0, 0%, 100%, 0.84) !default; // white 0.84 //unquote("rgba(#{$rgb-white}, 0.84)") !default;
+$mdb-text-color-primary: rgba(0, 0, 0, 0.87) !default;
 $icon-color: rgba(0, 0, 0, 0.5) !default;
 
 //---
 // Customized BS variables
-$enable-flex: true;
+//$enable-flex: true;
 
 // Bootstrap brand color customization
 $brand-primary: $teal !default;
@@ -26,26 +25,24 @@ $headings-font-weight: 300 !default;
 
 $body-bg: #EEEEEE !default;
 
-
 // Form states and alerts
 //
 // Define colors for form feedback states and, by default, alerts.
 
-$state-success-text:             $mdb-text-color-light !default;
-$state-success-bg:               $brand-success !default;
+$state-success-text: $mdb-text-color-light !default;
+$state-success-bg: $brand-success !default;
 //$state-success-border:           darken($state-success-bg, 5%) !default;
 
-$state-info-text:                $mdb-text-color-light !default;
-$state-info-bg:                  $brand-info !default;
+$state-info-text: $mdb-text-color-light !default;
+$state-info-bg: $brand-info !default;
 //$state-info-border:              darken($state-info-bg, 7%) !default;
 
-
-$state-warning-text:             $mdb-text-color-light !default;
-$state-warning-bg:               $brand-warning !default;
+$state-warning-text: $mdb-text-color-light !default;
+$state-warning-bg: $brand-warning !default;
 //$state-warning-border:           darken($state-warning-bg, 5%) !default;
 
-$state-danger-text:              $mdb-text-color-light !default;
-$state-danger-bg:                $brand-danger !default;
+$state-danger-text: $mdb-text-color-light !default;
+$state-danger-bg: $brand-danger !default;
 //$state-danger-border:            darken($state-danger-bg, 5%) !default;
 
 //---

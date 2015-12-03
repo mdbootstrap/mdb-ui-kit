@@ -24,44 +24,44 @@
 }
 
 // navbar-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
-@mixin navbar-variations($component, $selector-suffix, $color-default) {
-  @include generic-variations($component, $selector-suffix, $color-default, "navbar-variations-content", null);
-}
-
-@mixin navbar-variations-content($args){
-  $variation-color: map-get($args, variation-color);
-  $variation-color-text: map-get($args, variation-color-text);
-
-  background-color: $variation-color;
-  color: $variation-color-text;
-  // deeply defined to override welljumbo class without !impotant need
-  .navbar-form .form-group input.form-control,
-  .navbar-form input.form-control {
-    @include material-placeholder {
-      color: $variation-color-text;
-    }
-  }
-  .dropdown-menu {
-    border-radius: $border-radius-base;
-    li > a {
-      font-size: $mdb-dropdown-font-size;
-      padding: 13px 16px;
-      &:hover,
-      &:focus {
-        color: $variation-color;
-        background-color: $grey-200;
-      }
-    }
-    .active > a {
-      &:hover,
-      &:focus {
-        color: $variation-color-text;
-      }
-      background-color: $variation-color;
-      color: $variation-color-text;
-    }
-  }
-}
+//@mixin navbar-variations($component, $selector-suffix, $color-default) {
+//  @include generic-variations($component, $selector-suffix, $color-default, "navbar-variations-content", null);
+//}
+//
+//@mixin navbar-variations-content($args){
+//  $variation-color: map-get($args, variation-color);
+//  $variation-color-text: map-get($args, variation-color-text);
+//
+//  background-color: $variation-color;
+//  color: $variation-color-text;
+//  // deeply defined to override welljumbo class without !impotant need
+//  .navbar-form .form-group input.form-control,
+//  .navbar-form input.form-control {
+//    @include material-placeholder {
+//      color: $variation-color-text;
+//    }
+//  }
+//  .dropdown-menu {
+//    border-radius: $border-radius-base;
+//    li > a {
+//      font-size: $mdb-dropdown-font-size;
+//      padding: 13px 16px;
+//      &:hover,
+//      &:focus {
+//        color: $variation-color;
+//        background-color: $grey-200;
+//      }
+//    }
+//    .active > a {
+//      &:hover,
+//      &:focus {
+//        color: $variation-color-text;
+//      }
+//      background-color: $variation-color;
+//      color: $variation-color-text;
+//    }
+//  }
+//}
 
 // interpolation of mixin-name is not allowed evidently, so we statically include based on the mixin-name given
 @mixin call-variations-content-mixin($args) {

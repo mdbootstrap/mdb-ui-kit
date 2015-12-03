@@ -30,11 +30,11 @@ body {
   //  }
 }
 
-// Prevent highlight on mobile
-* {
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-tap-highlight-color: transparent;
-  &:focus {
-    outline: 0;
-  }
-}
+//// Prevent highlight on mobile
+//* {
+//  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+//  -webkit-tap-highlight-color: transparent;
+//  &:focus {
+//    outline: 0;
+//  }
+//}

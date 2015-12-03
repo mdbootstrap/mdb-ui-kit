@@ -329,6 +329,14 @@ module.exports = function (grunt) {
           '**/*'
         ],
         dest: 'docs/dist/'
+      },
+      'bs-docs': {
+        expand: true,
+        cwd: '../bootstrap/docs/components',
+        src: [
+          '**/*'
+        ],
+        dest: 'docs/components/'
       }
     },
 
