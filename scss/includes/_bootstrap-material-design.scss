@@ -6,7 +6,6 @@
 
 @import 'mixins';
 @import 'scaffolding'; // include the material content given the mixins above (sass requirement for inclusion order of mixins)
-@import 'welljumbo';
 @import 'buttons';
 @import 'checkboxes';
 @import 'togglebutton';
@@ -22,7 +21,6 @@
 @import 'popups';
 @import 'cards';
 @import 'dialogs';
-@import 'panels';
 @import 'dividers';
 @import 'themes';
 @import 'plugins';

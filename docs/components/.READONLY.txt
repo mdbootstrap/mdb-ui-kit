@@ -1,0 +1,6 @@
+DO NOT edit files in this folder.
+
+These files are copied using
+  grunt copy:bs-docs-components
+
+This is done to keep samples in sync with the upstream bs4.
