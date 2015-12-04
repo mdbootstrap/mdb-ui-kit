@@ -1,4 +1,6 @@
-// This is the only customized file in this directory.
+// This is the only customized file in this immediate directory, the rest are copied with:
+//    grunt docs-copy-bootstrap
+// (perhaps add customizations in subdirectories)
 
 /*!
  * Bootstrap Docs (http://getbootstrap.com)
@@ -25,9 +27,9 @@
 // Happy Bootstrapping!
 
 // Load Bootstrap variables and mixins
-//@import "../../../scss/includes/variables";
-//@import "../../../scss/includes/mixins";
-@import "../../../scss/includes/colors";
+//@import '../../../scss/includes/variables';
+//@import '../../../scss/includes/mixins';
+@import '../../../scss/includes/colors';
 
 //http://www.materialpalette.com/indigo/light-blue
 $brand-primary: $indigo-500; // #3F51B5
@@ -53,30 +55,33 @@ $bd-danger:         #d9534f;
 $bd-warning:        #f0ad4e;
 $bd-info:           #5bc0de;
 
-@import "../../../scss/includes/bootstrap-material-design";
+@import '../../../scss/includes/bootstrap-material-design';
 
 // Load docs components
-@import "booticon";
-@import "nav";
-@import "masthead";
-@import "featurettes";
-@import "featured-sites";
-@import "ads";
-@import "content";
-@import "page-header";
-@import "skiplink";
-@import "sidebar";
-@import "footer";
-@import "component-examples";
-@import "responsive-tests";
-@import "buttons";
-@import "callouts";
-@import "examples";
-@import "team";
-@import "browser-bugs";
-@import "brand";
-@import "clipboard-js";
+@import 'booticon';
+@import 'nav';
+@import 'masthead';
+@import 'featurettes';
+@import 'featured-sites';
+@import 'ads';
+@import 'content';
+@import 'page-header';
+@import 'skiplink';
+@import 'sidebar';
+@import 'footer';
+@import 'component-examples';
+@import 'responsive-tests';
+@import 'buttons';
+@import 'callouts';
+@import 'examples';
+@import 'team';
+@import 'browser-bugs';
+@import 'brand';
+@import 'clipboard-js';
 
 // Load docs dependencies
-@import "syntax";
-@import "anchor";
+@import 'syntax';
+@import 'anchor';
+
+// MDB customizatinos
+@import 'mdb/booticon';

@@ -26,10 +26,10 @@ const Style = (($) => {
       return hex
     }
 
-    static displayFontSizeWeightColor(selector, targetFn, after = false, bg = false, wrapWithMark = false) {
-      return $(selector).each((index, element) => {
+    // Function to display font properties dynamically discovered
+    static displayFontSizeWeightColor($elements, writeFn, bg = false, wrapWithMark = false) {
+      return $elements.each((index, element) => {
         let $element = $(element)
-        let $target = targetFn($element)
 
         let rgbaBgColor = $element.css('background-color')
         // let hexBgColor = Style.rgbToHex(rgbaBgColor)
@@ -40,10 +40,11 @@ const Style = (($) => {
         let text = ''
 
         if (wrapWithMark) {
-          text += `<mark style='font-size: 10px; font-weight: normal; letter-spacing: normal'>`
+          text += `<mark style='font-size: 10px; font-weight: 500; letter-spacing: normal'>`
         }
+
         // text += `${$element.css('font-size')} ${$element.css('font-weight')} ${hexColor}`
-        text += `<span>${$element.css('font-size')} ${$element.css('font-weight')} <small style='white-space: nowrap'>${rgbaColor}</small></span>`
+        text += `<span>${$element.css('font-size')} ${$element.css('font-weight')} <span style='white-space: nowrap'>${rgbaColor}</span></span>`
         if (bg) {
           // text += ` bg: ${hexBgColor} `
           text += ` bg: ${rgbaBgColor} `
@@ -53,8 +54,7 @@ const Style = (($) => {
           text += `</mark>`
         }
 
-        $target.text('')
-        $target.append($(text))
+        writeFn($element, $(text))
       })
     }
 
