@@ -94,7 +94,7 @@ module.exports = function (grunt) {
     },
 
     babel: {
-      dev: {
+      core: {
         options: {
           sourceMap: true,
           modules: 'ignore'
@@ -118,7 +118,18 @@ module.exports = function (grunt) {
         },
         files: {
           'docs/assets/js/dist/style.js': 'docs/assets/js/src/style.js',
-          'docs/assets/js/dist/application.js': 'docs/assets/js/src/application.js'
+          'docs/assets/js/dist/application.js': 'docs/assets/js/src/application.js',
+
+          // generate core so we have local debugging
+          'docs/dist/js/babel/util.js': 'js/src/util.js',
+          'docs/dist/js/babel/ripples.js': 'js/src/ripples.js',
+          'docs/dist/js/babel/autofill.js': 'js/src/autofill.js',
+          'docs/dist/js/babel/input.js': 'js/src/input.js',
+          'docs/dist/js/babel/checkbox.js': 'js/src/checkbox.js',
+          'docs/dist/js/babel/togglebutton.js': 'js/src/togglebutton.js',
+          'docs/dist/js/babel/radio.js': 'js/src/radio.js',
+          'docs/dist/js/babel/fileInput.js': 'js/src/fileInput.js',
+          'docs/dist/js/babel/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
         }
       },
       dist: {
@@ -328,7 +339,12 @@ module.exports = function (grunt) {
         expand: true,
         cwd: 'dist/',
         src: [
-          '**/*'
+          '**/*',
+          '!js/babel',
+          '!js/babel/**/*',
+          '!js/umd',
+          '!js/umd/**/*',
+          '!js/npm.js'
         ],
         dest: 'docs/dist/'
       },
@@ -399,12 +415,12 @@ module.exports = function (grunt) {
     watch: {
       src: {
         files: '<%= jscs.core.src %>',
-        tasks: ['babel:dev']
+        tasks: ['babel:core', 'babel:docs']
       },
 
       docsjs: {
         files: ['docs/assets/js/src/*.js'],
-        tasks: ['docs-js']
+        tasks: ['babel:docs']
       },
 
       // FIXME: restore this after getting fundamentals done, just trying to reduce churn while developing
@@ -526,7 +542,7 @@ module.exports = function (grunt) {
     runSubset('sauce-js-unit') &&
       // Skip Sauce on Travis when [skip sauce] is in the commit message
     isUndefOrNonZero(process.env.MDB_DO_SAUCE)) {
-    testSubtasks.push('babel:dev');
+    testSubtasks.push('babel:core');
     testSubtasks.push('connect');
     testSubtasks.push('saucelabs-qunit');
   }
@@ -534,7 +550,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test-js', ['eslint', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['eslint', 'babel:dev', 'concat', 'lineremover', 'babel:dist', 'stamp', 'uglify:core', 'commonjs']);
+  grunt.registerTask('dist-js', ['eslint', 'babel:core', 'concat', 'lineremover', 'babel:dist', 'stamp', 'uglify:core', 'commonjs']);
 
   grunt.registerTask('test-scss', ['scsslint']);
 
