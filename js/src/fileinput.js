@@ -27,8 +27,8 @@ const FileInput = (($) => {
    */
   class FileInput {
 
-    constructor($element, config) {
-      this.$element = $element
+    constructor(element, config) {
+      this.$element = $(element)
       this.config = $.extend({}, Default, config)
       this.$formGroup = Util.findFormGroup(this.$element)
 

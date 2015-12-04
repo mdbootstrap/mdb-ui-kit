@@ -23,8 +23,8 @@ const Togglebutton = (($) => {
    */
   class Togglebutton {
 
-    constructor($element, config) {
-      this.$element = $element
+    constructor(element, config) {
+      this.$element = $(element)
       this.config = $.extend({}, Default, config)
 
       this.$element.after(this.config.template)

@@ -22,8 +22,8 @@ const Foo = (($) => {
    */
   class Foo {
 
-    constructor($element, config) {
-      this.$element = $element
+    constructor(element, config) {
+      this.$element = $(element)
       this.config = $.extend({}, Default, config)
     }
 

@@ -44,8 +44,8 @@ const Ripples = (($) => {
    */
   class Ripples {
 
-    constructor($element, config) {
-      this.$element = $element
+    constructor(element, config) {
+      this.$element = $(element)
       this.config = $.extend({}, Default, config)
 
       // attach initial listener

@@ -41,8 +41,8 @@ const Input = (($) => {
    */
   class Input {
 
-    constructor($element, config) {
-      this.$element = $element
+    constructor(element, config) {
+      this.$element = $(element)
       this.config = $.extend({}, Default, config)
 
       // Requires form-group standard markup (will add it if necessary)
@@ -158,8 +158,8 @@ const Input = (($) => {
 
     _findOrCreateFormGroup() {
       let fg = this.$element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
-      if (fg.length === 0) {
-        this.$element.wrap(this.config.$formGroup.template)
+      if (fg === null || fg.length === 0) {
+        this.$element.wrap(this.config.formGroup.template)
         fg = this.$element.closest(Selector.FORM_GROUP) // find node after attached (otherwise additional attachments don't work)
       }
       return fg

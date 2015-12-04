@@ -23,12 +23,12 @@ const Checkbox = (($) => {
    */
   class Checkbox {
 
-    constructor($element, config) {
-      this.$element = $element
+    constructor(element, config) {
+      this.$element = $(element)
       this.config = $.extend({}, Default, config)
 
       this.$element.after(this.config.template)
-      this.$formGroup = Util.findFormGroup(this.$element)
+      this.$formGroup = Util.findFormGroup(this.$element, false)
 
       this._bindEventListeners()
     }

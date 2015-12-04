@@ -84,12 +84,12 @@ const BootstrapMaterialDesign = (($) => {
    */
   class BootstrapMaterialDesign {
 
-    constructor($element, config) {
-      this.$element = $element
+    constructor(element, config) {
+      this.$element = $(element)
       this.config = $.extend({}, Default, config)
       let $document = $(document)
 
-      for (let component in this.config.instantiation) {
+      for (let component of this.config.instantiation) {
 
         // the component's config fragment is passed in directly, allowing users to override
         let componentConfig = this.config[component]
@@ -101,6 +101,7 @@ const BootstrapMaterialDesign = (($) => {
           let selector = this._resolveSelector(componentConfig)
 
           // instantiate component on selector elements with config
+          console.debug(`instantiating: ${component}`)
           $(selector)[component](componentConfig)
 
           // add to arrive if present and enabled
