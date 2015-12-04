@@ -4,7 +4,8 @@
       "../assets/js/vendor/anchor.min.js",
       "../assets/js/vendor/clipboard.min.js",
       "../assets/js/vendor/holder.min.js",
-      "../assets/js/src/application.js"
+      "../assets/js/dist/style.js",
+      "../assets/js/dist/application.js"
     ]
   }
 }

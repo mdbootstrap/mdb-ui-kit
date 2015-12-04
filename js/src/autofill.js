@@ -20,8 +20,8 @@ const Autofill = (($) => {
    */
   class Autofill {
 
-    constructor(element, config) {
-      this.element = element
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
 
       this._watchLoading()
@@ -29,8 +29,8 @@ const Autofill = (($) => {
     }
 
     dispose() {
-      $.removeData(this.element, DATA_KEY)
-      this.element = null
+      $.removeData(this.$element, DATA_KEY)
+      this.$element = null
       this.config = null
     }
 
@@ -48,7 +48,7 @@ const Autofill = (($) => {
     _onLoading() {
       setInterval(() => {
         $('input[type!=checkbox]').each((index, element) => {
-          let $element = $(element)
+          let $element = $($element)
           if ($element.val() && $element.val() !== $element.attr('value')) {
             $element.triggerStart('change')
           }
@@ -65,7 +65,7 @@ const Autofill = (($) => {
           let $inputs = $(event.currentTarget).closest('form').find('input').not('[type=file]')
           focused = setInterval(() => {
             $inputs.each((index, element) => {
-              let $element = $(element)
+              let $element = $($element)
               if ($element.val() !== $element.attr('value')) {
                 $element.triggerStart('change')
               }

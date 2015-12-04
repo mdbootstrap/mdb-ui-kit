@@ -41,30 +41,30 @@ const Input = (($) => {
    */
   class Input {
 
-    constructor(element, config) {
-      this.element = element
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
 
       // Requires form-group standard markup (will add it if necessary)
-      this.formGroup = this._findOrCreateFormGroup()
+      this.$formGroup = this._findOrCreateFormGroup()
 
       this._convertInputSizeVariations()
 
       // Initially mark as empty
       if (this._isEmpty()) {
-        this.formGroup.addClass(ClassName.IS_EMPTY)
+        this.$formGroup.addClass(ClassName.IS_EMPTY)
       }
 
       // Add marker div the end of the form-group
-      this.formGroup.append(this.config.template)
+      this.$formGroup.append(this.config.template)
 
       this._bindEventListeners()
     }
 
     dispose() {
-      $.removeData(this.element, DATA_KEY)
-      this.element = null
-      this.formGroup = null
+      $.removeData(this.$element, DATA_KEY)
+      this.$element = null
+      this.$formGroup = null
       this.config = null
     }
 
@@ -73,16 +73,16 @@ const Input = (($) => {
 
     _bindEventListeners() {
 
-      this.element
+      this.$element
         .on('keydown paste', (event) => {
           if (Util.isChar(event)) {
             this._removeIsEmpty()
           }
         })
         .on('keyup change', (event) => {
-          let isValid = (typeof this.element[0].checkValidity === 'undefined' || this.element[0].checkValidity())
+          let isValid = (typeof this.$element[0].checkValidity === 'undefined' || this.$element[0].checkValidity())
 
-          if (this.element.val() === '' && isValid) {
+          if (this.$element.val() === '' && isValid) {
             this._addIsEmpty()
           } else {
             this._removeIsEmpty()
@@ -101,19 +101,19 @@ const Input = (($) => {
           }
         })
         .on('focus', () => {
-          Util.addFormGroupFocus(this.formGroup)
+          Util.addFormGroupFocus(this.$formGroup)
         })
         .on('blur', () => {
-          Util.removeFormGroupFocus(this.formGroup)
+          Util.removeFormGroupFocus(this.$formGroup)
         })
         // make sure empty is added back when there is a programmatic value change.
         //  NOTE: programmatic changing of value using $.val() must trigger the change event i.e. $.val('x').trigger('change')
         .on('change', () => {
-          if (this.element.attr('type') === 'file') {
+          if (this.$element.attr('type') === 'file') {
             return
           }
 
-          let value = this.element.val()
+          let value = this.$element.val()
           if (value) {
             this._removeIsEmpty()
           } else {
@@ -123,23 +123,23 @@ const Input = (($) => {
     }
 
     _addHasError() {
-      this.formGroup.addClass(ClassName.HAS_ERROR)
+      this.$formGroup.addClass(ClassName.HAS_ERROR)
     }
 
     _removeHasError() {
-      this.formGroup.removeClass(ClassName.HAS_ERROR)
+      this.$formGroup.removeClass(ClassName.HAS_ERROR)
     }
 
     _addIsEmpty() {
-      this.formGroup.addClass(ClassName.IS_EMPTY)
+      this.$formGroup.addClass(ClassName.IS_EMPTY)
     }
 
     _removeIsEmpty() {
-      this.formGroup.removeClass(ClassName.IS_EMPTY)
+      this.$formGroup.removeClass(ClassName.IS_EMPTY)
     }
 
     _isEmpty() {
-      return (this.element.val() === null || this.element.val() === undefined || this.element.val() === '')
+      return (this.$element.val() === null || this.$element.val() === undefined || this.$element.val() === '')
     }
 
     _convertInputSizeVariations() {
@@ -149,18 +149,18 @@ const Input = (($) => {
 
       // Modification - Change input-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
       for (let inputSize in InputSizeConversions) {
-        if (this.element.hasClass(inputSize)) {
-          this.element.removeClass(inputSize)
-          this.formGroup.addClass(InputSizeConversions[inputSize])
+        if (this.$element.hasClass(inputSize)) {
+          this.$element.removeClass(inputSize)
+          this.$formGroup.addClass(InputSizeConversions[inputSize])
         }
       }
     }
 
     _findOrCreateFormGroup() {
-      let fg = this.element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
+      let fg = this.$element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
       if (fg.length === 0) {
-        this.element.wrap(this.config.formGroup.template)
-        fg = this.element.closest(Selector.FORM_GROUP) // find node after attached (otherwise additional attachments don't work)
+        this.$element.wrap(this.config.$formGroup.template)
+        fg = this.$element.closest(Selector.FORM_GROUP) // find node after attached (otherwise additional attachments don't work)
       }
       return fg
     }

@@ -23,16 +23,16 @@ const Togglebutton = (($) => {
    */
   class Togglebutton {
 
-    constructor(element, config) {
-      this.element = element
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
 
-      this.element.after(this.config.template)
+      this.$element.after(this.config.template)
     }
 
     dispose() {
-      $.removeData(this.element, DATA_KEY)
-      this.element = null
+      $.removeData(this.$element, DATA_KEY)
+      this.$element = null
       this.config = null
     }
 

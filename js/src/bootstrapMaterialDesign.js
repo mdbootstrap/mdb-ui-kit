@@ -84,8 +84,8 @@ const BootstrapMaterialDesign = (($) => {
    */
   class BootstrapMaterialDesign {
 
-    constructor(element, config) {
-      this.element = element
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
       let $document = $(document)
 
@@ -106,7 +106,7 @@ const BootstrapMaterialDesign = (($) => {
           // add to arrive if present and enabled
           if (document.arrive && this.config.arrive) {
             $document.arrive(selector, (element) => {  // eslint-disable-line no-loop-func
-              $(element)[component](componentConfig)
+              $($element)[component](componentConfig)
             })
           }
         }
@@ -114,8 +114,8 @@ const BootstrapMaterialDesign = (($) => {
     }
 
     dispose() {
-      $.removeData(this.element, DATA_KEY)
-      this.element = null
+      $.removeData(this.$element, DATA_KEY)
+      this.$element = null
       this.config = null
     }
 

@@ -3,6 +3,7 @@
 // Typography elements FIXME: review to see if we actually need these
 $mdb-text-color-light: rgba(255, 255, 255, 0.84) !default; //hsla(0, 0%, 100%, 0.84) !default; // white 0.84 //unquote("rgba(#{$rgb-white}, 0.84)") !default;
 $mdb-text-color-primary: rgba(0, 0, 0, 0.87) !default;
+$mdb-font-weight-base: 400;
 $icon-color: rgba(0, 0, 0, 0.5) !default;
 
 
@@ -13,13 +14,13 @@ $gray-dark: $mdb-text-color-primary;
 // Customized BS variables
 $enable-flex: true;
 @import 'variables/brand';
-
-$border-radius-base: 2px !default;
-$border-radius-small: 1px !default;
-
 @import 'variables/type';
 @import 'variables/body';
 @import 'variables/buttons';
+
+
+$border-radius-base: 2px !default;
+$border-radius-small: 1px !default;
 
 
 //---

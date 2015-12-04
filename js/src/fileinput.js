@@ -27,38 +27,38 @@ const FileInput = (($) => {
    */
   class FileInput {
 
-    constructor(element, config) {
-      this.element = element
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
-      this.formGroup = Util.findFormGroup(this.element)
+      this.$formGroup = Util.findFormGroup(this.$element)
 
-      this.formGroup.addClass(ClassName.IS_FILEINPUT)
+      this.$formGroup.addClass(ClassName.IS_FILEINPUT)
 
       this._bindEventListeners()
     }
 
     dispose() {
-      $.removeData(this.element, DATA_KEY)
-      this.element = null
-      this.formGroup = null
+      $.removeData(this.$element, DATA_KEY)
+      this.$element = null
+      this.$formGroup = null
       this.config = null
     }
 
     // ------------------------------------------------------------------------
     // private
     _bindEventListeners() {
-      this.formGroup
+      this.$formGroup
         .on('focus', () => {
-          Util.addFormGroupFocus(this.formGroup)
+          Util.addFormGroupFocus(this.$formGroup)
         })
         .on('blur', () => {
-          Util.removeFormGroupFocus(this.formGroup)
+          Util.removeFormGroupFocus(this.$formGroup)
         })
 
       // set the fileinput readonly field with the name of the file
-      this.element.on('change', () => {
+      this.$element.on('change', () => {
         let value = ''
-        $.each(this.element.files, (i, file) => {
+        $.each(this.$element.files, (i, file) => {
           value += `${file.name}  , `
         })
         value = value.substring(0, value.length - 2)
@@ -67,16 +67,16 @@ const FileInput = (($) => {
         } else {
           this._addIsEmpty()
         }
-        this.formGroup.find('input.form-control[readonly]').val(value)
+        this.$formGroup.find('input.form-control[readonly]').val(value)
       })
     }
 
     _addIsEmpty() {
-      this.formGroup.addClass(ClassName.IS_EMPTY)
+      this.$formGroup.addClass(ClassName.IS_EMPTY)
     }
 
     _removeIsEmpty() {
-      this.formGroup.removeClass(ClassName.IS_EMPTY)
+      this.$formGroup.removeClass(ClassName.IS_EMPTY)
     }
 
     // ------------------------------------------------------------------------

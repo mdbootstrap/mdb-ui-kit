@@ -23,20 +23,20 @@ const Checkbox = (($) => {
    */
   class Checkbox {
 
-    constructor(element, config) {
-      this.element = element
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
 
-      this.element.after(this.config.template)
-      this.formGroup = Util.findFormGroup(this.element)
+      this.$element.after(this.config.template)
+      this.$formGroup = Util.findFormGroup(this.$element)
 
       this._bindEventListeners()
     }
 
     dispose() {
-      $.removeData(this.element, DATA_KEY)
-      this.element = null
-      this.formGroup = null
+      $.removeData(this.$element, DATA_KEY)
+      this.$element = null
+      this.$formGroup = null
       this.config = null
     }
 
@@ -44,14 +44,14 @@ const Checkbox = (($) => {
     // private
     _bindEventListeners() {
       // checkboxes didn't appear to bubble to the document, so we'll bind these directly
-      this.formGroup.find('.checkbox label').hover(() => {
-        Util.addFormGroupFocus(this.formGroup)
+      this.$formGroup.find('.checkbox label').hover(() => {
+        Util.addFormGroupFocus(this.$formGroup)
       }, () => {
-        Util.removeFormGroupFocus(this.formGroup)
+        Util.removeFormGroupFocus(this.$formGroup)
       })
 
-      this.element.change(() => {
-        this.element.blur()
+      this.$element.change(() => {
+        this.$element.blur()
       })
     }
 

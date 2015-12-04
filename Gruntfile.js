@@ -114,6 +114,16 @@ module.exports = function (grunt) {
           //'js/dist/popover.js'   : 'js/src/popover.js'
         }
       },
+      docs: {
+        options: {
+          sourceMap: true,
+          modules: 'ignore'
+        },
+        files: {
+          'docs/assets/js/dist/style.js': 'docs/assets/js/src/style.js',
+          'docs/assets/js/dist/application.js': 'docs/assets/js/src/application.js'
+        }
+      },
       dist: {
         options: {
           modules: 'ignore'
@@ -147,7 +157,7 @@ module.exports = function (grunt) {
       options: {
         configFile: 'js/.eslintrc'
       },
-      target: 'js/src/*.js'
+      target: ['js/src/*.js', 'docs/assets/js/src/*.js']
     },
 
     jscs: {
@@ -391,6 +401,11 @@ module.exports = function (grunt) {
         tasks: ['babel:dev']
       },
 
+      docsjs: {
+        files: ['docs/assets/js/src/*.js'],
+        tasks: ['docs-js']
+      },
+
       // FIXME: restore this after getting fundamentals done, just trying to reduce churn while developing
       //sass: {
       //  files: 'scss/**/*.scss',
@@ -555,7 +570,7 @@ module.exports = function (grunt) {
 
   // Docs task.
   grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
-  grunt.registerTask('docs-js', ['uglify:docsJs']);
+  grunt.registerTask('docs-js', ['babel:docs', 'uglify:docsJs']);
   grunt.registerTask('lint-docs-js', ['jscs:assets']);
   grunt.registerTask('docs', ['copy:bs-docs-components', 'copy:bs-docs-content', 'docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs']);
 

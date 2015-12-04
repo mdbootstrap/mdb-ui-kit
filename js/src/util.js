@@ -86,10 +86,10 @@ const Util = (($) => {
     /**
      Find expected form-group
      */
-    findFormGroup(element) {
-      let fg = element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
+    findFormGroup($element) {
+      let fg = $element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
       if (fg.length === 0) {
-        $.error(`Failed to find form-group for ${element}`)
+        $.error(`Failed to find form-group for ${$element}`)
       }
       return fg
     }

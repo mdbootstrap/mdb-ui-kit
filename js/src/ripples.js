@@ -44,17 +44,17 @@ const Ripples = (($) => {
    */
   class Ripples {
 
-    constructor(element, config) {
-      this.element = $(element)
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
 
       // attach initial listener
-      this.element.on(this.config.triggerStart, this._onStartRipple)
+      this.$element.on(this.config.triggerStart, this._onStartRipple)
     }
 
     dispose() {
-      $.removeData(this.element, DATA_KEY)
-      this.element = null
+      $.removeData(this.$element, DATA_KEY)
+      this.$element = null
       this.containerElement = null
       this.decoratorElement = null
       this.config = null
@@ -101,7 +101,7 @@ const Ripples = (($) => {
       }, this.config.duration)
 
       // Detect when the user leaves the element (attach only when necessary for performance)
-      this.element.on(this.config.triggerEnd, () => {
+      this.$element.on(this.config.triggerEnd, () => {
         this.decoratorElement.data('mousedown', 'off')
 
         if (this.decoratorElement.data('animating') === 'off') {
@@ -112,12 +112,12 @@ const Ripples = (($) => {
 
     _findOrCreateContainer() {
       if (!this.containerElement || !this.containerElement.length > 0) {
-        this.element.append(this.config.container.template)
-        this.containerElement = this.element.find(Selector.CONTAINER)
+        this.$element.append(this.config.container.template)
+        this.containerElement = this.$element.find(Selector.CONTAINER)
       }
 
       // always add the rippleElement, it is always removed
-      this.containerElement.append(this.config.element.template)
+      this.containerElement.append(this.config.$element.template)
       this.decoratorElement = this.containerElement.find(Selector.DECORATOR)
     }
 
@@ -184,7 +184,7 @@ const Ripples = (($) => {
      * Get the ripple color
      */
     _getRipplesColor() {
-      let color = this.element.data('ripple-color') ? this.element.data('ripple-color') : window.getComputedStyle(this.element[0]).color
+      let color = this.$element.data('ripple-color') ? this.$element.data('ripple-color') : window.getComputedStyle(this.$element[0]).color
       return color
     }
 
@@ -245,10 +245,10 @@ const Ripples = (($) => {
           .data('mousedown', 'on')
       } else {
         this.decoratorElement.animate({
-          width: Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
-          height: Math.max(this.element.outerWidth(), this.element.outerHeight()) * 2,
-          'margin-left': Math.max(this.element.outerWidth(), this.element.outerHeight()) * (-1),
-          'margin-top': Math.max(this.element.outerWidth(), this.element.outerHeight()) * (-1),
+          width: Math.max(this.$element.outerWidth(), this.$element.outerHeight()) * 2,
+          height: Math.max(this.$element.outerWidth(), this.$element.outerHeight()) * 2,
+          'margin-left': Math.max(this.$element.outerWidth(), this.$element.outerHeight()) * (-1),
+          'margin-top': Math.max(this.$element.outerWidth(), this.$element.outerHeight()) * (-1),
           opacity: 0.2
         }, this.config.duration, () => {
           this.decoratorElement.triggerStart('transitionend')
@@ -260,7 +260,7 @@ const Ripples = (($) => {
      * Get the new size based on the element height/width and the ripple width
      */
     _getNewSize() {
-      return (Math.max(this.element.outerWidth(), this.element.outerHeight()) / this.decoratorElement.outerWidth()) * 2.5
+      return (Math.max(this.$element.outerWidth(), this.$element.outerHeight()) / this.decoratorElement.outerWidth()) * 2.5
     }
 
     // ------------------------------------------------------------------------
@@ -268,12 +268,12 @@ const Ripples = (($) => {
 
     static _jQueryInterface(config) {
       return this.each(() => {
-        let element = $(this)
-        let data = element.data(DATA_KEY)
+        let $element = $(this)
+        let data = $element.data(DATA_KEY)
 
         if (!data) {
           data = new Ripples(this, config)
-          element.data(DATA_KEY, data)
+          $element.data(DATA_KEY, data)
         }
       })
     }

@@ -22,14 +22,14 @@ const Foo = (($) => {
    */
   class Foo {
 
-    constructor(element, config) {
-      this.element = element
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
     }
 
     dispose() {
-      $.removeData(this.element, DATA_KEY)
-      this.element = null
+      $.removeData(this.$element, DATA_KEY)
+      this.$element = null
       this.config = null
     }
 
