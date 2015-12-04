@@ -25,13 +25,13 @@
 
 {% if site.github %}
   <script src="{{ site.baseurl }}/dist/js/{{ site.data.name }}.min.js"></script>
-{% else %}
-  <script src="{{ site.baseurl }}/dist/js/{{ site.data.name }}.js"></script>
-{% endif %}
-
-{% if site.github %}
   <script src="{{ site.baseurl }}/assets/js/docs.min.js"></script>
 {% else %}
+  <!--<script src="{{ site.baseurl }}/dist/js/{{ site.data.name }}.js"></script>-->
+  {% for file in site.data.configBridge.paths.coreJs %}
+    <script src="{{ site.baseurl }}/{{ file }}"></script>
+  {% endfor %}
+
   {% for file in site.data.configBridge.paths.docsJs %}
     <script src="{{ site.baseurl }}/{{ file }}"></script>
   {% endfor %}

@@ -100,18 +100,15 @@ module.exports = function (grunt) {
           modules: 'ignore'
         },
         files: {
-          'js/dist/util.js': 'js/src/util.js',
-          'js/dist/ripples.js': 'js/src/ripples.js',
-          'js/dist/autofill.js': 'js/src/autofill.js',
-          'js/dist/input.js': 'js/src/input.js',
-          'js/dist/checkbox.js': 'js/src/checkbox.js',
-          'js/dist/togglebutton.js': 'js/src/togglebutton.js',
-          'js/dist/radio.js': 'js/src/radio.js',
-          'js/dist/fileinput.js': 'js/src/fileInput.js',
-          'js/dist/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
-          //'js/dist/tab.js'       : 'js/src/tab.js',
-          //'js/dist/tooltip.js'   : 'js/src/tooltip.js',
-          //'js/dist/popover.js'   : 'js/src/popover.js'
+          'dist/js/babel/util.js': 'js/src/util.js',
+          'dist/js/babel/ripples.js': 'js/src/ripples.js',
+          'dist/js/babel/autofill.js': 'js/src/autofill.js',
+          'dist/js/babel/input.js': 'js/src/input.js',
+          'dist/js/babel/checkbox.js': 'js/src/checkbox.js',
+          'dist/js/babel/togglebutton.js': 'js/src/togglebutton.js',
+          'dist/js/babel/radio.js': 'js/src/radio.js',
+          'dist/js/babel/fileInput.js': 'js/src/fileInput.js',
+          'dist/js/babel/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
         }
       },
       docs: {
@@ -144,11 +141,8 @@ module.exports = function (grunt) {
           'dist/js/umd/checkbox.js': 'js/src/checkbox.js',
           'dist/js/umd/togglebutton.js': 'js/src/togglebutton.js',
           'dist/js/umd/radio.js': 'js/src/radio.js',
-          'dist/js/umd/fileinput.js': 'js/src/fileInput.js',
+          'dist/js/umd/fileInput.js': 'js/src/fileInput.js',
           'dist/js/umd/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
-          //'dist/js/umd/tab.js'       : 'js/src/tab.js',
-          //'dist/js/umd/tooltip.js'   : 'js/src/tooltip.js',
-          //'dist/js/umd/popover.js'   : 'js/src/popover.js'
         }
       }
     },
@@ -195,22 +189,20 @@ module.exports = function (grunt) {
 
     concat: {
       options: {
-        stripBanners: false
+        stripBanners: false,
+        sourceMap: true
       },
       bootstrap: {
         src: [
-          'js/src/util.js',
-          'js/src/ripples.js',
-          'js/src/autofill.js',
-          'js/src/input.js',
-          'js/src/checkbox.js',
-          'js/src/togglebutton.js',
-          'js/src/radio.js',
-          'js/src/fileInput.js',
-          'js/src/bootstrapMaterialDesign.js',
-          //'js/src/tab.js',
-          //'js/src/tooltip.js',
-          //'js/src/popover.js'
+          'dist/js/babel/util.js',
+          'dist/js/babel/ripples.js',
+          'dist/js/babel/autofill.js',
+          'dist/js/babel/input.js',
+          'dist/js/babel/checkbox.js',
+          'dist/js/babel/togglebutton.js',
+          'dist/js/babel/radio.js',
+          'dist/js/babel/fileInput.js',
+          'dist/js/babel/bootstrapMaterialDesign.js',
         ],
         dest: 'dist/js/<%= pkg.name %>.js'
       }
@@ -581,9 +573,9 @@ module.exports = function (grunt) {
   grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
   grunt.registerTask('docs-js', ['babel:docs', 'uglify:docsJs']);
   grunt.registerTask('lint-docs-js', ['jscs:assets']);
-  grunt.registerTask('docs-copy-bootstrap', ['copy:bs-docs-scss', 'copy:bs-docs-components', 'copy:bs-docs-content']);
+  grunt.registerTask('docs-copy-bootstrap-docs', ['copy:bs-docs-scss', 'copy:bs-docs-components', 'copy:bs-docs-content']);
 
-  grunt.registerTask('docs', ['docs-copy-bootstrap', 'docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs']);
+  grunt.registerTask('docs', ['clean:docs', 'docs-copy-bootstrap-docs', 'docs-css', 'docs-js', 'lint-docs-js', 'copy:docs']);
 
   grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin', 'compress']);
 

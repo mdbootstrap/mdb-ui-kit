@@ -6,6 +6,18 @@
       "../assets/js/vendor/holder.min.js",
       "../assets/js/dist/style.js",
       "../assets/js/dist/application.js"
+    ],
+
+    "coreJs": [
+      "../dist/js/babel/autofill.js",
+      "../dist/js/babel/bootstrapMaterialDesign.js",
+      "../dist/js/babel/checkbox.js",
+      "../dist/js/babel/fileInput.js",
+      "../dist/js/babel/input.js",
+      "../dist/js/babel/radio.js",
+      "../dist/js/babel/ripples.js",
+      "../dist/js/babel/togglebutton.js",
+      "../dist/js/babel/util.js"
     ]
   }
 }
