@@ -100,12 +100,14 @@ module.exports = function (grunt) {
           modules: 'ignore'
         },
         files: {
+          'dist/js/babel/baseInput.js': 'js/src/baseInput.js',
+          'dist/js/babel/baseToggle.js': 'js/src/baseToggle.js',
           'dist/js/babel/util.js': 'js/src/util.js',
           'dist/js/babel/ripples.js': 'js/src/ripples.js',
           'dist/js/babel/autofill.js': 'js/src/autofill.js',
-          'dist/js/babel/input.js': 'js/src/textInput.js',
+          'dist/js/babel/textInput.js': 'js/src/textInput.js',
           'dist/js/babel/checkbox.js': 'js/src/checkbox.js',
-          'dist/js/babel/togglebutton.js': 'js/src/switch.js',
+          'dist/js/babel/switch.js': 'js/src/switch.js',
           'dist/js/babel/radio.js': 'js/src/radio.js',
           'dist/js/babel/fileInput.js': 'js/src/fileInput.js',
           'dist/js/babel/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
@@ -121,12 +123,14 @@ module.exports = function (grunt) {
           'docs/assets/js/dist/application.js': 'docs/assets/js/src/application.js',
 
           // generate core so we have local debugging
+          'docs/dist/js/babel/baseInput.js': 'js/src/baseInput.js',
+          'docs/dist/js/babel/baseToggle.js': 'js/src/baseToggle.js',
           'docs/dist/js/babel/util.js': 'js/src/util.js',
           'docs/dist/js/babel/ripples.js': 'js/src/ripples.js',
           'docs/dist/js/babel/autofill.js': 'js/src/autofill.js',
-          'docs/dist/js/babel/input.js': 'js/src/textInput.js',
+          'docs/dist/js/babel/textInput.js': 'js/src/textInput.js',
           'docs/dist/js/babel/checkbox.js': 'js/src/checkbox.js',
-          'docs/dist/js/babel/togglebutton.js': 'js/src/switch.js',
+          'docs/dist/js/babel/switch.js': 'js/src/switch.js',
           'docs/dist/js/babel/radio.js': 'js/src/radio.js',
           'docs/dist/js/babel/fileInput.js': 'js/src/fileInput.js',
           'docs/dist/js/babel/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
@@ -145,12 +149,14 @@ module.exports = function (grunt) {
           modules: 'umd'
         },
         files: {
+          'dist/js/umd/baseInput.js': 'js/src/baseInput.js',
+          'dist/js/umd/baseToggle.js': 'js/src/baseToggle.js',
           'dist/js/umd/util.js': 'js/src/util.js',
           'dist/js/umd/ripples.js': 'js/src/ripples.js',
           'dist/js/umd/autofill.js': 'js/src/autofill.js',
-          'dist/js/umd/input.js': 'js/src/textInput.js',
+          'dist/js/umd/textInput.js': 'js/src/textInput.js',
           'dist/js/umd/checkbox.js': 'js/src/checkbox.js',
-          'dist/js/umd/togglebutton.js': 'js/src/switch.js',
+          'dist/js/umd/switch.js': 'js/src/switch.js',
           'dist/js/umd/radio.js': 'js/src/radio.js',
           'dist/js/umd/fileInput.js': 'js/src/fileInput.js',
           'dist/js/umd/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
@@ -205,6 +211,8 @@ module.exports = function (grunt) {
       },
       bootstrap: {
         src: [
+          'dist/js/babel/baseInput.js',
+          'dist/js/babel/baseToggle.js',
           'dist/js/babel/util.js',
           'dist/js/babel/ripples.js',
           'dist/js/babel/autofill.js',

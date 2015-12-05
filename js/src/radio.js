@@ -1,4 +1,9 @@
-//import Util from './util'
+import BaseToggle from './baseToggle'
+import TextInput from './textInput'
+import FileInput from './fileInput'
+import Checkbox from './checkbox'
+import Switch from './switch'
+import Util from './util'
 
 // Radio decorator, to be called after Input
 const Radio = (($) => {
@@ -13,7 +18,8 @@ const Radio = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
-    template: `<span class='circle'></span><span class='check'></span>`
+    template: `<span class='radio-decorator'></span><span class='check'></span>`,
+    invalidComponentMatches: [Checkbox, FileInput, Switch, TextInput]
   }
 
   /**
@@ -21,20 +27,26 @@ const Radio = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Radio {
+  class Radio extends BaseToggle {
 
     constructor(element, config) {
-      this.$element = $(element)
-      this.config = $.extend({}, Default, config)
-
-      this.$element.after(this.config.template)
+      super(element, $.extend({}, Default, config), NAME, NAME)
     }
 
-    dispose() {
-      $.removeData(this.$element, DATA_KEY)
-      this.$element = null
-      this.config = null
+    static matches($element) {
+      // '.radio > label > input[type=radio]'
+      if ($element.attr('type') === 'radio') {
+        return true
+      }
+      return false
     }
+
+    static rejectMatch(component, $element) {
+      Util.assert(this.matches($element), `${component} component is invalid for type='radio'.`)
+    }
+
+    // ------------------------------------------------------------------------
+    // protected
 
     // ------------------------------------------------------------------------
     // private

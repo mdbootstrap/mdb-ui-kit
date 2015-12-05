@@ -77,10 +77,10 @@ const TextInput = (($) => {
     addFocusListener() {
       this.$element
         .on('focus', () => {
-          this.addFormGroupFocus(this.$formGroup)
+          this.addFormGroupFocus()
         })
         .on('blur', () => {
-          this.removeFormGroupFocus(this.$formGroup)
+          this.removeFormGroupFocus()
         })
     }
 

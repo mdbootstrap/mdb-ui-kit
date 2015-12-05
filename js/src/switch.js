@@ -1,4 +1,4 @@
-//import Util from './util'
+import Checkbox from './checkbox'
 
 // Switch decorator, to be called after Input
 const Switch = (($) => {
@@ -21,20 +21,19 @@ const Switch = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Switch {
+  class Switch extends Checkbox {
 
     constructor(element, config) {
-      this.$element = $(element)
-      this.config = $.extend({}, Default, config)
-
-      this.$element.after(this.config.template)
+      super(element, $.extend({}, Default, config), 'checkbox', NAME)
+      // selector: '.switch > label > input[type=checkbox]'
     }
 
     dispose() {
-      $.removeData(this.$element, DATA_KEY)
-      this.$element = null
-      this.config = null
+      super.dispose(DATA_KEY)
     }
+
+    // ------------------------------------------------------------------------
+    // protected
 
     // ------------------------------------------------------------------------
     // private

@@ -2,7 +2,7 @@
 
 @mixin radio-color($color, $opacity){
   & ~ .check,
-  & ~ .circle {
+  & ~ .radio-decorator {
     opacity: $opacity;
   }
 
@@ -10,7 +10,7 @@
     background-color: $color;
   }
 
-  & ~ .circle {
+  & ~ .radio-decorator {
     border-color: $color;
   }
 }
@@ -29,7 +29,7 @@
       top: 2px;
       transition-duration: 0.2s;
     }
-    .circle {
+    .radio-decorator {
       border: 2px solid $mdb-radio-color-off;
       height: 15px;
       width: 15px;

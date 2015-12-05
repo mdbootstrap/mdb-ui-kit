@@ -24,7 +24,7 @@
     pointer-events: none;
   }
 
-  .checkbox-material {
+  .checkbox-decorator {
     vertical-align: middle;
     position: relative;
     top: 3px;
@@ -75,19 +75,19 @@
 
   input[type=checkbox] {
 
-    &:focus + .checkbox-material .check:after {
+    &:focus + .checkbox-decorator .check:after {
       opacity: 0.2;
     }
 
     &:checked {
 
       // FIXME: once working - combine further to reduce code
-      & + .checkbox-material .check {
+      & + .checkbox-decorator .check {
         color: $mdb-checkbox-checked-color;
         border-color: $mdb-checkbox-checked-color;
       }
 
-      & + .checkbox-material .check:before {
+      & + .checkbox-decorator .check:before {
         color: $mdb-checkbox-checked-color;
         box-shadow: 0 0 0 10px,
           10px -10px 0 10px,
@@ -98,22 +98,22 @@
         animation: checkbox-on $mdb-checkbox-animation-check forwards;
       }
 
-      & + .checkbox-material:before {
+      & + .checkbox-decorator:before {
         animation: rippleOn $mdb-checkbox-animation-ripple;
       }
 
-      & + .checkbox-material .check:after {
+      & + .checkbox-decorator .check:after {
         //background-color: $brand-success; // FIXME: seems like tho wrong color, test and make sure it can be removed
         animation: rippleOn $mdb-checkbox-animation-ripple forwards; // Ripple effect on check
       }
     }
 
     &:not(:checked) {
-      & + .checkbox-material:before {
+      & + .checkbox-decorator:before {
         animation: rippleOff $mdb-checkbox-animation-ripple;
       }
 
-      & + .checkbox-material .check:after {
+      & + .checkbox-decorator .check:after {
         animation: rippleOff $mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
 
       }
@@ -123,12 +123,12 @@
   // Style for disabled inputs
   fieldset[disabled] &,
   fieldset[disabled] & input[type=checkbox],
-  input[type=checkbox][disabled]:not(:checked) ~ .checkbox-material .check:before,
-  input[type=checkbox][disabled]:not(:checked) ~ .checkbox-material .check,
-  input[type=checkbox][disabled] + .circle {
+  input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check:before,
+  input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check,
+  input[type=checkbox][disabled] + .radio-decorator {
     opacity: 0.5;
   }
-  input[type=checkbox][disabled] + .checkbox-material .check:after {
+  input[type=checkbox][disabled] + .checkbox-decorator .check:after {
     background-color: $mdb-text-color-primary;
     transform: rotate(-45deg);
   }

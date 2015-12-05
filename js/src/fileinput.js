@@ -1,3 +1,8 @@
+import BaseInput from './baseInput'
+import Checkbox from './checkbox'
+import Radio from './radio'
+import Switch from './switch'
+import TextInput from './textInput'
 import Util from './util'
 
 // FileInput decorator, to be called after Input
@@ -12,35 +17,36 @@ const FileInput = (($) => {
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-  const Default = {}
+  const Default = {
+    formGroup: {
+      autoCreate: true
+    },
+    invalidComponentMatches: [Checkbox, Radio, Switch, TextInput]
+  }
 
   const ClassName = {
     IS_FILEINPUT: 'is-fileinput',
   }
 
+  const Selector = {
+    FILENAMES: 'input.form-control[readonly]'
+  }
 
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class FileInput {
+  class FileInput extends BaseInput {
 
     constructor(element, config) {
-      this.$element = $(element)
-      this.config = $.extend({}, Default, config)
-      this.$formGroup = Util.findFormGroup(this.$element)
+      super(element, Default, config)
 
       this.$formGroup.addClass(ClassName.IS_FILEINPUT)
-
-      this._bindEventListeners()
     }
 
     dispose() {
-      $.removeData(this.$element, DATA_KEY)
-      this.$element = null
-      this.$formGroup = null
-      this.config = null
+      super.dispose(DATA_KEY)
     }
 
     static matches($element) {
@@ -51,23 +57,27 @@ const FileInput = (($) => {
     }
 
     static rejectMatch(component, $element) {
-      if (this.matches($element)) {
-        let msg = `${component} component is invalid for type='file'.`
-        $.error(msg)
-      }
+      Util.assert(this.matches($element), `${component} component is invalid for type='file'.`)
     }
 
     // ------------------------------------------------------------------------
-    // private
-    _bindEventListeners() {
+    // protected
+
+    rejectWithoutRequiredStructure() {
+      // FIXME: implement this once we determine how we want to implement files since BS4 has tried to take a shot at this
+    }
+
+    addFocusListener() {
       this.$formGroup
         .on('focus', () => {
-          Util.addFormGroupFocus(this.$formGroup)
+          this.addFormGroupFocus()
         })
         .on('blur', () => {
-          Util.removeFormGroupFocus(this.$formGroup)
+          this.removeFormGroupFocus()
         })
+    }
 
+    addChangeListener() {
       // set the fileinput readonly field with the name of the file
       this.$element.on('change', () => {
         let value = ''
@@ -80,9 +90,12 @@ const FileInput = (($) => {
         } else {
           this.addIsEmpty()
         }
-        this.$formGroup.find('input.form-control[readonly]').val(value)
+        this.$formGroup.find(Selector.FILENAMES).val(value)
       })
     }
+
+    // ------------------------------------------------------------------------
+    // private
 
     // ------------------------------------------------------------------------
     // static

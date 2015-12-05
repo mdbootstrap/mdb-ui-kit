@@ -26,7 +26,7 @@
       img {
         background: rgba(0,0,0,0.1);
         padding: 1px;
-        &.circle {
+        &.radio-decorator {
           border-radius: 100%;
         }
       }
@@ -43,7 +43,7 @@
         margin-right: -7px;
         margin-top: 5px;
         margin-bottom: -5px;
-        .checkbox-material {
+        .checkbox-decorator {
           left: -10px;
         }
       }

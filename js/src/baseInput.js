@@ -36,11 +36,11 @@ const BaseInput = (($) => {
       // Enforce no overlap between components to prevent side effects
       this._rejectInvalidComponentMatches()
 
-      // Enforce required classes for a consistent rendering
-      this._rejectWithoutRequiredClasses()
-
       // Enforce expected structure (if any)
       this.rejectWithoutRequiredStructure()
+
+      // Enforce required classes for a consistent rendering
+      this._rejectWithoutRequiredClasses()
 
       if(this.config.formGroup.autoCreate) {
         // Will create form-group if necessary
@@ -76,12 +76,12 @@ const BaseInput = (($) => {
       // implement
     }
 
-    addFormGroupFocus(formGroup) {
-      formGroup.addClass(ClassName.IS_FOCUSED)
+    addFormGroupFocus() {
+      this.$formGroup.addClass(ClassName.IS_FOCUSED)
     }
 
-    removeFormGroupFocus(formGroup) {
-      formGroup.removeClass(ClassName.IS_FOCUSED)
+    removeFormGroupFocus() {
+      this.$formGroup.removeClass(ClassName.IS_FOCUSED)
     }
 
     addHasError() {
