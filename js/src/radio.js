@@ -33,6 +33,10 @@ const Radio = (($) => {
       super(element, $.extend({}, Default, config), NAME, NAME)
     }
 
+    dispose() {
+      super.dispose(DATA_KEY)
+    }
+
     static matches($element) {
       // '.radio > label > input[type=radio]'
       if ($element.attr('type') === 'radio') {

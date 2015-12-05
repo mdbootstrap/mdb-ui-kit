@@ -25,7 +25,7 @@ const FileInput = (($) => {
   }
 
   const ClassName = {
-    IS_FILEINPUT: 'is-fileinput',
+    IS_FILEINPUT: 'is-fileinput'
   }
 
   const Selector = {

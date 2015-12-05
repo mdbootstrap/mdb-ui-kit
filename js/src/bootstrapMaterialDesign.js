@@ -101,13 +101,13 @@ const BootstrapMaterialDesign = (($) => {
           let selector = this._resolveSelector(componentConfig)
 
           // instantiate component on selector elements with config
-          console.debug(`instantiating: ${component}`)
+          // console.debug(`instantiating: ${component}`)
           $(selector)[component](componentConfig)
 
           // add to arrive if present and enabled
           if (document.arrive && this.config.arrive) {
             $document.arrive(selector, (element) => {  // eslint-disable-line no-loop-func
-              $($element)[component](componentConfig)
+              $(element)[component](componentConfig)
             })
           }
         }

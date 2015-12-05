@@ -38,10 +38,6 @@ const BaseToggle = (($) => {
       this.outerClass = outerClass
     }
 
-    dispose() {
-      super.dispose(DATA_KEY)
-    }
-
     // ------------------------------------------------------------------------
     // protected
 
@@ -55,8 +51,8 @@ const BaseToggle = (($) => {
     rejectWithoutRequiredStructure() {
       // '.checkbox|switch|radio > label > input[type=checkbox|radio]'
       // '.${this.outerClass} > label > input[type=${this.inputType}]'
-      Util.assert(this.$element.parent().prop('tagName') === 'label', `${component} parent element should be <label>.`)
-      Util.assert(this.outerElement().hasClass(this.outerClass), `${component} grandparent element should have class .${this.outerClass}.`)
+      Util.assert(this.$element.parent().prop('tagName') === 'label', `${this.constructor.name}'s ${this.$element} parent element should be <label>.`)
+      Util.assert(this.outerElement().hasClass(this.outerClass), `${this.constructor.name}'s ${this.$element} grandparent element should have class .${this.outerClass}.`)
     }
 
     // ------------------------------------------------------------------------

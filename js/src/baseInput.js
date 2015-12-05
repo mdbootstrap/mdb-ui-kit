@@ -1,5 +1,3 @@
-import Util from './util'
-
 const BaseInput = (($) => {
 
   const Default = {
@@ -42,7 +40,7 @@ const BaseInput = (($) => {
       // Enforce required classes for a consistent rendering
       this._rejectWithoutRequiredClasses()
 
-      if(this.config.formGroup.autoCreate) {
+      if (this.config.formGroup.autoCreate) {
         // Will create form-group if necessary
         this.autoCreateFormGroup()
       }
@@ -64,7 +62,7 @@ const BaseInput = (($) => {
     // ------------------------------------------------------------------------
     // protected
 
-    rejectWithoutRequiredStructure(){
+    rejectWithoutRequiredStructure() {
       // implement
     }
 
@@ -114,7 +112,7 @@ const BaseInput = (($) => {
 
     // Demarcation element (e.g. first child of a form-group)
     //  Subclasses such as file inputs may have different structures
-    outerElement(){
+    outerElement() {
       return this.$element
     }
 
@@ -122,7 +120,7 @@ const BaseInput = (($) => {
     findFormGroup(raiseError = true) {
       let fg = this.$element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
       if (fg.length === 0 && raiseError) {
-        $.error(`Failed to find form-group for ${$element}`)
+        $.error(`Failed to find form-group for ${this.$element}`)
       }
       return fg
     }
@@ -138,15 +136,15 @@ const BaseInput = (($) => {
 
     // ------------------------------------------------------------------------
     // private
-    _rejectInvalidComponentMatches(){
-      for(let otherComponent in this.config.invalidComponentMatches){
-        otherComponent.rejectMatch(this.constructor.name, $element)
+    _rejectInvalidComponentMatches() {
+      for (let otherComponent in this.config.invalidComponentMatches) {
+        otherComponent.rejectMatch(this.constructor.name, this.$element)
       }
     }
 
-    _rejectWithoutRequiredClasses(){
-      for(let requiredClass in this.config.requiredClasses){
-        if(!$element.hasClass(requiredClass)){
+    _rejectWithoutRequiredClasses() {
+      for (let requiredClass in this.config.requiredClasses) {
+        if (!this.$element.hasClass(requiredClass)) {
           $.error(`${this.constructor.name} elements require class: ${requiredClass}`)
         }
       }

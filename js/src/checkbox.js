@@ -2,7 +2,6 @@ import BaseToggle from './baseToggle'
 import TextInput from './textInput'
 import FileInput from './fileInput'
 import Radio from './radio'
-import Switch from './switch'
 import Util from './util'
 
 const Checkbox = (($) => {
@@ -21,10 +20,6 @@ const Checkbox = (($) => {
     invalidComponentMatches: [FileInput, Radio, TextInput]
   }
 
-  const Selector = {
-    LABEL: 'label'
-  }
-
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -34,6 +29,10 @@ const Checkbox = (($) => {
 
     constructor(element, config, inputType = NAME, outerClass = NAME) {
       super(element, $.extend({}, Default, config), inputType, outerClass)
+    }
+
+    dispose() {
+      super.dispose(DATA_KEY)
     }
 
     static matches($element) {
