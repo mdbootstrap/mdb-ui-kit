@@ -1,19 +1,19 @@
 //import Util from './util'
 
-// Togglebutton decorator, to be called after Input
-const Togglebutton = (($) => {
+// Switch decorator, to be called after Input
+const Switch = (($) => {
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  const NAME = 'togglebutton'
+  const NAME = 'switch'
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
-    template: `<span class='toggle'></span>`
+    template: `<span class='switch-decorator'></span>`
   }
 
   /**
@@ -21,7 +21,7 @@ const Togglebutton = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Togglebutton {
+  class Switch {
 
     constructor(element, config) {
       this.$element = $(element)
@@ -47,7 +47,7 @@ const Togglebutton = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Togglebutton(this, config)
+          data = new Switch(this, config)
           $element.data(DATA_KEY, data)
         }
       })
@@ -59,15 +59,15 @@ const Togglebutton = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Togglebutton._jQueryInterface
-  $.fn[NAME].Constructor = Togglebutton
+  $.fn[NAME] = Switch._jQueryInterface
+  $.fn[NAME].Constructor = Switch
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Togglebutton._jQueryInterface
+    return Switch._jQueryInterface
   }
 
-  return Togglebutton
+  return Switch
 
 })(jQuery)
 
-export default Togglebutton
+export default Switch

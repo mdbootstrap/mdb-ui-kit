@@ -16,15 +16,6 @@ const Util = (($) => {
     transition: 'transitionend'
   }
 
-  const ClassName = {
-    IS_FOCUSED: 'is-focused',
-    FORM_GROUP: 'form-group'
-  }
-
-  const Selector = {
-    FORM_GROUP: `.${ClassName.FORM_GROUP}` //,
-  }
-
   function transitionEndTest() {
     if (window.QUnit) {
       return false
@@ -75,23 +66,10 @@ const Util = (($) => {
       return false
     },
 
-    addFormGroupFocus(formGroup) {
-      formGroup.addClass(ClassName.IS_FOCUSED)
-    },
-
-    removeFormGroupFocus(formGroup) {
-      formGroup.removeClass(ClassName.IS_FOCUSED)
-    },
-
-    /**
-     Find expected form-group
-     */
-    findFormGroup($element, raiseError = true) {
-      let fg = $element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
-      if (fg.length === 0 && raiseError) {
-        $.error(`Failed to find form-group for ${$element}`)
+    assert(test, message) {
+      if (test) {
+        $.error(message)
       }
-      return fg
     }
   }
 

@@ -1,13 +1,13 @@
 
 
-.togglebutton {
+.switch {
   vertical-align: middle;
-  &, label, input, .toggle {
+  &, label, input, .switch-decorator {
     user-select: none;
   }
   label {
     cursor: pointer;
-    color: $mdb-toggle-label-color;
+    color: $mdb-switch-label-color;
 
     // Hide original checkbox
     input[type=checkbox] {
@@ -16,8 +16,8 @@
       height: 0;
     }
     // Switch bg off and disabled
-    .toggle,
-    input[type=checkbox][disabled] + .toggle {
+    .switch-decorator,
+    input[type=checkbox][disabled] + .switch-decorator {
       content: "";
       display: inline-block;
       width: 30px;
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
     // Handle off
-    .toggle:after {
+    .switch-decorator:after {
       content: "";
       display: inline-block;
       width: 20px;
@@ -45,33 +45,33 @@
     input[type=checkbox] {
       // Handle disabled
       &[disabled] {
-        & + .toggle:after,
-        &:checked + .toggle:after {
+        & + .switch-decorator:after,
+        &:checked + .switch-decorator:after {
           background-color: #BDBDBD;
         }
       }
 
-      & + .toggle:active:after,
-      &[disabled] + .toggle:active:after {
+      & + .switch-decorator:active:after,
+      &[disabled] + .switch-decorator:active:after {
         box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
       }
 
       // Ripple off and disabled
-      &:checked + .toggle:after {
+      &:checked + .switch-decorator:after {
         left: 15px;
       }
     }
 
     & label input[type=checkbox]:checked {
-      & + .toggle {
+      & + .switch-decorator {
         background-color: rgba($brand-primary, (50/100)); // Switch bg on
       }
 
-      & + .toggle:after {
+      & + .switch-decorator:after {
         background-color: $brand-primary; // Handle on
       }
 
-      & + .toggle:active:after {
+      & + .switch-decorator:active:after {
         box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba($brand-primary, (10/100)); // Ripple on
       }
     }

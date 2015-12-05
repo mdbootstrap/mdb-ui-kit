@@ -1,6 +1,10 @@
+import BaseInput from './baseInput'
+import TextInput from './textInput'
+import FileInput from './fileInput'
+import Radio from './radio'
+import Switch from './switch'
 import Util from './util'
 
-// Checkbox decorator, to be called after Input
 const Checkbox = (($) => {
 
   /**
@@ -13,7 +17,11 @@ const Checkbox = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
-    template: `<span class='checkbox-material'><span class='check'></span></span>`
+    template: `<span class='checkbox-material'><span class='check'></span></span>`,
+    formGroup: {
+      autoCreate: true
+    },
+    invalidComponentMatches: [TextInput, FileInput, Radio, Switch]
   }
 
   /**
@@ -21,39 +29,65 @@ const Checkbox = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Checkbox {
+  class Checkbox extends BaseInput {
 
     constructor(element, config) {
-      this.$element = $(element)
-      this.config = $.extend({}, Default, config)
-
+      super(element, Default, config)
       this.$element.after(this.config.template)
-      this.$formGroup = Util.findFormGroup(this.$element, false)
-
-      this._bindEventListeners()
     }
 
     dispose() {
-      $.removeData(this.$element, DATA_KEY)
-      this.$element = null
-      this.$formGroup = null
-      this.config = null
+      super.dispose(DATA_KEY)
+    }
+
+    static matches($element) {
+      // '.checkbox > label > input[type=checkbox]'
+      if ($element.attr('type') === 'checkbox') {
+        return true
+      }
+      return false
+    }
+
+    static rejectMatch(component, $element) {
+      Util.assert(this.matches($element), `${component} component is invalid for type='checkbox'.`)
     }
 
     // ------------------------------------------------------------------------
-    // private
-    _bindEventListeners() {
+    // protected
+
+    // Demarcation element (e.g. first child of a form-group)
+    //  Subclasses such as file inputs may have different structures
+    outerElement() {
+      // '.checkbox > label > input[type=checkbox]'
+      return this.$element.parent().parent()
+    }
+
+    rejectWithoutRequiredStructure() {
+      // '.checkbox > label > input[type=checkbox]'
+      Util.assert(this.$element.parent().prop('tagName') === 'label', `${component} parent element should be <label>.`)
+      Util.assert(this.outerElement().hasClass('checkbox'), `${component} grandparent element should have class .checkbox.`)
+    }
+
+    // ------------------------------------------------------------------------
+    // protected
+
+    addFocusListener() {
       // checkboxes didn't appear to bubble to the document, so we'll bind these directly
       this.$formGroup.find('.checkbox label').hover(() => {
         Util.addFormGroupFocus(this.$formGroup)
       }, () => {
         Util.removeFormGroupFocus(this.$formGroup)
       })
+    }
 
+    addChangeListener() {
       this.$element.change(() => {
         this.$element.blur()
       })
     }
+
+    // ------------------------------------------------------------------------
+    // private
 
     // ------------------------------------------------------------------------
     // static

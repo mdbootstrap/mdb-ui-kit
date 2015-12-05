@@ -8,7 +8,7 @@
  *
  *  NOTE: If omitting use of this class, please note that the Input component must be
  *        initialized prior to other decorating components such as radio, checkbox,
- *        togglebutton, fileInput.
+ *        switch, fileInput.
  *
  */
 const BootstrapMaterialDesign = (($) => {
@@ -42,18 +42,18 @@ const BootstrapMaterialDesign = (($) => {
         '.ripple' // generic marker class to add ripple to elements
       ]
     },
-    input: {
+    textInput: {
       selector: [
-        'input.form-control',
-        'textarea.form-control',
-        'select.form-control'
+        'input[type=text]',
+        'textarea',
+        'select'
       ]
     },
     checkbox: {
       selector: '.checkbox > label > input[type=checkbox]'
     },
-    togglebutton: {
-      selector: '.togglebutton > label > input[type=checkbox]'
+    switch: {
+      selector: '.switch > label > input[type=checkbox]'
     },
     radio: {
       selector: '.radio > label > input[type=radio]'
@@ -68,9 +68,9 @@ const BootstrapMaterialDesign = (($) => {
     // create an ordered component list for instantiation
     instantiation: [
       'ripples',
-      'input',
+      'textInput',
       'checkbox',
-      'togglebutton',
+      'switch',
       'radio',
       'fileInput',
       'autofill'

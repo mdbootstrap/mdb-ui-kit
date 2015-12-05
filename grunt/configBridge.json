@@ -9,6 +9,7 @@
     ],
 
     "coreJs": [
+      "../dist/js/babel/baseInput.js",
       "../dist/js/babel/autofill.js",
       "../dist/js/babel/bootstrapMaterialDesign.js",
       "../dist/js/babel/checkbox.js",

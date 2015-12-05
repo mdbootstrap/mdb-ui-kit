@@ -16,7 +16,6 @@ const FileInput = (($) => {
 
   const ClassName = {
     IS_FILEINPUT: 'is-fileinput',
-    IS_EMPTY: 'is-empty'
   }
 
 
@@ -44,6 +43,20 @@ const FileInput = (($) => {
       this.config = null
     }
 
+    static matches($element) {
+      if ($element.attr('type') === 'file') {
+        return true
+      }
+      return false
+    }
+
+    static rejectMatch(component, $element) {
+      if (this.matches($element)) {
+        let msg = `${component} component is invalid for type='file'.`
+        $.error(msg)
+      }
+    }
+
     // ------------------------------------------------------------------------
     // private
     _bindEventListeners() {
@@ -63,20 +76,12 @@ const FileInput = (($) => {
         })
         value = value.substring(0, value.length - 2)
         if (value) {
-          this._removeIsEmpty()
+          this.removeIsEmpty()
         } else {
-          this._addIsEmpty()
+          this.addIsEmpty()
         }
         this.$formGroup.find('input.form-control[readonly]').val(value)
       })
-    }
-
-    _addIsEmpty() {
-      this.$formGroup.addClass(ClassName.IS_EMPTY)
-    }
-
-    _removeIsEmpty() {
-      this.$formGroup.removeClass(ClassName.IS_EMPTY)
     }
 
     // ------------------------------------------------------------------------
