@@ -1,6 +1,5 @@
 import Checkbox from './checkbox'
 
-// Switch decorator, to be called after Input
 const Switch = (($) => {
 
   /**

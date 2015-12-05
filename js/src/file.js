@@ -2,30 +2,24 @@ import BaseInput from './baseInput'
 import Checkbox from './checkbox'
 import Radio from './radio'
 import Switch from './switch'
-import TextInput from './textInput'
+import Text from './text'
+import Textarea from './textare'
+import Select from './select'
 import Util from './util'
 
-// FileInput decorator, to be called after Input
-const FileInput = (($) => {
+const File = (($) => {
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  const NAME = 'fileInput'
+  const NAME = 'file'
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-  const Default = {
-    formGroup: {
-      autoCreate: true
-    },
-    invalidComponentMatches: [Checkbox, Radio, Switch, TextInput]
-  }
-
   const ClassName = {
-    IS_FILEINPUT: 'is-fileinput'
+    IS_FILE: 'is-file'
   }
 
   const Selector = {
@@ -37,12 +31,12 @@ const FileInput = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class FileInput extends BaseInput {
+  class File extends BaseInput {
 
     constructor(element, config) {
-      super(element, Default, config)
+      super(element, $.extend({invalidComponentMatches: [Checkbox, Radio, Text, Textarea, Select, Switch]}, config))
 
-      this.$formGroup.addClass(ClassName.IS_FILEINPUT)
+      this.$formGroup.addClass(ClassName.IS_FILE)
     }
 
     dispose() {
@@ -105,7 +99,7 @@ const FileInput = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new FileInput(this, config)
+          data = new File(this, config)
           $element.data(DATA_KEY, data)
         }
       })
@@ -117,15 +111,15 @@ const FileInput = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = FileInput._jQueryInterface
-  $.fn[NAME].Constructor = FileInput
+  $.fn[NAME] = File._jQueryInterface
+  $.fn[NAME].Constructor = File
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return FileInput._jQueryInterface
+    return File._jQueryInterface
   }
 
-  return FileInput
+  return File
 
 })(jQuery)
 
-export default FileInput
+export default File

@@ -1,13 +1,16 @@
+import Util from './util'
+
 const BaseInput = (($) => {
 
   const Default = {
     formGroup: {
       template: `<div class='form-group'></div>`,
       required: true,
-      autoCreate: false
+      autoCreate: true
     },
-    requiredClasses: ['form-control'],
-    invalidComponentMatches: []
+    requiredClasses: [],
+    invalidComponentMatches: [],
+    convertInputSizeVariations: true
   }
 
   const ClassName = {
@@ -20,6 +23,11 @@ const BaseInput = (($) => {
     FORM_GROUP: `.${ClassName.FORM_GROUP}` //,
   }
 
+  const FormControlSizeConversions = {
+    'form-control-lg': 'form-group-lg',
+    'form-control-sm': 'form-group-sm'
+  }
+
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -27,9 +35,9 @@ const BaseInput = (($) => {
    */
   class BaseInput {
 
-    constructor(element, defaultConfig, config) {
+    constructor(element, config) {
       this.$element = $(element)
-      this.config = $.extend({}, Default, defaultConfig, config)
+      this.config = $.extend({}, Default, config)
 
       // Enforce no overlap between components to prevent side effects
       this._rejectInvalidComponentMatches()
@@ -47,6 +55,8 @@ const BaseInput = (($) => {
 
       // different components have different rules, always run this separately
       this.$formGroup = this.findFormGroup(this.config.formGroup.required)
+
+      this._convertFormControlSizeVariations()
 
       this.addFocusListener()
       this.addChangeListener()
@@ -67,11 +77,45 @@ const BaseInput = (($) => {
     }
 
     addFocusListener() {
-      // implement
+      this.$element
+        .on('focus', () => {
+          this.addFormGroupFocus()
+        })
+        .on('blur', () => {
+          this.removeFormGroupFocus()
+        })
     }
 
     addChangeListener() {
-      // implement
+      this.$element
+        .on('keydown paste', (event) => {
+          if (Util.isChar(event)) {
+            this.removeIsEmpty()
+          }
+        })
+        .on('keyup change', (event) => {
+
+          // make sure empty is added back when there is a programmatic value change.
+          //  NOTE: programmatic changing of value using $.val() must trigger the change event i.e. $.val('x').trigger('change')
+          if (this.$element.val()) {
+            this.addIsEmpty()
+          } else {
+            this.removeIsEmpty()
+          }
+
+          // Validation events do not bubble, so they must be attached directly to the text: http://jsfiddle.net/PEpRM/1/
+          //  Further, even the bind method is being caught, but since we are already calling #checkValidity here, just alter
+          //  the form-group on change.
+          //
+          // NOTE: I'm not sure we should be intervening regarding validation, this seems better as a README and snippet of code.
+          //        BUT, I've left it here for backwards compatibility.
+          let isValid = (typeof this.$element[0].checkValidity === 'undefined' || this.$element[0].checkValidity())
+          if (isValid) {
+            this.removeHasError()
+          } else {
+            this.addHasError()
+          }
+        })
     }
 
     addFormGroupFocus() {
@@ -120,16 +164,7 @@ const BaseInput = (($) => {
     findFormGroup(raiseError = true) {
       let fg = this.$element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
       if (fg.length === 0 && raiseError) {
-        $.error(`Failed to find form-group for ${this.$element}`)
-      }
-      return fg
-    }
-
-    findOrCreateFormGroup() {
-      let fg = this.$element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an baseInput-group
-      if (fg === null || fg.length === 0) {
-        this.$element.wrap(this.config.formGroup.template)
-        fg = this.$element.closest(Selector.FORM_GROUP) // find node after attached (otherwise additional attachments don't work)
+        $.error(`Failed to find form-group for ${Util.describe(this.$element)}`)
       }
       return fg
     }
@@ -137,15 +172,45 @@ const BaseInput = (($) => {
     // ------------------------------------------------------------------------
     // private
     _rejectInvalidComponentMatches() {
-      for (let otherComponent in this.config.invalidComponentMatches) {
+      for (let otherComponent of this.config.invalidComponentMatches) {
         otherComponent.rejectMatch(this.constructor.name, this.$element)
       }
     }
 
     _rejectWithoutRequiredClasses() {
-      for (let requiredClass in this.config.requiredClasses) {
-        if (!this.$element.hasClass(requiredClass)) {
-          $.error(`${this.constructor.name} elements require class: ${requiredClass}`)
+      for (let requiredClass of this.config.requiredClasses) {
+
+        let found = false
+        // allow one of several classes to be passed in x||y
+        if (requiredClass.indexOf('||') !== -1) {
+          let oneOf = requiredClass.split('||')
+          for (let requiredClass of oneOf) {
+            if (this.$element.hasClass(requiredClass)) {
+              found = true
+              break
+            }
+          }
+        } else if (this.$element.hasClass(requiredClass)) {
+          found = true
+        }
+
+        // error if not found
+        if (!found) {
+          $.error(`${this.constructor.name} element: ${Util.describe(this.$element)} requires class: ${requiredClass}`)
+        }
+      }
+    }
+
+    _convertFormControlSizeVariations() {
+      if (!this.config.convertInputSizeVariations) {
+        return
+      }
+
+      // Modification - Change text-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
+      for (let inputSize in FormControlSizeConversions) {
+        if (this.$element.hasClass(inputSize)) {
+          this.$element.removeClass(inputSize)
+          this.$formGroup.addClass(FormControlSizeConversions[inputSize])
         }
       }
     }

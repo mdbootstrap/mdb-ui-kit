@@ -1,5 +1,3 @@
-//import Util from './util'
-
 const Autofill = (($) => {
 
   /**

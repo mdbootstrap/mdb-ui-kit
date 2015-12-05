@@ -1,8 +1,4 @@
 import BaseInput from './baseInput'
-//import TextInput from './textInput'
-//import FileInput from './fileInput'
-//import Radio from './radio'
-//import Switch from './switch'
 import Util from './util'
 
 const BaseToggle = (($) => {
@@ -13,9 +9,6 @@ const BaseToggle = (($) => {
    * ------------------------------------------------------------------------
    */
   const Default = {
-    formGroup: {
-      autoCreate: true
-    }
   }
 
   const Selector = {
@@ -30,7 +23,7 @@ const BaseToggle = (($) => {
   class BaseToggle extends BaseInput {
 
     constructor(element, config, inputType, outerClass) {
-      super(element, Default, config)
+      super(element, $.extend({}, Default, config))
       this.$element.after(this.config.template)
       // '.checkbox|switch|radio > label > input[type=checkbox|radio]'
       // '.${this.outerClass} > label > input[type=${this.inputType}]'

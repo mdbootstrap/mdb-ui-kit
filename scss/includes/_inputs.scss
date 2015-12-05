@@ -220,7 +220,7 @@
       box-shadow: none;
       transition-duration: 0.3s;
 
-      .material-input:after {
+      .text-input-decorator:after {
         background-color: $brand-primary;
       }
     }
@@ -259,7 +259,7 @@
   select {
     appearance: none; // Fix for OS X
 
-    & ~ .material-input:after {
+    & ~ .text-input-decorator:after {
       display: none;
     }
   }

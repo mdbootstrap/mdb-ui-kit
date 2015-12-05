@@ -1,23 +1,26 @@
-import BaseToggle from './baseToggle'
-import Text from './text'
-import File from './file'
+import BaseInput from './baseInput'
 import Checkbox from './checkbox'
+import File from './file'
+import Radio from './radio'
 import Switch from './switch'
+import Textarea from './textare'
+import Select from './select'
 import Util from './util'
 
-const Radio = (($) => {
+const Text = (($) => {
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  const NAME = 'radio'
+  const NAME = 'text'
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
-    template: `<span class='radio-decorator'></span><span class='check'></span>`
+    template: `<span class='text-input-decorator'></span>`,
+    requiredClasses: ['form-control']
   }
 
   /**
@@ -25,28 +28,33 @@ const Radio = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Radio extends BaseToggle {
+  class Text extends BaseInput {
 
     constructor(element, config) {
-      super(element, $.extend({
-        invalidComponentMatches: [Checkbox, File, Switch, Text]
-      }, Default, config), NAME, NAME)
+      super(element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Select, Switch, Textarea]}, Default, config))
+
+      // Initially mark as empty
+      if (this.isEmpty()) {
+        this.addIsEmpty()
+      }
+
+      // Add marker div the end of the form-group
+      this.$formGroup.append(this.config.template)
     }
 
-    dispose() {
-      super.dispose(DATA_KEY)
+    dispose(dataKey = DATA_KEY) {
+      super.dispose(dataKey)
     }
 
     static matches($element) {
-      // '.radio > label > input[type=radio]'
-      if ($element.attr('type') === 'radio') {
+      if ($element.attr('type') === 'text') {
         return true
       }
       return false
     }
 
     static rejectMatch(component, $element) {
-      Util.assert(this.matches($element), `${component} component is invalid for type='radio'.`)
+      Util.assert(this.matches($element), `${component} component is invalid for type='text'.`)
     }
 
     // ------------------------------------------------------------------------
@@ -63,7 +71,7 @@ const Radio = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Radio(this, config)
+          data = new Text(this, config)
           $element.data(DATA_KEY, data)
         }
       })
@@ -75,15 +83,15 @@ const Radio = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Radio._jQueryInterface
-  $.fn[NAME].Constructor = Radio
+  $.fn[NAME] = Text._jQueryInterface
+  $.fn[NAME].Constructor = Text
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Radio._jQueryInterface
+    return Text._jQueryInterface
   }
 
-  return Radio
+  return Text
 
 })(jQuery)
 
-export default Radio
+export default Text

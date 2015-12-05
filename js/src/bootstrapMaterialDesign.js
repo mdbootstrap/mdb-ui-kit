@@ -1,15 +1,8 @@
-//import Util from './util'
-
 /**
  * $.bootstrapMaterialDesign(config) is a macro class to configure the components generally
  *  used in Material Design for Bootstrap.  You may pass overrides to the configurations
  *  which will be passed into each component, or you may omit use of this class and
  *  configure each component separately.
- *
- *  NOTE: If omitting use of this class, please note that the Input component must be
- *        initialized prior to other decorating components such as radio, checkbox,
- *        switch, fileInput.
- *
  */
 const BootstrapMaterialDesign = (($) => {
 
@@ -42,12 +35,14 @@ const BootstrapMaterialDesign = (($) => {
         '.ripple' // generic marker class to add ripple to elements
       ]
     },
-    textInput: {
-      selector: [
-        'input[type=text]',
-        'textarea',
-        'select'
-      ]
+    text: {
+      selector: ['input[type=text]']
+    },
+    textarea: {
+      selector: ['textarea']
+    },
+    select: {
+      selector: ['select']
     },
     checkbox: {
       selector: '.checkbox > label > input[type=checkbox]'
@@ -58,7 +53,7 @@ const BootstrapMaterialDesign = (($) => {
     radio: {
       selector: '.radio > label > input[type=radio]'
     },
-    fileInput: {
+    file: {
       selector: 'input[type=file]'
     },
     autofill: {
@@ -68,11 +63,13 @@ const BootstrapMaterialDesign = (($) => {
     // create an ordered component list for instantiation
     instantiation: [
       'ripples',
-      'textInput',
       'checkbox',
-      'switch',
+      'file',
       'radio',
-      'fileInput',
+      'switch',
+      'text',
+      'textarea',
+      'select',
       'autofill'
     ]
   }

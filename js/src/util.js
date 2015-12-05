@@ -70,6 +70,10 @@ const Util = (($) => {
       if (test) {
         $.error(message)
       }
+    },
+
+    describe($element) {
+      return `${$element[0].outerHTML.split('>')[0]}>`
     }
   }
 

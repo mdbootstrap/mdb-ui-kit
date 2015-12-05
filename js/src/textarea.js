@@ -1,36 +1,33 @@
-import BaseToggle from './baseToggle'
-import Text from './text'
-import File from './file'
 import Checkbox from './checkbox'
+import File from './file'
+import Radio from './radio'
 import Switch from './switch'
+import Text from './text'
+import Select from './select'
 import Util from './util'
 
-const Radio = (($) => {
+const Textarea = (($) => {
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  const NAME = 'radio'
+  const NAME = 'textarea'
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-  const Default = {
-    template: `<span class='radio-decorator'></span><span class='check'></span>`
-  }
+  const Default = {}
 
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Radio extends BaseToggle {
+  class Textarea extends Text {
 
     constructor(element, config) {
-      super(element, $.extend({
-        invalidComponentMatches: [Checkbox, File, Switch, Text]
-      }, Default, config), NAME, NAME)
+      super(element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Text, Select, Switch]}, Default, config))
     }
 
     dispose() {
@@ -38,15 +35,14 @@ const Radio = (($) => {
     }
 
     static matches($element) {
-      // '.radio > label > input[type=radio]'
-      if ($element.attr('type') === 'radio') {
+      if ($element.prop('tagName') === 'textarea') {
         return true
       }
       return false
     }
 
     static rejectMatch(component, $element) {
-      Util.assert(this.matches($element), `${component} component is invalid for type='radio'.`)
+      Util.assert(this.matches($element), `${component} component is invalid for <textarea>.`)
     }
 
     // ------------------------------------------------------------------------
@@ -63,7 +59,7 @@ const Radio = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Radio(this, config)
+          data = new Textarea(this, config)
           $element.data(DATA_KEY, data)
         }
       })
@@ -75,15 +71,15 @@ const Radio = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Radio._jQueryInterface
-  $.fn[NAME].Constructor = Radio
+  $.fn[NAME] = Textarea._jQueryInterface
+  $.fn[NAME].Constructor = Textarea
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Radio._jQueryInterface
+    return Textarea._jQueryInterface
   }
 
-  return Radio
+  return Textarea
 
 })(jQuery)
 
-export default Radio
+export default Textarea

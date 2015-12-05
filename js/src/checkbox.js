@@ -1,7 +1,9 @@
 import BaseToggle from './baseToggle'
-import TextInput from './textInput'
-import FileInput from './fileInput'
+import Text from './text'
+import File from './file'
 import Radio from './radio'
+import Textarea from './textare'
+import Select from './select'
 import Util from './util'
 
 const Checkbox = (($) => {
@@ -16,8 +18,7 @@ const Checkbox = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
-    template: `<span class='checkbox-decorator'><span class='check'></span></span>`,
-    invalidComponentMatches: [FileInput, Radio, TextInput]
+    template: `<span class='checkbox-decorator'><span class='check'></span></span>`
   }
 
   /**
@@ -28,7 +29,9 @@ const Checkbox = (($) => {
   class Checkbox extends BaseToggle {
 
     constructor(element, config, inputType = NAME, outerClass = NAME) {
-      super(element, $.extend({}, Default, config), inputType, outerClass)
+      super(element, $.extend({
+        invalidComponentMatches: [File, Radio, Text, Textarea, Select]
+      }, Default, config), inputType, outerClass)
     }
 
     dispose() {

@@ -1,23 +1,24 @@
-import BaseToggle from './baseToggle'
-import Text from './text'
-import File from './file'
 import Checkbox from './checkbox'
+import File from './file'
+import Radio from './radio'
 import Switch from './switch'
+import Text from './text'
+import Textarea from './textare'
 import Util from './util'
 
-const Radio = (($) => {
+const Select = (($) => {
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  const NAME = 'radio'
+  const NAME = 'select'
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
-    template: `<span class='radio-decorator'></span><span class='check'></span>`
+    requiredClasses: ['form-control||c-select']
   }
 
   /**
@@ -25,12 +26,10 @@ const Radio = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Radio extends BaseToggle {
+  class Select extends Text {
 
     constructor(element, config) {
-      super(element, $.extend({
-        invalidComponentMatches: [Checkbox, File, Switch, Text]
-      }, Default, config), NAME, NAME)
+      super(element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Switch, Text, Textarea]}, Default, config))
     }
 
     dispose() {
@@ -38,15 +37,14 @@ const Radio = (($) => {
     }
 
     static matches($element) {
-      // '.radio > label > input[type=radio]'
-      if ($element.attr('type') === 'radio') {
+      if ($element.prop('tagName') === 'select') {
         return true
       }
       return false
     }
 
     static rejectMatch(component, $element) {
-      Util.assert(this.matches($element), `${component} component is invalid for type='radio'.`)
+      Util.assert(this.matches($element), `${component} component is invalid for <select>.`)
     }
 
     // ------------------------------------------------------------------------
@@ -63,7 +61,7 @@ const Radio = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Radio(this, config)
+          data = new Select(this, config)
           $element.data(DATA_KEY, data)
         }
       })
@@ -75,15 +73,15 @@ const Radio = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Radio._jQueryInterface
-  $.fn[NAME].Constructor = Radio
+  $.fn[NAME] = Select._jQueryInterface
+  $.fn[NAME].Constructor = Select
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Radio._jQueryInterface
+    return Select._jQueryInterface
   }
 
-  return Radio
+  return Select
 
 })(jQuery)
 
-export default Radio
+export default Select
