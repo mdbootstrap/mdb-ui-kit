@@ -1,3 +1,8 @@
+# remove this later
+branches:
+  except:
+    - v4-dev
+
 sudo: false # use the container infrastructure
 language: node_js
 git:

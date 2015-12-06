@@ -13,10 +13,11 @@ $gray-dark: $mdb-text-color-primary;
 //---
 // Customized BS variables
 $enable-flex: true;
-@import 'variables/brand';
-@import 'variables/type';
 @import 'variables/body';
+@import 'variables/brand';
 @import 'variables/buttons';
+@import 'variables/state';
+@import 'variables/type';
 
 
 $border-radius-base: 2px !default;
