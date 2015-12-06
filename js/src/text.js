@@ -19,9 +19,6 @@ const Text = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
-    formGroup: {
-      required: false
-    },
     template: `<span class='text-input-decorator'></span>`,
     requiredClasses: ['form-control']
   }
@@ -57,7 +54,7 @@ const Text = (($) => {
     }
 
     static rejectMatch(component, $element) {
-      Util.assert(this.matches($element), `${component} component is invalid for type='text'.`)
+      Util.assert(this.$element, this.matches($element), `${component} component element ${Util.describe($element)} is invalid for type='text'.`)
     }
 
     // ------------------------------------------------------------------------

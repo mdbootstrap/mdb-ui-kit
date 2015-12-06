@@ -47,14 +47,17 @@ const BootstrapMaterialDesign = (($) => {
     checkbox: {
       selector: '.checkbox > label > input[type=checkbox]'
     },
-    //checkboxInline: {
-    //  selector: 'label.checkbox-inline > input[type=checkbox]'
-    //},
+    checkboxInline: {
+      selector: 'label.checkbox-inline > input[type=checkbox]'
+    },
     switch: {
       selector: '.switch > label > input[type=checkbox]'
     },
     radio: {
       selector: '.radio > label > input[type=radio]'
+    },
+    radioInline: {
+      selector: 'label.radio-inline > input[type=radio]'
     },
     file: {
       selector: 'input[type=file]'
@@ -67,8 +70,10 @@ const BootstrapMaterialDesign = (($) => {
     instantiation: [
       'ripples',
       'checkbox',
+      'checkboxInline',
       'file',
       'radio',
+      'radioInline',
       'switch',
       'text',
       'textarea',

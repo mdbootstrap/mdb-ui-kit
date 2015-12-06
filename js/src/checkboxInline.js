@@ -1,19 +1,13 @@
 import Checkbox from './checkbox'
-import File from './file'
-import Radio from './radio'
-import Switch from './switch'
-import Text from './text'
-import Select from './select'
-import Util from './util'
 
-const Textarea = (($) => {
+const CheckboxInline = (($) => {
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  const NAME = 'textarea'
+  const NAME = 'checkboxInline'
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
@@ -24,26 +18,30 @@ const Textarea = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Textarea extends Text {
+  class CheckboxInline extends Checkbox {
 
-    constructor(element, config) {
-      super(element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Text, Select, Switch]}, Default, config))
+    constructor(element, config, properties = {inputType: 'checkbox', outerClass: 'checkbox-inline'}) {
+      super(element, $.extend({}, Default, config), properties)
     }
 
     dispose() {
       super.dispose(DATA_KEY)
     }
 
-    static matches($element) {
-      if ($element.prop('tagName') === 'textarea') {
-        return true
-      }
-      return false
-    }
+    //static matches($element) {
+    //  // '.checkbox-inline > input[type=checkbox]'
+    //  if ($element.attr('type') === 'checkbox') {
+    //    return true
+    //  }
+    //  return false
+    //}
+    //
+    //static rejectMatch(component, $element) {
+    //  Util.assert(this.$element, this.matches($element), `${component} component element ${Util.describe($element)} is invalid for type='checkbox'.`)
+    //}
 
-    static rejectMatch(component, $element) {
-      Util.assert(this.$element, this.matches($element), `${component} component element ${Util.describe($element)} is invalid for <textarea>.`)
-    }
+    // ------------------------------------------------------------------------
+    // protected
 
     // ------------------------------------------------------------------------
     // protected
@@ -59,7 +57,7 @@ const Textarea = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Textarea(this, config)
+          data = new CheckboxInline(this, config)
           $element.data(DATA_KEY, data)
         }
       })
@@ -71,15 +69,15 @@ const Textarea = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Textarea._jQueryInterface
-  $.fn[NAME].Constructor = Textarea
+  $.fn[NAME] = CheckboxInline._jQueryInterface
+  $.fn[NAME].Constructor = CheckboxInline
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Textarea._jQueryInterface
+    return CheckboxInline._jQueryInterface
   }
 
-  return Textarea
+  return CheckboxInline
 
 })(jQuery)
 
-export default Textarea
+export default CheckboxInline

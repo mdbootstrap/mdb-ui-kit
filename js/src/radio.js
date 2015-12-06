@@ -27,14 +27,14 @@ const Radio = (($) => {
    */
   class Radio extends BaseToggle {
 
-    constructor(element, config) {
+    constructor(element, config, properties = {inputType: NAME, outerClass: NAME}) {
       super(element, $.extend({
         invalidComponentMatches: [Checkbox, File, Switch, Text]
-      }, Default, config), NAME, NAME)
+      }, Default, config), properties)
     }
 
-    dispose() {
-      super.dispose(DATA_KEY)
+    dispose(dataKey = DATA_KEY) {
+      super.dispose(dataKey)
     }
 
     static matches($element) {
@@ -46,7 +46,7 @@ const Radio = (($) => {
     }
 
     static rejectMatch(component, $element) {
-      Util.assert(this.matches($element), `${component} component is invalid for type='radio'.`)
+      Util.assert(this.$element, this.matches($element), `${component} component element ${Util.describe($element)} is invalid for type='radio'.`)
     }
 
     // ------------------------------------------------------------------------

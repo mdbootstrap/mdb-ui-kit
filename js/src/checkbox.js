@@ -28,14 +28,14 @@ const Checkbox = (($) => {
    */
   class Checkbox extends BaseToggle {
 
-    constructor(element, config, inputType = NAME, outerClass = NAME) {
+    constructor(element, config, properties = {inputType: NAME, outerClass: NAME}) {
       super(element, $.extend({
         invalidComponentMatches: [File, Radio, Text, Textarea, Select]
-      }, Default, config), inputType, outerClass)
+      }, Default, config), properties)
     }
 
-    dispose() {
-      super.dispose(DATA_KEY)
+    dispose(dataKey = DATA_KEY) {
+      super.dispose(dataKey)
     }
 
     static matches($element) {
@@ -47,7 +47,7 @@ const Checkbox = (($) => {
     }
 
     static rejectMatch(component, $element) {
-      Util.assert(this.matches($element), `${component} component is invalid for type='checkbox'.`)
+      Util.assert(this.$element, this.matches($element), `${component} component element ${Util.describe($element)} is invalid for type='checkbox'.`)
     }
 
     // ------------------------------------------------------------------------

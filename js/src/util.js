@@ -66,13 +66,23 @@ const Util = (($) => {
       return false
     },
 
-    assert(test, message) {
-      if (test) {
+    assert($element, invalidTest, message) {
+      if (invalidTest) {
+        if (!$element === undefined) {
+          $element.css('border', '1px solid red')
+        }
+        console.error(message, $element) // eslint-disable-line no-console
         $.error(message)
       }
     },
 
     describe($element) {
+      if ($element === undefined) {
+        return 'undefined'
+      }
+      else if ($element.length === 0){
+        return '(no matching elements)'
+      }
       return `${$element[0].outerHTML.split('>')[0]}>`
     }
   }

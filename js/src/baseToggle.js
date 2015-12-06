@@ -8,11 +8,7 @@ const BaseToggle = (($) => {
    * Constants
    * ------------------------------------------------------------------------
    */
-  const Default = {
-    formGroup: {
-      required: false
-    }
-  }
+  const Default = {}
 
   const Selector = {
     LABEL: 'label'
@@ -25,13 +21,13 @@ const BaseToggle = (($) => {
    */
   class BaseToggle extends BaseInput {
 
-    constructor(element, config, inputType, outerClass) {
-      super(element, $.extend({}, Default, config))
-      this.$element.after(this.config.template)
+    constructor(element, config, properties) {
+      // properties = {inputType: checkbox, outerClass: checkbox-inline}
       // '.checkbox|switch|radio > label > input[type=checkbox|radio]'
       // '.${this.outerClass} > label > input[type=${this.inputType}]'
-      this.inputType = inputType
-      this.outerClass = outerClass
+
+      super(element, $.extend({}, Default, config), properties)
+      this.$element.after(this.config.template)
     }
 
     // ------------------------------------------------------------------------
@@ -39,16 +35,17 @@ const BaseToggle = (($) => {
 
     // Demarcation element (e.g. first child of a form-group)
     outerElement() {
-      // '.checkbox|switch|radio > label > input[type=checkbox|radio]'
-      // '.${this.outerClass} > label > input[type=${this.inputType}]'
-      return this.$element.parent().parent()
+      // .checkbox|switch|radio > label > input[type=checkbox|radio]
+      // label.checkbox-inline > input[type=checkbox|radio]
+      // .${this.outerClass} > label > input[type=${this.inputType}]
+      return this.$element.parent().closest(`.${this.outerClass}`)
     }
 
     rejectWithoutRequiredStructure() {
       // '.checkbox|switch|radio > label > input[type=checkbox|radio]'
       // '.${this.outerClass} > label > input[type=${this.inputType}]'
-      Util.assert(this.$element.parent().prop('tagName') === 'label', `${this.constructor.name}'s ${this.$element} parent element should be <label>.`)
-      Util.assert(this.outerElement().hasClass(this.outerClass), `${this.constructor.name}'s ${this.$element} grandparent element should have class .${this.outerClass}.`)
+      Util.assert(this.$element, !this.$element.parent().prop('tagName') === 'label', `${this.constructor.name}'s ${Util.describe(this.$element)} parent element should be <label>.`)
+      Util.assert(this.$element, !this.outerElement().hasClass(this.outerClass), `${this.constructor.name}'s ${Util.describe(this.$element)} outer element should have class ${this.outerClass}.`)
     }
 
     addFocusListener() {

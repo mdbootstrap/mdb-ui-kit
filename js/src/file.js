@@ -18,11 +18,7 @@ const File = (($) => {
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-  const Default = {
-    formGroup: {
-      required: false
-    }
-  }
+  const Default = {}
 
   const ClassName = {
     FILE: NAME,
@@ -58,7 +54,7 @@ const File = (($) => {
     }
 
     static rejectMatch(component, $element) {
-      Util.assert(this.matches($element), `${component} component is invalid for type='file'.`)
+      Util.assert(this.$element, this.matches($element), `${component} component element ${Util.describe($element)} is invalid for type='file'.`)
     }
 
     // ------------------------------------------------------------------------
@@ -67,13 +63,13 @@ const File = (($) => {
     // Demarcation element (e.g. first child of a form-group)
     outerElement() {
       // label.file > input[type=file]
-      return this.$element
+      return this.$element.parent().closest(`.${ClassName.FILE}`)
     }
 
     rejectWithoutRequiredStructure() {
       // label.file > input[type=file]
-      Util.assert(this.outerElement().prop('tagName') === 'label', `${this.constructor.name}'s ${Util.describe(this.$element)} parent element ${Util.describe(this.outerElement())} should be <label>.`)
-      Util.assert(this.outerElement().hasClass(ClassName.FILE), `${this.constructor.name}'s ${Util.describe(this.$element)} parent element ${Util.describe(this.outerElement())} should have class .${ClassName.FILE}.`)
+      Util.assert(this.$element, !this.outerElement().prop('tagName') === 'label', `${this.constructor.name}'s ${Util.describe(this.$element)} parent element ${Util.describe(this.outerElement())} should be <label>.`)
+      Util.assert(this.$element, !this.outerElement().hasClass(ClassName.FILE), `${this.constructor.name}'s ${Util.describe(this.$element)} parent element ${Util.describe(this.outerElement())} should have class .${ClassName.FILE}.`)
     }
 
     addFocusListener() {

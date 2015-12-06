@@ -1,19 +1,13 @@
-import Checkbox from './checkbox'
-import File from './file'
 import Radio from './radio'
-import Switch from './switch'
-import Text from './text'
-import Select from './select'
-import Util from './util'
 
-const Textarea = (($) => {
+const RadioInline = (($) => {
 
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
-  const NAME = 'textarea'
+  const NAME = 'radioInline'
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
@@ -24,26 +18,18 @@ const Textarea = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Textarea extends Text {
+  class RadioInline extends Radio {
 
-    constructor(element, config) {
-      super(element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Text, Select, Switch]}, Default, config))
+    constructor(element, config, properties = {inputType: 'radio', outerClass: 'radio-inline'}) {
+      super(element, $.extend({}, Default, config), properties)
     }
 
     dispose() {
       super.dispose(DATA_KEY)
     }
 
-    static matches($element) {
-      if ($element.prop('tagName') === 'textarea') {
-        return true
-      }
-      return false
-    }
-
-    static rejectMatch(component, $element) {
-      Util.assert(this.$element, this.matches($element), `${component} component element ${Util.describe($element)} is invalid for <textarea>.`)
-    }
+    // ------------------------------------------------------------------------
+    // protected
 
     // ------------------------------------------------------------------------
     // protected
@@ -59,7 +45,7 @@ const Textarea = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Textarea(this, config)
+          data = new RadioInline(this, config)
           $element.data(DATA_KEY, data)
         }
       })
@@ -71,15 +57,15 @@ const Textarea = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Textarea._jQueryInterface
-  $.fn[NAME].Constructor = Textarea
+  $.fn[NAME] = RadioInline._jQueryInterface
+  $.fn[NAME].Constructor = RadioInline
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Textarea._jQueryInterface
+    return RadioInline._jQueryInterface
   }
 
-  return Textarea
+  return RadioInline
 
 })(jQuery)
 
-export default Textarea
+export default RadioInline

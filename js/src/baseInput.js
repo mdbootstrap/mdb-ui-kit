@@ -4,12 +4,12 @@ const BaseInput = (($) => {
 
   const Default = {
     formGroup: {
-      required: true
+      required: false
     },
     mdbFormGroup: {
-      template: `<div class='mdb-form-group'></div>`,
-      required: true,
-      autoCreate: true
+      template: `<span class='mdb-form-group'></span>`,
+      required: true, // strongly recommended not to override
+      autoCreate: true // strongly recommended not to override
     },
     requiredClasses: [],
     invalidComponentMatches: [],
@@ -41,9 +41,20 @@ const BaseInput = (($) => {
    */
   class BaseInput {
 
-    constructor(element, config) {
+    /**
+     *
+     * @param element
+     * @param config
+     * @param properties - anything that needs to be set as this[key] = value.  Works around the need to call `super` before using `this`
+     */
+    constructor(element, config, properties = {}) {
       this.$element = $(element)
       this.config = $.extend({}, Default, config)
+
+      // set properties for use in the constructor initialization
+      for (let key in properties) {
+        this[key] = properties[key]
+      }
 
       // Enforce no overlap between components to prevent side effects
       this._rejectInvalidComponentMatches()

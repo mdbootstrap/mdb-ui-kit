@@ -44,7 +44,7 @@ const Select = (($) => {
     }
 
     static rejectMatch(component, $element) {
-      Util.assert(this.matches($element), `${component} component is invalid for <select>.`)
+      Util.assert(this.$element, this.matches($element), `${component} component element ${Util.describe($element)} is invalid for <select>.`)
     }
 
     // ------------------------------------------------------------------------
