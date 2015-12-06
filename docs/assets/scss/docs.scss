@@ -44,17 +44,21 @@ $brand-primary: $indigo-500; // #3F51B5
 //$secondary-text-color: #727272
 //$divider-color:        #B6B6B6
 
-// Local docs variables
+// Import default variables
+@import '../../../scss/includes/variables';
+
+// Local docs variables or overrides
 $bd-purple:         $brand-primary; // #563d7c;
 $bd-purple-bright:  $light-blue-500; //lighten(saturate($bd-purple, 5%), 15%);
 $bd-purple-light:   $indigo-100; // #C5CAE9;  #cdbfe3;
 $bd-graphite:       $indigo-700; // #303F9F; //#2a2730;
 $bd-graphite-light: lighten($bd-graphite, 40%);
 $bd-yellow:         #ffe484;
-$bd-danger:         #d9534f;
-$bd-warning:        #f0ad4e;
-$bd-info:           #5bc0de;
+$bd-danger:         $brand-danger; // #d9534f;
+$bd-warning:        $brand-warning; // #f0ad4e;
+$bd-info:           $brand-info; // #5bc0de;
 
+// Import material design configured with the above variables
 @import '../../../scss/includes/bootstrap-material-design';
 
 // Load docs components
