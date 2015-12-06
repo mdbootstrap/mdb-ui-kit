@@ -47,6 +47,9 @@ const BootstrapMaterialDesign = (($) => {
     checkbox: {
       selector: '.checkbox > label > input[type=checkbox]'
     },
+    //checkboxInline: {
+    //  selector: 'label.checkbox-inline > input[type=checkbox]'
+    //},
     switch: {
       selector: '.switch > label > input[type=checkbox]'
     },

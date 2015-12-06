@@ -9,6 +9,9 @@ const BaseToggle = (($) => {
    * ------------------------------------------------------------------------
    */
   const Default = {
+    formGroup: {
+      required: false
+    }
   }
 
   const Selector = {
@@ -48,12 +51,9 @@ const BaseToggle = (($) => {
       Util.assert(this.outerElement().hasClass(this.outerClass), `${this.constructor.name}'s ${this.$element} grandparent element should have class .${this.outerClass}.`)
     }
 
-    // ------------------------------------------------------------------------
-    // protected
-
     addFocusListener() {
       // checkboxes didn't appear to bubble to the document, so we'll bind these directly
-      this.$formGroup.find(Selector.LABEL).hover(() => {
+      this.$mdbFormGroup.find(Selector.LABEL).hover(() => {
         this.addFormGroupFocus()
       }, () => {
         this.removeFormGroupFocus()

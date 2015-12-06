@@ -18,7 +18,14 @@ const File = (($) => {
   const DATA_KEY = `mdb.${NAME}`
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
+  const Default = {
+    formGroup: {
+      required: false
+    }
+  }
+
   const ClassName = {
+    FILE: NAME,
     IS_FILE: 'is-file'
   }
 
@@ -34,9 +41,9 @@ const File = (($) => {
   class File extends BaseInput {
 
     constructor(element, config) {
-      super(element, $.extend({invalidComponentMatches: [Checkbox, Radio, Text, Textarea, Select, Switch]}, config))
+      super(element, $.extend({invalidComponentMatches: [Checkbox, Radio, Text, Textarea, Select, Switch]}, Default, config))
 
-      this.$formGroup.addClass(ClassName.IS_FILE)
+      this.$mdbFormGroup.addClass(ClassName.IS_FILE)
     }
 
     dispose() {
@@ -57,12 +64,20 @@ const File = (($) => {
     // ------------------------------------------------------------------------
     // protected
 
+    // Demarcation element (e.g. first child of a form-group)
+    outerElement() {
+      // label.file > input[type=file]
+      return this.$element
+    }
+
     rejectWithoutRequiredStructure() {
-      // FIXME: implement this once we determine how we want to implement files since BS4 has tried to take a shot at this
+      // label.file > input[type=file]
+      Util.assert(this.outerElement().prop('tagName') === 'label', `${this.constructor.name}'s ${Util.describe(this.$element)} parent element ${Util.describe(this.outerElement())} should be <label>.`)
+      Util.assert(this.outerElement().hasClass(ClassName.FILE), `${this.constructor.name}'s ${Util.describe(this.$element)} parent element ${Util.describe(this.outerElement())} should have class .${ClassName.FILE}.`)
     }
 
     addFocusListener() {
-      this.$formGroup
+      this.$mdbFormGroup
         .on('focus', () => {
           this.addFormGroupFocus()
         })
@@ -84,7 +99,7 @@ const File = (($) => {
         } else {
           this.addIsEmpty()
         }
-        this.$formGroup.find(Selector.FILENAMES).val(value)
+        this.$mdbFormGroup.find(Selector.FILENAMES).val(value)
       })
     }
 

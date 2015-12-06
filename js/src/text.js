@@ -19,6 +19,9 @@ const Text = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
 
   const Default = {
+    formGroup: {
+      required: false
+    },
     template: `<span class='text-input-decorator'></span>`,
     requiredClasses: ['form-control']
   }
@@ -39,7 +42,7 @@ const Text = (($) => {
       }
 
       // Add marker div the end of the form-group
-      this.$formGroup.append(this.config.template)
+      this.$mdbFormGroup.append(this.config.template)
     }
 
     dispose(dataKey = DATA_KEY) {
@@ -59,6 +62,21 @@ const Text = (($) => {
 
     // ------------------------------------------------------------------------
     // protected
+    // Find or create a mdb-form-group if necessary
+    autoCreateMdbFormGroup() {
+      let mfg = this.findMdbFormGroup(false)
+      if (mfg === null || mfg.length === 0) {
+        let fg = this.$formGroup
+
+        if (fg === undefined || fg.length === 0) {
+          // if a form-group doesn't exist (not recommended), just wrap the element.
+          this.outerElement().wrap(this.config.mdbFormGroup.template)
+        } else {
+          // a form-group does exist, so add an mdb-form-group wrapping it's internal contents
+          fg.wrapInner(this.config.mdbFormGroup.template)
+        }
+      }
+    }
 
     // ------------------------------------------------------------------------
     // private

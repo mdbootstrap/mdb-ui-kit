@@ -107,12 +107,23 @@ class Application {
         .tooltip('_fixTitle')
     })
   }
+
+  fixMissingFormGroups() {
+    //let selectors = [
+    //  '#search-input',
+    //  `input.form-control[placeholder='Readonly input here…']`
+    //]
+    //for( let selector of selectors){
+    //  $(selector).parent().wrapInner(`<div class='form-group'></div>`)
+    //}
+  }
 }
 
 $(() => {
   let app = new Application()
   app.displayTypographyProperties()
   app.initializeClipboard()
+  app.fixMissingFormGroups()
   // $.bootstrapMaterialDesign()
   $('body').bootstrapMaterialDesign()
 })

@@ -4,7 +4,10 @@ const BaseInput = (($) => {
 
   const Default = {
     formGroup: {
-      template: `<div class='form-group'></div>`,
+      required: true
+    },
+    mdbFormGroup: {
+      template: `<div class='mdb-form-group'></div>`,
       required: true,
       autoCreate: true
     },
@@ -15,12 +18,15 @@ const BaseInput = (($) => {
 
   const ClassName = {
     FORM_GROUP: 'form-group',
+    MDB_FORM_GROUP: 'mdb-form-group',
     HAS_ERROR: 'has-error',
-    IS_EMPTY: 'is-empty'
+    IS_EMPTY: 'is-empty',
+    IS_FOCUSED: 'is-focused'
   }
 
   const Selector = {
-    FORM_GROUP: `.${ClassName.FORM_GROUP}` //,
+    FORM_GROUP: `.${ClassName.FORM_GROUP}`,
+    MDB_FORM_GROUP: `.${ClassName.MDB_FORM_GROUP}`
   }
 
   const FormControlSizeConversions = {
@@ -48,12 +54,13 @@ const BaseInput = (($) => {
       // Enforce required classes for a consistent rendering
       this._rejectWithoutRequiredClasses()
 
-      if (this.config.formGroup.autoCreate) {
+      if (this.config.mdbFormGroup.autoCreate) {
         // Will create form-group if necessary
-        this.autoCreateFormGroup()
+        this.autoCreateMdbFormGroup()
       }
 
       // different components have different rules, always run this separately
+      this.$mdbFormGroup = this.findMdbFormGroup(this.config.mdbFormGroup.required)
       this.$formGroup = this.findFormGroup(this.config.formGroup.required)
 
       this._convertFormControlSizeVariations()
@@ -65,7 +72,7 @@ const BaseInput = (($) => {
     dispose(dataKey) {
       $.removeData(this.$element, dataKey)
       this.$element = null
-      this.$formGroup = null
+      this.$mdbFormGroup = null
       this.config = null
     }
 
@@ -119,38 +126,38 @@ const BaseInput = (($) => {
     }
 
     addFormGroupFocus() {
-      this.$formGroup.addClass(ClassName.IS_FOCUSED)
+      this.$mdbFormGroup.addClass(ClassName.IS_FOCUSED)
     }
 
     removeFormGroupFocus() {
-      this.$formGroup.removeClass(ClassName.IS_FOCUSED)
+      this.$mdbFormGroup.removeClass(ClassName.IS_FOCUSED)
     }
 
     addHasError() {
-      this.$formGroup.addClass(ClassName.HAS_ERROR)
+      this.$mdbFormGroup.addClass(ClassName.HAS_ERROR)
     }
 
     removeHasError() {
-      this.$formGroup.removeClass(ClassName.HAS_ERROR)
+      this.$mdbFormGroup.removeClass(ClassName.HAS_ERROR)
     }
 
     addIsEmpty() {
-      this.$formGroup.addClass(ClassName.IS_EMPTY)
+      this.$mdbFormGroup.addClass(ClassName.IS_EMPTY)
     }
 
     removeIsEmpty() {
-      this.$formGroup.removeClass(ClassName.IS_EMPTY)
+      this.$mdbFormGroup.removeClass(ClassName.IS_EMPTY)
     }
 
     isEmpty() {
       return (this.$element.val() === null || this.$element.val() === undefined || this.$element.val() === '')
     }
 
-    // Find or create a form-group if necessary
-    autoCreateFormGroup() {
-      let fg = this.findFormGroup(false)
-      if (fg === null || fg.length === 0) {
-        this.outerElement().wrap(this.config.formGroup.template)
+    // Find or create a mdb-form-group if necessary
+    autoCreateMdbFormGroup() {
+      let fg = this.findMdbFormGroup(false)
+      if (fg === undefined || fg.length === 0) {
+        this.outerElement().wrap(this.config.mdbFormGroup.template)
       }
     }
 
@@ -160,11 +167,20 @@ const BaseInput = (($) => {
       return this.$element
     }
 
-    // Find expected form-group
+    // Find mdb-form-group
+    findMdbFormGroup(raiseError = true) {
+      let mfg = this.$element.closest(Selector.MDB_FORM_GROUP)
+      if (mfg.length === 0 && raiseError) {
+        $.error(`Failed to find ${Selector.MDB_FORM_GROUP} for ${Util.describe(this.$element)}`)
+      }
+      return mfg
+    }
+
+    // Find mdb-form-group
     findFormGroup(raiseError = true) {
-      let fg = this.$element.closest(Selector.FORM_GROUP) // note that form-group may be grandparent in the case of an input-group
+      let fg = this.$element.closest(Selector.FORM_GROUP)
       if (fg.length === 0 && raiseError) {
-        $.error(`Failed to find form-group for ${Util.describe(this.$element)}`)
+        $.error(`Failed to find ${Selector.FORM_GROUP} for ${Util.describe(this.$element)}`)
       }
       return fg
     }
@@ -210,7 +226,7 @@ const BaseInput = (($) => {
       for (let inputSize in FormControlSizeConversions) {
         if (this.$element.hasClass(inputSize)) {
           this.$element.removeClass(inputSize)
-          this.$formGroup.addClass(FormControlSizeConversions[inputSize])
+          this.$mdbFormGroup.addClass(FormControlSizeConversions[inputSize])
         }
       }
     }
