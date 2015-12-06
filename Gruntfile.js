@@ -382,6 +382,15 @@ module.exports = function (grunt) {
         ],
         dest: 'docs/dist/'
       },
+      'bs-docs-js-vendor': {
+        expand: true,
+        cwd: '../bootstrap/docs/assets/js/vendor',
+        src: [
+          '**/*'
+        ],
+        dest: 'docs/assets/js/vendor/'
+      },
+
       'bs-docs-scss': {
         options: {
           // https://regex101.com/r/hG8lU4/1
@@ -645,7 +654,7 @@ module.exports = function (grunt) {
   grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
   grunt.registerTask('docs-js', ['babel:docs', 'uglify:docsJs']);
   grunt.registerTask('lint-docs-js', ['jscs:assets']);
-  grunt.registerTask('docs-copy-bootstrap-docs', ['copy:bs-docs-scss', 'copy:bs-docs-components', 'copy:bs-docs-content']);
+  grunt.registerTask('docs-copy-bootstrap-docs', ['copy:bs-docs-js-vendor', 'copy:bs-docs-scss', 'copy:bs-docs-components', 'copy:bs-docs-content']);
 
   grunt.registerTask('docs', ['clean:docs', 'docs-copy-bootstrap-docs', 'docs-css', 'docs-js', 'lint-docs-js', 'copy:docs']);
 
