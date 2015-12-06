@@ -415,7 +415,11 @@ module.exports = function (grunt) {
         options: {
           // //https://regex101.com/r/cZ7aO8/2
           process: function (content, srcpath) {
-            return content.replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice);
+            return content
+              // insert docs reference
+              .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice)
+              // remove sample text 'display' as this is a particular style and is confusing
+              .replace(/Fancy display heading/, 'Fancy heading');
           }
         },
         expand: true,

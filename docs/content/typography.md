@@ -83,7 +83,7 @@ Use the included utility classes to recreate the small secondary heading text fr
 
 {% example html %}
 <h3>
-  Fancy display heading
+  Fancy heading
   <small class="text-muted">With faded secondary text</small>
 </h3>
 {% endexample %}

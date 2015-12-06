@@ -2,6 +2,9 @@
 //
 // Font, line-height, and color for body text, headings, and more.
 
+// https://www.google.com/design/spec/style/typography.html#typography-styles
+// http://www.getmdl.io/styles/index.html
+
 $font-family-sans-serif: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
 //$font-family-serif:          Georgia, "Times New Roman", Times, serif !default;
 //$font-family-monospace:      Menlo, Monaco, Consolas, "Courier New", monospace !default;
@@ -22,10 +25,10 @@ $font-family-sans-serif: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
 //$font-size-h5:               1.25rem !default;
 //$font-size-h6:               1rem !default;
 //
-//$display1-size:               6rem !default;
-//$display2-size:               5.5rem !default;
-//$display3-size:               4.5rem !default;
-//$display4-size:               3.5rem !default;
+$display1-size:               7rem !default; // md display-4 112px was 6rem;
+$display2-size:               3.5rem !default; // md display-3 56px was 5.5rem
+$display3-size:               2.8125rem !default; // md display-2 45px was 4.5rem
+$display4-size:               2.125rem !default; // md display-1 34px was 3.5rem
 //
 //$display1-weight:             300 !default;
 //$display2-weight:             300 !default;
@@ -36,7 +39,7 @@ $font-family-sans-serif: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
 //
 //$headings-margin-bottom:     ($spacer / 2) !default;
 //$headings-font-family:       inherit !default;
-//$headings-font-weight:       500 !default;
+$headings-font-weight:       400 !default; // was 500
 //$headings-line-height:       1.1 !default;
 //$headings-color:             inherit !default;
 //
