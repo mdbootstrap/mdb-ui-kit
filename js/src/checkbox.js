@@ -15,7 +15,8 @@ const Checkbox = (($) => {
    */
   const NAME = 'checkbox'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
     template: `<span class='checkbox-decorator'><span class='check'></span></span>`
@@ -79,10 +80,10 @@ const Checkbox = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Checkbox._jQueryInterface
-  $.fn[NAME].Constructor = Checkbox
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = Checkbox._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = Checkbox
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return Checkbox._jQueryInterface
   }
 

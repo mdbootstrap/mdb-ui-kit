@@ -15,7 +15,8 @@ const Textarea = (($) => {
    */
   const NAME = 'textarea'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {}
 
@@ -71,10 +72,10 @@ const Textarea = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Textarea._jQueryInterface
-  $.fn[NAME].Constructor = Textarea
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = Textarea._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = Textarea
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return Textarea._jQueryInterface
   }
 

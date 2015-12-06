@@ -9,7 +9,7 @@ const Foo = (($) => {
    */
   const NAME = 'foo'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
     template: ``
@@ -61,10 +61,10 @@ const Foo = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Foo._jQueryInterface
-  $.fn[NAME].Constructor = Foo
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = Foo._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = Foo
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return Foo._jQueryInterface
   }
 

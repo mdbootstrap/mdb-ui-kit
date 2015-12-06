@@ -13,7 +13,8 @@ const BootstrapMaterialDesign = (($) => {
    */
   const NAME = 'bootstrapMaterialDesign'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NAME = NAME // retain this full name since it is long enough not to conflict
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   /**
    *
@@ -105,14 +106,17 @@ const BootstrapMaterialDesign = (($) => {
           // assemble the selector as it may be an array
           let selector = this._resolveSelector(componentConfig)
 
+          // create the jquery fn name e.g. 'mdbText' for 'text'
+          let jqueryFn = `mdb${component.charAt(0).toUpperCase() + component.slice(1)}`
+
           // instantiate component on selector elements with config
           // console.debug(`instantiating: ${component}`)
-          $(selector)[component](componentConfig)
+          $(selector)[jqueryFn](componentConfig)
 
           // add to arrive if present and enabled
           if (document.arrive && this.config.arrive) {
             $document.arrive(selector, (element) => {  // eslint-disable-line no-loop-func
-              $(element)[component](componentConfig)
+              $(element)[jqueryFn](componentConfig)
             })
           }
         }
@@ -157,10 +161,10 @@ const BootstrapMaterialDesign = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = BootstrapMaterialDesign._jQueryInterface
-  $.fn[NAME].Constructor = BootstrapMaterialDesign
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = BootstrapMaterialDesign._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = BootstrapMaterialDesign
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return BootstrapMaterialDesign._jQueryInterface
   }
 

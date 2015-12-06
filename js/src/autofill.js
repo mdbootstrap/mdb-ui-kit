@@ -7,7 +7,8 @@ const Autofill = (($) => {
    */
   const NAME = 'autofill'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {}
 
@@ -95,10 +96,10 @@ const Autofill = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Autofill._jQueryInterface
-  $.fn[NAME].Constructor = Autofill
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = Autofill._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = Autofill
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return Autofill._jQueryInterface
   }
 

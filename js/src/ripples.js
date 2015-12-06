@@ -9,7 +9,8 @@ const Ripples = (($) => {
    */
   const NAME = 'ripples'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const ClassName = {
     CONTAINER: 'ripple-container',
@@ -284,10 +285,10 @@ const Ripples = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Ripples._jQueryInterface
-  $.fn[NAME].Constructor = Ripples
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = Ripples._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = Ripples
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return Ripples._jQueryInterface
   }
 

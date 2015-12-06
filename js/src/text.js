@@ -16,7 +16,8 @@ const Text = (($) => {
    */
   const NAME = 'text'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
     template: `<span class='text-input-decorator'></span>`,
@@ -98,10 +99,10 @@ const Text = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Text._jQueryInterface
-  $.fn[NAME].Constructor = Text
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = Text._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = Text
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return Text._jQueryInterface
   }
 

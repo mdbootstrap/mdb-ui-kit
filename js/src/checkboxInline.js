@@ -9,7 +9,8 @@ const CheckboxInline = (($) => {
    */
   const NAME = 'checkboxInline'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {}
 
@@ -69,10 +70,10 @@ const CheckboxInline = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = CheckboxInline._jQueryInterface
-  $.fn[NAME].Constructor = CheckboxInline
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = CheckboxInline._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = CheckboxInline
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return CheckboxInline._jQueryInterface
   }
 

@@ -9,7 +9,8 @@ const Switch = (($) => {
    */
   const NAME = 'switch'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
     template: `<span class='switch-decorator'></span>`
@@ -57,10 +58,10 @@ const Switch = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Switch._jQueryInterface
-  $.fn[NAME].Constructor = Switch
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = Switch._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = Switch
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return Switch._jQueryInterface
   }
 

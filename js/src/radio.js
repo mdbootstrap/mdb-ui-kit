@@ -14,7 +14,8 @@ const Radio = (($) => {
    */
   const NAME = 'radio'
   const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
     template: `<span class='radio-decorator'></span><span class='check'></span>`
@@ -75,10 +76,10 @@ const Radio = (($) => {
    * jQuery
    * ------------------------------------------------------------------------
    */
-  $.fn[NAME] = Radio._jQueryInterface
-  $.fn[NAME].Constructor = Radio
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT
+  $.fn[JQUERY_NAME] = Radio._jQueryInterface
+  $.fn[JQUERY_NAME].Constructor = Radio
+  $.fn[JQUERY_NAME].noConflict = () => {
+    $.fn[JQUERY_NAME] = JQUERY_NO_CONFLICT
     return Radio._jQueryInterface
   }
 
