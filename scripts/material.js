@@ -30,6 +30,7 @@
   $.material =  {
     "options": {
       // These options set what will be started by $.material.init()
+      "validate": true,
       "input": true,
       "ripples": true,
       "checkbox": true,
@@ -133,6 +134,7 @@
       });
     },
     "attachInputEventHandlers": function() {
+      var validate = this.options.validate;
 
       // checkboxes didn't appear to bubble to the document, so we'll bind these directly
       $(".form-group .checkbox label").hover(function() {
@@ -166,11 +168,13 @@
         //
         // NOTE: I'm not sure we should be intervening regarding validation, this seems better as a README and snippet of code.
         //        BUT, I've left it here for backwards compatibility.
-        if(isValid){
-          $formGroup.removeClass("has-error");
-        }
-        else{
-          $formGroup.addClass("has-error");
+        if(validate) {
+          if (isValid) {
+            $formGroup.removeClass("has-error");
+          }
+          else {
+            $formGroup.addClass("has-error");
+          }
         }
       })
       .on("focus", ".form-control, .form-group.is-fileinput", function() {
