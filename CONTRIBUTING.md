@@ -198,23 +198,10 @@ includes code changes) and under the terms of the
 - Use CDNs and HTTPS for third-party JS when possible. We don't use protocol-relative URLs in this case because they break when viewing the page locally via `file://`.
 - Use [WAI-ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) attributes in documentation examples to promote accessibility.
 
-### CSS
+### Coding styles
 
-[Adhere to the Code Guide.](http://codeguide.co/#css)
-
-- When feasible, default color palettes should comply with [WCAG color contrast guidelines](http://www.w3.org/TR/WCAG20/#visual-audio-contrast).
-- Except in rare cases, don't remove default `:focus` styles (via e.g. `outline: none;`) without providing alternative styles. See [this A11Y Project post](http://a11yproject.com/posts/never-remove-css-outlines/) for more details.
-
-### JS
-
-- No semicolons (in client-side JS)
-- 2 spaces (no tabs)
-- strict mode
-- "Attractive"
-
-### Checking coding style
-
-Run `grunt build` before committing to ensure your changes follow our coding standards.
+Before committing ensure your changes follow our coding standards by running `grunt dist docs`.  This will run the various code style
+check tools and provid feedback.
 
 
 ## License
@@ -222,48 +209,47 @@ Run `grunt build` before committing to ensure your changes follow our coding sta
 By contributing your code, you agree to license your contribution under the [MIT License](LICENSE).
 By contributing to the documentation, you agree to license your contribution under the [Creative Commons Attribution 3.0 Unported License](docs/LICENSE).
 
-## Building documentation
+## Development setup
+The development and testing with the documentation has been connected so we not only can utilize Material Design examples,
+but all of the original Bootstrap documentation examples as well.  The most productive environment so far is to have
+Bootstrap checked out in parallel to this project, running three different terminal commands simultaneously:
 
-1. Checkout the master branch from the project root directory 
+1. Bootstrap documentation 
 
     ```bash
-    $ git checkout master
+    cd bootstrap
+    bundle install
+    npm install
+    
+    # this is all you need after initial setup
+    jekyll serve
     ```
     
-1. Bundle install (if not already done)
-    ```bash
-    $ bundle install
-    ```
+1. Initial build and watch
 
-1. Checkout the `gh-pages` branch in `_gh_pages` directory
+This performs an initial build and watches both the core and docs sources for changes.
 
     ```bash
-    $ git clone git@github.com:FezVrasta/bootstrap-material-design.git -b gh-pages _gh_pages
-    ```
+    cd bootstrap-material-design
+    bundle install
+    npm install
     
-    **rosskevin only note** when ready kill all files and commit a clean gh-pages directory for a clean start.
-    
-    The `_gh_pages` directory is already in `.gitignore` so we are just fine.
-
-1. Copy the latest code to the `docs/dist` (if not already done)
-    ```bash
-    $ grunt docs
+    # this is all you need after initial setup
+    grunt dist docs watch
     ```
 
-1. Let's test changes to the documentation:
+1. Documentation
+
+(assuming the above is done)
 
     ```bash
-    $ jekyll serve
-    ```
-1. Browse to [http://127.0.0.1:9001/](http://127.0.0.1:9001/)
+    jekyll serve
 
-1. Make some changes to files in the `docs` directory and review them
+## Releasing
 
-1. Commit and push the newly generated site on github:
-
-    ```bash
-    $ cd _gh_pages
-    $ git add .
-    $ git commit -m "First generation"
-    $ git push
-    ```
+1. Make sure travis succeeds first
+1. Update the version in `package.json`, it's version is used in the documentation
+1. Build the distribution `grunt dist docs`
+1. Commit
+1. Tag for bower - a valid tag starts with a `v` such as `v4.0.0`
+1. Push documentation with `grunt publish`
