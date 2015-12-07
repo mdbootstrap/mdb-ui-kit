@@ -7,9 +7,7 @@ const BaseInput = (($) => {
       required: false
     },
     mdbFormGroup: {
-      template: `<span class='mdb-form-group'></span>`,
-      required: true, // strongly recommended not to override
-      autoCreate: true // strongly recommended not to override
+      template: `<span class='mdb-form-group'></span>`
     },
     requiredClasses: [],
     invalidComponentMatches: [],
@@ -30,8 +28,8 @@ const BaseInput = (($) => {
   }
 
   const FormControlSizeConversions = {
-    'form-control-lg': 'form-group-lg',
-    'form-control-sm': 'form-group-sm'
+    'form-control-lg': 'mdb-form-group-lg',
+    'form-control-sm': 'mdb-form-group-sm'
   }
 
   /**
@@ -65,16 +63,15 @@ const BaseInput = (($) => {
       // Enforce required classes for a consistent rendering
       this._rejectWithoutRequiredClasses()
 
-      if (this.config.mdbFormGroup.autoCreate) {
-        // Will create form-group if necessary
-        this.autoCreateMdbFormGroup()
-      }
-
-      // different components have different rules, always run this separately
-      this.$mdbFormGroup = this.findMdbFormGroup(this.config.mdbFormGroup.required)
+      // Resolve the form-group first, it will be used for mdb-form-group if possible
+      //   note: different components have different rules
       this.$formGroup = this.findFormGroup(this.config.formGroup.required)
 
-      this._convertFormControlSizeVariations()
+      // Will add mdb-form-group to form-group or create an mdb-form-group
+      this.$mdbFormGroup = this.resolveMdbFormGroup()
+
+      // Signal to the mdb-form-group that a form-control-* variation is being used
+      this.resolveMdbFormGroupSizing()
 
       this.addFocusListener()
       this.addChangeListener()
@@ -164,12 +161,27 @@ const BaseInput = (($) => {
       return (this.$element.val() === null || this.$element.val() === undefined || this.$element.val() === '')
     }
 
-    // Find or create a mdb-form-group if necessary
-    autoCreateMdbFormGroup() {
-      let fg = this.findMdbFormGroup(false)
-      if (fg === undefined || fg.length === 0) {
-        this.outerElement().wrap(this.config.mdbFormGroup.template)
+    // Will add mdb-form-group to form-group or create a mdb-form-group if necessary
+    resolveMdbFormGroup() {
+      let mfg = this.findMdbFormGroup(false)
+      if (mfg === undefined || mfg.length === 0) {
+        if (this.$formGroup === undefined || this.$formGroup.length === 0) {
+          // If a form-group doesn't exist (not recommended), take a guess and wrap the element (assuming no label).
+          //  note: it's possible to make this smarter, but I need to see valid cases before adding any complexity.
+          this.outerElement().wrap(this.config.mdbFormGroup.template)
+        } else {
+          // a form-group does exist, add our marker class to it
+          this.$formGroup.addClass(ClassName.MDB_FORM_GROUP)
+
+          // OLD: may want to implement this after all, see how the styling turns out, but using an existing form-group is less manipulation of the dom and therefore preferable
+          // A form-group does exist, so add an mdb-form-group wrapping it's internal contents
+          //fg.wrapInner(this.config.mdbFormGroup.template)
+        }
+
+        mfg = this.findMdbFormGroup(true)
       }
+
+      return mfg
     }
 
     // Demarcation element (e.g. first child of a form-group)
@@ -194,6 +206,22 @@ const BaseInput = (($) => {
         $.error(`Failed to find ${Selector.FORM_GROUP} for ${Util.describe(this.$element)}`)
       }
       return fg
+    }
+
+    // Due to the interconnected nature of labels/inputs/help-blocks, signal the mdb-form-group-* size variation based on
+    //  a found form-control-* size
+    resolveMdbFormGroupSizing() {
+      if (!this.config.convertInputSizeVariations) {
+        return
+      }
+
+      // Modification - Change text-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
+      for (let inputSize in FormControlSizeConversions) {
+        if (this.$element.hasClass(inputSize)) {
+          //this.$element.removeClass(inputSize)
+          this.$mdbFormGroup.addClass(FormControlSizeConversions[inputSize])
+        }
+      }
     }
 
     // ------------------------------------------------------------------------
@@ -224,20 +252,6 @@ const BaseInput = (($) => {
         // error if not found
         if (!found) {
           $.error(`${this.constructor.name} element: ${Util.describe(this.$element)} requires class: ${requiredClass}`)
-        }
-      }
-    }
-
-    _convertFormControlSizeVariations() {
-      if (!this.config.convertInputSizeVariations) {
-        return
-      }
-
-      // Modification - Change text-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
-      for (let inputSize in FormControlSizeConversions) {
-        if (this.$element.hasClass(inputSize)) {
-          this.$element.removeClass(inputSize)
-          this.$mdbFormGroup.addClass(FormControlSizeConversions[inputSize])
         }
       }
     }
