@@ -29,7 +29,7 @@
 // Load Bootstrap variables and mixins
 //@import '../../../scss/includes/variables';
 //@import '../../../scss/includes/mixins';
-@import '../../../scss/includes/colors';
+@import '../../../scss/variables/colors';
 
 //http://www.materialpalette.com/indigo/light-blue
 $brand-primary: $indigo-500; // #3F51B5
@@ -45,7 +45,7 @@ $brand-primary: $indigo-500; // #3F51B5
 //$divider-color:        #B6B6B6
 
 // Import default variables
-@import '../../../scss/includes/variables';
+@import '../../../scss/variables';
 
 // Local docs variables or overrides
 $bd-purple:         $brand-primary; // #563d7c;
@@ -59,7 +59,7 @@ $bd-warning:        $brand-warning; // #f0ad4e;
 $bd-info:           $brand-info; // #5bc0de;
 
 // Import material design configured with the above variables
-@import '../../../scss/includes/bootstrap-material-design';
+@import '../../../scss/core';
 
 // Load docs components
 @import 'booticon';

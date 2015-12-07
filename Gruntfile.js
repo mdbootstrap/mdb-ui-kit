@@ -285,7 +285,7 @@ module.exports = function (grunt) {
         config: 'scss/.scss-lint.yml',
         reporterOutput: null
       },
-      src: ['scss/*.scss', '!scss/_normalize.scss']
+      src: ['scss/**/*.scss', '!scss/_normalize.scss']
     },
 
     postcss: {

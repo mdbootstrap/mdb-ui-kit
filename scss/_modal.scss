@@ -1,0 +1,47 @@
+//
+// Modals
+// Material Design element Dialogs
+// --------------------------------------------------
+.modal-content {
+  @include shadow-z-5();
+  border: 0;
+  border-radius: $border-radius-base;
+  // Modal header
+  // Top section of the modal w/ title and dismiss
+  .modal-header {
+    padding: 24px 24px 0;
+    border-bottom: 0;
+  }
+  // Modal body
+  // Where all modal content resides (sibling of .modal-header and .modal-footer)
+  .modal-body {
+    padding: 24px 24px 16px;
+  }
+  // Footer (for actions)
+  .modal-footer {
+    padding: 7px;
+    border-top: 0;
+    button {
+      width: auto;
+      padding-right: 16px;
+      padding-left: 16px;
+      margin: 0;
+      &.pull-left {
+        position: relative;
+        left: -5px;
+        padding-right: 5px;
+        padding-left: 5px;
+      }
+    }
+    button + button {
+      margin-bottom: 16px;
+    }
+  }
+  .modal-body + .modal-footer {
+    padding-top: 0;
+  }
+}
+
+.modal-backdrop {
+  background: rgba($black, 0.3);
+}

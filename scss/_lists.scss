@@ -1,0 +1,100 @@
+.list-group {
+  border-radius: 0;
+  .list-group-item {
+    padding: 0 16px;
+    overflow: hidden;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    &.baseline {
+      border-bottom: 1px solid #cecece;
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+    .row-picture, .row-action-primary {
+      //float: left; WARNING: float can't be used with display: inline-block. Certain properties shouldn't be used with certain display property values. (display-property-grouping) Browsers: All
+      display: inline-block;
+      padding-right: 16px;
+      img, i, label {
+        display: block;
+        width: 56px;
+        height: 56px;
+      }
+      img {
+        padding: 1px;
+        background: rgba($black, 0.1);
+        &.radio-decorator {
+          border-radius: 100%;
+        }
+      }
+      i {
+        font-size: 20px;
+        line-height: 56px;
+        color: $white;
+        text-align: center;
+        background: rgba($black, 0.25);
+        border-radius: 100%;
+      }
+      label {
+        margin: 5px -7px -5px 7px;
+        .checkbox-decorator {
+          left: -10px;
+        }
+      }
+    }
+    .row-content {
+      display: inline-block;
+      width: unquote("calc(100% - 92px)");
+      min-height: 66px;
+      .action-secondary {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        i {
+          font-size: 20px;
+          color: rgba($black, 0.25);
+          cursor: pointer;
+        }
+      }
+      .action-secondary ~ * {
+        max-width: unquote("calc(100% - 30px)");
+      }
+      .least-content {
+        position: absolute;
+        top: 0;
+        right: 16px;
+        font-size: 14px;
+        color: rgba($black, 0.54);
+      }
+    }
+    .list-group-item-heading {
+      font-size: 20px;
+      line-height: 29px;
+      color: rgba($black, 0.77);
+    }
+  }
+
+  .list-group-item.active {
+    &:hover, &:focus {
+      background: rgba($black, .15);
+      outline: 10px solid rgba($black, .15);
+    }
+    .list-group-item-heading, .list-group-item-text {
+      color: $mdb-text-color-primary;
+    }
+  }
+
+  .list-group-separator {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    clear: both;
+    &::before {
+      float: right;
+      width: unquote("calc(100% - 90px)");
+      content: "";
+      border-bottom: 1px solid rgba($black, 0.1);
+    }
+  }
+}
