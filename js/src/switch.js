@@ -23,8 +23,8 @@ const Switch = (($) => {
    */
   class Switch extends Checkbox {
 
-    constructor(element, config) {
-      super(element, $.extend({}, Default, config), 'checkbox', NAME)
+    constructor($element, config) {
+      super($element, $.extend({}, Default, config), 'checkbox', NAME)
       // selector: '.switch > label > input[type=checkbox]'
     }
 
@@ -46,7 +46,7 @@ const Switch = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Switch(this, config)
+          data = new Switch($element, config)
           $element.data(DATA_KEY, data)
         }
       })

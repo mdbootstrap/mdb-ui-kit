@@ -21,12 +21,12 @@ const BaseToggle = (($) => {
    */
   class BaseToggle extends BaseInput {
 
-    constructor(element, config, properties) {
+    constructor($element, config, properties) {
       // properties = {inputType: checkbox, outerClass: checkbox-inline}
       // '.checkbox|switch|radio > label > input[type=checkbox|radio]'
       // '.${this.outerClass} > label > input[type=${this.inputType}]'
 
-      super(element, $.extend({}, Default, config), properties)
+      super($element, $.extend({}, Default, config), properties)
       this.$element.after(this.config.template)
     }
 

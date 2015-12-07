@@ -19,8 +19,8 @@ const Autofill = (($) => {
    */
   class Autofill {
 
-    constructor(element, config) {
-      this.$element = $(element)
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
 
       this._watchLoading()
@@ -84,7 +84,7 @@ const Autofill = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Autofill(this, config)
+          data = new Autofill($element, config)
           $element.data(DATA_KEY, data)
         }
       })

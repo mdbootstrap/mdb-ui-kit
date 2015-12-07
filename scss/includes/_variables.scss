@@ -17,6 +17,7 @@ $enable-flex: true;
 @import 'variables/brand';
 @import 'variables/buttons';
 @import 'variables/code';
+@import 'variables/forms';
 @import 'variables/state';
 @import 'variables/type';
 
@@ -43,7 +44,7 @@ $contrast-factor: 40% !default;
 
 // --------------------
 // inputs
-$mdb-input-placeholder-color: #BDBDBD !default;
+//$mdb-input-placeholder-color: #BDBDBD !default;
 $mdb-input-underline-color: #D2D2D2 !default;
 $mdb-label-static-size-ratio: 75 / 100 !default;
 $mdb-help-block-size-ratio: 75 / 100 !default;

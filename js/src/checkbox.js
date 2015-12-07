@@ -29,8 +29,8 @@ const Checkbox = (($) => {
    */
   class Checkbox extends BaseToggle {
 
-    constructor(element, config, properties = {inputType: NAME, outerClass: NAME}) {
-      super(element, $.extend({
+    constructor($element, config, properties = {inputType: NAME, outerClass: NAME}) {
+      super($element, $.extend({
         invalidComponentMatches: [File, Radio, Text, Textarea, Select]
       }, Default, config), properties)
     }
@@ -68,7 +68,7 @@ const Checkbox = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Checkbox(this, config)
+          data = new Checkbox($element, config)
           $element.data(DATA_KEY, data)
         }
       })

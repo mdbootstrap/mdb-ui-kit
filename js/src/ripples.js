@@ -45,8 +45,10 @@ const Ripples = (($) => {
    */
   class Ripples {
 
-    constructor(element, config) {
-      this.$element = $(element)
+    constructor($element, config) {
+      this.$element = $element
+
+      console.log(`Adding ripples to ${Util.describe(this.$element)}`)  // eslint-disable-line no-console
       this.config = $.extend({}, Default, config)
 
       // attach initial listener
@@ -273,7 +275,7 @@ const Ripples = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Ripples(this, config)
+          data = new Ripples($element, config)
           $element.data(DATA_KEY, data)
         }
       })

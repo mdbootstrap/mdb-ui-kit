@@ -27,8 +27,8 @@ const Textarea = (($) => {
    */
   class Textarea extends Text {
 
-    constructor(element, config) {
-      super(element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Text, Select, Switch]}, Default, config))
+    constructor($element, config) {
+      super($element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Text, Select, Switch]}, Default, config))
     }
 
     dispose() {
@@ -60,7 +60,7 @@ const Textarea = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Textarea(this, config)
+          data = new Textarea($element, config)
           $element.data(DATA_KEY, data)
         }
       })

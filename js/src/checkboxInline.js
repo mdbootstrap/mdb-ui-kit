@@ -21,8 +21,8 @@ const CheckboxInline = (($) => {
    */
   class CheckboxInline extends Checkbox {
 
-    constructor(element, config, properties = {inputType: 'checkbox', outerClass: 'checkbox-inline'}) {
-      super(element, $.extend({}, Default, config), properties)
+    constructor($element, config, properties = {inputType: 'checkbox', outerClass: 'checkbox-inline'}) {
+      super($element, $.extend({}, Default, config), properties)
     }
 
     dispose() {
@@ -58,7 +58,7 @@ const CheckboxInline = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new CheckboxInline(this, config)
+          data = new CheckboxInline($element, config)
           $element.data(DATA_KEY, data)
         }
       })

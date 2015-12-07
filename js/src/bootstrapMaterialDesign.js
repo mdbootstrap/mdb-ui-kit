@@ -37,13 +37,11 @@ const BootstrapMaterialDesign = (($) => {
       ]
     },
     text: {
-      selector: ['input[type=text]']
+      // omit inputs we have specialized components to handle
+      selector: [`input[type!='checkbox'][type!='radio'][type!='file']`]
     },
-    textarea: {
-      selector: ['textarea']
-    },
-    select: {
-      selector: ['select']
+    file: {
+      selector: 'input[type=file]'
     },
     checkbox: {
       selector: '.checkbox > label > input[type=checkbox]'
@@ -60,8 +58,11 @@ const BootstrapMaterialDesign = (($) => {
     radioInline: {
       selector: 'label.radio-inline > input[type=radio]'
     },
-    file: {
-      selector: 'input[type=file]'
+    textarea: {
+      selector: ['textarea']
+    },
+    select: {
+      selector: ['select']
     },
     autofill: {
       selector: 'body'
@@ -90,8 +91,8 @@ const BootstrapMaterialDesign = (($) => {
    */
   class BootstrapMaterialDesign {
 
-    constructor(element, config) {
-      this.$element = $(element)
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
       let $document = $(document)
 
@@ -149,7 +150,7 @@ const BootstrapMaterialDesign = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new BootstrapMaterialDesign(this, config)
+          data = new BootstrapMaterialDesign($element, config)
           $element.data(DATA_KEY, data)
         }
       })

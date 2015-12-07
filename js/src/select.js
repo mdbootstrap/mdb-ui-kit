@@ -29,8 +29,8 @@ const Select = (($) => {
    */
   class Select extends Text {
 
-    constructor(element, config) {
-      super(element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Switch, Text, Textarea]}, Default, config))
+    constructor($element, config) {
+      super($element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Switch, Text, Textarea]}, Default, config))
     }
 
     dispose() {
@@ -62,7 +62,7 @@ const Select = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Select(this, config)
+          data = new Select($element, config)
           $element.data(DATA_KEY, data)
         }
       })

@@ -21,8 +21,8 @@ const RadioInline = (($) => {
    */
   class RadioInline extends Radio {
 
-    constructor(element, config, properties = {inputType: 'radio', outerClass: 'radio-inline'}) {
-      super(element, $.extend({}, Default, config), properties)
+    constructor($element, config, properties = {inputType: 'radio', outerClass: 'radio-inline'}) {
+      super($element, $.extend({}, Default, config), properties)
     }
 
     dispose() {
@@ -46,7 +46,7 @@ const RadioInline = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new RadioInline(this, config)
+          data = new RadioInline($element, config)
           $element.data(DATA_KEY, data)
         }
       })

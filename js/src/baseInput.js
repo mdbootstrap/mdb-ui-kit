@@ -45,8 +45,8 @@ const BaseInput = (($) => {
      * @param config
      * @param properties - anything that needs to be set as this[key] = value.  Works around the need to call `super` before using `this`
      */
-    constructor(element, config, properties = {}) {
-      this.$element = $(element)
+    constructor($element, config, properties = {}) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
 
       // set properties for use in the constructor initialization
@@ -68,6 +68,8 @@ const BaseInput = (($) => {
       this.$formGroup = this.findFormGroup(this.config.formGroup.required)
 
       // Will add mdb-form-group to form-group or create an mdb-form-group
+      //  Performance Note: for those forms that are really performance driven, create the markup with the .mdb-form-group to avoid
+      //    rendering changes once added.
       this.$mdbFormGroup = this.resolveMdbFormGroup()
 
       // Signal to the mdb-form-group that a form-control-* variation is being used

@@ -28,8 +28,8 @@ const Radio = (($) => {
    */
   class Radio extends BaseToggle {
 
-    constructor(element, config, properties = {inputType: NAME, outerClass: NAME}) {
-      super(element, $.extend({
+    constructor($element, config, properties = {inputType: NAME, outerClass: NAME}) {
+      super($element, $.extend({
         invalidComponentMatches: [Checkbox, File, Switch, Text]
       }, Default, config), properties)
     }
@@ -64,7 +64,7 @@ const Radio = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Radio(this, config)
+          data = new Radio($element, config)
           $element.data(DATA_KEY, data)
         }
       })

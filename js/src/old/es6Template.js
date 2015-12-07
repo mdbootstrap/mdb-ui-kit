@@ -22,8 +22,8 @@ const Foo = (($) => {
    */
   class Foo {
 
-    constructor(element, config) {
-      this.$element = $(element)
+    constructor($element, config) {
+      this.$element = $element
       this.config = $.extend({}, Default, config)
     }
 
@@ -49,7 +49,7 @@ const Foo = (($) => {
         let data = $element.data(DATA_KEY)
 
         if (!data) {
-          data = new Foo(this, config)
+          data = new Foo($element, config)
           $element.data(DATA_KEY, data)
         }
       })
