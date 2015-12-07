@@ -2,6 +2,5 @@
 
 @import '_variables';
 @import '_mixins';
-@import '_icons-material-design';
-@import '_shadows';  // these are mixins only, and must be placed at the top before use (sass requiremnt)
-@import '_bootstrap-material-design'; // include the material content given the mixins above (sass requirement for inclusion order of mixins)
+@import '_shadows';
+@import '_core';
