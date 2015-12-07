@@ -56,12 +56,20 @@
 
 @mixin mdb-form-group-validation-state($name, $color) {
 
-  &.#{$name} { // e.g. has-error
+  &.has-#{$name} { // e.g. has-error
     .form-control {
       //box-shadow: none; // replaced with variable
     }
+
+    //.form-control-#{$name} {
+    //  background-image: none;
+    //}
+
     &.is-focused .form-control {
       background-image: linear-gradient($color, $color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
+      .text-input-decorator:after {
+        background-color: $color;
+      }
     }
     label.control-label,
     .help-block {
@@ -133,11 +141,6 @@
   //.mdb-form-group .form-control
 {
   border: 0;
-  // replaced with vars
-  //border-radius: 0;
-  //box-shadow: none;
-  //background-color: rgba(0, 0, 0, 0);
-
   background-image: linear-gradient($brand-primary, $brand-primary), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
   background-size: 0 2px, 100% 1px;
   background-repeat: no-repeat;
@@ -151,9 +154,7 @@
 
   .mdb-form-group.is-focused & {
     outline: none;
-    background-image: linear-gradient($brand-primary, $brand-primary), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
     background-size: 100% 2px, 100% 1px;
-    //box-shadow: none; replaced with var
     transition-duration: 0.3s;
 
     .text-input-decorator:after {
@@ -238,10 +239,10 @@
     }
   }
 
-  @include mdb-form-group-validation-state(has-warning, $brand-warning);
-  @include mdb-form-group-validation-state(has-error, $brand-danger);
-  @include mdb-form-group-validation-state(has-success, $brand-success);
-  @include mdb-form-group-validation-state(has-info, $brand-info);
+  @include mdb-form-group-validation-state(warning, $brand-warning);
+  @include mdb-form-group-validation-state(error, $brand-danger);
+  @include mdb-form-group-validation-state(success, $brand-success);
+  @include mdb-form-group-validation-state(info, $brand-info);
 
   textarea {
     //resize: none;
