@@ -35,7 +35,7 @@ Add the necessary links to your `<head>` element for fonts and stylsheets:
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Bootstrap -->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Bootstrap Material Design -->
   <link href="dist/css/bootstrap-material-design.css" rel="stylesheet">
