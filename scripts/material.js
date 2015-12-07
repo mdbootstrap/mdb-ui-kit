@@ -254,7 +254,8 @@
         clearInterval(focused);
       });
     },
-    "init": function() {
+    "init": function(options) {
+      this.options = $.extend({}, this.options, options);
       var $document = $(document);
 
       if ($.fn.ripples && this.options.ripples) {
