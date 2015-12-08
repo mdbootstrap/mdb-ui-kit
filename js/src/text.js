@@ -20,7 +20,9 @@ const Text = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
-    template: `<span class='text-input-decorator'></span>`,
+    decorator: {
+      template: `<span class='mdb-form-control-decorator'></span>`
+    },
     requiredClasses: ['form-control']
   }
 
@@ -40,7 +42,7 @@ const Text = (($) => {
       }
 
       // Add marker div the end of the form-group
-      this.$mdbFormGroup.append(this.config.template)
+      this.$element.after(this.config.decorator.template)
     }
 
     dispose(dataKey = DATA_KEY) {

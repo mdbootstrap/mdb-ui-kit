@@ -61,19 +61,22 @@
       //box-shadow: none; // replaced with variable
     }
 
-    //.form-control-#{$name} {
-    //  background-image: none;
-    //}
-
-    &.is-focused .form-control {
-      background-image: linear-gradient($color, $color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
-      .text-input-decorator::after {
-        background-color: $color;
-      }
+    // e.g. form-control-success
+    .form-control-#{$name} {
+      //  background-image: none;
     }
-    label.control-label,
-    .help-block {
-      color: $color;
+
+    &.is-focused {
+      .form-control {
+        //background-image: linear-gradient($color, $color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
+      }
+      .mdb-form-control-decorator::after {
+        //background-color: $color;
+      }
+      label.control-label,
+      .help-block {
+        color: $color;
+      }
     }
   }
 }
@@ -137,40 +140,85 @@
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 //.mdb-form-group .form-control,
 .form-control {
-  background-image: linear-gradient($brand-primary, $brand-primary), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
-  background-repeat: no-repeat;
-  background-position: center bottom, center calc(100% - 1px);
-  background-size: 0 2px, 100% 1px;
-  border: 0;
-  transition: background 0s ease-out;
+  //background-image: linear-gradient($brand-primary, $brand-primary), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
+  //background-repeat: no-repeat;
+  //background-position: center bottom, center calc(100% - 1px);
+  //background-size: 0 2px, 100% 1px;
+  //transition: background 0s ease-out;
+
   //float: none;  // why?
+
+  // The border bottom should be static in all states, the decorator will be animated over this.
+  &,
+  &:focus,
+  .mdb-form-group.is-focused & {
+    border: 0;
+    border-bottom: $input-border-width solid $input-border-color;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    //background-image: none;
+    border-bottom: $input-border-width dotted $input-border-color;
+  }
 
   //&:textarea {
   //  height: 40px;
   //}
 
-  .mdb-form-group.is-focused & {
-    background-size: 100% 2px, 100% 1px;
-    outline: none;
-    transition-duration: 0.3s;
-
-    .text-input-decorator::after {
-      background-color: $brand-primary;
-    }
-  }
+  //&:focus,
+  //.mdb-form-group.is-focused & {
+  //  background-size: 100% 2px, 100% 1px;
+  //  outline: none; // redundant - in bootstrap
+  //  transition-duration: 0.3s;
+  //}
+  //.mdb-form-group.is-focused .mdb-form-control-decorator::after {
+  //  background-color: $brand-primary;
+  //}
 
   //&[readonly],
   //&[disabled],
   //fieldset[disabled] & {
   //  background-color: rgba($black, 0);  // replaced with $input-bg-disabled
   //}
+}
 
-  &[disabled],
-  fieldset[disabled] & {
-    background-image: none;
-    border-bottom: 1px dotted $mdb-input-underline-color;
+
+// BOTTOM BARS =================================
+.mdb-form-control-decorator {
+  position: relative;
+  top: (-1 * $input-border-width); // move the top up enough to overlay the border from the input
+  display: block;
+  //width: 300px;
+}
+.mdb-form-control-decorator::before,
+.mdb-form-control-decorator::after {
+  position: absolute;
+  //bottom: 1px;
+  width: 0;
+  height: $input-border-width;
+  content: "";
+  @include gradient-vertical($brand-primary, $mdb-input-underline-color);
+  transition: 0.3s ease all;
+}
+.mdb-form-control-decorator::before {
+  left: 50%;
+}
+.mdb-form-control-decorator::after {
+  right: 50%;
+}
+
+// active state
+//input:focus ~ .mdb-form-control-decorator:before,
+//input:focus ~ .mdb-form-control-decorator:after {
+.form-control:focus,
+.mdb-form-group.is-focused .form-control {
+  ~ .mdb-form-control-decorator::before,
+  ~ .mdb-form-control-decorator::after {
+    width: 50%;
   }
 }
+// BOTTOM BARS =================================
 
 // -----
 // Labels with mdb-form-group signalled state
@@ -180,7 +228,7 @@
 //.variations(unquote(" label.control-label"), color, $mdb-input-placeholder-color);  // default label color variations
 
 .mdb-form-group {
-  //position: relative;
+  position: relative;
 
   // -----
   // Labels with form-group signalled state
@@ -251,7 +299,7 @@
   select {
     //appearance: none; // Fix for OS X
 
-    ~ .text-input-decorator::after {
+    ~ .mdb-form-control-decorator::after {
       //display: none;
     }
   }
