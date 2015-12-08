@@ -232,69 +232,263 @@ body .container-fluid .jumbotron-danger {
 .input-group-btn .btn.btn-raised,
 .btn.btn-fab,
 .input-group-btn .btn.btn-fab,
+.btn-group-raised .btn,
+.btn-group-raised .input-group-btn .btn,
 .btn.btn-raised.btn-default,
 .input-group-btn .btn.btn-raised.btn-default,
 .btn.btn-fab.btn-default,
-.input-group-btn .btn.btn-fab.btn-default {
-  background-color: transparent;
+.input-group-btn .btn.btn-fab.btn-default,
+.btn-group-raised .btn.btn-default,
+.btn-group-raised .input-group-btn .btn.btn-default {
+  background-color: #EEEEEE;
   color: rgba(0,0,0, 0.87);
 }
 .btn.btn-raised.btn-inverse,
 .input-group-btn .btn.btn-raised.btn-inverse,
 .btn.btn-fab.btn-inverse,
-.input-group-btn .btn.btn-fab.btn-inverse {
+.input-group-btn .btn.btn-fab.btn-inverse,
+.btn-group-raised .btn.btn-inverse,
+.btn-group-raised .input-group-btn .btn.btn-inverse {
   background-color: #3f51b5;
   color: #ffffff;
 }
 .btn.btn-raised.btn-primary,
 .input-group-btn .btn.btn-raised.btn-primary,
 .btn.btn-fab.btn-primary,
-.input-group-btn .btn.btn-fab.btn-primary {
+.input-group-btn .btn.btn-fab.btn-primary,
+.btn-group-raised .btn.btn-primary,
+.btn-group-raised .input-group-btn .btn.btn-primary {
   background-color: #009688;
   color: rgba(255,255,255, 0.84);
 }
 .btn.btn-raised.btn-success,
 .input-group-btn .btn.btn-raised.btn-success,
 .btn.btn-fab.btn-success,
-.input-group-btn .btn.btn-fab.btn-success {
+.input-group-btn .btn.btn-fab.btn-success,
+.btn-group-raised .btn.btn-success,
+.btn-group-raised .input-group-btn .btn.btn-success {
   background-color: #4caf50;
   color: rgba(255,255,255, 0.84);
 }
 .btn.btn-raised.btn-info,
 .input-group-btn .btn.btn-raised.btn-info,
 .btn.btn-fab.btn-info,
-.input-group-btn .btn.btn-fab.btn-info {
+.input-group-btn .btn.btn-fab.btn-info,
+.btn-group-raised .btn.btn-info,
+.btn-group-raised .input-group-btn .btn.btn-info {
   background-color: #03a9f4;
   color: rgba(255,255,255, 0.84);
 }
 .btn.btn-raised.btn-warning,
 .input-group-btn .btn.btn-raised.btn-warning,
 .btn.btn-fab.btn-warning,
-.input-group-btn .btn.btn-fab.btn-warning {
+.input-group-btn .btn.btn-fab.btn-warning,
+.btn-group-raised .btn.btn-warning,
+.btn-group-raised .input-group-btn .btn.btn-warning {
   background-color: #ff5722;
   color: rgba(255,255,255, 0.84);
 }
 .btn.btn-raised.btn-danger,
 .input-group-btn .btn.btn-raised.btn-danger,
 .btn.btn-fab.btn-danger,
-.input-group-btn .btn.btn-fab.btn-danger {
+.input-group-btn .btn.btn-fab.btn-danger,
+.btn-group-raised .btn.btn-danger,
+.btn-group-raised .input-group-btn .btn.btn-danger {
   background-color: #f44336;
   color: rgba(255,255,255, 0.84);
 }
 .btn.btn-raised:not(.btn-link),
-.input-group-btn .btn.btn-raised:not(.btn-link) {
+.input-group-btn .btn.btn-raised:not(.btn-link),
+.btn-group-raised .btn:not(.btn-link),
+.btn-group-raised .input-group-btn .btn:not(.btn-link) {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
+.btn.btn-raised:not(.btn-link):hover,
+.input-group-btn .btn.btn-raised:not(.btn-link):hover,
+.btn-group-raised .btn:not(.btn-link):hover,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):hover,
+.btn.btn-raised:not(.btn-link):focus,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus,
+.btn-group-raised .btn:not(.btn-link):focus,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus,
 .btn.btn-raised:not(.btn-link).active,
 .input-group-btn .btn.btn-raised:not(.btn-link).active,
+.btn-group-raised .btn:not(.btn-link).active,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active,
 .btn.btn-raised:not(.btn-link):active,
-.input-group-btn .btn.btn-raised:not(.btn-link):active {
+.input-group-btn .btn.btn-raised:not(.btn-link):active,
+.btn-group-raised .btn:not(.btn-link):active,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active,
+.btn.btn-raised:not(.btn-link):hover.btn-default,
+.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-default,
+.btn-group-raised .btn:not(.btn-link):hover.btn-default,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-default,
+.btn.btn-raised:not(.btn-link):focus.btn-default,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-default,
+.btn-group-raised .btn:not(.btn-link):focus.btn-default,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-default,
+.btn.btn-raised:not(.btn-link).active.btn-default,
+.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-default,
+.btn-group-raised .btn:not(.btn-link).active.btn-default,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-default,
+.btn.btn-raised:not(.btn-link):active.btn-default,
+.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-default,
+.btn-group-raised .btn:not(.btn-link):active.btn-default,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-default {
+  background-color: #e4e4e4;
+}
+.btn.btn-raised:not(.btn-link):hover.btn-inverse,
+.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-inverse,
+.btn-group-raised .btn:not(.btn-link):hover.btn-inverse,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-inverse,
+.btn.btn-raised:not(.btn-link):focus.btn-inverse,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-inverse,
+.btn-group-raised .btn:not(.btn-link):focus.btn-inverse,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-inverse,
+.btn.btn-raised:not(.btn-link).active.btn-inverse,
+.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-inverse,
+.btn-group-raised .btn:not(.btn-link).active.btn-inverse,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-inverse,
+.btn.btn-raised:not(.btn-link):active.btn-inverse,
+.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-inverse,
+.btn-group-raised .btn:not(.btn-link):active.btn-inverse,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-inverse {
+  background-color: #495bc0;
+}
+.btn.btn-raised:not(.btn-link):hover.btn-primary,
+.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-primary,
+.btn-group-raised .btn:not(.btn-link):hover.btn-primary,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-primary,
+.btn.btn-raised:not(.btn-link):focus.btn-primary,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-primary,
+.btn-group-raised .btn:not(.btn-link):focus.btn-primary,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-primary,
+.btn.btn-raised:not(.btn-link).active.btn-primary,
+.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-primary,
+.btn-group-raised .btn:not(.btn-link).active.btn-primary,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-primary,
+.btn.btn-raised:not(.btn-link):active.btn-primary,
+.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-primary,
+.btn-group-raised .btn:not(.btn-link):active.btn-primary,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-primary {
+  background-color: #00aa9a;
+}
+.btn.btn-raised:not(.btn-link):hover.btn-success,
+.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-success,
+.btn-group-raised .btn:not(.btn-link):hover.btn-success,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-success,
+.btn.btn-raised:not(.btn-link):focus.btn-success,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-success,
+.btn-group-raised .btn:not(.btn-link):focus.btn-success,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-success,
+.btn.btn-raised:not(.btn-link).active.btn-success,
+.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-success,
+.btn-group-raised .btn:not(.btn-link).active.btn-success,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-success,
+.btn.btn-raised:not(.btn-link):active.btn-success,
+.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-success,
+.btn-group-raised .btn:not(.btn-link):active.btn-success,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-success {
+  background-color: #59b75c;
+}
+.btn.btn-raised:not(.btn-link):hover.btn-info,
+.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-info,
+.btn-group-raised .btn:not(.btn-link):hover.btn-info,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-info,
+.btn.btn-raised:not(.btn-link):focus.btn-info,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-info,
+.btn-group-raised .btn:not(.btn-link):focus.btn-info,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-info,
+.btn.btn-raised:not(.btn-link).active.btn-info,
+.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-info,
+.btn-group-raised .btn:not(.btn-link).active.btn-info,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-info,
+.btn.btn-raised:not(.btn-link):active.btn-info,
+.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-info,
+.btn-group-raised .btn:not(.btn-link):active.btn-info,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-info {
+  background-color: #0fb2fc;
+}
+.btn.btn-raised:not(.btn-link):hover.btn-warning,
+.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-warning,
+.btn-group-raised .btn:not(.btn-link):hover.btn-warning,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-warning,
+.btn.btn-raised:not(.btn-link):focus.btn-warning,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-warning,
+.btn-group-raised .btn:not(.btn-link):focus.btn-warning,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-warning,
+.btn.btn-raised:not(.btn-link).active.btn-warning,
+.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-warning,
+.btn-group-raised .btn:not(.btn-link).active.btn-warning,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-warning,
+.btn.btn-raised:not(.btn-link):active.btn-warning,
+.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-warning,
+.btn-group-raised .btn:not(.btn-link):active.btn-warning,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-warning {
+  background-color: #ff6736;
+}
+.btn.btn-raised:not(.btn-link):hover.btn-danger,
+.input-group-btn .btn.btn-raised:not(.btn-link):hover.btn-danger,
+.btn-group-raised .btn:not(.btn-link):hover.btn-danger,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):hover.btn-danger,
+.btn.btn-raised:not(.btn-link):focus.btn-danger,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.btn-danger,
+.btn-group-raised .btn:not(.btn-link):focus.btn-danger,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.btn-danger,
+.btn.btn-raised:not(.btn-link).active.btn-danger,
+.input-group-btn .btn.btn-raised:not(.btn-link).active.btn-danger,
+.btn-group-raised .btn:not(.btn-link).active.btn-danger,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active.btn-danger,
+.btn.btn-raised:not(.btn-link):active.btn-danger,
+.input-group-btn .btn.btn-raised:not(.btn-link):active.btn-danger,
+.btn-group-raised .btn:not(.btn-link):active.btn-danger,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active.btn-danger {
+  background-color: #f55549;
+}
+.btn.btn-raised:not(.btn-link).active,
+.input-group-btn .btn.btn-raised:not(.btn-link).active,
+.btn-group-raised .btn:not(.btn-link).active,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active,
+.btn.btn-raised:not(.btn-link):active,
+.input-group-btn .btn.btn-raised:not(.btn-link):active,
+.btn-group-raised .btn:not(.btn-link):active,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active,
+.btn.btn-raised:not(.btn-link).active:hover,
+.input-group-btn .btn.btn-raised:not(.btn-link).active:hover,
+.btn-group-raised .btn:not(.btn-link).active:hover,
+.btn-group-raised .input-group-btn .btn:not(.btn-link).active:hover,
+.btn.btn-raised:not(.btn-link):active:hover,
+.input-group-btn .btn.btn-raised:not(.btn-link):active:hover,
+.btn-group-raised .btn:not(.btn-link):active:hover,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):active:hover {
   -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
           box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
-.btn.btn-raised:not(.btn-link):focus:not(:active),
-.input-group-btn .btn.btn-raised:not(.btn-link):focus:not(:active) {
+.btn.btn-raised:not(.btn-link):focus,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus,
+.btn-group-raised .btn:not(.btn-link):focus,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus,
+.btn.btn-raised:not(.btn-link):focus.active,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.active,
+.btn-group-raised .btn:not(.btn-link):focus.active,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.active,
+.btn.btn-raised:not(.btn-link):focus:active,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus:active,
+.btn-group-raised .btn:not(.btn-link):focus:active,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus:active,
+.btn.btn-raised:not(.btn-link):focus:hover,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus:hover,
+.btn-group-raised .btn:not(.btn-link):focus:hover,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus:hover,
+.btn.btn-raised:not(.btn-link):focus.active:hover,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus.active:hover,
+.btn-group-raised .btn:not(.btn-link):focus.active:hover,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus.active:hover,
+.btn.btn-raised:not(.btn-link):focus:active:hover,
+.input-group-btn .btn.btn-raised:not(.btn-link):focus:active:hover,
+.btn-group-raised .btn:not(.btn-link):focus:active:hover,
+.btn-group-raised .input-group-btn .btn:not(.btn-link):focus:active:hover {
   -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
           box-shadow: 0 0 8px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.36);
 }
@@ -545,7 +739,7 @@ fieldset[disabled][disabled] .btn-group-vertical.btn-group-raised:focus:not(:act
 .btn-group-vertical.open > .dropdown-toggle.btn,
 .btn-group.open > .dropdown-toggle.btn.btn-default,
 .btn-group-vertical.open > .dropdown-toggle.btn.btn-default {
-  background-color: transparent;
+  background-color: #EEEEEE;
 }
 .btn-group.open > .dropdown-toggle.btn.btn-inverse,
 .btn-group-vertical.open > .dropdown-toggle.btn.btn-inverse {
@@ -1018,6 +1212,9 @@ fieldset[disabled] .checkbox input[type=checkbox],
   width: 0;
   height: 0;
 }
+.togglebutton label .toggle {
+  text-align: left;
+}
 .togglebutton label .toggle,
 .togglebutton label input[type=checkbox][disabled] + .toggle {
   content: "";
@@ -1060,13 +1257,13 @@ fieldset[disabled] .checkbox input[type=checkbox],
 .togglebutton label input[type=checkbox]:checked + .toggle:after {
   left: 15px;
 }
-.togglebutton label label input[type=checkbox]:checked + .toggle {
+.togglebutton label input[type=checkbox]:checked + .toggle {
   background-color: rgba(0, 150, 136, 0.5);
 }
-.togglebutton label label input[type=checkbox]:checked + .toggle:after {
+.togglebutton label input[type=checkbox]:checked + .toggle:after {
   background-color: #009688;
 }
-.togglebutton label label input[type=checkbox]:checked + .toggle:active:after {
+.togglebutton label input[type=checkbox]:checked + .toggle:active:after {
   -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
           box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 150, 136, 0.1);
 }

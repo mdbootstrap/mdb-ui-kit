@@ -33,3 +33,5 @@ less
 sass
 scripts
 meteor
+bower.json
+testcase.html
