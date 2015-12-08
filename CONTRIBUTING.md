@@ -27,6 +27,9 @@ restrictions:
 * Please **do not** open issues or pull requests regarding the code in dependencies such as:
   [`Bootstrap`](https://github.com/twbs/bootstrap) (open them in their respective repositories).
   
+* Please **do not** open issues without a [reduced test case](https://css-tricks.com/reduced-test-cases/) 
+    and a live example using [this CodePen](http://codepen.io/rosskevin/pen/VvRgrN). Failure to submit a test case may result in the issue being closed.
+
 * Please **do not** open issues without clearly stating the problem and desired result. [See the bug reports section](#bug-reports) for more information on creating effective issues.
 
 * Please **close your own issue** once it is resolved.
