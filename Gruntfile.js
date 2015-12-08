@@ -6,7 +6,7 @@ module.exports = function (grunt) {
   var path = require('path');
   var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
   var generateIconsData = require('./grunt/bmd-icons-data-generator.js');
-  
+
   Object.keys(configBridge.paths).forEach(function (key) {
     configBridge.paths[key].forEach(function (val, i, arr) {
       arr[i] = path.join('./docs/assets', val);
@@ -228,6 +228,9 @@ module.exports = function (grunt) {
     // Test compile sass
     sass: {
       compile: {
+        options:{
+          loadPath: "bower_components/bootstrap-sass/assets/stylesheets",
+        },
         files: [{
           expand: true,
           cwd: "sass",
