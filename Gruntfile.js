@@ -151,11 +151,11 @@ module.exports = function (grunt) {
             },
 
             // button variations mixin replacement(s)
-            //{ // Multi-line replacement - https://regex101.com/r/qD9qB8/2
-            //  pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)contrast[\s\S]+?(?!\r|\n)(\d+)[\s\S]+?(?!\r|\n)}\);$\n/mg,
-            //  replacement: "@include button-variations(unquote($1), $2, $3%);\n",
-            //  order: 20
-            //},
+            { // Multi-line replacement - https://regex101.com/r/qD9qB8/2
+              pattern: /.generic-variations\(unquote\(("[^"]+")\), (\$[\s\S]+?(?!\r|\n)), {$\n[\s\S]+?(?!\r|\n)contrast[\s\S]+?(?!\r|\n)(\d+)[\s\S]+?(?!\r|\n)}\);$\n/mg,
+              replacement: "@include button-variations(unquote($1), $2, $3%);\n",
+              order: 20
+            },
 
             //// background-color generic-variations
             //{ // Multi-line replacement - https://regex101.com/r/cW6pH8/2
