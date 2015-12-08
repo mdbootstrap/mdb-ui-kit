@@ -498,7 +498,7 @@ module.exports = function (grunt) {
 
     watch: {
       html: {
-        files: ["index.html", "bootstrap-elements.html", "test.html"],
+        files: ["index.html", "bootstrap-elements.html", "testcase.html"],
         tasks: ["htmllint", "bootlint"]
       },
       //src: {

@@ -15,6 +15,10 @@
       width: 0;
       height: 0;
     }
+
+    .toggle {
+      text-align: left; // Issue #737 horizontal form
+    }
     // Switch bg off and disabled
     .toggle,
     input[type=checkbox][disabled] + .toggle {
