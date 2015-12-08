@@ -23,17 +23,16 @@
   }
 }
 
-@mixin button-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
-  @include generic-variations($component, $selector-suffix, $color-default, "button-variations-content", $mdb-param-1);
+@mixin button-variations($component, $selector-suffix, $color-default) {
+  @include generic-variations($component, $selector-suffix, $color-default, "button-variations-content", null);
 }
 
 @mixin button-variations-content($args) {
   //@debug "#{inspect($args)}";
   $variation-color: map-get($args, variation-color);
-  $mdb-param-1: map-get($args, material-param-1);
   background-color: contrast-color($variation-color,
-    darken($variation-color, $mdb-param-1),
-    lighten($variation-color, $mdb-param-1));
+    darken($variation-color, 4%),
+    lighten($variation-color, 4%));
 }
 
 // navbar-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
