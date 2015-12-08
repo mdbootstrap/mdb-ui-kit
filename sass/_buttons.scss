@@ -80,7 +80,7 @@
 
         // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
         // SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
-        @include alert-variations(unquote(".btn"), unquote(""), $mdb-btn-background-color);
+        @include button-variations(unquote(".btn"), "", $mdb-btn-background-color);
 
         // Spec:
         //  - Raised Light/Light theme no hover.

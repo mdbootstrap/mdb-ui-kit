@@ -42,8 +42,8 @@
 //  color: map-get($args, variation-color);
 //}
 
-@mixin button-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
-  @include generic-variations($component, $selector-suffix, $color-default, "button-variations-content", $mdb-param-1);
+@mixin button-variations($component, $selector-suffix, $color-default) {
+  @include generic-variations($component, $selector-suffix, $color-default, "button-variations-content", 4%);
 }
 
 @mixin button-variations-content($args) {
