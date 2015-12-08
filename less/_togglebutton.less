@@ -64,16 +64,17 @@
       }
     }
 
-    & label input[type=checkbox]:checked {
-      & + .toggle {
+    // set bg when checked
+    input[type=checkbox]:checked {
+      + .toggle {
         background-color: fade(@brand-primary, 50%); // Switch bg on
       }
 
-      & + .toggle:after {
+      + .toggle:after {
         background-color: @brand-primary; // Handle on
       }
 
-      & + .toggle:active:after {
+      + .toggle:active:after {
         box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px fade(@brand-primary, 10%); // Ripple on
       }
     }
