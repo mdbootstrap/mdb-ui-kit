@@ -57,34 +57,55 @@
   //--
   // color variations
   &.btn-raised,
-  &.btn-fab {
+  &.btn-fab,
+  .btn-group-raised & {
     @include background-variations(unquote(".btn"), unquote(""), $mdb-btn-background-color);
   }
 
   //---
   // btn-raised
-  &.btn-raised {
+  &.btn-raised,
+  .btn-group-raised & {
     &:not(.btn-link) {
       @include shadow-2dp();
 
-      &:hover {
+      // colors on hover, focus, active
+      &:hover,
+      &:focus,
+      &.active,
+      &:active {
+
+        // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
+        // SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
+        @include alert-variations(unquote(".btn"), unquote(""), $mdb-btn-background-color);
 
         // Spec:
         //  - Raised Light/Light theme no hover.
         //  - Raised Dark/Dark theme Hover color: 600
         .theme-dark & {
-          //// SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
-          //@include alert-variations(unquote(".btn"), unquote(""), $mdb-btn-background-color);
         }
       }
 
+      // shadow on active
       &.active,
       &:active {
-        @include shadow-4dp();
+        &,
+        &:hover {
+          @include shadow-4dp();
+        }
       }
 
-      &:focus:not(:active) {
-        @include focus-shadow();
+      // shadow on focus
+      //   Focus should take precedence over active, so specificity is needed
+      &:focus {
+        &,
+        &.active,
+        &:active {
+          &,
+          &:hover {
+            @include focus-shadow();
+          }
+        }
       }
     }
   }

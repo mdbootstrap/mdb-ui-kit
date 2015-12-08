@@ -101,7 +101,7 @@ $mdb-btn-font-size-lg: 16px !default;
 $mdb-btn-font-size-sm: 12px !default;
 $mdb-btn-font-size-xs: 10px !default;
 
-$mdb-btn-background-color: transparent !default;
+$mdb-btn-background-color: $body-bg !default; // transparent
 $mdb-btn-background-color-text: $mdb-text-color-primary !default;
 
 $mdl-btn-border-radus: 2px !default;
