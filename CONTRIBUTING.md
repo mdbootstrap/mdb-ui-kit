@@ -21,33 +21,17 @@ restrictions:
 * Please **do not** use the issue tracker for personal support requests. [Stack
   Overflow `bootstrap-material-design`](https://stackoverflow.com/questions/tagged/bootstrap-material-design) tag) is the best place to get help.
 
-* Please **do not** derail or troll issues. Keep the discussion on topic and
-  respect the opinions of others.
-
-* Please **do not** open issues or pull requests regarding the code in dependencies such as:
-  [`Bootstrap`](https://github.com/twbs/bootstrap) (open them in their respective repositories).
-  
 * Please **do not** open issues without a [reduced test case](https://css-tricks.com/reduced-test-cases/) 
     and a live example using [this CodePen](http://codepen.io/rosskevin/pen/VvRgrN). Failure to submit a test case may result in the issue being closed.
 
 * Please **do not** open issues without clearly stating the problem and desired result. [See the bug reports section](#bug-reports) for more information on creating effective issues.
 
-* Please **close your own issue** once it is resolved.
+* Please **do not** derail or troll issues. Keep the discussion on topic and respect the opinions of others.
 
+* Please **do not** open issues or pull requests regarding the code in dependencies such as:
+  [`Bootstrap`](https://github.com/twbs/bootstrap) (open them in their respective repositories).  
 
-## Issues and labels
-
-Our bug tracker utilizes several labels to help organize and identify issues. Here's what they represent and how we use them:
-
-- `bug confirmed` - Issues that have been confirmed with a reduced test case and identify a bug in Bootstrap.
-- `docs & examples` - Issues for improving or updating our documentation or examples.
-- `feature` - Issues asking for a new feature to be added, or an existing one to be extended or modified. New features require a minor version bump (e.g., `v3.0.0` to `v3.1.0`).
-- `enhancement` - Issues for improving existing features
-- `grunt` - Issues with our included JavaScript-based Gruntfile, which is used to run all our tests, concatenate and compile source files, and more.
-- `help wanted` - Issues we need or would love help from the community to resolve.
-- `js` - Issues stemming from our compiled or source JavaScript files.
-
-For a complete look at our labels, see the [project labels page](https://github.com/FezVrasta/bootstrap-material-design/labels).
+* Please **do not** leave resolved issues open e.g. a question that has been answered.
 
 
 ## Bug reports
@@ -97,6 +81,20 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
+## Issues and labels
+
+Our bug tracker utilizes several labels to help organize and identify issues. Here's what they represent and how we use them:
+
+- `bug confirmed` - Issues that have been confirmed with a reduced test case and identify a bug in Bootstrap.
+- `docs & examples` - Issues for improving or updating our documentation or examples.
+- `feature` - Issues asking for a new feature to be added, or an existing one to be extended or modified. New features require a minor version bump (e.g., `v3.0.0` to `v3.1.0`).
+- `enhancement` - Issues for improving existing features
+- `grunt` - Issues with our included JavaScript-based Gruntfile, which is used to run all our tests, concatenate and compile source files, and more.
+- `help wanted` - Issues we need or would love help from the community to resolve.
+- `js` - Issues stemming from our compiled or source JavaScript files.
+
+For a complete look at our labels, see the [project labels page](https://github.com/FezVrasta/bootstrap-material-design/labels).
+
 
 ## Feature requests
 
@@ -126,9 +124,9 @@ directly!** Those files are automatically generated. You should edit the
 source files in [`/less/`](https://github.com/FezVrasta/bootstrap-material-design/tree/master/less)
 and/or [`/scripts/`](https://github.com/FezVrasta/bootstrap-material-design/tree/master/scripts) instead.
 
-Similarly, when contributing to Bootstrap's documentation, you should edit the
+Similarly, when contributing to documentation, you should edit the
 documentation source files in
-[the `/bootstrap/docs/` directory of the `master` branch](https://github.com/FezVrasta/bootstrap-material-design/tree/master/docs).
+[the `/docs/` directory of the `master` branch](https://github.com/FezVrasta/bootstrap-material-design/tree/master/docs).
 **Do not edit the `gh-pages` branch.** That branch is generated from the
 documentation source files and is managed separately by the bootstrap-material-design Team.
 
