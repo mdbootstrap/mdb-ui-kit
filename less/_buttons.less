@@ -58,13 +58,15 @@
   //--
   // color variations
   &.btn-raised,
-  &.btn-fab {
+  &.btn-fab,
+  .btn-group-raised & {
     .background-variations(~".btn", ~"", @mdb-btn-background-color);
   }
 
   //---
   // btn-raised
-  &.btn-raised {
+  &.btn-raised,
+  .btn-group-raised & {
     &:not(.btn-link) {
       .shadow-2dp();
 
@@ -77,7 +79,8 @@
         // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
         // SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
         .generic-variations(~".btn", ~"", @mdb-btn-background-color, {
-          background-color: contrast(@variation-color, darken(@variation-color, 4%), lighten(@variation-color, 4%), @contrast-factor); });
+          background-color: contrast(@variation-color, darken(@variation-color, 4%), lighten(@variation-color, 4%), @contrast-factor);
+        });
 
         // Spec:
         //  - Raised Light/Light theme no hover.

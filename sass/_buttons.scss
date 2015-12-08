@@ -60,13 +60,15 @@
   //--
   // color variations
   &.btn-raised,
-  &.btn-fab {
+  &.btn-fab,
+  .btn-group-raised & {
     @include background-variations(unquote(".btn"), unquote(""), $mdb-btn-background-color);
   }
 
   //---
   // btn-raised
-  &.btn-raised {
+  &.btn-raised,
+  .btn-group-raised & {
     &:not(.btn-link) {
       @include shadow-2dp();
 

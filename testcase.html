@@ -40,27 +40,30 @@ Test case
 -->
 
 <div class="container">
-
-  <h4><mark>btn</mark></h4>
-  <a href="javascript:void(0)" class="btn"><code>btn</code></a>
-  <a href="javascript:void(0)" class="btn active"><code>.active</code></a>
-
-  <h4><mark>btn.btn-raised</mark></h4>
-  <a href="javascript:void(0)" class="btn btn-raised"><code>btn</code></a>
-  <a href="javascript:void(0)" class="btn btn-raised active"><code>.active</code></a>
-
-  <h4><mark>btn.btn-default</mark></h4>
-  <a href="javascript:void(0)" class="btn btn-default"><code>btn</code></a>
-  <a href="javascript:void(0)" class="btn btn-default active"><code>.active</code></a>
-
-  <h4><mark>btn.btn-default.btn-raised</mark></h4>
-  <a href="javascript:void(0)" class="btn btn-raised btn-default"><code>btn</code></a>
-  <a href="javascript:void(0)" class="btn btn-raised btn-default active"><code>.active</code></a>
-
-
-  <h4><mark>btn.btn-primary.btn-raised</mark></h4>
-  <a href="javascript:void(0)" class="btn btn-raised btn-primary"><code>btn</code></a>
-  <a href="javascript:void(0)" class="btn btn-raised btn-primary active"><code>.active</code></a>
+  <mark>.btn-group-raised</mark>
+  <div class="btn-group btn-group-sm btn-group-justified btn-group-raised" role="group">
+    <label class="btn btn-primary active">
+      active
+    </label>
+    <label class="btn btn-primary">
+      unread
+    </label>
+    <label class="btn btn-primary">
+      starred
+    </label>
+  </div>
+  <mark>.btn.btn-raised</mark>
+  <div class="btn-group btn-group-sm btn-group-justified" role="group">
+    <label class="btn btn-primary btn-raised active">
+      active
+    </label>
+    <label class="btn btn-primary btn-raised ">
+      unread
+    </label>
+    <label class="btn btn-primary btn-raised">
+      starred
+    </label>
+  </div>
 </div>
 
 <!--
