@@ -17,14 +17,21 @@ const BootstrapMaterialDesign = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   /**
+   * Global configuration:
+   *  The global configuration hash will be mixed in to each components' config.
+   *    e.g. calling $.bootstrapMaterialDesign({global: { validate: true } }) would pass `validate:true` to every component
    *
-   * Default macro configuration for each component (primarily selectors).
+   *
+   * Component configuration:
    *  - selector: may be a string or an array.  Any array will be joined with a comma to generate the selector
    *  - disable any component by defining it as false with an override. e.g. $.bootstrapMaterialDesign({ autofill: false })
    *
    *  @see each individual component for more configuration settings.
    */
   const Default = {
+    global: {
+      validate: false
+    },
     ripples: {
       selector: [
         '.btn:not(.btn-link):not(.ripple-none)',
@@ -106,6 +113,9 @@ const BootstrapMaterialDesign = (($) => {
 
           // assemble the selector as it may be an array
           let selector = this._resolveSelector(componentConfig)
+
+          // mix in global options
+          componentConfig = $.extend({}, this.config.global, componentConfig)
 
           // create the jquery fn name e.g. 'mdbText' for 'text'
           let jqueryFn = `mdb${component.charAt(0).toUpperCase() + component.slice(1)}`

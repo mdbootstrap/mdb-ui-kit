@@ -3,6 +3,7 @@ import Util from './util'
 const BaseInput = (($) => {
 
   const Default = {
+    validate: false,
     formGroup: {
       required: false
     },
@@ -120,17 +121,19 @@ const BaseInput = (($) => {
             this.removeIsEmpty()
           }
 
-          // Validation events do not bubble, so they must be attached directly to the text: http://jsfiddle.net/PEpRM/1/
-          //  Further, even the bind method is being caught, but since we are already calling #checkValidity here, just alter
-          //  the form-group on change.
-          //
-          // NOTE: I'm not sure we should be intervening regarding validation, this seems better as a README and snippet of code.
-          //        BUT, I've left it here for backwards compatibility.
-          let isValid = (typeof this.$element[0].checkValidity === 'undefined' || this.$element[0].checkValidity())
-          if (isValid) {
-            this.removeHasError()
-          } else {
-            this.addHasError()
+          if (this.config.validate) {
+            // Validation events do not bubble, so they must be attached directly to the text: http://jsfiddle.net/PEpRM/1/
+            //  Further, even the bind method is being caught, but since we are already calling #checkValidity here, just alter
+            //  the form-group on change.
+            //
+            // NOTE: I'm not sure we should be intervening regarding validation, this seems better as a README and snippet of code.
+            //        BUT, I've left it here for backwards compatibility.
+            let isValid = (typeof this.$element[0].checkValidity === 'undefined' || this.$element[0].checkValidity())
+            if (isValid) {
+              this.removeHasError()
+            } else {
+              this.addHasError()
+            }
           }
         })
     }
