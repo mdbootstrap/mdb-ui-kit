@@ -66,18 +66,6 @@
       }
     }
 
-    //// Switch bg on
-    //.generic-variations(unquote(" label input[type=checkbox]:checked + .toggle"), $primary, {
-    //  background-color: rgba($material-color, (50/100));
-    //});
-    //// Handle on
-    //.variations(unquote(" label input[type=checkbox]:checked + .toggle:after"), background-color, $primary);
-    //// Ripple on
-    //.generic-variations(unquote(" label input[type=checkbox]:checked + .toggle:active:after"), $primary, {
-    //  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba($material-color, (10/100));
-    //});
-
-
     // set bg when checked
     input[type=checkbox]:checked {
       + .toggle {

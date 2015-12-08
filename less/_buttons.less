@@ -62,34 +62,50 @@
     .background-variations(~".btn", ~"", @mdb-btn-background-color);
   }
 
-
   //---
   // btn-raised
   &.btn-raised {
     &:not(.btn-link) {
       .shadow-2dp();
 
-      &:hover {
+      // colors on hover, focus, active
+      &:hover,
+      &:focus,
+      &.active,
+      &:active {
+
+        // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
+        // SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
+        .generic-variations(~".btn", ~"", @mdb-btn-background-color, {
+          background-color: contrast(@variation-color, darken(@variation-color, 4%), lighten(@variation-color, 4%), @contrast-factor); });
 
         // Spec:
         //  - Raised Light/Light theme no hover.
         //  - Raised Dark/Dark theme Hover color: 600
         .theme-dark & {
-          //// SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
-          //.generic-variations(~".btn", ~"", @mdb-btn-background-color, {
-          //  // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
-          //  background-color: contrast(@variation-color, darken(@variation-color, 4%), lighten(@variation-color, 4%), @contrast-factor);
-          //});
         }
       }
 
+      // shadow on active
       &.active,
       &:active {
-        .shadow-4dp();
+        &,
+        &:hover {
+          .shadow-4dp();
+        }
       }
 
-      &:focus:not(:active) {
-        .focus-shadow();
+      // shadow on focus
+      //   Focus should take precedence over active, so specificity is needed
+      &:focus {
+        &,
+        &.active,
+        &:active {
+          &,
+          &:hover {
+            .focus-shadow();
+          }
+        }
       }
     }
   }
@@ -138,7 +154,6 @@
   i.material-icons {
     vertical-align: middle;
   }
-
 
   // Size variations
   &.btn-lg,
@@ -197,7 +212,6 @@
   position: relative;
   //border-radius: 2px;
   margin: 10px 1px;
-
 
   // spec: https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons
   &.open {

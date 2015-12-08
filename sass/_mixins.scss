@@ -41,20 +41,20 @@
 //@mixin text-variations-content($args) {
 //  color: map-get($args, variation-color);
 //}
-//
-//@mixin button-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
-//  @include generic-variations($component, $selector-suffix, $color-default, "button-variations-content", $mdb-param-1);
-//}
-//
-//@mixin button-variations-content($args) {
-//  //@debug "#{inspect($args)}";
-//  $variation-color: map-get($args, variation-color);
-//  $mdb-param-1: map-get($args, material-param-1);
-//  background-color: contrast-color($variation-color,
-//          darken($variation-color, $mdb-param-1),
-//          lighten($variation-color, $mdb-param-1));
-//}
-//
+
+@mixin button-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
+  @include generic-variations($component, $selector-suffix, $color-default, "button-variations-content", $mdb-param-1);
+}
+
+@mixin button-variations-content($args) {
+  //@debug "#{inspect($args)}";
+  $variation-color: map-get($args, variation-color);
+  $mdb-param-1: map-get($args, material-param-1);
+  background-color: contrast-color($variation-color,
+          darken($variation-color, $mdb-param-1),
+          lighten($variation-color, $mdb-param-1));
+}
+
 //@mixin bg-color-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
 //  @include generic-variations($component, $selector-suffix, $color-default, "bg-color-variations-content", $mdb-param-1);
 //}

@@ -41,7 +41,8 @@
 
 // Focus shadow mixin.
 @mixin focus-shadow(){
-  box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
+  box-shadow: 0 0 8px rgba(0,0,0,.18),
+  0 8px 16px rgba(0,0,0,.36);
 }
 
 @mixin shadow-2dp(){
