@@ -20,7 +20,21 @@
   }
 
   function _addFormGroupFocus(element){
-    $(element).closest(".form-group").addClass("is-focused");
+    var $element = $(element);
+    if (!$element.prop('disabled')) {  // this is showing as undefined on chrome but works fine on firefox??
+      $element.closest(".form-group").addClass("is-focused");
+    }
+  }
+
+  function _toggleTypeFocus($input){
+    $input.closest('label').hover(function() {
+      var $i = $(this).find('input');
+      if (!$i.prop('disabled')) { // hack because the _addFormGroupFocus() wasn't identifying the property on chrome
+        _addFormGroupFocus($i);     // need to find the input so we can check disablement
+      }
+    }, function() {
+      _removeFormGroupFocus($(this).find('input'));
+    });
   }
 
   function _removeFormGroupFocus(element){
@@ -55,10 +69,12 @@
     },
     "checkbox": function(selector) {
       // Add fake-checkbox to material checkboxes
-      $((selector) ? selector : this.options.checkboxElements)
+      var $input = $((selector) ? selector : this.options.checkboxElements)
       .filter(":notmdproc")
       .data("mdproc", true)
       .after("<span class='checkbox-material'><span class='check'></span></span>");
+
+      _toggleTypeFocus($input);
     },
     "togglebutton": function(selector) {
       // Add fake-checkbox to material checkboxes
@@ -67,12 +83,7 @@
       .data("mdproc", true)
       .after("<span class='toggle'></span>");
 
-      var $formGroup = $input.closest(".form-group"); // note that form-group may be grandparent in the case of an input-group
-      $formGroup.find('label').hover(function() {
-        _addFormGroupFocus(this);
-      }, function() {
-        _removeFormGroupFocus(this);
-      });
+      _toggleTypeFocus($input);
     },
     "radio": function(selector) {
       // Add fake-radio to material radios
@@ -81,13 +92,7 @@
       .data("mdproc", true)
       .after("<span class='circle'></span><span class='check'></span>");
 
-
-      var $formGroup = $input.closest(".form-group"); // note that form-group may be grandparent in the case of an input-group
-      $formGroup.find('label').hover(function() {
-        _addFormGroupFocus(this);
-      }, function() {
-        _removeFormGroupFocus(this);
-      });
+      _toggleTypeFocus($input);
     },
     "input": function(selector) {
       $((selector) ? selector : this.options.inputElements)
@@ -150,13 +155,6 @@
     },
     "attachInputEventHandlers": function() {
       var validate = this.options.validate;
-
-      // checkboxes didn't appear to bubble to the document, so we'll bind these directly
-      $(".form-group .checkbox label").hover(function() {
-        _addFormGroupFocus(this);
-      }, function() {
-        _removeFormGroupFocus(this);
-      });
 
       $(document)
       .on("change", ".checkbox input[type=checkbox]", function() { $(this).blur(); })

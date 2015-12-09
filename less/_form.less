@@ -8,6 +8,11 @@
     &:focus {
       color: @mdb-label-color-toggle-focus;
     }
+
+    // correct the above focus color for disabled items
+    fieldset[disabled] & {
+      color: @mdb-label-color;
+    }
   }
 }
 

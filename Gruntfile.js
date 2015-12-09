@@ -500,10 +500,10 @@ module.exports = function (grunt) {
         files: ["index.html", "bootstrap-elements.html", "testcase.html"],
         tasks: ["htmllint", "bootlint"]
       },
-      //src: {
-      //  files: '<%= jshint.core.src %>',
-      //  tasks: ['jshint:core', 'dist-js'] // add tests when working again
-      //},
+      src: {
+        files: '<%= jshint.core.src %>',
+        tasks: ['jshint:core', 'dist-js'] // add tests when working again
+      },
       test: {
         files: ["test/**/*.js"],
         tasks: ["jshint:test", "jasmine"]
