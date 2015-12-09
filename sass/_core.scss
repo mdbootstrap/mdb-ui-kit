@@ -38,34 +38,19 @@ a, a:hover, a:focus {
   }
 }
 
-// Well and Jumbotrons
-@import '_welljumbo';
-
-// Buttons
-@import '_buttons';
-
-// Checkboxes
-@import '_checkboxes';
-
-// Toggle buttons
-@import '_togglebutton';
-
-// Radios
-@import '_radios';
-
-// Text inputs
-@import '_inputs';
-
 @import '_form';
+@import '_welljumbo';
+@import '_buttons';
+@import '_checkboxes';
+@import '_togglebutton';
+@import '_radios';
+@import '_inputs';
 
 legend {
   border-bottom: 0;
 }
 
-// Lists
 @import '_lists';
-
-// Navbar
 @import '_navbar';
 
 .dropdown-menu {
@@ -84,25 +69,14 @@ legend {
   }
 }
 
-// Alerts
 @import '_alerts';
-
-// Progress bar
 @import '_progress';
-
-// Typography
 @import '_typography';
-
 @import '_tabs';
-
 @import '_popups';
-
 @import '_cards';
-
 @import '_dialogs';
-
 @import '_panels';
-
 @import '_dividers';
 
 // Prevent highlight on mobile

@@ -8,6 +8,7 @@
   label {
     cursor: pointer;
     color: $mdb-toggle-label-color;
+    @include mdb-label-color-toggle-focus();
 
     // Hide original checkbox
     input[type=checkbox] {

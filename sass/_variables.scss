@@ -11,6 +11,10 @@ $mdb-text-color-primary-hex: $black !default; // for contrast function in invers
 $icon-color: rgba(0,0,0,0.5) !default;
 
 
+$mdb-label-color: unquote("rgba(#{$rgb-black}, 0.26)") !default;
+$mdb-label-color-toggle-focus: unquote("rgba(#{$rgb-black}, .54)") !default;
+
+
 // import bs variables for less, last declared wins.
 @import '_import-bs-less';
 
@@ -53,6 +57,8 @@ $mdb-animation-curve-default: $mdb-animation-curve-fast-out-slow-in !default;
 // FIXME: these need to either a) be converted to $mdb- or b) converted to bs variables
 $contrast-factor: 40% !default;
 //---
+
+
 
 
 // --------------------
@@ -121,8 +127,9 @@ $mdb-checkbox-size: 20px !default;
 $mdb-checkbox-animation-ripple: 500ms !default;
 $mdb-checkbox-animation-check: 0.3s !default;
 $mdb-checkbox-checked-color: $brand-primary !default;
-$mdb-checkbox-label-color: rgba(0, 0, 0, .54) !default;
-$mdb-checkbox-border-color: $mdb-checkbox-label-color !default;
+
+$mdb-checkbox-label-color: $mdb-label-color !default;
+$mdb-checkbox-border-color: $mdb-label-color-toggle-focus !default;
 
 // Popovers and Popups
 $mdb-popover-background: rgba(101, 101, 101, 0.9) !default;
@@ -132,11 +139,11 @@ $mdb-popover-color: #ececec !default;
 $mdb-dropdown-font-size: 16px !default;
 
 // Toggle
-$mdb-toggle-label-color: $mdb-checkbox-label-color !default;
+$mdb-toggle-label-color: $mdb-label-color !default;
 
 // Radio:
-$mdb-radio-label-color: $mdb-checkbox-label-color !default;
-$mdb-radio-color-off: $mdb-checkbox-border-color !default;
+$mdb-radio-label-color: $mdb-label-color !default;
+$mdb-radio-color-off: $mdb-label-color-toggle-focus !default;
 $mdb-radio-color-on: $brand-primary !default;
 
 // Buttons:

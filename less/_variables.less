@@ -9,6 +9,10 @@
 @icon-color: rgba(0,0,0,0.5);
 
 
+@mdb-label-color: ~"rgba(@{rgb-black}, 0.26)";
+@mdb-label-color-toggle-focus: ~"rgba(@{rgb-black}, .54)";
+
+
 // import bs variables for less, last declared wins.
 @import "_import-bs-less.less";
 
@@ -51,6 +55,8 @@
 // FIXME: these need to either a) be converted to @mdb- or b) converted to bs variables
 @contrast-factor: 40%;
 //---
+
+
 
 
 // --------------------
@@ -119,8 +125,9 @@
 @mdb-checkbox-animation-ripple: 500ms;
 @mdb-checkbox-animation-check: 0.3s;
 @mdb-checkbox-checked-color: @brand-primary;
-@mdb-checkbox-label-color: rgba(0, 0, 0, .54);
-@mdb-checkbox-border-color: @mdb-checkbox-label-color;
+
+@mdb-checkbox-label-color: @mdb-label-color;
+@mdb-checkbox-border-color: @mdb-label-color-toggle-focus;
 
 // Popovers and Popups
 @mdb-popover-background: rgba(101, 101, 101, 0.9);
@@ -130,11 +137,11 @@
 @mdb-dropdown-font-size: 16px;
 
 // Toggle
-@mdb-toggle-label-color: @mdb-checkbox-label-color;
+@mdb-toggle-label-color: @mdb-label-color;
 
 // Radio:
-@mdb-radio-label-color: @mdb-checkbox-label-color;
-@mdb-radio-color-off: @mdb-checkbox-border-color;
+@mdb-radio-label-color: @mdb-label-color;
+@mdb-radio-color-off: @mdb-label-color-toggle-focus;
 @mdb-radio-color-on: @brand-primary;
 
 // Buttons:

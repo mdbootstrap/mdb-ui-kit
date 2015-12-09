@@ -18,11 +18,11 @@
     }
     return false;
   }
-  
+
   function _addFormGroupFocus(element){
     $(element).closest(".form-group").addClass("is-focused");
   }
-  
+
   function _removeFormGroupFocus(element){
     $(element).closest(".form-group").removeClass("is-focused"); // remove class from form-group
   }
@@ -62,17 +62,32 @@
     },
     "togglebutton": function(selector) {
       // Add fake-checkbox to material checkboxes
-      $((selector) ? selector : this.options.togglebuttonElements)
+      var $input = $((selector) ? selector : this.options.togglebuttonElements)
       .filter(":notmdproc")
       .data("mdproc", true)
       .after("<span class='toggle'></span>");
+
+      var $formGroup = $input.closest(".form-group"); // note that form-group may be grandparent in the case of an input-group
+      $formGroup.find('label').hover(function() {
+        _addFormGroupFocus(this);
+      }, function() {
+        _removeFormGroupFocus(this);
+      });
     },
     "radio": function(selector) {
       // Add fake-radio to material radios
-      $((selector) ? selector : this.options.radioElements)
+      var $input = $((selector) ? selector : this.options.radioElements)
       .filter(":notmdproc")
       .data("mdproc", true)
       .after("<span class='circle'></span><span class='check'></span>");
+
+
+      var $formGroup = $input.closest(".form-group"); // note that form-group may be grandparent in the case of an input-group
+      $formGroup.find('label').hover(function() {
+        _addFormGroupFocus(this);
+      }, function() {
+        _removeFormGroupFocus(this);
+      });
     },
     "input": function(selector) {
       $((selector) ? selector : this.options.inputElements)
