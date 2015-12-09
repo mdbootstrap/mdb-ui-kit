@@ -139,7 +139,9 @@ const BaseInput = (($) => {
     }
 
     addFormGroupFocus() {
-      this.$mdbFormGroup.addClass(ClassName.IS_FOCUSED)
+      if (!this.$element.prop('disabled')) {
+        this.$mdbFormGroup.addClass(ClassName.IS_FOCUSED)
+      }
     }
 
     removeFormGroupFocus() {

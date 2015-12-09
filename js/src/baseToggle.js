@@ -50,7 +50,7 @@ const BaseToggle = (($) => {
 
     addFocusListener() {
       // checkboxes didn't appear to bubble to the document, so we'll bind these directly
-      this.$mdbFormGroup.find(Selector.LABEL).hover(() => {
+      this.$element.closest(Selector.LABEL).hover(() => {
         this.addFormGroupFocus()
       }, () => {
         this.removeFormGroupFocus()
