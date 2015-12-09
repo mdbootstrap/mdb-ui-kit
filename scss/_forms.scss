@@ -183,42 +183,34 @@
   //}
 }
 
-
-// BOTTOM BARS =================================
+// Focus underline animation =================================
 .mdb-form-control-decorator {
   position: relative;
   top: (-1 * $input-border-width); // move the top up enough to overlay the border from the input
   display: block;
-  //width: 300px;
-}
-.mdb-form-control-decorator::before,
-.mdb-form-control-decorator::after {
-  position: absolute;
-  //bottom: 1px;
-  width: 0;
-  height: $input-border-width;
-  content: "";
-  @include gradient-vertical($brand-primary, $mdb-input-underline-color);
-  transition: 0.3s ease all;
-}
-.mdb-form-control-decorator::before {
-  left: 50%;
-}
-.mdb-form-control-decorator::after {
-  right: 50%;
-}
+  &::before,
+  &::after {
+    position: absolute;
+    width: 0;
+    height: $input-border-width;
+    content: "";
+    @include gradient-vertical($brand-primary, $mdb-input-underline-color);
+    transition: 0.3s ease all;
 
-// active state
-//input:focus ~ .mdb-form-control-decorator:before,
-//input:focus ~ .mdb-form-control-decorator:after {
-.form-control:focus,
-.mdb-form-group.is-focused .form-control {
-  ~ .mdb-form-control-decorator::before,
-  ~ .mdb-form-control-decorator::after {
-    width: 50%;
+    // focused state - it transitions the width of each (before and after) to 50% creating the center out effect
+    .form-control:focus ~ &,
+    .mdb-form-group.is-focused .form-control ~ & {
+      width: 50%;
+    }
+  }
+  &::before {
+    left: 50%;
+  }
+  &::after {
+    right: 50%;
   }
 }
-// BOTTOM BARS =================================
+// Focus underline animation =================================
 
 // -----
 // Labels with mdb-form-group signalled state
