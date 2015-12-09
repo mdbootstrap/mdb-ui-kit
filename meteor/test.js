@@ -1,46 +1,46 @@
 'use strict';
 
-var packageName;  // there seems to be no official way of finding out the name of the very package we're testing - http://stackoverflow.com/questions/27180709/in-a-tinytest-test-file-how-do-i-get-the-name-of-the-package
-
-// Check that the font files are downloadable. Meteor places assets at /packages/<packageName>/.
-// Only 'woff' for now, but 'woff2' may become available - https://github.com/FortAwesome/Font-Awesome/pull/5062#discussion_r20936453
-['eot', 'svg', 'ttf', 'woff'].forEach(function (font) {
-  Tinytest.addAsync(font + ' fonts are shipped', function (test, done) {
-
-    // curiously enough, the 'local-test:...' package isn't loaded into Package before calling Tinytest, so we can't do this determination outside this loop
-    if (!packageName)
-      Object.keys(Package).forEach(function(p) {
-        if (p.search(/local-test/) > -1)
-          packageName = p.replace('local-test:', '');  // we should stop the loop, but forEach can't do that
-      })
-
-    if (!packageName) {
-      test.exception({message: 'Package not quite loaded... go figure'});
-      return
-    }
-
-    var packagePath = packageName.replace(':', '_')  // e.g. meteorpackaging_bootstrap-material-design
-
-    HTTP.get(
-      '/packages/' + packagePath + '/dist/fonts/Material-Design-Icons.' + font,
-      {
-         headers: {
-           'Cache-Control': 'no-cache'  // because Meteor has cached fonts even after they were removed from package.js (!) - https://github.com/meteor/meteor/issues/3196
-         }
-      },
-      function callback(error, result) {
-        if (error) {
-          test.fail({message: 'Font failed to load'});
-        } else {
-          // if the file is 404, Meteor will redirect to / and return the Meteor.js boilerplate
-          test.isTrue(result.content.length > 100000, font + ' font could not be downloaded');
-        }
-
-        done();
-      }
-    );
-  });
-})
+//var packageName;  // there seems to be no official way of finding out the name of the very package we're testing - http://stackoverflow.com/questions/27180709/in-a-tinytest-test-file-how-do-i-get-the-name-of-the-package
+//
+//// Check that the font files are downloadable. Meteor places assets at /packages/<packageName>/.
+//// Only 'woff' for now, but 'woff2' may become available - https://github.com/FortAwesome/Font-Awesome/pull/5062#discussion_r20936453
+//['eot', 'svg', 'ttf', 'woff'].forEach(function (font) {
+//  Tinytest.addAsync(font + ' fonts are shipped', function (test, done) {
+//
+//    // curiously enough, the 'local-test:...' package isn't loaded into Package before calling Tinytest, so we can't do this determination outside this loop
+//    if (!packageName)
+//      Object.keys(Package).forEach(function(p) {
+//        if (p.search(/local-test/) > -1)
+//          packageName = p.replace('local-test:', '');  // we should stop the loop, but forEach can't do that
+//      })
+//
+//    if (!packageName) {
+//      test.exception({message: 'Package not quite loaded... go figure'});
+//      return
+//    }
+//
+//    var packagePath = packageName.replace(':', '_')  // e.g. meteorpackaging_bootstrap-material-design
+//
+//    HTTP.get(
+//      '/packages/' + packagePath + '/dist/fonts/Material-Design-Icons.' + font,
+//      {
+//         headers: {
+//           'Cache-Control': 'no-cache'  // because Meteor has cached fonts even after they were removed from package.js (!) - https://github.com/meteor/meteor/issues/3196
+//         }
+//      },
+//      function callback(error, result) {
+//        if (error) {
+//          test.fail({message: 'Font failed to load'});
+//        } else {
+//          // if the file is 404, Meteor will redirect to / and return the Meteor.js boilerplate
+//          test.isTrue(result.content.length > 100000, font + ' font could not be downloaded');
+//        }
+//
+//        done();
+//      }
+//    );
+//  });
+//})
 
 var plugins = ['affix', 'alert', 'button', 'carousel', 'collapse', 'dropdown', 'modal', 'popover', 'scrollspy', 'tab', 'tooltip'];
 
