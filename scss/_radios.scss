@@ -19,7 +19,9 @@ label.radio-inline,
 .radio-inline label {
   position: relative;
   padding-left: 45px;
-  color: $mdb-radio-label-color;
+
+  @include mdb-label-color-toggle-focus();
+
   cursor: pointer;
 
   span {

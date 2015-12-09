@@ -1,0 +1,25 @@
+@mixin mdb-label-color-toggle-focus() {
+  // override bootstrap focus and keep all the standard color (could be multiple radios in the form group)
+  .mdb-form-group.is-focused & {
+    color: $mdb-label-color;
+
+    // on focus just darken the specific labels, do not turn them to the brand-primary
+    &:hover,
+    &:focus {
+      color: $mdb-label-color-toggle-focus;
+    }
+  }
+}
+
+//// Placeholder text
+//@mixin material-placeholder() {
+//  &::placeholder {
+//    @content;
+//  }
+//  // Firefox
+//  //&::-moz-placeholder {@content; } // Firefox
+//  //&:-ms-input-placeholder {@content; } // Internet Explorer 10+
+//  //&::-webkit-input-placeholder  {@content; } // Safari and Chrome
+//}
+
+

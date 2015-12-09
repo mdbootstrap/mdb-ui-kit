@@ -4,8 +4,8 @@
     user-select: none;
   }
   label {
-    color: $mdb-switch-label-color;
     cursor: pointer;
+    @include mdb-label-color-toggle-focus();
 
     // Hide original checkbox
     input[type=checkbox] {

@@ -1,9 +1,3 @@
-// label variations
-.label {
-  border-radius: $border-radius-small;
-  //@include variations(unquote(""), background-color, $grey);
-}
-
 // must be broken out for reuse - webkit selector breaks firefox
 @mixin label-static($label-top, $static-font-size, $static-line-height) {
   label.control-label {
@@ -20,7 +14,6 @@
   //  @include material-placeholder {
   //    font-size: $placeholder-font-size;
   //    line-height: $line-height;
-  //    color: $mdb-input-placeholder-color;
   //    font-weight: 400;
   //  }
   //
@@ -35,7 +28,6 @@
   label {
     //font-size: $placeholder-font-size;
     //line-height: $line-height;
-    //color: $mdb-input-placeholder-color;
     //font-weight: 400;
   }
 
@@ -43,8 +35,6 @@
   label.control-label {
     //font-size: $static-font-size;
     //line-height: $static-line-height;
-    //color: $mdb-input-placeholder-color;
-    //font-weight: 400;
     //margin: 16px 0 0 0; // std and lg
   }
 
@@ -264,21 +254,22 @@
       }
     }
 
-    .help-block {
-      //display: block;
-    }
+    //.help-block {
+    //  display: block;
+    //}
   }
 
-  textarea {
-    //resize: none;
-  }
+  //textarea {
+  //  resize: none;
+  //}
+}
 
-  select {
-    //appearance: none; // Fix for OS X
-
-    ~ .mdb-form-control-decorator::after {
-      //display: none;
-    }
+select {
+  &,
+  &.form-control {
+    // Use vendor prefixes as `appearance` isn't part of the CSS spec. OSX doesn't obey the border-radius: 0 without this.
+    -moz-appearance: none;
+    -webkit-appearance: none;
   }
 }
 
@@ -294,23 +285,6 @@
 // lg floating size/location
 @include mdb-form-group-size-variant(unquote(".mdb-form-group.mdb-form-group-lg"), $font-size-lg, $mdb-label-top-margin-lg, $mdb-input-padding-y-lg, $line-height-lg, $mdb-label-as-placeholder-shim-lg);
 
-select.form-control {
-  //border: 0;
-  //box-shadow: none;
-  //border-radius: 0;
-
-  .mdb-form-group.is-focused & {
-    //box-shadow: none;
-    //border-color: $mdb-input-underline-color;
-  }
-
-  &[multiple] {
-    &,
-    .mdb-form-group.is-focused & {
-      //height: 85px;
-    }
-  }
-}
 
 // Input files - hide actual input - requires specific markup in the sample.
 //.mdb-form-group input[type=file] {
