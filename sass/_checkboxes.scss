@@ -9,6 +9,7 @@
     cursor: pointer;
     padding-left: 0; // Reset for Bootstrap rule
     color: $mdb-checkbox-label-color;
+    @include mdb-label-color-toggle-focus();
   }
 
   // Hide native checkbox
