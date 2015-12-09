@@ -85,6 +85,21 @@ a:hover .material-icons,
 a:focus .material-icons {
   vertical-align: middle;
 }
+.form-horizontal .radio,
+.form-horizontal .checkbox,
+.form-horizontal .radio-inline,
+.form-horizontal .checkbox-inline {
+  padding-top: 0;
+}
+.form-horizontal .radio {
+  margin-bottom: 10px;
+}
+.form-horizontal label {
+  text-align: right;
+}
+.form-horizontal label.control-label {
+  margin: 0;
+}
 body .container .well.well-sm,
 body .container-fluid .well.well-sm {
   padding: 10px;
@@ -787,7 +802,14 @@ fieldset[disabled][disabled] .btn-group-vertical.btn-group-raised:focus:not(:act
 .checkbox label {
   cursor: pointer;
   padding-left: 0;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0,0,0, 0.26);
+}
+.form-group.is-focused .checkbox label {
+  color: rgba(0,0,0, 0.26);
+}
+.form-group.is-focused .checkbox label:hover,
+.form-group.is-focused .checkbox label:focus {
+  color: rgba(0,0,0, .54);
 }
 .checkbox input[type=checkbox] {
   opacity: 0;
@@ -825,7 +847,7 @@ fieldset[disabled][disabled] .btn-group-vertical.btn-group-raised:focus:not(:act
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 2px solid rgba(0, 0, 0, 0.54);
+  border: 2px solid rgba(0,0,0, .54);
   overflow: hidden;
   z-index: 1;
 }
@@ -863,11 +885,11 @@ fieldset[disabled][disabled] .btn-group-vertical.btn-group-raised:focus:not(:act
   opacity: 0.2;
 }
 .checkbox input[type=checkbox]:checked + .checkbox-material .check {
-  color: #4caf50;
-  border-color: #4caf50;
+  color: #009688;
+  border-color: #009688;
 }
 .checkbox input[type=checkbox]:checked + .checkbox-material .check:before {
-  color: #4caf50;
+  color: #009688;
   -webkit-box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
           box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0px 32px 0 20px, -5px 5px 0 10px, 20px -12px 0 11px;
   -webkit-animation: checkbox-on 0.3s forwards;
@@ -1205,7 +1227,14 @@ fieldset[disabled] .checkbox input[type=checkbox],
 }
 .togglebutton label {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0,0,0, 0.26);
+}
+.form-group.is-focused .togglebutton label {
+  color: rgba(0,0,0, 0.26);
+}
+.form-group.is-focused .togglebutton label:hover,
+.form-group.is-focused .togglebutton label:focus {
+  color: rgba(0,0,0, .54);
 }
 .togglebutton label input[type=checkbox] {
   opacity: 0;
@@ -1271,7 +1300,14 @@ fieldset[disabled] .checkbox input[type=checkbox],
   cursor: pointer;
   padding-left: 45px;
   position: relative;
-  color: rgba(0, 0, 0, 0.54);
+  color: rgba(0,0,0, 0.26);
+}
+.form-group.is-focused .radio label {
+  color: rgba(0,0,0, 0.26);
+}
+.form-group.is-focused .radio label:hover,
+.form-group.is-focused .radio label:focus {
+  color: rgba(0,0,0, .54);
 }
 .radio label span {
   display: block;
@@ -1283,7 +1319,7 @@ fieldset[disabled] .checkbox input[type=checkbox],
           transition-duration: 0.2s;
 }
 .radio label .circle {
-  border: 2px solid rgba(0, 0, 0, 0.54);
+  border: 2px solid rgba(0,0,0, .54);
   height: 15px;
   width: 15px;
   border-radius: 100%;
@@ -2004,21 +2040,6 @@ select.form-control[multiple],
   width: 100%;
   height: 100%;
   z-index: 100;
-}
-.form-horizontal .radio,
-.form-horizontal .checkbox,
-.form-horizontal .radio-inline,
-.form-horizontal .checkbox-inline {
-  padding-top: 0;
-}
-.form-horizontal .radio {
-  margin-bottom: 10px;
-}
-.form-horizontal label {
-  text-align: right;
-}
-.form-horizontal label.control-label {
-  margin: 0;
 }
 legend {
   border-bottom: 0;
@@ -3308,21 +3329,15 @@ hr.on-light {
 .selectize-control.multi .dropdown-active ~ .selectize-dropdown {
   display: block;
 }
-.dropdownjs:after {
+.dropdownjs::after {
   right: 5px;
   top: 3px;
   font-size: 25px;
   position: absolute;
-  content: "\e8ac";
-  font-family: "Material-Design-Icons";
-  speak: none;
+  font-family: 'Material Icons';
   font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  content: "\e5c5";
   pointer-events: none;
   color: #757575;
 }
