@@ -120,7 +120,7 @@ $background-disabled: #eaeaea !default;
 $mdb-checkbox-size: 20px !default;
 $mdb-checkbox-animation-ripple: 500ms !default;
 $mdb-checkbox-animation-check: 0.3s !default;
-$mdb-checkbox-checked-color: #4caf50 !default;
+$mdb-checkbox-checked-color: $brand-primary !default;
 $mdb-checkbox-label-color: rgba(0, 0, 0, .54) !default;
 $mdb-checkbox-border-color: $mdb-checkbox-label-color !default;
 
