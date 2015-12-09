@@ -18,7 +18,7 @@ const BaseInput = (($) => {
   const ClassName = {
     FORM_GROUP: 'form-group',
     MDB_FORM_GROUP: 'mdb-form-group',
-    HAS_ERROR: 'has-error',
+    HAS_DANGER: 'has-danger',
     IS_EMPTY: 'is-empty',
     IS_FOCUSED: 'is-focused'
   }
@@ -130,9 +130,9 @@ const BaseInput = (($) => {
             //        BUT, I've left it here for backwards compatibility.
             let isValid = (typeof this.$element[0].checkValidity === 'undefined' || this.$element[0].checkValidity())
             if (isValid) {
-              this.removeHasError()
+              this.removeHasDanger()
             } else {
-              this.addHasError()
+              this.addHasDanger()
             }
           }
         })
@@ -146,12 +146,12 @@ const BaseInput = (($) => {
       this.$mdbFormGroup.removeClass(ClassName.IS_FOCUSED)
     }
 
-    addHasError() {
-      this.$mdbFormGroup.addClass(ClassName.HAS_ERROR)
+    addHasDanger() {
+      this.$mdbFormGroup.addClass(ClassName.HAS_DANGER)
     }
 
-    removeHasError() {
-      this.$mdbFormGroup.removeClass(ClassName.HAS_ERROR)
+    removeHasDanger() {
+      this.$mdbFormGroup.removeClass(ClassName.HAS_DANGER)
     }
 
     addIsEmpty() {

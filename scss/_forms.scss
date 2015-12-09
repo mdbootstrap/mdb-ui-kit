@@ -16,18 +16,18 @@
 }
 
 @mixin label-size-variant($placeholder-font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-block-font-size) {
-  .form-control {
-    @include material-placeholder {
-      //font-size: $placeholder-font-size;
-      //line-height: $line-height;
-      //color: $mdb-input-placeholder-color;
-      //font-weight: 400;
-    }
-
-    // margin-bottom must be specified to give help-block vertical space.
-    //    $see also form-group padding-bottom (and size variants) re: collapsible margins.  These work together.
-    //margin-bottom: $vertical-padding;
-  }
+  //.form-control {
+  //  @include material-placeholder {
+  //    font-size: $placeholder-font-size;
+  //    line-height: $line-height;
+  //    color: $mdb-input-placeholder-color;
+  //    font-weight: 400;
+  //  }
+  //
+  //  // margin-bottom must be specified to give help-block vertical space.
+  //  //    $see also form-group padding-bottom (and size variants) re: collapsible margins.  These work together.
+  //  margin-bottom: $vertical-padding;
+  //}
 
   // generic labels used anywhere in the form (not control-label)
   .checkbox label,
@@ -54,28 +54,44 @@
   }
 }
 
-@mixin mdb-form-group-validation-state($name, $color) {
+@mixin mdb-form-color($label-color, $border-color) {
+  // Use the BS provided mixin for the bulk of the color
+  @include form-control-validation($label-color);
 
-  &.has-#{$name} { // e.g. has-error
+  // Set the border and box shadow on specific inputs to match
+  .form-control {
+    border-color: $border-color;
+  }
+
+  // Set validation states also for addons
+  .input-group-addon {
+    border-color: $border-color;
+  }
+
+  label {
+    color: $label-color;
+  }
+}
+
+@mixin mdb-form-control-validation($name, $color) {
+  // e.g. has-danger
+  &.has-#{$name} {
+
+    // override BS and keep the border-color normal/grey so that focus animation draws attention
     .form-control {
-      //box-shadow: none; // replaced with variable
-    }
-
-    // e.g. form-control-success
-    .form-control-#{$name} {
-      //  background-image: none;
+      border-color: $input-border-color;
     }
 
     &.is-focused {
-      .form-control {
-        //background-image: linear-gradient($color, $color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
-      }
-      .mdb-form-control-decorator::after {
-        //background-color: $color;
-      }
-      label.control-label,
-      .help-block {
-        color: $color;
+      // on focus set borders and labels to the validation color
+      @include mdb-form-color($color, $color);
+
+      // underline animation color on focus
+      .mdb-form-control-decorator {
+        &::before,
+        &::after {
+          @include gradient-vertical($color, $input-border-color);
+        }
       }
     }
   }
@@ -133,21 +149,18 @@
   }
 }
 
+@include mdb-form-color($mdb-label-color, $input-border-color);
+@include mdb-form-control-validation(warning, $brand-warning);
+@include mdb-form-control-validation(danger, $brand-danger);
+@include mdb-form-control-validation(success, $brand-success);
+@include mdb-form-control-validation(info, $brand-info);
+
 // -----
 // Inputs
 //
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-//.mdb-form-group .form-control,
 .form-control {
-  //background-image: linear-gradient($brand-primary, $brand-primary), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
-  //background-repeat: no-repeat;
-  //background-position: center bottom, center calc(100% - 1px);
-  //background-size: 0 2px, 100% 1px;
-  //transition: background 0s ease-out;
-
-  //float: none;  // why?
-
   // The border bottom should be static in all states, the decorator will be animated over this.
   &,
   &:focus,
@@ -158,29 +171,8 @@
 
   &[disabled],
   fieldset[disabled] & {
-    //background-image: none;
     border-bottom: $input-border-width dotted $input-border-color;
   }
-
-  //&:textarea {
-  //  height: 40px;
-  //}
-
-  //&:focus,
-  //.mdb-form-group.is-focused & {
-  //  background-size: 100% 2px, 100% 1px;
-  //  outline: none; // redundant - in bootstrap
-  //  transition-duration: 0.3s;
-  //}
-  //.mdb-form-group.is-focused .mdb-form-control-decorator::after {
-  //  background-color: $brand-primary;
-  //}
-
-  //&[readonly],
-  //&[disabled],
-  //fieldset[disabled] & {
-  //  background-color: rgba($black, 0);  // replaced with $input-bg-disabled
-  //}
 }
 
 // Focus underline animation =================================
@@ -194,7 +186,7 @@
     width: 0;
     height: $input-border-width;
     content: "";
-    @include gradient-vertical($brand-primary, $mdb-input-underline-color);
+    @include gradient-vertical($brand-primary, $input-border-color);
     transition: 0.3s ease all;
 
     // focused state - it transitions the width of each (before and after) to 50% creating the center out effect
@@ -210,7 +202,8 @@
     right: 50%;
   }
 }
-// Focus underline animation =================================
+
+// End: Focus underline animation =================================
 
 // -----
 // Labels with mdb-form-group signalled state
@@ -276,16 +269,8 @@
     }
   }
 
-  @include mdb-form-group-validation-state(warning, $brand-warning);
-  @include mdb-form-group-validation-state(error, $brand-danger);
-  @include mdb-form-group-validation-state(success, $brand-success);
-  @include mdb-form-group-validation-state(info, $brand-info);
-
   textarea {
     //resize: none;
-    ~ .form-control-highlight {
-      //margin-top: -11px;
-    }
   }
 
   select {

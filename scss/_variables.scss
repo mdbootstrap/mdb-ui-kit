@@ -45,7 +45,10 @@ $contrast-factor: 40% !default;
 // --------------------
 // inputs
 //$mdb-input-placeholder-color: #BDBDBD !default;
-$mdb-input-underline-color: #d2d2d2 !default;
+
+$mdb-label-color: rgba($black, 0.26) !default;   // synced
+
+//$mdb-input-underline-color: #d2d2d2 !default;
 $mdb-label-static-size-ratio: 75 / 100 !default;
 $mdb-help-block-size-ratio: 75 / 100 !default;
 
