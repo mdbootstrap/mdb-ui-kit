@@ -1,19 +1,15 @@
-.dropdownjs:after {
-    right: 5px;
-    top: 3px;
-    font-size: 25px;
-    position: absolute;
-    content: "\e8ac";
-    font-family: "Material-Design-Icons";
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    pointer-events: none;
-    color: #757575;
+.dropdownjs::after {
+  right: 5px;
+  top: 3px;
+  font-size: 25px;
+  position: absolute;
 
+  // bring in the material icon font and icon by code
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  content: "\e5c5"; // found here: https://github.com/google/material-design-icons/search?utf8=%E2%9C%93&q=arrow_drop_down
+
+  pointer-events: none;
+  color: #757575;
 }
