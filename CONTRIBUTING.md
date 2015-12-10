@@ -221,8 +221,8 @@ Bootstrap checked out in parallel to this project, running three different termi
     bundle install
     npm install
     
-    # this is all you need after initial setup
-    jekyll serve
+    # update docs and serve
+    grunt dist docs && jekyll serve
     ```
     
 1. Initial build and watch
@@ -244,6 +244,7 @@ This performs an initial build and watches both the core and docs sources for ch
 
     ```bash
     jekyll serve
+    ```
 
 ## Releasing
 

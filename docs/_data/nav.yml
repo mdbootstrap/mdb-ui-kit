@@ -23,6 +23,10 @@
     - title: Tables
     - title: Figures
 
+- title: Material Design
+  pages:
+    - title: Forms
+
 - title: Components
   pages:
     - title: Buttons
