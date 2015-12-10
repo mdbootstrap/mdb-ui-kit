@@ -47,7 +47,7 @@ label.checkbox-inline,
       width: $mdb-checkbox-size;
       height: $mdb-checkbox-size;
       overflow: hidden;
-      border: $border-radius-base solid $mdb-checkbox-border-color;
+      border: $border-radius solid $mdb-checkbox-border-color;
     }
     .check::before {
       position: absolute;

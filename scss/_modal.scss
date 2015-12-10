@@ -5,7 +5,7 @@
 .modal-content {
   @include shadow-z-5();
   border: 0;
-  border-radius: $border-radius-base;
+  border-radius: $border-radius;
   // Modal header
   // Top section of the modal w/ title and dismiss
   .modal-header {

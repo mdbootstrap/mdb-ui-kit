@@ -1,11 +1,7 @@
 @import "variables/colors";
 
-// Typography elements FIXME: review to see if we actually need these
-$mdb-text-color-light: rgba($white, 0.84) !default; //hsla(0, 0%, 100%, 0.84) !default; // white 0.84 //unquote("rgba(#{$rgb-white}, 0.84)") !default;
 $mdb-text-color-primary: rgba($black, 0.87) !default;
-$mdb-font-weight-base: 400;
-$icon-color: rgba($black, 0.5) !default;
-
+$mdb-text-color-light: rgba($white, 0.84) !default;
 
 // redefine ? TODO: do we need this mdb variant?  This is used as $body-color
 $gray-dark: $mdb-text-color-primary;
@@ -13,22 +9,26 @@ $gray-dark: $mdb-text-color-primary;
 //---
 // Customized BS variables
 $enable-flex: true;
-@import "variables/body";
-@import "variables/brand";
-@import "variables/buttons";
-@import "variables/code";
-@import "variables/forms";
-@import "variables/state";
-@import "variables/type";
-
-
-$border-radius-base: 2px !default;
-$border-radius-small: 1px !default;
+@import "variables/bootstrap/body";
+@import "variables/bootstrap/brand";
+@import "variables/bootstrap/buttons";
+@import "variables/bootstrap/code";
+@import "variables/bootstrap/components";
+@import "variables/bootstrap/forms";
+@import "variables/bootstrap/state";
+@import "variables/bootstrap/type";
 
 
 //---
-// Bootstrap Material Design variables start with mdb-
+// verified in use with refactoring to v4
+$mdb-font-weight-base: 400;
+
+
+//---
+//-- unverified below here
 $mdb-brand-inverse: $indigo !default;
+// Typography elements FIXME: review to see if we actually need these
+$icon-color: rgba($black, 0.5) !default;
 
 // ANIMATION
 $mdb-animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
