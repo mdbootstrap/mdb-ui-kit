@@ -27,6 +27,7 @@ exclude:          [assets/scss/]
 
 gems:
   - jekyll-redirect-from
+  - jekyll-seo-tag
   - jekyll-sitemap
 
 # Custom vars
@@ -54,3 +55,13 @@ cdn:
   # VERSION is substituted in variables.rb and these are made available as site.data.cdn.*
   jquery:         https://ajax.googleapis.com/ajax/libs/jquery/VERSION/jquery.min.js
   bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap.js
+
+
+
+#twitter:
+#  username: getbootstrap
+#
+#social:
+#  type: organization
+#  name: twbs
+#  links: ["https://www.facebook.com/getbootstrap/", "https://twitter.com/getbootstrap"]

@@ -47,8 +47,8 @@ module.exports = function (grunt) {
       'Edge >= 12',
       'Explorer >= 9',
       // Out of leniency, we prefix these 1 version further back than the official policy.
-      'iOS >= 7',
-      'Safari >= 7.1',
+      'iOS >= 8',
+      'Safari >= 8',
       // The following remain NOT officially supported, but we're lenient and include their prefixes to avoid severely breaking in them.
       'Android 2.3',
       'Android >= 4',
@@ -327,7 +327,7 @@ module.exports = function (grunt) {
         compatibility: 'ie9',
         keepSpecialComments: '*',
         sourceMap: true,
-        noAdvanced: true
+        advanced: false
       },
       core: {
         files: [
@@ -421,22 +421,36 @@ module.exports = function (grunt) {
         dest: 'docs/components/'
       },
       'bs-docs-content': {
-        options: {
-          // //https://regex101.com/r/cZ7aO8/2
-          process: function (content, srcpath) {
-            return content
-              // insert docs reference
-              .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice)
-              // remove sample text 'display' as this is a particular style and is confusing
-              .replace(/Fancy display heading/, 'Fancy heading');
-          }
-        },
+        //options: {
+        //  // https://regex101.com/r/cZ7aO8/2
+        //  process: function (content, srcpath) {
+        //    return content
+        //      // insert docs reference
+        //      .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice)
+        //      // remove sample text 'display' as this is a particular style and is confusing
+        //      .replace(/Fancy display heading/, 'Fancy heading');
+        //  }
+        //},
         expand: true,
         cwd: '../bootstrap/docs/content',
         src: [
           '**/*'
         ],
         dest: 'docs/content/'
+      },
+      'bs-docs-examples': {
+        options: {
+          // //https://regex101.com/r/cZ7aO8/2
+          process: function (content, srcpath) {
+            return content.replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice);
+          }
+        },
+        expand: true,
+        cwd: '../bootstrap/docs/examples',
+        src: [
+          '**/*'
+        ],
+        dest: 'docs/examples/'
       }
     },
 
@@ -654,11 +668,18 @@ module.exports = function (grunt) {
   grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
   grunt.registerTask('docs-js', ['babel:docs', 'uglify:docsJs']);
   grunt.registerTask('lint-docs-js', ['jscs:assets']);
-  grunt.registerTask('docs-copy-bootstrap-docs', ['copy:bs-docs-js-vendor', 'copy:bs-docs-scss', 'copy:bs-docs-components', 'copy:bs-docs-content']);
+  grunt.registerTask('docs-copy-bootstrap-docs', [
+    'copy:bs-docs-js-vendor',
+    'copy:bs-docs-scss',
+    'copy:bs-docs-components',
+    'copy:bs-docs-content',
+    'copy:bs-docs-examples'
+  ]);
 
   grunt.registerTask('docs', ['clean:docs', 'docs-copy-bootstrap-docs', 'docs-css', 'docs-js', 'lint-docs-js', 'copy:docs']);
+  grunt.registerTask('docs-github', ['jekyll:github']);
 
-  grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin', 'compress']);
+  grunt.registerTask('prep-release', ['dist', 'docs', 'docs-github', 'compress']);
 
   // Publish to GitHub
   grunt.registerTask('publish', ['buildcontrol:pages']);

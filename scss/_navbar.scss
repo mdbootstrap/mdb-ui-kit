@@ -70,9 +70,6 @@
   //}
   //
   //.navbar-collapse,
-  //.navbar-form {
-  //  border-color: rgba(0,0,0,0.1);
-  //}
   //
   //// Dropdowns
   //.navbar-nav {
@@ -153,8 +150,6 @@
   //  }
   //}
   //
-  //.navbar-form {
-  //  margin-top: 16px;
   //  .mdb-form-group {
   //    margin: 0;
   //    padding: 0;
@@ -172,7 +167,6 @@
   //    padding: 0;
   //    margin: 0;
   //  }
-  //}
   //
   //// SASS conversion note: please mirror any content change in _mixins-shared.scss navbar-variations-content
   //@include navbar-variations(unquote(".navbar"), unquote(""), $brand-primary);
@@ -188,9 +182,6 @@
   //  .navbar-brand {
   //    height: 50px;
   //    padding: 10px 15px;
-  //  }
-  //  .navbar-form {
-  //    margin-top: 10px;
   //  }
   //
   //  .navbar-nav > li > a {

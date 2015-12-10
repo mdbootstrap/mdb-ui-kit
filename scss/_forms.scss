@@ -156,25 +156,25 @@
   &:focus,
   .mdb-form-group.is-focused & {
     border: 0;
-    border-bottom: $input-border-width solid $input-border-color;
+    border-bottom: $input-btn-border-width solid $input-border-color;
   }
 
   &[disabled],
   fieldset[disabled] & {
-    border-bottom: $input-border-width dotted $input-border-color;
+    border-bottom: $input-btn-border-width dotted $input-border-color;
   }
 }
 
 // Focus underline animation =================================
 .mdb-form-control-decorator {
   position: relative;
-  top: (-1 * $input-border-width); // move the top up enough to overlay the border from the input
+  top: (-1 * $input-btn-border-width); // move the top up enough to overlay the border from the input
   display: block;
   &::before,
   &::after {
     position: absolute;
     width: 0;
-    height: $input-border-width;
+    height: $input-btn-border-width;
     content: "";
     @include gradient-vertical($brand-primary, $input-border-color);
     transition: 0.3s ease all;
