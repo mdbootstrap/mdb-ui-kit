@@ -1,4 +1,3 @@
-
 @include mdb-form-color($mdb-label-color, $input-border-color);
 @include mdb-form-control-validation(warning, $brand-warning);
 @include mdb-form-control-validation(danger, $brand-danger);
@@ -52,6 +51,7 @@
     right: 50%;
   }
 }
+
 // End: Focus underline animation =================================
 
 // Help blocks (not in v4)
@@ -75,7 +75,7 @@
 //
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-//.variations(unquote(" label.control-label"), color, $mdb-input-placeholder-color);  // default label color variations
+//.variations(unquote(" label"), color, $mdb-input-placeholder-color);  // default label color variations
 
 .mdb-form-group {
   position: relative;
@@ -88,39 +88,47 @@
   &.label-static,
   &.label-placeholder,
   &.label-floating {
-    label.control-label {
-      position: absolute;
-      pointer-events: none;
-      transition: 0.3s ease all;
-    }
+    //> label {
+    //  position: absolute;
+    //  pointer-events: none;
+    //  transition: 0.3s ease all;
+    //
+    //  label {
+    //    position: relative;
+    //  }
+    //}
   }
 
   // hint to browser for optimization
-  &.label-floating label.control-label {
-    will-change: left, top, contents; // TODO: evaluate effectiveness - looking for community feedback
+  &.label-floating {
+    label {
+      will-change: left, top, contents; // TODO: evaluate effectiveness - looking for community feedback
+    }
   }
 
   // hide label-placeholders when the field is not empty
   &.label-placeholder:not(.is-empty) {
-    label.control-label {
+    label {
       display: none;
     }
   }
 
   &.is-focused {
-    label, // this is a control-label, but often times (too often) not marked as such so work around bad markup
-    label.control-label {
+    label {
       color: $brand-primary;
 
-      label { // inner label
+      label { // inner label e.g. checkbox or radio label
         color: $mdb-label-color-inner-focus;
       }
     }
 
     &.label-placeholder {
-      label,
-      label.control-label {
+      label {
         color: $mdb-label-color;
+
+        label { // inner label e.g. checkbox or radio label
+          color: $mdb-label-color-inner-focus;
+        }
       }
     }
 
@@ -128,7 +136,22 @@
       color: $mdb-label-color-inner-focus;
     }
   }
+  // default floating size/location with an mdb-form-group
+  @include mdb-form-group-size-variant($font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-y-base, $line-height, $mdb-label-as-placeholder-shim-base, "mdb-form-group default");
+
+  // sm floating size/location
+  //&.mdb-form-group-sm {
+  //  @include mdb-form-group-size-variant($font-size-sm, $mdb-label-top-margin-sm, $mdb-input-padding-y-sm, $line-height-sm, $mdb-label-as-placeholder-shim-sm, "mdb-form-group sm");
+  //}
+  //
+  //// lg floating size/location
+  //&.mdb-form-group-lg {
+  //  @include mdb-form-group-size-variant($font-size-lg, $mdb-label-top-margin-lg, $mdb-input-padding-y-lg, $line-height-lg, $mdb-label-as-placeholder-shim-lg, "mdb-form-group lg");
+  //}
 }
+
+// default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation)
+//@include mdb-form-group-size-variant($font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-y-base, $line-height, $mdb-label-as-placeholder-shim-base);
 
 select {
   &,
@@ -138,19 +161,6 @@ select {
     -webkit-appearance: none;
   }
 }
-
-// default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation)
-@include mdb-form-group-size-variant(null, $font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-y-base, $line-height, $mdb-label-as-placeholder-shim-base);
-
-// default floating size/location with a form-group (need margin etc from a default form-group)
-@include mdb-form-group-size-variant(unquote(".mdb-form-group"), $font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-y-base, $line-height, $mdb-label-as-placeholder-shim-base);
-
-// sm floating size/location
-@include mdb-form-group-size-variant(unquote(".mdb-form-group.mdb-form-group-sm"), $font-size-sm, $mdb-label-top-margin-sm, $mdb-input-padding-y-sm, $line-height-sm, $mdb-label-as-placeholder-shim-sm);
-
-// lg floating size/location
-@include mdb-form-group-size-variant(unquote(".mdb-form-group.mdb-form-group-lg"), $font-size-lg, $mdb-label-top-margin-lg, $mdb-input-padding-y-lg, $line-height-lg, $mdb-label-as-placeholder-shim-lg);
-
 
 // Input files - hide actual input - requires specific markup in the sample.
 //.mdb-form-group input[type=file] {
@@ -189,7 +199,7 @@ select {
 //    text-align: right;
 //  }
 //
-//  label.control-label {
+//  label {
 //    margin: 0;
 //  }
 //}

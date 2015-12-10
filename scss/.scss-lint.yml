@@ -20,7 +20,7 @@ linters:
     exclude: ['_normalize.scss', 'bootstrap.scss']
 
   DebugStatement:
-    enabled: true
+    enabled: false
 
   DeclarationOrder:
     enabled: false

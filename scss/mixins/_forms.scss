@@ -1,19 +1,19 @@
 // must be broken out for reuse - webkit selector breaks firefox
 @mixin label-static($label-top, $static-font-size, $static-line-height) {
-  label.control-label {
+  label {
     top: $label-top;
     left: 0;
     // must repeat because the selector above is more specific than the general label sizing
-    //font-size: $static-font-size;
-    //line-height: $static-line-height;
+    font-size: $static-font-size;
+    line-height: $static-line-height;
   }
 }
 
-@mixin label-size-variant($placeholder-font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-block-font-size) {
+@mixin label-size-variant($placeholder-font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-font-size) {
   .form-control {
     @include mdb-input-placeholder {
       font-size: $placeholder-font-size;
-      //    line-height: $line-height;
+      line-height: $line-height;
     }
     //
     //  // margin-bottom must be specified to give help-block vertical space.
@@ -25,21 +25,21 @@
   .checkbox label,
   .radio label,
   label {
-    //font-size: $placeholder-font-size;
-    //line-height: $line-height;
+    font-size: $placeholder-font-size;
+    line-height: $line-height;
   }
 
   // smaller focused or static size
-  label.control-label {
-    //font-size: $static-font-size;
-    //line-height: $static-line-height;
+  label {
+    font-size: $static-font-size;
+    line-height: $static-line-height;
     //margin: 16px 0 0 0; // std and lg
   }
 
-  //.mdb-help {
-  //  margin-top: 0; // allow the input margin to set-off the top of the help-block
-  //  font-size: $help-block-font-size;
-  //}
+  .mdb-help {
+    margin-top: 0; // allow the input margin to set-off the top of the help-block
+    font-size: $help-font-size;
+  }
 }
 
 @mixin mdb-form-color($label-color, $border-color) {
@@ -92,54 +92,56 @@
   }
 }
 
-@mixin mdb-form-group-size-variant($parent, $placeholder-font-size, $label-top-margin, $vertical-padding, $line-height, $label-as-placeholder-shim) {
-  $static-font-size: ceil(($mdb-label-static-size-ratio * $placeholder-font-size)) !default;
+@mixin mdb-form-group-size-variant($font-size, $label-top-margin, $vertical-padding, $line-height, $label-as-placeholder-shim, $context: null) {
+  $static-font-size: ($mdb-label-static-size-ratio * $font-size) !default;
   $static-line-height: ($mdb-label-static-size-ratio * $line-height) !default;
 
   $label-as-placeholder-top: -1 * ($vertical-padding + $label-as-placeholder-shim) !default;
-  $label-top: $label-as-placeholder-top - ($placeholder-font-size + $vertical-padding) !default;
+  $label-top: $label-as-placeholder-top - ($font-size + $vertical-padding) !default;
 
-  $help-block-font-size: ceil(($mdb-help-block-size-ratio * $placeholder-font-size)) !default;
-  $help-block-line-height: ($mdb-help-block-size-ratio * $line-height) !default;
+  $help-font-size: ($mdb-help-size-ratio * $font-size) !default;
+  $help-line-height: ($mdb-help-size-ratio * $line-height) !default;
+
+  @debug "font-size: #{$font-size} static-font-size: #{$static-font-size} help-font-size: #{$help-font-size} context: #{$context} ";
 
   // this is outside a form-group
-  @if not $parent {
-    @include label-size-variant($placeholder-font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-block-font-size);
+  @if not $context {
+    @include label-size-variant($font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-font-size);
   } @else {
     // this is inside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
-    #{$parent} {
-      @include label-size-variant($placeholder-font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-block-font-size);
+    @include label-size-variant($font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-font-size);
 
-      // form-group padding-bottom
-      //  upon collapsing margins, the largest margin is honored which collapses the form-control margin-bottom,
-      //  so the form-control margin-bottom must also be expressed as form-group padding
-      //padding-bottom: $vertical-padding;
+    // form-group padding-bottom
+    //  upon collapsing margins, the largest margin is honored which collapses the form-control margin-bottom,
+    //  so the form-control margin-bottom must also be expressed as form-group padding
+    //padding-bottom: $vertical-padding;
 
-      // FIXME: need to avoid top margin http://v4-alpha.getbootstrap.com/content/reboot/#approach
-      // form-group margin-top must be large enough for the label and the label's top padding since label is absolutely positioned
-      //margin: ($label-top-margin + $static-font-size) 0 0 0; // old, try padding below
-      //padding-top: ($label-top-margin + $static-font-size);
+    // FIXME: need to avoid top margin http://v4-alpha.getbootstrap.com/content/reboot/#approach
+    // form-group margin-top must be large enough for the label and the label's top padding since label is absolutely positioned
+    //margin: ($label-top-margin + $static-font-size) 0 0 0; // old, try padding below
+    //padding-top: ($label-top-margin + $static-font-size);
 
-      // larger labels as placeholders
-      &.label-floating,
-      &.label-placeholder {
-        label.control-label {
-          top: $label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
-          //font-size: $placeholder-font-size;
-          //line-height: $line-height;
-        }
+    // placeholder positioning
+    &.label-floating,
+    &.label-placeholder {
+      label,
+      label {
+        @debug "top: #{$label-as-placeholder-top}";
+        top: $label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
+        //font-size: $placeholder-font-size;
+        //line-height: $line-height;
       }
+    }
 
-      // static, focused, or autofill floating labels
-      &.label-static,
-      &.label-floating.is-focused,
-      &.label-floating:not(.is-empty) {
-        @include label-static($label-top, $static-font-size, $static-line-height);
-      }
-      // #559 Fix for webkit/chrome autofill - rule must be separate because it breaks firefox otherwise #731
-      &.label-floating input.form-control:-webkit-autofill ~ label.control-label {
-        @include label-static($label-top, $static-font-size, $static-line-height);
-      }
+    // static, focused, or autofill floating labels
+    &.label-static,
+    &.label-floating.is-focused,
+    &.label-floating:not(.is-empty) {
+      @include label-static($label-top, $static-font-size, $static-line-height);
+    }
+    // #559 Fix for webkit/chrome autofill - rule must be separate because it breaks firefox otherwise #731
+    &.label-floating input.form-control:-webkit-autofill ~ label {
+      @include label-static($label-top, $static-font-size, $static-line-height);
     }
   }
 }
