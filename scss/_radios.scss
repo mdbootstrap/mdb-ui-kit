@@ -20,7 +20,7 @@ label.radio-inline,
   position: relative;
   padding-left: 45px;
 
-  @include mdb-label-color-toggle-focus();
+  @include mdb-label-color-inner-focus();
 
   cursor: pointer;
 

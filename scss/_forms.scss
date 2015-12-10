@@ -1,3 +1,4 @@
+
 @include mdb-form-color($mdb-label-color, $input-border-color);
 @include mdb-form-control-validation(warning, $brand-warning);
 @include mdb-form-control-validation(danger, $brand-danger);
@@ -53,6 +54,22 @@
 }
 // End: Focus underline animation =================================
 
+// Help blocks (not in v4)
+//  position: absolute approach - uses no vertical space and there is no form jumping, but text wrapping - not so good.
+//  FIXME: width/wrapping isn't automatic and overflows occur.  What are some solutions?
+//
+.mdb-help {
+  position: absolute;
+  display: none;
+  font-size: 80%;
+  font-weight: normal;
+  @extend .text-muted;
+
+  .mdb-form-group.is-focused & {
+    display: block;
+  }
+}
+
 // -----
 // Labels with mdb-form-group signalled state
 //
@@ -79,9 +96,8 @@
   }
 
   // hint to browser for optimization
-  //    TODO: evaluate effectiveness - looking for community feedback
   &.label-floating label.control-label {
-    will-change: left, top, contents;
+    will-change: left, top, contents; // TODO: evaluate effectiveness - looking for community feedback
   }
 
   // hide label-placeholders when the field is not empty
@@ -91,30 +107,26 @@
     }
   }
 
-  // Help blocks (not in v4) - position: absolute approach - uses no vertical space, text wrapping - not so good.
-  //.help-block {
-  //  position: absolute; // do not use position: absolute because width/wrapping isn't automatic and overflows occur
-  //  display: none;
-  //}
-
-  // mdb-form-group is-focused display
   &.is-focused {
-
-    label,
+    label, // this is a control-label, but often times (too often) not marked as such so work around bad markup
     label.control-label {
       color: $brand-primary;
+
+      label { // inner label
+        color: $mdb-label-color-inner-focus;
+      }
     }
 
     &.label-placeholder {
       label,
       label.control-label {
-        //color: $mdb-input-placeholder-color;
+        color: $mdb-label-color;
       }
     }
 
-    //.help-block {
-    //  display: block;
-    //}
+    .mdb-help {
+      color: $mdb-label-color-inner-focus;
+    }
   }
 }
 

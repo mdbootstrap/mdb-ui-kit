@@ -36,15 +36,23 @@
     //margin: 16px 0 0 0; // std and lg
   }
 
-  .help-block {
-    //margin-top: 0; // allow the input margin to set-off the top of the help-block
-    //font-size: $help-block-font-size;
-  }
+  //.mdb-help {
+  //  margin-top: 0; // allow the input margin to set-off the top of the help-block
+  //  font-size: $help-block-font-size;
+  //}
 }
 
 @mixin mdb-form-color($label-color, $border-color) {
+
+  // This may or may not be already in the context of an mdb-form-group depending on if it is
+  //    default or comes from a validation state
+
   // Use the BS provided mixin for the bulk of the color
   @include form-control-validation($label-color);
+
+  label {
+    color: $label-color;
+  }
 
   // Set the border and box shadow on specific inputs to match
   .form-control {
@@ -58,17 +66,13 @@
   .input-group-addon {
     border-color: $border-color;
   }
-
-  label {
-    color: $label-color;
-  }
 }
 
 @mixin mdb-form-control-validation($name, $color) {
   // e.g. has-danger
   &.has-#{$name} {
 
-    // override BS and keep the border-color normal/grey so that focus animation draws attention
+    // override BS and keep the border-color normal/grey so that overlayed focus animation draws attention
     .form-control {
       border-color: $input-border-color;
     }
@@ -140,7 +144,7 @@
   }
 }
 
-@mixin mdb-label-color-toggle-focus() {
+@mixin mdb-label-color-inner-focus() {
   // override bootstrap focus and keep all the standard color (could be multiple radios in the form group)
   .mdb-form-group.is-focused & {
     color: $mdb-label-color;
@@ -148,7 +152,7 @@
     // on focus just darken the specific labels, do not turn them to the brand-primary
     &:hover,
     &:focus {
-      color: $mdb-label-color-toggle-focus;
+      color: $mdb-label-color-inner-focus;
     }
 
     // correct the above focus color for disabled items

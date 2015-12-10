@@ -5,7 +5,7 @@
   }
   label {
     cursor: pointer;
-    @include mdb-label-color-toggle-focus();
+    @include mdb-label-color-inner-focus();
 
     // Hide original checkbox
     input[type=checkbox] {

@@ -19,7 +19,7 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
   <fieldset class="form-group label-floating">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-    <small class="text-muted">We'll never share your email with anyone else.</small>
+    <span class="mdb-help">We'll never share your email with anyone else.</span>
   </fieldset>
   <fieldset class="form-group label-floating">
     <label for="exampleInputPassword1">Password</label>
