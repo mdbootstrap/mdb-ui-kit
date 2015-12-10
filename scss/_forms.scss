@@ -1,144 +1,3 @@
-// must be broken out for reuse - webkit selector breaks firefox
-@mixin label-static($label-top, $static-font-size, $static-line-height) {
-  label.control-label {
-    top: $label-top;
-    left: 0;
-    // must repeat because the selector above is more specific than the general label sizing
-    //font-size: $static-font-size;
-    //line-height: $static-line-height;
-  }
-}
-
-@mixin label-size-variant($placeholder-font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-block-font-size) {
-  //.form-control {
-  //  @include material-placeholder {
-  //    font-size: $placeholder-font-size;
-  //    line-height: $line-height;
-  //    font-weight: 400;
-  //  }
-  //
-  //  // margin-bottom must be specified to give help-block vertical space.
-  //  //    $see also form-group padding-bottom (and size variants) re: collapsible margins.  These work together.
-  //  margin-bottom: $vertical-padding;
-  //}
-
-  // generic labels used anywhere in the form (not control-label)
-  .checkbox label,
-  .radio label,
-  label {
-    //font-size: $placeholder-font-size;
-    //line-height: $line-height;
-    //font-weight: 400;
-  }
-
-  // smaller focused or static size
-  label.control-label {
-    //font-size: $static-font-size;
-    //line-height: $static-line-height;
-    //margin: 16px 0 0 0; // std and lg
-  }
-
-  .help-block {
-    //margin-top: 0; // allow the input margin to set-off the top of the help-block
-    //font-size: $help-block-font-size;
-  }
-}
-
-@mixin mdb-form-color($label-color, $border-color) {
-  // Use the BS provided mixin for the bulk of the color
-  @include form-control-validation($label-color);
-
-  // Set the border and box shadow on specific inputs to match
-  .form-control {
-    border-color: $border-color;
-  }
-
-  // Set validation states also for addons
-  .input-group-addon {
-    border-color: $border-color;
-  }
-
-  label {
-    color: $label-color;
-  }
-}
-
-@mixin mdb-form-control-validation($name, $color) {
-  // e.g. has-danger
-  &.has-#{$name} {
-
-    // override BS and keep the border-color normal/grey so that focus animation draws attention
-    .form-control {
-      border-color: $input-border-color;
-    }
-
-    &.is-focused {
-      // on focus set borders and labels to the validation color
-      @include mdb-form-color($color, $color);
-
-      // underline animation color on focus
-      .mdb-form-control-decorator {
-        &::before,
-        &::after {
-          @include gradient-vertical($color, $input-border-color);
-        }
-      }
-    }
-  }
-}
-
-@mixin mdb-form-group-size-variant($parent, $placeholder-font-size, $label-top-margin, $vertical-padding, $line-height, $label-as-placeholder-shim) {
-  $static-font-size: ceil(($mdb-label-static-size-ratio * $placeholder-font-size)) !default;
-  $static-line-height: ($mdb-label-static-size-ratio * $line-height) !default;
-
-  $label-as-placeholder-top: -1 * ($vertical-padding + $label-as-placeholder-shim) !default;
-  $label-top: $label-as-placeholder-top - ($placeholder-font-size + $vertical-padding) !default;
-
-  $help-block-font-size: ceil(($mdb-help-block-size-ratio * $placeholder-font-size)) !default;
-  $help-block-line-height: ($mdb-help-block-size-ratio * $line-height) !default;
-
-  // this is outside a form-group
-  @if not $parent {
-    @include label-size-variant($placeholder-font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-block-font-size);
-  } @else {
-    // this is inside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
-    #{$parent} {
-      @include label-size-variant($placeholder-font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-block-font-size);
-
-      // form-group padding-bottom
-      //  upon collapsing margins, the largest margin is honored which collapses the form-control margin-bottom,
-      //  so the form-control margin-bottom must also be expressed as form-group padding
-      //padding-bottom: $vertical-padding;
-
-      // FIXME: need to avoid top margin http://v4-alpha.getbootstrap.com/content/reboot/#approach
-      // form-group margin-top must be large enough for the label and the label's top padding since label is absolutely positioned
-      //margin: ($label-top-margin + $static-font-size) 0 0 0; // old, try padding below
-      //padding-top: ($label-top-margin + $static-font-size);
-
-      // larger labels as placeholders
-      &.label-floating,
-      &.label-placeholder {
-        label.control-label {
-          top: $label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
-          //font-size: $placeholder-font-size;
-          //line-height: $line-height;
-        }
-      }
-
-      // static, focused, or autofill floating labels
-      &.label-static,
-      &.label-floating.is-focused,
-      &.label-floating:not(.is-empty) {
-        @include label-static($label-top, $static-font-size, $static-line-height);
-      }
-      // #559 Fix for webkit/chrome autofill - rule must be separate because it breaks firefox otherwise #731
-      &.label-floating input.form-control:-webkit-autofill ~ label.control-label {
-        @include label-static($label-top, $static-font-size, $static-line-height);
-      }
-    }
-  }
-}
-
 @include mdb-form-color($mdb-label-color, $input-border-color);
 @include mdb-form-control-validation(warning, $brand-warning);
 @include mdb-form-control-validation(danger, $brand-danger);
@@ -192,7 +51,6 @@
     right: 50%;
   }
 }
-
 // End: Focus underline animation =================================
 
 // -----
@@ -214,16 +72,16 @@
   &.label-placeholder,
   &.label-floating {
     label.control-label {
-      //position: absolute;
-      //pointer-events: none;
-      //transition: 0.3s ease all;
+      position: absolute;
+      pointer-events: none;
+      transition: 0.3s ease all;
     }
   }
 
   // hint to browser for optimization
   //    TODO: evaluate effectiveness - looking for community feedback
   &.label-floating label.control-label {
-    //will-change: left, top, contents;
+    will-change: left, top, contents;
   }
 
   // hide label-placeholders when the field is not empty
@@ -233,13 +91,13 @@
     }
   }
 
-  // Help blocks - position: absolute approach - uses no vertical space, text wrapping - not so good.
-  .help-block {
-    //position: absolute; // do not use position: absolute because width/wrapping isn't automatic and overflows occur
-    //display: none;
-  }
+  // Help blocks (not in v4) - position: absolute approach - uses no vertical space, text wrapping - not so good.
+  //.help-block {
+  //  position: absolute; // do not use position: absolute because width/wrapping isn't automatic and overflows occur
+  //  display: none;
+  //}
 
-  // form-group is-focused display
+  // mdb-form-group is-focused display
   &.is-focused {
 
     label,
@@ -258,10 +116,6 @@
     //  display: block;
     //}
   }
-
-  //textarea {
-  //  resize: none;
-  //}
 }
 
 select {

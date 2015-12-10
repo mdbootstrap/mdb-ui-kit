@@ -509,20 +509,20 @@ module.exports = function (grunt) {
       //},
       docs: { // watch both the source and docs scss
         files: ['docs/assets/scss/**/*.scss', 'scss/**/*.scss'],
-        tasks: ['scsslint', 'sass:docs'] //FIXME: docs-css yanks sourcemap from local docs.css, working around just doing the minimal compile here ['docs-css'] //['dist-css', 'docs']
+        tasks: ['scsslint', 'sass:docs', 'postcss:docs'] //FIXME: docs-css yanks sourcemap from local docs.css, working around just doing the minimal compile here ['docs-css'] //['dist-css', 'docs']
       }
     },
 
-    sed: {
-      versionNumber: {
-        pattern: (function () {
-          var old = grunt.option('oldver');
-          return old ? RegExp.quote(old) : old;
-        })(),
-        replacement: grunt.option('newver'),
-        recursive: true
-      }
-    },
+    //sed: {
+    //  versionNumber: {
+    //    pattern: (function () {
+    //      var old = grunt.option('oldver');
+    //      return old ? RegExp.quote(old) : old;
+    //    })(),
+    //    replacement: grunt.option('newver'),
+    //    recursive: true
+    //  }
+    //},
 
     'saucelabs-qunit': {
       all: {
