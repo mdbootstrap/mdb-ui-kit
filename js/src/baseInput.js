@@ -38,7 +38,7 @@ const BaseInput = (($) => {
       //
       selectors: [
         `.form-control-label`, // in the case of horizontal or inline forms, this will be marked
-        `> label` // usual case for text inputs
+        `> label` // usual case for text inputs, first child.  Deeper would find toggle labels so don't do that.
       ],
       className: `mdb-label`
     },

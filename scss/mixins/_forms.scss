@@ -1,5 +1,5 @@
 // must be broken out for reuse - webkit selector breaks firefox
-@mixin label-static($label-top, $static-font-size, $static-line-height) {
+@mixin mdb-label-static($label-top, $static-font-size, $static-line-height) {
   label {
     top: $label-top;
     left: 0;
@@ -42,59 +42,53 @@
   }
 }
 
-@mixin mdb-form-color($label-color, $border-color) {
+@mixin mdb-form-color($label-color, $label-color-focus, $border-color) {
 
-  // This may or may not be already in the context of an mdb-form-group depending on if it is
-  //    default or comes from a validation state
-
-  // Use the BS provided mixin for the bulk of the color
-  @include form-control-validation($label-color);
-
-  label {
-    color: $label-color;
-  }
-
-  // Set the border and box shadow on specific inputs to match
+  // override BS and keep the border-color normal/grey so that overlayed focus animation draws attention
   .form-control {
-    border-color: $border-color;
-    @include mdb-input-placeholder {
-      color: $label-color;
+    border-color: $input-border-color;
+  }
+
+  &.is-focused {
+    // on focus set borders and labels to the validation color
+
+    // Use the BS provided mixin for the bulk of the color
+    @include form-control-validation($label-color);
+
+    label {
+      color: $label-color-focus;
     }
-  }
 
-  // Set validation states also for addons
-  .input-group-addon {
-    border-color: $border-color;
-  }
-}
-
-@mixin mdb-form-control-validation($name, $color) {
-  // e.g. has-danger
-  &.has-#{$name} {
-
-    // override BS and keep the border-color normal/grey so that overlayed focus animation draws attention
+    // Set the border and box shadow on specific inputs to match
     .form-control {
-      border-color: $input-border-color;
+      border-color: $border-color;
+      @include mdb-input-placeholder {
+        color: $label-color;
+      }
     }
 
-    &.is-focused {
-      // on focus set borders and labels to the validation color
-      @include mdb-form-color($color, $color);
+    // Set validation states also for addons
+    .input-group-addon {
+      border-color: $border-color;
+    }
 
-      // underline animation color on focus
-      .mdb-form-control-decorator {
-        &::before,
-        &::after {
-          @include gradient-vertical($color, $input-border-color);
-        }
+    // underline animation color on focus
+    .mdb-form-control-decorator {
+      &::before,
+      &::after {
+        @include gradient-vertical($label-color, $input-border-color);
       }
+    }
+
+    .mdb-help {
+      color: $mdb-label-color-inner-focus;
     }
   }
 }
 
 @mixin mdb-form-group-size-variant($font-size, $label-top-margin, $vertical-padding, $line-height, $label-as-placeholder-shim, $context: null) {
-  $static-font-size: ($mdb-label-static-size-ratio * $font-size) !default;
-  $static-line-height: ($mdb-label-static-size-ratio * $line-height) !default;
+  $static-font-size: ($mdb-mdb-label-static-size-ratio * $font-size) !default;
+  $static-line-height: ($mdb-mdb-label-static-size-ratio * $line-height) !default;
 
   $label-as-placeholder-top: -1 * ($vertical-padding + $label-as-placeholder-shim) !default;
   $label-top: $label-as-placeholder-top - ($font-size + $vertical-padding) !default;
@@ -122,8 +116,8 @@
     //padding-top: ($label-top-margin + $static-font-size);
 
     // placeholder positioning
-    &.label-floating,
-    &.label-placeholder {
+    &.mdb-label-floating,
+    &.mdb-label-placeholder {
       label,
       label {
         @debug "top: #{$label-as-placeholder-top}";
@@ -134,14 +128,14 @@
     }
 
     // static, focused, or autofill floating labels
-    &.label-static,
-    &.label-floating.is-focused,
-    &.label-floating:not(.is-empty) {
-      @include label-static($label-top, $static-font-size, $static-line-height);
+    &.mdb-label-static,
+    &.mdb-label-floating.is-focused,
+    &.mdb-label-floating:not(.is-empty) {
+      @include mdb-label-static($label-top, $static-font-size, $static-line-height);
     }
     // #559 Fix for webkit/chrome autofill - rule must be separate because it breaks firefox otherwise #731
-    &.label-floating input.form-control:-webkit-autofill ~ label {
-      @include label-static($label-top, $static-font-size, $static-line-height);
+    &.mdb-label-floating input.form-control:-webkit-autofill ~ label {
+      @include mdb-label-static($label-top, $static-font-size, $static-line-height);
     }
   }
 }

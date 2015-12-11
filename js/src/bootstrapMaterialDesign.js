@@ -32,7 +32,7 @@ const BootstrapMaterialDesign = (($) => {
     global: {
       validate: false,
       mdbLabel: {
-        className: `mdb-label`
+        className: `mdb-label` // default style of label to be used if not specified in the html markup
       }
     },
     ripples: {

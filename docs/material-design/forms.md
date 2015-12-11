@@ -13,19 +13,19 @@ Bootstrap provides several form control styles, layout options, and custom compo
 
 ## Form controls
 
-Form controls flavored by Material Design for Bootstrap customizations such as `label-floating`.
+Form controls flavored by Material Design for Bootstrap customizations such as `mdb-label-floating`.
 {% example html %}
 <form>
-  <fieldset class="form-group label-floating">
+  <fieldset class="form-group mdb-label-floating">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
     <span class="mdb-help">We'll never share your email with anyone else.</span>
   </fieldset>
-  <fieldset class="form-group label-floating">
+  <fieldset class="form-group mdb-label-floating">
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </fieldset>
-  <fieldset class="form-group label-floating">
+  <fieldset class="form-group mdb-label-floating">
     <label for="exampleSelect1">Example select</label>
     <select class="form-control" id="exampleSelect1">
       <option>1</option>
@@ -35,7 +35,7 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
       <option>5</option>
     </select>
   </fieldset>
-  <fieldset class="form-group label-floating">
+  <fieldset class="form-group mdb-label-floating">
     <label for="exampleSelect2">Example multiple select</label>
     <select multiple class="form-control" id="exampleSelect2">
       <option>1</option>
@@ -45,11 +45,11 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
       <option>5</option>
     </select>
   </fieldset>
-  <fieldset class="form-group label-floating">
+  <fieldset class="form-group mdb-label-floating">
     <label for="exampleTextarea">Example textarea</label>
     <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
   </fieldset>
-  <fieldset class="form-group label-floating">
+  <fieldset class="form-group mdb-label-floating">
     <label for="exampleInputFile">File input</label>
     <input type="file" class="form-control-file" id="exampleInputFile">
     <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
@@ -107,7 +107,7 @@ Below is a complete list of options supported by Material Design for Bootstrap a
     </tr>
     <tr>
       <td>
-        {% markdown %}`.label-floating`{% endmarkdown %}
+        {% markdown %}`.mdb-label-floating`{% endmarkdown %}
       </td>
       <td>
         
@@ -118,7 +118,7 @@ Below is a complete list of options supported by Material Design for Bootstrap a
     </tr>
     <tr>
       <td>
-        {% markdown %}`.label-static`{% endmarkdown %}
+        {% markdown %}`.mdb-label-static`{% endmarkdown %}
       </td>
       <td>
         
@@ -129,7 +129,7 @@ Below is a complete list of options supported by Material Design for Bootstrap a
     </tr>
     <tr>
       <td>
-        {% markdown %}`.label-placeholder`{% endmarkdown %}
+        {% markdown %}`.mdb-label-placeholder`{% endmarkdown %}
       </td>
       <td>
         
@@ -146,7 +146,7 @@ Below is a complete list of options supported by Material Design for Bootstrap a
 
 The `.mdb-form-group` class is usually added to the `.form-group` element. Whereas the `.form-group` adds structure to forms by providing `margin-bottom` around a label and control pairing,
  the only purpose of the  `.mdb-form-group` is to demarcate Material Design behaviors.  Decorations and size variations are intended to be specified on
- this element e.g. `.label-floating`.  Focus/hover styling for the label/input is determined based on the `.mdb-form-group`. 
+ this element e.g. `.mdb-label-floating`.  Focus/hover styling for the label/input is determined based on the `.mdb-form-group`. 
 
 The `.mdb-form-group` is added automatically by javascript through basic discovery of the outer demarcation of the component defined by the Bootstrap standard 
 markup.  If your code is templated, you may want to add `.mdb-form-group` to the markup directly to prevent any rendering churn from the javascript determining 
@@ -155,11 +155,11 @@ you may need to wrap your markup in an `.mdb-form-group` to get appropriate focu
 
 {% example html %}
 <form>
-  <fieldset class="form-group label-floating"> <!-- left unspecified, .mdb-form-group will be automatically added (inspect the code) -->
+  <fieldset class="form-group mdb-label-floating"> <!-- left unspecified, .mdb-form-group will be automatically added (inspect the code) -->
     <label for="formGroupExampleInput">Example label</label>
     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
   </fieldset>
-  <fieldset class="form-group mdb-form-group label-floating"> <!-- manually specified --> 
+  <fieldset class="form-group mdb-form-group mdb-label-floating"> <!-- manually specified --> 
     <label for="formGroupExampleInput2">Another label</label>
     <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
   </fieldset>
@@ -180,11 +180,11 @@ Because of this, you may need to manually address the width and alignment of ind
 
 {% example html %}
 <form class="form-inline">
-  <div class="form-group label-floating">
+  <div class="form-group mdb-label-floating">
     <label for="exampleInputName2">Name</label>
     <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">
   </div>
-  <div class="form-group label-floating">
+  <div class="form-group mdb-label-floating">
     <label for="exampleInputEmail2">Email</label>
     <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
   </div>

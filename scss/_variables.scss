@@ -1,18 +1,13 @@
 @import "variables/colors";
 
-
 // redefine ? TODO: do we need this mdb variant?  This is used as $body-color
 $gray-light: rgba($black, 0.26) !default;
 $gray: rgba($black, .54) !default;
 $gray-dark: rgba($black, 0.87) !default;
 
+// wondering if any of these could still be refactored out, but are definitely in use.
 $mdb-text-color-light: rgba($white, 0.84) !default;
 $mdb-text-color-primary: $gray-dark !default;
-
-
-$mdb-label-color: $gray-light !default;
-$mdb-label-color-inner-focus: $gray !default;  // e.g. radio label or text-muted not a control-label which is primary
-
 
 //---
 // Customized BS variables
@@ -26,11 +21,14 @@ $enable-flex: true;
 @import "variables/bootstrap/state";
 @import "variables/bootstrap/type";
 
+// wondering if any of these could still be refactored out, but are definitely in use.
+$mdb-label-color: $gray-light !default;
+$mdb-label-color-focus: $brand-primary !default;
+$mdb-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
 
 //---
 // verified in use with refactoring to v4
 $mdb-font-weight-base: 400;
-
 
 //---
 //-- unverified below here
@@ -54,10 +52,8 @@ $contrast-factor: 40% !default;
 // inputs
 //$mdb-input-placeholder-color: #BDBDBD !default;
 
-
-
 //$mdb-input-underline-color: #d2d2d2 !default;
-$mdb-label-static-size-ratio: 75 / 100 !default;
+$mdb-mdb-label-static-size-ratio: 75 / 100 !default;
 $mdb-help-size-ratio: 75 / 100 !default;
 
 // FIXME: with #733 customization of bootstrap, consider how these could be based on the original bs customized variables
