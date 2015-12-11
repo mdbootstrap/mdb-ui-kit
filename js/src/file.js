@@ -92,9 +92,9 @@ const File = (($) => {
         })
         value = value.substring(0, value.length - 2)
         if (value) {
-          this.removeIsEmpty()
+          this.addIsFilled()
         } else {
-          this.addIsEmpty()
+          this.removeIsFilled()
         }
         this.$mdbFormGroup.find(Selector.FILENAMES).val(value)
       })

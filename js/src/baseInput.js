@@ -6,10 +6,11 @@ const BaseInput = (($) => {
     FORM_GROUP: 'form-group',
     MDB_FORM_GROUP: 'mdb-form-group',
     MDB_LABEL: 'mdb-label',
+    MDB_LABEL_STATIC: 'mdb-label-static',
     MDB_LABEL_PLACEHOLDER: 'mdb-label-placeholder',
     MDB_LABEL_FLOATING: 'mdb-label-floating',
     HAS_DANGER: 'has-danger',
-    IS_EMPTY: 'is-empty',
+    IS_FILLED: 'is-filled',
     IS_FOCUSED: 'is-focused'
   }
 
@@ -40,7 +41,7 @@ const BaseInput = (($) => {
         `.form-control-label`, // in the case of horizontal or inline forms, this will be marked
         `> label` // usual case for text inputs, first child.  Deeper would find toggle labels so don't do that.
       ],
-      className: `mdb-label`
+      className: ClassName.MDB_LABEL_STATIC
     },
     requiredClasses: [],
     invalidComponentMatches: [],
@@ -130,17 +131,17 @@ const BaseInput = (($) => {
       this.$element
         .on('keydown paste', (event) => {
           if (Util.isChar(event)) {
-            this.removeIsEmpty()
+            this.addIsFilled()
           }
         })
         .on('keyup change', (event) => {
 
           // make sure empty is added back when there is a programmatic value change.
           //  NOTE: programmatic changing of value using $.val() must trigger the change event i.e. $.val('x').trigger('change')
-          if (this.$element.val()) {
-            this.addIsEmpty()
+          if (this.isEmpty()) {
+            this.removeIsFilled()
           } else {
-            this.removeIsEmpty()
+            this.addIsFilled()
           }
 
           if (this.config.validate) {
@@ -178,12 +179,12 @@ const BaseInput = (($) => {
       this.$mdbFormGroup.removeClass(ClassName.HAS_DANGER)
     }
 
-    addIsEmpty() {
-      this.$mdbFormGroup.addClass(ClassName.IS_EMPTY)
+    removeIsFilled() {
+      this.$mdbFormGroup.removeClass(ClassName.IS_FILLED)
     }
 
-    removeIsEmpty() {
-      this.$mdbFormGroup.removeClass(ClassName.IS_EMPTY)
+    addIsFilled() {
+      this.$mdbFormGroup.addClass(ClassName.IS_FILLED)
     }
 
     isEmpty() {

@@ -8,6 +8,9 @@ $gray-dark: rgba($black, 0.87) !default;
 // wondering if any of these could still be refactored out, but are definitely in use.
 $mdb-text-color-light: rgba($white, 0.84) !default;
 $mdb-text-color-primary: $gray-dark !default;
+$mdb-label-color: $gray-light !default;
+$mdb-label-color-focus: $brand-primary !default;
+$mdb-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
 
 //---
 // Customized BS variables
@@ -21,10 +24,6 @@ $enable-flex: true;
 @import "variables/bootstrap/state";
 @import "variables/bootstrap/type";
 
-// wondering if any of these could still be refactored out, but are definitely in use.
-$mdb-label-color: $gray-light !default;
-$mdb-label-color-focus: $brand-primary !default;
-$mdb-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
 
 //---
 // verified in use with refactoring to v4
@@ -50,24 +49,18 @@ $contrast-factor: 40% !default;
 
 // --------------------
 // inputs
-//$mdb-input-placeholder-color: #BDBDBD !default;
-
-//$mdb-input-underline-color: #d2d2d2 !default;
 $mdb-mdb-label-static-size-ratio: 75 / 100 !default;
 $mdb-help-size-ratio: 75 / 100 !default;
 
 // FIXME: with #733 customization of bootstrap, consider how these could be based on the original bs customized variables
 //
 ////## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
-$mdb-input-padding-y-base: .4375rem !default; // 7px
 $mdb-label-as-placeholder-shim-base: 0 !default; // manual adjustment of label top when positioned as placeholder
 $mdb-label-top-margin-base: 1rem !default;
 //
-$mdb-input-padding-y-lg: .5625rem !default; // 9px
 $mdb-label-as-placeholder-shim-lg: 0 !default; // -4px // manual adjustment of label top when positioned as placeholder
 $mdb-label-top-margin-lg: 1rem !default; // 16px
 //
-$mdb-input-padding-y-sm: .1875 !default; // 3px
 $mdb-label-as-placeholder-shim-sm: 0 !default; // 8px // manual adjustment of label top when positioned as placeholder
 $mdb-label-top-margin-sm: .75rem !default; // 12px
 

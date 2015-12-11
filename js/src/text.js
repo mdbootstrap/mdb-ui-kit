@@ -38,7 +38,7 @@ const Text = (($) => {
 
       // Initially mark as empty
       if (this.isEmpty()) {
-        this.addIsEmpty()
+        this.removeIsFilled()
       }
 
       // Add marker div the end of the form-group

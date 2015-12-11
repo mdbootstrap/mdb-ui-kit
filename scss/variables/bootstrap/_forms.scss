@@ -1,7 +1,5 @@
 // Forms
 
-//$input-padding-x:                .75rem !default;
-//$input-padding-y:                .375rem !default;
 //
 $input-bg:                       rgba($black, 0) !default; // #fff !default;
 $input-bg-disabled:              rgba($black, 0) !default; // $gray-lighter !default;
@@ -18,14 +16,19 @@ $input-border-radius:            0 !default; // $border-radius !default;
 //$input-border-focus:             #66afe9 !default;
 $input-box-shadow-focus:         none !default; // rgba(102,175,233,.6) !default;
 //
-$input-color-placeholder:        #bdbdbd !default; // #999 !default;
-//
-//$input-padding-x-sm:             .75rem !default;
-//$input-padding-y-sm:             .275rem !default;
-//
-//$input-padding-x-lg:             1.25rem !default;
-//$input-padding-y-lg:             .75rem !default;
-//
+$input-color-placeholder:        $mdb-label-color !default; // #999 !default;
+
+
+
+$input-padding-x:                0 !default; // .75rem !default;
+$input-padding-y:                .4375rem !default; // $mdb-input-padding-y: 7px // .375rem !default;
+
+$input-padding-x-sm:             0 !default; // .75rem !default;
+$input-padding-y-sm:             .1875 !default; // 3px //.275rem !default;
+
+$input-padding-x-lg:             0 !default; //   1.25rem !default;
+$input-padding-y-lg:             .5625rem !default; // 9px // .75rem !default;
+
 //$input-height:                   (($font-size-base * $line-height) + ($input-padding-y * 2)) !default;
 //$input-height-lg:                (($font-size-lg * $line-height-lg) + ($input-padding-y-lg * 2)) !default;
 //$input-height-sm:                (($font-size-sm * $line-height-sm) + ($input-padding-y-sm * 2)) !default;

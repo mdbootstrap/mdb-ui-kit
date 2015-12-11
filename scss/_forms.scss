@@ -65,7 +65,7 @@
 }
 
 // -----
-// State coloring: default,
+// State coloring: default, success, info, warning, danger
 //
 @include mdb-form-color($mdb-label-color, $mdb-label-color-focus, $input-border-color);
 
@@ -88,6 +88,8 @@
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 //.variations(unquote(" label"), color, $mdb-input-placeholder-color);  // default label color variations
+
+// Whereas .form-group adds structure, mdb-form-group just needs to make sure we have enough padding for our labels to work.  That's the only purpose.
 .mdb-form-group {
   position: relative;
 
@@ -99,66 +101,40 @@
   //&.mdb-label-static,
   //&.mdb-label-placeholder,
   //&.mdb-label-floating {
-  //  //> label {
-  //  //  position: absolute;
-  //  //  pointer-events: none;
-  //  //  transition: 0.3s ease all;
-  //  //
-  //  //  label {
-  //  //    position: relative;
-  //  //  }
-  //  //}
-  //}
-  //
-  //// hint to browser for optimization
-  //&.mdb-label-floating {
-  //  label {
-  //    will-change: left, top, contents; // TODO: evaluate effectiveness - looking for community feedback
-  //  }
-  //}
-  //
-  //// hide label-placeholders when the field is not empty
-  //&.mdb-label-placeholder:not(.is-empty) {
-  //  label {
-  //    display: none;
-  //  }
-  //}
+  label[class^='mdb-label'],
+  label[class*=' mdb-label'] {
+    position: absolute;
+    pointer-events: none;
+    transition: 0.3s ease all;
 
-  &.is-focused {
-    //label {
-    //  color: $brand-primary;
-    //
-    //  label { // inner label e.g. checkbox or radio label
-    //    color: $mdb-label-color-inner-focus;
-    //  }
-    //}
-    //
-    //&.mdb-label-placeholder {
-    //  label {
-    //    color: $mdb-label-color;
-    //
-    //    label { // inner label e.g. checkbox or radio label
-    //      color: $mdb-label-color-inner-focus;
-    //    }
-    //  }
-    //}
+    // hint to browser for optimization
+    &.mdb-label-floating {
+      will-change: left, top, contents; // TODO: evaluate effectiveness - looking for community feedback
+    }
+    // hide label-placeholders when the field is filled
+    .is-filled &.mdb-label-placeholder {
+      display: none;
+    }
   }
+
   // default floating size/location with an mdb-form-group
-  @include mdb-form-group-size-variant($font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-y-base, $line-height, $mdb-label-as-placeholder-shim-base, "mdb-form-group default");
+  @include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $line-height, $mdb-label-as-placeholder-shim-base, "mdb-form-group default");
 
   // sm floating size/location
   //&.mdb-form-group-sm {
-  //  @include mdb-form-group-size-variant($font-size-sm, $mdb-label-top-margin-sm, $mdb-input-padding-y-sm, $line-height-sm, $mdb-label-as-placeholder-shim-sm, "mdb-form-group sm");
+  //  @include mdb-form-size-variant($font-size-sm, $mdb-label-top-margin-sm, $mdb-input-padding-y-sm, $line-height-sm, $mdb-label-as-placeholder-shim-sm, "mdb-form-group sm");
   //}
   //
   //// lg floating size/location
   //&.mdb-form-group-lg {
-  //  @include mdb-form-group-size-variant($font-size-lg, $mdb-label-top-margin-lg, $mdb-input-padding-y-lg, $line-height-lg, $mdb-label-as-placeholder-shim-lg, "mdb-form-group lg");
+  //  @include mdb-form-size-variant($font-size-lg, $mdb-label-top-margin-lg, $mdb-input-padding-y-lg, $line-height-lg, $mdb-label-as-placeholder-shim-lg, "mdb-form-group lg");
   //}
 }
 
+
+// FIXME: remove the following, I don't think it is necessary any longer and just adds more rules that are already matched above.
 // default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation)
-//@include mdb-form-group-size-variant($font-size-base, $mdb-label-top-margin-base, $mdb-input-padding-y-base, $line-height, $mdb-label-as-placeholder-shim-base);
+//@include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $line-height, $mdb-label-as-placeholder-shim-base);
 
 select {
   &,

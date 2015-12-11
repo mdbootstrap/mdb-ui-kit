@@ -109,10 +109,10 @@ class Application {
   }
 
   manipulateSearchBox() {
-    let $search = $('#search-input')
-    $search.wrap(`<div class='mdb-form-group'></div>`)
-    $search.before(`<label class='mdb-label-placeholder'>${$search.prop('placeholder')}</label>`)
-    $search.removeAttr('placeholder')
+    //let $search = $('#search-input')
+    //$search.wrap(`<div class='mdb-form-group'></div>`)
+    //$search.before(`<label class='mdb-label-placeholder'>${$search.prop('placeholder')}</label>`)
+    //$search.removeAttr('placeholder')
   }
 }
 
