@@ -22,7 +22,7 @@ const CheckboxInline = (($) => {
   class CheckboxInline extends Checkbox {
 
     constructor($element, config, properties = {inputType: 'checkbox', outerClass: 'checkbox-inline'}) {
-      super($element, $.extend({}, Default, config), properties)
+      super($element, $.extend(true, {}, Default, config), properties)
     }
 
     dispose() {

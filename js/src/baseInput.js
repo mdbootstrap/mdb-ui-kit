@@ -2,6 +2,23 @@ import Util from './util'
 
 const BaseInput = (($) => {
 
+  const ClassName = {
+    FORM_GROUP: 'form-group',
+    MDB_FORM_GROUP: 'mdb-form-group',
+    MDB_LABEL: 'mdb-label',
+    MDB_LABEL_PLACEHOLDER: 'mdb-label-placeholder',
+    MDB_LABEL_FLOATING: 'mdb-label-floating',
+    HAS_DANGER: 'has-danger',
+    IS_EMPTY: 'is-empty',
+    IS_FOCUSED: 'is-focused'
+  }
+
+  const Selector = {
+    FORM_GROUP: `.${ClassName.FORM_GROUP}`,
+    MDB_FORM_GROUP: `.${ClassName.MDB_FORM_GROUP}`,
+    MDB_LABEL_WILDCARD: `label[class^='${ClassName.MDB_LABEL}'], label[class*=' ${ClassName.MDB_LABEL}']` // match any label variant if specified
+  }
+
   const Default = {
     validate: false,
     formGroup: {
@@ -10,25 +27,27 @@ const BaseInput = (($) => {
     mdbFormGroup: {
       template: `<span class='mdb-form-group'></span>`
     },
+    mdbLabel: {
+      required: false,
+
+      // Prioritized find order for resolving the label to be used as an mdb-label if not specified in the markup
+      //  - a function(thisComponent); or
+      //  - a string selector used like $mdbFormGroup.find(selector)
+      //
+      // Note this only runs if $mdbFormGroup.find(Selector.MDB_LABEL_WILDCARD) fails to find a label (as authored in the markup)
+      //
+      selectors: [
+        `.form-control-label`, // in the case of horizontal or inline forms, this will be marked
+        `> label` // usual case for text inputs
+      ],
+      className: `mdb-label`
+    },
     requiredClasses: [],
     invalidComponentMatches: [],
     convertInputSizeVariations: true
   }
 
-  const ClassName = {
-    FORM_GROUP: 'form-group',
-    MDB_FORM_GROUP: 'mdb-form-group',
-    HAS_DANGER: 'has-danger',
-    IS_EMPTY: 'is-empty',
-    IS_FOCUSED: 'is-focused'
-  }
-
-  const Selector = {
-    FORM_GROUP: `.${ClassName.FORM_GROUP}`,
-    MDB_FORM_GROUP: `.${ClassName.MDB_FORM_GROUP}`
-  }
-
-  const FormControlSizeConversions = {
+  const FormControlSizeMarkers = {
     'form-control-lg': 'mdb-form-group-lg',
     'form-control-sm': 'mdb-form-group-sm'
   }
@@ -48,7 +67,7 @@ const BaseInput = (($) => {
      */
     constructor($element, config, properties = {}) {
       this.$element = $element
-      this.config = $.extend({}, Default, config)
+      this.config = $.extend(true, {}, Default, config)
 
       // set properties for use in the constructor initialization
       for (let key in properties) {
@@ -72,6 +91,9 @@ const BaseInput = (($) => {
       //  Performance Note: for those forms that are really performance driven, create the markup with the .mdb-form-group to avoid
       //    rendering changes once added.
       this.$mdbFormGroup = this.resolveMdbFormGroup()
+
+      // Resolve and mark the mdbLabel if necessary as defined by the config
+      this.$mdbLabel = this.resolveMdbLabel()
 
       // Signal to the mdb-form-group that a form-control-* variation is being used
       this.resolveMdbFormGroupSizing()
@@ -197,6 +219,48 @@ const BaseInput = (($) => {
       return this.$element
     }
 
+    // Will add mdb-label to mdb-form-group if not already specified
+    resolveMdbLabel() {
+
+      let label = this.$mdbFormGroup.find(Selector.MDB_LABEL_WILDCARD)
+      if (label === undefined || label.length === 0) {
+        // we need to find it based on the configured selectors
+        label = this.findMdbLabel(this.config.mdbLabel.required)
+
+        if (label === undefined || label.length === 0) {
+          // no label found, and finder did not require one
+        } else {
+          // a candidate label was found, add the configured default class name
+          label.addClass(this.config.mdbLabel.className)
+        }
+      }
+
+      return label
+    }
+
+    // Find mdb-label variant based on the config selectors
+    findMdbLabel(raiseError = true) {
+      let label = null
+
+      // use the specified selector order
+      for (let selector of this.config.mdbLabel.selectors) {
+        if ($.isFunction(selector)) {
+          label = selector(this)
+        } else {
+          label = this.$mdbFormGroup.find(selector)
+        }
+
+        if(label !== undefined && label.length > 0){
+          break;
+        }
+      }
+
+      if (label.length === 0 && raiseError) {
+        $.error(`Failed to find ${Selector.MDB_LABEL_WILDCARD} within form-group for ${Util.describe(this.$element)}`)
+      }
+      return label
+    }
+
     // Find mdb-form-group
     findMdbFormGroup(raiseError = true) {
       let mfg = this.$element.closest(Selector.MDB_FORM_GROUP)
@@ -223,10 +287,10 @@ const BaseInput = (($) => {
       }
 
       // Modification - Change text-sm/lg to form-group-sm/lg instead (preferred standard and simpler css/less variants)
-      for (let inputSize in FormControlSizeConversions) {
+      for (let inputSize in FormControlSizeMarkers) {
         if (this.$element.hasClass(inputSize)) {
           //this.$element.removeClass(inputSize)
-          this.$mdbFormGroup.addClass(FormControlSizeConversions[inputSize])
+          this.$mdbFormGroup.addClass(FormControlSizeMarkers[inputSize])
         }
       }
     }

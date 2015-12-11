@@ -72,7 +72,7 @@ const Util = (($) => {
           $element.css('border', '1px solid red')
         }
         console.error(message, $element) // eslint-disable-line no-console
-        $.error(message)
+        throw message
       }
     },
 

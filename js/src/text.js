@@ -34,7 +34,7 @@ const Text = (($) => {
   class Text extends BaseInput {
 
     constructor($element, config) {
-      super($element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Select, Switch, Textarea]}, Default, config))
+      super($element, $.extend(true, {invalidComponentMatches: [Checkbox, File, Radio, Select, Switch, Textarea]}, Default, config))
 
       // Initially mark as empty
       if (this.isEmpty()) {

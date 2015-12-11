@@ -38,7 +38,7 @@ const File = (($) => {
   class File extends BaseInput {
 
     constructor($element, config) {
-      super($element, $.extend({invalidComponentMatches: [Checkbox, Radio, Text, Textarea, Select, Switch]}, Default, config))
+      super($element, $.extend(true, {invalidComponentMatches: [Checkbox, Radio, Text, Textarea, Select, Switch]}, Default, config))
 
       this.$mdbFormGroup.addClass(ClassName.IS_FILE)
     }

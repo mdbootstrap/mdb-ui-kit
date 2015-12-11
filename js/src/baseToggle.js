@@ -8,7 +8,22 @@ const BaseToggle = (($) => {
    * Constants
    * ------------------------------------------------------------------------
    */
-  const Default = {}
+  const Default = {
+    mdbLabel: {
+      required: false
+
+      // Prioritized find order for resolving the label to be used as an mdb-label if not specified in the markup
+      //  - a function(thisComponent); or
+      //  - a string selector used like $mdbFormGroup.find(selector)
+      //
+      // Note this only runs if $mdbFormGroup.find(Selector.MDB_LABEL_WILDCARD) fails to find a label (as authored in the markup)
+      //
+      //selectors: [
+      //  `.form-control-label`, // in the case of horizontal or inline forms, this will be marked
+      //  `> label` // usual case for text inputs
+      //]
+    }
+  }
 
   const Selector = {
     LABEL: 'label'
@@ -26,7 +41,7 @@ const BaseToggle = (($) => {
       // '.checkbox|switch|radio > label > input[type=checkbox|radio]'
       // '.${this.outerClass} > label > input[type=${this.inputType}]'
 
-      super($element, $.extend({}, Default, config), properties)
+      super($element, $.extend(true, {}, Default, config), properties)
       this.$element.after(this.config.template)
     }
 

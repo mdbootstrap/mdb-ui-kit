@@ -107,12 +107,20 @@ class Application {
         .tooltip('_fixTitle')
     })
   }
+
+  manipulateSearchBox() {
+    let $search = $('#search-input')
+    $search.wrap(`<div class='mdb-form-group'></div>`)
+    $search.before(`<label class='mdb-label-placeholder'>${$search.prop('placeholder')}</label>`)
+    $search.removeAttr('placeholder')
+  }
 }
 
 $(() => {
   let app = new Application()
   app.displayTypographyProperties()
   app.initializeClipboard()
+  app.manipulateSearchBox()
 
   // FIXME: file inputs seems to be in flux, delete the offending one for now.
   $('#exampleInputFile').closest('.form-group').detach()

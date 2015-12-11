@@ -49,7 +49,7 @@ const Ripples = (($) => {
       this.$element = $element
 
       //console.log(`Adding ripples to ${Util.describe(this.$element)}`)  // eslint-disable-line no-console
-      this.config = $.extend({}, Default, config)
+      this.config = $.extend(true, {}, Default, config)
 
       // attach initial listener
       this.$element.on(this.config.triggerStart, this._onStartRipple)

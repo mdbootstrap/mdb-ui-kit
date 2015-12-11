@@ -30,7 +30,10 @@ const BootstrapMaterialDesign = (($) => {
    */
   const Default = {
     global: {
-      validate: false
+      validate: false,
+      mdbLabel: {
+        className: `mdb-label`
+      }
     },
     ripples: {
       selector: [
@@ -100,7 +103,7 @@ const BootstrapMaterialDesign = (($) => {
 
     constructor($element, config) {
       this.$element = $element
-      this.config = $.extend({}, Default, config)
+      this.config = $.extend(true, {}, Default, config)
       let $document = $(document)
 
       for (let component of this.config.instantiation) {
@@ -115,7 +118,7 @@ const BootstrapMaterialDesign = (($) => {
           let selector = this._resolveSelector(componentConfig)
 
           // mix in global options
-          componentConfig = $.extend({}, this.config.global, componentConfig)
+          componentConfig = $.extend(true, {}, this.config.global, componentConfig)
 
           // create the jquery fn name e.g. 'mdbText' for 'text'
           let jqueryFn = `mdb${component.charAt(0).toUpperCase() + component.slice(1)}`

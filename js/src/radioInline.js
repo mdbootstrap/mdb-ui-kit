@@ -22,7 +22,7 @@ const RadioInline = (($) => {
   class RadioInline extends Radio {
 
     constructor($element, config, properties = {inputType: 'radio', outerClass: 'radio-inline'}) {
-      super($element, $.extend({}, Default, config), properties)
+      super($element, $.extend(true, {}, Default, config), properties)
     }
 
     dispose() {

@@ -29,7 +29,7 @@ const Radio = (($) => {
   class Radio extends BaseToggle {
 
     constructor($element, config, properties = {inputType: NAME, outerClass: NAME}) {
-      super($element, $.extend({
+      super($element, $.extend(true, {
         invalidComponentMatches: [Checkbox, File, Switch, Text]
       }, Default, config), properties)
     }

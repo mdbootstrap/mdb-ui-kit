@@ -30,7 +30,7 @@ const Select = (($) => {
   class Select extends Text {
 
     constructor($element, config) {
-      super($element, $.extend({invalidComponentMatches: [Checkbox, File, Radio, Switch, Text, Textarea]}, Default, config))
+      super($element, $.extend(true, {invalidComponentMatches: [Checkbox, File, Radio, Switch, Text, Textarea]}, Default, config))
     }
 
     dispose() {

@@ -24,7 +24,7 @@ const Foo = (($) => {
 
     constructor($element, config) {
       this.$element = $element
-      this.config = $.extend({}, Default, config)
+      this.config = $.extend(true, {}, Default, config)
     }
 
     dispose() {
