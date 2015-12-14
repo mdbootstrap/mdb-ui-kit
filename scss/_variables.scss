@@ -85,6 +85,9 @@ $mdb-checkbox-animation-check: 0.3s !default;
 $mdb-checkbox-checked-color: $brand-primary; // #4caf50 !default;
 $mdb-checkbox-border-color: $mdb-label-color-inner-focus !default;
 
+// Switches
+$mdb-switch-color-checked: $brand-primary;
+
 // Popovers and Popups
 $mdb-popover-background: rgba(101, 101, 101, 0.9) !default;
 $mdb-popover-color: #ececec !default;

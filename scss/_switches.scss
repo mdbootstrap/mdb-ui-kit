@@ -1,0 +1,87 @@
+.switch {
+  &,
+  label,
+  input,
+  .switch-decorator {
+    user-select: none;
+  }
+
+  label {
+    cursor: pointer;
+
+    // Hide original checkbox
+    input[type=checkbox] {
+      width: 0;
+      height: 0;
+      opacity: 0;
+
+      // Handle disabled
+      &[disabled] {
+        + .switch-decorator::after,
+        &:checked + .switch-decorator::after {
+          background-color: $mdb-label-color;
+        }
+      }
+
+      //+ .switch-decorator:active::after,
+      //&[disabled] + .switch-decorator:active::after {
+      //  box-shadow: 0 1px 3px 1px rgba($black, 0.4), 0 0 0 15px rgba($black, 0.1);
+      //}
+
+      // Ripple off and disabled
+      &:checked + .switch-decorator::after {
+        left: 15px;
+      }
+    }
+
+    .switch-decorator {
+      text-align: left; // Issue #737 horizontal form
+
+      // Switch bg off and disabled
+      &,
+      input[type=checkbox][disabled] + & {
+        display: inline-block;
+        width: 30px;
+        height: 15px;
+        margin-right: 15px;
+        vertical-align: middle;
+        content: "";
+        background-color: rgba(80, 80, 80, 0.7);
+        border-radius: 15px;
+        transition: background 0.3s ease;
+      }
+
+      // Thumb
+      &::after {
+        position: relative;
+        top: -2px;
+        left: -5px;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        content: "";
+        background-color: #f1f1f1;
+        border-radius: 20px;
+        @include shadow-2dp();
+        //box-shadow: 0 1px 3px 1px rgba($black, 0.4);
+        transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
+      }
+    }
+
+    // set bg when checked
+    input[type=checkbox]:checked {
+      + .switch-decorator {
+        background-color: rgba($mdb-switch-color-checked, (50 / 100)); // Switch bg on
+
+        &::after {
+          background-color: $mdb-switch-color-checked; // Handle on
+        }
+
+        &:active::after {
+          @include shadow-3dp();
+          //box-shadow: 0 1px 3px 1px rgba($black, 0.4), 0 0 0 15px rgba($mdb-switch-color-checked, (10 / 100)); // Ripple on
+        }
+      }
+    }
+  }
+}

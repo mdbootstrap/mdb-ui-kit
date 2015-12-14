@@ -4,6 +4,13 @@ title: Labels
 group: material-design
 ---
 
+## Contents
+
+* Will be replaced with the ToC, excluding the "Contents" header
+{:toc}
+
+## Styles
+
 {% example html %}
 <form>
   <fieldset class="form-group">
