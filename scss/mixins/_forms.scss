@@ -51,7 +51,6 @@
   }
 }
 
-
 // must be broken out for reuse - webkit selector breaks firefox
 @mixin mdb-label-static($label-top, $static-font-size) {
   top: $label-top;
@@ -64,9 +63,8 @@
   $static-font-size: ($mdb-mdb-label-static-size-ratio * $font-size);
   $help-font-size: ($mdb-help-size-ratio * $font-size);
 
-  $label-placeholder-top: ($variant-padding-y + $label-as-placeholder-shim);  // -1 *
-  $label-static-top: $label-placeholder-top - $static-font-size - $variant-padding-y;
-
+  $label-static-top: $label-top-margin;
+  $label-placeholder-top: $label-top-margin + $static-font-size + $variant-padding-y;
 
   @debug "font-size: #{$font-size} static-font-size: #{$static-font-size} help-font-size: #{$help-font-size} form-group-context: #{$form-group-context} ";
 
@@ -75,6 +73,13 @@
   //Padding between label and input text: 8dp
   //Padding below input text (including divider): 16dp
   //Padding below text divider: 8dp
+
+  @if $form-group-context {
+
+    // Create a space at the top of the mdb-form-group for the label.
+    //  The label is absolutely positioned, so we use top padding to make space.  This padding extends down to the top of the input (padding).
+    padding-top: ($label-top-margin + $static-font-size);
+  }
 
   // Set all line-heights preferably to 1 so that we can space out everything manually without additional added space
   //  from the default line-height of 1.5
@@ -85,7 +90,7 @@
     line-height: $variant-line-height;
   }
 
-    // this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
+  // this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
   //@include label-size-variant($font-size, $vertical-padding, $variant-line-height, $static-font-size, $static-line-height, $help-font-size);
   .form-control {
     //
@@ -143,19 +148,6 @@
   .mdb-help {
     margin-top: 0; // allow the input margin to set-off the top of the help-block
     font-size: $help-font-size;
-  }
-
-  @if $form-group-context {
-
-    // form-group padding-bottom
-    //  upon collapsing margins, the largest margin is honored which collapses the form-control margin-bottom,
-    //  so the form-control margin-bottom must also be expressed as form-group padding
-    //padding-bottom: $vertical-padding;
-
-    // FIXME: need to avoid top margin http://v4-alpha.getbootstrap.com/content/reboot/#approach
-    // form-group margin-top must be large enough for the label and the label's top padding since label is absolutely positioned
-    //margin: ($label-top-margin + $static-font-size) 0 0 0; // old, try padding below
-    //padding-top: ($label-top-margin + $static-font-size);
   }
 }
 
