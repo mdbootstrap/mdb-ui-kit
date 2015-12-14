@@ -1,3 +1,29 @@
+@mixin mdb-toggle-color() {
+  .radio label,
+  .checkbox label,
+  .switch label {
+
+    // override bootstrap focus and keep all the standard color (could be multiple radios in the form group)
+    color: $mdb-label-color;
+
+    .is-focused & {
+      // form-group focus could change multiple checkboxes/radios, disable that change by using the same color as non-form-group is-focused
+      color: $mdb-label-color;
+
+      // on focus just darken the specific labels, do not turn them to the brand-primary
+      &:hover,
+      &:focus {
+        color: $mdb-label-color-inner-focus;
+      }
+
+      // correct the above focus color for disabled items
+      fieldset[disabled] & {
+        color: $mdb-label-color;
+      }
+    }
+  }
+}
+
 @mixin mdb-form-color($label-color, $label-color-focus, $border-color) {
 
   [class^='mdb-label'],
@@ -132,23 +158,3 @@
     font-size: $help-font-size;
   }
 }
-
-@mixin mdb-label-color-inner-focus() {
-  // override bootstrap focus and keep all the standard color (could be multiple radios in the form group)
-  .mdb-form-group.is-focused & {
-    color: $mdb-label-color;
-
-    // on focus just darken the specific labels, do not turn them to the brand-primary
-    &:hover,
-    &:focus {
-      color: $mdb-label-color-inner-focus;
-    }
-
-    // correct the above focus color for disabled items
-    fieldset[disabled] & {
-      color: $mdb-label-color;
-    }
-  }
-}
-
-

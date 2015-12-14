@@ -6,8 +6,6 @@ label.checkbox-inline,
   padding-left: 0; // Reset for Bootstrap rule
   cursor: pointer;
 
-  @include mdb-label-color-inner-focus();
-
   // Hide native checkbox
   input[type=checkbox] {
     position: absolute;
