@@ -1,7 +1,7 @@
 @mixin mdb-form-color($label-color, $label-color-focus, $border-color) {
 
-  label[class^='mdb-label'],
-  label[class*=' mdb-label'] {
+  [class^='mdb-label'],
+  [class*=' mdb-label'] {
     color: $label-color;
   }
 
@@ -17,9 +17,13 @@
     // Use the BS provided mixin for the bulk of the color
     @include form-control-validation($label-color);
 
-    label[class^='mdb-label'],
-    label[class*=' mdb-label'] {
+    [class^='mdb-label'],
+    [class*=' mdb-label'] {
       color: $label-color-focus;
+    }
+
+    .mdb-label-placeholder {
+      color: $label-color; // keep the placeholder color
     }
 
     // Set the border and box shadow on specific inputs to match
@@ -58,11 +62,11 @@
 
 @mixin mdb-form-size-variant($font-size, $label-top-margin, $variant-padding-y, $variant-line-height, $label-as-placeholder-shim, $form-group-context: null) {
   $static-font-size: ($mdb-mdb-label-static-size-ratio * $font-size);
-
-  $label-as-placeholder-top: ($variant-padding-y + $label-as-placeholder-shim);  // -1 *
-  $label-top: $label-as-placeholder-top - ($font-size + $variant-padding-y);
-
   $help-font-size: ($mdb-help-size-ratio * $font-size);
+
+  $label-placeholder-top: ($variant-padding-y + $label-as-placeholder-shim);  // -1 *
+  $label-static-top: $label-placeholder-top - $static-font-size - $variant-padding-y;
+
 
   @debug "font-size: #{$font-size} static-font-size: #{$static-font-size} help-font-size: #{$help-font-size} form-group-context: #{$form-group-context} ";
 
@@ -103,17 +107,17 @@
   }
 
   // smaller focused or static size
-  //label[class^='mdb-label'],
-  //label[class*=' mdb-label'] {
+  //[class^='mdb-label'],
+  //[class*=' mdb-label'] {
   //  //font-size: $static-font-size;
   //  //margin: 16px 0 0 0; // std and lg
   //}
 
-  // floating/placeholder default
+  // floating/placeholder default (no focus)
   .mdb-label-floating,
   .mdb-label-placeholder {
     //@debug "top: #{$label-as-placeholder-top}";
-    top: $label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
+    top: $label-placeholder-top; // place the floating label to look like a placeholder with input padding
     //font-size: $placeholder-font-size;
   }
 
@@ -123,13 +127,13 @@
   &.is-filled,
   .is-filled {
     .mdb-label-floating {
-      @include mdb-label-static($label-top, $static-font-size);
+      @include mdb-label-static($label-static-top, $static-font-size);
     }
   }
 
   // static
   .mdb-label-static {
-    @include mdb-label-static($label-top, $static-font-size);
+    @include mdb-label-static($label-static-top, $static-font-size);
   }
   // #559 Fix for webkit/chrome autofill - rule must be separate because it breaks firefox otherwise #731
   //input:-webkit-autofill ~ .mdb-label-floating {  FIXME: confirm that the autofill js generation of change event makes this unnecessary

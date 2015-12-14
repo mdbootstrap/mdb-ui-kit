@@ -97,8 +97,8 @@
   //
   // Reference http://www.google.com/design/spec/components/text-fields.html
   // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-  label[class^='mdb-label'],
-  label[class*=' mdb-label'] {
+  [class^='mdb-label'],
+  [class*=' mdb-label'] {
     position: absolute;
     pointer-events: none;
     transition: 0.3s ease all;
@@ -107,10 +107,11 @@
     &.mdb-label-floating {
       will-change: left, top, contents; // TODO: evaluate effectiveness - looking for community feedback
     }
-    // hide label-placeholders when the field is filled
-    .is-filled &.mdb-label-placeholder {
-      display: none;
-    }
+  }
+
+  // hide label-placeholders when the field is filled
+  &.is-filled .mdb-label-placeholder {
+    display: none;
   }
 
   // default floating size/location with an mdb-form-group
