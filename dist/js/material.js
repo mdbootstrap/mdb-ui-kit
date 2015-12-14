@@ -181,7 +181,7 @@
           var $formGroup = $input.closest(".form-group");
           var isValid = (typeof $input[0].checkValidity === "undefined" || $input[0].checkValidity());
 
-          if ($input.val() === "" && isValid) {
+          if ($input.val() === "") {
             $formGroup.addClass("is-empty");
           }
           else {
