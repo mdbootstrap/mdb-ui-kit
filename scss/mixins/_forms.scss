@@ -24,6 +24,22 @@
   }
 }
 
+@mixin mdb-radio-color($color) {
+  //~ .check,
+  //~ .mdb-radio-outer-circle {
+  //  opacity: $opacity;
+  //}
+
+  ~ .check {
+    background-color: $color;
+  }
+
+  ~ .mdb-radio-outer-circle {
+    border-color: $color;
+  }
+}
+
+
 @mixin mdb-form-color($label-color, $label-color-focus, $border-color) {
 
   [class^='mdb-label'],

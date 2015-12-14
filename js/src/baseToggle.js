@@ -42,11 +42,15 @@ const BaseToggle = (($) => {
       // '.${this.outerClass} > label > input[type=${this.inputType}]'
 
       super($element, $.extend(true, {}, Default, config), properties)
-      this.$element.after(this.config.template)
+      this.decorateMarkup()
     }
 
     // ------------------------------------------------------------------------
     // protected
+
+    decorateMarkup() {
+      this.$element.after(this.config.template)
+    }
 
     // Demarcation element (e.g. first child of a form-group)
     outerElement() {

@@ -1,68 +1,50 @@
-@mixin radio-color($color, $opacity) {
-  ~ .check,
-  ~ .radio-decorator {
-    opacity: $opacity;
-  }
-
-  ~ .check {
-    background-color: $color;
-  }
-
-  ~ .radio-decorator {
-    border-color: $color;
-  }
-}
-
 label.radio,
 label.radio-inline,
 .radio label,
 .radio-inline label {
   position: relative;
-  padding-left: 45px;
-
+  //padding-left: 2rem;
   cursor: pointer;
 
   span {
     position: absolute;
-    top: 2px;
-    left: 10px;
+    top: $mdb-radio-border;
+    //left: 10px;
+    left: 0;
     display: block;
     transition-duration: 0.2s;
-  }
-  .radio-decorator {
-    width: 15px;
-    height: 15px;
-    border: 2px solid $mdb-radio-color-off;
-    border-radius: 100%;
-  }
-  .check {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    background-color: $mdb-radio-color-on;
-    border-radius: 100%;
-    transform: scale3d(0, 0, 0);
-  }
-  .check::after {
-    position: absolute;
-    top: -18px;
-    left: -18px;
-    z-index: 1;
-    display: block;
-    width: 50px;
-    height: 50px;
-    margin: 0;
-    content: "";
-    background-color: $mdb-text-color-primary;
-    border-radius: 100%;
-    opacity: 0;
-    transform: scale3d(1.5, 1.5, 1);
-  }
-  input[type=radio]:not(:checked) ~ .check::after {
-    animation: rippleOff 500ms;
-  }
-  input[type=radio]:checked ~ .check::after {
-    animation: rippleOn 500ms;
+
+    &.mdb-radio-outer-circle {
+      width: $mdb-radio-size;
+      height: $mdb-radio-size;
+      border: $mdb-radio-border solid $mdb-radio-color-off;
+      border-radius: 100%;
+    }
+    &.mdb-radio-inner-circle {
+      display: inline-block;
+      width: $mdb-radio-size;
+      height: $mdb-radio-size;
+      background-color: $mdb-radio-color-on;
+      border-radius: 100%;
+      transform: scale3d(0, 0, 0);
+
+      // focus/press ripple
+      &::after {
+        position: absolute;
+        top: -#{$mdb-radio-size};
+        left: -#{$mdb-radio-size};
+        z-index: 1;
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 0;
+        content: "";
+        background-color: $mdb-text-color-primary;
+        border-radius: 100%;
+        opacity: 0;
+        transform: scale3d(1.5, 1.5, 1);
+      }
+    }
   }
 
   input[type=radio] {
@@ -72,25 +54,29 @@ label.radio-inline,
     opacity: 0;
 
     &:checked {
-      @include radio-color($mdb-radio-color-on, 1);
+      @include mdb-radio-color($mdb-radio-color-on);
+
+      ~ .mdb-radio-inner-circle {
+        transform: scale3d(0.55, 0.55, 1);
+        &::after {
+          animation: rippleOn 500ms;
+        }
+      }
     }
-    &:checked ~ .check {
-      transform: scale3d(0.55, 0.55, 1);
+
+    &:not(:checked) ~ .mdb-radio-inner-circle::after {
+      animation: rippleOff 500ms;
     }
-  }
 
-  input[type=radio][disabled] {
+    &[disabled] {
+      @include mdb-radio-color($mdb-radio-color-disabled);
 
-    // light theme spec: Disabled: #000000, Opacity  26%
-    @include radio-color($black, 0.26);
-
-    // dark theme spec: Disabled: #FFFFFF, Opacity  30%
-    .theme-dark & {
-      @include radio-color($white, 0.30);
+      .theme-dark & {
+        @include mdb-radio-color($mdb-radio-color-disabled-dark);
+      }
     }
   }
 }
-
 
 @keyframes rippleOn {
   0% {

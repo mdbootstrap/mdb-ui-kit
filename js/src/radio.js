@@ -18,7 +18,7 @@ const Radio = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
-    template: `<span class='radio-decorator'></span><span class='check'></span>`
+    template: `<span class='mdb-radio-outer-circle'></span><span class='mdb-radio-inner-circle'></span>`
   }
 
   /**
@@ -52,6 +52,11 @@ const Radio = (($) => {
 
     // ------------------------------------------------------------------------
     // protected
+
+    //decorateMarkup() {
+    //  this.$element.after(this.config.template)
+    //}
+
 
     // ------------------------------------------------------------------------
     // private

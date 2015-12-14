@@ -12,7 +12,11 @@ const RadioInline = (($) => {
   const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
-  const Default = {}
+  const Default = {
+    mdbFormGroup: {
+      omit: true
+    }
+  }
 
   /**
    * ------------------------------------------------------------------------

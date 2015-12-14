@@ -119,7 +119,7 @@ label.checkbox-inline,
   fieldset[disabled] & input[type=checkbox],
   input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check::before,
   input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check,
-  input[type=checkbox][disabled] + .radio-decorator {
+  input[type=checkbox][disabled] + .mdb-radio-outer-circle {
     opacity: 0.5;
   }
   input[type=checkbox][disabled] + .checkbox-decorator .check::after {

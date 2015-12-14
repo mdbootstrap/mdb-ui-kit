@@ -26,7 +26,8 @@ const BaseInput = (($) => {
       required: false
     },
     mdbFormGroup: {
-      template: `<span class='mdb-form-group'></span>`
+      template: `<span class='mdb-form-group'></span>`,
+      omit: false // inline components really dislike any mdb-form-group
     },
     mdbLabel: {
       required: false,
@@ -91,7 +92,9 @@ const BaseInput = (($) => {
       // Will add mdb-form-group to form-group or create an mdb-form-group
       //  Performance Note: for those forms that are really performance driven, create the markup with the .mdb-form-group to avoid
       //    rendering changes once added.
-      this.$mdbFormGroup = this.resolveMdbFormGroup()
+      if (!this.config.mdbFormGroup.omit) {
+        this.$mdbFormGroup = this.resolveMdbFormGroup()
+      }
 
       // Resolve and mark the mdbLabel if necessary as defined by the config
       this.$mdbLabel = this.resolveMdbLabel()
@@ -251,7 +254,7 @@ const BaseInput = (($) => {
           label = this.$mdbFormGroup.find(selector)
         }
 
-        if(label !== undefined && label.length > 0){
+        if (label !== undefined && label.length > 0) {
           break;
         }
       }

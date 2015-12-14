@@ -2,7 +2,7 @@
 
 // redefine ? TODO: do we need this mdb variant?  This is used as $body-color
 $gray-light: rgba($black, 0.26) !default;
-$gray: rgba($black, .68) !default;  // rgba($black, .54)
+$gray: rgba($black, .54) !default; // spec color
 $gray-dark: rgba($black, 0.87) !default;
 
 // wondering if any of these could still be refactored out, but are definitely in use.
@@ -24,6 +24,10 @@ $enable-flex: true;
 @import "variables/bootstrap/forms";
 @import "variables/bootstrap/state";
 @import "variables/bootstrap/type";
+
+
+// import their vars after customization for use below
+@import "../bower_components/bootstrap/scss/variables";
 
 
 //---
@@ -89,11 +93,16 @@ $mdb-popover-color: #ececec !default;
 $mdb-dropdown-font-size: 16px !default;
 
 // Radio:
-$mdb-radio-color-off: $mdb-label-color-inner-focus !default;
+$mdb-radio-border: .125rem !default; // 2px
+$mdb-radio-size: 1rem !default;
+
+$mdb-radio-color-off: $mdb-label-color-inner-focus !default;  // FIXME seems inconsistent, check spec
 $mdb-radio-color-on: $brand-primary !default;
+$mdb-radio-color-disabled: $gray-light; // light theme spec: Disabled: #000000, Opacity  26%
+$mdb-radio-color-disabled-dark:  rgba($white, 0.30); // dark theme spec: Disabled: #FFFFFF, Opacity  30%
 
 // Buttons:
-$mdb-btn-font-size-base: 14px !default;
+$mdb-btn-font-size-base: 14px !default;       // FIXME
 $mdb-btn-font-size-lg: 16px !default;
 $mdb-btn-font-size-sm: 12px !default;
 $mdb-btn-font-size-xs: 10px !default;
