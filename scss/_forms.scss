@@ -71,7 +71,7 @@ form {
 // -----
 // State coloring: default, success, info, warning, danger
 //
-@include mdb-toggle-color();
+@include mdb-selection-color();
 @include mdb-form-color($mdb-label-color, $mdb-label-color-focus, $input-border-color);
 
 .has-success {

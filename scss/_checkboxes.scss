@@ -1,8 +1,6 @@
 // http://www.google.com/design/spec/components/selection-controls.html#selection-controls-checkbox
-label.checkbox,
-label.checkbox-inline,
 .checkbox label,
-.checkbox-inline label {
+label.checkbox-inline {
   padding-left: 0; // Reset for Bootstrap rule
   cursor: pointer;
 
@@ -114,14 +112,6 @@ label.checkbox-inline,
     }
   }
 
-  // Style for disabled inputs
-  fieldset[disabled] &,
-  fieldset[disabled] & input[type=checkbox],
-  input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check::before,
-  input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check,
-  input[type=checkbox][disabled] + .mdb-radio-outer-circle {
-    opacity: 0.5;
-  }
   input[type=checkbox][disabled] + .checkbox-decorator .check::after {
     background-color: $mdb-text-color-primary;
     transform: rotate(-45deg);

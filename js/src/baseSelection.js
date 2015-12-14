@@ -1,7 +1,7 @@
 import BaseInput from './baseInput'
 import Util from './util'
 
-const BaseToggle = (($) => {
+const BaseSelection = (($) => {
 
   /**
    * ------------------------------------------------------------------------
@@ -34,7 +34,7 @@ const BaseToggle = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class BaseToggle extends BaseInput {
+  class BaseSelection extends BaseInput {
 
     constructor($element, config, properties) {
       // properties = {inputType: checkbox, outerClass: checkbox-inline}
@@ -86,8 +86,8 @@ const BaseToggle = (($) => {
     // private
   }
 
-  return BaseToggle
+  return BaseSelection
 
 })(jQuery)
 
-export default BaseToggle
+export default BaseSelection

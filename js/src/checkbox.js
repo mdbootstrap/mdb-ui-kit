@@ -1,4 +1,4 @@
-import BaseToggle from './baseToggle'
+import BaseSelection from './baseSelection'
 import Text from './text'
 import File from './file'
 import Radio from './radio'
@@ -27,7 +27,7 @@ const Checkbox = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Checkbox extends BaseToggle {
+  class Checkbox extends BaseSelection {
 
     constructor($element, config, properties = {inputType: NAME, outerClass: NAME}) {
       super($element, $.extend(true, {

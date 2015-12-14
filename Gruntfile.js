@@ -111,7 +111,7 @@ module.exports = function (grunt) {
         },
         files: {
           'dist/js/babel/baseInput.js': 'js/src/baseInput.js',
-          'dist/js/babel/baseToggle.js': 'js/src/baseToggle.js',
+          'dist/js/babel/baseSelection.js': 'js/src/baseSelection.js',
           'dist/js/babel/util.js': 'js/src/util.js',
           'dist/js/babel/ripples.js': 'js/src/ripples.js',
           'dist/js/babel/autofill.js': 'js/src/autofill.js',
@@ -138,7 +138,7 @@ module.exports = function (grunt) {
 
           // generate core so we have local debugging
           'docs/dist/js/babel/baseInput.js': 'js/src/baseInput.js',
-          'docs/dist/js/babel/baseToggle.js': 'js/src/baseToggle.js',
+          'docs/dist/js/babel/baseSelection.js': 'js/src/baseSelection.js',
           'docs/dist/js/babel/util.js': 'js/src/util.js',
           'docs/dist/js/babel/ripples.js': 'js/src/ripples.js',
           'docs/dist/js/babel/autofill.js': 'js/src/autofill.js',
@@ -168,7 +168,7 @@ module.exports = function (grunt) {
         },
         files: {
           'dist/js/umd/baseInput.js': 'js/src/baseInput.js',
-          'dist/js/umd/baseToggle.js': 'js/src/baseToggle.js',
+          'dist/js/umd/baseSelection.js': 'js/src/baseSelection.js',
           'dist/js/umd/util.js': 'js/src/util.js',
           'dist/js/umd/ripples.js': 'js/src/ripples.js',
           'dist/js/umd/autofill.js': 'js/src/autofill.js',
@@ -234,7 +234,7 @@ module.exports = function (grunt) {
       bootstrap: {
         src: [
           'dist/js/babel/baseInput.js',
-          'dist/js/babel/baseToggle.js',
+          'dist/js/babel/baseSelection.js',
           'dist/js/babel/util.js',
           'dist/js/babel/ripples.js',
           'dist/js/babel/autofill.js',

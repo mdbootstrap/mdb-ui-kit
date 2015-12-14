@@ -1,11 +1,14 @@
-@mixin mdb-toggle-color() {
+@mixin mdb-selection-color() {
   .radio label,
+  .radio-inline,
   .checkbox label,
+  .checkbox-inline,
   .switch label {
 
     // override bootstrap focus and keep all the standard color (could be multiple radios in the form group)
-    color: $mdb-label-color;
+    //color: $mdb-label-color;
 
+    &,
     .is-focused & {
       // form-group focus could change multiple checkboxes/radios, disable that change by using the same color as non-form-group is-focused
       color: $mdb-label-color;
@@ -17,20 +20,31 @@
       }
 
       // correct the above focus color for disabled items
+      label:has(input[type=radio][disabled]),     // css 4 which is unlikely to work for a while, but no other pure css way.
+      label:has(input[type=checkbox][disabled]),  // css 4
       fieldset[disabled] & {
-        color: $mdb-label-color;
+        &,
+        &:hover,
+        &:focus {
+          color: $mdb-label-color;
+        }
       }
     }
   }
+
+  // Style for disabled inputs  OLD, use color approach with opacity built in, see radios
+  //fieldset[disabled] &,
+  //fieldset[disabled] & input[type=checkbox],
+  //input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check::before,
+  //input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check,
+  //input[type=checkbox][disabled] + .mdb-radio-outer-circle {
+  //  opacity: 0.5;
+  //}
 }
 
 @mixin mdb-radio-color($color) {
-  //~ .check,
-  //~ .mdb-radio-outer-circle {
-  //  opacity: $opacity;
-  //}
 
-  ~ .check {
+  ~ .mdb-radio-inner-circle {
     background-color: $color;
   }
 

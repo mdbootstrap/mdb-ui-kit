@@ -14,7 +14,8 @@ const RadioInline = (($) => {
 
   const Default = {
     mdbFormGroup: {
-      omit: true
+      create: false, // no mdb-form-group creation if form-group not present. It messes with the layout.
+      required: false
     }
   }
 

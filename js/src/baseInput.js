@@ -27,7 +27,8 @@ const BaseInput = (($) => {
     },
     mdbFormGroup: {
       template: `<span class='mdb-form-group'></span>`,
-      omit: false // inline components really dislike any mdb-form-group
+      create: true, // create a wrapper if form-group not found
+      required: true // not recommended to turn this off, only used for inline components
     },
     mdbLabel: {
       required: false,
@@ -92,9 +93,7 @@ const BaseInput = (($) => {
       // Will add mdb-form-group to form-group or create an mdb-form-group
       //  Performance Note: for those forms that are really performance driven, create the markup with the .mdb-form-group to avoid
       //    rendering changes once added.
-      if (!this.config.mdbFormGroup.omit) {
-        this.$mdbFormGroup = this.resolveMdbFormGroup()
-      }
+      this.$mdbFormGroup = this.resolveMdbFormGroup()
 
       // Resolve and mark the mdbLabel if necessary as defined by the config
       this.$mdbLabel = this.resolveMdbLabel()
@@ -198,7 +197,7 @@ const BaseInput = (($) => {
     resolveMdbFormGroup() {
       let mfg = this.findMdbFormGroup(false)
       if (mfg === undefined || mfg.length === 0) {
-        if (this.$formGroup === undefined || this.$formGroup.length === 0) {
+        if (this.config.mdbFormGroup.create && (this.$formGroup === undefined || this.$formGroup.length === 0)) {
           // If a form-group doesn't exist (not recommended), take a guess and wrap the element (assuming no label).
           //  note: it's possible to make this smarter, but I need to see valid cases before adding any complexity.
           this.outerElement().wrap(this.config.mdbFormGroup.template)
@@ -211,7 +210,7 @@ const BaseInput = (($) => {
           //fg.wrapInner(this.config.mdbFormGroup.template)
         }
 
-        mfg = this.findMdbFormGroup(true)
+        mfg = this.findMdbFormGroup(this.config.mdbFormGroup.required)
       }
 
       return mfg
