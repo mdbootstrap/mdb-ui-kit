@@ -49,23 +49,20 @@
 
 
 // must be broken out for reuse - webkit selector breaks firefox
-@mixin mdb-label-static($label-top, $static-font-size, $static-line-height) {
+@mixin mdb-label-static($label-top, $static-font-size) {
   top: $label-top;
   left: 0;
-  // must repeat because the selector above is more specific than the general label sizing
-  //font-size: $static-font-size;
-  //line-height: $static-line-height;
+  // must repeat because the previous (more generic) selectors
+  font-size: $static-font-size;
 }
 
-@mixin mdb-form-size-variant($font-size, $label-top-margin, $vertical-padding, $line-height, $label-as-placeholder-shim, $form-group-context: null) {
+@mixin mdb-form-size-variant($font-size, $label-top-margin, $variant-padding-y, $variant-line-height, $label-as-placeholder-shim, $form-group-context: null) {
   $static-font-size: ($mdb-mdb-label-static-size-ratio * $font-size);
-  $static-line-height: ($mdb-mdb-label-static-size-ratio * $line-height);
 
-  $label-as-placeholder-top: ($vertical-padding + $label-as-placeholder-shim);  // -1 *
-  $label-top: $label-as-placeholder-top - ($font-size + $vertical-padding);
+  $label-as-placeholder-top: ($variant-padding-y + $label-as-placeholder-shim);  // -1 *
+  $label-top: $label-as-placeholder-top - ($font-size + $variant-padding-y);
 
   $help-font-size: ($mdb-help-size-ratio * $font-size);
-  $help-line-height: ($mdb-help-size-ratio * $line-height);
 
   @debug "font-size: #{$font-size} static-font-size: #{$static-font-size} help-font-size: #{$help-font-size} form-group-context: #{$form-group-context} ";
 
@@ -75,9 +72,17 @@
   //Padding below input text (including divider): 16dp
   //Padding below text divider: 8dp
 
+  // Set all line-heights preferably to 1 so that we can space out everything manually without additional added space
+  //  from the default line-height of 1.5
+  .form-control,
+  label,
+  .mdb-help,
+  input::placeholder {
+    line-height: $variant-line-height;
+  }
 
-  // this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
-  //@include label-size-variant($font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-font-size);
+    // this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
+  //@include label-size-variant($font-size, $vertical-padding, $variant-line-height, $static-font-size, $static-line-height, $help-font-size);
   .form-control {
     //
     //  // margin-bottom must be specified to give help-block vertical space.
@@ -87,7 +92,7 @@
 
   input::placeholder {
     font-size: $font-size;
-    line-height: $line-height;
+    //line-height: $variant-line-height;
   }
 
   // generic labels used anywhere in the form
@@ -95,24 +100,21 @@
   .radio label,
   label {
     font-size: $font-size;
-    line-height: $line-height;
   }
 
   // smaller focused or static size
   //label[class^='mdb-label'],
   //label[class*=' mdb-label'] {
   //  //font-size: $static-font-size;
-  //  //line-height: $static-line-height;
   //  //margin: 16px 0 0 0; // std and lg
   //}
 
   // floating/placeholder default
   .mdb-label-floating,
   .mdb-label-placeholder {
-    @debug "top: #{$label-as-placeholder-top}";
+    //@debug "top: #{$label-as-placeholder-top}";
     top: $label-as-placeholder-top; // place the floating label to look like a placeholder with input padding
     //font-size: $placeholder-font-size;
-    //line-height: $line-height;
   }
 
   // floating focused/filled will look like static
@@ -121,13 +123,13 @@
   &.is-filled,
   .is-filled {
     .mdb-label-floating {
-      @include mdb-label-static($label-top, $static-font-size, $static-line-height);
+      @include mdb-label-static($label-top, $static-font-size);
     }
   }
 
   // static
   .mdb-label-static {
-    @include mdb-label-static($label-top, $static-font-size, $static-line-height);
+    @include mdb-label-static($label-top, $static-font-size);
   }
   // #559 Fix for webkit/chrome autofill - rule must be separate because it breaks firefox otherwise #731
   //input:-webkit-autofill ~ .mdb-label-floating {  FIXME: confirm that the autofill js generation of change event makes this unnecessary

@@ -93,13 +93,10 @@
   position: relative;
 
   // -----
-  // Labels with form-group signalled state
+  // Labels
   //
   // Reference http://www.google.com/design/spec/components/text-fields.html
   // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-  //&.mdb-label-static,
-  //&.mdb-label-placeholder,
-  //&.mdb-label-floating {
   label[class^='mdb-label'],
   label[class*=' mdb-label'] {
     position: absolute;
@@ -117,16 +114,16 @@
   }
 
   // default floating size/location with an mdb-form-group
-  @include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $line-height, $mdb-label-as-placeholder-shim-base, "mdb-form-group default");
+  @include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height, $mdb-label-as-placeholder-shim-base, "mdb-form-group default");
 
   // sm floating size/location
   //&.mdb-form-group-sm {
-  //  @include mdb-form-size-variant($font-size-sm, $mdb-label-top-margin-sm, $mdb-input-padding-y-sm, $line-height-sm, $mdb-label-as-placeholder-shim-sm, "mdb-form-group sm");
+  //  @include mdb-form-size-variant($font-size-sm, $mdb-label-top-margin-sm, $mdb-input-padding-y-sm, $mdb-form-line-height-sm, $mdb-label-as-placeholder-shim-sm, "mdb-form-group sm");
   //}
   //
   //// lg floating size/location
   //&.mdb-form-group-lg {
-  //  @include mdb-form-size-variant($font-size-lg, $mdb-label-top-margin-lg, $mdb-input-padding-y-lg, $line-height-lg, $mdb-label-as-placeholder-shim-lg, "mdb-form-group lg");
+  //  @include mdb-form-size-variant($font-size-lg, $mdb-label-top-margin-lg, $mdb-input-padding-y-lg, $mdb-form-line-height-sm, $mdb-label-as-placeholder-shim-lg, "mdb-form-group lg");
   //}
 }
 
