@@ -2,7 +2,7 @@
 
 // redefine ? TODO: do we need this mdb variant?  This is used as $body-color
 $gray-light: rgba($black, 0.26) !default;
-$gray: rgba($black, .54) !default;
+$gray: rgba($black, .68) !default;  // rgba($black, .54)
 $gray-dark: rgba($black, 0.87) !default;
 
 // wondering if any of these could still be refactored out, but are definitely in use.

@@ -36,7 +36,8 @@
     .mdb-form-control-decorator {
       &::before,
       &::after {
-        @include gradient-vertical($label-color-focus, $input-border-color);
+        //@include gradient-vertical($label-color-focus, $input-border-color);
+        background-color: $label-color-focus;
       }
     }
 
@@ -67,6 +68,13 @@
   $help-line-height: ($mdb-help-size-ratio * $line-height);
 
   @debug "font-size: #{$font-size} static-font-size: #{$static-font-size} help-font-size: #{$help-font-size} form-group-context: #{$form-group-context} ";
+
+  //Label height: 72dp
+  //Padding above label text: 16dp
+  //Padding between label and input text: 8dp
+  //Padding below input text (including divider): 16dp
+  //Padding below text divider: 8dp
+
 
   // this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
   //@include label-size-variant($font-size, $vertical-padding, $line-height, $static-font-size, $static-line-height, $help-font-size);

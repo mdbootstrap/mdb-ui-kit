@@ -27,9 +27,8 @@
   &::after {
     position: absolute;
     width: 0;
-    height: $input-btn-border-width;
+    height: $input-btn-border-width + 1;
     content: "";
-    @include gradient-vertical($brand-primary, $input-border-color);
     transition: 0.3s ease all;
 
     // focused state - it transitions the width of each (before and after) to 50% creating the center out effect
