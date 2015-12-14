@@ -40,7 +40,7 @@
     .mdb-form-control-decorator {
       &::before,
       &::after {
-        //@include gradient-vertical($label-color-focus, $input-border-color);
+        //@include gradient-vertical($label-color-focus, $input-border-color);  // seems to look better solid.  other comments?
         background-color: $label-color-focus;
       }
     }
@@ -59,7 +59,7 @@
   font-size: $static-font-size;
 }
 
-@mixin mdb-form-size-variant($font-size, $label-top-margin, $variant-padding-y, $variant-line-height, $label-as-placeholder-shim, $form-group-context: null) {
+@mixin mdb-form-size-variant($font-size, $label-top-margin, $variant-padding-y, $variant-line-height, $form-group-context: null) {
   $static-font-size: ($mdb-mdb-label-static-size-ratio * $font-size);
   $help-font-size: ($mdb-help-size-ratio * $font-size);
 
@@ -75,33 +75,23 @@
   //Padding below text divider: 8dp
 
   @if $form-group-context {
-
     // Create a space at the top of the mdb-form-group for the label.
-    //  The label is absolutely positioned, so we use top padding to make space.  This padding extends down to the top of the input (padding).
+    //  The label is absolutely positioned, so we use top padding to make space.  This padding extends over the label down to the top of the input (padding).
     padding-top: ($label-top-margin + $static-font-size);
+    // note: bottom-margin of this is determined by $spacer.  @see _spacer.scss
   }
 
   // Set all line-heights preferably to 1 so that we can space out everything manually without additional added space
   //  from the default line-height of 1.5
   .form-control,
   label,
-  .mdb-help,
   input::placeholder {
     line-height: $variant-line-height;
   }
 
-  // this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
-  //@include label-size-variant($font-size, $vertical-padding, $variant-line-height, $static-font-size, $static-line-height, $help-font-size);
-  .form-control {
-    //
-    //  // margin-bottom must be specified to give help-block vertical space.
-    //  //    $see also form-group padding-bottom (and size variants) re: collapsible margins.  These work together.
-    //  margin-bottom: $vertical-padding;
-  }
-
+  // Note: this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
   input::placeholder {
     font-size: $font-size;
-    //line-height: $variant-line-height;
   }
 
   // generic labels used anywhere in the form
@@ -111,19 +101,11 @@
     font-size: $font-size;
   }
 
-  // smaller focused or static size
-  //[class^='mdb-label'],
-  //[class*=' mdb-label'] {
-  //  //font-size: $static-font-size;
-  //  //margin: 16px 0 0 0; // std and lg
-  //}
-
   // floating/placeholder default (no focus)
   .mdb-label-floating,
   .mdb-label-placeholder {
     //@debug "top: #{$label-as-placeholder-top}";
     top: $label-placeholder-top; // place the floating label to look like a placeholder with input padding
-    //font-size: $placeholder-font-size;
   }
 
   // floating focused/filled will look like static
