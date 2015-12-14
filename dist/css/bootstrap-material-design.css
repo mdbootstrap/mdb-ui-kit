@@ -811,6 +811,9 @@ fieldset[disabled][disabled] .btn-group-vertical.btn-group-raised:focus:not(:act
 .form-group.is-focused .checkbox label:focus {
   color: rgba(0,0,0, .54);
 }
+fieldset[disabled] .form-group.is-focused .checkbox label {
+  color: rgba(0,0,0, 0.26);
+}
 .checkbox input[type=checkbox] {
   opacity: 0;
   position: absolute;
@@ -1236,6 +1239,9 @@ fieldset[disabled] .checkbox input[type=checkbox],
 .form-group.is-focused .togglebutton label:focus {
   color: rgba(0,0,0, .54);
 }
+fieldset[disabled] .form-group.is-focused .togglebutton label {
+  color: rgba(0,0,0, 0.26);
+}
 .togglebutton label input[type=checkbox] {
   opacity: 0;
   width: 0;
@@ -1308,6 +1314,9 @@ fieldset[disabled] .checkbox input[type=checkbox],
 .form-group.is-focused .radio label:hover,
 .form-group.is-focused .radio label:focus {
   color: rgba(0,0,0, .54);
+}
+fieldset[disabled] .form-group.is-focused .radio label {
+  color: rgba(0,0,0, 0.26);
 }
 .radio label span {
   display: block;
@@ -2962,9 +2971,9 @@ hr.on-light {
   -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
   height: 0;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
-       -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
-          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, padding 0 linear 0.2s, height 0 linear 0.2s;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;
+       -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;
+          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;
   -webkit-transform: translateY(200%);
       -ms-transform: translateY(200%);
        -o-transform: translateY(200%);
@@ -2974,9 +2983,9 @@ hr.on-light {
   padding: 14px 15px;
   margin-bottom: 20px;
   height: auto;
-  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
-       -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
-          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0 linear 0.2s, height 0 linear 0.2s;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, height 0s linear 0.2s;
+       -o-transition: -o-transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, height 0s linear 0.2s;
+          transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, height 0s linear 0.2s;
   -webkit-transform: none;
       -ms-transform: none;
        -o-transform: none;
