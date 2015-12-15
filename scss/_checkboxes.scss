@@ -44,24 +44,26 @@ label.checkbox-inline {
       height: $mdb-checkbox-size;
       overflow: hidden;
       border: $border-radius solid $mdb-checkbox-border-color;
-    }
-    .check::before {
-      position: absolute;
-      display: block;
-      width: 0;
-      height: 0;
-      margin-top: -4px;
-      margin-left: 6px;
-      content: "";
-      box-shadow: 0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0 inset;
-      transform: rotate(45deg);
-      animation: checkbox-off $mdb-checkbox-animation-check forwards;
+
+      // checkbox outline
+      &::before {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        margin-top: -4px;
+        margin-left: 6px;
+        content: "";
+        box-shadow: 0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0 inset;
+        transform: rotate(45deg);
+        animation: checkbox-off $mdb-checkbox-animation-check forwards;
+      }
     }
   }
 

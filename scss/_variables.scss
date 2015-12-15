@@ -79,14 +79,16 @@ $text-disabled: #a8a8a8 !default;
 $background-disabled: #eaeaea !default;
 
 // Checkboxes
-$mdb-checkbox-size: 20px !default;
+$mdb-checkbox-size: 1.25rem !default;
 $mdb-checkbox-animation-ripple: 500ms !default;
 $mdb-checkbox-animation-check: 0.3s !default;
-$mdb-checkbox-checked-color: $brand-primary; // #4caf50 !default;
+$mdb-checkbox-checked-color: $brand-primary !default;
 $mdb-checkbox-border-color: $mdb-label-color-inner-focus !default;
 
 // Switches
 $mdb-switch-color-checked: $brand-primary;
+$mdb-mdb-switch-track-color: $gray-light;
+//$mdb-switch-color-disabled: $gray-light;
 
 // Popovers and Popups
 $mdb-popover-background: rgba(101, 101, 101, 0.9) !default;

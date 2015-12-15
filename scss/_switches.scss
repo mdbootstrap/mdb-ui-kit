@@ -1,8 +1,10 @@
+// http://codepen.io/rosskevin/pen/EPPwRR?editors=110
+
 .switch {
   &,
   label,
   input,
-  .switch-decorator {
+  .mdb-switch-track {
     user-select: none;
   }
 
@@ -16,40 +18,36 @@
       opacity: 0;
 
       // Handle disabled
-      &[disabled] {
-        + .switch-decorator::after,
-        &:checked + .switch-decorator::after {
-          background-color: $mdb-label-color;
+      &[disabled],
+      fieldset[disabled] & {
+        + .mdb-switch-track::after,
+        &:checked + .mdb-switch-track::after {
+          //background-color: $mdb-label-color;
         }
       }
 
-      //+ .switch-decorator:active::after,
-      //&[disabled] + .switch-decorator:active::after {
-      //  box-shadow: 0 1px 3px 1px rgba($black, 0.4), 0 0 0 15px rgba($black, 0.1);
-      //}
+      + .mdb-switch-track:active::after {
+        //box-shadow: 0 1px 3px 1px rgba($black, 0.4), 0 0 0 15px rgba($black, 0.1);
+        @include shadow-4dp();
+      }
 
       // Ripple off and disabled
-      &:checked + .switch-decorator::after {
+      &:checked + .mdb-switch-track::after {
         left: 15px;
       }
     }
 
-    .switch-decorator {
+    .mdb-switch-track {
+      display: inline-block;
+      width: 30px;
+      height: 15px;
+      margin-right: 15px;
       text-align: left; // Issue #737 horizontal form
-
-      // Switch bg off and disabled
-      &,
-      input[type=checkbox][disabled] + & {
-        display: inline-block;
-        width: 30px;
-        height: 15px;
-        margin-right: 15px;
-        vertical-align: middle;
-        content: "";
-        background-color: rgba(80, 80, 80, 0.7);
-        border-radius: 15px;
-        transition: background 0.3s ease;
-      }
+      vertical-align: middle;
+      content: "";
+      background-color: $mdb-mdb-switch-track-color;
+      border-radius: 15px;
+      transition: background 0.3s ease;
 
       // Thumb
       &::after {
@@ -70,7 +68,7 @@
 
     // set bg when checked
     input[type=checkbox]:checked {
-      + .switch-decorator {
+      + .mdb-switch-track {
         background-color: rgba($mdb-switch-color-checked, (50 / 100)); // Switch bg on
 
         &::after {
