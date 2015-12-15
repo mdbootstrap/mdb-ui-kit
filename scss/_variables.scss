@@ -1,6 +1,7 @@
 @import "variables/colors";
 
 // redefine ? TODO: do we need this mdb variant?  This is used as $body-color
+$gray-lighter: rgba($black, 0.12) !default;
 $gray-light: rgba($black, 0.26) !default;
 $gray: rgba($black, .54) !default; // spec color
 $gray-dark: rgba($black, 0.87) !default;
@@ -86,9 +87,18 @@ $mdb-checkbox-checked-color: $brand-primary !default;
 $mdb-checkbox-border-color: $mdb-label-color-inner-focus !default;
 
 // Switches
-$mdb-switch-color-checked: $brand-primary;
-$mdb-mdb-switch-track-color: $gray-light;
-//$mdb-switch-color-disabled: $gray-light;
+$mdb-switch-label-padding: .3125rem !default; // 5px
+$mdb-switch-width: 2.125rem !default; // 34px
+$mdb-switch-height: .875rem !default; // 14px
+$mdb-switch-handle-size: 1.25rem !default; // 20px (was 18px)
+
+$mdb-switch-handle-checked-bg: $brand-primary !default;
+$mdb-switch-handle-unchecked-bg: #f1f1f1 !default;
+$mdb-switch-handle-disabled-bg: #bdbdbd !default;
+$mdb-switch-unchecked-bg: $gray-light !default;
+$mdb-switch-checked-bg: desaturate(lighten($mdb-switch-handle-checked-bg, 28%), 32%); // kind of magic recipe
+$mdb-switch-disabled-bg: $gray-lighter !default;
+
 
 // Popovers and Popups
 $mdb-popover-background: rgba(101, 101, 101, 0.9) !default;

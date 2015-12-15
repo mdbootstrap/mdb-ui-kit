@@ -1,83 +1,81 @@
 // http://codepen.io/rosskevin/pen/EPPwRR?editors=110
-
 .switch {
-  &,
-  label,
-  input,
-  .mdb-switch-track {
-    user-select: none;
-  }
-
   label {
-    cursor: pointer;
+    position: relative;
+    padding-left: $mdb-switch-width + $mdb-switch-label-padding; // absolutely positioned so add the radio size
 
-    // Hide original checkbox
-    input[type=checkbox] {
+    .mdb-switch-track {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: $mdb-switch-width;
+      height: $mdb-switch-height;
+      cursor: pointer;
+      background-image: linear-gradient(
+          to right,
+          $mdb-switch-unchecked-bg 0%,
+          $mdb-switch-unchecked-bg 50%,
+          $mdb-switch-checked-bg 50%,
+          $mdb-switch-checked-bg 100%
+      );
+      background-position: 0%;
+      background-size: $mdb-switch-width * 2 $mdb-switch-height;
+      border-radius: $mdb-switch-width;
+      transition: background-position 0.2s ease-in;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+        width: $mdb-switch-handle-size;
+        height: $mdb-switch-handle-size;
+        content: "";
+        background: $mdb-switch-handle-unchecked-bg;
+        border-radius: 100%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        transition: left 0.2s ease-in, background-color 0.2s ease-in, transform 0.3s ease;
+        transform: translateY(-50%);
+        align-self: center;
+      }
+
+      // Jelly effect on click
+      &:active::after {
+        transform: translateY(-50%) scale3d(1.15, 0.85, 1);
+      }
+    }
+
+    input {
+      // Hide original checkbox, but don't use `display: none` to allow focus on it using keyboard
+      position: absolute;
+      display: block;
       width: 0;
       height: 0;
       opacity: 0;
 
-      // Handle disabled
-      &[disabled],
-      fieldset[disabled] & {
-        + .mdb-switch-track::after,
-        &:checked + .mdb-switch-track::after {
-          //background-color: $mdb-label-color;
+      &:checked {
+        + .mdb-switch-track {
+          background-position: -100%;
+          &::after {
+            left: unquote("calc(100% - #{$mdb-switch-handle-size})"); //calc(100% - $mdb-switch-handle-size);
+            background-color: $mdb-switch-handle-checked-bg;
+          }
         }
       }
 
-      + .mdb-switch-track:active::after {
-        //box-shadow: 0 1px 3px 1px rgba($black, 0.4), 0 0 0 15px rgba($black, 0.1);
-        @include shadow-4dp();
-      }
-
-      // Ripple off and disabled
-      &:checked + .mdb-switch-track::after {
-        left: 15px;
-      }
-    }
-
-    .mdb-switch-track {
-      display: inline-block;
-      width: 30px;
-      height: 15px;
-      margin-right: 15px;
-      text-align: left; // Issue #737 horizontal form
-      vertical-align: middle;
-      content: "";
-      background-color: $mdb-mdb-switch-track-color;
-      border-radius: 15px;
-      transition: background 0.3s ease;
-
-      // Thumb
-      &::after {
-        position: relative;
-        top: -2px;
-        left: -5px;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        content: "";
-        background-color: #f1f1f1;
-        border-radius: 20px;
-        @include shadow-2dp();
-        //box-shadow: 0 1px 3px 1px rgba($black, 0.4);
-        transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
-      }
-    }
-
-    // set bg when checked
-    input[type=checkbox]:checked {
-      + .mdb-switch-track {
-        background-color: rgba($mdb-switch-color-checked, (50 / 100)); // Switch bg on
-
-        &::after {
-          background-color: $mdb-switch-color-checked; // Handle on
+      &:disabled {
+        // No jelly effect on disabled switchs
+        + .mdb-switch-track:active::after {
+          transform: translateY(-50%);
         }
 
-        &:active::after {
-          @include shadow-3dp();
-          //box-shadow: 0 1px 3px 1px rgba($black, 0.4), 0 0 0 15px rgba($mdb-switch-color-checked, (10 / 100)); // Ripple on
+        + .mdb-switch-track {
+          cursor: default;
+          background: $mdb-switch-disabled-bg;
+          &::after {
+            background: $mdb-switch-handle-disabled-bg;
+          }
         }
       }
     }

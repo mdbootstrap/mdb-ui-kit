@@ -23,7 +23,7 @@ const Switch = (($) => {
    */
   class Switch extends Checkbox {
 
-    constructor($element, config, properties = {inputType: 'checkbox', outerClass: NAME}) {
+    constructor($element, config, properties = {inputType: 'checkbox', outerClass: 'switch'}) {
       super($element, $.extend(true, {}, Default, config), properties)
       // selector: '.switch > label > input[type=checkbox]'
     }
