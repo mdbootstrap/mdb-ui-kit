@@ -20,8 +20,8 @@
       }
 
       // correct the above focus color for disabled items
-      label:has(input[type=radio][disabled]),     // css 4 which is unlikely to work for a while, but no other pure css way.
-      label:has(input[type=checkbox][disabled]),  // css 4
+      label:has(input[type=radio][disabled]), // css 4 which is unlikely to work for a while, but no other pure css way.
+      label:has(input[type=checkbox][disabled]), // css 4
       fieldset[disabled] & {
         &,
         &:hover,
@@ -52,7 +52,6 @@
     border-color: $color;
   }
 }
-
 
 @mixin mdb-form-color($label-color, $label-color-focus, $border-color) {
 
@@ -143,6 +142,13 @@
   label,
   input::placeholder {
     line-height: $variant-line-height;
+  }
+
+  .radio label,
+  label.radio-inline,
+  .checkbox label,
+  label.checkbox-inline {
+    line-height: $line-height; // keep the same line height for radios and checkboxes
   }
 
   // Note: this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg

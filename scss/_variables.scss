@@ -97,7 +97,8 @@ $mdb-dropdown-font-size: 16px !default;
 
 // Radio:
 $mdb-radio-border: .125rem !default; // 2px
-$mdb-radio-size: 1rem !default;
+$mdb-radio-size: 1.25rem !default;
+$mdb-radio-label-padding: .3125rem !default; // 5px
 
 $mdb-radio-color-off: $mdb-label-color-inner-focus !default;  // FIXME seems inconsistent, check spec
 $mdb-radio-color-on: $brand-primary !default;

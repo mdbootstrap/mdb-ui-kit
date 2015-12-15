@@ -1,30 +1,27 @@
-.radio label span {
-  top: 0;
-}
-label.radio-inline span {
-  top: (($line-height * $font-size-base) - $mdb-radio-size) / 2;
-}
-
 .radio label,
 label.radio-inline {
   position: relative;
+  padding-left: $mdb-radio-size + $mdb-radio-label-padding; // absolutely positioned so add the radio size
 
   span {
     position: absolute;
+    top: (($line-height * $font-size-base) - $mdb-radio-size) / 2;  // vertical center of line-height
     left: 0;
-    display: block;
+    display: inline-block;
     width: $mdb-radio-size;
     height: $mdb-radio-size;
     transition-duration: 0.2s;
 
     &.mdb-radio-outer-circle {
       border: $mdb-radio-border solid $mdb-radio-color-off;
-      border-radius: 100%;
+      border-radius: 50%;
+      transition: border-color ease .28s;
     }
     &.mdb-radio-inner-circle {
       display: inline-block;
       background-color: $mdb-radio-color-on;
       border-radius: 50%;
+      transition: transform ease .28s;
       transform: scale3d(0, 0, 0);
 
       // focus/press ripple
