@@ -62,16 +62,16 @@ const Util = (($) => {
         return true
       } else if (typeof event.which === 'number' && event.which > 0) {
         return (
-          !evt.ctrlKey
-          && !evt.metaKey
-          && !evt.altKey
-          && evt.which != 8  // backspace
-          && evt.which != 9  // tab
-          && evt.which != 13 // enter
-          && evt.which != 16 // shift
-          && evt.which != 17 // ctrl
-          && evt.which != 20 // caps lock
-          && evt.which != 27 // escape
+          !event.ctrlKey
+          && !event.metaKey
+          && !event.altKey
+          && event.which != 8  // backspace
+          && event.which != 9  // tab
+          && event.which != 13 // enter
+          && event.which != 16 // shift
+          && event.which != 17 // ctrl
+          && event.which != 20 // caps lock
+          && event.which != 27 // escape
         )
       }
       return false
