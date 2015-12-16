@@ -14,8 +14,9 @@
       color: $mdb-label-color;
 
       // on focus just darken the specific labels, do not turn them to the brand-primary
-      &:hover,
-      &:focus {
+      @include hover-focus-active() {
+        //&:hover,
+        //&:focus {
         color: $mdb-label-color-inner-focus;
       }
 

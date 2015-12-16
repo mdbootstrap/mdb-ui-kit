@@ -10,31 +10,6 @@
   #{map-get($args, material-param-1)}: map-get($args, variation-color);
 }
 
-@mixin background-variations($component, $selector-suffix, $color-default) {
-  @include generic-variations($component, $selector-suffix, $color-default, "background-variations-content", null);
-}
-
-@mixin background-variations-content($args) {
-  background-color: map-get($args, variation-color);
-  @if (map-get($args, variation-color) == $mdb-btn-background-color) {
-    color: $mdb-text-color-primary;
-  } @else {
-    color: map-get($args, variation-color-text);
-  }
-}
-
-@mixin button-variations($component, $selector-suffix, $color-default) {
-  @include generic-variations($component, $selector-suffix, $color-default, "button-variations-content", null);
-}
-
-@mixin button-variations-content($args) {
-  //@debug "#{inspect($args)}";
-  $variation-color: map-get($args, variation-color);
-  background-color: contrast-color($variation-color,
-    darken($variation-color, 4%),
-    lighten($variation-color, 4%));
-}
-
 // navbar-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
 //@mixin navbar-variations($component, $selector-suffix, $color-default) {
 //  @include generic-variations($component, $selector-suffix, $color-default, "navbar-variations-content", null);
@@ -121,7 +96,7 @@
   );
 
   // bootstrap styles
-  &#{$component}-default#{$selector-suffix} {
+  &#{$component}-secondary#{$selector-suffix} {
 
     $args-extra: map-merge($args, (
             variation-color: $color-default,
@@ -129,13 +104,13 @@
     ));
     @include call-variations-content-mixin($args-extra);
   }
-  &#{$component}-inverse#{$selector-suffix} {
-    $args-inverse: map-merge($args, (
-            variation-color: $mdb-brand-inverse,
-            variation-color-text: contrast-color($mdb-brand-inverse, $mdb-text-color-primary, $mdb-text-color-light)
-    ));
-    @include call-variations-content-mixin($args-inverse);
-  }
+  //&#{$component}-inverse#{$selector-suffix} {
+  //  $args-inverse: map-merge($args, (
+  //          variation-color: $mdb-brand-inverse,
+  //          variation-color-text: contrast-color($mdb-brand-inverse, $gray-dark, $mdb-text-color-light)
+  //  ));
+  //  @include call-variations-content-mixin($args-inverse);
+  //}
   &#{$component}-primary#{$selector-suffix} {
     $args-primary: map-merge($args, (
             variation-color: $brand-primary,

@@ -1,64 +1,33 @@
 // specification: https://www.google.com/design/spec/components/buttons.html
 
-@mixin typo-button($color-contrast: false) {
-  font-size: $mdb-btn-font-size-base;
-  font-weight: 500;
-  text-transform: uppercase;
-  //line-height: 1;
-  letter-spacing: 0;
-
-  @if ($color-contrast) {
-    opacity: 0.87;
-  }
-}
-
 // mdb default buttons are flat by default
-.btn,
-.input-group-btn .btn {
+.btn {
   position: relative;
-  padding: 8px 30px;
-  margin: 10px 1px;
+  font-size: $mdb-btn-font-size;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0;
   cursor: pointer;
-  background: transparent;
+  background-color: transparent;
   border: 0;
-  border-radius: $border-radius;
   outline: none;
+  box-shadow: none;
   transition: box-shadow 0.2s $mdb-animation-curve-fast-out-linear-in, background-color 0.2s $mdb-animation-curve-default, color 0.2s $mdb-animation-curve-default;
   will-change: box-shadow, transform;
 
-  @include typo-button();
-
-  &::-moz-focus-inner {
-    border: 0;
-  }
-
-  //---
-  // btn-flat
-  &:not(.btn-raised) {
-    @include variations(unquote(".btn"), unquote(""), color, $mdb-text-color-primary);
-    box-shadow: none;
-
-    &:not(.btn-link) {
-      &:hover,
-      &:focus {
-        // spec: flat/light bg Hover: 20% #999999
-        background-color: rgba(#999, (20 / 100));
-
-        .theme-dark & {
-          // spec: dark bg Hover: 15% #CCCCCC
-          background-color: rgba(#ccc, (15 / 100));
-        }
-      }
-    }
-  }
+  @include undo-tab-focus(); // clear out the tab-focus() from BS
 
   //--
-  // color variations
-  &.btn-raised,
+  // Colors
+
+  // flat removes bg, add color variations to text
+  @include mdb-button-color();
+
+  // fab and raised are colored, add their text and bg
   &.btn-fab,
+  &.btn-raised,
   .btn-group-raised & {
-    @include background-variations(unquote(".btn"), unquote(""), $mdb-btn-background-color);
+    @include mdb-button-colored();
   }
 
   //---
@@ -68,44 +37,24 @@
     &:not(.btn-link) {
       @include shadow-2dp();
 
-      // colors on hover, focus, active
-      &:hover,
-      &:focus,
-      &.active,
-      &:active {
-
-        // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
-        // SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
-        @include button-variations(unquote(".btn"), "", $mdb-btn-background-color);
-
-        // Spec:
-        //  - Raised Light/Light theme no hover.
-        //  - Raised Dark/Dark theme Hover color: 600
-        .theme-dark & {
-          //
-        }
+      // contrast bg colors on hover, focus, active
+      @include mdb-hover-focus-active() {
+        @include mdb-button-colored-bg(true);
+        //border: 1px solid $red;
       }
 
-      // shadow on active
-      &.active,
-      &:active {
-        &,
-        &:hover {
-          @include shadow-4dp();
-        }
+      // enlarged shadow on hover, focus
+      @include hover-focus() {
+        //border: 1px solid $blue;
+        @include shadow-4dp();
       }
 
-      // shadow on focus
-      //   Focus should take precedence over active, so specificity is needed
-      &:focus {
-        &,
-        &.active,
-        &:active {
-          &,
-          &:hover {
-            @include focus-shadow();
-          }
-        }
+      // :active - momentary press: big shadow, release and it is gone
+      // .active - persistent big shadow
+      &.active,
+      &:active {
+        @include focus-shadow();
+        //border: 1px solid $green;
       }
     }
   }
@@ -177,26 +126,28 @@
   &.disabled,
   &:disabled,
   &[disabled][disabled] {
-    // spec: light theme: Disabled text: 26% $black
-    color: rgba($black, (26 / 100));
+    color: $mdb-btn-disabled;
     .theme-dark & {
-      // spec: dark theme: Disabled text: 30% $white
-      color: rgba($white, (30 / 100));
+      color: $mdb-btn-disabled-dark;
     }
 
-    // flat buttons lose transparency
-    background: transparent;
+    // flat buttons shouldn't lose transparency on disabled hover/focus
+    &,
+    &:hover,
+    &:focus {
+      background: transparent;
+    }
 
     // no box-shadow on raised - need specificity
-    &.btn-raised,
-    &.btn-group-raised {
-      &,
-      &.active,
-      &:active,
-      &:focus:not(:active) {
-        box-shadow: none;
-      }
-    }
+    //&.btn-raised,
+    //&.btn-group-raised {
+    //  &,
+    //  &.active,
+    //  &:active,
+    //  &:focus:not(:active) {
+    //    box-shadow: none;
+    //  }
+    //}
   }
 }
 
@@ -205,7 +156,6 @@
 .btn-group-vertical {
 
   position: relative;
-  //border-radius: 2px;
   margin: 10px 1px;
 
   // spec: https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons
@@ -215,7 +165,7 @@
     }
 
     > .dropdown-toggle.btn {
-      @include variations(unquote(".btn"), unquote(""), background-color, $mdb-btn-background-color);
+      @include mdb-button-colored-bg();
     }
   }
 

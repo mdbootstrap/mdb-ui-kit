@@ -115,7 +115,7 @@ label.checkbox-inline {
     fieldset[disabled] & {
       + .checkbox-decorator .check::after,
       .check::after {
-        background-color: $mdb-text-color-primary;
+        background-color: $gray-dark;
         transform: rotate(-45deg);
       }
       + .checkbox-decorator .check,

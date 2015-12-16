@@ -2,31 +2,31 @@
 //
 // For each of Bootstrap's buttons, define text, background and border color.
 
-//$btn-padding-x:                  1rem !default;
-//$btn-padding-y:                  .375rem !default;
-//$btn-font-weight:                normal !default;
+$btn-padding-x:                  1.875rem !default; // 1rem
+$btn-padding-y:                  .5rem !default; // .375rem
+$btn-font-weight:                500 !default; // normal
 //
-//$btn-primary-color:              #fff !default;
+$btn-primary-color:              $mdb-text-color-light !default; // #fff
 //$btn-primary-bg:                 $brand-primary !default;
 //$btn-primary-border:             $btn-primary-bg !default;
 //
-//$btn-secondary-color:            $gray-dark !default;
-//$btn-secondary-bg:               #fff !default;
+$btn-secondary-color:            $gray-dark !default;
+$btn-secondary-bg:               $body-bg !default; // #fff
 //$btn-secondary-border:           #ccc !default;
 //
-//$btn-info-color:                 #fff !default;
+$btn-info-color:                 $mdb-text-color-light !default; // #fff
 //$btn-info-bg:                    $brand-info !default;
 //$btn-info-border:                $btn-info-bg !default;
 //
-//$btn-success-color:              #fff !default;
+$btn-success-color:              $mdb-text-color-light !default; // #fff
 //$btn-success-bg:                 $brand-success !default;
 //$btn-success-border:             $btn-success-bg !default;
 //
-//$btn-warning-color:              #fff !default;
+$btn-warning-color:              $mdb-text-color-light !default; // #fff
 //$btn-warning-bg:                 $brand-warning !default;
 //$btn-warning-border:             $btn-warning-bg !default;
 //
-//$btn-danger-color:               #fff !default;
+$btn-danger-color:               $mdb-text-color-light !default; // #fff
 //$btn-danger-bg:                  $brand-danger !default;
 //$btn-danger-border:              $btn-danger-bg !default;
 //

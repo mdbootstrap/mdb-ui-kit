@@ -1,0 +1,120 @@
+@mixin mdb-button-variant($color: null, $bg-color: null, $border-color: null) {
+  @if ($color) {
+    color: $color;
+  }
+
+  @if ($bg-color) {
+    background-color: $bg-color;
+  }
+
+  @if ($border-color) {
+    border-color: $border-color;
+  }
+}
+
+@mixin mdb-button-color() {
+
+  @include hover-focus {
+    background-color: $mdb-btn-hover-bg;
+
+    .theme-dark & {
+      background-color: $mdb-btn-hover-bg-dark;
+    }
+
+    // reverse the above for links
+    &.btn-link {
+      background-color: transparent;
+    }
+  }
+
+  // default
+  //@include mdb-button-variant($mdb-btn-color, $mdb-btn-bg, $mdb-btn-border);
+
+  // flat bg with text color variations
+  &.btn-primary {
+    @include mdb-button-variant($btn-primary-bg);
+  }
+  &.btn-secondary {
+    @include mdb-button-variant($btn-secondary-color);
+  }
+  &.btn-info {
+    @include mdb-button-variant($btn-info-bg);
+  }
+  &.btn-success {
+    @include mdb-button-variant($btn-success-bg);
+  }
+  &.btn-warning {
+    @include mdb-button-variant($btn-warning-bg);
+  }
+  &.btn-danger {
+    @include mdb-button-variant($btn-danger-bg);
+  }
+}
+
+@mixin mdb-button-colored() {
+
+  &.btn-primary {
+    @include mdb-button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  }
+  &.btn-secondary {
+    @include mdb-button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+  }
+  &.btn-info {
+    @include mdb-button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+  }
+  &.btn-success {
+    @include mdb-button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+  }
+  &.btn-warning {
+    @include mdb-button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+  }
+  &.btn-danger {
+    @include mdb-button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+  }
+}
+
+@mixin mdb-button-bg($color, $contrast: false) {
+  @if ($contrast) { // contrast for focus indication
+    // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
+    background-color: contrast-color($color, darken($color, 4%), lighten($color, 4%));
+  } @else {
+    background-color: $color;
+  }
+}
+
+@mixin mdb-button-colored-bg($contrast: false) {
+  // default
+  @include mdb-button-bg($mdb-btn-bg, $contrast);
+
+  &.btn-primary {
+    @include mdb-button-bg($btn-primary-bg, $contrast);
+  }
+  &.btn-secondary {
+    @include mdb-button-bg($btn-secondary-bg, $contrast);
+  }
+  &.btn-info {
+    @include mdb-button-bg($btn-info-bg, $contrast);
+  }
+  &.btn-success {
+    @include mdb-button-bg($btn-success-bg, $contrast);
+  }
+  &.btn-warning {
+    @include mdb-button-bg($btn-warning-bg, $contrast);
+  }
+  &.btn-danger {
+    @include mdb-button-bg($btn-danger-bg, $contrast);
+  }
+}
+
+@mixin undo-tab-focus() {
+  // clear out the tab-focus() from BS
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      //@include tab-focus();
+      outline: 0;
+    }
+  }
+}

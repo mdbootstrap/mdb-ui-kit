@@ -8,7 +8,6 @@ $gray-dark: rgba($black, 0.87) !default;
 
 // wondering if any of these could still be refactored out, but are definitely in use.
 $mdb-text-color-light: rgba($white, 0.84) !default;
-$mdb-text-color-primary: $gray-dark !default;
 $mdb-label-color: $gray-light !default;
 $mdb-label-color-focus: $brand-primary !default;
 $mdb-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
@@ -72,7 +71,7 @@ $mdb-form-line-height-sm:  1 !default; // set as 1x font-size so that paddings a
 $mdb-label-top-margin-sm: .75rem !default; // 12px
 
 // Card
-$mdb-card-body-text: $mdb-text-color-primary !default;
+$mdb-card-body-text: $gray-dark !default;
 $mdb-card-body-background: #fff !default;
 $mdb-card-image-headline: #fff !default;
 
@@ -119,16 +118,26 @@ $mdb-radio-color-disabled: $gray-light; // light theme spec: Disabled: #000000, 
 $mdb-radio-color-disabled-dark:  rgba($white, 0.30); // dark theme spec: Disabled: #FFFFFF, Opacity  30%
 
 // Buttons:
-$mdb-btn-font-size-base: 14px !default;       // FIXME
-$mdb-btn-font-size-lg: 16px !default;
-$mdb-btn-font-size-sm: 12px !default;
-$mdb-btn-font-size-xs: 10px !default;
+$mdb-btn-font-size: .875rem !default; // 14px
+$mdb-btn-font-size-lg: 1rem !default;
+$mdb-btn-font-size-sm: .75rem !default; // 12px
+$mdl-btn-border-radius: 2px !default;
 
-$mdb-btn-background-color: $body-bg !default; // transparent
-$mdb-btn-background-color-text: $mdb-text-color-primary !default;
+// btn with no other designation
+$mdb-btn-color:            $gray-dark !default;
+$mdb-btn-bg:               $body-bg !default; // #fff
+$mdb-btn-border:           #ccc !default;
 
-$mdl-btn-border-radus: 2px !default;
-//$mdb-btn-primary-color: unquote("rgba(#{$rgb-grey-500}, 0.20)") !default;
+
+//$mdb-btn-colored-bg: $body-bg !default; // transparent
+$mdb-btn-colored-bg-text: $gray-dark !default;
+
+$mdb-btn-hover-bg: rgba(#999, .20) !default; // spec: flat/light bg Hover: 20% #999999
+$mdb-btn-disabled: rgba($black, .26) !default; // spec: light theme: Disabled text: 26% $black
+
+$mdb-btn-hover-bg-dark: rgba(#ccc, .15) !default; // spec: dark bg Hover: 15% #CCCCCC
+$mdb-btn-disabled-dark: rgba($white, .30) !default; // spec: dark theme: Disabled text: 30% $white
+
 
 $mdb-btn-fab-size: 56px !default;
 $mdb-btn-fab-size-mini: 40px !default;

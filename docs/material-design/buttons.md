@@ -14,8 +14,8 @@ group: material-design
 {% example html %}
 <button type="button" class="btn"><code>btn</code> only</button>
 <button type="button" class="btn active"><code>.active</code></button>
-<button type="button" class="btn btn-default">Default</button>
 <button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
 <button type="button" class="btn btn-success">Success</button>
 <button type="button" class="btn btn-info">Info</button>
 <button type="button" class="btn btn-warning">Warning</button>
@@ -28,8 +28,8 @@ group: material-design
 {% example html %}
 <fieldset disabled>
   <button type="button" class="btn"><code>btn</code> only</button>
-  <button type="button" class="btn btn-default">Default</button>
   <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-secondary">Secondary</button>
   <button type="button" class="btn btn-success">Success</button>
   <button type="button" class="btn btn-info">Info</button>
   <button type="button" class="btn btn-warning">Warning</button>
@@ -42,8 +42,8 @@ group: material-design
 
 {% example html %}
 <button type="button" class="btn btn-raised active"><code>.active</code></button>
-<button type="button" class="btn btn-raised btn-default">Default</button>
 <button type="button" class="btn btn-raised btn-primary">Primary</button>
+<button type="button" class="btn btn-raised btn-secondary">Secondary</button>
 <button type="button" class="btn btn-raised btn-success">Success</button>
 <button type="button" class="btn btn-raised btn-info">Info</button>
 <button type="button" class="btn btn-raised btn-warning">Warning</button>
@@ -54,9 +54,9 @@ group: material-design
 ### Disabled
 {% example html %}
 <fieldset disabled>
-  <button type="button" class="btn btn-raised btn-default">Default</button>
-  <button type="button" class="btn btn-raised btn-primary">Primary</button>
+  <button type="button" class="btn btn-raised btn-secondary">Secondary</button>
   <button type="button" class="btn btn-raised btn-success">Success</button>
+  <button type="button" class="btn btn-raised btn-primary">Primary</button>
   <button type="button" class="btn btn-raised btn-info">Info</button>
   <button type="button" class="btn btn-raised btn-warning">Warning</button>
   <button type="button" class="btn btn-raised btn-danger">Danger</button>
@@ -67,10 +67,10 @@ group: material-design
 ## Floating Action
 
 {% example html %}
-<button type="button" class="btn btn-default btn-fab">
+<button type="button" class="btn btn-primary btn-fab">
   <i class="material-icons">grade</i>
 </button>
-<button type="button" class="btn btn-primary btn-fab">
+<button type="button" class="btn btn-secondary btn-fab">
   <i class="material-icons">grade</i>
 </button>
 <button type="button" class="btn btn-success btn-fab">
@@ -90,10 +90,10 @@ group: material-design
 ### Disabled
 {% example html %}
 <fieldset disabled>
-  <button type="button" class="btn btn-default btn-fab">
+  <button type="button" class="btn btn-primary btn-fab">
     <i class="material-icons">grade</i>
   </button>
-  <button type="button" class="btn btn-primary btn-fab">
+  <button type="button" class="btn btn-secondary btn-fab">
     <i class="material-icons">grade</i>
   </button>
   <button type="button" class="btn btn-success btn-fab">
@@ -114,10 +114,10 @@ group: material-design
 ### Mini
 {% example html %}
 <fieldset class="btn-group-sm">
-  <button type="button" class="btn btn-default btn-fab">
+  <button type="button" class="btn btn-primary btn-fab">
     <i class="material-icons">grade</i>
   </button>
-  <button type="button" class="btn btn-primary btn-fab">
+  <button type="button" class="btn btn-secondary btn-fab">
     <i class="material-icons">grade</i>
   </button>
   <button type="button" class="btn btn-success btn-fab">
