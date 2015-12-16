@@ -36,6 +36,7 @@ const BootstrapMaterialDesign = (($) => {
       }
     },
     ripples: {
+      //selector: ['.btn:not(.btn-link):not(.ripple-none)'] // testing only
       selector: [
         '.btn:not(.btn-link):not(.ripple-none)',
         '.card-image:not(.ripple-none)',
@@ -124,7 +125,7 @@ const BootstrapMaterialDesign = (($) => {
           let jqueryFn = `mdb${component.charAt(0).toUpperCase() + component.slice(1)}`
 
           // instantiate component on selector elements with config
-          // console.debug(`instantiating: ${component}`)
+          // console.debug(`instantiating: $('${selector}')[${jqueryFn}](${componentConfig})`) // eslint-disable-line no-console
           $(selector)[jqueryFn](componentConfig)
 
           // add to arrive if present and enabled

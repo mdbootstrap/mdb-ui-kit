@@ -79,7 +79,7 @@ const Autofill = (($) => {
     // ------------------------------------------------------------------------
     // static
     static _jQueryInterface(config) {
-      return this.each(() => {
+      return this.each(function () {
         let $element = $(this)
         let data = $element.data(DATA_KEY)
 

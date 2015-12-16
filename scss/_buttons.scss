@@ -3,6 +3,7 @@
 // mdb default buttons are flat by default
 .btn {
   position: relative;
+  margin-bottom: $mdb-btn-margin-bottom; // just enough room so that focus shadows aren't covered up
   font-size: $mdb-btn-font-size;
   text-decoration: none;
   text-transform: uppercase;
@@ -15,7 +16,7 @@
   transition: box-shadow 0.2s $mdb-animation-curve-fast-out-linear-in, background-color 0.2s $mdb-animation-curve-default, color 0.2s $mdb-animation-curve-default;
   will-change: box-shadow, transform;
 
-  @include undo-tab-focus(); // clear out the tab-focus() from BS
+  @include undo-bs-tab-focus();
 
   //--
   // Colors
@@ -34,28 +35,40 @@
   // btn-raised
   &.btn-raised,
   .btn-group-raised & {
-    &:not(.btn-link) {
-      @include shadow-2dp();
 
-      // contrast bg colors on hover, focus, active
+    // baseline shadow
+    @include shadow-2dp();
+
+    // contrast bg colors on hover, focus, active
+    @include mdb-hover-focus-active() {
+      @include mdb-button-colored-bg(true);
+      //border: 1px solid $red;
+    }
+
+    // enlarged shadow on hover, focus
+    @include hover-focus() {
+      //border: 1px solid $blue;
+      @include shadow-4dp();
+    }
+
+    // :active - momentary press: big shadow, release and it is gone
+    // .active - persistent big shadow
+    &.active,
+    &:active {
+      @include focus-shadow();
+      //border: 1px solid $green;
+    }
+
+    // reverse any of the above for links
+    &.btn-link {
+      box-shadow: none;
       @include mdb-hover-focus-active() {
-        @include mdb-button-colored-bg(true);
-        //border: 1px solid $red;
+        box-shadow: none;
       }
+    }
 
-      // enlarged shadow on hover, focus
-      @include hover-focus() {
-        //border: 1px solid $blue;
-        @include shadow-4dp();
-      }
-
-      // :active - momentary press: big shadow, release and it is gone
-      // .active - persistent big shadow
-      &.active,
-      &:active {
-        @include focus-shadow();
-        //border: 1px solid $green;
-      }
+    @include mdb-disabled() {
+      box-shadow: none;
     }
   }
 
@@ -71,7 +84,7 @@
     font-size: $mdb-btn-fab-font-size;
     line-height: normal;
     border-radius: 50%;
-    box-shadow: 0 1px 1.5px 0 rgba($black, 0.12), 0 1px 1px 0 rgba($black, 0.24);
+    box-shadow: 0 1px 1.5px 0 $gray-lighter, 0 1px 1px 0 $gray-light;
 
     .ripple-container {
       border-radius: 50%;
@@ -122,10 +135,7 @@
 .btn-group,
 .btn-group-vertical {
   // have to ratchet up the specificity to kill drop shadows on disabled raised buttons
-  fieldset[disabled][disabled] &,
-  &.disabled,
-  &:disabled,
-  &[disabled][disabled] {
+  @include mdb-disabled() {
     color: $mdb-btn-disabled;
     .theme-dark & {
       color: $mdb-btn-disabled-dark;

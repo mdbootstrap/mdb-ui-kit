@@ -28,7 +28,7 @@ const Ripples = (($) => {
       template: `<div class='${ClassName.CONTAINER}'></div>`
     },
     decorator: {
-      template: `${ClassName.DECORATOR}'></div>`
+      template: `<div class='${ClassName.DECORATOR}'></div>`
     },
     trigger: {
       start: 'mousedown touchstart',
@@ -52,14 +52,17 @@ const Ripples = (($) => {
       this.config = $.extend(true, {}, Default, config)
 
       // attach initial listener
-      this.$element.on(this.config.triggerStart, this._onStartRipple)
+      this.$element.on(this.config.trigger.start, (event) => {
+        this._onStartRipple(event)
+      })
     }
+
 
     dispose() {
       $.removeData(this.$element, DATA_KEY)
       this.$element = null
-      this.containerElement = null
-      this.decoratorElement = null
+      this.$container = null
+      this.$decorator = null
       this.config = null
     }
 
@@ -69,7 +72,7 @@ const Ripples = (($) => {
     _onStartRipple(event) {
 
       // Verify if the user is just touching on a device and return if so
-      if (this.isTouch() && event.type === 'mousedown') {
+      if (this._isTouch() && event.type === 'mousedown') {
         return
       }
 
@@ -86,7 +89,7 @@ const Ripples = (($) => {
       }
 
       // set the location and color each time (even if element is cached)
-      this.decoratorElement.css({
+      this.$decorator.css({
         left: relX,
         top: relY,
         'background-color': this._getRipplesColor()
@@ -103,40 +106,43 @@ const Ripples = (($) => {
         this.rippleEnd()
       }, this.config.duration)
 
-      // Detect when the user leaves the element (attach only when necessary for performance)
-      this.$element.on(this.config.triggerEnd, () => {
-        this.decoratorElement.data('mousedown', 'off')
+      // Detect when the user leaves the element to cleanup if not already done?
+      this.$element.on(this.config.trigger.end, () => {
+        if (this.$decorator) { // guard against race condition/mouse attack
+          this.$decorator.data('mousedown', 'off')
 
-        if (this.decoratorElement.data('animating') === 'off') {
-          this.rippleOut()
+          if (this.$decorator.data('animating') === 'off') {
+            this.rippleOut()
+          }
         }
       })
     }
 
     _findOrCreateContainer() {
-      if (!this.containerElement || !this.containerElement.length > 0) {
+      if (!this.$container || !this.$container.length > 0) {
         this.$element.append(this.config.container.template)
-        this.containerElement = this.$element.find(Selector.CONTAINER)
+        this.$container = this.$element.find(Selector.CONTAINER)
       }
 
       // always add the rippleElement, it is always removed
-      this.containerElement.append(this.config.$element.template)
-      this.decoratorElement = this.containerElement.find(Selector.DECORATOR)
+      this.$container.append(this.config.decorator.template)
+      this.$decorator = this.$container.find(Selector.DECORATOR)
     }
 
     // Make sure the ripple has the styles applied (ugly hack but it works)
     _forceStyleApplication() {
-      return window.getComputedStyle(this.decoratorElement[0]).opacity
+      return window.getComputedStyle(this.$decorator[0]).opacity
     }
+
 
     /**
      * Get the relX
      */
     _getRelX(event) {
-      let wrapperOffset = this.containerElement.offset()
+      let wrapperOffset = this.$container.offset()
 
       let result = null
-      if (!this.isTouch()) {
+      if (!this._isTouch()) {
         // Get the mouse position relative to the ripple wrapper
         result = event.pageX - wrapperOffset.left
       } else {
@@ -158,10 +164,10 @@ const Ripples = (($) => {
      * Get the relY
      */
     _getRelY(event) {
-      let containerOffset = this.containerElement.offset()
+      let containerOffset = this.$container.offset()
       let result = null
 
-      if (!this.isTouch()) {
+      if (!this._isTouch()) {
         /**
          * Get the mouse position relative to the ripple wrapper
          */
@@ -194,7 +200,7 @@ const Ripples = (($) => {
     /**
      * Verify if the client is using a mobile device
      */
-    isTouch() {
+    _isTouch() {
       return this.config.touchUserAgentRegex.test(navigator.userAgent)
     }
 
@@ -202,10 +208,12 @@ const Ripples = (($) => {
      * End the animation of the ripple
      */
     rippleEnd() {
-      this.decoratorElement.data('animating', 'off')
+      if (this.$decorator) { // guard against race condition/mouse attack
+        this.$decorator.data('animating', 'off')
 
-      if (this.decoratorElement.data('mousedown') === 'off') {
-        this.rippleOut(this.decoratorElement)
+        if (this.$decorator.data('mousedown') === 'off') {
+          this.rippleOut(this.$decorator)
+        }
       }
     }
 
@@ -213,19 +221,21 @@ const Ripples = (($) => {
      * Turn off the ripple effect
      */
     rippleOut() {
-      this.decoratorElement.off()
+      this.$decorator.off()
 
       if (Util.transitionEndSupported()) {
-        this.decoratorElement.addClass('ripple-out')
+        this.$decorator.addClass('ripple-out')
       } else {
-        this.decoratorElement.animate({opacity: 0}, 100, () => {
-          this.decoratorElement.triggerStart('transitionend')
+        this.$decorator.animate({opacity: 0}, 100, () => {
+          this.$decorator.trigger('transitionend')
         })
       }
 
-      this.decoratorElement.on(Util.transitionEndSelector(), () => {
-        this.decoratorElement.remove()
-        this.decoratorElement = null
+      this.$decorator.on(Util.transitionEndSelector(), () => {
+        if (this.$decorator) {
+          this.$decorator.remove()
+          this.$decorator = null
+        }
       })
     }
 
@@ -236,7 +246,7 @@ const Ripples = (($) => {
       let size = this._getNewSize()
 
       if (Util.transitionEndSupported()) {
-        this.decoratorElement
+        this.$decorator
           .css({
             '-ms-transform': `scale(${size})`,
             '-moz-transform': `scale(${size})`,
@@ -247,14 +257,14 @@ const Ripples = (($) => {
           .data('animating', 'on')
           .data('mousedown', 'on')
       } else {
-        this.decoratorElement.animate({
+        this.$decorator.animate({
           width: Math.max(this.$element.outerWidth(), this.$element.outerHeight()) * 2,
           height: Math.max(this.$element.outerWidth(), this.$element.outerHeight()) * 2,
           'margin-left': Math.max(this.$element.outerWidth(), this.$element.outerHeight()) * (-1),
           'margin-top': Math.max(this.$element.outerWidth(), this.$element.outerHeight()) * (-1),
           opacity: 0.2
         }, this.config.duration, () => {
-          this.decoratorElement.triggerStart('transitionend')
+          this.$decorator.triggerStart('transitionend')
         })
       }
     }
@@ -263,14 +273,14 @@ const Ripples = (($) => {
      * Get the new size based on the element height/width and the ripple width
      */
     _getNewSize() {
-      return (Math.max(this.$element.outerWidth(), this.$element.outerHeight()) / this.decoratorElement.outerWidth()) * 2.5
+      return (Math.max(this.$element.outerWidth(), this.$element.outerHeight()) / this.$decorator.outerWidth()) * 2.5
     }
 
     // ------------------------------------------------------------------------
     // static
 
     static _jQueryInterface(config) {
-      return this.each(() => {
+      return this.each(function () {
         let $element = $(this)
         let data = $element.data(DATA_KEY)
 

@@ -12,8 +12,6 @@ group: material-design
 ## Flat
 
 {% example html %}
-<button type="button" class="btn"><code>btn</code> only</button>
-<button type="button" class="btn active"><code>.active</code></button>
 <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-secondary">Secondary</button>
 <button type="button" class="btn btn-success">Success</button>
@@ -21,6 +19,8 @@ group: material-design
 <button type="button" class="btn btn-warning">Warning</button>
 <button type="button" class="btn btn-danger">Danger</button>
 <button type="button" class="btn btn-link">Link</button>
+<button type="button" class="btn"><code>btn</code> only</button>
+<button type="button" class="btn active"><code>.active</code></button>
 {% endexample %}
 
 ### Disabled
@@ -41,7 +41,6 @@ group: material-design
 ## Raised
 
 {% example html %}
-<button type="button" class="btn btn-raised active"><code>.active</code></button>
 <button type="button" class="btn btn-raised btn-primary">Primary</button>
 <button type="button" class="btn btn-raised btn-secondary">Secondary</button>
 <button type="button" class="btn btn-raised btn-success">Success</button>
@@ -49,6 +48,7 @@ group: material-design
 <button type="button" class="btn btn-raised btn-warning">Warning</button>
 <button type="button" class="btn btn-raised btn-danger">Danger</button>
 <button type="button" class="btn btn-raised btn-link">Link</button>
+<button type="button" class="btn btn-raised active"><code>.active</code></button>
 {% endexample %}
 
 ### Disabled

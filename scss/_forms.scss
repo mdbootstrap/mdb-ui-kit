@@ -17,8 +17,7 @@ form {
     border-bottom: $input-btn-border-width solid $input-border-color;
   }
 
-  &[disabled],
-  fieldset[disabled] & {
+  @include mdb-disabled() {
     border-bottom: $input-btn-border-width dotted $input-border-color;
   }
 }

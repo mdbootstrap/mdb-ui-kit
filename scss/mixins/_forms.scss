@@ -1,3 +1,12 @@
+@mixin mdb-disabled() {
+  fieldset[disabled][disabled] &,
+  &.disabled,
+  &:disabled,
+  &[disabled] {
+    @content
+  }
+}
+
 @mixin mdb-selection-color() {
   .radio label,
   .radio-inline,

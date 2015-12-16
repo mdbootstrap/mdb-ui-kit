@@ -254,7 +254,7 @@ const BaseInput = (($) => {
         }
 
         if (label !== undefined && label.length > 0) {
-          break;
+          break
         }
       }
 

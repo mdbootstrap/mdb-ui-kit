@@ -121,7 +121,7 @@ $mdb-radio-color-disabled-dark:  rgba($white, 0.30); // dark theme spec: Disable
 $mdb-btn-font-size: .875rem !default; // 14px
 $mdb-btn-font-size-lg: 1rem !default;
 $mdb-btn-font-size-sm: .75rem !default; // 12px
-$mdl-btn-border-radius: 2px !default;
+$mdb-btn-margin-bottom: .3125rem !default; // 5px
 
 // btn with no other designation
 $mdb-btn-color:            $gray-dark !default;

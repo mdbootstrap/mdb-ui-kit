@@ -65,13 +65,13 @@ const Util = (($) => {
           !event.ctrlKey
           && !event.metaKey
           && !event.altKey
-          && event.which != 8  // backspace
-          && event.which != 9  // tab
-          && event.which != 13 // enter
-          && event.which != 16 // shift
-          && event.which != 17 // ctrl
-          && event.which != 20 // caps lock
-          && event.which != 27 // escape
+          && event.which !== 8  // backspace
+          && event.which !== 9  // tab
+          && event.which !== 13 // enter
+          && event.which !== 16 // shift
+          && event.which !== 17 // ctrl
+          && event.which !== 20 // caps lock
+          && event.which !== 27 // escape
         )
       }
       return false
@@ -90,8 +90,7 @@ const Util = (($) => {
     describe($element) {
       if ($element === undefined) {
         return 'undefined'
-      }
-      else if ($element.length === 0){
+      } else if ($element.length === 0) {
         return '(no matching elements)'
       }
       return `${$element[0].outerHTML.split('>')[0]}>`

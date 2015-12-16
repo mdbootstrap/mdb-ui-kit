@@ -86,6 +86,11 @@
   // default
   @include mdb-button-bg($mdb-btn-bg, $contrast);
 
+  // no bg for links
+  &.btn-link {
+    background-color: transparent;
+  }
+
   &.btn-primary {
     @include mdb-button-bg($btn-primary-bg, $contrast);
   }
@@ -106,7 +111,7 @@
   }
 }
 
-@mixin undo-tab-focus() {
+@mixin undo-bs-tab-focus() {
   // clear out the tab-focus() from BS
   &,
   &:active,
