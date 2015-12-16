@@ -85,6 +85,7 @@ $mdb-checkbox-animation-ripple: 500ms !default;
 $mdb-checkbox-animation-check: 0.3s !default;
 $mdb-checkbox-checked-color: $brand-primary !default;
 $mdb-checkbox-border-color: $mdb-label-color-inner-focus !default;
+$mdb-checkbox-border-color-disabled: $gray-light !default; //#bdbdbd !default;
 
 // Switches
 $mdb-switch-label-padding: .3125rem !default; // 5px

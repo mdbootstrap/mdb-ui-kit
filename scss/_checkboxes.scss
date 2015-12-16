@@ -4,19 +4,6 @@ label.checkbox-inline {
   padding-left: 0; // Reset for Bootstrap rule
   cursor: pointer;
 
-  // Hide native checkbox
-  input[type=checkbox] {
-    position: absolute;
-    left: 0;
-    z-index: -1;
-    width: 0;
-    height: 0;
-    margin: 0;
-    overflow: hidden;
-    pointer-events: none;
-    opacity: 0;
-  }
-
   .checkbox-decorator {
     position: relative;
     top: 3px;
@@ -69,6 +56,17 @@ label.checkbox-inline {
 
   input[type=checkbox] {
 
+    // Hide native checkbox
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+
     &:focus + .checkbox-decorator .check::after {
       opacity: 0.2;
     }
@@ -112,12 +110,21 @@ label.checkbox-inline {
 
       }
     }
+
+    &[disabled],
+    fieldset[disabled] & {
+      + .checkbox-decorator .check::after,
+      .check::after {
+        background-color: $mdb-text-color-primary;
+        transform: rotate(-45deg);
+      }
+      + .checkbox-decorator .check,
+      .check {
+        border-color: $mdb-checkbox-border-color-disabled;
+      }
+    }
   }
 
-  input[type=checkbox][disabled] + .checkbox-decorator .check::after {
-    background-color: $mdb-text-color-primary;
-    transform: rotate(-45deg);
-  }
 }
 
 @keyframes checkbox-on {
