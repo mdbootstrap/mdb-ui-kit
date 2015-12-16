@@ -1,0 +1,10 @@
+.btn-clipboard {
+  //color: #818a91;
+  border-radius: $border-radius;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $gray; // #fff;
+    background-color: $mdb-btn-hover-bg; // #027de7;
+  }
+}

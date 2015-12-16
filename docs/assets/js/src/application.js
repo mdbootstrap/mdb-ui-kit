@@ -122,6 +122,8 @@ $(() => {
   app.initializeClipboard()
   app.manipulateSearchBox()
 
+  $('.btn-clipboard').mdbRipples()
+
   // FIXME: file inputs seems to be in flux, delete the offending one for now.
   $('#exampleInputFile').closest('.form-group').detach()
 
