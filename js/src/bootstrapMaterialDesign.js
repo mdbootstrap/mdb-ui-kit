@@ -59,20 +59,20 @@ const BootstrapMaterialDesign = (($) => {
     checkboxInline: {
       selector: 'label.checkbox-inline > input[type=checkbox]'
     },
-    switch: {
-      selector: '.switch > label > input[type=checkbox]'
-    },
     radio: {
       selector: '.radio > label > input[type=radio]'
     },
     radioInline: {
       selector: 'label.radio-inline > input[type=radio]'
     },
-    textarea: {
-      selector: ['textarea']
-    },
     select: {
       selector: ['select']
+    },
+    switch: {
+      selector: '.switch > label > input[type=checkbox]'
+    },
+    textarea: {
+      selector: ['textarea']
     },
     autofill: {
       selector: 'body'
