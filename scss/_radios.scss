@@ -5,7 +5,7 @@ label.radio-inline {
 
   span {
     position: absolute;
-    top: (($line-height * $font-size-base) - $mdb-radio-size) / 2;  // vertical center of line-height
+    top: calc-top($line-height, $font-size-base, $mdb-radio-size); // vertical center of line-height
     left: 0;
     display: inline-block;
     width: $mdb-radio-size;

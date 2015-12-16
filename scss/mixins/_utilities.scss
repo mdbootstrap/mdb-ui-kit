@@ -1,7 +1,12 @@
-// This file is here to emulate the less #contrast function
+@function calc-top($line-height, $font-size, $component-height) {
+  @return (($line-height * $font-size) - $component-height) / 2; // vertical center of line-height
+}
 
+
+
+
+// Emulate the less #contrast function
 // TODO: this may be useful for the inverse theme, but if not, remove (it is unused after the removal of fullpalette)
-
 // contrast-color and brightness borrowed from compass
 // Copyright (c) 2009-2014 Christopher M. Eppstein
 // Complies with license: https://github.com/Compass/compass/blob/stable/LICENSE.markdown

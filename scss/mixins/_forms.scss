@@ -147,7 +147,8 @@
   .radio label,
   label.radio-inline,
   .checkbox label,
-  label.checkbox-inline {
+  label.checkbox-inline,
+  .switch label {
     line-height: $line-height; // keep the same line height for radios and checkboxes
   }
 
