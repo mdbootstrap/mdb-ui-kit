@@ -24,27 +24,20 @@
   // flat removes bg, add color variations to text
   @include mdb-button-color();
 
-  // fab and raised are colored, add their text and bg
+  // fab and raised
+  //  - colored, add their text and bg
+  //  - hover color contrasted
+  //  - shared shadow state on hover/active/focus
   &.btn-fab,
   &.btn-raised,
   .btn-group-raised & {
     @include mdb-button-colored();
-  }
-
-  //---
-  // btn-raised
-  &.btn-raised,
-  .btn-group-raised & {
-
-    // baseline shadow
-    @include shadow-2dp();
 
     // contrast bg colors on hover, focus, active
     @include mdb-hover-focus-active() {
       @include mdb-button-colored-bg(true);
       //border: 1px solid $red;
     }
-
     // enlarged shadow on hover, focus
     @include hover-focus() {
       //border: 1px solid $blue;
@@ -58,6 +51,15 @@
       @include focus-shadow();
       //border: 1px solid $green;
     }
+  }
+
+  //---
+  // btn-raised
+  &.btn-raised,
+  .btn-group-raised & {
+
+    // baseline shadow
+    @include shadow-2dp();
 
     // reverse any of the above for links
     &.btn-link {
@@ -75,7 +77,6 @@
   // https://www.google.com/design/spec/components/buttons-floating-action-button.html
   &.btn-fab {
     // see above for color variations
-    position: relative;
     width: $mdb-btn-fab-size;
     min-width: $mdb-btn-fab-size;
     height: $mdb-btn-fab-size;
