@@ -85,6 +85,9 @@ group: material-design
 <button type="button" class="btn btn-danger btn-fab">
   <i class="material-icons">grade</i>
 </button>
+<button type="button" class="btn btn-danger btn-fab active">
+  <i class="material-icons">grade</i>
+</button>
 {% endexample %}
 
 ### Disabled
@@ -130,6 +133,9 @@ group: material-design
     <i class="material-icons">grade</i>
   </button>
   <button type="button" class="btn btn-danger btn-fab">
+    <i class="material-icons">grade</i>
+  </button>
+  <button type="button" class="btn btn-danger btn-fab active">
     <i class="material-icons">grade</i>
   </button>
 </fieldset>
