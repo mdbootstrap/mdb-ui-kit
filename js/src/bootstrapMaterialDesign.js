@@ -31,7 +31,7 @@ const BootstrapMaterialDesign = (($) => {
   const Default = {
     global: {
       validate: false,
-      mdbLabel: {
+      label: {
         className: 'mdb-label-static' // default style of label to be used if not specified in the html markup
       }
     },

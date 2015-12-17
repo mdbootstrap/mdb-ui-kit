@@ -9,7 +9,7 @@ const BaseSelection = (($) => {
    * ------------------------------------------------------------------------
    */
   const Default = {
-    mdbLabel: {
+    label: {
       required: false
 
       // Prioritized find order for resolving the label to be used as an mdb-label if not specified in the markup

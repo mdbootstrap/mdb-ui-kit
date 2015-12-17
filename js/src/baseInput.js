@@ -30,7 +30,7 @@ const BaseInput = (($) => {
       create: true, // create a wrapper if form-group not found
       required: true // not recommended to turn this off, only used for inline components
     },
-    mdbLabel: {
+    label: {
       required: false,
 
       // Prioritized find order for resolving the label to be used as an mdb-label if not specified in the markup
@@ -228,13 +228,13 @@ const BaseInput = (($) => {
       let label = this.$mdbFormGroup.find(Selector.MDB_LABEL_WILDCARD)
       if (label === undefined || label.length === 0) {
         // we need to find it based on the configured selectors
-        label = this.findMdbLabel(this.config.mdbLabel.required)
+        label = this.findMdbLabel(this.config.label.required)
 
         if (label === undefined || label.length === 0) {
           // no label found, and finder did not require one
         } else {
           // a candidate label was found, add the configured default class name
-          label.addClass(this.config.mdbLabel.className)
+          label.addClass(this.config.label.className)
         }
       }
 
@@ -246,7 +246,7 @@ const BaseInput = (($) => {
       let label = null
 
       // use the specified selector order
-      for (let selector of this.config.mdbLabel.selectors) {
+      for (let selector of this.config.label.selectors) {
         if ($.isFunction(selector)) {
           label = selector(this)
         } else {

@@ -3,8 +3,8 @@ label.radio-inline {
   position: relative;
   padding-left: $mdb-radio-size + $mdb-radio-label-padding; // absolutely positioned so add the radio size
 
-  span.mdb-radio-outer-circle, // don't use generic span, it may conflict with user markup #693
-  span.mdb-radio-inner-circle {
+  .mdb-radio-outer-circle, // don't use generic span, it may conflict with span in user markup #693
+  .mdb-radio-inner-circle {
     position: absolute;
     top: calc-top($line-height, $font-size-base, $mdb-radio-size); // vertical center of line-height
     left: 0;
