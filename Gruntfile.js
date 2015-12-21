@@ -390,6 +390,14 @@ module.exports = function (grunt) {
         ],
         dest: 'docs/assets/js/vendor/'
       },
+      'bs-docs-plugins': {
+        expand: true,
+        cwd: '../bootstrap/docs/_plugins',
+        src: [
+          '**/*'
+        ],
+        dest: 'docs/_plugins/'
+      },
 
       'bs-docs-scss': {
         options: {
@@ -673,7 +681,8 @@ module.exports = function (grunt) {
     'copy:bs-docs-scss',
     'copy:bs-docs-components',
     'copy:bs-docs-content',
-    'copy:bs-docs-examples'
+    'copy:bs-docs-examples',
+    'copy:bs-docs-plugins'
   ]);
 
   grunt.registerTask('docs', ['clean:docs', 'docs-copy-bootstrap-docs', 'docs-css', 'docs-js', 'lint-docs-js', 'copy:docs']);
