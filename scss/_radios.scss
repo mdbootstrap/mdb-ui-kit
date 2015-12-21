@@ -69,8 +69,8 @@ label.radio-inline {
     fieldset[disabled] & {
       @include mdb-radio-color($mdb-radio-color-disabled);
 
-      .theme-dark & {
-        @include mdb-radio-color($mdb-radio-color-disabled-dark);
+      .bg-inverse & {
+        @include mdb-radio-color($mdb-radio-color-disabled-inverse);
       }
     }
   }

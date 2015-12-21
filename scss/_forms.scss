@@ -1,7 +1,13 @@
 form {
   // ensure enough room at the bottom of any form to display a one-line mdb-help
   margin-bottom: ($mdb-help-size-ratio * $font-size-base) * $line-height;
+
+  // reverse the above for navbars (no help expected in a navbar form)
+  .navbar & {
+    margin: 0;
+  }
 }
+
 
 // -----
 // Inputs

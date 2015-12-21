@@ -146,8 +146,8 @@
   // have to ratchet up the specificity to kill drop shadows on disabled raised buttons
   @include mdb-disabled() {
     color: $mdb-btn-disabled;
-    .theme-dark & {
-      color: $mdb-btn-disabled-dark;
+    .bg-inverse & {
+      color: $mdb-btn-disabled-inverse;
     }
 
     // flat buttons shouldn't lose transparency on disabled hover/focus

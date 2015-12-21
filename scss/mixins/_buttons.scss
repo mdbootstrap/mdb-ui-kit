@@ -17,8 +17,8 @@
   @include hover-focus {
     background-color: $mdb-btn-hover-bg;
 
-    .theme-dark & {
-      background-color: $mdb-btn-hover-bg-dark;
+    .bg-inverse & {
+      background-color: $mdb-btn-hover-bg-inverse;
     }
 
     // reverse the above for links

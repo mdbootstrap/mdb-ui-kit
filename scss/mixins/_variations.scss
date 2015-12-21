@@ -100,49 +100,49 @@
 
     $args-extra: map-merge($args, (
             variation-color: $color-default,
-            variation-color-text: $mdb-text-color-light
+            variation-color-text: $mdb-text-color-inverse
     ));
     @include call-variations-content-mixin($args-extra);
   }
   //&#{$component}-inverse#{$selector-suffix} {
   //  $args-inverse: map-merge($args, (
   //          variation-color: $mdb-brand-inverse,
-  //          variation-color-text: contrast-color($mdb-brand-inverse, $gray-dark, $mdb-text-color-light)
+  //          variation-color-text: contrast-color($mdb-brand-inverse, $gray-dark, $mdb-text-color-inverse)
   //  ));
   //  @include call-variations-content-mixin($args-inverse);
   //}
   &#{$component}-primary#{$selector-suffix} {
     $args-primary: map-merge($args, (
             variation-color: $brand-primary,
-            variation-color-text: $mdb-text-color-light
+            variation-color-text: $mdb-text-color-inverse
     ));
     @include call-variations-content-mixin($args-primary);
   }
   &#{$component}-success#{$selector-suffix} {
     $args-success: map-merge($args, (
             variation-color: $brand-success,
-            variation-color-text: $mdb-text-color-light
+            variation-color-text: $mdb-text-color-inverse
     ));
     @include call-variations-content-mixin($args-success);
   }
   &#{$component}-info#{$selector-suffix} {
     $args-info: map-merge($args, (
             variation-color: $brand-info,
-            variation-color-text: $mdb-text-color-light
+            variation-color-text: $mdb-text-color-inverse
     ));
     @include call-variations-content-mixin($args-info);
   }
   &#{$component}-warning#{$selector-suffix} {
     $args-warning: map-merge($args, (
             variation-color: $brand-warning,
-            variation-color-text: $mdb-text-color-light
+            variation-color-text: $mdb-text-color-inverse
     ));
     @include call-variations-content-mixin($args-warning);
   }
   &#{$component}-danger#{$selector-suffix} {
     $args-danger: map-merge($args, (
             variation-color: $brand-danger,
-            variation-color-text: $mdb-text-color-light
+            variation-color-text: $mdb-text-color-inverse
     ));
     @include call-variations-content-mixin($args-danger);
   }
