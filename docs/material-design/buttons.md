@@ -114,31 +114,27 @@ group: material-design
 </fieldset>
 {% endexample %}
 
-### Mini
+### Sizes
+
+Using `btn-fab-sm` on the button, or using `btn-group-sm` on the enclosing element of a `btn-fab` renders a small variation.
+
 {% example html %}
-<fieldset class="btn-group-sm">
-  <button type="button" class="btn btn-primary btn-fab">
-    <i class="material-icons">grade</i>
-  </button>
-  <button type="button" class="btn btn-secondary btn-fab">
-    <i class="material-icons">grade</i>
-  </button>
-  <button type="button" class="btn btn-success btn-fab">
-    <i class="material-icons">grade</i>
-  </button>
-  <button type="button" class="btn btn-info btn-fab">
-    <i class="material-icons">grade</i>
-  </button>
-  <button type="button" class="btn btn-warning btn-fab">
-    <i class="material-icons">grade</i>
-  </button>
+<span class="btn-group-lg">
   <button type="button" class="btn btn-danger btn-fab">
     <i class="material-icons">grade</i>
   </button>
-  <button type="button" class="btn btn-danger btn-fab active">
+</span>
+<button type="button" class="btn btn-danger btn-fab">
+  <i class="material-icons">grade</i>
+</button>
+<button type="button" class="btn btn-danger btn-fab btn-fab-sm">
+  <i class="material-icons">grade</i>
+</button>
+<span class="btn-group-sm">
+  <button type="button" class="btn btn-danger btn-fab">
     <i class="material-icons">grade</i>
   </button>
-</fieldset>
+</span>
 {% endexample %}
 
 
