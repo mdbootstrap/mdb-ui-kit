@@ -18,12 +18,14 @@ $mdb-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted 
 //---
 // Customized BS variables
 $enable-flex: true;
+@import "variables/bootstrap/components";
 @import "variables/bootstrap/spacing";
+
 @import "variables/bootstrap/body";
 @import "variables/bootstrap/brand";
 @import "variables/bootstrap/buttons";
+@import "variables/bootstrap/card";
 @import "variables/bootstrap/code";
-@import "variables/bootstrap/components";
 @import "variables/bootstrap/forms";
 @import "variables/bootstrap/nav";
 @import "variables/bootstrap/state";
@@ -71,11 +73,6 @@ $mdb-label-top-margin-lg: 1rem !default; // 16px
 
 $mdb-form-line-height-sm:  1 !default; // set as 1x font-size so that padding is easier calculated to match the spec.
 $mdb-label-top-margin-sm: .75rem !default; // 12px
-
-// Card
-$mdb-card-body-text: $gray-dark !default;
-$mdb-card-body-background: #fff !default;
-$mdb-card-image-headline: #fff !default;
 
 $text-disabled: #a8a8a8 !default;
 $background-disabled: #eaeaea !default;
