@@ -10,6 +10,7 @@ $mdb-font-weight-base: 400;
 
 // wondering if any of these could still be refactored out, but are definitely in use.
 $mdb-text-color-inverse: rgba($white, 0.84) !default;
+$mdb-text-color-inverse-light: rgba($white, 0.54) !default;
 $mdb-label-color: $gray-light !default;
 $mdb-label-color-focus: $brand-primary !default;
 $mdb-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
