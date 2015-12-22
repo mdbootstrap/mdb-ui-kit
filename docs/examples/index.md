@@ -9,7 +9,7 @@ title: Examples
 **Bootstrap Reference Documentation** 
 This is reference documentation from <a href="http://getbootstrap.com">Bootstrap</a>. 
 It is being rendered with Material Design for Bootstrap to demonstrate default styling. 
-See addons(TODO: add link) for additional Material Design elements.
+See the <a href="/material-design/buttons">Material Design</a> section for more elements and customization options.
 {% endcallout %}
 
 

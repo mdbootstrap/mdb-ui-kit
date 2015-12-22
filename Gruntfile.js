@@ -14,7 +14,7 @@ module.exports = function (grunt) {
     + '{% callout info %}\n**Bootstrap Reference Documentation** \n'
     + 'This is reference documentation from <a href="http://getbootstrap.com">Bootstrap</a>. \n'
     + 'It is being rendered with Material Design for Bootstrap to demonstrate default styling. \n'
-    + 'See addons(TODO: add link) for additional Material Design elements.\n'
+    + 'See the <a href="/material-design/buttons">Material Design</a> section for more elements and customization options.\n'
     + '{% endcallout %}'
     + '\n\n$2'
 
