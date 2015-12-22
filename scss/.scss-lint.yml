@@ -119,6 +119,7 @@ linters:
       "flex-order",
       "flex-pack",
       "flex-align",
+      "flex-shrink",
       "padding",
       "padding-top",
       "padding-right",
