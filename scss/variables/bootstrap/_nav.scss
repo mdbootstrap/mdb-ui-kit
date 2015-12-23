@@ -1,13 +1,19 @@
 // Navs https://www.google.com/design/spec/components/tabs.html#tabs-specs
 
-$mdb-nav-font-weight:                     500 !default; // $mdb-font-weight-base
-$mdb-nav-font-size:                       .875rem !default; // 14
-
 $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
 
-// tabs
-$mdb-nav-tabs-link-padding:                 1.4286em .8575em !default; // spec // was .5em 1em   // relative em based on 14
+$mdb-navbar-link-font-weight:               $mdb-font-weight-base !default; //
+$mdb-navbar-link-font-size:                 .875rem !default; // 14
+$mdb-navbar-link-padding:                   .5321rem 0; // 7
+
+
+// tabs & pills
+$mdb-nav-tabs-pills-font-weight:            500 !default; //
+$mdb-nav-tabs-pills-font-size:              .875rem !default; // 14
+$mdb-nav-tabs-pills-link-padding:           1.4286em .8575em !default; // spec // was .5em 1em   // relative em based on 14
+
+// tabs only
 $mdb-nav-tabs-border-size:                  .214rem !default; // 3px
 
 $mdb-nav-tabs-color:                        $gray !default;
