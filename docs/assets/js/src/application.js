@@ -4,7 +4,6 @@ import Clipboard from 'clipboard'
 class Application {
 
   constructor() {
-
   }
 
   initializeDemos() {
@@ -24,8 +23,43 @@ class Application {
     $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate', true)
 
     // Disable empty links in docs examples
-    $('.bd-example [href=#]').click((e) => {
+    $('.bd-example [href=#]').click(function (e) {
       e.preventDefault()
+    })
+
+    // Insert copy to clipboard button before .highlight
+    $('.highlight').each(function () {
+      var btnHtml = '<div class="bd-clipboard"><span class="btn-clipboard" title="Copy to clipboard">Copy</span></div>'
+      $(this).before(btnHtml)
+      $('.btn-clipboard').tooltip()
+    })
+
+    var clipboard = new Clipboard('.btn-clipboard', {
+      target: function (trigger) {
+        return trigger.parentNode.nextElementSibling
+      }
+    })
+
+    clipboard.on('success', function (e) {
+      $(e.trigger)
+        .attr('title', 'Copied!')
+        .tooltip('_fixTitle')
+        .tooltip('show')
+        .attr('title', 'Copy to clipboard')
+        .tooltip('_fixTitle')
+
+      e.clearSelection()
+    })
+
+    clipboard.on('error', function (e) {
+      var fallbackMsg = /Mac/i.test(navigator.userAgent) ? 'Press \u2318 to copy' : 'Press Ctrl-C to copy'
+
+      $(e.trigger)
+        .attr('title', fallbackMsg)
+        .tooltip('_fixTitle')
+        .tooltip('show')
+        .attr('title', 'Copy to clipboard')
+        .tooltip('_fixTitle')
     })
   }
 
@@ -75,42 +109,6 @@ class Application {
     }, false, true)
   }
 
-  initializeClipboard() {
-    // Insert copy to clipboard button before .highlight
-    $('.highlight').each(function () {
-      let btnHtml = '<div class="bd-clipboard"><span class="btn-clipboard" title="Copy to clipboard">Copy</span></div>'
-      $(this).before(btnHtml)
-      $('.btn-clipboard').tooltip()
-    })
-
-    let clipboard = new Clipboard('.btn-clipboard', {
-      target: (trigger) => {
-        return trigger.parentNode.nextElementSibling
-      }
-    })
-
-    clipboard.on('success', (e) => {
-      $(e.triggerStart)
-        .attr('title', 'Copied!')
-        .tooltip('_fixTitle')
-        .tooltip('show')
-        .attr('title', 'Copy to clipboard')
-        .tooltip('_fixTitle')
-
-      e.clearSelection()
-    })
-
-    clipboard.on('error', (e) => {
-      let fallbackMsg = /Mac/i.test(navigator.userAgent) ? 'Press \u2318 to copy' : 'Press Ctrl-C to copy'
-
-      $(e.triggerStart)
-        .attr('title', fallbackMsg)
-        .tooltip('_fixTitle')
-        .tooltip('show')
-        .attr('title', 'Copy to clipboard')
-        .tooltip('_fixTitle')
-    })
-  }
 }
 
 $(() => {
@@ -123,6 +121,5 @@ $(() => {
 
   $('body').bootstrapMaterialDesign()
 
-  app.initializeClipboard()
   app.initializeDemos()
 })

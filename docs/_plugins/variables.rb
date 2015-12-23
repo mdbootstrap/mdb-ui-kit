@@ -51,10 +51,11 @@ module Variables
       }
 
       #
-      puts "\n---------------------"
-      puts "site.config: #{site.config.to_yaml}"
-      puts "baseurl: #{baseurl}"
-      puts "minified: #{site.data['minified']}"
+      # puts "\n---------------------"
+      # puts "site.config: #{site.config.to_yaml}"
+      # puts "baseurl: #{baseurl}"
+      # puts "minified: #{site.data['minified']}"
+
       # puts "site: #{site.to_yaml}"
       # puts site.data[:package]['version']
       # puts site.data.to_yaml
