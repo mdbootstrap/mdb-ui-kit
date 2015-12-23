@@ -144,7 +144,3 @@ Using `btn-fab-sm` on the button, or using `btn-group-sm` on the enclosing eleme
 <button type="button" class="btn btn-raised">Default button</button>
 <button type="button" class="btn btn-raised btn-sm">Small button</button>
 {% endexample %}
-
-## x
-{% example html %}
-{% endexample %}

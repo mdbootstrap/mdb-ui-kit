@@ -33,7 +33,7 @@
 .mdb-list-group-item {
   @extend .list-group-item;
   display: flex;
-  flex-direction: row;
+  //flex-direction: row;
   flex-flow: row wrap;
   //flex-shrink: 0;
   //flex-shrink: 1;
@@ -45,7 +45,8 @@
     //flex-flow: row wrap;
     min-width: 0;
     max-height: 2.188rem;  // 88dp tile total height
-    //flex: 0 1 auto; // important   http://stackoverflow.com/questions/12022288/how-to-keep-a-flex-item-from-overflowing-due-to-its-text
+    // FIXME: text overflow with ellipsis is not working
+    //flex: 0 1 auto; //    http://stackoverflow.com/questions/12022288/how-to-keep-a-flex-item-from-overflowing-due-to-its-text
     overflow: hidden;
     text-overflow: ellipsis;
   }

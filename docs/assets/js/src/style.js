@@ -1,3 +1,6 @@
+/**
+ * Dynamically display style properties i.e. font
+ */
 const Style = (($) => {
 
   /**
@@ -27,7 +30,7 @@ const Style = (($) => {
     }
 
     // Function to display font properties dynamically discovered
-    static displayFontSizeWeightColor($elements, writeFn, bg = false, wrapWithMark = false) {
+    static displayFontSizeWeightColor($elements, writeFn, bg = false, wrapWithCode = false) {
       return $elements.each((index, element) => {
         let $element = $(element)
 
@@ -39,8 +42,8 @@ const Style = (($) => {
 
         let text = ''
 
-        if (wrapWithMark) {
-          text += `<mark style='font-size: 10px; font-weight: 500; letter-spacing: normal'>`
+        if (wrapWithCode) {
+          text += `<code style='font-size: 10px; font-weight: 500; letter-spacing: normal'>`
         }
 
         // text += `${$element.css('font-size')} ${$element.css('font-weight')} ${hexColor}`
@@ -50,21 +53,13 @@ const Style = (($) => {
           text += ` bg: ${rgbaBgColor} `
         }
 
-        if (wrapWithMark) {
-          text += `</mark>`
+        if (wrapWithCode) {
+          text += `</code>`
         }
 
         writeFn($element, $(text))
       })
     }
-
-
-    // ------------------------------------------------------------------------
-    // private
-
-
-    // ------------------------------------------------------------------------
-    // static
   }
 
 

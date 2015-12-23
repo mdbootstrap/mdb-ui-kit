@@ -5,6 +5,9 @@ class Application {
 
   constructor() {
 
+  }
+
+  initializeDemos() {
     // Tooltip and popover demos
     $('.tooltip-demo').tooltip({
       selector: '[data-toggle="tooltip"]',
@@ -26,8 +29,9 @@ class Application {
     })
   }
 
+  // Add dynamic display of font properties to the existing documentation
   displayTypographyProperties() {
-    // headers
+    // headings
     Style.displayFontSizeWeightColor($('.bd-example-type td > *:not(.type-info)'), ($element, $text) => {
       let $target = $element.closest('tr').find('td.type-info')
       $target.text('')
@@ -61,11 +65,11 @@ class Application {
       let $row = $(`<div class='row'></div>`)
       $parent.append($row)
 
-      let $col = $(`<div class='col-sm-9'></div>`)
+      let $col = $(`<div class='col-sm-8'></div>`)
       $col.append($p)
       $row.append($col)
 
-      $col = $(`<div class='col-sm-3'></div>`)
+      $col = $(`<div class='col-sm-4'></div>`)
       $col.append($text)
       $row.append($col)
     }, false, true)
@@ -107,25 +111,18 @@ class Application {
         .tooltip('_fixTitle')
     })
   }
-
-  manipulateSearchBox() {
-    //let $search = $('#search-input')
-    //$search.wrap(`<div class='mdb-form-group'></div>`)
-    //$search.before(`<label class='mdb-label-placeholder'>${$search.prop('placeholder')}</label>`)
-    //$search.removeAttr('placeholder')
-  }
 }
 
 $(() => {
   let app = new Application()
   app.displayTypographyProperties()
-  app.initializeClipboard()
-  app.manipulateSearchBox()
-
   $('.btn-clipboard').mdbRipples()
 
   // FIXME: file inputs seems to be in flux, delete the offending one for now.
   $('#exampleInputFile').closest('.form-group').detach()
 
   $('body').bootstrapMaterialDesign()
+
+  app.initializeClipboard()
+  app.initializeDemos()
 })
