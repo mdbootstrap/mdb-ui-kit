@@ -1,4 +1,4 @@
-# Contributing to bootsrap-material-design
+# Contributing to bootstrap-material-design
 
 Looking to contribute something to bootsrap-material-design? **Here's how you can help.**
 
