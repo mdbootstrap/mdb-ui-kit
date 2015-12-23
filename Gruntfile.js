@@ -258,7 +258,7 @@ module.exports = function (grunt) {
         compress: {
           warnings: true
         },
-        mangle: true,
+        mangle: false,
         preserveComments: /^!|@preserve|@license|@cc_on/i
       },
       core: {
