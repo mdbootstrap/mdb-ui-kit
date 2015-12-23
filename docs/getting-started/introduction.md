@@ -39,7 +39,7 @@ Add jQuery, Bootstrap, and our Javascript plugins near the end of your pages, ri
 <script src="{{ site.data.cdn.bootstrap }}"></script>
 <script src="{{ site.cdn.js }}"></script>
 <script>
-  $.bootstrapMaterialDesign()
+  $('body').bootstrapMaterialDesign()
 </script>
 {% endhighlight %}
 
@@ -74,12 +74,13 @@ Put it all together and your pages should look like this:
   <body>
     <h1>Hello, world!</h1>
 
-    <!-- jQuery first, then Bootstrap and Material Design for Bootstrap JS. -->
+    <!-- jQuery first, optional tether for tooltips, then Bootstrap and Material Design for Bootstrap JS. -->
     <script src="{{ site.data.cdn.jquery }}"></script>
+    <script src="{{ site.data.cdn.tether }}"></script>
     <script src="{{ site.data.cdn.bootstrap }}"></script>
     <script src="{{ site.cdn.js }}"></script>
     <script>
-      $.bootstrapMaterialDesign()
+      $('body').bootstrapMaterialDesign()
     </script>
   </body>
 </html>

@@ -18,7 +18,8 @@ module Variables
       metadata_files = {
         'bower' => '../bower.json',
         'package' => '../package.json',
-        'bower_jquery' => '../bower_components/jquery/bower.json'
+        'bower_jquery' => '../bower_components/jquery/bower.json',
+        'bower_tether' => '../bower_components/tether/bower.json'
       }
 
       metadata_files.each do |metadata, path|
@@ -30,11 +31,13 @@ module Variables
       name = site.data['package']['name']
       version = site.data['package']['version']
       bootstrap_version = site.data['bower']['dependencies']['bootstrap']
+      tether_version = site.data['bower_tether']['version']
       jquery_version = site.data['bower_jquery']['version']
 
       site.data['name'] = name
       site.data['version'] = version
       site.data['bootstrap_version'] = bootstrap_version
+      site.data['tether_version'] = tether_version
       site.data['jquery_version'] = jquery_version
 
 
@@ -47,7 +50,8 @@ module Variables
 
       site.data['cdn'] = {
         'jquery' => site.config['cdn']['jquery'].gsub(/VERSION/, jquery_version),
-        'bootstrap' => site.config['cdn']['bootstrap'].gsub(/VERSION/, bootstrap_version)
+        'bootstrap' => site.config['cdn']['bootstrap'].gsub(/VERSION/, bootstrap_version),
+        'tether' => site.config['cdn']['tether'].gsub(/VERSION/, tether_version)
       }
 
       #

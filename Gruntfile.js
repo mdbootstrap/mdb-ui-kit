@@ -256,7 +256,7 @@ module.exports = function (grunt) {
     uglify: {
       options: {
         compress: {
-          warnings: false
+          warnings: true
         },
         mangle: true,
         preserveComments: /^!|@preserve|@license|@cc_on/i
@@ -386,7 +386,9 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '../bootstrap/docs/assets/js/vendor',
         src: [
-          '**/*'
+          '**/*',
+          '!tether.min.js',
+          '!jquery.min.js'
         ],
         dest: 'docs/assets/js/vendor/'
       },

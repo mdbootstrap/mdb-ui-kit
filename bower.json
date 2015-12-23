@@ -32,6 +32,7 @@
     "test-infra"
   ],
   "dependencies": {
-    "bootstrap": "v4-dev"
+    "bootstrap": "v4-dev",
+    "tether": "^1.1"
   }
 }
