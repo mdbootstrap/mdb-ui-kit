@@ -5,9 +5,13 @@ form {
   // reverse the above for navbars (no help expected in a navbar form)
   .navbar & {
     margin: 0;
+
+    .mdb-form-group {
+      display: inline-block;
+      padding-top: 0;
+    }
   }
 }
-
 
 // -----
 // Inputs
@@ -139,7 +143,6 @@ form {
   }
 }
 
-
 // FIXME: remove the following, I don't think it is necessary any longer and just adds more rules that are already matched above.
 // default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation)
 //@include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $line-height, $mdb-label-as-placeholder-shim-base);
@@ -165,7 +168,6 @@ select {
 //  height: 100%;
 //  z-index: 100;
 //}
-
 
 //
 //
