@@ -480,7 +480,8 @@ module.exports = function (grunt) {
       docs: {},
       github: {
         options: {
-          raw: 'github: true'
+          //raw: 'github: true'
+          raw: 'baseurl: "/bootstrap-material-design"'
         }
       }
     },
@@ -549,6 +550,13 @@ module.exports = function (grunt) {
       npmUpdate: {
         command: 'npm update'
       }
+      //,
+      //'jekyll-clean': {
+      //  command: 'jekyll clean'
+      //},
+      //'jekyll-build': {
+      //  command: 'jekyll build'
+      //}
     },
 
     buildcontrol: {
@@ -691,7 +699,7 @@ module.exports = function (grunt) {
   grunt.registerTask('prep-release', ['dist', 'docs', 'docs-github', 'compress']);
 
   // Publish to GitHub
-  grunt.registerTask('publish', ['buildcontrol:pages']);
+  grunt.registerTask('publish', ['prep-release', 'buildcontrol:pages']);
 
   // Task for updating the cached npm packages used by the Travis build (which are controlled by test-infra/npm-shrinkwrap.json).
   // This task should be run and the updated file should be committed whenever Bootstrap's dependencies change.

@@ -23,24 +23,24 @@ class Application {
     $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate', true)
 
     // Disable empty links in docs examples
-    $('.bd-example [href=#]').click(function (e) {
+    $('.bd-example [href=#]').click((e) => {
       e.preventDefault()
     })
 
     // Insert copy to clipboard button before .highlight
-    $('.highlight').each(function () {
-      var btnHtml = '<div class="bd-clipboard"><span class="btn-clipboard" title="Copy to clipboard">Copy</span></div>'
+    $('.highlight').each(() => {
+      let btnHtml = '<div class="bd-clipboard"><span class="btn-clipboard" title="Copy to clipboard">Copy</span></div>'
       $(this).before(btnHtml)
       $('.btn-clipboard').tooltip()
     })
 
-    var clipboard = new Clipboard('.btn-clipboard', {
-      target: function (trigger) {
+    let clipboard = new Clipboard('.btn-clipboard', {
+      target: (trigger) => {
         return trigger.parentNode.nextElementSibling
       }
     })
 
-    clipboard.on('success', function (e) {
+    clipboard.on('success', (e) => {
       $(e.trigger)
         .attr('title', 'Copied!')
         .tooltip('_fixTitle')
@@ -51,8 +51,8 @@ class Application {
       e.clearSelection()
     })
 
-    clipboard.on('error', function (e) {
-      var fallbackMsg = /Mac/i.test(navigator.userAgent) ? 'Press \u2318 to copy' : 'Press Ctrl-C to copy'
+    clipboard.on('error', (e) => {
+      let fallbackMsg = /Mac/i.test(navigator.userAgent) ? 'Press \u2318 to copy' : 'Press Ctrl-C to copy'
 
       $(e.trigger)
         .attr('title', fallbackMsg)

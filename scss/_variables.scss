@@ -12,7 +12,6 @@ $mdb-font-weight-base: 400;
 $mdb-text-color-inverse: rgba($white, 0.84) !default;
 $mdb-text-color-inverse-light: rgba($white, 0.54) !default;
 $mdb-label-color: $gray-light !default;
-$mdb-label-color-focus: $brand-primary !default;
 $mdb-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
 
 //---
@@ -38,6 +37,7 @@ $enable-flex: true;
 @import "../bower_components/bootstrap/scss/variables";
 
 
+$mdb-label-color-focus: $brand-primary !default;
 //---
 // verified in use with refactoring to v4
 

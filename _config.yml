@@ -35,7 +35,7 @@ gems:
 # Site vars
 #url:    "http://fezvrasta.github.io"
 repo:   https://github.com/fezvrasta/bootstrap-material-design
-baseurl: "/bootstrap-material-design"
+#baseurl: "/bootstrap-material-design"
 url: "http://rosskevin.github.io"
 
 # other variables generated in

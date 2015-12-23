@@ -243,14 +243,14 @@ This performs an initial build and watches both the core and docs sources for ch
 (assuming the above is done)
 
     ```bash
-    jekyll serve --baseurl ""
+    jekyll serve
     ```
 
 ## Releasing
 
 1. Make sure travis succeeds first
 1. Update the version in `package.json`, it's version is used in the documentation
-1. Build the distribution `grunt dist docs`
+1. Build the distribution `grunt prep-release`
 1. Commit
 1. Tag for bower - a valid tag starts with a `v` such as `v4.0.0`
-1. Push documentation with `jekyll clean && jekyll build && grunt publish`
+1. Push documentation with `grunt publish`
