@@ -1,44 +1,77 @@
 // https://www.google.com/design/spec/components/lists.html#lists-specs
 
 
-// Flex layout on a list group (some of this code could be omitted if BS v4 actually implements flex on list-group)
-.mdb-list-group {
-  //
-  @extend .list-group;
+// - single line 48dp
+// - single line avatar 56dp
+// - double line (with and w/o avatar) 72dp
+// - triple line 88dp
+
+.list-group {
+  // Add 8dp of padding at the top and bottom of a list. One exception is at the top of a list with a subheader,
+  //because subheaders contain their own padding.
+  padding: .5rem 0;
+
+  // dense size variation
+  &.mdb-list-group-sm {
+    padding: .25rem 0;
+
+    .mdb-list-group-item {
+      padding: .5rem 1rem;
+    }
+  }
 }
+
+// Flex layout on a list group (some of this code could be omitted if BS v4 actually implements flex on list-group)
 
 .mdb-list-group-col {
   display: flex;
+  min-width: 0;
   flex-direction: column;
-  flex-shrink: 0;
+  //flex-shrink: 0;
 }
 
 .mdb-list-group-item {
   @extend .list-group-item;
   display: flex;
   flex-direction: row;
-  flex-shrink: 0;
-  padding: .5rem 1rem;
+  flex-flow: row wrap;
+  //flex-shrink: 0;
+  //flex-shrink: 1;
   align-items: center;
+  padding: 1rem;
+  line-height: 1;
 
+  .list-group-item-text {    // word wrap? http://stackoverflow.com/a/26535469/2363935
+    //flex-flow: row wrap;
+    min-width: 0;
+    max-height: 2.188rem;  // 88dp tile total height
+    //flex: 0 1 auto; // important   http://stackoverflow.com/questions/12022288/how-to-keep-a-flex-item-from-overflowing-due-to-its-text
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   //------
-  // NOTE: there are many variations of icons in a list, each one of these rules exist for a reason.
+  // NOTE: there are many variations of icons/labels in a list, each one of these rules exist for a reason.
 
-  // first icon on the left
-  .material-icons:first-child {
+  // first icon/label on the left
+  :first-child {
     margin-right: 2rem; // single line icon is 72dp to text (16 pad + 24 icon + 32 margin)
   }
 
-  // second icon, or only icon marked as 'right', or any direct child element marked as right
+  // second icon/label, or only icon/label marked as 'right', or any direct child element marked as right
   > .right,
-  .material-icons.right, // need the specificity
-  .material-icons ~ .material-icons:last-child {
+  > * ~ .label:last-child,
+  > * ~ .material-icons:last-child {
     margin-right: 0; // some variations actually match the first-child
     margin-left: auto;
   }
-  //------
 
+  // add the padding to icons, don't try on generic use of `right` because it may not be appropriate for some elements i.e. label-pill
+  .material-icons.right, // need the specificity
+  .material-icons ~ .material-icons:last-child {
+    padding-left: 1rem; // guarantee space per spec
+  }
+  //------
 
   .list-group-item-heading {
     //font-size: 1rem;
@@ -48,98 +81,4 @@
     font-size: .875rem;
     color: $gray;
   }
-
-  //    overflow: hidden;
-  //    background-color: transparent;
-  //    border: 0;
-  //    &.baseline {
-  //      border-bottom: 1px solid #cecece;
-  //      &:last-child {
-  //        border-bottom: 0;
-  //      }
-  //    }
-  //    .row-picture, .row-action-primary {
-  //      //float: left; WARNING: float can't be used with display: inline-block. Certain properties shouldn't be used with certain display property values. (display-property-grouping) Browsers: All
-  //      display: inline-block;
-  //      padding-right: 16px;
-  //      img, i, label {
-  //        display: block;
-  //        width: 56px;
-  //        height: 56px;
-  //      }
-  //      img {
-  //        padding: 1px;
-  //        background: rgba($black, 0.1);
-  //        &.mdb-radio-outer-circle {
-  //          border-radius: 100%;
-  //        }
-  //      }
-  //      i {
-  //        font-size: 20px;
-  //        line-height: 56px;
-  //        color: $white;
-  //        text-align: center;
-  //        background: rgba($black, 0.25);
-  //        border-radius: 100%;
-  //      }
-  //      label {
-  //        margin: 5px -7px -5px 7px;
-  //        .checkbox-decorator {
-  //          left: -10px;
-  //        }
-  //      }
-  //    }
-  //    .row-content {
-  //      display: inline-block;
-  //      width: unquote("calc(100% - 92px)");
-  //      min-height: 66px;
-  //      .action-secondary {
-  //        position: absolute;
-  //        top: 16px;
-  //        right: 16px;
-  //        i {
-  //          font-size: 20px;
-  //          color: rgba($black, 0.25);
-  //          cursor: pointer;
-  //        }
-  //      }
-  //      .action-secondary ~ * {
-  //        max-width: unquote("calc(100% - 30px)");
-  //      }
-  //      .least-content {
-  //        position: absolute;
-  //        top: 0;
-  //        right: 16px;
-  //        font-size: 14px;
-  //        color: rgba($black, 0.54);
-  //      }
-  //    }
-  //    .list-group-item-heading {
-  //      font-size: 20px;
-  //      line-height: 29px;
-  //      color: rgba($black, 0.77);
-  //    }
-  //  }
-  //
-  //  .list-group-item.active {
-  //    &:hover, &:focus {
-  //      background: rgba($black, .15);
-  //      outline: 10px solid rgba($black, .15);
-  //    }
-  //    .list-group-item-heading, .list-group-item-text {
-  //      color: $gray-dark;
-  //    }
-  //  }
-  //
-  //  .list-group-separator {
-  //    margin-top: 10px;
-  //    margin-bottom: 10px;
-  //    overflow: hidden;
-  //    clear: both;
-  //    &::before {
-  //      float: right;
-  //      width: unquote("calc(100% - 90px)");
-  //      content: "";
-  //      border-bottom: 1px solid rgba($black, 0.1);
-  //    }
 }
