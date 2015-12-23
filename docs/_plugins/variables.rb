@@ -6,6 +6,15 @@ module Variables
     safe true
 
     def generate(site)
+
+      # indicate to use min or development assets
+      baseurl = site.config['baseurl']
+      minified = true
+      if baseurl.eql? ''
+        minified = false
+      end
+      site.data['minified'] = minified
+
       metadata_files = {
         'bower' => '../bower.json',
         'package' => '../package.json',
@@ -30,20 +39,23 @@ module Variables
 
 
       # fabricate the archive and release links based on the site.repo and version
-      jekyll_config = Jekyll.configuration({})
-      repo = jekyll_config['repo']
+      repo = site.config['repo']
       site.data['download'] = {
         'source' => "#{repo}/archive/v#{version}.zip",
         'dist' => "#{repo}/releases/download/v#{version}/#{name}-#{version}-dist.zip"
       }
 
       site.data['cdn'] = {
-        'jquery' => jekyll_config['cdn']['jquery'].gsub(/VERSION/, jquery_version),
-        'bootstrap' => jekyll_config['cdn']['bootstrap'].gsub(/VERSION/, bootstrap_version)
+        'jquery' => site.config['cdn']['jquery'].gsub(/VERSION/, jquery_version),
+        'bootstrap' => site.config['cdn']['bootstrap'].gsub(/VERSION/, bootstrap_version)
       }
 
       #
-      # puts "\n---------------------"
+      puts "\n---------------------"
+      puts "site.config: #{site.config.to_yaml}"
+      puts "baseurl: #{baseurl}"
+      puts "minified: #{site.data['minified']}"
+      # puts "site: #{site.to_yaml}"
       # puts site.data[:package]['version']
       # puts site.data.to_yaml
       # puts repo
