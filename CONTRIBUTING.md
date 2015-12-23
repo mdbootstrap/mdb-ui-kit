@@ -253,4 +253,4 @@ This performs an initial build and watches both the core and docs sources for ch
 1. Build the distribution `grunt dist docs`
 1. Commit
 1. Tag for bower - a valid tag starts with a `v` such as `v4.0.0`
-1. Push documentation with `grunt publish`
+1. Push documentation with `jekyll clean && jekyll build && grunt publish`
