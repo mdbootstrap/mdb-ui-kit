@@ -67,25 +67,25 @@ group: material-design
 ## Floating Action
 
 {% example html %}
-<button type="button" class="btn btn-primary btn-fab">
+<button type="button" class="btn btn-primary mdb-btn-fab">
   <i class="material-icons">grade</i>
 </button>
-<button type="button" class="btn btn-secondary btn-fab">
+<button type="button" class="btn btn-secondary mdb-btn-fab">
   <i class="material-icons">grade</i>
 </button>
-<button type="button" class="btn btn-success btn-fab">
+<button type="button" class="btn btn-success mdb-btn-fab">
   <i class="material-icons">grade</i>
 </button>
-<button type="button" class="btn btn-info btn-fab">
+<button type="button" class="btn btn-info mdb-btn-fab">
   <i class="material-icons">grade</i>
 </button>
-<button type="button" class="btn btn-warning btn-fab">
+<button type="button" class="btn btn-warning mdb-btn-fab">
   <i class="material-icons">grade</i>
 </button>
-<button type="button" class="btn btn-danger btn-fab">
+<button type="button" class="btn btn-danger mdb-btn-fab">
   <i class="material-icons">grade</i>
 </button>
-<button type="button" class="btn btn-danger btn-fab active">
+<button type="button" class="btn btn-danger mdb-btn-fab active">
   <i class="material-icons">grade</i>
 </button>
 {% endexample %}
@@ -93,22 +93,22 @@ group: material-design
 ### Disabled
 {% example html %}
 <fieldset disabled>
-  <button type="button" class="btn btn-primary btn-fab">
+  <button type="button" class="btn btn-primary mdb-btn-fab">
     <i class="material-icons">grade</i>
   </button>
-  <button type="button" class="btn btn-secondary btn-fab">
+  <button type="button" class="btn btn-secondary mdb-btn-fab">
     <i class="material-icons">grade</i>
   </button>
-  <button type="button" class="btn btn-success btn-fab">
+  <button type="button" class="btn btn-success mdb-btn-fab">
     <i class="material-icons">grade</i>
   </button>
-  <button type="button" class="btn btn-info btn-fab">
+  <button type="button" class="btn btn-info mdb-btn-fab">
     <i class="material-icons">grade</i>
   </button>
-  <button type="button" class="btn btn-warning btn-fab">
+  <button type="button" class="btn btn-warning mdb-btn-fab">
     <i class="material-icons">grade</i>
   </button>
-  <button type="button" class="btn btn-danger btn-fab">
+  <button type="button" class="btn btn-danger mdb-btn-fab">
     <i class="material-icons">grade</i>
   </button>
 </fieldset>
@@ -116,22 +116,22 @@ group: material-design
 
 ### Sizes
 
-Using `btn-fab-sm` on the button, or using `btn-group-sm` on the enclosing element of a `btn-fab` renders a small variation.
+Using `mdb-btn-fab-sm` on the button, or using `btn-group-sm` on the enclosing element of a `mdb-btn-fab` renders a small variation.
 
 {% example html %}
 <span class="btn-group-lg">
-  <button type="button" class="btn btn-danger btn-fab">
+  <button type="button" class="btn btn-danger mdb-btn-fab">
     <i class="material-icons">grade</i>
   </button>
 </span>
-<button type="button" class="btn btn-danger btn-fab">
+<button type="button" class="btn btn-danger mdb-btn-fab">
   <i class="material-icons">grade</i>
 </button>
-<button type="button" class="btn btn-danger btn-fab btn-fab-sm">
+<button type="button" class="btn btn-danger mdb-btn-fab mdb-btn-fab-sm">
   <i class="material-icons">grade</i>
 </button>
 <span class="btn-group-sm">
-  <button type="button" class="btn btn-danger btn-fab">
+  <button type="button" class="btn btn-danger mdb-btn-fab">
     <i class="material-icons">grade</i>
   </button>
 </span>

@@ -4,6 +4,56 @@ title: Labels
 group: material-design
 ---
 
+Below is a complete list of `<label>` class options supported by Material Design for Bootstrap:
+
+<table>
+  <thead>
+    <tr>
+      <th>Classes</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>.mdb-label-static</code>
+      </td>
+      <td>
+        {% markdown %}Statically positioned above the input{% endmarkdown %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.mdb-label-placeholder</code>
+      </td>
+      <td>
+{% markdown %}
+Renders a `<label>` as a placeholder
+
+- _focused_: not visible after first keystroke
+- _unfocused & empty_: placeholder
+- _unfocused & filled_: not visible
+- do not use the placeholder attribute with this option      
+{% endmarkdown %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.mdb-label-floating</code>
+      </td>
+      <td>
+{% markdown %}
+Animated combination of placeholder and label: 
+
+- _focused_: label animates from placeholder to static label
+- _unfocused & empty_: placeholder
+- _unfocused & filled_: renders the same as `.mdb-label-static`
+{% endmarkdown %}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ## Contents
 
 * Will be replaced with the ToC, excluding the "Contents" header

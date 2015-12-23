@@ -95,50 +95,51 @@ Below is a complete list of options supported by Material Design for Bootstrap a
   <tbody>
     <tr>
       <td>
-        {% markdown %}`.mdb-form-group`{% endmarkdown %}
+        <code>.mdb-form-group</code>
       </td>
       <td class="text-nowrap">
-        Any group of form controls
+        Any group of form controls (e.g. combination of label/input).
       </td>
       <td>
         {% markdown %}This is automatically added by javascript, but if your code is templated, adding `.mdb-form-group` 
         to your form groups or otherwise your groups of controls can reduce rendering churn since the javascript will not
-        add the class after the initial page rendering.{% endmarkdown %}
+        add the class after the initial page rendering.  This can also demarcate complex label/input combinations inside the 
+        same `.form-group`.{% endmarkdown %}
       </td>
     </tr>
     <tr>
       <td>
-        {% markdown %}`.mdb-label-floating`{% endmarkdown %}
+        <code>.mdb-form-group-sm</code>
+      </td>
+      <td class="text-nowrap">
+        {% markdown %}Added to the `.mdb-form-group`, this will render the combination label/input/help in the smaller variation.{% endmarkdown %}
       </td>
       <td>
-        
+        {% markdown %}{% endmarkdown %}
       </td>
-      <td>
-        {% markdown %}TODO{% endmarkdown %}
-      </td>
-    </tr>
+    </tr>    
     <tr>
       <td>
-        {% markdown %}`.mdb-label-static`{% endmarkdown %}
+        <code>.mdb-form-group-lg</code>
+      </td>
+      <td class="text-nowrap">
+        {% markdown %}Added to the `.mdb-form-group`, this will render the combination label/input/help in the larger variation.{% endmarkdown %}
       </td>
       <td>
-        
+        {% markdown %}{% endmarkdown %}
       </td>
-      <td>
-        {% markdown %}TODO{% endmarkdown %}
-      </td>
-    </tr>
+    </tr>     
     <tr>
       <td>
-        {% markdown %}`.mdb-label-placeholder`{% endmarkdown %}
+        <code>.mdb-help</code>
+      </td>
+      <td class="text-nowrap">
+        Any help text
       </td>
       <td>
-        
+        {% markdown %}Mark any help text next to an input with `.mdb-help` to gain behaviors such as showing upon focus.{% endmarkdown %}
       </td>
-      <td>
-        {% markdown %}TODO{% endmarkdown %}
-      </td>
-    </tr>
+    </tr>    
   </tbody>
 </table>
 
@@ -146,12 +147,11 @@ Below is a complete list of options supported by Material Design for Bootstrap a
 ### Form groups
 
 The `.mdb-form-group` class is usually added to the `.form-group` element. Whereas the `.form-group` adds structure to forms by providing `margin-bottom` around a label and control pairing,
- the only purpose of the  `.mdb-form-group` is to demarcate Material Design behaviors.  Decorations and size variations are intended to be specified on
- this element e.g. `.mdb-label-floating`.  Focus/hover styling for the label/input is determined based on the `.mdb-form-group`. 
+ the only purpose of the  `.mdb-form-group` is to demarcate Material Design behaviors for a combination of label/input.  Focus/hover styling for the label/input is determined based on the `.mdb-form-group`. 
 
 The `.mdb-form-group` is added automatically by javascript through basic discovery of the outer demarcation of the component defined by the Bootstrap standard 
 markup.  If your code is templated, you may want to add `.mdb-form-group` to the markup directly to prevent any rendering churn from the javascript determining 
-and adding the class to the markup.  In custom situations, the javascript may not be able to properly resolve the location for the `.mdb-form-group`, so in rare cases
+and adding the class to the markup.  In custom situations, the javascript may not be able to properly resolve the location for the `.mdb-form-group`, so in rare or complex cases
 you may need to wrap your markup in an `.mdb-form-group` to get appropriate focus/hover behavior.
 
 {% example html %}

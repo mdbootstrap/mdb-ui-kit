@@ -8,21 +8,6 @@
     - title: Build tools
     - title: Best practices
 
-- title: Layout
-  pages:
-    - title: Overview
-    - title: Grid
-    - title: Media object
-    - title: Responsive utilities
-
-- title: Content
-  pages:
-    - title: Typography
-    - title: Code
-    - title: Images
-    - title: Tables
-    - title: Figures
-
 - title: Material Design
   pages:
     - title: Test
@@ -32,6 +17,31 @@
     - title: Forms
     - title: Labels
     - title: Selections
+
+- title: About
+  pages:
+    - title: History
+    - title: Team
+    - title: License
+
+# change nav-docs.html if you change this name to insert "Bootstrap Reference Documentation"
+- title: Migration
+
+#- title: Layout
+#  pages:
+#    - title: Overview
+#    - title: Grid
+#    - title: Media object
+#    - title: Responsive utilities
+
+- title: Content
+  pages:
+    - title: Typography
+    - title: Code
+    - title: Images
+    - title: Tables
+    - title: Figures
+
 
 - title: Components
   pages:
@@ -64,11 +74,4 @@
 #     - title: Approach
 #     - title: Icon fonts
 
-- title: About
-  pages:
-    - title: History
-    - title: Team
-#    - title: Accessibility
-    - title: License
 
-- title: Migration

@@ -243,7 +243,7 @@ This performs an initial build and watches both the core and docs sources for ch
 (assuming the above is done)
 
     ```bash
-    jekyll serve
+    jekyll serve --baseurl ""
     ```
 
 ## Releasing

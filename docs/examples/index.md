@@ -7,8 +7,8 @@ title: Examples
 
 {% callout info %}
 **Bootstrap Reference Documentation** 
-This is reference documentation from <a href="http://getbootstrap.com">Bootstrap</a>. 
-It is being rendered with Material Design for Bootstrap to demonstrate default styling. 
+This is a part of the reference documentation from <a href="http://getbootstrap.com">Bootstrap</a>. 
+It is included here to demonstrate rendering with Material Design for Bootstrap default styling. 
 See the <a href="/material-design/buttons">Material Design</a> section for more elements and customization options.
 {% endcallout %}
 

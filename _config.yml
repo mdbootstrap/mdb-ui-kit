@@ -20,8 +20,10 @@ source:           docs
 destination:      _gh_pages
 host:             0.0.0.0
 port:             9000
-#baseurl: "/bootstrap-material-design"
-#url: "http://fezvrasta.github.io"
+
+
+
+
 encoding:         UTF-8
 exclude:          [assets/scss/]
 
@@ -30,9 +32,11 @@ gems:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Custom vars
-#current_version:  4.0.0-alpha
-repo:             https://github.com/fezvrasta/bootstrap-material-design
+# Site vars
+#url:    "http://fezvrasta.github.io"
+repo:   https://github.com/fezvrasta/bootstrap-material-design
+baseurl: "/bootstrap-material-design"
+url: "http://rosskevin.github.io"
 
 # other variables generated in
 

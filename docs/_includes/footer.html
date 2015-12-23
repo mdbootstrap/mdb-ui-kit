@@ -27,7 +27,6 @@
   <script src="{{ site.baseurl }}/dist/js/{{ site.data.name }}.min.js"></script>
   <script src="{{ site.baseurl }}/assets/js/docs.min.js"></script>
 {% else %}
-  <!--<script src="{{ site.baseurl }}/dist/js/{{ site.data.name }}.js"></script>-->
   {% for file in site.data.configBridge.paths.coreJs %}
     <script src="{{ site.baseurl }}/{{ file }}"></script>
   {% endfor %}

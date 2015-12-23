@@ -35,7 +35,7 @@
   //  - colored, add their text and bg
   //  - hover color contrasted
   //  - shared shadow state on hover/active/focus
-  &.btn-fab,
+  &.mdb-btn-fab,
   &.btn-raised,
   .btn-group-raised & {
     @include mdb-button-colored();
@@ -82,7 +82,7 @@
   }
 
   // https://www.google.com/design/spec/components/buttons-floating-action-button.html
-  &.btn-fab {
+  &.mdb-btn-fab {
     // see above for color variations
     width: $mdb-btn-fab-size;
     min-width: $mdb-btn-fab-size;
@@ -99,7 +99,7 @@
       border-radius: 50%;
     }
 
-    &.btn-fab-sm,
+    &.mdb-btn-fab-sm,
     .btn-group-sm & {
       width: $mdb-btn-fab-size-mini;
       min-width: $mdb-btn-fab-size-mini;
