@@ -21,10 +21,10 @@
 <script src="{{ site.data.cdn.tether }}"></script>
 <script src="{{ site.data.cdn.bootstrap }}"></script>
 
-{% if site.data.minified %}
-  <script src="{{ site.baseurl }}/dist/js/{{ site.data.name }}.min.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/docs.min.js"></script>
-{% else %}
+<!--{% if site.data.minified %}-->
+  <!--<script src="{{ site.baseurl }}/dist/js/{{ site.data.name }}.min.js"></script>-->
+  <!--<script src="{{ site.baseurl }}/assets/js/docs.min.js"></script>-->
+<!--{% else %}-->
   {% for file in site.data.configBridge.paths.coreJs %}
     <script src="{{ site.baseurl }}/{{ file }}"></script>
   {% endfor %}
@@ -32,7 +32,7 @@
   {% for file in site.data.configBridge.paths.docsJs %}
     <script src="{{ site.baseurl }}/{{ file }}"></script>
   {% endfor %}
-{% endif %}
+<!--{% endif %}-->
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script>
