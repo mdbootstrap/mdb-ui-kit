@@ -125,7 +125,7 @@ const BootstrapMaterialDesign = (($) => {
           let jqueryFn = `mdb${component.charAt(0).toUpperCase() + component.slice(1)}`
 
           try {
-            // instantiate component on selector elements with config
+            // safely instantiate component on selector elements with config, report errors and move on.
             // console.debug(`instantiating: $('${selector}')[${jqueryFn}](${componentConfig})`) // eslint-disable-line no-console
             $(selector)[jqueryFn](componentConfig)
 

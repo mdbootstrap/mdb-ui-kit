@@ -123,7 +123,7 @@ module.exports = function (grunt) {
           'dist/js/babel/switch.js': 'js/src/switch.js',
           'dist/js/babel/radio.js': 'js/src/radio.js',
           'dist/js/babel/radioInline.js': 'js/src/radioInline.js',
-          'dist/js/babel/fileInput.js': 'js/src/file.js',
+          'dist/js/babel/file.js': 'js/src/file.js',
           'dist/js/babel/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
         }
       },
@@ -150,7 +150,7 @@ module.exports = function (grunt) {
           'docs/dist/js/babel/switch.js': 'js/src/switch.js',
           'docs/dist/js/babel/radio.js': 'js/src/radio.js',
           'docs/dist/js/babel/radioInline.js': 'js/src/radioInline.js',
-          'docs/dist/js/babel/fileInput.js': 'js/src/file.js',
+          'docs/dist/js/babel/file.js': 'js/src/file.js',
           'docs/dist/js/babel/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
         }
       },
@@ -180,7 +180,7 @@ module.exports = function (grunt) {
           'dist/js/umd/switch.js': 'js/src/switch.js',
           'dist/js/umd/radio.js': 'js/src/radio.js',
           'dist/js/umd/radioInline.js': 'js/src/radioInline.js',
-          'dist/js/umd/fileInput.js': 'js/src/file.js',
+          'dist/js/umd/file.js': 'js/src/file.js',
           'dist/js/umd/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
         }
       }

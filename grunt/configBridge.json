@@ -15,7 +15,7 @@
       "../dist/js/babel/bootstrapMaterialDesign.js",
       "../dist/js/babel/checkbox.js",
       "../dist/js/babel/checkboxInline.js",
-      "../dist/js/babel/fileInput.js",
+      "../dist/js/babel/file.js",
       "../dist/js/babel/text.js",
       "../dist/js/babel/textarea.js",
       "../dist/js/babel/select.js",

@@ -13,6 +13,8 @@ module Variables
       if baseurl.eql? ''
         minified = false
       end
+
+      # minified = true # debug minified
       site.data['minified'] = minified
 
       metadata_files = {
