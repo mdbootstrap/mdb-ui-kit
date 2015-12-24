@@ -388,8 +388,7 @@ module.exports = function (grunt) {
         src: [
           '**/*',
           '!tether.min.js',
-          '!jquery.min.js',
-          '!holder.min.js'
+          '!jquery.min.js'
         ],
         dest: 'docs/assets/js/vendor/'
       },
