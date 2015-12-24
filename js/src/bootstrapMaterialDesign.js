@@ -124,15 +124,20 @@ const BootstrapMaterialDesign = (($) => {
           // create the jquery fn name e.g. 'mdbText' for 'text'
           let jqueryFn = `mdb${component.charAt(0).toUpperCase() + component.slice(1)}`
 
-          // instantiate component on selector elements with config
-          // console.debug(`instantiating: $('${selector}')[${jqueryFn}](${componentConfig})`) // eslint-disable-line no-console
-          $(selector)[jqueryFn](componentConfig)
+          try {
+            // instantiate component on selector elements with config
+            // console.debug(`instantiating: $('${selector}')[${jqueryFn}](${componentConfig})`) // eslint-disable-line no-console
+            $(selector)[jqueryFn](componentConfig)
 
-          // add to arrive if present and enabled
-          if (document.arrive && this.config.arrive) {
-            $document.arrive(selector, (element) => {  // eslint-disable-line no-loop-func
-              $(element)[jqueryFn](componentConfig)
-            })
+            // add to arrive if present and enabled
+            if (document.arrive && this.config.arrive) {
+              $document.arrive(selector, (element) => {  // eslint-disable-line no-loop-func
+                $(element)[jqueryFn](componentConfig)
+              })
+            }
+          } catch (e) {
+            let message = `Failed to instantiate component: $('${selector}')[${jqueryFn}](${componentConfig})`
+            console.error(message, e, `\nSelected elements: `, $(selector)) // eslint-disable-line no-console
           }
         }
       }

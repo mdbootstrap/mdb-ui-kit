@@ -218,6 +218,7 @@ module.exports = function (grunt) {
       options: {
         banner: '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>\n+function ($) {\n',
         footer: '\n}(jQuery);'
+        //banner: '<%= banner %>\n'
       },
       bootstrap: {
         files: {
@@ -255,7 +256,7 @@ module.exports = function (grunt) {
 
     uglify: {
       options: {
-        compress: {
+        compress: {  // this was causing problems on docs vendor js
           warnings: true
         },
         mangle: false,
@@ -265,7 +266,10 @@ module.exports = function (grunt) {
         src: '<%= concat.bootstrap.dest %>',
         dest: 'dist/js/<%= pkg.name %>.min.js'
       },
-      docsJs: {
+      docs: {
+        options: {
+          compress: false
+        },
         src: configBridge.paths.docsJs,
         dest: 'docs/assets/js/docs.min.js'
       }
@@ -369,7 +373,7 @@ module.exports = function (grunt) {
     },
 
     copy: {
-      docs: {
+      'dist-to-docs': {
         expand: true,
         cwd: 'dist/',
         src: [
@@ -435,7 +439,7 @@ module.exports = function (grunt) {
           // https://regex101.com/r/cZ7aO8/2
           process: function (content, srcpath) {
             return content
-              // insert docs reference
+            // insert docs reference
               .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice)
               // remove sample text 'display' as this is a particular style and is confusing
               .replace(/Fancy display heading/, 'Fancy heading');
@@ -505,7 +509,7 @@ module.exports = function (grunt) {
     watch: {
       src: {
         files: '<%= jscs.core.src %>',
-        tasks: ['babel:core', 'babel:docs']
+        tasks: ['babel:core', 'babel:docs'] // only watch/gen local non-minified sources (quicker)
       },
 
       docsjs: {
@@ -647,7 +651,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test-js', ['eslint', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['eslint', 'babel:core', 'concat', 'lineremover', 'babel:dist', 'stamp', 'uglify:core', 'commonjs']);
+  grunt.registerTask('dist-js', ['eslint', 'babel:core', 'concat', 'lineremover', 'babel:dist', 'stamp', 'uglify:core', 'commonjs', 'copy:dist-to-docs']);
 
   grunt.registerTask('test-scss', ['scsslint']);
 
@@ -682,10 +686,11 @@ module.exports = function (grunt) {
     generateCommonJSModule(grunt, srcFiles, destFilepath);
   });
 
-  // Docs task.
-  grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
-  grunt.registerTask('docs-js', ['babel:docs', 'uglify:docsJs']);
-  grunt.registerTask('lint-docs-js', ['jscs:assets']);
+  //------
+  // Docs tasks
+
+  // Independent task to be run when we are ready to sync the bootstrap repo's docs locally.
+  //  Should be automated with no need for intervention (other than pulling the right bootstrap release locally)
   grunt.registerTask('docs-copy-bootstrap-docs', [
     'copy:bs-docs-js-vendor',
     'copy:bs-docs-scss',
@@ -694,14 +699,18 @@ module.exports = function (grunt) {
     'copy:bs-docs-examples',
     'copy:bs-docs-plugins'
   ]);
+  grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
+  grunt.registerTask('lint-docs-js', ['jscs:assets']);
+  grunt.registerTask('docs-js', ['babel:docs', 'uglify:docs', 'lint-docs-js', 'copy:dist-to-docs']);
+  grunt.registerTask('docs', ['clean:docs', 'docs-css', 'docs-js']);
+  //------
 
-  grunt.registerTask('docs', ['clean:docs', 'docs-copy-bootstrap-docs', 'docs-css', 'docs-js', 'lint-docs-js', 'copy:docs']);
+  //------
+  // Release and publish
   grunt.registerTask('docs-github', ['jekyll:github']);
-
   grunt.registerTask('prep-release', ['dist', 'docs', 'docs-github', 'compress']);
-
-  // Publish to GitHub
   grunt.registerTask('publish', ['prep-release', 'buildcontrol:pages']);
+  //------
 
   // Task for updating the cached npm packages used by the Travis build (which are controlled by test-infra/npm-shrinkwrap.json).
   // This task should be run and the updated file should be committed whenever Bootstrap's dependencies change.
