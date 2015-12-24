@@ -1,5 +1,6 @@
 import Style from './style'
 import Clipboard from 'clipboard'
+import anchors from 'anchor'
 
 class Application {
 
@@ -61,6 +62,9 @@ class Application {
         .attr('title', 'Copy to clipboard')
         .tooltip('_fixTitle')
     })
+
+    anchors.options.placement = 'left' // eslint-disable-line no-console
+    anchors.add('.bd-content > h1, .bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5')
   }
 
   // Add dynamic display of font properties to the existing documentation
@@ -122,7 +126,4 @@ $(() => {
   $('body').bootstrapMaterialDesign()
 
   app.initializeDemos()
-
-  anchors.options.placement = 'left';
-  anchors.add('.bd-content > h1, .bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5')
 })
