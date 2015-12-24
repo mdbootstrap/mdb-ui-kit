@@ -52,13 +52,47 @@ Material Design for Bootstrap uses [Autoprefixer][autoprefixer] (included in our
 
 ## Local documentation
 
-Running our documentation locally requires the use of Jekyll, a decently flexible static site generator that provides us basic includes, Markdown-based files, templates, and more. Here's how to get it started:
+Running our documentation locally requires the use of Jekyll, a flexible static site generator that provides us basic includes, 
+markdown-based files, templates, and more. Here's how to get it started:
 
 1. Run through the [tooling setup](#tooling-setup) above to install Jekyll (the site builder) and other Ruby dependencies with `bundle install`.
 2. From the root `/bootstrap-material-design` directory, run `bundle exec jekyll serve` in the command line.
 3. Open <http://localhost:9001> in your browser, and voilà.
 
 Learn more about using Jekyll by reading its [documentation](http://jekyllrb.com/docs/home/).
+
+## Local development setup
+
+The development and testing with the documentation has been connected so we not only can utilize Material Design examples,
+but all of the original Bootstrap documentation examples as well.  The most productive environment so far is to have
+Bootstrap checked out in parallel to this project, running three (3) different terminal commands simultaneously:
+
+1. _Terminal 1_: Bootstrap documentation for reference 
+  
+    1. Performs an initial dependency setup/build
+    
+        `bundle install && npm install && bower install && grunt dist`
+      
+    1. Start serving the documentation on <http://localhost:9000>
+      
+        `jekyll serve` 
+    
+1. _Terminal 2_: Initial build and watch
+
+    1. Performs an initial dependency setup/build
+    
+        `bundle install && npm install && bower install && grunt dist`
+         
+    1. Watch both the core and docs sources for changes
+    
+        `grunt watch` 
+
+1. _Terminal 3_: Start serving documentation on <http://localhost:9001> with `jekyll serve`
+    
+Now go forth and develop, the `watch` task will keep tabs on source files and docs files, meanwhile the `jekyll serve` command 
+will generate new documentation pages with the changes.  Simply refresh your browser to see the changes. 
+
+(TODO: someone please investigate adding autoreload to jekyll development cycle)   
 
 ## Troubleshooting
 

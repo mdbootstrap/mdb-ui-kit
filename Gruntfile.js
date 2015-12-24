@@ -666,7 +666,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-css', ['sass-compile', 'postcss:core', 'csscomb:dist', 'cssmin:core', 'cssmin:docs']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'dist-js']);
+  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'test']);

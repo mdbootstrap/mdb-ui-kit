@@ -4,6 +4,13 @@ title: Browsers and devices
 group: getting-started
 ---
 
+{% callout info %}
+**Bootstrap Reference Documentation** 
+This is a part of the reference documentation from <a href="http://getbootstrap.com">Bootstrap</a>. 
+It is included here to ensure this critical information about compatibility is conveyed.
+{% endcallout %}
+
+
 Bootstrap supports a wide variety of modern browsers and devices, and some older ones. See which exact ones below, as well as detailed information on known quirks and bugs.
 
 ## Contents

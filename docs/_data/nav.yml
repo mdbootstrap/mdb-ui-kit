@@ -3,10 +3,10 @@
     - title: Introduction
     - title: Download
     - title: Browsers & devices
-    - title: Options
-    - title: Flexbox
-    - title: Build tools
+    - title: Customization
     - title: Best practices
+    - title: Build tools
+    - title: Release process
 
 - title: Material Design
   pages:
