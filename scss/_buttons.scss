@@ -11,7 +11,7 @@
   cursor: pointer;
   background-color: transparent;
   border: 0;
-  outline: none;
+  outline: 0;
   box-shadow: none;
   transition: box-shadow 0.2s $mdb-animation-curve-fast-out-linear-in, background-color 0.2s $mdb-animation-curve-default, color 0.2s $mdb-animation-curve-default;
   will-change: box-shadow, transform;
