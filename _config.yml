@@ -60,6 +60,7 @@ cdn:
   jquery:         https://ajax.googleapis.com/ajax/libs/jquery/VERSION/jquery.min.js
   bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap.min.js
   tether:         https://cdn.rawgit.com/HubSpot/tether/vVERSION/dist/js/tether.min.js
+  holder:         https://cdn.rawgit.com/imsky/holder/v2.9.0/holder.min.js
 
 
 
