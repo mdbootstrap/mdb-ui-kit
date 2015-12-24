@@ -78,6 +78,8 @@
       &.active,
       &:active {
 
+        outline: 0;
+
         // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
         // SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
         @include button-variations(unquote(".btn"), "", $mdb-btn-background-color);
