@@ -28,7 +28,7 @@
   transition: box-shadow 0.2s $mdb-animation-curve-fast-out-linear-in,
   background-color 0.2s $mdb-animation-curve-default,
   color 0.2s $mdb-animation-curve-default;
-  outline: none;
+  outline: 0;
   cursor: pointer;
   text-decoration: none;
 
