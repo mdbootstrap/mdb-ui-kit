@@ -18,18 +18,11 @@
 
   @include undo-bs-tab-focus();
 
-  // kill focus outline on firefox
-  //button::-moz-focus-inner {
-  //  border: 0;
-  //}
-
-
-
   //--
   // Colors
 
   // flat removes bg, add color variations to text
-  @include mdb-button-color();
+  @include mdb-flat-button-color();
 
   // fab and raised
   //  - colored, add their text and bg
@@ -38,13 +31,8 @@
   &.mdb-btn-fab,
   &.btn-raised,
   .btn-group-raised & {
-    @include mdb-button-colored();
+    @include mdb-raised-button-color();
 
-    // contrast bg colors on hover, focus, active
-    @include mdb-hover-focus-active() {
-      @include mdb-button-colored-bg(true);
-      //border: 1px solid $red;
-    }
     // enlarged shadow on hover, focus
     @include hover-focus() {
       //border: 1px solid $blue;
@@ -147,7 +135,7 @@
   @include mdb-disabled() {
     color: $mdb-btn-disabled;
     .bg-inverse & {
-      color: $mdb-btn-disabled-inverse;
+      color: $mdb-inverse-btn-disabled;
     }
 
     // flat buttons shouldn't lose transparency on disabled hover/focus
@@ -156,17 +144,6 @@
     &:focus {
       background: transparent;
     }
-
-    // no box-shadow on raised - need specificity
-    //&.btn-raised,
-    //&.btn-group-raised {
-    //  &,
-    //  &.active,
-    //  &:active,
-    //  &:focus:not(:active) {
-    //    box-shadow: none;
-    //  }
-    //}
   }
 }
 
@@ -178,15 +155,14 @@
   margin: 10px 1px;
 
   // spec: https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons
-  &.open {
-    .dropdown-toggle {
-      //box-shadow: none;
-    }
-
-    > .dropdown-toggle.btn {
-      @include mdb-button-colored-bg();
-    }
-  }
+  //&.open {
+  //  .dropdown-toggle {
+  //  }
+  //
+  //  > .dropdown-toggle.btn {
+  //    @include mdb-raised-button-color-bg();
+  //  }
+  //}
 
   .dropdown-menu {
     border-radius: 0 0 $border-radius $border-radius;

@@ -9,12 +9,13 @@ $mdb-btn-color:            $gray-dark !default;
 $mdb-btn-bg:               $body-bg !default; // #fff
 $mdb-btn-border:           #ccc !default;
 
-$mdb-btn-colored-bg-text: $gray-dark !default;
-
-$mdb-btn-hover-bg: rgba(#999, .20) !default; // spec: flat/light bg Hover: 20% #999999
+$mdb-btn-focus-bg: rgba(#999, .20) !default; // spec: bg Hover: 20% #999999
+$mdb-btn-active-bg: rgba(#999, .40) !default; // spec: bg Pressed: 40% #999999
 $mdb-btn-disabled: rgba($black, .26) !default; // spec: light theme: Disabled text: 26% $black
-$mdb-btn-hover-bg-inverse: rgba(#ccc, .15) !default; // spec: dark bg Hover: 15% #CCCCCC
-$mdb-btn-disabled-inverse: rgba($white, .30) !default; // spec: dark theme: Disabled text: 30% $white
+
+$mdb-inverse-btn-focus-bg: rgba(#ccc, .15) !default; // spec: dark bg Hover: 15% #CCCCCC
+$mdb-inverse-btn-active-bg: rgba(#ccc, .25) !default; // spec: dark Pressed: 25% #CCCCCC
+$mdb-inverse-btn-disabled: rgba($white, .30) !default; // spec: dark theme: Disabled text: 30% $white
 
 $mdb-btn-fab-size: 56px !default;
 $mdb-btn-fab-size-mini: 40px !default;
