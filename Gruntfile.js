@@ -56,7 +56,7 @@ module.exports = function (grunt) {
     ]
   });
 
-  var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
+  var moduleGenerator = require('./grunt/module-generator.js');
   var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
 
   // dynamically create js file list (we do this for several different directories)
@@ -115,15 +115,6 @@ module.exports = function (grunt) {
     ' * Copyright 2014-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
     ' * Licensed under MIT (https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE)\n' +
     ' */\n',
-    jqueryCheck: 'if (typeof jQuery === \'undefined\') {\n' +
-    '  throw new Error(\'Bootstrap Material Design\\\'s JavaScript requires jQuery\')\n' +
-    '}\n',
-    jqueryVersionCheck: '+function ($) {\n' +
-    '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')\n' +
-    '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1) || (version[0] >= 3)) {\n' +
-    '    throw new Error(\'Bootstrap Material Design\\\'s JavaScript requires at least jQuery v1.9.1 but less than v3.0.0\')\n' +
-    '  }\n' +
-    '}(jQuery);\n\n',
 
     // Task configuration.
     clean: {
@@ -135,13 +126,19 @@ module.exports = function (grunt) {
     babel: {
       options: {
         sourceMap: true,
-        presets: ['babel-preset-es2015-rollup'] // the following is the es2015 preset minus the commonjs requirement
+        presets: ['es2015'] // the following is the es2015 preset minus the commonjs requirement
       },
       core: {
         files: coreFileMap('dist/js/demoduled/', 'js/src/')
       },
       docs: {
         files: docsFileMap()
+      },
+      systemjs: {
+        options: {
+          plugins: ['transform-es2015-modules-systemjs']
+        },
+        files: coreFileMap('dist/js/systemjs/', 'js/src/')
       },
       umd: {
         options: {
@@ -181,37 +178,29 @@ module.exports = function (grunt) {
 
     stamp: {
       options: {
-        banner: '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>\n+function ($) {\n',
-        footer: '\n}(jQuery);'
-        //banner: '<%= banner %>\n'
+        banner: '<%= banner %>\n'
       },
       core: {
         files: {
-          src: 'dist/js/<%= pkg.name %>.js'
+          src: 'dist/js/*.js'
         }
       }
     },
 
     concat: {
-      dist_demoduled: {
-        options: {
-          stripBanners: false,
-          sourceMap: true
-        },
-        dest: 'dist/js/<%= pkg.name %>.js',
-        src: coreFileArray('dist/js/demoduled/')
+      options: {
+        stripBanners: false,
+        sourceMap: true
+      },
+      systemjs: {
+        src: coreFileArray('dist/js/systemjs/'),
+        dest: 'dist/js/system-all.js'
+      },
+      commonjs: {
+        src: coreFileArray('dist/js/umd/'),
+        dest: 'dist/js/common-all.js'
       }
     },
-
-    lineremover: {
-      core: {
-        options: {
-          exclusionPattern: /^(import|export)/g
-        },
-        files: coreFileMap('dist/js/demoduled/', 'dist/js/demoduled/')
-      },
-    },
-
     uglify: {
       options: {
         compress: {
@@ -220,17 +209,21 @@ module.exports = function (grunt) {
         mangle: false,
         preserveComments: /^!|@preserve|@license|@cc_on/i
       },
-      core: {
-        src: 'dist/js/<%= pkg.name %>.js',
-        dest: 'dist/js/<%= pkg.name %>.min.js'
+      'systemjs-all': {
+        src: 'dist/js/system-all.js',
+        dest: 'dist/js/system-all.min.js'
       },
-      docs: {
-        options: {
-          compress: false
-        },
-        src: configBridge.paths.docsJs,
-        dest: 'docs/assets/js/docs.min.js'
-      }
+      'commonjs-all': {
+        src: 'dist/js/common-all.js',
+        dest: 'dist/js/common-all.min.js'
+      },
+      //  docs: {
+      //    options: {
+      //      compress: false
+      //    },
+      //    src: configBridge.paths.docsJs,
+      //    dest: 'docs/assets/js/docs.min.js'
+      //  }
     },
 
     qunit: {
@@ -338,8 +331,6 @@ module.exports = function (grunt) {
           '!js/demoduled/**/*',
           '!js/umd',
           '!js/umd/**/*',
-          //'!js/commonjs',
-          //'!js/commonjs/**/*',
           //'!js/systemjs',
           //'!js/systemjs/**/*',
           '!js/npm.js'
@@ -603,12 +594,15 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-js', [
     'clean:dist-js',
     'eslint',
-    'babel:core',
-    'lineremover:core',
-    'concat',
-    'stamp',
-    'uglify:core',
+    'babel:umd',
+    'babel:systemjs',
     'commonjs',
+    'systemjs',
+    'concat:commonjs',
+    'concat:systemjs',
+    'stamp',
+    'uglify:commonjs-all',
+    'uglify:systemjs-all',
     'copy:dist-to-docs'
   ]);
 
@@ -630,14 +624,12 @@ module.exports = function (grunt) {
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'test']);
 
-  grunt.registerTask('commonjs', ['babel:umd', 'npm-js']);
+  grunt.registerTask('commonjs', 'Generate npm-js/commonjs entrypoint module.', function () {
+    moduleGenerator.commonJs(grunt, coreFileArray('./umd/'), 'dist/js/common.js');
+  });
 
-  grunt.registerTask('npm-js', 'Generate npm-js entrypoint module in dist dir.', function () {
-    var srcFiles = Object.keys(grunt.config.get('babel.umd.files')).map(function (filename) {
-      return './' + path.join('umd', path.basename(filename))
-    })
-    var destFilepath = 'dist/js/npm.js';
-    generateCommonJSModule(grunt, srcFiles, destFilepath);
+  grunt.registerTask('systemjs', 'Generate systemjs entrypoint module.', function () {
+    moduleGenerator.systemJs(grunt, coreFileArray('./systemjs/'), 'dist/js/system.js');
   });
 
   //------
@@ -688,8 +680,7 @@ module.exports = function (grunt) {
     });
   });
 
-  grunt.registerTask('debug', function () {
-
-    console.log(coreFileArray('dist/js/demoduled/'));
-  });
+  //grunt.registerTask('debug', function () {
+  //  console.log(coreFileArray('dist/js/demoduled/'));
+  //});
 };
