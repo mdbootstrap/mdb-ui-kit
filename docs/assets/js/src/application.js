@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import Style from './style'
 import Clipboard from 'clipboard'
 import anchors from 'anchor'

@@ -1,4 +1,29 @@
 {
+  "core": {
+    "files": [
+      "baseInput.js",
+      "baseSelection.js",
+      "util.js",
+      "ripples.js",
+      "autofill.js",
+      "text.js",
+      "textarea.js",
+      "select.js",
+      "checkbox.js",
+      "checkboxInline.js",
+      "switch.js",
+      "radio.js",
+      "radioInline.js",
+      "file.js",
+      "bootstrapMaterialDesign.js"
+    ]
+  },
+  "docs": {
+    "files": [
+      "style.js",
+      "application.js"
+    ]
+  },
   "paths": {
     "docsJs": [
       "../assets/js/vendor/anchor.min.js",
@@ -7,23 +32,22 @@
       "../assets/js/dist/style.js",
       "../assets/js/dist/application.js"
     ],
-
     "coreJs": [
-      "../dist/js/babel/baseInput.js",
-      "../dist/js/babel/baseSelection.js",
-      "../dist/js/babel/autofill.js",
-      "../dist/js/babel/bootstrapMaterialDesign.js",
-      "../dist/js/babel/checkbox.js",
-      "../dist/js/babel/checkboxInline.js",
-      "../dist/js/babel/file.js",
-      "../dist/js/babel/text.js",
-      "../dist/js/babel/textarea.js",
-      "../dist/js/babel/select.js",
-      "../dist/js/babel/radio.js",
-      "../dist/js/babel/radioInline.js",
-      "../dist/js/babel/ripples.js",
-      "../dist/js/babel/switch.js",
-      "../dist/js/babel/util.js"
+      "../dist/js/demoduled/baseInput.js",
+      "../dist/js/demoduled/baseSelection.js",
+      "../dist/js/demoduled/autofill.js",
+      "../dist/js/demoduled/bootstrapMaterialDesign.js",
+      "../dist/js/demoduled/checkbox.js",
+      "../dist/js/demoduled/checkboxInline.js",
+      "../dist/js/demoduled/file.js",
+      "../dist/js/demoduled/text.js",
+      "../dist/js/demoduled/textarea.js",
+      "../dist/js/demoduled/select.js",
+      "../dist/js/demoduled/radio.js",
+      "../dist/js/demoduled/radioInline.js",
+      "../dist/js/demoduled/ripples.js",
+      "../dist/js/demoduled/switch.js",
+      "../dist/js/demoduled/util.js"
     ]
   }
 }

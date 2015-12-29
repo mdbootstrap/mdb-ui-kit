@@ -59,6 +59,46 @@ module.exports = function (grunt) {
   var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
   var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
 
+  // dynamically create js file list (we do this for several different directories)
+  function coreFileArray(path) {
+    var result = []
+    configBridge.core.files.forEach(
+      function (element, index, array) {
+        result[index] = (path + element)
+      }
+    );
+    return result;
+  }
+
+  function fileMap(result, fileArray, destPath, sourcPath) {
+    fileArray.forEach(
+      function (element, index, array) {
+        result[destPath + element] = (sourcPath + element)
+      }
+    );
+  }
+
+  function coreFileMap(destPath, sourcePath) {
+    var result = {}
+    fileMap(result, configBridge.core.files, destPath, sourcePath)
+    return result;
+  }
+
+  function docsFileMap() {
+    var result = {}
+
+    var sourcePath = 'docs/assets/js/src/'
+    var destPath = 'docs/assets/js/dist/'
+    fileMap(result, configBridge.docs.files, destPath, sourcePath)
+
+    // generate core so we have local debugging
+    var sourcePath = 'js/src/'
+    var destPath = 'docs/dist/js/demoduled/'
+    fileMap(result, configBridge.core.files, destPath, sourcePath)
+
+    return result;
+  }
+
   Object.keys(configBridge.paths).forEach(function (key) {
     configBridge.paths[key].forEach(function (val, i, arr) {
       arr[i] = path.join('./docs/assets', val);
@@ -88,101 +128,26 @@ module.exports = function (grunt) {
     // Task configuration.
     clean: {
       dist: 'dist',
+      'dist-js': 'dist/js',
       docs: 'docs/dist'
     },
 
-    // JS build configuration
-    lineremover: {
-      es6Import: {
-        files: {
-          '<%= concat.bootstrap.dest %>': '<%= concat.bootstrap.dest %>'
-        },
-        options: {
-          exclusionPattern: /^(import|export)/g
-        }
-      }
-    },
-
     babel: {
+      options: {
+        sourceMap: true,
+        presets: ['babel-preset-es2015-rollup'] // the following is the es2015 preset minus the commonjs requirement
+      },
       core: {
-        options: {
-          sourceMap: true,
-          modules: 'ignore'
-        },
-        files: {
-          'dist/js/babel/baseInput.js': 'js/src/baseInput.js',
-          'dist/js/babel/baseSelection.js': 'js/src/baseSelection.js',
-          'dist/js/babel/util.js': 'js/src/util.js',
-          'dist/js/babel/ripples.js': 'js/src/ripples.js',
-          'dist/js/babel/autofill.js': 'js/src/autofill.js',
-          'dist/js/babel/text.js': 'js/src/text.js',
-          'dist/js/babel/textarea.js': 'js/src/textarea.js',
-          'dist/js/babel/select.js': 'js/src/select.js',
-          'dist/js/babel/checkbox.js': 'js/src/checkbox.js',
-          'dist/js/babel/checkboxInline.js': 'js/src/checkboxInline.js',
-          'dist/js/babel/switch.js': 'js/src/switch.js',
-          'dist/js/babel/radio.js': 'js/src/radio.js',
-          'dist/js/babel/radioInline.js': 'js/src/radioInline.js',
-          'dist/js/babel/file.js': 'js/src/file.js',
-          'dist/js/babel/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
-        }
+        files: coreFileMap('dist/js/demoduled/', 'js/src/')
       },
       docs: {
-        options: {
-          sourceMap: true,
-          modules: 'ignore'
-        },
-        files: {
-          'docs/assets/js/dist/style.js': 'docs/assets/js/src/style.js',
-          'docs/assets/js/dist/application.js': 'docs/assets/js/src/application.js',
-
-          // generate core so we have local debugging
-          'docs/dist/js/babel/baseInput.js': 'js/src/baseInput.js',
-          'docs/dist/js/babel/baseSelection.js': 'js/src/baseSelection.js',
-          'docs/dist/js/babel/util.js': 'js/src/util.js',
-          'docs/dist/js/babel/ripples.js': 'js/src/ripples.js',
-          'docs/dist/js/babel/autofill.js': 'js/src/autofill.js',
-          'docs/dist/js/babel/text.js': 'js/src/text.js',
-          'docs/dist/js/babel/textarea.js': 'js/src/textarea.js',
-          'docs/dist/js/babel/select.js': 'js/src/select.js',
-          'docs/dist/js/babel/checkbox.js': 'js/src/checkbox.js',
-          'docs/dist/js/babel/checkboxInline.js': 'js/src/checkboxInline.js',
-          'docs/dist/js/babel/switch.js': 'js/src/switch.js',
-          'docs/dist/js/babel/radio.js': 'js/src/radio.js',
-          'docs/dist/js/babel/radioInline.js': 'js/src/radioInline.js',
-          'docs/dist/js/babel/file.js': 'js/src/file.js',
-          'docs/dist/js/babel/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
-        }
-      },
-      dist: {
-        options: {
-          modules: 'ignore'
-        },
-        files: {
-          '<%= concat.bootstrap.dest %>': '<%= concat.bootstrap.dest %>'
-        }
+        files: docsFileMap()
       },
       umd: {
         options: {
-          modules: 'umd'
+          plugins: ['transform-es2015-modules-umd']
         },
-        files: {
-          'dist/js/umd/baseInput.js': 'js/src/baseInput.js',
-          'dist/js/umd/baseSelection.js': 'js/src/baseSelection.js',
-          'dist/js/umd/util.js': 'js/src/util.js',
-          'dist/js/umd/ripples.js': 'js/src/ripples.js',
-          'dist/js/umd/autofill.js': 'js/src/autofill.js',
-          'dist/js/umd/text.js': 'js/src/text.js',
-          'dist/js/umd/textarea.js': 'js/src/textarea.js',
-          'dist/js/umd/select.js': 'js/src/select.js',
-          'dist/js/umd/checkbox.js': 'js/src/checkbox.js',
-          'dist/js/umd/checkboxInline.js': 'js/src/checkboxInline.js',
-          'dist/js/umd/switch.js': 'js/src/switch.js',
-          'dist/js/umd/radio.js': 'js/src/radio.js',
-          'dist/js/umd/radioInline.js': 'js/src/radioInline.js',
-          'dist/js/umd/file.js': 'js/src/file.js',
-          'dist/js/umd/bootstrapMaterialDesign.js': 'js/src/bootstrapMaterialDesign.js',
-        }
+        files: coreFileMap('dist/js/umd/', 'js/src/')
       }
     },
 
@@ -220,50 +185,43 @@ module.exports = function (grunt) {
         footer: '\n}(jQuery);'
         //banner: '<%= banner %>\n'
       },
-      bootstrap: {
+      core: {
         files: {
-          src: '<%= concat.bootstrap.dest %>'
+          src: 'dist/js/<%= pkg.name %>.js'
         }
       }
     },
 
     concat: {
-      options: {
-        stripBanners: false,
-        sourceMap: true
-      },
-      bootstrap: {
-        src: [
-          'dist/js/babel/baseInput.js',
-          'dist/js/babel/baseSelection.js',
-          'dist/js/babel/util.js',
-          'dist/js/babel/ripples.js',
-          'dist/js/babel/autofill.js',
-          'dist/js/babel/text.js',
-          'dist/js/babel/textarea.js',
-          'dist/js/babel/select.js',
-          'dist/js/babel/checkbox.js',
-          'dist/js/babel/checkboxInline.js',
-          'dist/js/babel/switch.js',
-          'dist/js/babel/radio.js',
-          'dist/js/babel/radioInline.js',
-          'dist/js/babel/file.js',
-          'dist/js/babel/bootstrapMaterialDesign.js',
-        ],
-        dest: 'dist/js/<%= pkg.name %>.js'
+      dist_demoduled: {
+        options: {
+          stripBanners: false,
+          sourceMap: true
+        },
+        dest: 'dist/js/<%= pkg.name %>.js',
+        src: coreFileArray('dist/js/demoduled/')
       }
+    },
+
+    lineremover: {
+      core: {
+        options: {
+          exclusionPattern: /^(import|export)/g
+        },
+        files: coreFileMap('dist/js/demoduled/', 'dist/js/demoduled/')
+      },
     },
 
     uglify: {
       options: {
-        compress: {  // this was causing problems on docs vendor js
+        compress: {
           warnings: true
         },
         mangle: false,
         preserveComments: /^!|@preserve|@license|@cc_on/i
       },
       core: {
-        src: '<%= concat.bootstrap.dest %>',
+        src: 'dist/js/<%= pkg.name %>.js',
         dest: 'dist/js/<%= pkg.name %>.min.js'
       },
       docs: {
@@ -334,15 +292,13 @@ module.exports = function (grunt) {
         advanced: false
       },
       core: {
-        files: [
-          {
-            expand: true,
-            cwd: 'dist/css',
-            src: ['*.css', '!*.min.css'],
-            dest: 'dist/css',
-            ext: '.min.css'
-          }
-        ]
+        files: [{
+          expand: true,
+          cwd: 'dist/css',
+          src: ['*.css', '!*.min.css'],
+          dest: 'dist/css',
+          ext: '.min.css'
+        }]
       },
       docs: {
         src: 'docs/assets/css/docs.css',
@@ -378,10 +334,14 @@ module.exports = function (grunt) {
         cwd: 'dist/',
         src: [
           '**/*',
-          '!js/babel',
-          '!js/babel/**/*',
+          '!js/demoduled',
+          '!js/demoduled/**/*',
           '!js/umd',
           '!js/umd/**/*',
+          //'!js/commonjs',
+          //'!js/commonjs/**/*',
+          //'!js/systemjs',
+          //'!js/systemjs/**/*',
           '!js/npm.js'
         ],
         dest: 'docs/dist/'
@@ -528,17 +488,6 @@ module.exports = function (grunt) {
       }
     },
 
-    //sed: {
-    //  versionNumber: {
-    //    pattern: (function () {
-    //      var old = grunt.option('oldver');
-    //      return old ? RegExp.quote(old) : old;
-    //    })(),
-    //    replacement: grunt.option('newver'),
-    //    recursive: true
-    //  }
-    //},
-
     'saucelabs-qunit': {
       all: {
         options: {
@@ -651,7 +600,17 @@ module.exports = function (grunt) {
   grunt.registerTask('test-js', ['eslint', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['eslint', 'babel:core', 'concat', 'lineremover', 'babel:dist', 'stamp', 'uglify:core', 'commonjs', 'copy:dist-to-docs']);
+  grunt.registerTask('dist-js', [
+    'clean:dist-js',
+    'eslint',
+    'babel:core',
+    'lineremover:core',
+    'concat',
+    'stamp',
+    'uglify:core',
+    'commonjs',
+    'copy:dist-to-docs'
+  ]);
 
   grunt.registerTask('test-scss', ['scsslint']);
 
@@ -670,11 +629,6 @@ module.exports = function (grunt) {
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'test']);
-
-  // Version numbering task.
-  // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
-  // This can be overzealous, so its changes should always be manually reviewed!
-  //grunt.registerTask('change-version-number', 'sed');
 
   grunt.registerTask('commonjs', ['babel:umd', 'npm-js']);
 
@@ -701,7 +655,13 @@ module.exports = function (grunt) {
   ]);
   grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
   grunt.registerTask('lint-docs-js', ['jscs:assets']);
-  grunt.registerTask('docs-js', ['babel:docs', 'uglify:docs', 'lint-docs-js', 'copy:dist-to-docs']);
+  grunt.registerTask('docs-js', [
+    'babel:docs',
+    'lineremover:docs',
+    'uglify:docs',
+    'lint-docs-js',
+    'copy:dist-to-docs'
+  ]);
   grunt.registerTask('docs', ['clean:docs', 'docs-css', 'docs-js']);
   //------
 
@@ -726,5 +686,10 @@ module.exports = function (grunt) {
       grunt.log.writeln('File ' + dest.cyan + ' updated.');
       done();
     });
+  });
+
+  grunt.registerTask('debug', function () {
+
+    console.log(coreFileArray('dist/js/demoduled/'));
   });
 };

@@ -1,3 +1,5 @@
+//import 'babel-polyfill' // necessary for firefox
+
 /**
  * $.bootstrapMaterialDesign(config) is a macro class to configure the components generally
  *  used in Material Design for Bootstrap.  You may pass overrides to the configurations
