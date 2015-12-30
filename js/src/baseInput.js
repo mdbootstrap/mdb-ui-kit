@@ -136,7 +136,7 @@ const BaseInput = (($) => {
             this.addIsFilled()
           }
         })
-        .on('keyup change', (event) => {
+        .on('keyup change', () => {
 
           // make sure empty is added back when there is a programmatic value change.
           //  NOTE: programmatic changing of value using $.val() must trigger the change event i.e. $.val('x').trigger('change')

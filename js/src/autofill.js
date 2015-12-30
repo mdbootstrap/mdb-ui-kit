@@ -47,7 +47,7 @@ const Autofill = (($) => {
     _onLoading() {
       setInterval(() => {
         $('input[type!=checkbox]').each((index, element) => {
-          let $element = $($element)
+          let $element = $(element)
           if ($element.val() && $element.val() !== $element.attr('value')) {
             $element.triggerStart('change')
           }
@@ -64,7 +64,7 @@ const Autofill = (($) => {
           let $inputs = $(event.currentTarget).closest('form').find('input').not('[type=file]')
           focused = setInterval(() => {
             $inputs.each((index, element) => {
-              let $element = $($element)
+              let $element = $(element)
               if ($element.val() !== $element.attr('value')) {
                 $element.triggerStart('change')
               }

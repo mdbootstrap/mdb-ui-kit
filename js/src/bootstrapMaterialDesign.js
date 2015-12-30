@@ -124,7 +124,8 @@ const BootstrapMaterialDesign = (($) => {
           componentConfig = $.extend(true, {}, this.config.global, componentConfig)
 
           // create the jquery fn name e.g. 'mdbText' for 'text'
-          let jqueryFn = `mdb${component.charAt(0).toUpperCase() + component.slice(1)}`
+          let componentName = `${component.charAt(0).toUpperCase() + component.slice(1)}`
+          let jqueryFn = `mdb${componentName}`
 
           try {
             // safely instantiate component on selector elements with config, report errors and move on.
