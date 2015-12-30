@@ -15,7 +15,8 @@
       "radio.js",
       "radioInline.js",
       "file.js",
-      "bootstrapMaterialDesign.js"
+      "bootstrapMaterialDesign.js",
+      "index.js"
     ]
   },
   "docs": {
