@@ -2,7 +2,7 @@ import BaseSelection from './baseSelection'
 import Text from './text'
 import File from './file'
 import Radio from './radio'
-import Textarea from './textare'
+import Textarea from './textarea'
 import Select from './select'
 import Util from './util'
 

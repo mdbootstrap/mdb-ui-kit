@@ -3,7 +3,7 @@ import File from './file'
 import Radio from './radio'
 import Switch from './switch'
 import Text from './text'
-import Textarea from './textare'
+import Textarea from './textarea'
 import Util from './util'
 
 const Select = (($) => {

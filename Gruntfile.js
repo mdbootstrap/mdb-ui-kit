@@ -123,30 +123,30 @@ module.exports = function (grunt) {
       docs: 'docs/dist'
     },
 
-    babel: {
-      options: {
-        sourceMap: true,
-        presets: ['es2015'] // the following is the es2015 preset minus the commonjs requirement
-      },
-      core: {
-        files: coreFileMap('dist/js/demoduled/', 'js/src/')
-      },
-      docs: {
-        files: docsFileMap()
-      },
-      systemjs: {
-        options: {
-          plugins: ['transform-es2015-modules-systemjs']
-        },
-        files: coreFileMap('dist/js/systemjs/', 'js/src/')
-      },
-      umd: {
-        options: {
-          plugins: ['transform-es2015-modules-umd']
-        },
-        files: coreFileMap('dist/js/umd/', 'js/src/')
-      }
-    },
+    //babel: {
+    //  options: {
+    //    sourceMap: true,
+    //    presets: ['es2015'] // the following is the es2015 preset minus the commonjs requirement
+    //  },
+    //  core: {
+    //    files: coreFileMap('dist/js/demoduled/', 'js/src/')
+    //  },
+    //  docs: {
+    //    files: docsFileMap()
+    //  },
+    //  systemjs: {
+    //    options: {
+    //      plugins: ['transform-es2015-modules-systemjs']
+    //    },
+    //    files: coreFileMap('dist/js/systemjs/', 'js/src/')
+    //  },
+    //  umd: {
+    //    options: {
+    //      plugins: ['transform-es2015-modules-umd']
+    //    },
+    //    files: coreFileMap('dist/js/umd/', 'js/src/')
+    //  }
+    //},
 
     eslint: {
       options: {
@@ -187,20 +187,20 @@ module.exports = function (grunt) {
       }
     },
 
-    concat: {
-      options: {
-        stripBanners: false,
-        sourceMap: true
-      },
-      systemjs: {
-        src: coreFileArray('dist/js/systemjs/'),
-        dest: 'dist/js/system-all.js'
-      },
-      commonjs: {
-        src: coreFileArray('dist/js/umd/'),
-        dest: 'dist/js/common-all.js'
-      }
-    },
+    //concat: {
+    //  options: {
+    //    stripBanners: false,
+    //    sourceMap: true
+    //  },
+    //  systemjs: {
+    //    src: coreFileArray('dist/js/systemjs/'),
+    //    dest: 'dist/js/system-all.js'
+    //  },
+    //  commonjs: {
+    //    src: coreFileArray('dist/js/umd/'),
+    //    dest: 'dist/js/common-all.js'
+    //  }
+    //},
     uglify: {
       options: {
         compress: {
@@ -209,14 +209,30 @@ module.exports = function (grunt) {
         mangle: false,
         preserveComments: /^!|@preserve|@license|@cc_on/i
       },
-      'systemjs-all': {
-        src: 'dist/js/system-all.js',
-        dest: 'dist/js/system-all.min.js'
-      },
-      'commonjs-all': {
-        src: 'dist/js/common-all.js',
-        dest: 'dist/js/common-all.min.js'
-      },
+
+      dist: {
+        files: {
+          'dist/js/bootstrap-material-design.es6.min.js': 'dist/js/bootstrap-material-design.es6.js',
+          'dist/js/bootstrap-material-design.umd.min.js': 'dist/js/bootstrap-material-design.umd.js'
+        }
+      }
+      //'systemjs-all': {
+      //  src: 'dist/js/system-all.js',
+      //  dest: 'dist/js/system-all.min.js'
+      //},
+      //'commonjs-all': {
+      //  src: 'dist/js/common-all.js',
+      //  dest: 'dist/js/common-all.min.js'
+      //},
+
+      //'systemjs-all': {
+      //  src: 'dist/js/system-all.js',
+      //  dest: 'dist/js/system-all.min.js'
+      //},
+      //'commonjs-all': {
+      //  src: 'dist/js/common-all.js',
+      //  dest: 'dist/js/common-all.min.js'
+      //},
       //  docs: {
       //    options: {
       //      compress: false
@@ -495,14 +511,13 @@ module.exports = function (grunt) {
     exec: {
       npmUpdate: {
         command: 'npm update'
+      },
+      'rollup-umd': {
+        command: 'rollup -c rollup.umd.config.js'
+      },
+      'rollup-es6': {
+        command: 'rollup -c rollup.es6.config.js'
       }
-      //,
-      //'jekyll-clean': {
-      //  command: 'jekyll clean'
-      //},
-      //'jekyll-build': {
-      //  command: 'jekyll build'
-      //}
     },
 
     buildcontrol: {
@@ -594,15 +609,18 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-js', [
     'clean:dist-js',
     'eslint',
-    'babel:umd',
-    'babel:systemjs',
-    'commonjs',
-    'systemjs',
-    'concat:commonjs',
-    'concat:systemjs',
+    'exec:rollup-umd',
+    'exec:rollup-es6',
+    //'babel:umd',
+    //'babel:systemjs',
+    //'commonjs',
+    //'systemjs',
+    //'concat:commonjs',
+    //'concat:systemjs',
     'stamp',
-    'uglify:commonjs-all',
-    'uglify:systemjs-all',
+    //'uglify:commonjs-all',
+    //'uglify:systemjs-all',
+    'uglify:dist',
     'copy:dist-to-docs'
   ]);
 

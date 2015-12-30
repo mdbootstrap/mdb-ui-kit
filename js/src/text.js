@@ -3,7 +3,7 @@ import Checkbox from './checkbox'
 import File from './file'
 import Radio from './radio'
 import Switch from './switch'
-import Textarea from './textare'
+import Textarea from './textarea'
 import Select from './select'
 import Util from './util'
 

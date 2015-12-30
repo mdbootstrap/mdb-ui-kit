@@ -1,0 +1,4 @@
+{
+  sourceMap: true,
+  presets: [ "es2015-rollup" ]
+}
