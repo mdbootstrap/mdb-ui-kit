@@ -34,10 +34,10 @@
   "devDependencies": {
     "autoprefixer": "^6.0.3",
     "babel-eslint": "^4.1.6",
-    "babel-preset-es2015": "^6.0",
-    "babel-plugin-transform-es2015-modules-umd": "^6.0",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.0",
     "babel-polyfill": "^6.0",
+    "babel-preset-es2015": "^6.0",
     "btoa": "~1.1.2",
     "glob": "~6.0.1",
     "grunt": "~0.4.5",
