@@ -38,8 +38,8 @@ module.exports = (function () {
   }
 
   return {
-    'commonJs': commonJs,
-    'systemJs': systemJs
+    commonJs: commonJs,
+    systemJs: systemJs
   }
 }())
 

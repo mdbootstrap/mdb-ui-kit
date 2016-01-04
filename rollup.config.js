@@ -4,6 +4,7 @@ import babel from 'rollup-plugin-babel';
 
 export default {
   entry: 'js/src/index.js',
+  sourceMap: true,
   plugins: [babel()]
   //external: external
 };

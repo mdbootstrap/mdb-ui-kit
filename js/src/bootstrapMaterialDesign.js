@@ -156,7 +156,7 @@ const BootstrapMaterialDesign = (($) => {
     // private
 
     _resolveSelector(componentConfig) {
-      let selector = componentConfig['selector']
+      let selector = componentConfig.selector
       if (Array.isArray(selector)) {
         selector = selector.join(', ')
       }
