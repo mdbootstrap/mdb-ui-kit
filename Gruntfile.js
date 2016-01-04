@@ -56,55 +56,6 @@ module.exports = function (grunt) {
     ]
   });
 
-  var moduleGenerator = require('./grunt/module-generator.js');
-  var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
-
-  // dynamically create js file list (we do this for several different directories)
-  function coreFileArray(path) {
-    var result = []
-    configBridge.core.files.forEach(
-      function (element, index, array) {
-        result[index] = (path + element)
-      }
-    );
-    return result;
-  }
-
-  function fileMap(result, fileArray, destPath, sourcPath) {
-    fileArray.forEach(
-      function (element, index, array) {
-        result[destPath + element] = (sourcPath + element)
-      }
-    );
-  }
-
-  function coreFileMap(destPath, sourcePath) {
-    var result = {}
-    fileMap(result, configBridge.core.files, destPath, sourcePath)
-    return result;
-  }
-
-  function docsFileMap() {
-    var result = {}
-
-    var sourcePath = 'docs/assets/js/src/'
-    var destPath = 'docs/assets/js/dist/'
-    fileMap(result, configBridge.docs.files, destPath, sourcePath)
-
-    // generate core so we have local debugging
-    var sourcePath = 'js/src/'
-    var destPath = 'docs/dist/js/demoduled/'
-    fileMap(result, configBridge.core.files, destPath, sourcePath)
-
-    return result;
-  }
-
-  //Object.keys(configBridge.paths).forEach(function (key) {
-  //  configBridge.paths[key].forEach(function (val, i, arr) {
-  //    arr[i] = path.join('./docs/assets', val);
-  //  });
-  //});
-
   // Project configuration.
   grunt.initConfig({
 
@@ -123,31 +74,6 @@ module.exports = function (grunt) {
       'docs-dist-js': 'docs/dist/js',
       docs: 'docs/dist'
     },
-
-    //babel: {
-    //  options: {
-    //    sourceMap: true,
-    //    presets: ['es2015'] // the following is the es2015 preset minus the commonjs requirement
-    //  },
-    //  core: {
-    //    files: coreFileMap('dist/js/demoduled/', 'js/src/')
-    //  },
-    //  docs: {
-    //    files: docsFileMap()
-    //  },
-    //  systemjs: {
-    //    options: {
-    //      plugins: ['transform-es2015-modules-systemjs']
-    //    },
-    //    files: coreFileMap('dist/js/systemjs/', 'js/src/')
-    //  },
-    //  umd: {
-    //    options: {
-    //      plugins: ['transform-es2015-modules-umd']
-    //    },
-    //    files: coreFileMap('dist/js/umd/', 'js/src/')
-    //  }
-    //},
 
     eslint: {
       options: {
@@ -193,15 +119,7 @@ module.exports = function (grunt) {
     //    stripBanners: false,
     //    sourceMap: true
     //  },
-    //  systemjs: {
-    //    src: coreFileArray('dist/js/systemjs/'),
-    //    dest: 'dist/js/system-all.js'
-    //  },
-    //  commonjs: {
-    //    src: coreFileArray('dist/js/umd/'),
-    //    dest: 'dist/js/common-all.js'
-    //  }
-    //},
+
     uglify: {
       options: {
         compress: {
@@ -223,7 +141,6 @@ module.exports = function (grunt) {
         options: {
           compress: false
         },
-        //src: configBridge.paths.docsJs,
         src: 'docs/assets/js/vendor/*.js',
         //dest: 'docs/assets/js/docs.min.js'
         dest: 'docs/dist/js/docs-vendor.min.js'
@@ -632,14 +549,6 @@ module.exports = function (grunt) {
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'test']);
 
-  grunt.registerTask('commonjs', 'Generate npm-js/commonjs entrypoint module.', function () {
-    moduleGenerator.commonJs(grunt, coreFileArray('./umd/'), 'dist/js/common.js');
-  });
-
-  grunt.registerTask('systemjs', 'Generate systemjs entrypoint module.', function () {
-    moduleGenerator.systemJs(grunt, coreFileArray('./systemjs/'), 'dist/js/system.js');
-  });
-
   //------
   // Docs tasks
 
@@ -682,6 +591,6 @@ module.exports = function (grunt) {
   });
 
   //grunt.registerTask('debug', function () {
-  //  console.log(coreFileArray('dist/js/demoduled/'));
+  //  console.log('');
   //});
 };

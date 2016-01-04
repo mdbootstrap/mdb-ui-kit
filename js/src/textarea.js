@@ -1,3 +1,4 @@
+import BaseFormControl from './baseFormControl'
 import Checkbox from './checkbox'
 import File from './file'
 import Radio from './radio'
@@ -25,7 +26,7 @@ const Textarea = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Textarea extends Text {
+  class Textarea extends BaseFormControl {
 
     constructor($element, config) {
       super($element, $.extend(true, {invalidComponentMatches: [Checkbox, File, Radio, Text, Select, Switch]}, Default, config))

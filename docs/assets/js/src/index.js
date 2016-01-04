@@ -2,7 +2,9 @@
 import Style from './style'
 import Clipboard from 'clipboard'
 import anchors from 'anchor'
-//import mdb from '../../../../js/src/index' // eslint-disable-line no-unused-vars
+
+// import all the mdb code
+import mdb from '../../../../js/src/index' // eslint-disable-line no-unused-vars
 
 class Application {
 

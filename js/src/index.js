@@ -9,6 +9,7 @@
 
 /* eslint-disable no-unused-vars */
 import BaseInput from './baseInput'
+import BaseFormControl from './baseFormControl'
 import BaseSelection from './baseSelection'
 import Util from './util'
 import Ripples from './ripples'

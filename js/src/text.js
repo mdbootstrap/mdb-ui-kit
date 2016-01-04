@@ -1,4 +1,4 @@
-import BaseInput from './baseInput'
+import BaseFormControl from './baseFormControl'
 import Checkbox from './checkbox'
 import File from './file'
 import Radio from './radio'
@@ -19,30 +19,17 @@ const Text = (($) => {
   const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
-  const Default = {
-    decorator: {
-      template: `<span class='mdb-form-control-decorator'></span>`
-    },
-    requiredClasses: ['form-control']
-  }
+  const Default = {}
 
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Text extends BaseInput {
+  class Text extends BaseFormControl {
 
     constructor($element, config) {
-      super($element, $.extend(true, {invalidComponentMatches: [Checkbox, File, Radio, Select, Switch, Textarea]}, Default, config))
-
-      // Initially mark as empty
-      if (this.isEmpty()) {
-        this.removeIsFilled()
-      }
-
-      // Add marker div the end of the form-group
-      this.$element.after(this.config.decorator.template)
+      super($element, $.extend(true, {invalidComponentMatches: [Checkbox, File, Radio, Switch, Select, Textarea]}, Default, config))
     }
 
     dispose(dataKey = DATA_KEY) {
