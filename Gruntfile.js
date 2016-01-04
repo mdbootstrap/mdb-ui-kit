@@ -212,8 +212,9 @@ module.exports = function (grunt) {
 
       dist: {
         files: {
-          'dist/js/bootstrap-material-design.es6.min.js': 'dist/js/bootstrap-material-design.es6.js',
-          'dist/js/bootstrap-material-design.umd.min.js': 'dist/js/bootstrap-material-design.umd.js'
+          'dist/js/bootstrap-material-design.iife.min.js': 'dist/js/bootstrap-material-design.iife.js',
+          'dist/js/bootstrap-material-design.umd.min.js': 'dist/js/bootstrap-material-design.umd.js',
+          'dist/js/bootstrap-material-design.es6.min.js': 'dist/js/bootstrap-material-design.es6.js'
         }
       }
       //'systemjs-all': {
@@ -512,6 +513,9 @@ module.exports = function (grunt) {
       npmUpdate: {
         command: 'npm update'
       },
+      'rollup-iife': {
+        command: 'rollup -c rollup.iife.config.js'
+      },
       'rollup-umd': {
         command: 'rollup -c rollup.umd.config.js'
       },
@@ -609,17 +613,10 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-js', [
     'clean:dist-js',
     'eslint',
+    'exec:rollup-iife',
     'exec:rollup-umd',
     'exec:rollup-es6',
-    //'babel:umd',
-    //'babel:systemjs',
-    //'commonjs',
-    //'systemjs',
-    //'concat:commonjs',
-    //'concat:systemjs',
     'stamp',
-    //'uglify:commonjs-all',
-    //'uglify:systemjs-all',
     'uglify:dist',
     'copy:dist-to-docs'
   ]);
