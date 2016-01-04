@@ -18,37 +18,5 @@
       "bootstrapMaterialDesign.js",
       "index.js"
     ]
-  },
-  "docs": {
-    "files": [
-      "style.js",
-      "application.js"
-    ]
-  },
-  "paths": {
-    "docsJs": [
-      "../assets/js/vendor/anchor.min.js",
-      "../assets/js/vendor/clipboard.min.js",
-      "../assets/js/vendor/holder.min.js",
-      "../assets/js/dist/style.js",
-      "../assets/js/dist/application.js"
-    ],
-    "coreJs": [
-      "../dist/js/demoduled/baseInput.js",
-      "../dist/js/demoduled/baseSelection.js",
-      "../dist/js/demoduled/autofill.js",
-      "../dist/js/demoduled/bootstrapMaterialDesign.js",
-      "../dist/js/demoduled/checkbox.js",
-      "../dist/js/demoduled/checkboxInline.js",
-      "../dist/js/demoduled/file.js",
-      "../dist/js/demoduled/text.js",
-      "../dist/js/demoduled/textarea.js",
-      "../dist/js/demoduled/select.js",
-      "../dist/js/demoduled/radio.js",
-      "../dist/js/demoduled/radioInline.js",
-      "../dist/js/demoduled/ripples.js",
-      "../dist/js/demoduled/switch.js",
-      "../dist/js/demoduled/util.js"
-    ]
   }
 }

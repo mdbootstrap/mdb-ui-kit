@@ -1,7 +1,8 @@
-import 'babel-polyfill'
+//import 'babel-polyfill'
 import Style from './style'
 import Clipboard from 'clipboard'
 import anchors from 'anchor'
+//import mdb from '../../../../js/src/index' // eslint-disable-line no-unused-vars
 
 class Application {
 

@@ -99,11 +99,11 @@ module.exports = function (grunt) {
     return result;
   }
 
-  Object.keys(configBridge.paths).forEach(function (key) {
-    configBridge.paths[key].forEach(function (val, i, arr) {
-      arr[i] = path.join('./docs/assets', val);
-    });
-  });
+  //Object.keys(configBridge.paths).forEach(function (key) {
+  //  configBridge.paths[key].forEach(function (val, i, arr) {
+  //    arr[i] = path.join('./docs/assets', val);
+  //  });
+  //});
 
   // Project configuration.
   grunt.initConfig({
@@ -120,6 +120,7 @@ module.exports = function (grunt) {
     clean: {
       dist: 'dist',
       'dist-js': 'dist/js',
+      'docs-dist-js': 'docs/dist/js',
       docs: 'docs/dist'
     },
 
@@ -168,7 +169,7 @@ module.exports = function (grunt) {
       test: {
         src: 'js/tests/unit/*.js'
       },
-      assets: {
+      docs: {
         options: {
           requireCamelCaseOrUpperCaseIdentifiers: null
         },
@@ -216,31 +217,22 @@ module.exports = function (grunt) {
           'dist/js/bootstrap-material-design.umd.min.js': 'dist/js/bootstrap-material-design.umd.js',
           'dist/js/bootstrap-material-design.es6.min.js': 'dist/js/bootstrap-material-design.es6.js'
         }
-      }
-      //'systemjs-all': {
-      //  src: 'dist/js/system-all.js',
-      //  dest: 'dist/js/system-all.min.js'
-      //},
-      //'commonjs-all': {
-      //  src: 'dist/js/common-all.js',
-      //  dest: 'dist/js/common-all.min.js'
-      //},
+      },
 
-      //'systemjs-all': {
-      //  src: 'dist/js/system-all.js',
-      //  dest: 'dist/js/system-all.min.js'
-      //},
-      //'commonjs-all': {
-      //  src: 'dist/js/common-all.js',
-      //  dest: 'dist/js/common-all.min.js'
-      //},
-      //  docs: {
-      //    options: {
-      //      compress: false
-      //    },
-      //    src: configBridge.paths.docsJs,
-      //    dest: 'docs/assets/js/docs.min.js'
-      //  }
+      'docs-vendor': {
+        options: {
+          compress: false
+        },
+        //src: configBridge.paths.docsJs,
+        src: 'docs/assets/js/vendor/*.js',
+        //dest: 'docs/assets/js/docs.min.js'
+        dest: 'docs/dist/js/docs-vendor.min.js'
+      },
+      docs: {
+        files: {
+          'docs/dist/js/docs.iife.min.js': 'docs/dist/js/docs.iife.js'
+        }
+      }
     },
 
     qunit: {
@@ -341,21 +333,6 @@ module.exports = function (grunt) {
     },
 
     copy: {
-      'dist-to-docs': {
-        expand: true,
-        cwd: 'dist/',
-        src: [
-          '**/*',
-          '!js/demoduled',
-          '!js/demoduled/**/*',
-          '!js/umd',
-          '!js/umd/**/*',
-          //'!js/systemjs',
-          //'!js/systemjs/**/*',
-          '!js/npm.js'
-        ],
-        dest: 'docs/dist/'
-      },
       'bs-docs-js-vendor': {
         expand: true,
         cwd: '../bootstrap/docs/assets/js/vendor',
@@ -515,14 +492,17 @@ module.exports = function (grunt) {
       npmUpdate: {
         command: 'npm update'
       },
+      'rollup-docs-iife': {
+        command: 'rollup -c grunt/rollup.docs.iife.config.js'
+      },
       'rollup-iife': {
-        command: 'rollup -c rollup.iife.config.js'
+        command: 'rollup -c grunt/rollup.iife.config.js'
       },
       'rollup-umd': {
-        command: 'rollup -c rollup.umd.config.js'
+        command: 'rollup -c grunt/rollup.umd.config.js'
       },
       'rollup-es6': {
-        command: 'rollup -c rollup.es6.config.js'
+        command: 'rollup -c grunt/rollup.es6.config.js'
       }
     },
 
@@ -622,9 +602,17 @@ module.exports = function (grunt) {
     'exec:rollup-umd',
     'exec:rollup-es6',
     'stamp',
-    'uglify:dist',
-    'copy:dist-to-docs'
+    'uglify:dist'
   ]);
+  grunt.registerTask('docs-js', [
+    'clean:docs-dist-js',
+    'eslint',
+    'jscs:docs',
+    'exec:rollup-docs-iife',
+    'uglify:docs',
+    'uglify:docs-vendor'
+  ]);
+
 
   grunt.registerTask('test-scss', ['scsslint']);
 
@@ -666,14 +654,7 @@ module.exports = function (grunt) {
     'copy:bs-docs-plugins'
   ]);
   grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
-  grunt.registerTask('lint-docs-js', ['jscs:assets']);
-  grunt.registerTask('docs-js', [
-    'babel:docs',
-    'lineremover:docs',
-    'uglify:docs',
-    'lint-docs-js',
-    'copy:dist-to-docs'
-  ]);
+
   grunt.registerTask('docs', ['clean:docs', 'docs-css', 'docs-js']);
   //------
 

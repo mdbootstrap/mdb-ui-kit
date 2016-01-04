@@ -20,17 +20,11 @@
 <script src="{{ site.data.cdn.tether }}"></script>
 <script src="{{ site.data.cdn.bootstrap }}"></script>
 
+<script src="{{ site.baseurl }}/dist/js/docs-vendor.min.js"></script>
 {% if site.data.minified %}
-  <script src="{{ site.baseurl }}/dist/js/{{ site.data.name }}.min.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/docs.min.js"></script>
+  <script src="{{ site.baseurl }}/dist/js/docs.iife.min.js"></script>
 {% else %}
-  {% for file in site.data.configBridge.paths.coreJs %}
-    <script src="{{ site.baseurl }}/{{ file }}"></script>
-  {% endfor %}
-
-  {% for file in site.data.configBridge.paths.docsJs %}
-    <script src="{{ site.baseurl }}/{{ file }}"></script>
-  {% endfor %}
+  <script src="{{ site.baseurl }}/dist/js/docs.iife.js"></script>
 {% endif %}
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -38,7 +32,8 @@
 <script src="{{ site.baseurl }}/assets/js/ie-emulation-modes-warning.js"></script>
 
 {% if page.layout == "docs" %}
-<script src="{{ site.baseurl }}/assets/js/vendor/jekyll-search.min.js"></script>
+<!--already in docs-vendor.js -->
+<!--<script src="{{ site.baseurl }}/assets/js/vendor/jekyll-search.min.js"></script>-->
 
 <script>
 SimpleJekyllSearch.init({
