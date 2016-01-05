@@ -73,7 +73,7 @@ module.exports = function (grunt) {
       'dist-css': 'dist/css',
       'dist-js': 'dist/js',
       'docs-dist-js': 'docs/dist/js',
-      'docs-dist-css': 'docs/dist/css',
+      'docs-dist-css': 'docs/dist/css'
     },
 
     eslint: {
@@ -263,6 +263,15 @@ module.exports = function (grunt) {
     },
 
     copy: {
+      'dist-to-docs': {  // for example templates
+        expand: true,
+        cwd: 'dist',
+        src: [
+          'js/*.iife*',
+          'css/*.*'
+        ],
+        dest: 'docs/dist/'
+      },
       'bs-docs-js-vendor': {
         expand: true,
         cwd: '../bootstrap/docs/assets/js/vendor',
@@ -276,9 +285,7 @@ module.exports = function (grunt) {
       'bs-docs-plugins': {
         expand: true,
         cwd: '../bootstrap/docs/_plugins',
-        src: [
-          '**/*', '!bridge.rb'
-        ],
+        src: ['**/*', '!bridge.rb'],
         dest: 'docs/_plugins/'
       },
 
@@ -346,20 +353,6 @@ module.exports = function (grunt) {
           '**/*'
         ],
         dest: 'docs/content/'
-      },
-      'bs-docs-examples': {
-        options: {
-          // //https://regex101.com/r/cZ7aO8/2
-          process: function (content, srcpath) {
-            return content.replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice);
-          }
-        },
-        expand: true,
-        cwd: '../bootstrap/docs/examples',
-        src: [
-          '**/*'
-        ],
-        dest: 'docs/examples/'
       }
     },
 
@@ -608,7 +601,6 @@ module.exports = function (grunt) {
     'copy:bs-docs-getting-started',
     'copy:bs-docs-components',
     'copy:bs-docs-content',
-    'copy:bs-docs-examples',
     'copy:bs-docs-plugins'
   ]);
 

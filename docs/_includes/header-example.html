@@ -1,0 +1,12 @@
+{% include meta.html %}
+
+<!-- Material Design fonts -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<!-- Material Design for Bootstrap generic -->
+{% if site.data.minified %}
+<link href="{{ site.baseurl }}/dist/css/bootstrap-material-design.min.css" rel="stylesheet">
+{% else %}
+<link href="{{ site.baseurl }}/dist/css/bootstrap-material-design.css" rel="stylesheet">
+{% endif %}

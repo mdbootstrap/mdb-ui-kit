@@ -1,0 +1,19 @@
+<script src="{{ site.data.cdn.jquery }}"></script>
+<script src="{{ site.data.cdn.tether }}"></script>
+<script src="{{ site.data.cdn.bootstrap }}"></script>
+
+{% if site.data.minified %}
+  <script src="{{ site.baseurl }}/dist/js/bootstrap-material-design.iife.min.js"></script>
+{% else %}
+  <script src="{{ site.baseurl }}/dist/js/bootstrap-material-design.iife.js"></script>
+{% endif %}
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="{{ site.baseurl }}/assets/js/ie-emulation-modes-warning.js"></script>
+
+<script>
+  $(function() {
+    $('body').bootstrapMaterialDesign()
+  });
+</script>
