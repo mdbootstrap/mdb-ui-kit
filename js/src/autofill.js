@@ -49,7 +49,7 @@ const Autofill = (($) => {
         $('input[type!=checkbox]').each((index, element) => {
           let $element = $(element)
           if ($element.val() && $element.val() !== $element.attr('value')) {
-            $element.triggerStart('change')
+            $element.trigger('change')
           }
         })
       }, 100)
@@ -66,7 +66,7 @@ const Autofill = (($) => {
             $inputs.each((index, element) => {
               let $element = $(element)
               if ($element.val() !== $element.attr('value')) {
-                $element.triggerStart('change')
+                $element.trigger('change')
               }
             })
           }, 100)

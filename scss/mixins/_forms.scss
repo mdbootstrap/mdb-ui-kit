@@ -131,7 +131,7 @@
   $label-static-top: $label-top-margin;
   $label-placeholder-top: $label-top-margin + $static-font-size + $variant-padding-y;
 
-  @debug "font-size: #{$font-size} static-font-size: #{$static-font-size} help-font-size: #{$help-font-size} form-group-context: #{$form-group-context} ";
+  //@debug "font-size: #{$font-size} static-font-size: #{$static-font-size} help-font-size: #{$help-font-size} form-group-context: #{$form-group-context} ";
 
   //Label height: 72dp
   //Padding above label text: 16dp
@@ -144,6 +144,18 @@
     //  The label is absolutely positioned, so we use top padding to make space.  This padding extends over the label down to the top of the input (padding).
     padding-top: ($label-top-margin + $static-font-size);
     // note: bottom-margin of this is determined by $spacer.  @see _spacer.scss
+    //margin-bottom: (1.5 * $help-font-size);
+  } @else {
+
+    // for radios and checkboxes without a form-group, add some extra vertical spacing to pad down so that
+    //  any help text above is not encroached upon, or so that it appears more evenly spaced vs form-groups
+    .radio,
+    label.radio-inline,
+    .checkbox,
+    label.checkbox-inline,
+    .switch {
+      padding-top: $spacer-y;
+    }
   }
 
   // Set all line-heights preferably to 1 so that we can space out everything manually without additional added space

@@ -147,9 +147,8 @@ form {
   }
 }
 
-// FIXME: remove the following, I don't think it is necessary any longer and just adds more rules that are already matched above.
-// default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation)
-//@include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $line-height, $mdb-label-as-placeholder-shim-base);
+// default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation) - IMPORTANT for non-form-group spacing such as radio/checkbox/switch
+@include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height);
 
 select {
   &,

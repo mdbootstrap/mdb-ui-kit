@@ -543,7 +543,8 @@ module.exports = function (grunt) {
     'exec:rollup-umd',
     'exec:rollup-es6',
     'stamp',
-    'uglify:dist'
+    'uglify:dist',
+    'copy:dist-to-docs'
   ]);
   grunt.registerTask('docs-js', [
     'clean:docs-dist-js',
@@ -571,7 +572,8 @@ module.exports = function (grunt) {
     'sass-compile',
     'postcss:core',
     'csscomb:dist',
-    'cssmin:core'
+    'cssmin:core',
+    'copy:dist-to-docs'
   ]);
 
   grunt.registerTask('docs-css', [

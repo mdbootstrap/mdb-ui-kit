@@ -1,0 +1,109 @@
+---
+layout: example
+title: Offcanvas
+group: material-design
+---
+
+
+<!-- Custom styles for this template -->
+<link href="offcanvas.css" rel="stylesheet">
+
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+  <div class="container">
+    <a class="navbar-brand" href="#">Project name</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+  </div><!-- /.container -->
+</nav><!-- /.navbar -->
+
+<div class="container">
+
+  <div class="row row-offcanvas row-offcanvas-right">
+
+    <div class="col-xs-12 col-sm-9">
+      <p class="pull-xs-right hidden-sm-up">
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+      </p>
+      <div class="jumbotron">
+        <div class="alert alert-danger">Not sure this will be useful</div>
+        <h1>Hello, world!</h1>
+        <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+      </div>
+      <div class="row">
+        <div class="col-xs-6 col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div><!--/span-->
+        <div class="col-xs-6 col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div><!--/span-->
+        <div class="col-xs-6 col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div><!--/span-->
+        <div class="col-xs-6 col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div><!--/span-->
+        <div class="col-xs-6 col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div><!--/span-->
+        <div class="col-xs-6 col-lg-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div><!--/span-->
+      </div><!--/row-->
+    </div><!--/span-->
+
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+      <div class="list-group">
+        <a href="#" class="list-group-item active">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+        <a href="#" class="list-group-item">Link</a>
+      </div>
+    </div><!--/span-->
+  </div><!--/row-->
+
+  <hr>
+
+  <footer>
+    <p>&copy; Company 2016</p>
+  </footer>
+
+</div><!--/.container-->
+
+
+
+
+<script>
+  // jquery not loaded yet due to the nature of this jekyll page rendering setup so this is more complicated than normally necessary!
+  document.addEventListener("DOMContentLoaded", function(event) { 
+    setTimeout(function(){
+
+      // hopefully by now jquery is initialized
+      $('[data-toggle="offcanvas"]').click(function () {
+          $('.row-offcanvas').toggleClass('active')
+      });
+
+    }, 1);
+  })
+</script>
+

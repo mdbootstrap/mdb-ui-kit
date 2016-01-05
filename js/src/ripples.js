@@ -264,7 +264,7 @@ const Ripples = (($) => {
           'margin-top': Math.max(this.$element.outerWidth(), this.$element.outerHeight()) * (-1),
           opacity: 0.2
         }, this.config.duration, () => {
-          this.$decorator.triggerStart('transitionend')
+          this.$decorator.trigger('transitionend')
         })
       }
     }
