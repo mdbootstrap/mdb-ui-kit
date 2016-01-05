@@ -1,12 +1,17 @@
-//Bootstrap v4.0.0-alpha (http://getbootstrap.com)
-//Copyright 2011-2015 Twitter, Inc.
-//Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+/*!
+ * Bootstrap v4.0.0-alpha.2 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
 // Core variables and mixins
 @import "../bower_components/bootstrap/scss/variables";
 @import "../bower_components/bootstrap/scss/mixins";
+
 // Reset and dependencies
 @import "../bower_components/bootstrap/scss/normalize";
 @import "../bower_components/bootstrap/scss/print";
+
 // Core CSS
 @import "../bower_components/bootstrap/scss/reboot";
 @import "../bower_components/bootstrap/scss/type";
@@ -16,6 +21,7 @@
 @import "../bower_components/bootstrap/scss/tables";
 @import "../bower_components/bootstrap/scss/forms";
 @import "../bower_components/bootstrap/scss/buttons";
+
 // Components
 @import "../bower_components/bootstrap/scss/animation";
 @import "../bower_components/bootstrap/scss/dropdown";
@@ -36,13 +42,12 @@
 @import "../bower_components/bootstrap/scss/list-group";
 @import "../bower_components/bootstrap/scss/responsive-embed";
 @import "../bower_components/bootstrap/scss/close";
+
 // Components w/ JavaScript
 @import "../bower_components/bootstrap/scss/modal";
 @import "../bower_components/bootstrap/scss/tooltip";
 @import "../bower_components/bootstrap/scss/popover";
 @import "../bower_components/bootstrap/scss/carousel";
+
 // Utility classes
 @import "../bower_components/bootstrap/scss/utilities";
-@import "../bower_components/bootstrap/scss/utilities-background";
-@import "../bower_components/bootstrap/scss/utilities-spacing";
-@import "../bower_components/bootstrap/scss/utilities-responsive";
