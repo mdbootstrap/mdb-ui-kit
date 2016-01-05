@@ -70,6 +70,7 @@ module.exports = function (grunt) {
     // Task configuration.
     clean: {
       dist: 'dist',
+      'dist-css': 'dist/css',
       'dist-js': 'dist/js',
       'docs-dist-js': 'docs/dist/js',
       'docs-dist-css': 'docs/dist/css',
@@ -166,7 +167,12 @@ module.exports = function (grunt) {
         config: 'scss/.scss-lint.yml',
         reporterOutput: null
       },
-      src: ['scss/**/*.scss', '!scss/_normalize.scss']
+      core: {
+        src: ['scss/*.scss', '!scss/_normalize.scss']
+      },
+      docs: {
+        src: ['docs/assets/scss/*.scss', '!scss/_normalize.scss', '!docs/assets/scss/docs.scss']
+      }
     },
 
     postcss: {
@@ -271,7 +277,7 @@ module.exports = function (grunt) {
         expand: true,
         cwd: '../bootstrap/docs/_plugins',
         src: [
-          '**/*'
+          '**/*', '!bridge.rb'
         ],
         dest: 'docs/_plugins/'
       },
@@ -304,6 +310,24 @@ module.exports = function (grunt) {
           '**/*'
         ],
         dest: 'docs/components/'
+      },
+      'bs-docs-getting-started': {
+        options: {
+          // https://regex101.com/r/cZ7aO8/2
+          process: function (content, srcpath) {
+            return content
+            // insert docs reference
+              .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice)
+              // remove sample text 'display' as this is a particular style and is confusing
+              .replace(/Fancy display heading/, 'Fancy heading');
+          }
+        },
+        expand: true,
+        cwd: '../bootstrap/docs/getting-started',
+        src: [
+          'browsers-devices.md' // only one file
+        ],
+        dest: 'docs/getting-started/'
       },
       'bs-docs-content': {
         options: {
@@ -395,7 +419,7 @@ module.exports = function (grunt) {
       //},
       docs: { // watch both the source and docs scss
         files: ['docs/assets/scss/**/*.scss', 'scss/**/*.scss'],
-        tasks: ['scsslint', 'sass:docs', 'postcss:docs'] //FIXME: docs-css yanks sourcemap from local docs.css, working around just doing the minimal compile here ['docs-css'] //['dist-css', 'docs']
+        tasks: ['scsslint:docs', 'sass:docs', 'postcss:docs'] //FIXME: docs-css yanks sourcemap from local docs.css, working around just doing the minimal compile here ['docs-css'] //['dist-css', 'docs']
       }
     },
 
@@ -538,7 +562,7 @@ module.exports = function (grunt) {
   ]);
 
 
-  grunt.registerTask('test-scss', ['scsslint']);
+  grunt.registerTask('test-scss', ['scsslint:core']);
 
   // CSS distribution task.
   // Supported Compilers: sass (Ruby) and libsass.
@@ -548,14 +572,31 @@ module.exports = function (grunt) {
   // grunt.registerTask('sass-compile', ['sass:core', 'sass:extras', 'sass:docs']);
   grunt.registerTask('sass-compile', ['sass:core', 'sass:docs']);
 
-  grunt.registerTask('dist-css', ['sass-compile', 'postcss:core', 'csscomb:dist', 'cssmin:core', 'cssmin:docs']);
+  grunt.registerTask('dist-css', [
+    'scsslint:core',
+    'clean:dist-css',
+    'sass-compile',
+    'postcss:core',
+    'csscomb:dist',
+    'cssmin:core'
+  ]);
+
+  grunt.registerTask('docs-css', [
+    'scsslint:docs',
+    'clean:docs-dist-css',
+    'sass:docs',
+    'postcss:docs',
+    'postcss:examples',
+    'csscomb:docs',
+    'csscomb:examples',
+    'cssmin:docs'
+  ]);
 
   // Full distribution task.
   grunt.registerTask('dist', ['clean:dist', 'dist-css', 'dist-js', 'docs']);
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'test']);
-
   //------
   // Docs tasks
 
@@ -564,19 +605,11 @@ module.exports = function (grunt) {
   grunt.registerTask('docs-copy-bootstrap-docs', [
     'copy:bs-docs-js-vendor',
     'copy:bs-docs-scss',
+    'copy:bs-docs-getting-started',
     'copy:bs-docs-components',
     'copy:bs-docs-content',
     'copy:bs-docs-examples',
     'copy:bs-docs-plugins'
-  ]);
-  grunt.registerTask('docs-css', [
-    'clean:docs-dist-css',
-    'sass:docs',
-    'postcss:docs',
-    'postcss:examples',
-    'csscomb:docs',
-    'csscomb:examples',
-    'cssmin:docs'
   ]);
 
   grunt.registerTask('docs', ['docs-css', 'docs-js']);
