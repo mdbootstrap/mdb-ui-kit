@@ -548,6 +548,7 @@ module.exports = function (grunt) {
   ]);
   grunt.registerTask('docs-js', [
     'clean:docs-dist-js',
+    'copy:dist-to-docs', // ensure dist is present after cleaning
     'eslint',
     'jscs:docs',
     'exec:rollup-docs-iife',
@@ -579,6 +580,7 @@ module.exports = function (grunt) {
   grunt.registerTask('docs-css', [
     'scsslint:docs',
     'clean:docs-dist-css',
+    'copy:dist-to-docs', // ensure dist is present after cleaning
     'sass:docs',
     'postcss:docs',
     'postcss:examples',
@@ -611,9 +613,15 @@ module.exports = function (grunt) {
 
   //------
   // Release and publish
-  grunt.registerTask('docs-github', ['jekyll:github']);
-  grunt.registerTask('prep-release', ['dist', 'docs', 'docs-github', 'compress']);
-  grunt.registerTask('publish', ['prep-release', 'buildcontrol:pages']);
+  grunt.registerTask('prep-release', [
+    'dist', // all dist including docs
+    'jekyll:github', // build site from scratch
+    'compress' // compress zip
+  ]);
+  grunt.registerTask('publish', [
+    'prep-release',   // build all including dist, docs, site
+    'buildcontrol:pages' // push site
+  ]);
   //------
 
   // Task for updating the cached npm packages used by the Travis build (which are controlled by test-infra/npm-shrinkwrap.json).
