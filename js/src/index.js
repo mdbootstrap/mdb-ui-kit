@@ -8,6 +8,8 @@
  */
 
 /* eslint-disable no-unused-vars */
+import '../../node_modules/babel-polyfill/dist/polyfill'
+
 import BaseInput from './baseInput'
 import BaseFormControl from './baseFormControl'
 import BaseSelection from './baseSelection'

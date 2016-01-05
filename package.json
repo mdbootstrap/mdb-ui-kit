@@ -82,25 +82,5 @@
     "scss/**/*.scss",
     "Gruntfile.js",
     "LICENSE"
-  ],
-  "jspm": {
-    "main": "js/bootstrap-material-design",
-    "ignore": [
-      "dist/js/npm"
-    ],
-    "directories": {
-      "lib": "dist"
-    },
-    "shim": {
-      "js/bootstrap-material-design": {
-        "deps": [
-          "bootstrap"
-        ],
-        "exports": "$"
-      }
-    },
-    "dependencies": {
-      "bootstrap": "*"
-    }
-  }
+  ]
 }
