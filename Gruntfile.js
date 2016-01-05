@@ -72,7 +72,7 @@ module.exports = function (grunt) {
       dist: 'dist',
       'dist-js': 'dist/js',
       'docs-dist-js': 'docs/dist/js',
-      docs: 'docs/dist'
+      'docs-dist-css': 'docs/dist/css',
     },
 
     eslint: {
@@ -186,7 +186,7 @@ module.exports = function (grunt) {
             autoprefixer
           ]
         },
-        src: 'docs/assets/css/*.css'
+        src: 'docs/dist/css/*.css'
       },
       examples: {
         options: {
@@ -222,8 +222,15 @@ module.exports = function (grunt) {
         ]
       },
       docs: {
-        src: 'docs/assets/css/docs.css',
-        dest: 'docs/assets/css/docs.min.css'
+        files: [
+          {
+            expand: true,
+            cwd: 'docs/dist/css',
+            src: ['*.css', '!*.min.css'],
+            dest: 'docs/dist/css',
+            ext: '.min.css'
+          }
+        ]
       }
     },
 
@@ -244,8 +251,8 @@ module.exports = function (grunt) {
         dest: 'docs/examples/'
       },
       docs: {
-        src: 'docs/assets/css/src/docs.css',
-        dest: 'docs/assets/css/src/docs.css'
+        src: 'docs/dist/css/docs.css',
+        dest: 'docs/dist/css/docs.css'
       }
     },
 
@@ -562,9 +569,17 @@ module.exports = function (grunt) {
     'copy:bs-docs-examples',
     'copy:bs-docs-plugins'
   ]);
-  grunt.registerTask('docs-css', ['sass:docs', 'postcss:docs', 'postcss:examples', 'csscomb:docs', 'csscomb:examples', 'cssmin:docs']);
+  grunt.registerTask('docs-css', [
+    'clean:docs-dist-css',
+    'sass:docs',
+    'postcss:docs',
+    'postcss:examples',
+    'csscomb:docs',
+    'csscomb:examples',
+    'cssmin:docs'
+  ]);
 
-  grunt.registerTask('docs', ['clean:docs', 'docs-css', 'docs-js']);
+  grunt.registerTask('docs', ['docs-css', 'docs-js']);
   //------
 
   //------

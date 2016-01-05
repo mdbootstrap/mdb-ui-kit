@@ -29,7 +29,7 @@ module.exports = function configureRubySass(grunt) {
       docs: {
         options: options,
         files: {
-          'docs/assets/css/docs.css': 'docs/assets/scss/docs.scss'
+          'docs/dist/css/docs.css': 'docs/assets/scss/docs.scss'
         }
       }
     }
