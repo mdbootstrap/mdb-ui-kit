@@ -9,7 +9,7 @@ group: material-design
 
 <div class="container">
 
-  <form class="form-signin">
+  <form class="form-signin m-x-auto">
     <h2>Please sign in</h2>
     <div class="form-group">
       <label for="inputEmail" class="mdb-label-floating">Email address</label>
