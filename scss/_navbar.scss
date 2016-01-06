@@ -1,7 +1,7 @@
 .navbar {
   border: 0;
   border-radius: 0;
-
+  @include shadow-2dp();
 
   //.navbar-brand {
   //  position: relative;
