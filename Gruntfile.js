@@ -395,24 +395,21 @@ module.exports = function (grunt) {
     },
 
     watch: {
-      src: {
-        files: '<%= jscs.core.src %>',
-        tasks: ['babel:core', 'babel:docs'] // only watch/gen local non-minified sources (quicker)
+      corejs: {
+        files: 'js/src/*.js',
+        tasks: ['dist-js']
       },
-
       docsjs: {
         files: ['docs/assets/js/src/*.js'],
-        tasks: ['babel:docs']
+        tasks: ['docs-js']
       },
-
-      // FIXME: restore this after getting fundamentals done, just trying to reduce churn while developing
-      //sass: {
-      //  files: 'scss/**/*.scss',
-      //  tasks: ['dist-css', 'docs']
-      //},
+      core: {
+        files: 'scss/**/*.scss',
+        tasks: ['dist-css']
+      },
       docs: { // watch both the source and docs scss
         files: ['docs/assets/scss/**/*.scss', 'scss/**/*.scss'],
-        tasks: ['scsslint:docs', 'sass:docs', 'postcss:docs'] //FIXME: docs-css yanks sourcemap from local docs.css, working around just doing the minimal compile here ['docs-css'] //['dist-css', 'docs']
+        tasks: ['scsslint:docs', 'sass:docs', 'postcss:docs']
       }
     },
 
