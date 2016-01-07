@@ -17,12 +17,14 @@ $mdb-inverse-btn-focus-bg: rgba(#ccc, .15) !default; // spec: dark bg Hover: 15%
 $mdb-inverse-btn-active-bg: rgba(#ccc, .25) !default; // spec: dark Pressed: 25% #CCCCCC
 $mdb-inverse-btn-disabled: rgba($white, .30) !default; // spec: dark theme: Disabled text: 30% $white
 
-$mdb-btn-fab-size: 56px !default;
-$mdb-btn-fab-size-mini: 40px !default;
-$mdb-btn-fab-font-size: 24px !default;
+$mdb-btn-fab-size: 3.5rem !default; // 56px
+$mdb-btn-fab-size-sm: 2.5rem !default; // 40px
+$mdb-btn-fab-font-size: 1.5rem !default; // 24px
 
-$mdb-btn-icon-size: 32px !default;
-$mdb-btn-icon-size-mini: 24px !default;
+// icons
+$mdb-btn-icon-size: 2rem !default; // 32px
+$mdb-btn-icon-size-sm: (.75 * $mdb-btn-icon-size) !default; // ~24px
+$mdb-btn-icon-font-size-sm: (.75 * $mdb-btn-fab-font-size) !default;
 
 
 // Buttons
