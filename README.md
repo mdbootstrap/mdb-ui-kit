@@ -6,12 +6,25 @@
 
 [![banner](demo/imgs/banner.jpg)](#)
 
-This Bootstrap theme is an easy way to use the new [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) in your Bootstrap 3 based application.
+Material Design for Bootstrap is a Bootstrap V3 compaitble theme; it is an easy way to use the new [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) in your Bootstrap 3 based application.
 Just include the theme, after the Bootstrap CSS and include the JavaScript at the end of your document (just before the `</body>` tag), and everything will be converted to Material Design (Paper) style.
 
-**NOTE**: This theme is still in development, it could be used on production websites but I can't guarantee compatibility with previous versions.
+**NOTE**: This V3 compatible theme is still in development, it could be used on production websites but I can't guarantee compatibility with previous versions.
 
 Check out [the demo at this link](http://fezvrasta.github.io/bootstrap-material-design/).
+
+## V4 Development
+The next major Bootstrap V4 compatible release of bootstrap-material-design is [in development](https://github.com/FezVrasta/bootstrap-material-design/tree/v4-dev).  Check out the [documentation](http://rosskevin.github.io/bootstrap-material-design/migration/) (temporary site url) for migration, getting started, development, and examples.  It has some requested implementations and more to come over V3.  There are a lot of great changes in V4, but be warned, both Bootstrap V4 and our own implementation is changing daily.  If you want to get involved, please do so by submitting pull requests.  Before undertaking any major PR effort, please check the [milestone](https://github.com/FezVrasta/bootstrap-material-design/milestones/V4) for an existing issue.  If there isn't one, please file a new issue and `cc: @rosskevin` so we can discuss and assign the work so effort is not duplicated.  Thank you!
+
+Please prefix any issue or pull request title with `V4`.
+
+Major differences:
+- Customized bootstrap build with variables instead of being an addon theme
+- ES6 Javascript classes
+- SCSS
+- New scalable documentation framework that mirrors Bootstrap's own
+- Documentation includes Bootstrap reference pages to display default rendering
+- New build/documentation process (also mimics Bootstrap's project setup)
 
 ## How to install
 
