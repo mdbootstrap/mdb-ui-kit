@@ -34,16 +34,14 @@ All issues filed should be reduced to a [CodePen](http://codepen.io/rosskevin/pe
 ## Contributing
 
 ### During V4 major development
-If you want to get involved, please do so by submitting pull requests.  
-Before undertaking any major PR effort, please check the [milestone](https://github.com/FezVrasta/bootstrap-material-design/milestones/V4) for an existing issue.  
-If there isn't one, please file a new issue and `cc: @rosskevin` so we can discuss and assign the work so effort is not duplicated.  Thank you!
+If you want to get involved, please do so by submitting pull requests.  Before undertaking any major PR effort, please check the [milestone](https://github.com/FezVrasta/bootstrap-material-design/milestones/V4) for an existing issue.  If there isn't one, please file a new issue and `cc: @rosskevin` so we can discuss and assign the work so effort is not duplicated.  Thank you!
 
 Please prefix any issue or pull request title with `V4`.
 
 ### Standard guidelines 
 Please read through our [contributing guidelines](CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
-Moreover, if your pull request contains JavaScript patches or features, you must include relevant unit tests. All HTML and CSS should conform to the [Code Guide](http://codeguide.co/), maintained by one of Bootstrap's founder's [Mark Otto](https://github.com/mdo).
+Moreover, if your pull request contains JavaScript patches or features, you must include relevant unit tests. All HTML and CSS should conform to the [Code Guide](http://codeguide.co/), maintained by [Mark Otto](https://github.com/mdo), one of Bootstrap's founders.
 
 Editor preferences are available in the [editor config](https://github.com/FezVrasta/bootstrap-material-design/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
 
