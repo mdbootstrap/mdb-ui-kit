@@ -2841,13 +2841,15 @@ fieldset[disabled] .navbar .btn-link:focus {
   height: 10%;
   padding: 18px;
 }
-.card .card-footer button {
+.card .card-footer button,
+.card .card-footer a {
   margin: 0 !important;
   position: relative;
   bottom: 25px;
   width: auto;
 }
-.card .card-footer button:first-child {
+.card .card-footer button:first-child,
+.card .card-footer a:first-child {
   left: -15px;
 }
 .modal-content {
