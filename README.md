@@ -12,9 +12,15 @@ in your Bootstrap 4 based application.  Since this is a fully customizable versi
 just include Bootstrap Material Design CSS instead of Bootstrap CSS, and include the JavaScript at 
 the end of your document (just before the `</body>` tag), and everything will be converted to Material Design.
 
-TODO: To get started, check out <http://site>!
+## Documentation 
 
-TLDR; <http://site#starter-template>
+NOTE: this is a temporary site location that will be published in at http://fezvrasta.github.io/bootstrap-material-design in the future. 
+
+- [Migration](http://rosskevin.github.io/bootstrap-material-design/migration/)
+- [Getting Started](http://rosskevin.github.io/bootstrap-material-design/getting-started/introduction/)
+- [Material Design components](http://rosskevin.github.io/bootstrap-material-design/material-design/list-group/)
+- [Bootstrap default rendering reference documentation](http://rosskevin.github.io/bootstrap-material-design/components/buttons/)
+
 
 ## Support
 
@@ -27,6 +33,14 @@ All issues filed should be reduced to a [CodePen](http://codepen.io/rosskevin/pe
 
 ## Contributing
 
+### During V4 major development
+If you want to get involved, please do so by submitting pull requests.  
+Before undertaking any major PR effort, please check the [milestone](https://github.com/FezVrasta/bootstrap-material-design/milestones/V4) for an existing issue.  
+If there isn't one, please file a new issue and `cc: @rosskevin` so we can discuss and assign the work so effort is not duplicated.  Thank you!
+
+Please prefix any issue or pull request title with `V4`.
+
+### Standard guidelines 
 Please read through our [contributing guidelines](CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
 Moreover, if your pull request contains JavaScript patches or features, you must include relevant unit tests. All HTML and CSS should conform to the [Code Guide](http://codeguide.co/), maintained by one of Bootstrap's founder's [Mark Otto](https://github.com/mdo).
