@@ -1,3 +1,5 @@
+import Base from './base'
+
 const Autofill = (($) => {
 
   /**
@@ -17,20 +19,17 @@ const Autofill = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class Autofill {
+  class Autofill extends Base {
 
     constructor($element, config) {
-      this.$element = $element
-      this.config = $.extend(true, {}, Default, config)
+      super($element, $.extend(true, {}, Default, config))
 
       this._watchLoading()
       this._attachEventHandlers()
     }
 
     dispose() {
-      $.removeData(this.$element, DATA_KEY)
-      this.$element = null
-      this.config = null
+      super.dispose(DATA_KEY)
     }
 
     // ------------------------------------------------------------------------

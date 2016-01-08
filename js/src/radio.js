@@ -1,8 +1,8 @@
 import BaseSelection from './baseSelection'
-import Text from './text'
-import File from './file'
-import Checkbox from './checkbox'
-import Switch from './switch'
+//import Text from './text'
+//import File from './file'
+//import Checkbox from './checkbox'
+//import Switch from './switch'
 import Util from './util'
 
 const Radio = (($) => {
@@ -29,9 +29,9 @@ const Radio = (($) => {
   class Radio extends BaseSelection {
 
     constructor($element, config, properties = {inputType: NAME, outerClass: NAME}) {
-      super($element, $.extend(true, {
-        invalidComponentMatches: [Checkbox, File, Switch, Text]
-      }, Default, config), properties)
+      super($element, $.extend(true,
+        //{invalidComponentMatches: [Checkbox, File, Switch, Text]},
+        Default, config), properties)
     }
 
     dispose(dataKey = DATA_KEY) {

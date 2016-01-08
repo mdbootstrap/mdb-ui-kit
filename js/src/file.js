@@ -1,10 +1,10 @@
 import BaseInput from './baseInput'
-import Checkbox from './checkbox'
-import Radio from './radio'
-import Switch from './switch'
-import Text from './text'
-import Textarea from './textarea'
-import Select from './select'
+//import Checkbox from './checkbox'
+//import Radio from './radio'
+//import Switch from './switch'
+//import Text from './text'
+//import Textarea from './textarea'
+//import Select from './select'
 import Util from './util'
 
 const File = (($) => {
@@ -38,7 +38,9 @@ const File = (($) => {
   class File extends BaseInput {
 
     constructor($element, config) {
-      super($element, $.extend(true, {invalidComponentMatches: [Checkbox, Radio, Text, Textarea, Select, Switch]}, Default, config))
+      super($element, $.extend(true,
+        //{invalidComponentMatches: [Checkbox, Radio, Text, Textarea, Select, Switch]},
+        Default, config))
 
       this.$mdbFormGroup.addClass(ClassName.IS_FILE)
     }

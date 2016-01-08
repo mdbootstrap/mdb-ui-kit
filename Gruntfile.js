@@ -399,8 +399,8 @@ module.exports = function (grunt) {
         files: 'js/src/*.js',
         tasks: ['dist-js']
       },
-      docsjs: {
-        files: ['docs/assets/js/src/*.js'],
+      docsjs: { // watch both the source and docs js
+        files: ['js/src/*.js', 'docs/assets/js/src/*.js'],
         tasks: ['docs-js']
       },
       core: {

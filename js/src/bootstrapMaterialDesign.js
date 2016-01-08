@@ -37,6 +37,27 @@ const BootstrapMaterialDesign = (($) => {
         className: 'mdb-label-static' // default style of label to be used if not specified in the html markup
       }
     },
+    autofill: {
+      selector: 'body'
+    },
+    checkbox: {
+      selector: '.checkbox > label > input[type=checkbox]'
+    },
+    checkboxInline: {
+      selector: 'label.checkbox-inline > input[type=checkbox]'
+    },
+    collapseInline: {
+      selector: '.mdb-collapse-inline [data-toggle="collapse"]'
+    },
+    file: {
+      selector: 'input[type=file]'
+    },
+    radio: {
+      selector: '.radio > label > input[type=radio]'
+    },
+    radioInline: {
+      selector: 'label.radio-inline > input[type=radio]'
+    },
     ripples: {
       //selector: ['.btn:not(.btn-link):not(.ripple-none)'] // testing only
       selector: [
@@ -49,36 +70,18 @@ const BootstrapMaterialDesign = (($) => {
         '.ripple' // generic marker class to add ripple to elements
       ]
     },
-    text: {
-      // omit inputs we have specialized components to handle
-      selector: [`input[type!='checkbox'][type!='radio'][type!='file']`]
-    },
-    file: {
-      selector: 'input[type=file]'
-    },
-    checkbox: {
-      selector: '.checkbox > label > input[type=checkbox]'
-    },
-    checkboxInline: {
-      selector: 'label.checkbox-inline > input[type=checkbox]'
-    },
-    radio: {
-      selector: '.radio > label > input[type=radio]'
-    },
-    radioInline: {
-      selector: 'label.radio-inline > input[type=radio]'
-    },
     select: {
       selector: ['select']
     },
     switch: {
       selector: '.switch > label > input[type=checkbox]'
     },
+    text: {
+      // omit inputs we have specialized components to handle
+      selector: [`input[type!='checkbox'][type!='radio'][type!='file']`]
+    },
     textarea: {
       selector: ['textarea']
-    },
-    autofill: {
-      selector: 'body'
     },
     arrive: true,
     // create an ordered component list for instantiation
@@ -86,6 +89,7 @@ const BootstrapMaterialDesign = (($) => {
       'ripples',
       'checkbox',
       'checkboxInline',
+      'collapseInline',
       'file',
       'radio',
       'radioInline',

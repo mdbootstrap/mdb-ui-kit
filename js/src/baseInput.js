@@ -1,3 +1,4 @@
+import Base from './base'
 import Util from './util'
 
 const BaseInput = (($) => {
@@ -26,7 +27,7 @@ const BaseInput = (($) => {
       required: false
     },
     mdbFormGroup: {
-      template: `<span class='mdb-form-group'></span>`,
+      template: `<span class='${ClassName.MDB_FORM_GROUP}'></span>`,
       create: true, // create a wrapper if form-group not found
       required: true // not recommended to turn this off, only used for inline components
     },
@@ -60,7 +61,7 @@ const BaseInput = (($) => {
    * Class Definition
    * ------------------------------------------------------------------------
    */
-  class BaseInput {
+  class BaseInput extends Base {
 
     /**
      *
@@ -69,13 +70,7 @@ const BaseInput = (($) => {
      * @param properties - anything that needs to be set as this[key] = value.  Works around the need to call `super` before using `this`
      */
     constructor($element, config, properties = {}) {
-      this.$element = $element
-      this.config = $.extend(true, {}, Default, config)
-
-      // set properties for use in the constructor initialization
-      for (let key in properties) {
-        this[key] = properties[key]
-      }
+      super($element, $.extend(true, {}, Default, config), properties)
 
       // Enforce no overlap between components to prevent side effects
       this._rejectInvalidComponentMatches()
@@ -106,10 +101,9 @@ const BaseInput = (($) => {
     }
 
     dispose(dataKey) {
-      $.removeData(this.$element, dataKey)
-      this.$element = null
+      super.dispose(dataKey)
       this.$mdbFormGroup = null
-      this.config = null
+      this.$formGroup = null
     }
 
     // ------------------------------------------------------------------------
@@ -163,30 +157,12 @@ const BaseInput = (($) => {
         })
     }
 
-    addFormGroupFocus() {
-      if (!this.$element.prop('disabled')) {
-        this.$mdbFormGroup.addClass(ClassName.IS_FOCUSED)
-      }
-    }
-
-    removeFormGroupFocus() {
-      this.$mdbFormGroup.removeClass(ClassName.IS_FOCUSED)
-    }
-
     addHasDanger() {
       this.$mdbFormGroup.addClass(ClassName.HAS_DANGER)
     }
 
     removeHasDanger() {
       this.$mdbFormGroup.removeClass(ClassName.HAS_DANGER)
-    }
-
-    removeIsFilled() {
-      this.$mdbFormGroup.removeClass(ClassName.IS_FILLED)
-    }
-
-    addIsFilled() {
-      this.$mdbFormGroup.addClass(ClassName.IS_FILLED)
     }
 
     isEmpty() {
@@ -262,15 +238,6 @@ const BaseInput = (($) => {
         $.error(`Failed to find ${Selector.MDB_LABEL_WILDCARD} within form-group for ${Util.describe(this.$element)}`)
       }
       return label
-    }
-
-    // Find mdb-form-group
-    findMdbFormGroup(raiseError = true) {
-      let mfg = this.$element.closest(Selector.MDB_FORM_GROUP)
-      if (mfg.length === 0 && raiseError) {
-        $.error(`Failed to find ${Selector.MDB_FORM_GROUP} for ${Util.describe(this.$element)}`)
-      }
-      return mfg
     }
 
     // Find mdb-form-group

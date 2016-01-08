@@ -1,10 +1,10 @@
 import BaseFormControl from './baseFormControl'
-import Checkbox from './checkbox'
-import File from './file'
-import Radio from './radio'
-import Switch from './switch'
-import Text from './text'
-import Textarea from './textarea'
+//import Checkbox from './checkbox'
+//import File from './file'
+//import Radio from './radio'
+//import Switch from './switch'
+//import Text from './text'
+//import Textarea from './textarea'
 import Util from './util'
 
 const Select = (($) => {
@@ -31,7 +31,9 @@ const Select = (($) => {
   class Select extends BaseFormControl {
 
     constructor($element, config) {
-      super($element, $.extend(true, {invalidComponentMatches: [Checkbox, File, Radio, Switch, Text, Textarea]}, Default, config))
+      super($element, $.extend(true,
+        //{invalidComponentMatches: [Checkbox, File, Radio, Switch, Text, Textarea]},
+        Default, config))
 
       // floating labels will cover the options, so trigger them to be above (if used)
       this.addIsFilled()

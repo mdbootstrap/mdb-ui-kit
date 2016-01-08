@@ -1,10 +1,10 @@
 import BaseFormControl from './baseFormControl'
-import Checkbox from './checkbox'
-import File from './file'
-import Radio from './radio'
-import Switch from './switch'
-import Textarea from './textarea'
-import Select from './select'
+//import Checkbox from './checkbox'
+//import File from './file'
+//import Radio from './radio'
+//import Switch from './switch'
+//import Textarea from './textarea'
+//import Select from './select'
 import Util from './util'
 
 const Text = (($) => {
@@ -29,7 +29,9 @@ const Text = (($) => {
   class Text extends BaseFormControl {
 
     constructor($element, config) {
-      super($element, $.extend(true, {invalidComponentMatches: [Checkbox, File, Radio, Switch, Select, Textarea]}, Default, config))
+      super($element, $.extend(true,
+        //{invalidComponentMatches: [Checkbox, File, Radio, Switch, Select, Textarea]},
+        Default, config))
     }
 
     dispose(dataKey = DATA_KEY) {
