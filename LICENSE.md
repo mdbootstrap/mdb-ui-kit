@@ -21,10 +21,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-Acknowledgements:
+## Acknowledgements:
 
-# Some original Bootstrap tooling code and documentation http://getbootstrap.com
+### Bootstrap
+Some original Bootstrap tooling code and documentation http://getbootstrap.com
 Copyright (c) 2011-2016 Twitter, Inc
 
-# Some original MDL code http://www.getmdl.io/
+### MDL
+Some original MDL code http://www.getmdl.io/
 Copyright 2015 Google Inc. All Rights Reserved.

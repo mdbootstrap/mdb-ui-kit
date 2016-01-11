@@ -1,10 +1,13 @@
-<script src="{{ site.data.cdn.jquery }}"></script>
-<script src="{{ site.data.cdn.tether }}"></script>
-<script src="{{ site.data.cdn.bootstrap }}"></script>
 
 {% if site.data.minified %}
+  <script src="{{ site.data.cdn.jquery }}.min.js"></script>
+  <script src="{{ site.data.cdn.tether }}.min.js"></script>
+  <script src="{{ site.data.cdn.bootstrap }}.min.js"></script>
   <script src="{{ site.baseurl }}/dist/js/bootstrap-material-design.iife.min.js"></script>
 {% else %}
+  <script src="{{ site.data.cdn.jquery }}.js"></script>
+  <script src="{{ site.data.cdn.tether }}.js"></script>
+  <script src="{{ site.data.cdn.bootstrap }}.js"></script>
   <script src="{{ site.baseurl }}/dist/js/bootstrap-material-design.iife.js"></script>
 {% endif %}
 

@@ -23,6 +23,7 @@
   pages:
     - title: History
     - title: Team
+    - title: Credits
     - title: License
 
 # change nav-docs.html if you change this name to insert "Bootstrap Reference Documentation"

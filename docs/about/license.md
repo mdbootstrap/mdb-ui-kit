@@ -29,4 +29,4 @@ Boiled down to smaller chunks, it can be described with the following conditions
 - Include the source of Material Design for Bootstrap itself, or of any modifications you may have made to it, in any redistribution you may assemble that includes it
 - Submit changes that you make to Material Design for Bootstrap back to the Material Design for Bootstrap project (though such feedback is encouraged)
 
-The full Material Design for Bootstrap license is located [in the project repository]({{ site.repo }}/blob/master/LICENSE) for more information.
+The full Material Design for Bootstrap license is located [in the project repository]({{ site.repo }}/blob/master/LICENSE.md) for more information.
