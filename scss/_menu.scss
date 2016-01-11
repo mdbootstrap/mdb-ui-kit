@@ -14,7 +14,6 @@
 }
 
 .dropdown-menu {
-
   display: block; // utilize transition transform instead of flipping display
   padding: .5rem 0;
   border: 0;
@@ -58,7 +57,6 @@
     transform-origin: 100% 100%;
   }
 
-
   // https://www.google.com/design/spec/components/menus.html#menus-specs
   .dropdown-item {
 
@@ -88,22 +86,7 @@
       padding-left: $mdb-menu-item-padding-left-md;
     }
   }
-
-  //  border: 0;
-  //  box-shadow: 0 2px 5px 0 $gray-light;
-  //  //.divider {
-  //  //  background-color: rgba(229, 229, 229, 0.12);
-  //  //}
-  //  li {
-  //    position: relative;
-  //    overflow: hidden;
-  //    a:hover {
-  //      color: $brand-primary;
-  //      background-color: transparent;
-  //    }
-  //  }
 }
-
 
 .dropdown {
 
@@ -140,6 +123,4 @@
       }
     }
   }
-
-  // Default align button menus on the right
 }
