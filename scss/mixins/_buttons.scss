@@ -33,7 +33,12 @@
     }
   }
 
-  &.disabled,
+  // when it is an icon, kill the active bg on open dropdown
+  .open > &.dropdown-toggle.mdb-btn-icon {
+    background-color: $background;
+  }
+
+    &.disabled,
   &:disabled {
     &:focus,
     &.focus {

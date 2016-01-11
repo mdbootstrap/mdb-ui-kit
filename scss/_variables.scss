@@ -38,6 +38,7 @@ $enable-flex: true;
 
 
 //
+@import "variables/menu";
 @import "variables/drawer";
 
 $mdb-label-color-focus: $brand-primary !default;
@@ -136,3 +137,6 @@ $mdb-animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
 $mdb-animation-curve-default: $mdb-animation-curve-fast-out-slow-in !default;
 
 
+// Menu
+$menu-expand-duration: 0.3s !default;
+$menu-fade-duration: 0.2s !default;

@@ -64,7 +64,7 @@ group: material-design
 </fieldset>
 {% endexample %}
 
-### Sizes
+## Sizes
 {% example html %}
 <button type="button" class="btn btn-raised btn-lg">Large button</button>
 <button type="button" class="btn btn-raised">Default button</button>
@@ -149,25 +149,25 @@ Using `mdb-btn-fab-sm` on the button, or using `btn-group-sm` on the enclosing e
 
 {% example html %}
 <button type="button" class="btn btn-primary mdb-btn-icon">
-  <i class="material-icons">grade</i>
+  <i class="material-icons">more_vert</i>
 </button>
 <button type="button" class="btn btn-secondary mdb-btn-icon">
-  <i class="material-icons">grade</i>
+  <i class="material-icons">more_vert</i>
 </button>
 <button type="button" class="btn btn-success mdb-btn-icon">
-  <i class="material-icons">grade</i>
+  <i class="material-icons">more_vert</i>
 </button>
 <button type="button" class="btn btn-info mdb-btn-icon">
-  <i class="material-icons">grade</i>
+  <i class="material-icons">more_vert</i>
 </button>
 <button type="button" class="btn btn-warning mdb-btn-icon">
-  <i class="material-icons">grade</i>
+  <i class="material-icons">more_vert</i>
 </button>
 <button type="button" class="btn btn-danger mdb-btn-icon">
-  <i class="material-icons">grade</i>
+  <i class="material-icons">more_vert</i>
 </button>
 <button type="button" class="btn btn-danger mdb-btn-icon active">
-  <i class="material-icons">grade</i>
+  <i class="material-icons">more_vert</i>
 </button>
 {% endexample %}
 
@@ -175,22 +175,22 @@ Using `mdb-btn-fab-sm` on the button, or using `btn-group-sm` on the enclosing e
 {% example html %}
 <fieldset disabled>
   <button type="button" class="btn btn-primary mdb-btn-icon">
-    <i class="material-icons">grade</i>
+    <i class="material-icons">more_vert</i>
   </button>
   <button type="button" class="btn btn-secondary mdb-btn-icon">
-    <i class="material-icons">grade</i>
+    <i class="material-icons">more_vert</i>
   </button>
   <button type="button" class="btn btn-success mdb-btn-icon">
-    <i class="material-icons">grade</i>
+    <i class="material-icons">more_vert</i>
   </button>
   <button type="button" class="btn btn-info mdb-btn-icon">
-    <i class="material-icons">grade</i>
+    <i class="material-icons">more_vert</i>
   </button>
   <button type="button" class="btn btn-warning mdb-btn-icon">
-    <i class="material-icons">grade</i>
+    <i class="material-icons">more_vert</i>
   </button>
   <button type="button" class="btn btn-danger mdb-btn-icon">
-    <i class="material-icons">grade</i>
+    <i class="material-icons">more_vert</i>
   </button>
 </fieldset>
 {% endexample %}
@@ -201,14 +201,16 @@ Using `mdb-btn-icon-sm` on the button, or using `btn-group-sm` on the enclosing 
 
 {% example html %}
 <button type="button" class="btn mdb-btn-icon">
-  <i class="material-icons">grade</i>
+  <i class="material-icons">more_vert</i>
 </button>
 <button type="button" class="btn mdb-btn-icon mdb-btn-icon-sm">
-  <i class="material-icons">grade</i>
+  <i class="material-icons">more_vert</i>
 </button>
 <span class="btn-group-sm">
   <button type="button" class="btn mdb-btn-icon">
-    <i class="material-icons">grade</i>
+    <i class="material-icons">more_vert</i>
   </button>
 </span>
 {% endexample %}
+
+

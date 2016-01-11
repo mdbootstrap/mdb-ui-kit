@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: List group
+title: List groups
 group: material-design
 ---
 

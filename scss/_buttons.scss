@@ -97,7 +97,8 @@
     width: $mdb-btn-fab-size;
     min-width: $mdb-btn-fab-size;
     height: $mdb-btn-fab-size;
-    margin: auto;
+    //margin: auto;
+    margin: 1px; // This is not called for in the spec, but it ensures room for the box-shadow, which is nice to have.
     box-shadow: 0 1px 1.5px 0 $gray-lighter, 0 1px 1px 0 $gray-light;
 
     .ripple-container {
@@ -123,8 +124,7 @@
     width: $mdb-btn-icon-size;
     min-width: $mdb-btn-icon-size;
     height: $mdb-btn-icon-size;
-    margin-right: 0;
-    margin-left: 0;
+    margin: 0;
     color: inherit;
 
     &.mdb-btn-icon-sm,
