@@ -36,6 +36,7 @@
     // enlarged shadow on hover, focus
     @include hover-focus() {
       //border: 1px solid $blue;
+      z-index: 1; // add to the z-index so that the expanded shadow is above anything below it i.e. another button
       @include shadow-4dp();
     }
 
@@ -43,6 +44,7 @@
     // .active - persistent big shadow
     &.active,
     &:active {
+      z-index: 1; // add to the z-index so that the expanded shadow is above anything below it i.e. another button
       @include focus-shadow();
       //border: 1px solid $green;
     }
@@ -98,7 +100,7 @@
     min-width: $mdb-btn-fab-size;
     height: $mdb-btn-fab-size;
     //margin: auto;
-    margin: 1px; // This is not called for in the spec, but it ensures room for the box-shadow, which is nice to have.
+    //margin: 2px; // use z-index focus/hover/active instead. This is not called for in the spec, but it ensures room for the box-shadow, which is nice to have.
     box-shadow: 0 1px 1.5px 0 $gray-lighter, 0 1px 1px 0 $gray-light;
 
     .ripple-container {
@@ -110,6 +112,7 @@
       width: $mdb-btn-fab-size-sm;
       min-width: $mdb-btn-fab-size-sm;
       height: $mdb-btn-fab-size-sm;
+      //margin: 1px; // use z-index focus/hover/active instead. This is not called for in the spec, but it ensures room for the box-shadow, which is nice to have.
 
       //.material-icons {
       //  top: ($mdb-btn-icon-size-sm - $mdb-btn-fab-font-size) / 2;
