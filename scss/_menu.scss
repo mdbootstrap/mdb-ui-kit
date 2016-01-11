@@ -1,42 +1,16 @@
 // Menus https://www.google.com/design/spec/components/menus.html#menus-specs
 // Dropdown buttons (mobile and desktop) https://www.google.com/design/spec/components/buttons.html#buttons-dropdown-buttons
 
-.dropdown {
+%menu-bottom-left {
+  top: 100%;
+  left: 0;
+  transform-origin: 0 0;
+}
 
-  .dropdown-toggle {
-
-    &.mdb-btn-icon,
-    &.mdb-btn-fab {
-      // remove the dropdown icon
-      &::after {
-        display: none;
-      }
-
-      ~ .dropdown-menu {
-        &.dropdown-menu-top-left,
-        &.dropdown-menu-top-right {
-          bottom: $mdb-btn-icon-size; // push up the bottom of the menu the height of the button
-        }
-      }
-    }
-
-    &.mdb-btn-fab-sm {
-      ~ .dropdown-menu {
-        &.dropdown-menu-top-left,
-        &.dropdown-menu-top-right {
-          bottom: $mdb-btn-fab-size-sm; // push up the bottom of the menu the height of the button
-        }
-      }
-    }
-
-    &.mdb-btn-icon {
-      ~ .dropdown-menu {
-        // collapse some spacing
-        margin: 0;
-      }
-    }
-
-  }
+%menu-bottom-right {
+  right: 0;
+  left: auto;
+  transform-origin: 100% 0;
 }
 
 .dropdown-menu {
@@ -45,7 +19,7 @@
   padding: .5rem 0;
   border: 0;
   opacity: 0;
-  transition: transform $menu-expand-duration $mdb-animation-curve-default, opacity $menu-fade-duration $mdb-animation-curve-default;
+  transition: transform $mdb-menu-expand-duration $mdb-animation-curve-default, opacity $mdb-menu-fade-duration $mdb-animation-curve-default;
   transform: scale(0);
   transform-origin: 0 0;
   will-change: transform;
@@ -57,10 +31,17 @@
     transform: scale(1);
   }
 
+  // Default the alignment on the button to bottom right
+  //@extend %menu-bottom-right;
+  // FIXME: bootstrap alignment issue - https://github.com/twbs/bootstrap/issues/18852
+  // FIXME: once the bug is fixed, want to default origin of menu open to the right of standard buttons
+
+  &.dropdown-menu-left {
+    @extend %menu-bottom-left;
+  }
+
   &.dropdown-menu-right {
-    right: 0;
-    left: auto;
-    transform-origin: 100% 0;
+    @extend %menu-bottom-right;
   }
 
   &.dropdown-menu-top-left {
@@ -121,4 +102,44 @@
   //      background-color: transparent;
   //    }
   //  }
+}
+
+
+.dropdown {
+
+  .dropdown-toggle {
+
+    &.mdb-btn-icon,
+    &.mdb-btn-fab {
+      // remove the dropdown icon
+      &::after {
+        display: none;
+      }
+
+      ~ .dropdown-menu {
+        &.dropdown-menu-top-left,
+        &.dropdown-menu-top-right {
+          bottom: $mdb-btn-icon-size; // push up the bottom of the menu the height of the button
+        }
+      }
+    }
+
+    &.mdb-btn-fab-sm {
+      ~ .dropdown-menu {
+        &.dropdown-menu-top-left,
+        &.dropdown-menu-top-right {
+          bottom: $mdb-btn-fab-size-sm; // push up the bottom of the menu the height of the button
+        }
+      }
+    }
+
+    &.mdb-btn-icon {
+      ~ .dropdown-menu {
+        // collapse some spacing
+        margin: 0;
+      }
+    }
+  }
+
+  // Default align button menus on the right
 }
