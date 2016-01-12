@@ -7,70 +7,11 @@ group: material-design
 Material design list groups are specialized versions of their bootstrap counterparts, opting for the flexbox layout to achieve
 the varieties specified. ([Specification](https://www.google.com/design/spec/components/lists.html#lists-specs))
 
-The material classes introduced are:
-
-<table>
-  <thead>
-    <tr>
-      <th>Classes</th>
-      <th>BS Equivalent</th>
-      <th>Differences</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>.mdb-list-group-item</code>
-      </td>
-      <td class="text-nowrap">
-        <code>.list-group-item</code>
-      </td>
-      <td>
-        {% markdown %}Flexbox layout, including conveniences for icon and label layout.{% endmarkdown %}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>.mdb-list-group-col</code>
-      </td>
-      <td class="text-nowrap">
-        {% markdown %}None{% endmarkdown %}
-      </td>
-      <td>
-        {% markdown %}Flexbox column - additional class to use within an `.mdb-list-group-item` for layout, such as a multi-line content section.{% endmarkdown %}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>.right</code>
-      </td>
-      <td class="text-nowrap">
-        {% markdown %}None{% endmarkdown %}
-      </td>
-      <td>
-        {% markdown %}Flex layout marker - additional class needed when only one icon/label is present and it should be right aligned.  Only valid as a child of `.mdb-list-group-item`{% endmarkdown %}
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>.mdb-list-group-sm</code>
-      </td>
-      <td class="text-nowrap">
-        {% markdown %}None{% endmarkdown %}
-      </td>
-      <td>
-        {% markdown %}Use on `.mdb-list-group` for the dense list display{% endmarkdown %}
-      </td>
-    </tr>
-
-  </tbody>
-</table>
 
 ## Contents
 
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
-
 
 ## Single line
 
@@ -266,3 +207,89 @@ The material classes introduced are:
 </ul>
 {% endexample %}
 
+## Classes
+
+<table>
+  <thead>
+    <tr>
+      <th>Classes</th>
+      <th>BS Equivalent</th>
+      <th>Differences</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>.mdb-list-group-item</code>
+      </td>
+      <td class="text-nowrap">
+        <code>.list-group-item</code>
+      </td>
+      <td>
+        {% markdown %}Flexbox layout, including conveniences for icon and label layout.{% endmarkdown %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.mdb-list-group-col</code>
+      </td>
+      <td class="text-nowrap">
+        {% markdown %}None{% endmarkdown %}
+      </td>
+      <td>
+        {% markdown %}Flexbox column - additional class to use within an `.mdb-list-group-item` for layout, such as a multi-line content section.{% endmarkdown %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.right</code>
+      </td>
+      <td class="text-nowrap">
+        {% markdown %}None{% endmarkdown %}
+      </td>
+      <td>
+        {% markdown %}Flex layout marker - additional class needed when only one icon/label is present and it should be right aligned.  Only valid as a child of `.mdb-list-group-item`{% endmarkdown %}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>.mdb-list-group-sm</code>
+      </td>
+      <td class="text-nowrap">
+        {% markdown %}None{% endmarkdown %}
+      </td>
+      <td>
+        {% markdown %}Use on `.mdb-list-group` for the dense list display{% endmarkdown %}
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+## Variables
+
+See `variables/_list-group.scss` for a complete list of variables.  Key variables are below:
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Value</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>$list-group-bg</code>
+      </td>
+      <td>
+        <code>inherit</code>
+      </td>
+      <td>
+        {% markdown %}Original value was `#fff`, but it seemed that too often list-groups needed the background to be inherited from the underlying container.{% endmarkdown %}
+      </td>
+    </tr>
+  </tbody>
+</table>
