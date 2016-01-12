@@ -6,7 +6,7 @@ $mdb-btn-margin-bottom: .3125rem !default; // 5px
 
 // default btn with no specific type designation
 $mdb-btn-color:            $gray-dark !default;
-$mdb-btn-bg:               $body-bg !default; // #fff
+$mdb-btn-bg:               inherit !default; //$body-bg !default; // #fff
 $mdb-btn-border:           #ccc !default;
 
 $mdb-btn-focus-bg: rgba(#999, .20) !default; // spec: bg Hover: 20% #999999

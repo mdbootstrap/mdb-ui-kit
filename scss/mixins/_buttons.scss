@@ -33,12 +33,18 @@
     }
   }
 
-  // when it is an icon, kill the active bg on open dropdown
+  // when it is an icon, kill the active bg on open dropdown, but stabilize on hover
   .open > &.dropdown-toggle.mdb-btn-icon {
+    color: inherit;
     background-color: $background;
+
+    // leave hover on with the lighter focus color
+    &:hover {
+      background-color: $focus-background;
+    }
   }
 
-    &.disabled,
+  &.disabled,
   &:disabled {
     &:focus,
     &.focus {
