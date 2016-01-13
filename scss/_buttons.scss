@@ -121,7 +121,6 @@
     }
   }
 
-
   // Icon buttons
   &.mdb-btn-icon {
     width: $mdb-btn-icon-size;
@@ -156,11 +155,11 @@
   // Size variations
   &.btn-lg,
   .btn-group-lg & {
-    font-size: $mdb-btn-font-size-lg;
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $mdb-btn-font-size-lg, $line-height-lg, $btn-border-radius-lg);
   }
   &.btn-sm,
   .btn-group-sm & {
-    padding: 5px 20px;
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $mdb-btn-font-size-sm, $line-height-sm, $btn-border-radius-sm);
     font-size: $mdb-btn-font-size-sm;
   }
 }

@@ -1,7 +1,7 @@
 // Buttons:
 $mdb-btn-font-size: .875rem !default; // 14px
-$mdb-btn-font-size-lg: 1rem !default;
-$mdb-btn-font-size-sm: .75rem !default; // 12px
+$mdb-btn-font-size-lg: 1.25rem !default;
+$mdb-btn-font-size-sm: .8125rem !default; // 13px
 $mdb-btn-margin-bottom: .3125rem !default; // 5px
 
 // default btn with no specific type designation
@@ -31,8 +31,8 @@ $mdb-btn-icon-font-size-sm: (.75 * $mdb-btn-fab-font-size) !default;
 //
 // For each of Bootstrap's buttons, define text, background and border color.
 
-$btn-padding-x:                  1.875rem !default; // 1rem
-$btn-padding-y:                  .5rem !default; // .375rem
+$btn-padding-x:                  1rem !default; // 1rem
+$btn-padding-y:                  .46875rem !default; // .375rem achieve a 36dp height
 $btn-font-weight:                500 !default; // normal
 //
 //$btn-primary-color:              #fff !default;
@@ -62,7 +62,7 @@ $btn-secondary-bg:               $body-bg !default; // #fff
 //$btn-link-disabled-color:        $gray-light !default;
 //
 //$btn-padding-x-sm:               .75rem !default;
-//$btn-padding-y-sm:               .25rem !default;
+$btn-padding-y-sm:               .40625rem !default; // achieve a 32dp height was .25rem
 //
 //$btn-padding-x-lg:               1.25rem !default;
 //$btn-padding-y-lg:               .75rem !default;
