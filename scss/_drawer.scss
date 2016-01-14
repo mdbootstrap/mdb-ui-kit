@@ -7,7 +7,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 5; // over a header and content
   box-sizing: border-box;
   display: flex;
   height: 100%;
@@ -39,41 +39,65 @@
   }
 }
 
-// FIXME: the below needs to happen if it is the right size OR if the drawer is visible.  Need to look at collapse or collapseInline to see if it can help us here.
+//----------------
+// Sizing and positioning below here
+//
+// TODO create a mixin for the below that can generate a named set of styles so that you can use multiple drawer sizes i.e. something like mdb-layout-drawer-100, mdb-drawer-fixed-right-100, etc.
 
+.mdb-layout-drawer {
+  width: $mdb-layout-drawer-width;
+}
+
+// initial position of drawer (closed)
 .mdb-drawer-fixed-left {
-
-  // Responsive Header
-  > .mdb-layout-header {
-    @include media-breakpoint-up(lg) {
-      width: calc(100% - #{$mdb-layout-drawer-sm});
-      margin-left: $mdb-layout-drawer-sm;
-    }
-  }
 
   // Responsive Drawer Width
   > .mdb-layout-drawer {
-    width: $mdb-layout-drawer-sm;
-    transform: translateX(-$mdb-layout-drawer-sm - 10px); // initially way off screen
-
-    //&.is-visible {
-    //  transform: translateX(0);
-    //  ~ .mdb-layout-content.mdb-layout-content {
-    //    overflow: hidden;
-    //  }
-    //}
-
-    @include media-breakpoint-up(lg) {
-      transform: translateX(0);
-    }
+    transform: translateX(-$mdb-layout-drawer-width - 10px); // initially way off screen
   }
 
   // Responsive Content with fixed drawer
   > .mdb-layout-content {
     margin-left: 0;
+  }
+}
 
-    @include media-breakpoint-up(lg) {
-      margin-left: $mdb-layout-drawer-sm;
+// Marker class for both triggering the opening of the drawer (i.e. javascript #addClass('.mdb-drawer-open')), as well
+//  as responsive sizes (i.e. mdb-drawer-open-md will open once the browser is wider than 768px).
+//
+// To create these, we need iterate over the standard grid breakpoints, but we also need styles for the simpler
+//  `mdb-drawer-open` without a size (for triggered openings).  Since the xs size is 0,
+//  instead of using `mdb-drawer-open-xs` (which is mostly meaningless), we can just use `mdb-drawer-open` a.k.a always open.
+//  Therefore, this will generate: mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
+.mdb-drawer-open {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+
+    $name: "&-#{$breakpoint}";
+    @if $breakpoint == xs {
+      $name: "&";
+    }
+
+    #{unquote($name)} {
+      @include media-breakpoint-up($breakpoint) {
+        //
+        &.mdb-drawer-fixed-left {
+          // Responsive Header
+          > .mdb-layout-header {
+            width: calc(100% - #{$mdb-layout-drawer-width});
+            margin-left: $mdb-layout-drawer-width;
+          }
+
+          // Responsive Drawer Width
+          > .mdb-layout-drawer {
+            transform: translateX(0);
+          }
+
+          // Responsive Content with fixed drawer
+          > .mdb-layout-content {
+            margin-left: $mdb-layout-drawer-width;
+          }
+        }
+      }
     }
   }
 }
