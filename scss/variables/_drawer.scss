@@ -1,11 +1,6 @@
 // Drawer
 $mdb-layout-drawer-bg-color: rgba($grey-50, 1) !default;
-$mdb-layout-text-color: rgba($grey-800, 1) !default;
+$mdb-layout-drawer-text-color: rgba($grey-800, 1) !default;
 
 // Sizing
 $mdb-layout-drawer-sm: 240px !default;
-
-// General layout header height.
-// FIXME: is this really necessary or something to be considered custom?
-$mdb-layout-mobile-header-height: 3.5rem !default; // 56px
-$mdb-layout-desktop-header-height: 4rem !default; // 64px
