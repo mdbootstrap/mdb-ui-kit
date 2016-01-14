@@ -5,45 +5,270 @@ group: material-design
 ---
 
 <!-- Custom styles for this template -->
-<link href="dashboard.css" rel="stylesheet">
+<link href="example.css" rel="stylesheet">
 
+<div class="mdb-layout-container">
+  <div class="mdb-layout mdb-layout-fixed-drawer">
+    <header class="mdb-layout-header">
+      <!--
+      <div class="collapse" id="navbar-header">
+        <div class="container-fluid bg-inverse p-a-1">
+          <h3>Collapsed content</h3>
+          <p>Toggleable via the navbar brand.</p>
+        </div>
+      </div>
+      -->
+      <div class="navbar navbar-light bg-faded navbar-static-top">
+        <!--
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="material-icons">menu</i>
+        </button>
+        -->
+        <ul class="nav navbar-nav">
+          <li class="nav-item">
+            Home
+          </li>
+        </ul>
+        <ul class="nav navbar-nav pull-xs-right">
+          <li class="nav-item">
+            <div class="mdb-form-group mdb-collapse-inline pull-xs-right">
+              <button class="btn mdb-btn-icon" for="search" data-toggle="collapse" data-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
+                <i class="material-icons">search</i>
+              </button>
+              <span id="collapse-search" class="collapse">
+                <input class="form-control" type="text" id="search" placeholder="Enter your query...">
+              </span>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn mdb-btn-icon btn-secondary dropdown-toggle" type="button" id="nav-extras-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons">more_vert</i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-extras-menu">
+                <button class="dropdown-item" type="button">About</button>
+                <button class="dropdown-item" type="button">Contact</button>
+                <button class="dropdown-item" type="button">Legal information</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
 
-<div class="pos-f-t">
-  <!--div class="collapse" id="navbar-header">
-    <div class="container-fluid bg-inverse p-a-1">
-      <h3>Collapsed content</h3>
-      <p>Toggleable via the navbar brand.</p>
+    <div class="mdb-layout-drawer">
+      <header>
+        <img src="images/user.jpg" class="avatar">
+        <div class="account">
+          <span>hello@example.com</span>
+          <div class="dropdown">
+            <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="nav-account-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">arrow_drop_down</i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-account-menu">
+              <a class="dropdown-item">hello@example.com</a>
+              <a class="dropdown-item">info@example.com</a>
+              <a class="dropdown-item"><i class="material-icons">add</i>Add account...</a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <ul class="mdl-navigation list-group">
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">home</i>Home
+        </a>
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">inbox</i>Inbox
+        </a>
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">delete</i>Trash
+        </a>
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">report</i>Spam
+        </a>
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">forum</i>Forums
+        </a>
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">flag</i>Updates
+        </a>
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">local_offer</i>Promos
+        </a>
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">shopping_cart</i>Purchases
+        </a>
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">people</i>Social
+        </a>
+
+        <div class="mdb-layout-spacer"></div>
+
+        <a class="mdb-list-group-item">
+          <i class="material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span>
+        </a>
+      </ul>
     </div>
-  </div-->
-  <div class="navbar navbar-light bg-faded navbar-static-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header">
-      <span class="sr-only">Toggle navigation</span>
-      <i class="material-icons">menu</i>
-    </button>
-    
-    <ul class="nav navbar-nav pull-xs-right">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">
-          <i class="material-icons">search</i>
-        </a>
-        <!--form class="form-inline pull-xs-right">
-          <input class="form-control" type="text" placeholder="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form-->            
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-          <i class="material-icons">more_vert</i>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
 
-<div class="container">
-  <div class="jumbotron">
-    <h1>Navbar example</h1>
-    <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser's viewport.</p>
-    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+    <main class="mdb-layout-content">
+      <div class="container">
+        <div class="alert alert-info" role="alert">
+          This is an implementation of
+          <a href="http://www.getmdl.io/templates/dashboard/index.html">Material Design Lite's dashboard template</a>. It provides a simple way to compare approaches with source code.  Original design and assets credited to the MDL team.
+          <small>(see license)</small>
+          .
+        </div>
+
+        <!-- round charts -->
+        <div class="card card-block">
+          <div class="row">
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
+              <use xlink:href="#piechart" mask="url(#piemask)"/>
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
+                <tspan font-size="0.2" dy="-0.07">%</tspan>
+              </text>
+            </svg>
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
+              <use xlink:href="#piechart" mask="url(#piemask)"/>
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
+                <tspan dy="-0.07" font-size="0.2">%</tspan>
+              </text>
+            </svg>
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
+              <use xlink:href="#piechart" mask="url(#piemask)"/>
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
+                <tspan dy="-0.07" font-size="0.2">%</tspan>
+              </text>
+            </svg>
+            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
+              <use xlink:href="#piechart" mask="url(#piemask)"/>
+              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
+                <tspan dy="-0.07" font-size="0.2">%</tspan>
+              </text>
+            </svg>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-8">
+            <!-- line charts-->
+            <div class="card card-block">
+              <div class="demo-graphs">
+                <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
+                  <use xlink:href="#chart"/>
+                </svg>
+                <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
+                  <use xlink:href="#chart"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 demo-cards">
+
+            <!-- Updates card using header bg image -->
+            <div class="demo-updates card">
+              <div class="card-header">
+                <h2 class="card-title">Updates</h2>
+              </div>
+
+              <div class="card-block">
+                <p class="card-text">Non dolore elit adipisicing ea reprehenderit consectetur culpa.</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn">Read More</a>
+              </div>
+            </div>
+
+
+            <div class="demo-options card">
+              <div class="card-block">
+                <p class="card-title">View options</p>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="chkbox1">
+                    Click per object
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="chkbox2">
+                    Views per object
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="chkbox3">
+                    Objects selected
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" id="chkbox4">
+                    Objects viewed
+                  </label>
+                </div>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn">Change location</a>
+                <i class="material-icons">location_on</i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
   </div>
+  </main>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="position: fixed; left: -1000px; height: -1000px;">
+  <defs>
+    <mask id="piemask" maskContentUnits="objectBoundingBox">
+      <circle cx="0.5" cy="0.5" r="0.49" fill="white"/>
+      <circle cx="0.5" cy="0.5" r="0.40" fill="black"/>
+    </mask>
+    <g id="piechart">
+      <circle cx="0.5" cy="0.5" r="0.5"/>
+      <path d="M 0.5 0.5 0.5 0 A 0.5 0.5 0 0 1 0.95 0.28 z" stroke="none" fill="rgba(255, 255, 255, 0.75)"/>
+    </g>
+  </defs>
+</svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 250" style="position: fixed; left: -1000px; height: -1000px;">
+  <defs>
+    <g id="chart">
+      <g id="Gridlines">
+        <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="27.3" x2="468.3" y2="27.3"/>
+        <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="66.7" x2="468.3" y2="66.7"/>
+        <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="105.3" x2="468.3" y2="105.3"/>
+        <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="144.7" x2="468.3" y2="144.7"/>
+        <line fill="#888888" stroke="#888888" stroke-miterlimit="10" x1="0" y1="184.3" x2="468.3" y2="184.3"/>
+      </g>
+      <g id="Numbers">
+        <text transform="matrix(1 0 0 1 485 29.3333)" fill="#888888" font-family="'Roboto'" font-size="9">500</text>
+        <text transform="matrix(1 0 0 1 485 69)" fill="#888888" font-family="'Roboto'" font-size="9">400</text>
+        <text transform="matrix(1 0 0 1 485 109.3333)" fill="#888888" font-family="'Roboto'" font-size="9">300</text>
+        <text transform="matrix(1 0 0 1 485 149)" fill="#888888" font-family="'Roboto'" font-size="9">200</text>
+        <text transform="matrix(1 0 0 1 485 188.3333)" fill="#888888" font-family="'Roboto'" font-size="9">100</text>
+        <text transform="matrix(1 0 0 1 0 249.0003)" fill="#888888" font-family="'Roboto'" font-size="9">1</text>
+        <text transform="matrix(1 0 0 1 78 249.0003)" fill="#888888" font-family="'Roboto'" font-size="9">2</text>
+        <text transform="matrix(1 0 0 1 154.6667 249.0003)" fill="#888888" font-family="'Roboto'" font-size="9">3</text>
+        <text transform="matrix(1 0 0 1 232.1667 249.0003)" fill="#888888" font-family="'Roboto'" font-size="9">4</text>
+        <text transform="matrix(1 0 0 1 309 249.0003)" fill="#888888" font-family="'Roboto'" font-size="9">5</text>
+        <text transform="matrix(1 0 0 1 386.6667 249.0003)" fill="#888888" font-family="'Roboto'" font-size="9">6</text>
+        <text transform="matrix(1 0 0 1 464.3333 249.0003)" fill="#888888" font-family="'Roboto'" font-size="9">7</text>
+      </g>
+      <g id="Layer_5">
+        <polygon opacity="0.36" stroke-miterlimit="10" points="0,223.3 48,138.5 154.7,169 211,88.5
+              294.5,80.5 380,165.2 437,75.5 469.5,223.3 	">
+      </g>
+      <g id="Layer_4">
+        <polygon stroke-miterlimit="10" points="469.3,222.7 1,222.7 48.7,166.7 155.7,188.3 212,132.7
+              296.7,128 380.7,184.3 436.7,125 	">
+      </g>
+    </g>
+  </defs>
+</svg>
 </div>

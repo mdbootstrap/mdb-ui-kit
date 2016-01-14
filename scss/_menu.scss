@@ -67,11 +67,13 @@
     min-height: $mdb-menu-item-min-height;
 
     flex-flow: row wrap;
+    align-items: center;
 
     padding-top: $mdb-menu-item-padding-top;
     padding-right: $mdb-menu-item-padding-right;
     padding-bottom: $mdb-menu-item-padding-bottom;
     padding-left: $mdb-menu-item-padding-left;
+
 
     // FIXME: multi-line menu word wrapping doesn't work - see the maximum width example in menus.md
     overflow: hidden;

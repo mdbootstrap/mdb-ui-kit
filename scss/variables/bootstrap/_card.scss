@@ -3,10 +3,10 @@
 //$card-spacer-y:            .75rem !default;
 //$card-border-width:        1px !default;
 //$card-border-radius:       $border-radius !default;
-//$card-border-color:        #e5e5e5 !default;
+$card-border-color:        $gray-lighter !default; // #e5e5e5
 //$card-border-radius-inner: $card-border-radius !default;
-//$card-cap-bg:              #f5f5f5 !default;
-//$card-bg:                  #fff !default;
+$card-bg:                  #fff !default;
+$card-cap-bg:              $card-bg !default; // #f5f5f5
 //
 //$card-link-hover-color:    #fff !default;
 //
