@@ -15,7 +15,7 @@ See the <a href="/material-design/buttons">Material Design</a> section for more 
 
 
 
-Provide pagination links for your site or app with the multi-page pagination component, or the simpler [pager alternative](#pager).
+Provide pagination links for your site or app with the multi-page pagination component.
 
 ## Contents
 
