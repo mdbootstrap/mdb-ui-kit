@@ -4,6 +4,8 @@
 //---
 //---
 
+// This scss is written from the override perspective.  Note that when @import'ing, some of this can be more simply accomplished with variable overrides.
+
 $teal-300: #4db6ac !default;
 $grey-100: #f5f5f5 !default;
 $grey-600: #757575 !default;
@@ -119,6 +121,7 @@ a, a:hover {
   align-items: stretch;
 
   .demo-graph {
+    width: 100%; // make sure the svg occupies the available space
     &:nth-child(1) {
       color: #00b9d8;
     }
