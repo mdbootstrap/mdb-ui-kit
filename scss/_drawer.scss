@@ -6,7 +6,6 @@
 .mdb-layout-drawer {
   position: absolute;
   top: 0;
-  left: 0;
   z-index: 5; // over a header and content
   box-sizing: border-box;
   display: flex;
@@ -48,17 +47,25 @@
   width: $mdb-layout-drawer-width;
 }
 
-// initial position of drawer (closed)
 .mdb-drawer-fixed-left {
-
-  // Responsive Drawer Width
   > .mdb-layout-drawer {
-    transform: translateX(-$mdb-layout-drawer-width - 10px); // initially way off screen
+    left: 0;
+    transform: translateX(-$mdb-layout-drawer-width - 10px); // initial position of drawer (closed), way off screen
   }
 
-  // Responsive Content with fixed drawer
   > .mdb-layout-content {
     margin-left: 0;
+  }
+}
+
+.mdb-drawer-fixed-right {
+  > .mdb-layout-drawer {
+    right: 0;
+    transform: translateX($mdb-layout-drawer-width + 10px); // initial position of drawer (closed), way off screen
+  }
+
+  > .mdb-layout-content {
+    margin-right: 0;
   }
 }
 
@@ -77,24 +84,25 @@
       $name: "&";
     }
 
+    // e.g. &, &-sm, &-md, &-lg
     #{unquote($name)} {
       @include media-breakpoint-up($breakpoint) {
-        //
-        &.mdb-drawer-fixed-left {
-          // Responsive Header
-          > .mdb-layout-header {
-            width: calc(100% - #{$mdb-layout-drawer-width});
-            margin-left: $mdb-layout-drawer-width;
-          }
 
-          // Responsive Drawer Width
-          > .mdb-layout-drawer {
-            transform: translateX(0);
-          }
+        // mdb-drawer-fixed-(left and right) styles
+        @each $side in (left right) {
+          &.mdb-drawer-fixed-#{$side} {
+            > .mdb-layout-header {
+              width: calc(100% - #{$mdb-layout-drawer-width});
+              margin-#{$side}: $mdb-layout-drawer-width;
+            }
 
-          // Responsive Content with fixed drawer
-          > .mdb-layout-content {
-            margin-left: $mdb-layout-drawer-width;
+            > .mdb-layout-drawer {
+              transform: translateX(0);
+            }
+
+            > .mdb-layout-content {
+              margin-#{$side}: $mdb-layout-drawer-width;
+            }
           }
         }
       }
