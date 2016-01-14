@@ -1,15 +1,9 @@
-// .mdb-drawer-fixed-left is a marker that both header and content respond to.
-
-//WARNING: VERY MUCH A WORK IN PROGRESS!!!!!!!!!!!!!!!!!!!!
-
 // Drawer.
 .mdb-layout-drawer {
   position: absolute;
-  top: 0;
   z-index: 5; // over a header and content
   box-sizing: border-box;
   display: flex;
-  height: 100%;
   max-height: 100%;
 
   flex-direction: column;
@@ -43,29 +37,51 @@
 //
 // TODO create a mixin for the below that can generate a named set of styles so that you can use multiple drawer sizes i.e. something like mdb-layout-drawer-100, mdb-drawer-fixed-right-100, etc.
 
-.mdb-layout-drawer {
-  width: $mdb-layout-drawer-width;
+// for left or right drawers, setup widths, heights and positions
+@each $side in (left right) {
+  .mdb-drawer-fixed-#{$side} {
+    > .mdb-layout-drawer {
+      // position
+      top: 0;
+      #{$side}: 0;
+
+      width: $mdb-layout-drawer-size;
+      height: 100%;
+
+      @if $side == left {
+        transform: translateX(-$mdb-layout-drawer-size - 10px); // initial position of drawer (closed), way off screen
+      } @else {
+        transform: translateX($mdb-layout-drawer-size + 10px); // initial position of drawer (closed), way off screen
+      }
+    }
+
+    > .mdb-layout-content {
+      margin-#{$side}: 0;
+    }
+  }
 }
 
-.mdb-drawer-fixed-left {
-  > .mdb-layout-drawer {
-    left: 0;
-    transform: translateX(-$mdb-layout-drawer-width - 10px); // initial position of drawer (closed), way off screen
-  }
+// for top or bottom drawers, setup widths, heights and positions
+@each $side in (top bottom) {
+  .mdb-drawer-fixed-#{$side} {
+    > .mdb-layout-drawer {
+      // position
+      #{$side}: 0;
+      left: 0;
 
-  > .mdb-layout-content {
-    margin-left: 0;
-  }
-}
+      width: 100%;
+      height: $mdb-layout-drawer-size;
 
-.mdb-drawer-fixed-right {
-  > .mdb-layout-drawer {
-    right: 0;
-    transform: translateX($mdb-layout-drawer-width + 10px); // initial position of drawer (closed), way off screen
-  }
+      @if $side == top {
+        transform: translateY(-$mdb-layout-drawer-size - 10px); // initial position of drawer (closed), way off screen
+      } @else {
+        transform: translateY($mdb-layout-drawer-size + 10px); // initial position of drawer (closed), way off screen
+      }
+    }
 
-  > .mdb-layout-content {
-    margin-right: 0;
+    > .mdb-layout-content {
+      margin-#{$side}: 0;
+    }
   }
 }
 
@@ -92,8 +108,8 @@
         @each $side in (left right) {
           &.mdb-drawer-fixed-#{$side} {
             > .mdb-layout-header {
-              width: calc(100% - #{$mdb-layout-drawer-width});
-              margin-#{$side}: $mdb-layout-drawer-width;
+              width: calc(100% - #{$mdb-layout-drawer-size});
+              margin-#{$side}: $mdb-layout-drawer-size;
             }
 
             > .mdb-layout-drawer {
@@ -101,7 +117,29 @@
             }
 
             > .mdb-layout-content {
-              margin-#{$side}: $mdb-layout-drawer-width;
+              margin-#{$side}: $mdb-layout-drawer-size;
+            }
+          }
+        }
+
+        // mdb-drawer-fixed-(top and bottom) styles
+        @each $side in (top bottom) {
+          &.mdb-drawer-fixed-#{$side} {
+            > .mdb-layout-header {
+              //height: calc(100% - #{$mdb-layout-drawer-size});
+              @if $side == top { // only add margin-top on a header when the drawer is at the top
+                margin-#{$side}: $mdb-layout-drawer-size;
+              }
+            }
+
+            > .mdb-layout-drawer {
+              transform: translateY(0);
+            }
+
+            > .mdb-layout-content {
+              @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
+                margin-#{$side}: $mdb-layout-drawer-size;
+              }
             }
           }
         }
