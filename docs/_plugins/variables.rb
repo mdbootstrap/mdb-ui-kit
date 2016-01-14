@@ -20,8 +20,8 @@ module Variables
       metadata_files = {
         'bower' => '../bower.json',
         'package' => '../package.json',
-        'bower_jquery' => '../bower_components/jquery/bower.json',
-        'bower_tether' => '../bower_components/tether/bower.json'
+        'bower_jquery' => '../bower_components/jquery/.bower.json',
+        'bower_tether' => '../bower_components/tether/.bower.json'
       }
 
       metadata_files.each do |metadata, path|
@@ -29,12 +29,21 @@ module Variables
         site.data[metadata] = contents
       end
 
-      # some quick access to common variables (instead of diving into package and bower)
+      # validate and provide some quick access to common variables (instead of diving into package and bower)
       name = site.data['package']['name']
+      assert_not_nil :name, name
+
       version = site.data['package']['version']
+      assert_not_nil :version, version
+
       bootstrap_version = site.data['bower']['dependencies']['bootstrap']
+      assert_not_nil :bootstrap_version, bootstrap_version
+
       tether_version = site.data['bower_tether']['version']
+      assert_not_nil :tether_version, tether_version
+
       jquery_version = site.data['bower_jquery']['version']
+      assert_not_nil :jquery_version, jquery_version
 
       site.data['name'] = name
       site.data['version'] = version
@@ -67,6 +76,10 @@ module Variables
       # puts site.data.to_yaml
       # puts repo
       # puts version
+    end
+
+    def assert_not_nil(name, value)
+      raise "Expected #{name} to be not nil." if value.nil?
     end
   end
 end

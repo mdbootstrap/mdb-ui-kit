@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
-#
+
+# for debugging plugins only, otherwise entirely unused.
 
 require 'rubygems'
 
