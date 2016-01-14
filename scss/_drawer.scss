@@ -1,9 +1,6 @@
-// .mdb-layout-fixed-drawer is a marker that both header and content respond to.
-
+// .mdb-drawer-fixed-left is a marker that both header and content respond to.
 
 //WARNING: VERY MUCH A WORK IN PROGRESS!!!!!!!!!!!!!!!!!!!!
-
-
 
 // Drawer.
 .mdb-layout-drawer {
@@ -42,49 +39,42 @@
   }
 }
 
-
 // FIXME: the below needs to happen if it is the right size OR if the drawer is visible.  Need to look at collapse or collapseInline to see if it can help us here.
 
-// Responsive Header with fixed drawer
-.mdb-layout-header {
-  @include media-breakpoint-up(lg) {
-    .mdb-layout-fixed-drawer > & {
+.mdb-drawer-fixed-left {
+
+  // Responsive Header
+  > .mdb-layout-header {
+    @include media-breakpoint-up(lg) {
       width: calc(100% - #{$mdb-layout-drawer-sm});
       margin-left: $mdb-layout-drawer-sm;
     }
   }
-}
 
-// Responsive Drawer Width
-.mdb-layout-drawer {
-  width: $mdb-layout-drawer-sm;
-  transform: translateX(-$mdb-layout-drawer-sm - 10px); // initially way off screen
+  // Responsive Drawer Width
+  > .mdb-layout-drawer {
+    width: $mdb-layout-drawer-sm;
+    transform: translateX(-$mdb-layout-drawer-sm - 10px); // initially way off screen
 
-  //&.is-visible {
-  //  transform: translateX(0);
-  //  ~ .mdb-layout-content.mdb-layout-content {
-  //    overflow: hidden;
-  //  }
-  //}
+    //&.is-visible {
+    //  transform: translateX(0);
+    //  ~ .mdb-layout-content.mdb-layout-content {
+    //    overflow: hidden;
+    //  }
+    //}
 
-  @include media-breakpoint-up(lg) {
-    .mdb-layout-fixed-drawer > & {
+    @include media-breakpoint-up(lg) {
       transform: translateX(0);
     }
   }
-}
 
-// Responsive Content with fixed drawer
-.mdb-layout-content {
-  .mdb-layout-fixed-drawer > & {
+  // Responsive Content with fixed drawer
+  > .mdb-layout-content {
     margin-left: 0;
-  }
 
-  @include media-breakpoint-up(lg) {
-    .mdb-layout-fixed-drawer > & {
+    @include media-breakpoint-up(lg) {
       margin-left: $mdb-layout-drawer-sm;
     }
   }
 }
-
 
