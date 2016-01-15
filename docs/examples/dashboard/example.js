@@ -23,5 +23,24 @@ function setDrawerPosition(position){
         setDrawerPosition('mdb-' + position)
       })
     })
-  }, 10)
+
+    // add a toggle for drawer visibility that shows anytime
+    $('#drawer-visibility').click(function(){
+      var $container = $('.mdb-layout-container')
+
+      // once clicked, just do away with responsive marker
+      $container.removeClass('mdb-drawer-open-md')
+
+      var $icon = $(this).find('.material-icons')
+      if($icon.text() == 'visibility_off'){
+        $container.removeClass('mdb-drawer-open')
+        $icon.text('visibility')
+      }
+      else {
+        $container.addClass('mdb-drawer-open')
+        $icon.text('visibility_off')
+      }
+    })
+
+  }, 100)
 })();
