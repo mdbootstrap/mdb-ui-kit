@@ -117,22 +117,26 @@
         @each $side in (left right) {
 
           &.mdb-drawer-fixed-#{$side}:not(.mdb-drawer-closed) {
-            // 1. Push - drawer will push the header and content
-            > .mdb-layout-header {
-              width: calc(100% - #{$mdb-layout-drawer-size});
-              margin-#{$side}: $mdb-layout-drawer-size;
+
+            // 1. Push - drawer will push the header and content (default behavior)
+            &,
+            &.mdb-drawer-push {
+              > .mdb-layout-header {
+                width: calc(100% - #{$mdb-layout-drawer-size});
+                margin-#{$side}: $mdb-layout-drawer-size;
+              }
+
+              > .mdb-layout-drawer {
+                transform: translateX(0);
+              }
+
+              > .mdb-layout-content {
+                margin-#{$side}: $mdb-layout-drawer-size;
+              }
             }
 
-            > .mdb-layout-drawer {
-              transform: translateX(0);
-            }
-
-            > .mdb-layout-content {
-              margin-#{$side}: $mdb-layout-drawer-size;
-            }
-
-            // 2. Overlay - drawer will overlay content/header push at the pre-configured breakpoint
-            @include media-breakpoint-down($mdb-layout-drawer-x-overlay-breakpoint) {
+            // 2. Overlay - drawer will overlay content/header at the pre-configured breakpoint OR if marked as mdb-drawer-overlay
+            @include media-breakpoint-down-or($mdb-layout-drawer-x-overlay-breakpoint, "&.mdb-drawer-overlay") {
               > .mdb-layout-header,
               > .mdb-layout-content {
                 width: 100%;
@@ -142,6 +146,12 @@
             }
           }
         }
+      }
+
+
+
+      // top bottom
+      #{unquote($name)} { // mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
 
         // mdb-drawer-fixed-(top and bottom) styles
         @each $side in (top bottom) {
