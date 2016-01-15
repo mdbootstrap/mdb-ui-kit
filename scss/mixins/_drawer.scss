@@ -1,1 +1,187 @@
-// nothing yet, there was something, but it wasn't any good, but we expect to put something here soon!
+// Mixins to allow creation of additional custom drawer sizes when using the defaults at the same time
+//
+// Example: creates a media responsive kitchen-sink-drawer that pairs with mdb-drawer-open-lg
+//    @include mdb-drawer-x-closed(500px, ".kitchen-sink-drawer");
+//
+//    .kitchen-sink-drawer:not(.mdb-drawer-closed) {
+//      @include mdb-drawer-x-open-up(500px, lg);
+//    }
+//
+//    <div class="mdb-layout-container mdb-drawer-fixed-left mdb-drawer-overlay-md mdb-drawer-open-lg kitchen-sink-drawer">
+//
+
+// $parent -null or something enclosing it i.e. "&"
+@mixin mdb-drawer-x-closed($size, $parent: "") {
+  @each $side in (left right) {
+    #{unquote($parent)} {
+      &.mdb-drawer-fixed-#{$side} {
+        > .mdb-layout-drawer {
+          // position
+          top: 0;
+          #{$side}: 0;
+
+          width: $size;
+          height: 100%;
+
+          @if $side == left {
+            transform: translateX(-$size - 10px); // initial position of drawer (closed), way off screen
+          } @else {
+            transform: translateX($size + 10px); // initial position of drawer (closed), way off screen
+          }
+        }
+
+        > .mdb-layout-content {
+          margin-#{$side}: 0;
+        }
+      }
+    }
+  }
+}
+
+// $parent -null or something enclosing it i.e. "&"
+@mixin mdb-drawer-y-closed($size, $parent: "") {
+  @each $side in (top bottom) {
+    #{unquote($parent)} {
+      &.mdb-drawer-fixed-#{$side} {
+        > .mdb-layout-drawer {
+          // position
+          #{$side}: 0;
+          left: 0;
+
+          width: 100%;
+          height: $size;
+
+          @if $side == top {
+            transform: translateY(-$size - 10px); // initial position of drawer (closed), way off screen
+          } @else {
+            transform: translateY($size + 10px); // initial position of drawer (closed), way off screen
+          }
+        }
+
+        > .mdb-layout-content {
+          margin-#{$side}: 0;
+        }
+      }
+    }
+  }
+}
+
+@function mdb-drawer-breakpoint-name($breakpoint) {
+  // e.g. &, &-sm, &-md, &-lg
+  $name: "&-#{$breakpoint}";
+  @if $breakpoint == xs {
+    $name: "&";
+  }
+  @return $name;
+}
+
+@mixin mdb-drawer-x-open($size) {
+  @each $side in (left right) {
+
+    &.mdb-drawer-fixed-#{$side} {
+      // Push - drawer will push the header and content (default behavior)
+      &,
+      &.mdb-drawer-push {
+        > .mdb-layout-header {
+          width: calc(100% - #{$size});
+          margin-#{$side}: $size;
+        }
+
+        > .mdb-layout-drawer {
+          transform: translateX(0);
+        }
+
+        > .mdb-layout-content {
+          margin-#{$side}: $size;
+        }
+      }
+    }
+  }
+}
+
+@mixin mdb-drawer-y-open($size) {
+  @each $side in (top bottom) {
+    &.mdb-drawer-fixed-#{$side} {
+
+      // 1. Push - drawer will push the header or content
+      > .mdb-layout-header {
+        @if $side == top { // only add margin-top on a header when the drawer is at the top
+          margin-#{$side}: $size;
+        }
+      }
+
+      > .mdb-layout-drawer {
+        transform: translateY(0);
+      }
+
+      > .mdb-layout-content {
+        @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
+          margin-#{$side}: $size;
+        }
+      }
+    }
+  }
+}
+
+// breakpoint based open to a particular size
+@mixin mdb-drawer-x-open-up($size, $breakpoint) {
+  // e.g. &, &-sm, &-md, &-lg
+  $name: mdb-drawer-breakpoint-name($breakpoint);
+
+  &.mdb-drawer-open {
+    // e.g. &, &-sm, &-md, &-lg
+    #{unquote($name)} { // mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
+
+      @include media-breakpoint-up($breakpoint) {
+
+        // mdb-drawer-fixed-(left and right) styles
+        @include mdb-drawer-x-open($size);
+      }
+    }
+  }
+}
+
+// breakpoint based open to a particular size
+@mixin mdb-drawer-y-open-up($size, $breakpoint) {
+  // e.g. &, &-sm, &-md, &-lg
+  $name: mdb-drawer-breakpoint-name($breakpoint);
+
+  &.mdb-drawer-open {
+    // e.g. &, &-sm, &-md, &-lg
+    #{unquote($name)} { // mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
+
+      @include media-breakpoint-up($breakpoint) {
+        // mdb-drawer-fixed-(top and bottom) styles
+        @include mdb-drawer-y-open($size);
+      }
+    }
+  }
+}
+
+@mixin mdb-drawer-x-overlay($side) {
+  > .mdb-layout-header,
+  > .mdb-layout-content {
+    width: 100%;
+    margin-#{$side}: 0;
+    overflow: hidden;
+  }
+}
+
+@mixin mdb-drawer-y-overlay($side) {
+  > .mdb-layout-header,
+  > .mdb-layout-content {
+    overflow: hidden;
+  }
+
+  > .mdb-layout-header {
+    @if $side == top { // only add margin-top on a header when the drawer is at the top
+      margin-#{$side}: 0;
+    }
+  }
+
+  > .mdb-layout-content {
+    @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
+      margin-#{$side}: 0;
+    }
+  }
+}
