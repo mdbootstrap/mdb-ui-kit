@@ -6,6 +6,7 @@ group: material-design
 
 <!-- Custom styles for this template -->
 <link href="example.css" rel="stylesheet">
+<script src="example.js"></script>
 
 <div class="mdb-layout-canvas">
   <div class="mdb-layout-container mdb-drawer-fixed-left mdb-drawer-open-md">
@@ -31,6 +32,28 @@ group: material-design
           </li>
         </ul>
         <ul class="nav navbar-nav pull-xs-right">
+          <li class="nav-item">
+            <button class="btn mdb-btn-icon" title="Drawer left" id="drawer-fixed-left">
+              <i class="material-icons">border_left</i>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="btn mdb-btn-icon" title="Drawer right" id="drawer-fixed-right">
+              <i class="material-icons">border_right</i>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="btn mdb-btn-icon" title="Drawer top" id="drawer-fixed-top">
+              <i class="material-icons">border_top</i>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="btn mdb-btn-icon" title="Drawer bottom" id="drawer-fixed-bottom">
+              <i class="material-icons">border_bottom</i>
+            </button>
+          </li>
+
+
           <li class="nav-item">
             <div class="mdb-form-group mdb-collapse-inline pull-xs-right">
               <button class="btn mdb-btn-icon" for="search" data-toggle="collapse" data-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
@@ -116,8 +139,7 @@ group: material-design
         <div class="alert alert-info" role="alert">
           This is an implementation of
           <a href="http://www.getmdl.io/templates/dashboard/index.html">Material Design Lite's dashboard template</a>. It provides a simple way to compare approaches with source code. Original design and assets credited to the MDL team.
-          <small>(see license)</small>
-          .
+          <small>(see license)</small>.  Additional functionality showing drawer placement is an MDB only feature. See the icons in the navbar.
         </div>
 
         <!-- round charts -->
