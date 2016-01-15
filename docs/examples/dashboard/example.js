@@ -29,7 +29,7 @@ function setDrawerPosition(position){
       var $container = $('.mdb-layout-container')
 
       // once clicked, just do away with responsive marker
-      $container.removeClass('mdb-drawer-open-md')
+      //$container.removeClass('mdb-drawer-open-md')
 
       var $icon = $(this).find('.material-icons')
       if($icon.text() == 'visibility_off'){

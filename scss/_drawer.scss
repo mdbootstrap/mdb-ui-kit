@@ -36,6 +36,7 @@
 // Sizing and positioning below here
 //
 // TODO create a mixin for the below that can generate a named set of styles so that you can use multiple drawer sizes i.e. something like mdb-layout-drawer-100, mdb-drawer-fixed-right-100, etc.
+// These should definitely be passed in as args: $mdb-layout-drawer-x-overlay-breakpoint, $mdb-layout-drawer-size
 
 // for left or right drawers, setup widths, heights and positions
 @each $side in (left right) {
@@ -118,6 +119,16 @@
 
             > .mdb-layout-content {
               margin-#{$side}: $mdb-layout-drawer-size;
+            }
+
+            // switch drawer to overlay instead of a content/header push at the pre-configured breakpoint
+            @include media-breakpoint-down($mdb-layout-drawer-x-overlay-breakpoint) {
+              > .mdb-layout-header,
+              > .mdb-layout-content {
+                width: 100%;
+                margin-#{$side}: 0;
+                overflow: hidden;
+              }
             }
           }
         }

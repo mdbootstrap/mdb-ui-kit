@@ -26,7 +26,7 @@
 // Header layout (fixed top), belongs in a mdb-layout-container
 .mdb-layout-header {
   // FIXME: it would be nice to stick this directly on a .navbar, but .navbars are not flex ready, so this is relegated to be a container at this time.
-  z-index: 2; // above content
+  z-index: 3;
   display: flex;
   width: 100%;
   max-height: 1000px;
