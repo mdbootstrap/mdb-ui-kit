@@ -2,9 +2,5 @@
 $mdb-layout-drawer-bg-color: rgba($grey-50, 1) !default;
 $mdb-layout-drawer-text-color: rgba($grey-800, 1) !default;
 
-// when media-breakpoint-down(md), make the drawer overlay instead of push the content/header (left right)
-// note: a good combo appears to be mdb-drawer-open-lg and md for the value below
-$mdb-layout-drawer-x-overlay-breakpoint: md;
-
 // Sizing
 $mdb-layout-drawer-size: 240px !default;

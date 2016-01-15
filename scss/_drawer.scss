@@ -1,3 +1,5 @@
+// Implementation specification in https://github.com/FezVrasta/bootstrap-material-design/issues/822
+
 // Drawer.
 .mdb-layout-drawer {
   position: absolute;
@@ -89,96 +91,164 @@
 // Marker class for both triggering the opening of the drawer (i.e. javascript #addClass('.mdb-drawer-open')), as well
 //  as responsive sizes (i.e. mdb-drawer-open-md will open once the browser is wider than 768px).
 //
-// To create these, we need iterate over the standard grid breakpoints, but we also need styles for the simpler
-//  `mdb-drawer-open` without a size (for triggered openings).  Since the xs size is 0,
-//  instead of using `mdb-drawer-open-xs` (which is mostly meaningless), we can just use `mdb-drawer-open`
-//  a.k.a always open.
-//  Therefore, this will generate: mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
+//
+// mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
+//  We iterate over the standard grid breakpoints, but we also need styles for the simpler `mdb-drawer-open`
+//  without a size (for triggered openings).  Since the xs size is 0, instead of using `mdb-drawer-open-xs`
+//  (which is mostly meaningless), we create `mdb-drawer-open` meaning always open.
+//
+//  NOTE: mdb-drawer-open-* uses media-breakpoint-up()
+//
 //
 // mdb-drawer-closed
-//  Note that this also makes a provision for mdb-drawer-closed, a marker class that will _force_ the drawer closed,
-//  regardless of the responsive class present. If (for some strange reason) both mdb-drawer-closed and mdb-drawer-open
-//  are present, it appears that the closed option wins.
+//  A marker class that will _force_ the drawer closed regardless of the responsive class present. If (for some
+//  strange reason) both mdb-drawer-closed and mdb-drawer-open are present, it appears that the closed option wins.
 //
-.mdb-drawer-open {
+//
+// mdb-drawer-overlay, mdb-drawer-overlay-sm, mdb-drawer-overlay-md, mdb-drawer-overlay-lg
+//  We iterate over the standard grid breakpoints, but we also need styles for the simpler `mdb-drawer-overlay`.
+//  Since the xs size is 0, instead of using `mdb-drawer-overlay-xs`, we create `mdb-drawer-overlay` meaning always overlay.
+//
+//  NOTE: mdb-drawer-overlay-* uses media-breakpoint-down() - this is because we usually want a responsive overlay to be used in small screen scenarios.
+//
+
+
+//
+// Drawer open positioning, and style options (push is default, overlay is optional)
+//  - first eliminate positioning or sizing rules if the drawer is already forced closed (which is the default behavior above)
+:not(.mdb-drawer-closed) {
+
   @each $breakpoint in map-keys($grid-breakpoints) {
 
+    // e.g. &, &-sm, &-md, &-lg
     $name: "&-#{$breakpoint}";
     @if $breakpoint == xs {
       $name: "&";
     }
 
-    // e.g. &, &-sm, &-md, &-lg
-    #{unquote($name)} { // mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
+    &.mdb-drawer-open {
+      $name: "&-#{$breakpoint}";
+      @if $breakpoint == xs {
+        $name: "&";
+      }
+      // e.g. &, &-sm, &-md, &-lg
+      #{unquote($name)} { // mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
 
-      @include media-breakpoint-up($breakpoint) {
+        @include media-breakpoint-up($breakpoint) {
 
-        // mdb-drawer-fixed-(left and right) styles
-        @each $side in (left right) {
+          // mdb-drawer-fixed-(left and right) styles
+          @each $side in (left right) {
 
-          &.mdb-drawer-fixed-#{$side}:not(.mdb-drawer-closed) {
+            &.mdb-drawer-fixed-#{$side} {
 
-            // 1. Push - drawer will push the header and content (default behavior)
-            &,
-            &.mdb-drawer-push {
-              > .mdb-layout-header {
-                width: calc(100% - #{$mdb-layout-drawer-size});
-                margin-#{$side}: $mdb-layout-drawer-size;
-              }
+              // 1. Push - drawer will push the header and content (default behavior)
+              &,
+              &.mdb-drawer-push {
+                > .mdb-layout-header {
+                  width: calc(100% - #{$mdb-layout-drawer-size});
+                  margin-#{$side}: $mdb-layout-drawer-size;
+                }
 
-              > .mdb-layout-drawer {
-                transform: translateX(0);
-              }
+                > .mdb-layout-drawer {
+                  transform: translateX(0);
+                }
 
-              > .mdb-layout-content {
-                margin-#{$side}: $mdb-layout-drawer-size;
-              }
-            }
-
-            // 2. Overlay - drawer will overlay content/header at the pre-configured breakpoint OR if marked as mdb-drawer-overlay
-            @include media-breakpoint-down-or($mdb-layout-drawer-x-overlay-breakpoint, "&.mdb-drawer-overlay") {
-              > .mdb-layout-header,
-              > .mdb-layout-content {
-                width: 100%;
-                margin-#{$side}: 0;
-                overflow: hidden;
+                > .mdb-layout-content {
+                  margin-#{$side}: $mdb-layout-drawer-size;
+                }
               }
             }
           }
-        }
-      }
 
+          // mdb-drawer-fixed-(top and bottom) styles
+          @each $side in (top bottom) {
 
+            &.mdb-drawer-fixed-#{$side} {
 
-      // top bottom
-      #{unquote($name)} { // mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
-
-        // mdb-drawer-fixed-(top and bottom) styles
-        @each $side in (top bottom) {
-
-          &.mdb-drawer-fixed-#{$side}:not(.mdb-drawer-closed) {
-
-            // 1. Push - drawer will push the header or content
-            > .mdb-layout-header {
-              //height: calc(100% - #{$mdb-layout-drawer-size});
-              @if $side == top { // only add margin-top on a header when the drawer is at the top
-                margin-#{$side}: $mdb-layout-drawer-size;
+              // 1. Push - drawer will push the header or content
+              > .mdb-layout-header {
+                //height: calc(100% - #{$mdb-layout-drawer-size});
+                @if $side == top { // only add margin-top on a header when the drawer is at the top
+                  margin-#{$side}: $mdb-layout-drawer-size;
+                }
               }
-            }
 
-            > .mdb-layout-drawer {
-              transform: translateY(0);
-            }
+              > .mdb-layout-drawer {
+                transform: translateY(0);
+              }
 
-            > .mdb-layout-content {
-              @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
-                margin-#{$side}: $mdb-layout-drawer-size;
+              > .mdb-layout-content {
+                @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
+                  margin-#{$side}: $mdb-layout-drawer-size;
+                }
               }
             }
           }
         }
       }
     }
+
+    //
+    // Overlay - left/right responsive overlay classes and marker class
+    //
+    @mixin drawer-x-overlay($side) {
+      > .mdb-layout-header,
+      > .mdb-layout-content {
+        width: 100%;
+        margin-#{$side}: 0;
+        overflow: hidden;
+      }
+    }
+    //@mixin drawer-y-overlay($side) {
+    //  > .mdb-layout-header,
+    //  > .mdb-layout-content {
+    //    width: 100%;
+    //    margin-#{$side}: 0;
+    //    overflow: hidden;
+    //  }
+    //}
+
+    &.mdb-drawer-overlay {
+      #{unquote($name)} { // mdb-drawer-overlay, mdb-drawer-overlay-sm, mdb-drawer-overlay-md, mdb-drawer-overlay-lg
+
+        // x - left/right
+        @each $side in (left right) {
+          &.mdb-drawer-fixed-#{$side} {
+
+            @if $breakpoint == xs { // overlay marker class (non-responsive)
+
+              // Must double up on the .mdb-drawer-overlay class to increase specificity otherwise the
+              //  responsive mdb-drawer-open-* media queries above win (and overlay is ignored)
+              &.mdb-drawer-overlay {
+                @include drawer-x-overlay($side)
+              }
+            } @else {
+              @include media-breakpoint-down($breakpoint) { // overlay responsive class
+                @include drawer-x-overlay($side)
+              }
+            }
+          }
+        }
+
+        //// y - top/bottom
+        //@each $side in (top bottom) {
+        //  &.mdb-drawer-fixed-#{$side} {
+        //
+        //    @if $breakpoint == xs { // overlay marker class (non-responsive)
+        //
+        //      // Must double up on the .mdb-drawer-overlay class to increase specificity otherwise the
+        //      //  responsive mdb-drawer-open-* media queries above win (and overlay is ignored)
+        //      &.mdb-drawer-overlay {
+        //        @include drawer-y-overlay($side)
+        //      }
+        //    } @else {
+        //      @include media-breakpoint-down($breakpoint) { // overlay responsive class
+        //        @include drawer-y-overlay($side)
+        //      }
+        //    }
+        //  }
+        //}
+      }
+    }
   }
 }
-
