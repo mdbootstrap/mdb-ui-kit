@@ -2,6 +2,7 @@
 layout: example
 title: Signin Template
 group: material-design
+js: example.js
 ---
 
 <!-- Custom styles for this template -->
@@ -29,22 +30,3 @@ group: material-design
   </form>
 
 </div>
-
-
-
-<script>
-
-  /*
-  $(function() { 
-    $('#inputEmail').focus()
-  })
-  */
-
-  // jquery not loaded yet due to the nature of this jekyll page rendering setup so this is more complicated than normally necessary!
-  document.addEventListener("DOMContentLoaded", function(event) { 
-    setTimeout(function(){
-      // hopefully by now jquery is initialized
-      $('#inputEmail').focus()
-    }, 1);
-  })
-</script>

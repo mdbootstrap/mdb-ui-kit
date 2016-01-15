@@ -64,7 +64,7 @@
 
 // for top or bottom drawers, setup widths, heights and positions
 @each $side in (top bottom) {
-  .mdb-drawer-fixed-#{$side} {
+  .mdb-drawer-fixed-#{$side} { // style to force closed in all responsive cases
     > .mdb-layout-drawer {
       // position
       #{$side}: 0;
@@ -91,8 +91,15 @@
 //
 // To create these, we need iterate over the standard grid breakpoints, but we also need styles for the simpler
 //  `mdb-drawer-open` without a size (for triggered openings).  Since the xs size is 0,
-//  instead of using `mdb-drawer-open-xs` (which is mostly meaningless), we can just use `mdb-drawer-open` a.k.a always open.
+//  instead of using `mdb-drawer-open-xs` (which is mostly meaningless), we can just use `mdb-drawer-open`
+//  a.k.a always open.
 //  Therefore, this will generate: mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
+//
+// mdb-drawer-closed
+//  Note that this also makes a provision for mdb-drawer-closed, a marker class that will _force_ the drawer closed,
+//  regardless of the responsive class present. If (for some strange reason) both mdb-drawer-closed and mdb-drawer-open
+//  are present, it appears that the closed option wins.
+//
 .mdb-drawer-open {
   @each $breakpoint in map-keys($grid-breakpoints) {
 
@@ -102,12 +109,15 @@
     }
 
     // e.g. &, &-sm, &-md, &-lg
-    #{unquote($name)} {
+    #{unquote($name)} { // mdb-drawer-open, mdb-drawer-open-sm, mdb-drawer-open-md, mdb-drawer-open-lg
+
       @include media-breakpoint-up($breakpoint) {
 
         // mdb-drawer-fixed-(left and right) styles
         @each $side in (left right) {
-          &.mdb-drawer-fixed-#{$side} {
+
+          &.mdb-drawer-fixed-#{$side}:not(.mdb-drawer-closed) {
+            // 1. Push - drawer will push the header and content
             > .mdb-layout-header {
               width: calc(100% - #{$mdb-layout-drawer-size});
               margin-#{$side}: $mdb-layout-drawer-size;
@@ -121,7 +131,7 @@
               margin-#{$side}: $mdb-layout-drawer-size;
             }
 
-            // switch drawer to overlay instead of a content/header push at the pre-configured breakpoint
+            // 2. Overlay - drawer will overlay content/header push at the pre-configured breakpoint
             @include media-breakpoint-down($mdb-layout-drawer-x-overlay-breakpoint) {
               > .mdb-layout-header,
               > .mdb-layout-content {
@@ -135,7 +145,10 @@
 
         // mdb-drawer-fixed-(top and bottom) styles
         @each $side in (top bottom) {
-          &.mdb-drawer-fixed-#{$side} {
+
+          &.mdb-drawer-fixed-#{$side}:not(.mdb-drawer-closed) {
+
+            // 1. Push - drawer will push the header or content
             > .mdb-layout-header {
               //height: calc(100% - #{$mdb-layout-drawer-size});
               @if $side == top { // only add margin-top on a header when the drawer is at the top

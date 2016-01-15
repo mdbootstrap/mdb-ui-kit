@@ -20,3 +20,8 @@
     $('body').bootstrapMaterialDesign()
   })
 </script>
+
+
+{% if page.js %}
+  <script src="{{ page.js }}"></script>
+{% endif %}
