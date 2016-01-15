@@ -199,14 +199,24 @@
         overflow: hidden;
       }
     }
-    //@mixin drawer-y-overlay($side) {
-    //  > .mdb-layout-header,
-    //  > .mdb-layout-content {
-    //    width: 100%;
-    //    margin-#{$side}: 0;
-    //    overflow: hidden;
-    //  }
-    //}
+    @mixin drawer-y-overlay($side) {
+      > .mdb-layout-header,
+      > .mdb-layout-content {
+        overflow: hidden;
+      }
+
+      > .mdb-layout-header {
+        @if $side == top { // only add margin-top on a header when the drawer is at the top
+          margin-#{$side}: 0;
+        }
+      }
+
+      > .mdb-layout-content {
+        @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
+          margin-#{$side}: 0;
+        }
+      }
+    }
 
     &.mdb-drawer-overlay {
       #{unquote($name)} { // mdb-drawer-overlay, mdb-drawer-overlay-sm, mdb-drawer-overlay-md, mdb-drawer-overlay-lg
@@ -231,23 +241,23 @@
         }
 
         //// y - top/bottom
-        //@each $side in (top bottom) {
-        //  &.mdb-drawer-fixed-#{$side} {
-        //
-        //    @if $breakpoint == xs { // overlay marker class (non-responsive)
-        //
-        //      // Must double up on the .mdb-drawer-overlay class to increase specificity otherwise the
-        //      //  responsive mdb-drawer-open-* media queries above win (and overlay is ignored)
-        //      &.mdb-drawer-overlay {
-        //        @include drawer-y-overlay($side)
-        //      }
-        //    } @else {
-        //      @include media-breakpoint-down($breakpoint) { // overlay responsive class
-        //        @include drawer-y-overlay($side)
-        //      }
-        //    }
-        //  }
-        //}
+        @each $side in (top bottom) {
+          &.mdb-drawer-fixed-#{$side} {
+
+            @if $breakpoint == xs { // overlay marker class (non-responsive)
+
+              // Must double up on the .mdb-drawer-overlay class to increase specificity otherwise the
+              //  responsive mdb-drawer-open-* media queries above win (and overlay is ignored)
+              &.mdb-drawer-overlay {
+                @include drawer-y-overlay($side)
+              }
+            } @else {
+              @include media-breakpoint-down($breakpoint) { // overlay responsive class
+                @include drawer-y-overlay($side)
+              }
+            }
+          }
+        }
       }
     }
   }
