@@ -49,8 +49,14 @@ const BootstrapMaterialDesign = (($) => {
     collapseInline: {
       selector: '.mdb-collapse-inline [data-toggle="collapse"]'
     },
+    drawerToggle: {
+      selector: '[data-toggle="drawer"]'
+    },
     file: {
       selector: 'input[type=file]'
+    },
+    layout: {
+      selector: '.mdb-layout-container'
     },
     radio: {
       selector: '.radio > label > input[type=radio]'
@@ -90,6 +96,8 @@ const BootstrapMaterialDesign = (($) => {
       'checkbox',
       'checkboxInline',
       'collapseInline',
+      'layout',
+      'drawerToggle',
       'file',
       'radio',
       'radioInline',

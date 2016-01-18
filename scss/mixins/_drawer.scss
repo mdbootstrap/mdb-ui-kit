@@ -91,20 +91,17 @@
 
     &.mdb-drawer-fixed-#{$side} {
       // Push - drawer will push the header and content (default behavior)
-      &,
-      &.mdb-drawer-push {
-        > .mdb-layout-header {
-          width: calc(100% - #{$size});
-          margin-#{$side}: $size;
-        }
+      > .mdb-layout-header {
+        width: calc(100% - #{$size});
+        margin-#{$side}: $size;
+      }
 
-        > .mdb-layout-drawer {
-          transform: translateX(0);
-        }
+      > .mdb-layout-drawer {
+        transform: translateX(0);
+      }
 
-        > .mdb-layout-content {
-          margin-#{$side}: $size;
-        }
+      > .mdb-layout-content {
+        margin-#{$side}: $size;
       }
     }
   }
@@ -181,6 +178,8 @@
 }
 
 @mixin mdb-drawer-x-overlay() {
+  @include mdb-layout-overlay-backdrop-in();
+
   @each $side in (left right) {
     &.mdb-drawer-fixed-#{$side} {
       > .mdb-layout-header,
@@ -193,6 +192,8 @@
 }
 
 @mixin mdb-drawer-y-overlay() {
+  @include mdb-layout-overlay-backdrop-in();
+
   @each $side in (top bottom) {
     &.mdb-drawer-fixed-#{$side} {
       > .mdb-layout-header {

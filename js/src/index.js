@@ -22,6 +22,9 @@ import Switch from './switch'
 import Text from './text'
 import Textarea from './textarea'
 
+import Layout from './layout'
+import DrawerToggle from './drawerToggle'
+
 import Ripples from './ripples'
 import Autofill from './autofill'
 import BootstrapMaterialDesign from './bootstrapMaterialDesign'

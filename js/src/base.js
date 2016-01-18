@@ -3,19 +3,12 @@ import Util from './util'
 const Base = (($) => {
 
   const ClassName = {
-    //FORM_GROUP: 'form-group',
     MDB_FORM_GROUP: 'mdb-form-group',
-    //MDB_LABEL: 'mdb-label',
-    //MDB_LABEL_STATIC: 'mdb-label-static',
-    //MDB_LABEL_PLACEHOLDER: 'mdb-label-placeholder',
-    //MDB_LABEL_FLOATING: 'mdb-label-floating',
-    //HAS_DANGER: 'has-danger',
     IS_FILLED: 'is-filled',
     IS_FOCUSED: 'is-focused'
   }
 
   const Selector = {
-    //FORM_GROUP: `.${ClassName.FORM_GROUP}`,
     MDB_FORM_GROUP: `.${ClassName.MDB_FORM_GROUP}`
   }
 
