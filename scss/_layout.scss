@@ -46,3 +46,8 @@
   -webkit-overflow-scrolling: touch; // TODO: why?
 }
 
+// Pushes content to the other end
+.mdb-layout-spacer {
+  flex-grow: 1;
+}
+

@@ -7,8 +7,9 @@
 // - triple line 88dp
 
 .list-group {
-  // Add 8dp of padding at the top and bottom of a list. One exception is at the top of a list with a subheader,
-  //because subheaders contain their own padding.
+  display: flex;
+  flex-direction: column;
+  // Add 8dp of padding at the top and bottom of a list. One exception is at the top of a list with a subheader, because subheaders contain their own padding.
   padding: .5rem 0;
 
   // dense size variation
