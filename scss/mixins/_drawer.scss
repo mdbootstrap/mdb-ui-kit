@@ -187,7 +187,6 @@
       > .mdb-layout-content {
         width: 100%;
         margin-#{$side}: 0;
-        overflow: hidden;
       }
     }
   }
@@ -196,11 +195,6 @@
 @mixin mdb-drawer-y-overlay() {
   @each $side in (top bottom) {
     &.mdb-drawer-fixed-#{$side} {
-      > .mdb-layout-header,
-      > .mdb-layout-content {
-        overflow: hidden;
-      }
-
       > .mdb-layout-header {
         @if $side == top { // only add margin-top on a header when the drawer is at the top
           margin-#{$side}: 0;
