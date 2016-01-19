@@ -23,7 +23,7 @@ import Text from './text'
 import Textarea from './textarea'
 
 import Layout from './layout'
-import DrawerToggle from './drawerToggle'
+import DrawerToggle from './drawer'
 
 import Ripples from './ripples'
 import Autofill from './autofill'

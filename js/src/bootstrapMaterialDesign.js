@@ -49,8 +49,8 @@ const BootstrapMaterialDesign = (($) => {
     collapseInline: {
       selector: '.mdb-collapse-inline [data-toggle="collapse"]'
     },
-    drawerToggle: {
-      selector: '[data-toggle="drawer"]'
+    drawer: {
+      selector: '.mdb-layout-drawer'
     },
     file: {
       selector: 'input[type=file]'
@@ -97,7 +97,7 @@ const BootstrapMaterialDesign = (($) => {
       'checkboxInline',
       'collapseInline',
       'layout',
-      'drawerToggle',
+      'drawer',
       'file',
       'radio',
       'radioInline',
@@ -153,6 +153,7 @@ const BootstrapMaterialDesign = (($) => {
           } catch (e) {
             let message = `Failed to instantiate component: $('${selector}')[${jqueryFn}](${componentConfig})`
             console.error(message, e, `\nSelected elements: `, $(selector)) // eslint-disable-line no-console
+            throw e
           }
         }
       }
