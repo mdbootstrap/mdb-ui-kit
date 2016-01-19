@@ -66,7 +66,7 @@
     "markdown-it": "^5.0.0",
     "mq4-hover-shim": "^0.3.0",
     "npm-shrinkwrap": "^200.1.0",
-    "rollup": "^0.22",
+    "rollup": "^0.25",
     "rollup-plugin-babel": "^2.3",
     "rollup-plugin-multi-entry": "^1.0",
     "time-grunt": "^1.2.1"
