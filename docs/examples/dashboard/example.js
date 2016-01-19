@@ -1,5 +1,5 @@
 function clearDrawerClasses($container) {
-  var classes = ["mdb-drawer-fixed-left", "mdb-drawer-fixed-right", "mdb-drawer-fixed-top", "mdb-drawer-fixed-bottom"];
+  var classes = ["mdb-drawer-pos-f-l", "mdb-drawer-pos-f-r", "mdb-drawer-pos-f-t", "mdb-drawer-pos-f-b"];
 
   $.each(classes, function (index, value) {
     $container.removeClass(value)
@@ -14,7 +14,7 @@ function setDrawerPosition(position) {
 }
 
 $(document).ready(function() { // document ready is a little convoluted because this executes before jquery.
-  var buttons = ["drawer-fixed-left", "drawer-fixed-right", "drawer-fixed-top", "drawer-fixed-bottom"]
+  var buttons = ["drawer-pos-f-l", "drawer-pos-f-r", "drawer-pos-f-t", "drawer-pos-f-b"]
 
   $.each(buttons, function (index, position) {
     $('#' + position).click(function() {

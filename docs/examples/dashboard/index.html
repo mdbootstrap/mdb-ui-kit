@@ -9,7 +9,7 @@ js: example.js
 <link href="example.css" rel="stylesheet">
 
 <div class="mdb-layout-canvas">
-  <div class="mdb-layout-container mdb-drawer-fixed-left mdb-drawer-overlay-md-down mdb-drawer-in-lg-up">
+  <div class="mdb-layout-container mdb-drawer-pos-f-l mdb-drawer-overlay-md-down mdb-drawer-in-lg-up">
     <header class="mdb-layout-header">
       <!--
       <div class="collapse" id="navbar-header">
@@ -20,12 +20,10 @@ js: example.js
       </div>
       -->
       <div class="navbar navbar-light bg-faded navbar-static-top">
-        <!--
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header">
-          <span class="sr-only">Toggle navigation</span>
+        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbar-header">
+          <span class="sr-only">Toggle drawer</span>
           <i class="material-icons">menu</i>
         </button>
-        -->
         <ul class="nav navbar-nav">
           <li class="nav-item">
             Home
@@ -38,22 +36,22 @@ js: example.js
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn mdb-btn-icon" title="Drawer left" id="drawer-fixed-left">
+            <button class="btn mdb-btn-icon" title="Drawer left" id="drawer-pos-f-l">
               <i class="material-icons">border_left</i>
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn mdb-btn-icon" title="Drawer right" id="drawer-fixed-right">
+            <button class="btn mdb-btn-icon" title="Drawer right" id="drawer-pos-f-r">
               <i class="material-icons">border_right</i>
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn mdb-btn-icon" title="Drawer top" id="drawer-fixed-top">
+            <button class="btn mdb-btn-icon" title="Drawer top" id="drawer-pos-f-t">
               <i class="material-icons">border_top</i>
             </button>
           </li>
           <li class="nav-item">
-            <button class="btn mdb-btn-icon" title="Drawer bottom" id="drawer-fixed-bottom">
+            <button class="btn mdb-btn-icon" title="Drawer bottom" id="drawer-pos-f-b">
               <i class="material-icons">border_bottom</i>
             </button>
           </li>
