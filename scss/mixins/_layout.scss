@@ -1,4 +1,5 @@
-@mixin mdb-layout-overlay-backdrop-in() {
+// Generates the `.in` style for the generic backdrop used components such as the drawer in overlay mode
+@mixin mdb-layout-backdrop-in() {
 
   > .mdb-layout-backdrop {
     .in {

@@ -27,17 +27,17 @@ $(document).ready(function() { // document ready is a little convoluted because 
     var $container = $('.mdb-layout-container')
 
     // once clicked, just do away with responsive marker
-    //$container.removeClass('mdb-drawer-open-md')
+    //$container.removeClass('mdb-drawer-in-md')
 
     var $icon = $(this).find('.material-icons')
     if ($icon.text() == 'visibility_off') {
-      $container.addClass('mdb-drawer-closed')
-      $container.removeClass('mdb-drawer-open') // demo only, regardless of the responsive class, we want to force it close
+      $container.addClass('mdb-drawer-out')
+      $container.removeClass('mdb-drawer-in') // demo only, regardless of the responsive class, we want to force it close
       $icon.text('visibility')
     }
     else {
-      $container.removeClass('mdb-drawer-closed')
-      $container.addClass('mdb-drawer-open') // demo only, regardless of the responsive class, we want to force it open
+      $container.removeClass('mdb-drawer-out')
+      $container.addClass('mdb-drawer-in') // demo only, regardless of the responsive class, we want to force it open
       $icon.text('visibility_off')
     }
   })
