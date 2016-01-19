@@ -2,30 +2,30 @@
 //
 
 //----
-// Example 1: creates a media responsive kitchen-sink-drawer that pairs with mdb-drawer-in-lg and allows for triggers mdb-drawer-in && mdb-drawer-out
+// Example 1: creates a media responsive kitchen-sink-drawer that pairs with mdb-drawer-in-lg and allows for the mdb-drawer-in trigger
 //
-// Used with <div class="mdb-layout-container mdb-drawer-pos-f-l mdb-drawer-overlay-md mdb-drawer-in-lg kitchen-sink-drawer">
+// Used with <div class="mdb-layout-container mdb-drawer-pos-f-l mdb-drawer-overlay-md-down mdb-drawer-in-lg-up kitchen-sink-drawer">
 //
-//    .kitchen-sink-drawer:not(.mdb-drawer-out) {
-//      @each $breakpoint in (xs lg) {
-//        // xs gives us the static marker class i.e. mdb-drawer-in && mdb-drawer-out, while lg gives us a responsive open/overlay
-//        @include mdb-drawer-x-closed(500px);
-//        @include mdb-drawer-x-open-up(500px, $breakpoint);
-//      }
-//      // Create a responsive overlay at mdb-drawer-overlay-md - this specificity is required
-//      @include mdb-drawer-x-overlay-down(md);
-//    }
-
+//.kitchen-sink-drawer {
+//  @each $breakpoint in (xs lg) {
+//    // xs gives us the static marker class i.e. mdb-drawer-in, while lg gives us a responsive open/overlay
+//    @include mdb-drawer-x-closed(500px);
+//    @include mdb-drawer-x-open-up(500px, $breakpoint);
+//  }
+//  // Create a responsive overlay at mdb-drawer-overlay-md-down - this specificity is required
+//  @include mdb-drawer-x-overlay-down(md);
+//}
+//
 //----
-// Example 2: creates a NON-responsive kitchen-sink-drawer and allows for triggers mdb-drawer-in && mdb-drawer-out
+// Example 2: creates a NON-responsive kitchen-sink-drawer and allows for the mdb-drawer-in trigger
 //
 // Used with <div class="mdb-layout-container mdb-drawer-pos-f-l mdb-drawer-in kitchen-sink-drawer-triggered">
 //
-//    .kitchen-sink-drawer-triggered:not(.mdb-drawer-out) {
-//      @include mdb-drawer-x-closed(500px); // closed by default, also can be triggered with mdb-drawer-out
-//      @include mdb-drawer-x-open(500px); // triggered with mdb-drawer-in
-//      @include mdb-drawer-x-overlay(); // overlay by default, no other classes necessary
-//    }
+//.kitchen-sink-drawer-triggered {
+//  @include mdb-drawer-x-closed(500px); // closed by default
+//  @include mdb-drawer-x-open(500px); // triggered with mdb-drawer-in
+//  @include mdb-drawer-x-overlay(); // overlay by default, no other classes necessary
+//}
 
 @mixin mdb-drawer-x-closed($size) {
   @each $side, $abbrev in (left: l, right: r) {

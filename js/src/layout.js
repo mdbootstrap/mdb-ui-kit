@@ -24,7 +24,9 @@ const Layout = (($) => {
     DRAWER: 'mdb-layout-drawer',
     CONTENT: 'mdb-layout-content',
     DRAWER_BTN: 'mdb-layout-drawer-button',  // FIXME: swithch to data-drawer attr finder or something like that, see navbar toggler
-    BACKDROP: 'mdb-layout-backdrop'
+    BACKDROP: 'mdb-layout-backdrop',
+
+    DRAWER_IN: `mdb-drawer-in`
   }
 
   const Selector = {
@@ -117,6 +119,54 @@ const Layout = (($) => {
       //  this.$drawerBtn.attr('aria-expanded', 'false')
       //  this.$drawerBtn.focus()
       //}
+    }
+
+
+
+    toggleDrawer() {
+      if ($(this._element).hasClass(ClassName.DRAWER_IN)) {
+        this.hide()
+      } else {
+        this.show()
+      }
+    }
+
+    show() {
+      if ($(this._element).hasClass(ClassName.IN)) {
+        return
+      }
+
+      this._element.setAttribute('aria-expanded', true)
+
+      if (this._triggerArray.length) {
+        $(this._triggerArray)
+          .removeClass(ClassName.COLLAPSED)
+          .attr('aria-expanded', true)
+      }
+
+      $(this._element)
+        .removeClass(ClassName.COLLAPSING)
+        .addClass(ClassName.COLLAPSE)
+        .addClass(ClassName.IN)
+    }
+
+    hide() {
+      if (this._isTransitioning || !$(this._element).hasClass(ClassName.IN)) {
+        return
+      }
+
+      this._element.setAttribute('aria-expanded', false)
+
+      if (this._triggerArray.length) {
+        $(this._triggerArray)
+          .addClass(ClassName.COLLAPSED)
+          .attr('aria-expanded', false)
+      }
+
+      $(this._element)
+        .removeClass(ClassName.COLLAPSING)
+        .addClass(ClassName.COLLAPSE)
+        .trigger(Event.HIDDEN)
     }
 
     // ------------------------------------------------------------------------

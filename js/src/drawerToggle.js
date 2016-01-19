@@ -61,6 +61,8 @@ const DrawerToggle = (($) => {
       this.$layoutContainer = null
     }
 
+
+
     // ------------------------------------------------------------------------
     // private
 

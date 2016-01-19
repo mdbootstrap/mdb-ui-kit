@@ -31,12 +31,10 @@ $(document).ready(function() { // document ready is a little convoluted because 
 
     var $icon = $(this).find('.material-icons')
     if ($icon.text() == 'visibility_off') {
-      $container.addClass('mdb-drawer-out')
       $container.removeClass('mdb-drawer-in') // demo only, regardless of the responsive class, we want to force it close
       $icon.text('visibility')
     }
     else {
-      $container.removeClass('mdb-drawer-out')
       $container.addClass('mdb-drawer-in') // demo only, regardless of the responsive class, we want to force it open
       $icon.text('visibility_off')
     }
