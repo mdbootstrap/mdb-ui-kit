@@ -19,8 +19,7 @@
   transition: transform;
   will-change: transform;
   transform-style: preserve-3d;
-
-  @include shadow-2dp();
+  @include box-shadow($mdb-shadow-2dp);
   @include material-animation-default();
 
   > * {
@@ -73,6 +72,7 @@
   @include mdb-drawer-x-overlay-down($breakpoint);
   @include mdb-drawer-y-overlay-down($breakpoint);
 }
+
 
 //----
 // Example 1: creates a media responsive kitchen-sink-drawer that pairs with mdb-drawer-in-lg and allows for the mdb-drawer-in trigger

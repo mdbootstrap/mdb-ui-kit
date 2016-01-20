@@ -2,7 +2,6 @@
 // https://www.google.com/design/spec/components/dialogs.html#dialogs-specs
 
 .modal-content {
-  @include shadow-z-5();
   border: 0;
   border-radius: $border-radius;
 

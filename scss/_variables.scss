@@ -1,5 +1,6 @@
 // FIXME: re-examine organization of variables, files, ordering etc.  While the ordering works, we need to be sure this is more comprehensible.
 @import "variables/colors";
+@import "variables/shadow";
 
 // redefine ? TODO: do we need this mdb variant?  This is used as $body-color
 $gray-lighter: rgba($black, 0.12) !default;
@@ -15,27 +16,7 @@ $mdb-text-color-inverse-light: rgba($white, 0.54) !default;
 $mdb-label-color: $gray-light !default;
 $mdb-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
 
-//---
-// Customized BS variables
-@import "variables/bootstrap/components";
-@import "variables/bootstrap/spacing";
-
-@import "variables/bootstrap/body";
-@import "variables/bootstrap/brand";
-@import "variables/bootstrap/buttons";
-@import "variables/bootstrap/card";
-@import "variables/bootstrap/code";
-@import "variables/bootstrap/forms";
-@import "variables/bootstrap/list-group";
-@import "variables/bootstrap/nav";
-@import "variables/bootstrap/state";
-@import "variables/bootstrap/type";
-@import "variables/bootstrap/modals";
-
-// import their vars after customization for use below
-$enable-flex: true;
-@import "../bower_components/bootstrap/scss/variables";
-
+@import "variables/bootstrap";
 
 //
 @import "variables/layout";
@@ -125,11 +106,6 @@ $mdb-radio-color-off: $mdb-label-color-inner-focus !default;  // FIXME seems inc
 $mdb-radio-color-on: $brand-primary !default;
 $mdb-radio-color-disabled: $gray-light; // light theme spec: Disabled: #000000, Opacity  26%
 $mdb-radio-color-disabled-inverse:  rgba($white, 0.30); // dark theme spec: Disabled: #FFFFFF, Opacity  30%
-
-// Shadows
-$mdb-shadow-key-umbra-opacity: 0.2 !default;
-$mdb-shadow-key-penumbra-opacity: 0.14 !default;
-$mdb-shadow-ambient-shadow-opacity: 0.12 !default;
 
 // Animations
 $mdb-animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;

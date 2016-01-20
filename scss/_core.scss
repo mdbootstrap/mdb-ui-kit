@@ -1,12 +1,10 @@
 // This is the main scss file, provided as an underscored file so that variable contexts remain in-tact when importing from the source.
 @import "variables";
-
-// FIXME: V4 SCSS inclusion via an underscored file https://github.com/twbs/bootstrap/issues/18350
-@import "bootstrap";
-
+@import "bootstrap"; // FIXME: V4 SCSS inclusion via an underscored file https://github.com/twbs/bootstrap/issues/18350
 @import "mixins";
 
 @import "reboot";
+
 @import "layout";
 @import "buttons";
 @import "checkboxes";
@@ -23,7 +21,7 @@
 @import "popover";
 @import "cards";
 @import "modal";
-@import "menu";
+@import "dropdown";
 @import "drawer";
 @import "themes";
 
