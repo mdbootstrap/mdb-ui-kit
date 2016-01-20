@@ -98,7 +98,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 ### Lower right side
 {% example html %}
-<div class="dropdown open pull-xs-right">
+<div class="dropdown open pull-right">
   <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="lr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
@@ -130,7 +130,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 ### Top right side
 {% example html %}
-<div class="dropdown open pull-xs-right">
+<div class="dropdown open pull-right">
   <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="tr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
@@ -151,7 +151,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 ### Minimum width
 
 {% example html %}
-<div class="dropdown open pull-xs-right">
+<div class="dropdown open pull-right">
   <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="mw1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
@@ -166,7 +166,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 ### Maximum width
 
 {% example html %}
-<div class="dropdown open pull-xs-right">
+<div class="dropdown open pull-right">
   <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="mw2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>

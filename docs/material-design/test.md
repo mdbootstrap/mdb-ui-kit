@@ -25,7 +25,7 @@ group: material-design
         <a class="nav-link" href="#">About</a>
       </li>
     </ul>
-    <form class="form-inline pull-xs-right">
+    <form class="form-inline pull-right">
       <input class="form-control" type="text" placeholder="Search">
       <button class="btn btn-success-outline" type="submit">Search</button>
     </form>
