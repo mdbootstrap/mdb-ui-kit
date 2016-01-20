@@ -51,7 +51,7 @@ Below is a list of relevant classes options:
 Click the search icon below (on the right).  
 
 {% example html %}
-<div class="mdb-form-group mdb-collapse-inline pull-right">
+<div class="mdb-form-group mdb-collapse-inline pull-xs-right">
   <button class="btn mdb-btn-icon" for="search" data-toggle="collapse" data-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
     <i class="material-icons">search</i>
   </button>  
