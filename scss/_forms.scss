@@ -4,7 +4,7 @@ form {
 
   // reverse the above for navbars (no help expected in a navbar form)
   .navbar & {
-    margin: 0;
+    margin-bottom: 0; // only adjust bottom so that pull-right flexed margin-left: auto works
 
     .mdb-form-group {
       display: inline-block;

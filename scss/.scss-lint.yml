@@ -123,6 +123,7 @@ linters:
       "flex-align",
       "flex-shrink",
       "align-items",
+      "align-self",
       "justify-content",
       "padding",
       "padding-top",

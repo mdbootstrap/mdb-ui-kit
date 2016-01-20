@@ -31,13 +31,13 @@
         display: block;
         width: $mdb-switch-handle-size;
         height: $mdb-switch-handle-size;
+        align-self: center;
         content: "";
         background: $mdb-switch-handle-unchecked-bg;
         border-radius: 100%;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         transition: left 0.2s ease-in, background-color 0.2s ease-in, transform 0.3s ease;
         transform: translateY(-50%);
-        align-self: center;
       }
 
       // Jelly effect on click
