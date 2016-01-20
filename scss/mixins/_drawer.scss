@@ -6,7 +6,7 @@
 //
 // Used with <div class="mdb-layout-container mdb-drawer-pos-f-l mdb-drawer-overlay-md-down mdb-drawer-in-lg-up kitchen-sink-drawer">
 //
-//.kitchen-sink-drawer {
+//.kitchen-sink-drawer:not(.mdb-drawer-out) {
 //  @each $breakpoint in (xs lg) {
 //    // xs gives us the static marker class i.e. mdb-drawer-in, while lg gives us a responsive open/overlay
 //    @include mdb-drawer-x-closed(500px);
