@@ -31,14 +31,14 @@ $(document).ready(function() { // document ready is a little convoluted because 
 
     var $btn = $(this)
     var $icon = $btn.find('.material-icons')
-    if ($icon.text() == 'visibility_off') {
+    if ($icon.text() == 'visibility') {
       $container.addClass('mdb-drawer-out') // demo only, regardless of the responsive class, we want to force it close
-      $icon.text('visibility')
+      $icon.text('visibility_off')
       $btn.attr('title', 'Drawer allow responsive opening')
     }
     else {
       $container.removeClass('mdb-drawer-out') // demo only, regardless of the responsive class, we want to force it open
-      $icon.text('visibility_off')
+      $icon.text('visibility')
       $btn.attr('title', 'Drawer force closed')
     }
   })

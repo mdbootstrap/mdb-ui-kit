@@ -21,6 +21,7 @@ const Drawer = (($) => {
   const ClassName = {
     IN: 'in',
     DRAWER_IN: `mdb-drawer-in`,
+    DRAWER_OUT: `mdb-drawer-out`,
     DRAWER: 'mdb-layout-drawer',
     CONTAINER: 'mdb-layout-container'
   }
@@ -81,7 +82,7 @@ const Drawer = (($) => {
     }
 
     show() {
-      if (this._isOpen()) {
+      if (this._isForcedClosed() || this._isOpen()) {
         return
       }
 
@@ -119,6 +120,10 @@ const Drawer = (($) => {
 
     _isOpen() {
       return this.$container.hasClass(ClassName.DRAWER_IN)
+    }
+
+    _isForcedClosed() {
+      return this.$container.hasClass(ClassName.DRAWER_OUT)
     }
 
     _addAria() {
