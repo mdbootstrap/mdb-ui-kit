@@ -22,7 +22,7 @@ import Switch from './switch'
 import Text from './text'
 import Textarea from './textarea'
 
-import Layout from './layout'
+//import Layout from './layout'
 import DrawerToggle from './drawer'
 
 import Ripples from './ripples'

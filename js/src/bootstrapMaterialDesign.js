@@ -55,9 +55,9 @@ const BootstrapMaterialDesign = (($) => {
     file: {
       selector: 'input[type=file]'
     },
-    layout: {
-      selector: '.mdb-layout-container'
-    },
+    //layout: {
+    //  selector: '.mdb-layout-container'
+    //},
     radio: {
       selector: '.radio > label > input[type=radio]'
     },
@@ -96,7 +96,7 @@ const BootstrapMaterialDesign = (($) => {
       'checkbox',
       'checkboxInline',
       'collapseInline',
-      'layout',
+      //'layout',
       'drawer',
       'file',
       'radio',

@@ -41,7 +41,6 @@ const Drawer = (($) => {
     constructor($element, config) {
       super($element, $.extend(true, {}, Default, config))
 
-      //this.$toggles = $.makeArray($(`[data-toggle="drawer"][href="#${this.$element[0].id}"], [data-toggle="drawer"][data-target="#${this.$element[0].id}"]`))
       this.$toggles = $(`[data-toggle="drawer"][href="#${this.$element[0].id}"], [data-toggle="drawer"][data-target="#${this.$element[0].id}"]`)
 
       this._addAria()
