@@ -2,6 +2,8 @@
 //  It allows for flex based positioning such as sticky header and footer inside an mdb-layout, with a
 //  mdb-layout-content that scrolls.
 
+// mobile webkit smooth scrolling: http://stackoverflow.com/a/15147497/2363935
+
 // First element
 .mdb-layout-canvas { // added by js?
   position: absolute;
@@ -18,7 +20,7 @@
   flex-direction: column; // allows for sticky header and footer
   overflow-x: hidden;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; // mobile webkit smooth scrolling
 }
 
 // Header layout (fixed top), belongs in a mdb-layout-container
@@ -31,7 +33,7 @@
   flex-wrap: nowrap;
   flex-shrink: 0;
   justify-content: flex-start;
-  transform: translateZ(0); // attempt to smooth out mobile scrolling http://stackoverflow.com/a/15147497/2363935
+  transform: translateZ(0); // mobile webkit smooth scrolling
 }
 
 // Content layout, belongs in a mdb-layout-container
@@ -41,9 +43,10 @@
   display: inline-block;
   //-ms-flex: 0 1 auto; // Fix IE10 bug.
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll; // mobile webkit smooth scrolling
   flex-grow: 1;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; // mobile webkit smooth scrolling
+
 }
 
 // Pushes content to the other end
