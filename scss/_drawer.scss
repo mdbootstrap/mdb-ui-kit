@@ -37,10 +37,10 @@
 // Sizing and positioning below here
 
 // for left or right drawers, setup widths, heights and positions
-@include mdb-drawer-x-closed($mdb-layout-drawer-x-size);
+@include mdb-drawer-x-out($mdb-layout-drawer-x-size);
 
 // for top or bottom drawers, setup widths, heights and positions
-@include mdb-drawer-y-closed($mdb-layout-drawer-y-size);
+@include mdb-drawer-y-out($mdb-layout-drawer-y-size);
 
 // Marker class for both triggering the opening of the drawer (i.e. javascript #addClass('.mdb-drawer-in')), as well
 //  as responsive sizes (i.e. mdb-drawer-in-md will open once the browser is wider than 768px).
@@ -69,8 +69,8 @@
 :not(.mdb-drawer-out) { // first eliminate positioning or sizing rules if the drawer is already forced closed
   @each $breakpoint in map-keys($grid-breakpoints) {
 
-    @include mdb-drawer-x-open-up($mdb-layout-drawer-x-size, $breakpoint);
-    @include mdb-drawer-y-open-up($mdb-layout-drawer-y-size, $breakpoint);
+    @include mdb-drawer-x-in-up($mdb-layout-drawer-x-size, $breakpoint);
+    @include mdb-drawer-y-in-up($mdb-layout-drawer-y-size, $breakpoint);
 
     @include mdb-drawer-x-overlay-down($breakpoint);
     @include mdb-drawer-y-overlay-down($breakpoint);
@@ -80,14 +80,18 @@
 //----
 // Example 1: creates a media responsive kitchen-sink-drawer that pairs with mdb-drawer-in-lg and allows for the mdb-drawer-in trigger
 //
-// Used with <div class="mdb-layout-container mdb-drawer-pos-f-l mdb-drawer-overlay-md-down mdb-drawer-in-lg-up kitchen-sink-drawer">
+// Used with <div class="mdb-layout-container mdb-drawer-f-l mdb-drawer-overlay-md-down mdb-drawer-in-lg-up kitchen-sink-drawer">
 //
-//.kitchen-sink-drawer:not(.mdb-drawer-out) {
-//  @each $breakpoint in (xs lg) {
-//    // xs gives us the static marker class i.e. mdb-drawer-in, while lg gives us a responsive open/overlay
-//    @include mdb-drawer-x-closed(500px);
-//    @include mdb-drawer-x-open-up(500px, $breakpoint);
-//  }
+.kitchen-sink-drawer {
+  @include mdb-drawer-x-out(500px);
+
+  &:not(.mdb-drawer-out) {
+    @each $breakpoint in (xs lg) {
+      // xs gives us the static marker class i.e. mdb-drawer-in, while lg gives us a responsive open/overlay
+      @include mdb-drawer-x-in-up(500px, $breakpoint);
+    }
+  }
+}
 //  // Create a responsive overlay at mdb-drawer-overlay-md-down - this specificity is required
 //  @include mdb-drawer-x-overlay-down(md);
 //}
@@ -95,11 +99,11 @@
 //----
 // Example 2: creates a NON-responsive kitchen-sink-drawer and allows for the mdb-drawer-in trigger
 //
-// Used with <div class="mdb-layout-container mdb-drawer-pos-f-l mdb-drawer-in kitchen-sink-drawer-triggered">
+// Used with <div class="mdb-layout-container mdb-drawer-f-l mdb-drawer-in kitchen-sink-drawer-triggered">
 //
-//.kitchen-sink-drawer-triggered {
-//  @include mdb-drawer-x-closed(500px); // closed by default
-//  @include mdb-drawer-x-open(500px); // triggered with mdb-drawer-in
-//  @include mdb-drawer-x-overlay(); // overlay by default, no other classes necessary
-//}
+.kitchen-sink-drawer-triggered {
+  @include mdb-drawer-x-out(500px); // closed by default
+  @include mdb-drawer-x-in(500px); // triggered with mdb-drawer-in
+  @include mdb-drawer-x-overlay(); // overlay by default, no other classes necessary
+}
 

@@ -1,5 +1,5 @@
 function clearDrawerClasses($container) {
-  var classes = ["mdb-drawer-pos-f-l", "mdb-drawer-pos-f-r", "mdb-drawer-pos-f-t", "mdb-drawer-pos-f-b"];
+  var classes = ["mdb-drawer-f-l", "mdb-drawer-f-r", "mdb-drawer-f-t", "mdb-drawer-f-b"];
 
   $.each(classes, function (index, value) {
     $container.removeClass(value)
