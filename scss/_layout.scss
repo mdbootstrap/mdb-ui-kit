@@ -18,7 +18,7 @@
   flex-direction: column; // allows for sticky header and footer
   overflow-x: hidden;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; // TODO: why?
+  -webkit-overflow-scrolling: touch;
 }
 
 // Header layout (fixed top), belongs in a mdb-layout-container
@@ -31,6 +31,7 @@
   flex-wrap: nowrap;
   flex-shrink: 0;
   justify-content: flex-start;
+  transform: translateZ(0); // attempt to smooth out mobile scrolling http://stackoverflow.com/a/15147497/2363935
 }
 
 // Content layout, belongs in a mdb-layout-container
@@ -42,7 +43,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   flex-grow: 1;
-  -webkit-overflow-scrolling: touch; // TODO: why?
+  -webkit-overflow-scrolling: touch;
 }
 
 // Pushes content to the other end
