@@ -4,16 +4,23 @@ import Util from './util'
 const BaseLayout = (($) => {
 
   const ClassName = {
+    CANVAS: 'mdb-layout-canvas',
     CONTAINER: 'mdb-layout-container',
     BACKDROP: `mdb-layout-backdrop`
   }
 
   const Selector = {
+    CANVAS: `.${ClassName.CANVAS}`,
     CONTAINER: `.${ClassName.CONTAINER}`,
     BACKDROP: `.${ClassName.BACKDROP}`
   }
 
   const Default = {
+    canvas: {
+      create: true,
+      required: true,
+      template: `<div class="${ClassName.CANVAS}"></div>`
+    },
     backdrop: {
       create: true,
       required: true,
@@ -33,6 +40,7 @@ const BaseLayout = (($) => {
 
       this.$container = this.findContainer(true)
       this.$backdrop = this.resolveBackdrop()
+      this.resolveCanvas();
     }
 
     dispose(dataKey) {
@@ -43,6 +51,29 @@ const BaseLayout = (($) => {
 
     // ------------------------------------------------------------------------
     // protected
+
+    // Will wrap container in mdb-layout-canvas if necessary
+    resolveCanvas() {
+      let bd = this.findCanvas(false)
+      if (bd === undefined || bd.length === 0) {
+        if (this.config.canvas.create) {
+          this.$container.wrap(this.config.canvas.template)
+        }
+
+        bd = this.findCanvas(this.config.canvas.required)
+      }
+
+      return bd
+    }
+
+    // Find closest mdb-layout-container based on the given context
+    findCanvas(raiseError = true, context = this.$container) {
+      let canvas = context.closest(Selector.CANVAS)
+      if (canvas.length === 0 && raiseError) {
+        $.error(`Failed to find ${Selector.CANVAS} for ${Util.describe(context)}`)
+      }
+      return canvas
+    }
 
     // Will add mdb-layout-backdrop to mdb-layout-container if necessary
     resolveBackdrop() {

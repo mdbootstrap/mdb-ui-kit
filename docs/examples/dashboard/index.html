@@ -8,238 +8,237 @@ js: example.js
 <!-- Custom styles for this template -->
 <link href="example.css" rel="stylesheet">
 
-<div class="mdb-layout-canvas">
-  <div class="mdb-layout-container mdb-drawer-f-l mdb-drawer-overlay-md-down mdb-drawer-in-lg-up">
-    <header class="mdb-layout-header">
-      <div class="navbar navbar-light bg-faded navbar-static-top">
-        <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="drawer" data-target="#my-drawer">
-          <span class="sr-only">Toggle drawer</span>
-          <i class="material-icons">menu</i>
-        </button>
-        <ul class="nav navbar-nav">
-          <li class="nav-item">
-            Home
-          </li>
-        </ul>
-        <ul class="nav navbar-nav pull-xs-right">
-          <li class="nav-item hidden-sm-down">
-            <button class="btn mdb-btn-icon" title="Drawer force close" id="drawer-visibility">
-              <i class="material-icons">visibility</i>
-            </button>
-          </li>
-          <li class="nav-item hidden-sm-down">
-            <button class="btn mdb-btn-icon" title="Drawer left" id="drawer-f-l">
-              <i class="material-icons">border_left</i>
-            </button>
-          </li>
-          <li class="nav-item hidden-sm-down">
-            <button class="btn mdb-btn-icon" title="Drawer right" id="drawer-f-r">
-              <i class="material-icons">border_right</i>
-            </button>
-          </li>
-          <li class="nav-item hidden-sm-down">
-            <button class="btn mdb-btn-icon" title="Drawer top" id="drawer-f-t">
-              <i class="material-icons">border_top</i>
-            </button>
-          </li>
-          <li class="nav-item hidden-sm-down">
-            <button class="btn mdb-btn-icon" title="Drawer bottom" id="drawer-f-b">
-              <i class="material-icons">border_bottom</i>
-            </button>
-          </li>
+<div class="mdb-layout-container mdb-drawer-f-l mdb-drawer-overlay-md-down mdb-drawer-in-lg-up">
+  <header class="mdb-layout-header">
+    <div class="navbar navbar-light bg-faded navbar-static-top">
+      <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="drawer" data-target="#my-drawer">
+        <span class="sr-only">Toggle drawer</span>
+        <i class="material-icons">menu</i>
+      </button>
+      <ul class="nav navbar-nav">
+        <li class="nav-item">
+          Home
+        </li>
+      </ul>
+      <ul class="nav navbar-nav pull-xs-right">
+        <li class="nav-item hidden-sm-down">
+          <button class="btn mdb-btn-icon" title="Drawer force close" id="drawer-visibility">
+            <i class="material-icons">visibility</i>
+          </button>
+        </li>
+        <li class="nav-item hidden-sm-down">
+          <button class="btn mdb-btn-icon" title="Drawer left" id="drawer-f-l">
+            <i class="material-icons">border_left</i>
+          </button>
+        </li>
+        <li class="nav-item hidden-sm-down">
+          <button class="btn mdb-btn-icon" title="Drawer right" id="drawer-f-r">
+            <i class="material-icons">border_right</i>
+          </button>
+        </li>
+        <li class="nav-item hidden-sm-down">
+          <button class="btn mdb-btn-icon" title="Drawer top" id="drawer-f-t">
+            <i class="material-icons">border_top</i>
+          </button>
+        </li>
+        <li class="nav-item hidden-sm-down">
+          <button class="btn mdb-btn-icon" title="Drawer bottom" id="drawer-f-b">
+            <i class="material-icons">border_bottom</i>
+          </button>
+        </li>
 
 
-          <li class="nav-item">
-            <div class="mdb-form-group mdb-collapse-inline pull-xs-right">
-              <button class="btn mdb-btn-icon" for="search" data-toggle="collapse" data-target="#collapse-search" aria-controls="collapse-search">
-                <i class="material-icons">search</i>
-              </button>
-              <span id="collapse-search" class="collapse">
-                <input class="form-control" type="text" id="search" placeholder="Enter your query...">
-              </span>
-            </div>
-          </li>
-          <li class="nav-item">
-            <div class="dropdown">
-              <button class="btn mdb-btn-icon btn-secondary dropdown-toggle" type="button" id="nav-extras-menu" data-toggle="dropdown" aria-haspopup="true" >
-                <i class="material-icons">more_vert</i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-extras-menu">
-                <button class="dropdown-item" type="button">About</button>
-                <button class="dropdown-item" type="button">Contact</button>
-                <button class="dropdown-item" type="button">Legal information</button>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </header>
-
-    <div id="my-drawer" class="mdb-layout-drawer">
-      <header>
-        <img src="images/user.jpg" class="avatar">
-        <div class="account">
-          <span>hello@example.com</span>
+        <li class="nav-item">
+          <div class="mdb-form-group mdb-collapse-inline pull-xs-right">
+            <button class="btn mdb-btn-icon" for="search" data-toggle="collapse" data-target="#collapse-search" aria-controls="collapse-search">
+              <i class="material-icons">search</i>
+            </button>
+            <span id="collapse-search" class="collapse">
+              <input class="form-control" type="text" id="search" placeholder="Enter your query...">
+            </span>
+          </div>
+        </li>
+        <li class="nav-item">
           <div class="dropdown">
-            <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="nav-account-menu" data-toggle="dropdown" aria-haspopup="true">
-              <i class="material-icons">arrow_drop_down</i>
+            <button class="btn mdb-btn-icon btn-secondary dropdown-toggle" type="button" id="nav-extras-menu" data-toggle="dropdown" aria-haspopup="true" >
+              <i class="material-icons">more_vert</i>
             </button>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-account-menu">
-              <a class="dropdown-item">hello@example.com</a>
-              <a class="dropdown-item">info@example.com</a>
-              <a class="dropdown-item"><i class="material-icons">add</i>Add account...</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-extras-menu">
+              <button class="dropdown-item" type="button">About</button>
+              <button class="dropdown-item" type="button">Contact</button>
+              <button class="dropdown-item" type="button">Legal information</button>
             </div>
           </div>
-        </div>
-      </header>
-      <ul class="mdb-nav list-group">
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">home</i>Home
-        </a>
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">inbox</i>Inbox
-        </a>
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">delete</i>Trash
-        </a>
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">report</i>Spam
-        </a>
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">forum</i>Forums
-        </a>
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">flag</i>Updates
-        </a>
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">local_offer</i>Promos
-        </a>
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">shopping_cart</i>Purchases
-        </a>
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">people</i>Social
-        </a>
-
-        <li class="mdb-layout-spacer"></li>
-        <a class="list-group-item">
-          <i class="material-icons" role="presentation">help_outline</i><span class="sr-only">Help</span>
-        </a>
+        </li>
       </ul>
     </div>
+  </header>
 
-
-    <main class="mdb-layout-content">
-      <div class="container">
-        <div class="alert alert-info" role="alert">
-          This is an implementation of
-          <a href="http://www.getmdl.io/templates/dashboard/index.html">Material Design Lite's dashboard template</a>. It provides a simple way to compare approaches with source code. Original design and assets credited to the MDL team.
-          <small>(see license)</small>
-          . Additional functionality showing drawer placement is an MDB only feature. See the icons in the navbar.
-        </div>
-
-        <!-- round charts -->
-        <div class="card card-block">
-          <div class="row">
-            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
-              <use xlink:href="#piechart" mask="url(#piemask)"/>
-              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
-                <tspan font-size="0.2" dy="-0.07">%</tspan>
-              </text>
-            </svg>
-            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
-              <use xlink:href="#piechart" mask="url(#piemask)"/>
-              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
-                <tspan dy="-0.07" font-size="0.2">%</tspan>
-              </text>
-            </svg>
-            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
-              <use xlink:href="#piechart" mask="url(#piemask)"/>
-              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
-                <tspan dy="-0.07" font-size="0.2">%</tspan>
-              </text>
-            </svg>
-            <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
-              <use xlink:href="#piechart" mask="url(#piemask)"/>
-              <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
-                <tspan dy="-0.07" font-size="0.2">%</tspan>
-              </text>
-            </svg>
+  <div id="my-drawer" class="mdb-layout-drawer">
+    <header>
+      <img src="images/user.jpg" class="avatar">
+      <div class="account">
+        <span>hello@example.com</span>
+        <div class="dropdown">
+          <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="nav-account-menu" data-toggle="dropdown" aria-haspopup="true">
+            <i class="material-icons">arrow_drop_down</i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-account-menu">
+            <a class="dropdown-item">hello@example.com</a>
+            <a class="dropdown-item">info@example.com</a>
+            <a class="dropdown-item"><i class="material-icons">add</i>Add account...</a>
           </div>
         </div>
+      </div>
+    </header>
+    <ul class="mdb-nav list-group">
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">home</i>Home
+      </a>
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">inbox</i>Inbox
+      </a>
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">delete</i>Trash
+      </a>
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">report</i>Spam
+      </a>
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">forum</i>Forums
+      </a>
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">flag</i>Updates
+      </a>
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">local_offer</i>Promos
+      </a>
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">shopping_cart</i>Purchases
+      </a>
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">people</i>Social
+      </a>
+
+      <li class="mdb-layout-spacer"></li>
+      <a class="list-group-item">
+        <i class="material-icons" role="presentation">help_outline</i><span class="sr-only">Help</span>
+      </a>
+    </ul>
+  </div>
 
 
+  <main class="mdb-layout-content">
+    <div class="container">
+      <div class="alert alert-info" role="alert">
+        This is an implementation of
+        <a href="http://www.getmdl.io/templates/dashboard/index.html">Material Design Lite's dashboard template</a>. It provides a simple way to compare approaches with source code. Original design and assets credited to the MDL team.
+        <small>(see license)</small>
+        . Additional functionality showing drawer placement is an MDB only feature. See the icons in the navbar.
+      </div>
+
+      <!-- round charts -->
+      <div class="card card-block">
         <div class="row">
-          <div class="col-md-8">
-            <!-- line charts-->
-            <div class="card card-block">
-              <div class="demo-graphs">
-                <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-                  <use xlink:href="#chart"/>
-                </svg>
-                <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-                  <use xlink:href="#chart"/>
-                </svg>
-              </div>
+          <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
+            <use xlink:href="#piechart" mask="url(#piemask)"/>
+            <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
+              <tspan font-size="0.2" dy="-0.07">%</tspan>
+            </text>
+          </svg>
+          <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
+            <use xlink:href="#piechart" mask="url(#piemask)"/>
+            <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
+              <tspan dy="-0.07" font-size="0.2">%</tspan>
+            </text>
+          </svg>
+          <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
+            <use xlink:href="#piechart" mask="url(#piemask)"/>
+            <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
+              <tspan dy="-0.07" font-size="0.2">%</tspan>
+            </text>
+          </svg>
+          <svg fill="currentColor" width="200px" height="200px" viewBox="0 0 1 1" class="demo-chart mdl-cell col-xs-12 col-sm-6 col-md-3">
+            <use xlink:href="#piechart" mask="url(#piemask)"/>
+            <text x="0.5" y="0.5" font-family="Roboto" font-size="0.3" fill="#888" text-anchor="middle" dy="0.1">82
+              <tspan dy="-0.07" font-size="0.2">%</tspan>
+            </text>
+          </svg>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-8">
+          <!-- line charts-->
+          <div class="card card-block">
+            <div class="demo-graphs">
+              <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
+                <use xlink:href="#chart"/>
+              </svg>
+              <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
+                <use xlink:href="#chart"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 demo-cards">
+
+          <!-- Updates card using header bg image -->
+          <div class="demo-updates card">
+            <div class="card-header">
+              <h2 class="card-title">Updates</h2>
+            </div>
+
+            <div class="card-block">
+              <p class="card-text">Non dolore elit adipisicing ea reprehenderit consectetur culpa.</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn">Read More</a>
             </div>
           </div>
 
-          <div class="col-md-4 demo-cards">
 
-            <!-- Updates card using header bg image -->
-            <div class="demo-updates card">
-              <div class="card-header">
-                <h2 class="card-title">Updates</h2>
+          <div class="demo-options card">
+            <div class="card-block">
+              <p class="card-title">View options</p>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="chkbox1">
+                  Click per object
+                </label>
               </div>
-
-              <div class="card-block">
-                <p class="card-text">Non dolore elit adipisicing ea reprehenderit consectetur culpa.</p>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="chkbox2">
+                  Views per object
+                </label>
               </div>
-              <div class="card-footer">
-                <a href="#" class="btn">Read More</a>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="chkbox3">
+                  Objects selected
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="chkbox4">
+                  Objects viewed
+                </label>
               </div>
             </div>
-
-
-            <div class="demo-options card">
-              <div class="card-block">
-                <p class="card-title">View options</p>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" id="chkbox1">
-                    Click per object
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" id="chkbox2">
-                    Views per object
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" id="chkbox3">
-                    Objects selected
-                  </label>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" id="chkbox4">
-                    Objects viewed
-                  </label>
-                </div>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn">Change location</a>
-                <i class="material-icons">location_on</i>
-              </div>
+            <div class="card-footer">
+              <a href="#" class="btn">Change location</a>
+              <i class="material-icons">location_on</i>
             </div>
           </div>
         </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
 </div>
+
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" style="position: fixed; left: -1000px; height: -1000px;">
   <defs>
     <mask id="piemask" maskContentUnits="objectBoundingBox">
@@ -287,7 +286,3 @@ js: example.js
     </g>
   </defs>
 </svg>
-</div>
-
-
-<!--<script src="example.js"></script>-->
