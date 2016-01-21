@@ -24,17 +24,12 @@ a, a:hover {
   color: $grey-600;
 
   > .navbar {
-    // .navbar is not flex based by default, so have to vertical align with padding.
-    //  If this were my own app, I would flex position items in my navbar and stick .mdb-layout-header on my existing .navbar
-    //  instead of wrapping it.  But nonetheless, this example shows how this can work with minimal markup to match an MDL design.
-    $header-height: 3.5rem !default; // 56px
-    $line-height: 1.5;
 
-    min-height: $header-height;
+    @media (min-width: 992px) { // media-breakpoint-up(lg)
+      min-height: 4rem;
+    }
 
-    $padding: ($header-height - (1rem * $line-height)) / 2;
-    padding-top: $padding;
-    padding-bottom: $padding;
+    min-height: 3.5rem; // 56px
   }
 }
 
