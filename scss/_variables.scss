@@ -42,7 +42,6 @@ $mdb-animation-curve-default: $mdb-animation-curve-fast-out-slow-in !default;
 //---
 // FIXME: Similar but not quite the same as Bootstrap variables
 // FIXME: these need to either a) be converted to $mdb- or b) converted to bs variables
-$contrast-factor: 40% !default;
 //---
 
 // --------------------
@@ -50,10 +49,8 @@ $contrast-factor: 40% !default;
 $mdb-mdb-label-static-size-ratio: 75 / 100 !default;
 $mdb-help-size-ratio: 75 / 100 !default;
 
-
 // expandable
 $input-text-button-size: 32px !default;
-
 
 // sizing
 $mdb-form-line-height: 1 !default; // set as 1x font-size so that padding is easier calculated to match the spec.
@@ -89,13 +86,9 @@ $mdb-switch-unchecked-bg: $gray-light !default;
 $mdb-switch-checked-bg: desaturate(lighten($mdb-switch-handle-checked-bg, 28%), 32%); // kind of magic recipe
 $mdb-switch-disabled-bg: $gray-lighter !default;
 
-
 // Popovers and Popups
 $mdb-popover-background: rgba(101, 101, 101, 0.9) !default;
 $mdb-popover-color: #ececec !default;
-
-// Dropdown Menu
-//$mdb-dropdown-font-size: 1rem !default;
 
 // Radio:
 $mdb-radio-border: .125rem !default; // 2px
