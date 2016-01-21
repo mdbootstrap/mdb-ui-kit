@@ -13,8 +13,8 @@ function setDrawerPosition(position) {
   $container.addClass(position)
 }
 
-$(document).ready(function() { // document ready is a little convoluted because this executes before jquery.
-  var buttons = ["drawer-pos-f-l", "drawer-pos-f-r", "drawer-pos-f-t", "drawer-pos-f-b"]
+$(document).ready(function() {
+  var buttons = ["drawer-f-l", "drawer-f-r", "drawer-f-t", "drawer-f-b"]
 
   $.each(buttons, function (index, position) {
     $('#' + position).click(function() {
