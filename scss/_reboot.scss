@@ -2,6 +2,12 @@ body {
   font-weight: $mdb-font-weight-base;
 }
 
+a {
+  &:focus {
+    outline: none; // remove the terrible @include tab-focus();
+  }
+}
+
 //// Prevent highlight on mobile
 //* {
 //  -webkit-tap-highlight-color: rgba($white, 0);
