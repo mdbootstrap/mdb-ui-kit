@@ -32,6 +32,10 @@
     "test-infra"
   ],
   "dependencies": {
+    "bootstrap": "git@github.com:rosskevin/bootstrap.git#v4-tmp-flex-master",
+    "tether": "^1.1"
+  },
+  "old-dependencies": {
     "bootstrap": "v4-dev",
     "tether": "^1.1"
   }

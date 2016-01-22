@@ -45,15 +45,3 @@ Components and templates to help folks quickly get started with Material Design 
     <a href="{{ site.baseurl }}/examples/signin" target="_example" class="btn btn-primary"><i class="material-icons">launch</i> Launch</a>
   </div>
 </div>
-
-## Experiments
-
-Examples that focus on future-friendly features or techniques.
-
-<div class="card-deck">
-  <div class="card card-block">
-   <h4 class="card-title">Offcanvas</h4>
-   <p class="card-text">Build a toggleable off-canvas navigation menu for use with Bootstrap.</p>
-   <a href="{{ site.baseurl }}/examples/offcanvas" target="_example" class="btn btn-primary"><i class="material-icons">launch</i> Launch</a>
-  </div>
-</div>
