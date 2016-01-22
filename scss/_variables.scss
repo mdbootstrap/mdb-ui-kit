@@ -33,11 +33,6 @@ $mdb-brand-inverse: $indigo !default;
 // Typography elements FIXME: review to see if we actually need these
 $icon-color: rgba($black, 0.5) !default;
 
-// ANIMATION
-$mdb-animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
-$mdb-animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
-$mdb-animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
-$mdb-animation-curve-default: $mdb-animation-curve-fast-out-slow-in !default;
 
 //---
 // FIXME: Similar but not quite the same as Bootstrap variables
@@ -105,4 +100,3 @@ $mdb-animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
 $mdb-animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
 $mdb-animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
 $mdb-animation-curve-default: $mdb-animation-curve-fast-out-slow-in !default;
-
