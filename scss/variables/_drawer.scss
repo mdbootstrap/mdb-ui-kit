@@ -1,8 +1,5 @@
 // Drawer
-// FIXME: review and integrate other variables from nav or something instead of these
-$mdb-layout-drawer-bg-color: rgba($grey-50, 1) !default;
-$mdb-layout-drawer-text-color: rgba($grey-800, 1) !default;
 
 // Sizing
-$mdb-layout-drawer-x-size: 240px !default;
-$mdb-layout-drawer-y-size: 100px !default;
+$mdb-drawer-x-size: 240px !default;
+$mdb-drawer-y-size: 100px !default;
