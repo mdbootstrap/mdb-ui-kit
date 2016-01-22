@@ -30,7 +30,6 @@
   // Placement of common components within the drawer
   //  You might say this is opinionated - feedback welcome.
   > header {
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -43,11 +42,7 @@
   }
 
   > .list-group {
-    flex-direction: column;
-    align-items: stretch;
     padding-top: 1rem;
-    flex-grow: 1;
-    //z-index: -2;
 
     .list-group-item {
       padding-right: 2.5rem;

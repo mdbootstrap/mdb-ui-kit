@@ -20,6 +20,10 @@ The following examples provide a good starting point:
 - [Drawer template]({{ site.baseurl }}/examples/dashboard/) is a basic fully responsive template.
 - [Dashboard example]({{ site.baseurl }}/examples/dashboard/) is a comprehensive fully responsive demonstration.
 
+### Behavior
+
+The default behavior for any drawer is to be _out_ of the frame of view.  It can be set _in_ the frame of view either by using using one or the gridpoint responsive classes such as `mdb-drawer-in-lg-up`, or by using `mdb-drawer-in`.   Any drawer, be it responsive or statically set to _in_ can be _forced_ out by using `mdb-drawer-out`.
+
 ### Markup
 
 In order to use the drawer component, MDB has created the following flex based layout structure:
@@ -32,6 +36,74 @@ In order to use the drawer component, MDB has created the following flex based l
 </div>
 {% endhighlight %}
 
+## Styles
+
+### Push
+
+The default behavior is for content to be pushed.
+{% example html id=drawer-s1 %}
+<div class="mdb-layout-container mdb-drawer-f-l">
+  <header class="mdb-layout-header">
+    <div class="navbar navbar-light bg-faded">
+      <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
+        <span class="sr-only">Toggle drawer</span>
+        <i class="material-icons">menu</i>
+      </button>
+      <ul class="nav navbar-nav">
+        <li class="nav-item">Title</li>
+      </ul>
+    </div>
+  </header>
+  <div id="dw-s1" class="mdb-layout-drawer">
+    <header>
+      <a class="navbar-brand">Title</a>
+    </header>
+    <ul class="list-group">
+      <a class="list-group-item">Link 1</a>
+      <a class="list-group-item">Link 2</a>
+      <a class="list-group-item">Link 3</a>
+    </ul>
+  </div>
+  <main class="mdb-layout-content">
+    <div class="container">
+      <p>Main content</p>
+    </div>
+  </main>
+</div>
+{% endexample %}
+
+### Overlay
+Optional behavior will overlay the drawer and provide a backdrop:
+{% example html id=drawer-s2 %}
+<div class="mdb-layout-container mdb-drawer-f-l mdb-drawer-overlay">
+  <header class="mdb-layout-header">
+    <div class="navbar navbar-light bg-faded">
+      <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+        <span class="sr-only">Toggle drawer</span>
+        <i class="material-icons">menu</i>
+      </button>
+      <ul class="nav navbar-nav">
+        <li class="nav-item">Title</li>
+      </ul>
+    </div>
+  </header>
+  <div id="dw-s2" class="mdb-layout-drawer">
+    <header>
+      <a class="navbar-brand">Title</a>
+    </header>
+    <ul class="list-group">
+      <a class="list-group-item">Link 1</a>
+      <a class="list-group-item">Link 2</a>
+      <a class="list-group-item">Link 3</a>
+    </ul>
+  </div>
+  <main class="mdb-layout-content">
+    <div class="container">
+      <p>Main content</p>
+    </div>
+  </main>
+</div>
+{% endexample %}
 
 ## Positions
 
@@ -101,7 +173,7 @@ The following positioning marker classes should be placed on the `mdb-layout-con
     <header>
       <a class="navbar-brand">Title</a>
     </header>
-    <ul class="mdb-nav-x list-group">
+    <ul class="list-group">
       <a class="list-group-item">Link 1</a>
       <a class="list-group-item">Link 2</a>
       <a class="list-group-item">Link 3</a>
@@ -134,7 +206,7 @@ The following positioning marker classes should be placed on the `mdb-layout-con
     <header>
       <a class="navbar-brand">Title</a>
     </header>
-    <ul class="mdb-nav-x list-group">
+    <ul class="list-group">
       <a class="list-group-item">Link 1</a>
       <a class="list-group-item">Link 2</a>
       <a class="list-group-item">Link 3</a>
@@ -167,7 +239,7 @@ The following positioning marker classes should be placed on the `mdb-layout-con
     <header>
       <a class="navbar-brand">Title</a>
     </header>
-    <ul class="mdb-nav-x list-group">
+    <ul class="list-group">
       <a class="list-group-item">Link 1</a>
       <a class="list-group-item">Link 2</a>
       <a class="list-group-item">Link 3</a>
@@ -200,7 +272,7 @@ The following positioning marker classes should be placed on the `mdb-layout-con
     <header>
       <a class="navbar-brand">Title</a>
     </header>
-    <ul class="mdb-nav-x list-group">
+    <ul class="list-group">
       <a class="list-group-item">Link 1</a>
       <a class="list-group-item">Link 2</a>
       <a class="list-group-item">Link 3</a>
@@ -213,76 +285,6 @@ The following positioning marker classes should be placed on the `mdb-layout-con
   </main>
 </div>
 {% endexample %}
-
-## Styles
-
-### Push
-
-The default behavior is for content to be pushed.
-{% example html id=drawer-s1 %}
-<div class="mdb-layout-container mdb-drawer-f-l">
-  <header class="mdb-layout-header">
-    <div class="navbar navbar-light bg-faded">
-      <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s1">
-        <span class="sr-only">Toggle drawer</span>
-        <i class="material-icons">menu</i>
-      </button>
-      <ul class="nav navbar-nav">
-        <li class="nav-item">Title</li>
-      </ul>
-    </div>
-  </header>
-  <div id="dw-s1" class="mdb-layout-drawer">
-    <header>
-      <a class="navbar-brand">Title</a>
-    </header>
-    <ul class="mdb-nav-x list-group">
-      <a class="list-group-item">Link 1</a>
-      <a class="list-group-item">Link 2</a>
-      <a class="list-group-item">Link 3</a>
-    </ul>
-  </div>
-  <main class="mdb-layout-content">
-    <div class="container">
-      <p>Main content</p>
-    </div>
-  </main>
-</div>
-{% endexample %}
-
-### Overlay
-Optional behavior will overlay the drawer and provide a backdrop:
-{% example html id=drawer-s2 %}
-<div class="mdb-layout-container mdb-drawer-f-l mdb-drawer-overlay">
-  <header class="mdb-layout-header">
-    <div class="navbar navbar-light bg-faded">
-      <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
-        <span class="sr-only">Toggle drawer</span>
-        <i class="material-icons">menu</i>
-      </button>
-      <ul class="nav navbar-nav">
-        <li class="nav-item">Title</li>
-      </ul>
-    </div>
-  </header>
-  <div id="dw-s2" class="mdb-layout-drawer">
-    <header>
-      <a class="navbar-brand">Title</a>
-    </header>
-    <ul class="mdb-nav-x list-group">
-      <a class="list-group-item">Link 1</a>
-      <a class="list-group-item">Link 2</a>
-      <a class="list-group-item">Link 3</a>
-    </ul>
-  </div>
-  <main class="mdb-layout-content">
-    <div class="container">
-      <p>Main content</p>
-    </div>
-  </main>
-</div>
-{% endexample %}
-
 
 ## Responsiveness vs Static
 

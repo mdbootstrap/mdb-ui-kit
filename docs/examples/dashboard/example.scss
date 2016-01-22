@@ -39,10 +39,11 @@ a, a:hover {
 }
 
 .mdb-layout-drawer {
-  background-color: $blue-grey-900;
+  background-color: $blue-grey-800;
   color: $blue-grey-50;
 
   > header {
+    background-color: $blue-grey-900;
     height: 151px;
 
     .avatar {
@@ -73,8 +74,7 @@ a, a:hover {
   }
 
   > .list-group {
-    background-color: $blue-grey-800;
-    z-index: -2;
+    //z-index: -2;
 
     .list-group-item {
       color: rgba(255, 255, 255, 0.56);

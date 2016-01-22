@@ -122,6 +122,7 @@ linters:
       "flex-pack",
       "flex-align",
       "flex-shrink",
+      "flex-grow",
       "align-items",
       "align-self",
       "justify-content",

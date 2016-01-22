@@ -43,9 +43,9 @@
   z-index: 1; // under a header
   display: inline-block;
   //-ms-flex: 0 1 auto; // Fix IE10 bug.
+  flex-grow: 1;
   overflow-x: hidden;
   overflow-y: auto; // mobile webkit smooth scrolling may need scroll, but auto seems to be working and omits the scroll border
-  flex-grow: 1;
   -webkit-overflow-scrolling: touch; // mobile webkit smooth scrolling
   @include material-animation-default();
 }
