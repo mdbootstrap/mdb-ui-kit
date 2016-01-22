@@ -17,7 +17,7 @@ The Material Design for Bootstrap `Drawer` provides a markup structure and plugi
 
 The following examples provide a good starting point:
 
-- [Drawer template]({{ site.baseurl }}/examples/dashboard/) is a basic fully responsive template.
+- [Drawer template]({{ site.baseurl }}/examples/drawer/) is a basic fully responsive template.
 - [Dashboard example]({{ site.baseurl }}/examples/dashboard/) is a comprehensive fully responsive demonstration.
 
 ### Behavior
