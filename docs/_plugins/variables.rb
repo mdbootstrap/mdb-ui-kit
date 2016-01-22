@@ -39,6 +39,10 @@ module Variables
       bootstrap_version = site.data['bower']['dependencies']['bootstrap']
       assert_not_nil :bootstrap_version, bootstrap_version
 
+      if (bootstrap_version.include?('rosskevin'))
+        bootstrap_version = 'v4-dev' # hack since we are using a rosskevin flex branch
+      end
+
       tether_version = site.data['bower_tether']['version']
       assert_not_nil :tether_version, tether_version
 
