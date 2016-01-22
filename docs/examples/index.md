@@ -14,6 +14,11 @@ Templates that give a quick structural start to using Material Design for Bootst
     <a href="{{ site.baseurl }}/examples/starter-template/" target="_example" class="btn btn-primary"><i class="material-icons">launch</i> Launch</a>
   </div>
   <div class="card card-block">
+    <h4 class="card-title">Responsive Drawer Template</h4>
+    <p class="card-text">Responsive fixed left drawer with a fixed top navigation</p>
+    <a href="{{ site.baseurl }}/examples/drawer/" target="_example" class="btn btn-primary"><i class="material-icons">launch</i> Launch</a>
+  </div>
+  <div class="card card-block">
     <h4 class="card-title">Dashboard</h4>
     <p class="card-text">Dashboard with a drawer</p>
     <a href="{{ site.baseurl }}/examples/dashboard/" target="_example" class="btn btn-primary"><i class="material-icons">launch</i> Launch</a>

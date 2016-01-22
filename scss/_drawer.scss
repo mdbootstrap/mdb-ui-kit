@@ -12,6 +12,7 @@
   flex-wrap: nowrap;
   overflow: visible;
   overflow-y: auto;
+  font-size: .875rem;
   color: $mdb-layout-drawer-text-color;
   background: $mdb-layout-drawer-bg-color;
 
@@ -26,10 +27,34 @@
     flex-shrink: 0;
   }
 
-  .mdb-nav {
+  // Placement of common components within the drawer
+  //  You might say this is opinionated - feedback welcome.
+  > header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+
+    .navbar-brand {
+      padding-left: 1.5rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  > .list-group {
     flex-direction: column;
     align-items: stretch;
     padding-top: 1rem;
+    flex-grow: 1;
+    //z-index: -2;
+
+    .list-group-item {
+      padding-right: 2.5rem;
+      padding-left: 2.5rem;
+      font-size: .8125rem;
+      font-weight: 500;
+    }
   }
 }
 

@@ -41,14 +41,8 @@ a, a:hover {
 .mdb-layout-drawer {
   background-color: $blue-grey-900;
   color: $blue-grey-50;
-  font-size: .875rem;
 
   > header {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 16px;
     height: 151px;
 
     .avatar {
@@ -78,16 +72,11 @@ a, a:hover {
     }
   }
 
-  .mdb-nav {
-    flex-grow: 1;
+  > .list-group {
     background-color: $blue-grey-800;
     z-index: -2;
 
     .list-group-item {
-      padding-left: 2.5rem;
-      padding-right: 2.5rem;
-      font-size: .8125rem;
-      font-weight: 500;
       color: rgba(255, 255, 255, 0.56);
 
       &:hover {
