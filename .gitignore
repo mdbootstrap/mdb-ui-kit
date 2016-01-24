@@ -1,5 +1,3 @@
-# temp during major v4 development - tired of these showing up ready to commit
-dist/**/*
 
 # Ignore docs dist files
 docs/dist/**/*
