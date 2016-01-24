@@ -118,7 +118,7 @@ Our documentation received an upgrade across the board as well. Here's the low d
 - We're using Jekyll (seeded from Bootstrap's project itself) and we have custom plugins in the mix:
   - `example.rb` is a fork of the default `highlight.rb` plugin, allowing for easier example-code handling.
   - `callout.rb` is a similar fork of that, but designed for our special docs callouts.
-  - `variables.rb` which gathers the version (`package.json`), dependencies (`bower.json`) and makes them available to render text and links in the documentation `site.data`.  No more SED to replace versions everywhere! 
+  - `variables.rb` which gathers the version from (`package.json`), dependencies from `node_modules` (`package.json`) and makes them available to render text and links in the documentation `site.data`.  No more SED to replace versions everywhere! 
 - All docs content has been rewritten in Markdown (instead of HTML) for easier editing.
 - Pages have been reorganized for simpler content and a more approachable hierarchy.
 - We moved from regular CSS to SCSS to take full advantage of variables, mixins, and more.

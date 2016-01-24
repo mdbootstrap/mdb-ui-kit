@@ -16,7 +16,27 @@ $mdb-text-color-inverse-light: rgba($white, 0.54) !default;
 $mdb-label-color: $gray-light !default;
 $mdb-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
 
-@import "variables/bootstrap";
+// Customized BS variables
+@import "variables/bootstrap/components";
+@import "variables/bootstrap/spacing";
+@import "variables/bootstrap/body";
+@import "variables/bootstrap/brand";
+@import "variables/bootstrap/buttons";
+@import "variables/bootstrap/card";
+@import "variables/bootstrap/code";
+@import "variables/bootstrap/dropdown";
+@import "variables/bootstrap/forms";
+@import "variables/bootstrap/list-group";
+@import "variables/bootstrap/nav";
+@import "variables/bootstrap/state";
+@import "variables/bootstrap/type";
+@import "variables/bootstrap/modals";
+
+// import their vars after customization for use below
+$enable-flex: true;     // fully adopt flexbox layouts
+$enable-shadows: true;  // enable shadows, set to false to turn off shadows
+@import "bootstrap/scss/variables"; // from bootstrap node_module
+
 
 //
 @import "variables/layout";

@@ -36,7 +36,7 @@ Use the following task template:
 Tag for bower - a valid tag starts with a `v` such as `v4.0.0`
 
 ### NPM
-TODO: push to npm?
+`npm publish`
 
 ### Meteor
 TODO: push to meteor?

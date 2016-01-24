@@ -36,12 +36,6 @@ Pull in Material Design for Bootstrap's **source files** into nearly any project
 **Heads up!** Not all package managers have the v4 alpha published yet, but we should have them up shortly!
 {% endcallout %}
 
-### Bower
-
-Install and manage Material Design for Bootstrap's Sass and JavaScript using [Bower](http://bower.io).
-
-{% highlight bash %}$ bower install bootstrap-material-design#v{{ site.data.version }}{% endhighlight %}
-
 ### npm
 
 Install Material Design for Bootstrap in your Node powered apps with [the npm package](https://www.npmjs.org/package/bootstrap):
@@ -54,6 +48,12 @@ Material Design for Material Design for Bootstrap's `package.json` contains some
 
 - `sass` - path to Material Design for Bootstrap's main [Sass](http://sass-lang.com/) source file
 - `style` - path to Material Design for Bootstrap's non-minified CSS that's been precompiled using the default settings (no customization)
+
+### Bower
+
+Install and manage Material Design for Bootstrap's Sass and JavaScript using [Bower](http://bower.io).
+
+{% highlight bash %}$ bower install bootstrap-material-design#v{{ site.data.version }}{% endhighlight %}
 
 ### Meteor
 

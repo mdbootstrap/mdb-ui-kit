@@ -18,27 +18,28 @@ Here are some ways to customize:
 
 ## 1. (Recommended) Include the source in your application
 
-Installing via Bower, customizing MDB is a breeze.  
+Installing via npm (recommended) or bower, customizing MDB is a breeze.  
  
-1. Add `bootstrap-material-design` as a dependeny to your `bower.json`
-1. `bower install`
-1. In your application's Sass, redefine any customized variable _before_ `@import`ing bootstrap material design from your bower dependency directory.  For example:
+1. Add `bootstrap-material-design` as a dependency to your `package.json` or your `bower.json`
+1. `npm install` or `bower install` depending on your tool of choice
+1. Add either `node_modules` or `bower_components` in the `includePaths` for your grunt-sass, gulp-sass, or equivalent so you are able to import without specifying the full path of the resource.
+1. In your application's SCSS, redefine any customized variable _before_ `@import`ing bootstrap material design.  For example:
 
 ~~~~~~~~
 $brand-primary: #3f51b5;         // bootstrap variable
 $mdb-label-color-focus: #303f9f; // mdb variable
 
-@import "../bower_components/bootstrap-material-design/scss/core"; // make sure to use _core.scss!
+@import "bootstrap-material-design/scss/core"; // make sure to use _core.scss!
 ~~~~~~~~
 
 
-## 2. Download the source and change/compile
+## 3. Download the source and change/compile
 
 {% callout warning %}
 This method is not recommended because it may be difficult to use source control **and** keep up to date with new releases.  Please consider the recommended method above. 
 {% endcallout %}
 
-1. Download the source via bower or otherwise
+1. Download the source via npm, bower or otherwise
 2. Change any of the variables
 3. Run `grunt dist`
 

@@ -36,14 +36,6 @@ Our Gruntfile includes the following commands and tasks:
 | `grunt docs` | Builds and tests CSS, JavaScript, and other assets which are used when running the documentation locally via `jekyll serve`. |
 | `grunt watch` | This is a convenience method for watching just Sass files and automatically building them whenever you save. |
 
-## Switching Sass compilers
-
-Material Design for Bootstrap will be compiled with [libsass][libsass] by default, but you can opt into traditional Ruby Sass by setting the `MDB_SASS` environment variable. Two options are supported:
-
-* `libsass` (default) to use [libsass][libsass] via [grunt-sass][grunt-sass].
-* `sass` to use [Ruby Sass][ruby-sass] via [grunt-contrib-sass][grunt-contrib-sass].
-
-For example, run `MDB_SASS=sass grunt` to test and build Material Design for Bootstrap with Ruby Sass.
 
 ## Autoprefixer
 
@@ -71,7 +63,7 @@ Bootstrap checked out in parallel to this project, running three (3) different t
   
     1. Performs an initial dependency setup/build
     
-        `bundle install && npm install && bower install && grunt dist`
+        `bundle install && npm install && grunt dist`
       
     1. Start serving the documentation on <http://localhost:9000>
       
@@ -81,7 +73,7 @@ Bootstrap checked out in parallel to this project, running three (3) different t
 
     1. Performs an initial dependency setup/build
     
-        `bundle install && npm install && bower install && grunt dist`
+        `bundle install && npm install && grunt dist`
          
     1. Watch both the core and docs sources for changes
     

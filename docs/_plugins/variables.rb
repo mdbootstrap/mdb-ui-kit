@@ -18,10 +18,10 @@ module Variables
       site.data['minified'] = minified
 
       metadata_files = {
-        'bower' => '../bower.json',
         'package' => '../package.json',
-        'bower_jquery' => '../bower_components/jquery/.bower.json',
-        'bower_tether' => '../bower_components/tether/.bower.json'
+        'npm_bootstrap' => '../node_modules/bootstrap/package.json',
+        'npm_jquery' => '../node_modules/jquery/package.json',
+        'npm_tether' => '../node_modules/tether/package.json'
       }
 
       metadata_files.each do |metadata, path|
@@ -29,24 +29,24 @@ module Variables
         site.data[metadata] = contents
       end
 
-      # validate and provide some quick access to common variables (instead of diving into package and bower)
+      # validate and provide some quick access to common variables
       name = site.data['package']['name']
       assert_not_nil :name, name
 
       version = site.data['package']['version']
       assert_not_nil :version, version
 
-      bootstrap_version = site.data['bower']['dependencies']['bootstrap']
+      bootstrap_version = site.data['npm_bootstrap']['version']
       assert_not_nil :bootstrap_version, bootstrap_version
 
       if (bootstrap_version.include?('rosskevin'))
         bootstrap_version = 'v4-dev' # hack since we are using a rosskevin flex branch
       end
 
-      tether_version = site.data['bower_tether']['version']
+      tether_version = site.data['npm_tether']['version']
       assert_not_nil :tether_version, tether_version
 
-      jquery_version = site.data['bower_jquery']['version']
+      jquery_version = site.data['npm_jquery']['version']
       assert_not_nil :jquery_version, jquery_version
 
       site.data['name'] = name
@@ -54,7 +54,6 @@ module Variables
       site.data['bootstrap_version'] = bootstrap_version
       site.data['tether_version'] = tether_version
       site.data['jquery_version'] = jquery_version
-
 
       # fabricate the archive and release links based on the site.repo and version
       repo = site.config['repo']
