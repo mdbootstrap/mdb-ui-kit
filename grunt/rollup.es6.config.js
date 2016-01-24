@@ -1,6 +1,7 @@
 import config from './rollup.config.js';
+import extend from 'extend'
 
-config.format = 'es6';
-config.dest = 'dist/js/bootstrap-material-design.es6.js';
-
-export default config;
+export default extend(true, config, {
+  format: 'es6',
+  dest: 'dist/js/bootstrap-material-design.es6.js'
+})

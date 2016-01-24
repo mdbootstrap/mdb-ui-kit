@@ -65,6 +65,7 @@
     "load-grunt-tasks": "~3.3.0",
     "markdown-it": "^5.0.0",
     "mq4-hover-shim": "^0.3.0",
+    "node-extend": "^0.2.0",
     "npm-shrinkwrap": "^200.1.0",
     "rollup": "^0.25",
     "rollup-plugin-babel": "^2.3",

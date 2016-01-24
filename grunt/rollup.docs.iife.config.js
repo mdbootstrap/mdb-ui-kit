@@ -1,8 +1,10 @@
 import config from './rollup.config.js';
+import extend from 'extend'
+import babel from 'rollup-plugin-babel';
 
-config.format = 'iife';
-config.entry = 'docs/assets/js/src/index.js',
-
-config.dest = 'docs/dist/js/docs.iife.js';
-
-export default config;
+export default extend(true, config, {
+  plugins: [babel()],
+  format: 'iife',
+  entry: 'docs/assets/js/src/index.js',
+  dest: 'docs/dist/js/docs.iife.js'
+})
