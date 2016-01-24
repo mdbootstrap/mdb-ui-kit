@@ -439,8 +439,8 @@ module.exports = function (grunt) {
       'rollup-umd': {
         command: 'rollup -c grunt/rollup.umd.config.js'
       },
-      'rollup-es6': {
-        command: 'rollup -c grunt/rollup.es6.config.js'
+      'rollup-es2015': {
+        command: 'rollup -c grunt/rollup.es2015.config.js'
       }
     },
 
@@ -538,7 +538,7 @@ module.exports = function (grunt) {
     'jscs:test',
     'exec:rollup-iife',
     'exec:rollup-umd',
-    'exec:rollup-es6',
+    'exec:rollup-es2015',
     'stamp',
     'uglify:dist',
     'copy:dist-to-docs'
