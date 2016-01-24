@@ -6785,4 +6785,4 @@ const BootstrapMaterialDesign = (($) => {
   return BootstrapMaterialDesign
 
 })(jQuery)
-//# sourceMappingURL=bootstrap-material-design.es6.js.map
+//# sourceMappingURL=bootstrap-material-design.es2015.js.map
