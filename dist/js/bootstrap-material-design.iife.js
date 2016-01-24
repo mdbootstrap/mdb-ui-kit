@@ -3312,7 +3312,7 @@
       },
       text: {
         // omit inputs we have specialized components to handle
-        selector: ['input[type!=\'checkbox\'][type!=\'radio\'][type!=\'file\']']
+        selector: ['input[type!=\'hidden\'][type!=\'checkbox\'][type!=\'radio\'][type!=\'file\']']
       },
       textarea: {
         selector: ['textarea']
