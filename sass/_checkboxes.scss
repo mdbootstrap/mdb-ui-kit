@@ -100,7 +100,7 @@
       }
 
       & + .checkbox-material:before {
-        animation: rippleOn $mdb-checkbox-animation-ripple;
+        animation: rippleOn;
       }
 
       & + .checkbox-material .check:after {
@@ -111,7 +111,7 @@
 
     &:not(:checked) {
       & + .checkbox-material:before {
-        animation: rippleOff $mdb-checkbox-animation-ripple;
+        animation: rippleOff;
       }
 
       & + .checkbox-material .check:after {
@@ -132,6 +132,24 @@
   input[type=checkbox][disabled] + .checkbox-material .check:after {
     background-color: $mdb-text-color-primary;
     transform: rotate(-45deg);
+  }
+}
+
+// Prevent ripple effect on page load
+.is-focused {
+  .checkbox {
+    input[type=checkbox] {
+      &:checked {
+        & + .checkbox-material:before {
+          animation: rippleOn $mdb-checkbox-animation-ripple;
+        }
+      }
+      &:not(:checked) {
+        & + .checkbox-material:before {
+          animation: rippleOff $mdb-checkbox-animation-ripple;
+        }
+      }
+    }
   }
 }
 
