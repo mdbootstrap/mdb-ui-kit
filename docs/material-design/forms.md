@@ -11,8 +11,6 @@ Bootstrap provides several form control styles, layout options, and custom compo
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Form controls
-
 Form controls flavored by Material Design for Bootstrap customizations such as `mdb-label-floating`.
 {% example html %}
 <form>
@@ -82,6 +80,8 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
 </form>
 {% endexample %}
 
+## Classes
+
 Below is a complete list of options supported by Material Design for Bootstrap and the classes that customize them. Additional documentation is available for each group.
 
 <table>
@@ -144,7 +144,7 @@ Below is a complete list of options supported by Material Design for Bootstrap a
 </table>
 
 
-### Form groups
+## Form groups
 
 The `.mdb-form-group` class is usually added to the `.form-group` element. Whereas the `.form-group` adds structure to forms by providing `margin-bottom` around a label and control pairing,
  the only purpose of the  `.mdb-form-group` is to demarcate Material Design behaviors for a combination of label/input.  Focus/hover styling for the label/input is determined based on the `.mdb-form-group`. 
@@ -167,7 +167,7 @@ you may need to wrap your markup in an `.mdb-form-group` to get appropriate focu
 </form>
 {% endexample %}
 
-### Inline forms
+## Inline forms
 
 Use the `.form-inline` class to to display a series of labels, form controls, and buttons on a single horizontal row. Form controls within inline forms behave differently:
 
@@ -177,7 +177,7 @@ Use the `.form-inline` class to to display a series of labels, form controls, an
 
 Because of this, you may need to manually address the width and alignment of individual form controls. Lastly, as shown below, you should always include a `<label>` with each form control.
 
-#### Visible labels
+### Visible labels
 
 {% example html %}
 <form class="form-inline">
