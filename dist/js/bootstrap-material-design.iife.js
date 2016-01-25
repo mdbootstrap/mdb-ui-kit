@@ -5,7 +5,8 @@
  */
 
 
-(function () { 'use strict';
+(function () {
+  'use strict';
 
   var babelHelpers = {};
   babelHelpers.typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
@@ -3463,5 +3464,5 @@
     return BootstrapMaterialDesign;
   }(jQuery);
 
-})();
+}());
 //# sourceMappingURL=bootstrap-material-design.iife.js.map
