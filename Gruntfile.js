@@ -481,6 +481,19 @@ module.exports = function (grunt) {
       }
     },
 
+    gitcommit: {
+      dist: {
+        options: {
+          message: 'dist',
+          noVerify: true,
+          noStatus: false
+        },
+        files: {
+          src: ['dist/**/*']
+        }
+      }
+    },
+
     compress: {
       main: {
         options: {
@@ -621,9 +634,10 @@ module.exports = function (grunt) {
   //------
   // Release and publish
   grunt.registerTask('prep-release', [
-    'dist', // all dist including docs
-    'jekyll:github', // build site from scratch
-    'compress' // compress zip
+    'dist',
+    'gitcommit:dist',
+    'jekyll:github' // build site from scratch
+    //'compress' // compress zip
   ]);
   grunt.registerTask('publish', [
     'prep-release',   // build all including dist, docs, site
