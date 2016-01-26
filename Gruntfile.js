@@ -468,7 +468,7 @@ module.exports = function (grunt) {
       options: {
         remote: 'git@github.com:FezVrasta/bootstrap-material-design.git',
         commit: true,
-        push: true,
+        push: true
       },
       pages: {
         options: {
