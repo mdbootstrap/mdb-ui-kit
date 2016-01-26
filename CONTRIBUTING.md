@@ -1,4 +1,6 @@
-# Contributing to bootstrap-material-design
+## **TLDR;** Create a test case using [this CodePen template](http://codepen.io/rosskevin/pen/eJMMVB) when submitting an issue.
+
+# Contributing
 
 Looking to contribute something to bootsrap-material-design? **Here's how you can help.**
 
@@ -68,7 +70,7 @@ Guidelines for bug reports:
 
 3. **Isolate the problem** &mdash; ideally create a [reduced test
    case](https://css-tricks.com/reduced-test-cases/) and a live example.
-   [This CodePen](http://codepen.io/rosskevin/pen/VvRgrN) is a starter template.
+   [This CodePen](http://codepen.io/rosskevin/pen/eJMMVB) is a starter template.
 
 
 A good bug report shouldn't leave others needing to chase you up for more
@@ -89,7 +91,7 @@ Example:
 > 2. This is the second step
 > 3. Further steps, etc.
 >
-> `<url>` - a link to the reduced test case (via the [CodePen template](http://codepen.io/rosskevin/pen/VvRgrN))
+> `<url>` - a link to the reduced test case (via the [CodePen template](http://codepen.io/rosskevin/pen/eJMMVB))
 >
 > Any other information you want to share that is relevant to the issue being
 > reported. This might include the lines of code that you have identified as

@@ -25,7 +25,7 @@ NOTE: this is a temporary site location that will be published in at http://fezv
 ## Support
 
 If you like this project you may support it by donating via Gittip, starring this repository or reporting issues.  
-All issues filed should be reduced to a [CodePen](http://codepen.io/rosskevin/pen/VvRgrN) test case where possible.
+All issues filed should be reduced to a [CodePen](http://codepen.io/rosskevin/pen/eJMMVB) test case where possible.
 
 [![gittip](docs/assets/img/gittip-button.jpg)](https://www.gratipay.com/FezVrasta/)
 [![issues](docs/assets/img/issues-button.jpg)](https://github.com/FezVrasta/bootstrap-material-design/issues)
