@@ -1,6 +1,7 @@
-# remove this later
 branches:
   except:
+    - v4-dist
+    # remove this later
     - v4-dev
 
 sudo: false # use the container infrastructure
