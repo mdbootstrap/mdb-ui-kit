@@ -68,7 +68,7 @@
         0 0 0 0,
         0 0 0 0,
         0 0 0 0 inset;
-      animation: checkbox-off @mdb-checkbox-animation-check forwards;
+      animation: checkbox-off;
     }
   }
 
@@ -132,9 +132,14 @@
   }
 }
 
-// Prevent ripple effect on page load
+// Prevent checkbox animation and ripple effect on page load
 .is-focused {
   .checkbox {
+    .checkbox-material {
+      .check:before {
+        animation: checkbox-off @mdb-checkbox-animation-check forwards;
+      }
+    }
     input[type=checkbox] {
       &:checked {
         & + .checkbox-material:before {
