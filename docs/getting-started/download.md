@@ -40,9 +40,9 @@ Pull in Material Design for Bootstrap's **source files** into nearly any project
 
 Install Material Design for Bootstrap in your Node powered apps with [the npm package](https://www.npmjs.org/package/bootstrap):
 
-{% highlight bash %}$ npm install bootstrap@{{ site.data.version }}{% endhighlight %}
+{% highlight bash %}$ npm install bootstrap-material-design@{{ site.data.version }}{% endhighlight %}
 
-`require('bootstrap-material-design')` will load all of Material Design for Bootstrap's jQuery plugins onto the jQuery object. The `bootstrap` module itself does not export anything. You can manually load Material Design for Bootstrap's jQuery plugins individually by loading the `/js/*.js` files under the package's top-level directory.
+`require('bootstrap-material-design')` will load all of Material Design for Bootstrap's jQuery plugins onto the jQuery object. 
 
 Material Design for Material Design for Bootstrap's `package.json` contains some additional metadata under the following keys:
 
