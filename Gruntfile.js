@@ -482,7 +482,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           dir: 'dist',
-          branch: 'dist',
+          branch: 'v4-dist',
           message: 'dist from commit %sourceCommit% on branch %sourceBranch%'
         }
       }
