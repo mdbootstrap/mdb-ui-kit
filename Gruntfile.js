@@ -487,7 +487,7 @@ module.exports = function (grunt) {
           message: 'dist - publish',
           verbose: true,
           noVerify: true,
-          noStatus: false
+          noStatus: true
         },
         files: {
           src: ['dist/**/*']
