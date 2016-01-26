@@ -466,31 +466,23 @@ module.exports = function (grunt) {
 
     buildcontrol: {
       options: {
-        dir: '_gh_pages',
+        remote: 'git@github.com:FezVrasta/bootstrap-material-design.git',
         commit: true,
         push: true,
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
       pages: {
         options: {
-          // FIXME: change this when we are ready!!!
-          //remote: 'git@github.com:FezVrasta/bootstrap-material-design.git',
+          // FIXME: remove this when we are ready!!!
           remote: 'git@github.com:rosskevin/bootstrap-material-design.git',
-          branch: 'gh-pages'
+          dir: '_gh_pages',
+          branch: 'gh-pages',
+          message: 'Built from commit %sourceCommit% on branch %sourceBranch%'
         }
-      }
-    },
-
-    gitcommit: {
+      },
       dist: {
         options: {
-          message: 'dist - publish',
-          verbose: true,
-          noVerify: true,
-          noStatus: true
-        },
-        files: {
-          src: ['dist/**/*']
+          dir: 'dist',
+          message: 'dist from commit %sourceCommit% on branch %sourceBranch%'
         }
       }
     },
@@ -636,12 +628,12 @@ module.exports = function (grunt) {
   // Release and publish
   grunt.registerTask('prep-release', [
     'dist',
-    'gitcommit:dist',
     'jekyll:github' // build site from scratch
     //'compress' // compress zip
   ]);
   grunt.registerTask('publish', [
     'prep-release',   // build all including dist, docs, site
+    'buildcontrol:dist', // push dist
     'buildcontrol:pages' // push site
   ]);
   //------
