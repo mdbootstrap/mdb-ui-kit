@@ -466,13 +466,12 @@ module.exports = function (grunt) {
 
     buildcontrol: {
       options: {
-        remote: 'git@github.com:FezVrasta/bootstrap-material-design.git',
         commit: true,
         push: true
       },
       pages: {
         options: {
-          // FIXME: remove this when we are ready!!!
+          // FIXME: remove this when we are ready!!! - it should default to the normal branch of this project
           remote: 'git@github.com:rosskevin/bootstrap-material-design.git',
           dir: '_gh_pages',
           branch: 'gh-pages',
