@@ -1,7 +1,4 @@
 
-# dist will be on it's own branch from now on
-dist
-
 # Ignore docs dist files
 docs/dist/**/*
 docs/assets/css/*
