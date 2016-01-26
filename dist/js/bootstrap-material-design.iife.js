@@ -3291,9 +3291,6 @@
       file: {
         selector: 'input[type=file]'
       },
-      //layout: {
-      //  selector: '.mdb-layout-container'
-      //},
       radio: {
         selector: '.radio > label > input[type=radio]'
       },
@@ -3312,17 +3309,15 @@
         selector: '.switch > label > input[type=checkbox]'
       },
       text: {
-        // omit inputs we have specialized components to handle
-        selector: ['input[type!=\'hidden\'][type!=\'checkbox\'][type!=\'radio\'][type!=\'file\']']
+        // omit inputs we have specialized components to handle - we need to match text, email, etc.  The easiest way to do this appears to be just omit the ones we don't want to match and let the rest fall through to this.
+        selector: ['input[type!=\'hidden\'][type!=\'checkbox\'][type!=\'radio\'][type!=\'file\'][type!=\'button\'][type!=\'submit\'][type!=\'reset\']']
       },
       textarea: {
         selector: ['textarea']
       },
       arrive: true,
       // create an ordered component list for instantiation
-      instantiation: ['ripples', 'checkbox', 'checkboxInline', 'collapseInline',
-      //'layout',
-      'drawer', 'file', 'radio', 'radioInline', 'switch', 'text', 'textarea', 'select', 'autofill']
+      instantiation: ['ripples', 'checkbox', 'checkboxInline', 'collapseInline', 'drawer', 'file', 'radio', 'radioInline', 'switch', 'text', 'textarea', 'select', 'autofill']
     };
 
     /**
