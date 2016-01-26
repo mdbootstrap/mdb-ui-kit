@@ -46,7 +46,7 @@ module Variables
         # // this
         # https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js
 
-        bootstrap_version = 'v4-dev' # hack since we are using a rosskevin flex branch
+        bootstrap_version = 'v4-dev' # hack since we are wanting to stay on the branch
       end
 
       tether_version = site.data['npm_tether']['version']
