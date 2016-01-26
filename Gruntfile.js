@@ -482,7 +482,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           dir: 'dist',
-          branch: 'v4-dev', // FIXME: this needs to be master branch eventually!
+          branch: 'dist',
           message: 'dist from commit %sourceCommit% on branch %sourceBranch%'
         }
       }
