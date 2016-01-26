@@ -1,0 +1,62 @@
+// Navs https://www.google.com/design/spec/components/tabs.html#tabs-specs
+
+$nav-disabled-link-color:                   $gray-light !default;
+$nav-disabled-link-hover-color:             $gray-light !default;
+
+$mdb-navbar-link-font-weight:               $mdb-font-weight-base !default; //
+$mdb-navbar-link-font-size:                 .875rem !default; // 14
+$mdb-navbar-link-padding:                   .5321rem 0; // 7
+
+
+// tabs & pills
+$mdb-nav-tabs-pills-font-weight:            500 !default; //
+$mdb-nav-tabs-pills-font-size:              .875rem !default; // 14
+$mdb-nav-tabs-pills-link-padding:           1.4286em .8575em !default; // spec // was .5em 1em   // relative em based on 14
+
+// tabs only
+$mdb-nav-tabs-border-size:                  .214rem !default; // 3px
+
+$mdb-nav-tabs-color:                        $gray !default;
+$mdb-nav-tabs-active-color:                 $gray-dark !default;
+$mdb-nav-tabs-active-border-color:          $brand-primary !default;
+$mdb-nav-tabs-disabled-link-color:          $nav-disabled-link-color !default;
+$mdb-nav-tabs-disabled-link-color-hover:    $nav-disabled-link-hover-color !default;
+
+$mdb-nav-tabs-primary-color:                $mdb-text-color-inverse !default;
+$mdb-nav-tabs-primary-active-color:         #fff !default;
+$mdb-nav-tabs-primary-active-border-color:  #fff !default;
+$mdb-nav-tabs-primary-disabled-link-color:       $mdb-text-color-inverse-light !default;
+$mdb-nav-tabs-primary-disabled-link-color-hover: $mdb-text-color-inverse-light !default;
+
+$mdb-nav-tabs-inverse-color:                $mdb-text-color-inverse !default;
+$mdb-nav-tabs-inverse-active-color:         #fff !default;
+$mdb-nav-tabs-inverse-active-border-color:  #fff !default;
+$mdb-nav-tabs-inverse-disabled-link-color:       $mdb-text-color-inverse-light !default;
+$mdb-nav-tabs-inverse-disabled-link-color-hover: $mdb-text-color-inverse-light !default;
+
+
+//$nav-item-margin:                           .2rem !default;
+
+
+
+//$mdb-nav-link-line-height:                  1 !default; // makes it easier to line up with the spec
+//$nav-link-padding:                          .5em 1em !default; // changing this for tabs alters generic navbars, so do it elsewhere with higher specificity
+//$nav-link-hover-bg:                         $gray-lighter !default;
+
+
+//
+//$nav-tabs-border-color:                     #ddd !default;
+//
+//$nav-tabs-link-border-width:                $border-width !default;
+//$nav-tabs-link-hover-border-color:          $gray-lighter !default;
+//
+$nav-tabs-active-link-hover-bg:             transparent !default; // $body-bg
+//$nav-tabs-active-link-hover-color:          $gray !default;
+//$nav-tabs-active-link-hover-border-color:   #ddd !default;
+//
+//$nav-tabs-justified-link-border-color:            #ddd !default;
+//$nav-tabs-justified-active-link-border-color:     $body-bg !default;
+//
+//$nav-pills-border-radius:                   $border-radius !default;
+//$nav-pills-active-link-hover-bg:            $component-active-bg !default;
+//$nav-pills-active-link-hover-color:         $component-active-color !default;

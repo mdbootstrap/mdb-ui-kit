@@ -1,0 +1,6 @@
+DO NOT edit files in this folder EXCEPT docs.scss.
+
+These files are copied using
+  grunt docs-copy-bootstrap-docs
+
+This is done to keep samples in sync with the upstream bs4.

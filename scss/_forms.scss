@@ -1,0 +1,227 @@
+form {
+  // ensure enough room at the bottom of any form to display a one-line mdb-help
+  margin-bottom: ($mdb-help-size-ratio * $font-size-base) * $line-height;
+
+  // reverse the above for navbars (no help expected in a navbar form)
+  .navbar & {
+    margin-bottom: 0; // only adjust bottom so that pull-xs-right flexed margin-left: auto works
+
+    .mdb-form-group {
+      display: inline-block;
+      padding-top: 0;
+    }
+
+    .btn {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// -----
+// Inputs
+//
+// Reference http://www.google.com/design/spec/components/text-fields.html
+// MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+.form-control {
+  // The border bottom should be static in all states, the decorator will be animated over this.
+  &,
+  &:focus,
+  .mdb-form-group.is-focused & {
+    border: 0;
+    border-bottom: $input-btn-border-width solid $input-border-color;
+  }
+
+  @include mdb-disabled() {
+    border-bottom: $input-btn-border-width dotted $input-border-color;
+  }
+}
+
+// Focus underline animation =================================
+.mdb-form-control-decorator {
+  position: relative;
+  top: (-1 * $input-btn-border-width); // move the top up enough to overlay the border from the input
+  display: block;
+  &::before,
+  &::after {
+    position: absolute;
+    width: 0;
+    height: $input-btn-border-width + 1;
+    content: "";
+    transition: 0.3s ease all;
+
+    // focused state - it transitions the width of each (before and after) to 50% creating the center out effect
+    .form-control:focus ~ &,
+    .mdb-form-group.is-focused .form-control ~ & {
+      width: 50%;
+    }
+  }
+  &::before {
+    left: 50%;
+  }
+  &::after {
+    right: 50%;
+  }
+}
+
+// End: Focus underline animation =================================
+
+// Help blocks (not in v4)
+//  position: absolute approach - uses no vertical space and there is no form jumping, but text wrapping - not so good.
+//  FIXME: width/wrapping isn't automatic and overflows occur.  What are some solutions?
+//
+.mdb-help {
+  position: absolute;
+  display: none;
+  font-size: 80%;
+  font-weight: normal;
+  @extend .text-muted;
+
+  .mdb-form-group.is-focused & {
+    display: block;
+  }
+}
+
+// -----
+// State coloring: default, success, info, warning, danger
+//
+@include mdb-selection-color();
+@include mdb-form-color($mdb-label-color, $mdb-label-color-focus, $input-border-color);
+
+.has-success {
+  @include mdb-form-color($brand-success, $brand-success, $brand-success);
+}
+
+.has-info {
+  @include mdb-form-color($brand-info, $brand-info, $brand-info);
+}
+
+.has-warning {
+  @include mdb-form-color($brand-warning, $brand-warning, $brand-warning);
+}
+
+.has-danger {
+  @include mdb-form-color($brand-danger, $brand-danger, $brand-danger);
+}
+
+// Reference http://www.google.com/design/spec/components/text-fields.html
+// MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+//.variations(unquote(" label"), color, $mdb-input-placeholder-color);  // default label color variations
+
+// Whereas .form-group adds structure, mdb-form-group just needs to make sure we have enough padding for our labels to work.  That's the only purpose.
+.mdb-form-group {
+  position: relative;
+
+  // -----
+  // Labels
+  //
+  // Reference http://www.google.com/design/spec/components/text-fields.html
+  // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
+  [class^='mdb-label'],
+  [class*=' mdb-label'] {
+    position: absolute;
+    pointer-events: none;
+    transition: 0.3s ease all;
+
+    // hint to browser for optimization
+    &.mdb-label-floating {
+      will-change: left, top, contents; // TODO: evaluate effectiveness - looking for community feedback
+    }
+  }
+
+  // hide label-placeholders when the field is filled
+  &.is-filled .mdb-label-placeholder {
+    display: none;
+  }
+
+  // Optional class to make the text field inline collapsible/expandable (collapsed by default)
+  //    This uses the BS collapse js to make the width expand.
+  //    `width` class must also be on the element FIXME: do this with JS, it is a marker class and should be implicit because after all, we are an mdb-collapse-inline
+  //    FIXME: js needs to do the focus on shown.bs.collapse event http://v4-alpha.getbootstrap.com/components/collapse/#events
+  &.mdb-collapse-inline {
+    padding: 0; // get rid of any padding as this is a width transition
+
+    // Expandable Holder.
+    .collapse {
+      &.in {
+        // This is an unfortunate hack. Animating between widths in percent (%)
+        // in many browsers (Chrome, Firefox) only animates the inner visual style
+        // of the input - the outer bounding box still 'jumps'.
+        // Thus assume a sensible maximum, and animate to/from that value.
+        max-width: 600px;
+      }
+    }
+
+    .collapsing,
+    .width:not(.collapse), // collapsing is removed and momentarily only width is present
+    .collapse.in {
+      display: inline-block;
+    }
+
+    .collapsing {
+      @include material-animation-default();
+    }
+  }
+
+  // default floating size/location with an mdb-form-group
+  @include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height, "mdb-form-group default");
+
+  // sm floating size/location
+  &.mdb-form-group-sm {
+    @include mdb-form-size-variant($font-size-sm, $mdb-label-top-margin-sm, $input-padding-y-sm, $mdb-form-line-height-sm, "mdb-form-group sm");
+  }
+
+  // lg floating size/location
+  &.mdb-form-group-lg {
+    @include mdb-form-size-variant($font-size-lg, $mdb-label-top-margin-lg, $input-padding-y-lg, $mdb-form-line-height-sm, "mdb-form-group lg");
+  }
+}
+
+// default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation) - IMPORTANT for non-form-group spacing such as radio/checkbox/switch
+@include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height);
+
+select {
+  &,
+  &.form-control {
+    // Use vendor prefixes as `appearance` isn't part of the CSS spec. OSX doesn't obey the border-radius: 0 without this.
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+}
+
+// Input files - hide actual input - requires specific markup in the sample.
+//.mdb-form-group input[type=file] {
+//  opacity: 0;
+//  position: absolute;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  left: 0;
+//  width: 100%;
+//  height: 100%;
+//  z-index: 100;
+//}
+
+//
+//
+//.form-horizontal {
+//
+//  // Consistent vertical alignment of radios and checkboxes
+//  .radio,
+//  .checkbox,
+//  .radio-inline,
+//  .checkbox-inline {
+//    padding-top: 0;
+//  }
+//
+//  .radio {
+//    margin-bottom: 10px;
+//  }
+//
+//  label {
+//    text-align: right;
+//  }
+//
+//  label {
+//    margin: 0;
+//  }
+//}

@@ -1,0 +1,243 @@
+// http://www.google.com/design/spec/components/selection-controls.html#selection-controls-checkbox
+.checkbox label,
+label.checkbox-inline {
+  padding-left: 0; // Reset for Bootstrap rule
+  cursor: pointer;
+
+  .checkbox-decorator {
+    position: relative;
+    top: 3px;
+    vertical-align: middle;
+    &::before { // FIXME: document why this is necessary (doesn't seem to be on chrome)
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      display: block;
+      width: $mdb-checkbox-size;
+      height: $mdb-checkbox-size;
+      margin: 0;
+      content: "";
+      background-color: rgba($black, .84);
+      border-radius: 100%;
+      opacity: 0;
+      transform: scale3d(2.3, 2.3, 1);
+    }
+
+    .check {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      width: $mdb-checkbox-size;
+      height: $mdb-checkbox-size;
+      overflow: hidden;
+      border: $border-radius solid $mdb-checkbox-border-color;
+
+      // checkbox outline
+      &::before {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        margin-top: -4px;
+        margin-left: 6px;
+        content: "";
+        box-shadow: 0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0,
+        0 0 0 0 inset;
+        transform: rotate(45deg);
+        animation: checkbox-off $mdb-checkbox-animation-check forwards;
+      }
+    }
+  }
+
+  input[type=checkbox] {
+
+    // Hide native checkbox
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0;
+
+    &:focus + .checkbox-decorator .check::after {
+      opacity: 0.2;
+    }
+
+    &:checked {
+
+      // FIXME: once working - combine further to reduce code
+      + .checkbox-decorator .check {
+        color: $mdb-checkbox-checked-color;
+        border-color: $mdb-checkbox-checked-color;
+      }
+
+      + .checkbox-decorator .check::before {
+        color: $mdb-checkbox-checked-color;
+        box-shadow: 0 0 0 10px,
+        10px -10px 0 10px,
+        32px 0 0 20px,
+        032px 0 20px,
+        -5px 5px 0 10px,
+        20px -12px 0 11px;
+        animation: checkbox-on $mdb-checkbox-animation-check forwards;
+      }
+
+      + .checkbox-decorator::before {
+        animation: rippleOn $mdb-checkbox-animation-ripple;
+      }
+
+      + .checkbox-decorator .check::after {
+        //background-color: $brand-success; // FIXME: seems like tho wrong color, test and make sure it can be removed
+        animation: rippleOn $mdb-checkbox-animation-ripple forwards; // Ripple effect on check
+      }
+    }
+
+    &:not(:checked) {
+      + .checkbox-decorator::before {
+        animation: rippleOff $mdb-checkbox-animation-ripple;
+      }
+
+      + .checkbox-decorator .check::after {
+        animation: rippleOff $mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
+
+      }
+    }
+
+    &[disabled],
+    fieldset[disabled] & {
+      + .checkbox-decorator .check::after,
+      .check::after {
+        background-color: $gray-dark;
+        transform: rotate(-45deg);
+      }
+      + .checkbox-decorator .check,
+      .check {
+        border-color: $mdb-checkbox-border-color-disabled;
+      }
+    }
+  }
+
+}
+
+@keyframes checkbox-on {
+  0% {
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0 32px 0 20px,
+    -5px 5px 0 10px,
+    15px 2px 0 11px;
+  }
+  50% {
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0 32px 0 20px,
+    -5px 5px 0 10px,
+    20px 2px 0 11px;
+  }
+  100% {
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0 32px 0 20px,
+    -5px 5px 0 10px,
+    20px -12px 0 11px;
+  }
+}
+
+@keyframes checkbox-off {
+  0% {
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0 32px 0 20px,
+    -5px 5px 0 10px,
+    20px -12px 0 11px,
+    0 0 0 0 inset;
+  }
+
+  25% {
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0 32px 0 20px,
+    -5px 5px 0 10px,
+    20px -12px 0 11px,
+    0 0 0 0 inset;
+  }
+  50% {
+    width: 0;
+    height: 0;
+    margin-top: -4px;
+    margin-left: 6px;
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0 32px 0 20px,
+    -5px 5px 0 10px,
+    15px 2px 0 11px,
+    0 0 0 0 inset;
+    transform: rotate(45deg);
+  }
+  51% {
+    width: 20px;
+    height: 20px;
+    margin-top: -2px;
+    margin-left: -2px;
+    box-shadow: 0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 10px inset;
+    transform: rotate(0deg);
+  }
+  100% {
+    width: 20px;
+    height: 20px;
+    margin-top: -2px;
+    margin-left: -2px;
+    box-shadow: 0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0 inset;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}

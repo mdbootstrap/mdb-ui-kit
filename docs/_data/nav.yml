@@ -1,0 +1,81 @@
+- title: Getting started
+  pages:
+    - title: Introduction
+    - title: Download
+    - title: Browsers & devices
+    - title: Customization
+    - title: Best practices
+    - title: Build tools
+    - title: Release process
+
+- title: Material Design
+  pages:
+    - title: Test
+    - title: List groups
+    - title: Menus
+    - title: Navs
+    - title: Buttons
+    - title: Forms
+    - title: Labels
+    - title: Selections
+    - title: Collapse inline
+    - title: Drawers
+
+- title: About
+  pages:
+    - title: History
+    - title: Team
+    - title: Credits
+    - title: License
+
+# change nav-docs.html if you change this name to insert "Bootstrap Reference Documentation"
+- title: Migration
+
+#- title: Layout
+#  pages:
+#    - title: Overview
+#    - title: Grid
+#    - title: Media object
+#    - title: Responsive utilities
+
+- title: Content
+  pages:
+    - title: Typography
+    - title: Code
+    - title: Images
+    - title: Tables
+    - title: Figures
+
+
+- title: Components
+  pages:
+    - title: Buttons
+    - title: Button group
+    - title: Button dropdown
+    - title: Forms
+    - title: Input group
+    - title: Dropdowns
+    - title: Jumbotron
+    - title: Label
+    - title: Alerts
+    - title: Card
+    - title: Navs
+    - title: Navbar
+    - title: Breadcrumb
+    - title: Pagination
+    - title: Progress
+    - title: List group
+    - title: Modal
+    - title: Scrollspy
+    - title: Tooltips
+    - title: Popovers
+    - title: Collapse
+    - title: Carousel
+    - title: Utilities
+
+# - title: Extend
+#   pages:
+#     - title: Approach
+#     - title: Icon fonts
+
+

@@ -1,0 +1,26 @@
+// Modals
+// https://www.google.com/design/spec/components/dialogs.html#dialogs-specs
+
+.modal-content {
+  border: 0;
+  border-radius: $border-radius;
+
+  .modal-header {
+    padding: 24px 24px 0;
+    border-bottom: 0;
+  }
+  .modal-body {
+    padding: 20px 24px 24px;
+  }
+  .modal-footer {
+    padding: 8px 8px 8px 24px;
+    border-top: 0;
+    .btn {
+      margin: 0;
+    }
+
+    .btn + .btn {
+      margin-left: 8px;
+    }
+  }
+}

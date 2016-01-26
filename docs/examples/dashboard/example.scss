@@ -1,0 +1,212 @@
+---
+---
+
+//---
+//---
+
+// This scss is written from the override perspective.  Note that when @import'ing, some of this can be more simply accomplished with variable overrides.
+
+$teal-300: #4db6ac !default;
+$grey-100: #f5f5f5 !default;
+$grey-600: #757575 !default;
+$blue-grey-800: #37474f !default;
+$blue-grey-400: #78909c !default;
+$blue-grey-900: #263238 !default;
+$blue-grey-50: #eceff1 !default;
+$deep-purple-500: #673ab7 !default;
+
+a, a:hover {
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.mdb-layout-header {
+  background-color: $grey-100;
+  color: $grey-600;
+
+  > .navbar {
+
+    @media (min-width: 992px) { // media-breakpoint-up(lg)
+      min-height: 4rem;
+    }
+
+    min-height: 3.5rem; // 56px
+  }
+}
+
+.mdb-layout-content {
+  padding-top: .5rem;
+  background-color: $grey-100;
+}
+
+.mdb-layout-drawer {
+  background-color: $blue-grey-800;
+  color: $blue-grey-50;
+
+  > header {
+    background-color: $blue-grey-900;
+    height: 151px;
+
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 24px;
+      margin-bottom: 1rem;
+    }
+
+    .account {
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+
+      .dropdown {
+        margin-left: auto;
+        .dropdown-menu {
+          font-size: .875rem;
+
+          .dropdown-item {
+            flex-wrap: nowrap;
+          }
+        }
+      }
+    }
+  }
+
+  > .list-group {
+    //z-index: -2;
+
+    .list-group-item {
+      color: rgba(255, 255, 255, 0.56);
+
+      &:hover {
+        background-color: #00BCD4;
+        color: #37474F;
+      }
+
+      .material-icons {
+        color: $blue-grey-400;
+      }
+    }
+  }
+}
+
+.demo-chart {
+  &:nth-child(1) {
+    color: #ACEC00;
+  }
+
+  &:nth-child(2) {
+    color: #00BBD6;
+  }
+
+  &:nth-child(3) {
+    color: #BA65C9;
+  }
+
+  &:nth-child(4) {
+    color: #EF3C79;
+  }
+}
+
+.demo-graphs {
+  padding: 16px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .demo-graph {
+    width: 100%; // make sure the svg occupies the available space
+    &:nth-child(1) {
+      color: #00b9d8;
+    }
+
+    &:nth-child(2) {
+      color: #d9006e;
+    }
+  }
+}
+
+/* TODO: Find a proper solution to have the graphs
+ * not float around outside their container in IE10/11.
+ * Using a browserhacks.com solution for now.
+ */
+:-ms-input-placeholder,
+:root .demo-graphs {
+  min-height: 664px;
+}
+
+:-ms-input-placeholder,
+:root .demo-graph {
+  max-height: 300px;
+}
+
+/* TODO end */
+
+.demo-cards {
+
+  .card {
+    margin-bottom: 2rem;
+  }
+
+  .card-title {
+    color: #fff;
+  }
+
+  .card-text {
+    color: $grey-600
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+  }
+
+  .demo-updates {
+    .card-header {
+      border: 0; // we are using color as a separator instead of a bottom border, this allows image to meet the bottom edge
+      min-height: 200px;
+      background-color: $teal-300;
+      background-image: url('images/dog.png');
+      background-position: 90% 100%;
+      background-repeat: no-repeat;
+
+      .card-title {
+        // position the title down towards the bottom header with respect to the bg image
+        margin-bottom: 0;
+        padding-top: 8.5rem;
+      }
+    }
+
+    .btn {
+      color: #00BCD4;
+    }
+  }
+
+  .demo-options {
+
+    &,
+    .card-footer {
+      background-color: $deep-purple-500;
+    }
+
+    .card-footer {
+      .material-icons {
+        margin-left: auto;
+        color: rgba(255, 255, 255, 0.89);
+      }
+    }
+
+    .btn,
+    .checkbox label {
+      color: $blue-grey-50;
+    }
+
+    .checkbox .check {
+      border-color: $blue-grey-50;
+    }
+  }
+}
+
+
+

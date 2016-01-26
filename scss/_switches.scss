@@ -1,0 +1,83 @@
+// http://codepen.io/rosskevin/pen/EPPwRR?editors=110
+.switch {
+  label {
+    position: relative;
+    padding-left: $mdb-switch-width + $mdb-switch-label-padding; // absolutely positioned so add the radio size
+
+    .mdb-switch-track {
+      position: absolute;
+      top: calc-top($line-height, $font-size-base, $mdb-switch-height);
+      left: 0;
+      display: inline-block;
+      width: $mdb-switch-width;
+      height: $mdb-switch-height;
+      cursor: pointer;
+      background-image: linear-gradient(
+          to right,
+          $mdb-switch-unchecked-bg 0%,
+          $mdb-switch-unchecked-bg 50%,
+          $mdb-switch-checked-bg 50%,
+          $mdb-switch-checked-bg 100%
+      );
+      background-position: 0%;
+      background-size: $mdb-switch-width * 2 $mdb-switch-height;
+      border-radius: $mdb-switch-width;
+      transition: background-position 0.2s ease-in;
+
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: block;
+        width: $mdb-switch-handle-size;
+        height: $mdb-switch-handle-size;
+        align-self: center;
+        content: "";
+        background: $mdb-switch-handle-unchecked-bg;
+        border-radius: 100%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        transition: left 0.2s ease-in, background-color 0.2s ease-in, transform 0.3s ease;
+        transform: translateY(-50%);
+      }
+
+      // Jelly effect on click
+      &:active::after {
+        transform: translateY(-50%) scale3d(1.15, 0.85, 1);
+      }
+    }
+
+    input {
+      // Hide original checkbox, but don't use `display: none` to allow focus on it using keyboard
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      opacity: 0;
+
+      &:checked {
+        + .mdb-switch-track {
+          background-position: -100%;
+          &::after {
+            left: unquote("calc(100% - #{$mdb-switch-handle-size})"); //calc(100% - $mdb-switch-handle-size);
+            background-color: $mdb-switch-handle-checked-bg;
+          }
+        }
+      }
+
+      &:disabled {
+        // No jelly effect on disabled switchs
+        + .mdb-switch-track:active::after {
+          transform: translateY(-50%);
+        }
+
+        + .mdb-switch-track {
+          cursor: default;
+          background: $mdb-switch-disabled-bg;
+          &::after {
+            background: $mdb-switch-handle-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+}

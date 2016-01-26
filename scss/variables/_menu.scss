@@ -1,0 +1,23 @@
+$mdb-menu-line-height: 1 !default; // makes it easier to use sizes to match spec
+
+$mdb-menu-item-min-width: 7rem !default; // Minimum width on mobile = 2 * 56dp = 112dp
+$mdb-menu-item-max-width: 17.5rem !default; // Maximum width on mobile (in both portrait and landscape) = 5 * 56dp = 280dp
+$mdb-menu-item-min-height: 3rem !default; // 48px
+
+$mdb-menu-item-padding-right: 1rem !default;
+$mdb-menu-item-padding-bottom: 1.25rem !default;
+$mdb-menu-item-padding-left: 1rem !default;
+
+$mdb-menu-item-padding-top: ($mdb-menu-item-min-height - $font-size-base - $mdb-menu-item-padding-bottom) !default;
+
+// md and up
+$mdb-menu-item-padding-right-md: 1.5rem !default;
+$mdb-menu-item-padding-left-md: 1.5rem !default;
+
+
+// Menu
+$mdb-menu-expand-duration: 0.3s !default;
+$mdb-menu-fade-duration: 0.2s !default;
+
+
+

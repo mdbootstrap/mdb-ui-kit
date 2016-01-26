@@ -1,0 +1,181 @@
+// from bs mixins/buttons button-variant
+@mixin mdb-button-variant($color, $background, $focus-background, $active-background, $border, $focus-border, $active-border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+  @include hover {
+    color: $color;
+    background-color: $focus-background;
+    border-color: $focus-border;
+  }
+
+  &:focus,
+  &.focus {
+    color: $color;
+    background-color: $focus-background;
+    border-color: $focus-border;
+  }
+
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: $focus-background;
+    border-color: $focus-border;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: $color;
+      background-color: $active-background;
+      border-color: $active-border;
+    }
+  }
+
+  // when it is an icon, kill the active bg on open dropdown, but stabilize on hover
+  .open > &.dropdown-toggle.mdb-btn-icon {
+    color: inherit;
+    background-color: $background;
+
+    // leave hover on with the lighter focus color
+    &:hover {
+      background-color: $focus-background;
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus,
+    &.focus {
+      background-color: $background;
+      border-color: $border;
+    }
+    @include hover {
+      background-color: $background;
+      border-color: $border;
+    }
+  }
+}
+
+@mixin mdb-flat-button-variant($color) {
+
+  $background: $mdb-btn-bg;
+  $border: $mdb-btn-border;
+
+  $focus-background: $mdb-btn-focus-bg;
+  $focus-border: $mdb-btn-focus-bg;
+
+  $active-background: $mdb-btn-active-bg;
+  $active-border: $mdb-btn-active-bg;
+
+  @include mdb-button-variant($color,
+    $background,
+    $focus-background,
+    $active-background,
+    $border,
+    $focus-border,
+    $active-border);
+
+  // inverse color scheme
+  .bg-inverse & {
+    $focus-background: $mdb-inverse-btn-focus-bg;
+    $focus-border: $mdb-inverse-btn-focus-bg;
+
+    $active-background: $mdb-inverse-btn-active-bg;
+    $active-border: $mdb-inverse-btn-active-bg;
+
+    @include mdb-button-variant($color,
+      $background,
+      $focus-background,
+      $active-background,
+      $border,
+      $focus-border,
+      $active-border);
+  }
+
+  // reverse the above for links
+  &.btn-link {
+    background-color: transparent;
+  }
+}
+
+@mixin mdb-flat-button-color() {
+
+  @include mdb-flat-button-variant($mdb-btn-color);
+
+  // flat bg with text color variations
+  &.btn-primary {
+    @include mdb-flat-button-variant($btn-primary-bg);
+  }
+  &.btn-secondary {
+    @include mdb-flat-button-variant($btn-secondary-color);
+  }
+  &.btn-info {
+    @include mdb-flat-button-variant($btn-info-bg);
+  }
+  &.btn-success {
+    @include mdb-flat-button-variant($btn-success-bg);
+  }
+  &.btn-warning {
+    @include mdb-flat-button-variant($btn-warning-bg);
+  }
+  &.btn-danger {
+    @include mdb-flat-button-variant($btn-danger-bg);
+  }
+}
+
+@mixin mdb-raised-button-variant($color, $background, $border) {
+
+  // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
+  $focus-background: contrast-color($background, darken($background, 4%), lighten($background, 4%));
+  //$focus-background: darken($background, 10%);  // default bootstrap
+  $focus-border: darken($border, 12%);
+
+  $active-background: $focus-background;
+  //$active-background: darken($background, 17%);
+  $active-border: darken($border, 25%);
+
+  @include mdb-button-variant($color,
+    $background,
+    $focus-background,
+    $active-background,
+    $border,
+    $focus-border,
+    $active-border);
+}
+
+@mixin mdb-raised-button-color() {
+
+  &.btn-primary {
+    @include mdb-raised-button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  }
+  &.btn-secondary {
+    @include mdb-raised-button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+  }
+  &.btn-info {
+    @include mdb-raised-button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+  }
+  &.btn-success {
+    @include mdb-raised-button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+  }
+  &.btn-warning {
+    @include mdb-raised-button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+  }
+  &.btn-danger {
+    @include mdb-raised-button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+  }
+}
+
+@mixin undo-bs-tab-focus() {
+  // clear out the tab-focus() from BS
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      //@include tab-focus();
+      outline: 0;
+    }
+  }
+}

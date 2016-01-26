@@ -1,0 +1,9 @@
+@mixin mdb-hover-focus-active {
+  // add the .active to the whole mix of hover-focus-active
+  &.active {
+    @content
+  }
+  @include hover-focus-active() {
+    @content;
+  }
+}

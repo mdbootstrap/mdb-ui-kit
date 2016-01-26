@@ -1,0 +1,237 @@
+// Mixins to allow creation of additional custom drawer sizes when using the defaults at the same time
+
+@mixin mdb-drawer-x-out($size) {
+  @each $side, $abbrev in (left: l, right: r) {
+    &.mdb-drawer-f-#{$abbrev} {
+      > .mdb-layout-drawer {
+        // position
+        top: 0;
+        #{$side}: 0;
+
+        width: $size;
+        height: 100%;
+
+        @if $side == left {
+          transform: translateX(-$size - 10px); // initial position of drawer (closed), way off screen
+        } @else {
+          transform: translateX($size + 10px); // initial position of drawer (closed), way off screen
+        }
+      }
+
+      > .mdb-layout-header,
+      > .mdb-layout-content {
+        margin-#{$side}: 0;
+      }
+    }
+  }
+}
+
+@mixin mdb-drawer-y-out($size) {
+  @each $side, $abbrev in (top: t, bottom: b) {
+    &.mdb-drawer-f-#{$abbrev} {
+      > .mdb-layout-drawer {
+        // position
+        #{$side}: 0;
+        left: 0;
+
+        width: 100%;
+        height: $size;
+
+        @if $side == top {
+          transform: translateY(-$size - 10px); // initial position of drawer (closed), way off screen
+        } @else {
+          transform: translateY($size + 10px); // initial position of drawer (closed), way off screen
+        }
+      }
+
+      > .mdb-layout-content {
+        margin-#{$side}: 0;
+      }
+    }
+  }
+}
+
+@function mdb-drawer-breakpoint-name($breakpoint, $suffix: "") {
+  // e.g. &, &-sm, &-md, &-lg
+  $name: "&-#{$breakpoint}#{$suffix}";
+  @if $breakpoint == xs {
+    $name: "&";
+  }
+  @return $name;
+}
+
+@mixin mdb-drawer-x-in($size) {
+  @each $side, $abbrev in (left: l, right: r) {
+    &.mdb-drawer-f-#{$abbrev} {
+      // Push - drawer will push the header and content (default behavior)
+      > .mdb-layout-header {
+        width: calc(100% - #{$size});
+        margin-#{$side}: $size;
+      }
+
+      > .mdb-layout-drawer {
+        transform: translateX(0);
+      }
+
+      > .mdb-layout-content {
+        margin-#{$side}: $size;
+      }
+    }
+  }
+}
+
+@mixin mdb-drawer-y-in($size) {
+  @each $side, $abbrev in (top: t, bottom: b) {
+    &.mdb-drawer-f-#{$abbrev} {
+
+      // 1. Push - drawer will push the header or content
+      > .mdb-layout-header {
+        @if $side == top { // only add margin-top on a header when the drawer is at the top
+          margin-#{$side}: $size;
+        }
+      }
+
+      > .mdb-layout-drawer {
+        transform: translateY(0);
+      }
+
+      > .mdb-layout-content {
+        @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
+          margin-#{$side}: $size;
+        }
+      }
+    }
+  }
+}
+
+// breakpoint based open to a particular size
+@mixin mdb-drawer-x-in-up($size, $breakpoint) {
+  // e.g. &, &-sm, &-md, &-lg
+  $name: mdb-drawer-breakpoint-name($breakpoint, "-up");
+
+  &.mdb-drawer-in {
+    #{unquote($name)} { // mdb-drawer-in, mdb-drawer-in-sm, mdb-drawer-in-md, mdb-drawer-in-lg
+
+      @if $breakpoint == xs {
+        // mdb-drawer-in marker class (non-responsive)
+        @include mdb-drawer-x-in($size);
+      } @else {
+
+        // responsive class
+        @include media-breakpoint-up($breakpoint) {
+          // mdb-drawer-f-(left and right) styles
+          @include mdb-drawer-x-in($size);
+        }
+      }
+    }
+  }
+}
+
+// breakpoint based open to a particular size
+@mixin mdb-drawer-y-in-up($size, $breakpoint) {
+  // e.g. &, &-sm, &-md, &-lg
+  $name: mdb-drawer-breakpoint-name($breakpoint, "-up");
+
+  &.mdb-drawer-in {
+    #{unquote($name)} { // mdb-drawer-in, mdb-drawer-in-sm, mdb-drawer-in-md, mdb-drawer-in-lg
+
+      @if $breakpoint == xs {
+        // mdb-drawer-in marker class (non-responsive)
+        @include mdb-drawer-y-in($size);
+      } @else {
+
+        // responsive class
+        @include media-breakpoint-up($breakpoint) {
+          // mdb-drawer-f-(left and right) styles
+          @include mdb-drawer-y-in($size);
+        }
+      }
+    }
+  }
+}
+
+@mixin mdb-drawer-x-overlay() {
+  @include mdb-layout-backdrop-in();
+
+  @each $side, $abbrev in (left: l, right: r) {
+    &.mdb-drawer-f-#{$abbrev} {
+      > .mdb-layout-header,
+      > .mdb-layout-content {
+        width: 100%;
+        margin-#{$side}: 0;
+      }
+    }
+  }
+}
+
+@mixin mdb-drawer-y-overlay() {
+  @include mdb-layout-backdrop-in();
+
+  @each $side, $abbrev in (top: t, bottom: b) {
+    &.mdb-drawer-f-#{$abbrev} {
+      > .mdb-layout-header {
+        @if $side == top { // only add margin-top on a header when the drawer is at the top
+          margin-#{$side}: 0;
+        }
+      }
+
+      > .mdb-layout-content {
+        @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
+          margin-#{$side}: 0;
+        }
+      }
+    }
+  }
+}
+
+// Overlay - left/right responsive overlay classes and marker class
+@mixin mdb-drawer-x-overlay-down($breakpoint) {
+  // e.g. &, &-sm, &-md, &-lg
+  $name: mdb-drawer-breakpoint-name($breakpoint, '-down');
+
+  &.mdb-drawer-overlay {
+    #{unquote($name)} { // mdb-drawer-overlay, mdb-drawer-overlay-sm, mdb-drawer-overlay-md, mdb-drawer-overlay-lg
+
+      // x - left/right
+
+      @if $breakpoint == xs { // overlay marker class (non-responsive)
+
+        // Must double up on the .mdb-drawer-overlay class to increase specificity otherwise the
+        //  responsive mdb-drawer-in-* media queries above win (and overlay is ignored)
+        &.mdb-drawer-overlay {
+          @include mdb-drawer-x-overlay()
+        }
+      } @else {
+        @include media-breakpoint-down($breakpoint) { // overlay responsive class
+          @include mdb-drawer-x-overlay()
+        }
+      }
+    }
+  }
+}
+
+// Overlay - top/bottom responsive overlay classes and marker class
+@mixin mdb-drawer-y-overlay-down($breakpoint) {
+  // e.g. &, &-sm, &-md, &-lg
+  $name: mdb-drawer-breakpoint-name($breakpoint, "-down");
+
+  &.mdb-drawer-overlay {
+    #{unquote($name)} { // mdb-drawer-overlay, mdb-drawer-overlay-sm, mdb-drawer-overlay-md, mdb-drawer-overlay-lg
+      //// y - top/bottom
+
+      @if $breakpoint == xs { // overlay marker class (non-responsive)
+
+        // Must double up on the .mdb-drawer-overlay class to increase specificity otherwise the
+        //  responsive mdb-drawer-in-* media queries above win (and overlay is ignored)
+        &.mdb-drawer-overlay {
+          @include mdb-drawer-y-overlay();
+        }
+      } @else {
+        @include media-breakpoint-down($breakpoint) { // overlay responsive class
+          @include mdb-drawer-y-overlay();
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,49 @@
+// https://www.google.com/design/spec/components/tabs.html#tabs-specs
+
+.nav-link {
+  //line-height: $mdb-nav-link-line-height; // set baseline line-height and font sizes
+  text-transform: uppercase;
+}
+
+// navbars
+.navbar-nav {
+  .nav-link {
+    padding: $mdb-navbar-link-padding;
+    font-size: $mdb-navbar-link-font-size;
+    font-weight: $mdb-navbar-link-font-weight;
+  }
+}
+
+
+// pills and tabs
+.nav-tabs,
+.nav-pills {
+  border: 0;
+
+  .nav-link {
+    padding: $mdb-nav-tabs-pills-link-padding;
+    font-size: $mdb-nav-tabs-pills-font-size;
+    font-weight: $mdb-nav-tabs-pills-font-weight;
+    border: 0;
+  }
+}
+
+// tabs only
+.nav-tabs {
+  .nav-link {
+    border-bottom: $mdb-nav-tabs-border-size solid transparent;
+  }
+
+  // colors
+  @include mdb-tabs-color($mdb-nav-tabs-color, $mdb-nav-tabs-active-color, $mdb-nav-tabs-active-border-color, $mdb-nav-tabs-disabled-link-color, $mdb-nav-tabs-disabled-link-color-hover);
+
+  &.bg-primary {
+    @include mdb-tabs-color($mdb-nav-tabs-primary-color, $mdb-nav-tabs-primary-active-color, $mdb-nav-tabs-primary-active-border-color, $mdb-nav-tabs-primary-disabled-link-color, $mdb-nav-tabs-primary-disabled-link-color-hover);
+  }
+
+  &.bg-inverse {
+    @include mdb-tabs-color($mdb-nav-tabs-inverse-color, $mdb-nav-tabs-inverse-active-color, $mdb-nav-tabs-inverse-active-border-color, $mdb-nav-tabs-inverse-disabled-link-color, $mdb-nav-tabs-inverse-disabled-link-color-hover);
+  }
+}
+
+

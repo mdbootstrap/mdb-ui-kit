@@ -1,0 +1,42 @@
+{
+  "name": "bootstrap-material-design",
+  "description": "Bootstrap Material Design for Bootstrap 4",
+  "keywords": [
+    "material",
+    "design",
+    "bootstrap",
+    "css",
+    "js",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "http://fezvrasta.github.io/bootstrap-material-design",
+  "license": "MIT",
+  "moduleType": "globals",
+  "main": [
+    "scss/bootstrap-material-design.scss",
+    "dist/js/bootstrap-material-design.js"
+  ],
+  "ignore": [
+    "/.*",
+    "_config.yml",
+    "CNAME",
+    "composer.json",
+    "CONTRIBUTING.md",
+    "docs",
+    "js/tests",
+    "test-infra"
+  ],
+  "dependencies": {
+    "bootstrap": "git@github.com:rosskevin/bootstrap.git#v4-tmp-flex-master",
+    "tether": "^1.1"
+  },
+  "old-dependencies": {
+    "bootstrap": "v4-dev",
+    "tether": "^1.1"
+  }
+}

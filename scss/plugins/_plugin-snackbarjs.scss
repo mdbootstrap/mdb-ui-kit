@@ -1,0 +1,27 @@
+//// Support for SnackbarJS plugin
+//// https://github.com/FezVrasta/snackbarjs
+//
+//.snackbar {
+//  height: 0;
+//  font-size: 14px;
+//  color: $mdb-text-color-inverse;
+//  background-color: #323232;
+//  border-radius: $border-radius;
+//  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;
+//  transform: translateY(200%);
+//
+//  @include box-shadow($mdb-shadow-2dp);
+//}
+//
+//.snackbar.snackbar-opened {
+//  height: auto;
+//  padding: 14px 15px;
+//  margin-bottom: 20px;
+//  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, height 0s linear 0.2s;
+//  transform: none;
+//}
+//
+//// Variations
+//.snackbar.toast {
+//  border-radius: 200px;
+//}

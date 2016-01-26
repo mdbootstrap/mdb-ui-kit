@@ -1,0 +1,121 @@
+// Implementation specification in https://github.com/FezVrasta/bootstrap-material-design/issues/822
+
+// Drawer.
+.mdb-layout-drawer {
+  position: absolute;
+  z-index: 5; // over a header and content
+  box-sizing: border-box;
+  display: flex;
+  max-height: 100%;
+
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: visible;
+  overflow-y: auto;
+  font-size: .875rem;
+  //color: $mdb-layout-drawer-text-color;
+  //background: $mdb-layout-drawer-bg-color;
+
+  // Transform offscreen.
+  transition: transform;
+  will-change: transform;
+  transform-style: preserve-3d;
+  @include box-shadow($mdb-shadow-2dp);
+  @include material-animation-default();
+
+  > * {
+    flex-shrink: 0;
+  }
+
+  // Placement of common components within the drawer
+  //  You might say this is opinionated - feedback welcome.
+  > header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+
+    .navbar-brand {
+      padding-left: 1.5rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  > .list-group {
+    padding-top: 1rem;
+
+    .list-group-item {
+      padding-right: 2.5rem;
+      padding-left: 2.5rem;
+      font-size: .8125rem;
+      font-weight: 500;
+    }
+  }
+}
+
+//----------------
+// Sizing and positioning below here
+
+// for left or right drawers, setup widths, heights and positions
+@include mdb-drawer-x-out($mdb-drawer-x-size);
+
+// for top or bottom drawers, setup widths, heights and positions
+@include mdb-drawer-y-out($mdb-drawer-y-size);
+
+// Marker class for both triggering the opening of the drawer (i.e. javascript #addClass('.mdb-drawer-in')), as well
+//  as responsive sizes (i.e. mdb-drawer-in-md will open once the browser is wider than 768px).
+//
+//
+// mdb-drawer-in, mdb-drawer-in-sm, mdb-drawer-in-md, mdb-drawer-in-lg
+//  We iterate over the standard grid breakpoints, but we also need styles for the simpler `mdb-drawer-in`
+//  without a size (for triggered openings).  Since the xs size is 0, instead of using `mdb-drawer-in-xs`
+//  (which is mostly meaningless), we create `mdb-drawer-in` meaning always open.
+//
+//  NOTE: mdb-drawer-in-* uses media-breakpoint-up()
+//
+// mdb-drawer-out
+//  A marker class that will _force_ the drawer closed regardless of the responsive class present. If (for some
+//  strange reason) both mdb-drawer-out and mdb-drawer-in are present, it appears that the closed option wins.
+//
+// mdb-drawer-overlay, mdb-drawer-overlay-sm, mdb-drawer-overlay-md, mdb-drawer-overlay-lg
+//  We iterate over the standard grid breakpoints, but we also need styles for the simpler `mdb-drawer-overlay`.
+//  Since the xs size is 0, instead of using `mdb-drawer-overlay-xs`, we create `mdb-drawer-overlay` meaning always overlay.
+//
+//  NOTE: mdb-drawer-overlay-* uses media-breakpoint-down() - this is because we usually want a responsive overlay to be used in small screen scenarios.
+//
+
+//
+// Drawer open positioning, and style options (push is default, overlay is optional)
+:not(.mdb-drawer-out) { // first eliminate positioning or sizing rules if the drawer is already forced closed
+  @each $breakpoint in map-keys($grid-breakpoints) {
+
+    @include mdb-drawer-x-in-up($mdb-drawer-x-size, $breakpoint);
+    @include mdb-drawer-y-in-up($mdb-drawer-y-size, $breakpoint);
+
+    @include mdb-drawer-x-overlay-down($breakpoint);
+    @include mdb-drawer-y-overlay-down($breakpoint);
+  }
+}
+
+////----
+//// Example 1: creates a media responsive kitchen-sink-drawer that pairs with mdb-drawer-in-lg and allows for the mdb-drawer-in trigger
+//.kitchen-sink-drawer {
+//  $custom-size: 500px;
+//  @include mdb-drawer-x-out($custom-size);
+//  &:not(.mdb-drawer-out) {
+//    @each $breakpoint in map-keys($grid-breakpoints) {
+//      @include mdb-drawer-x-in-up($custom-size, $breakpoint);
+//    }
+//  }
+//}
+//
+////
+////----
+//// Example 2: creates a NON-responsive kitchen-sink-drawer and allows for the mdb-drawer-in trigger
+//.kitchen-sink-drawer-static {
+//  $custom-size: 500px;
+//  @include mdb-drawer-x-out($custom-size); // closed by default
+//  @include mdb-drawer-x-in($custom-size); // triggered with mdb-drawer-in
+//  @include mdb-drawer-x-overlay(); // overlay by default, no other classes necessary
+//}
+
