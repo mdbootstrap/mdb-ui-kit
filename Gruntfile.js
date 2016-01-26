@@ -484,7 +484,7 @@ module.exports = function (grunt) {
     gitcommit: {
       dist: {
         options: {
-          message: 'dist',
+          message: 'dist - publish',
           noVerify: true,
           noStatus: false
         },
