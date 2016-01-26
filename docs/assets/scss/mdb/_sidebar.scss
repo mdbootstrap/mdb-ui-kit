@@ -5,4 +5,11 @@
   padding: .25rem .75rem;
 }
 
-
+.bd-search {
+  .form-control {
+    background-color: transparent;
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}
