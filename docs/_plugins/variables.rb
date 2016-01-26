@@ -39,7 +39,13 @@ module Variables
       bootstrap_version = site.data['npm_bootstrap']['version']
       assert_not_nil :bootstrap_version, bootstrap_version
 
-      if (bootstrap_version.include?('rosskevin'))
+      if (bootstrap_version.include?('rosskevin') || bootstrap_version.include?('alpha'))
+        # // not this
+        # https://cdn.rawgit.com/twbs/bootstrap/4.0.0-alpha.2/dist/js/bootstrap.js
+
+        # // this
+        # https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js
+
         bootstrap_version = 'v4-dev' # hack since we are using a rosskevin flex branch
       end
 

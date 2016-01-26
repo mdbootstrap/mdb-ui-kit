@@ -35,9 +35,10 @@ Copy-paste the font and stylesheet `<link>` into your `<head>` before all other 
 Add jQuery, Bootstrap, and our Javascript plugins near the end of your pages, right before the closing `</body>` tag. Be sure to place jQuery first as our code depends on it.
 
 {% highlight html %}
-<script src="{{ site.data.cdn.jquery }}"></script>
-<script src="{{ site.data.cdn.bootstrap }}"></script>
-<script src="{{ site.cdn.js }}"></script>
+<script src="{{ site.data.cdn.jquery }}.min.js"></script>
+<script src="{{ site.data.cdn.tether }}.min.js"></script>
+<script src="{{ site.data.cdn.bootstrap }}.min.js"></script>
+<script src="{{ site.cdn.js }}.iife.min.js"></script>
 <script>
   $('body').bootstrapMaterialDesign()
 </script>
@@ -75,10 +76,10 @@ Put it all together and your pages should look like this:
     <h1>Hello, world!</h1>
 
     <!-- jQuery first, optional tether for tooltips, then Bootstrap and Material Design for Bootstrap JS. -->
-    <script src="{{ site.data.cdn.jquery }}"></script>
-    <script src="{{ site.data.cdn.tether }}"></script>
-    <script src="{{ site.data.cdn.bootstrap }}"></script>
-    <script src="{{ site.cdn.js }}"></script>
+    <script src="{{ site.data.cdn.jquery }}.min.js"></script>
+    <script src="{{ site.data.cdn.tether }}.min.js"></script>
+    <script src="{{ site.data.cdn.bootstrap }}.min.js"></script>
+    <script src="{{ site.cdn.js }}.iife.min.js"></script>
     <script>
       $('body').bootstrapMaterialDesign()
     </script>
