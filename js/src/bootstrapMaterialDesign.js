@@ -55,9 +55,6 @@ const BootstrapMaterialDesign = (($) => {
     file: {
       selector: 'input[type=file]'
     },
-    //layout: {
-    //  selector: '.mdb-layout-container'
-    //},
     radio: {
       selector: '.radio > label > input[type=radio]'
     },
@@ -83,8 +80,8 @@ const BootstrapMaterialDesign = (($) => {
       selector: '.switch > label > input[type=checkbox]'
     },
     text: {
-      // omit inputs we have specialized components to handle
-      selector: [`input[type!='hidden'][type!='checkbox'][type!='radio'][type!='file']`]
+      // omit inputs we have specialized components to handle - we need to match text, email, etc.  The easiest way to do this appears to be just omit the ones we don't want to match and let the rest fall through to this.
+      selector: [`input[type!='hidden'][type!='checkbox'][type!='radio'][type!='file'][type!='button'][type!='submit'][type!='reset']`]
     },
     textarea: {
       selector: ['textarea']
@@ -96,7 +93,6 @@ const BootstrapMaterialDesign = (($) => {
       'checkbox',
       'checkboxInline',
       'collapseInline',
-      //'layout',
       'drawer',
       'file',
       'radio',
