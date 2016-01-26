@@ -72,7 +72,35 @@
 
   // override BS and keep the border-color normal/grey so that overlaid focus animation draws attention
   .form-control {
-    border-color: $input-border-color;
+
+    // underline animation color on focus
+    $underline-background-image: linear-gradient(to top, $label-color-focus 2px, fade-out($label-color-focus, 1) 2px), linear-gradient(to top, $input-border-color 1px, fade-out($input-border-color, 1) 1px);
+
+    // bg image is always there, we just need to reveal it
+    &,
+    .is-focused & {
+      background-image: $underline-background-image;
+    }
+
+    // allow underline focus image and validation images to coexist
+    &.form-control-success {
+      &,
+      .is-focused & {
+        background-image: $underline-background-image, url($form-icon-success);
+      }
+    }
+    &.form-control-warning {
+      &,
+      .is-focused & {
+        background-image: $underline-background-image, url($form-icon-warning);
+      }
+    }
+    &.form-control-danger {
+      &,
+      .is-focused & {
+        background-image: $underline-background-image, url($form-icon-danger);
+      }
+    }
   }
 
   .is-focused, // may or may not be a form-group or mdb-form-group
@@ -101,15 +129,6 @@
       border-color: $border-color;
     }
 
-    // underline animation color on focus
-    .mdb-form-control-decorator {
-      &::before,
-      &::after {
-        //@include gradient-vertical($label-color-focus, $input-border-color);  // seems to look better solid.  other comments?
-        background-color: $label-color-focus;
-      }
-    }
-
     .mdb-help {
       color: $mdb-label-color-inner-focus;
     }
@@ -125,6 +144,8 @@
 }
 
 @mixin mdb-form-size-variant($font-size, $label-top-margin, $variant-padding-y, $variant-line-height, $form-group-context: null) {
+
+  $variant-input-height: (($font-size * $variant-line-height) + ($variant-padding-y * 2));
   $static-font-size: ($mdb-mdb-label-static-size-ratio * $font-size);
   $help-font-size: ($mdb-help-size-ratio * $font-size);
 
@@ -215,5 +236,29 @@
   .mdb-help {
     margin-top: 0; // allow the input margin to set-off the top of the help-block
     font-size: $help-font-size;
+  }
+
+  // validation icon placement
+  .form-control {
+    &.form-control-success,
+    &.form-control-warning,
+    &.form-control-danger {
+      $icon-bg-size: ($variant-input-height * .65) ($variant-input-height * .65);
+      //$icon-bg-size: ($variant-input-height) ($variant-input-height);
+      background-size: $mdb-form-control-bg-size, $icon-bg-size;
+
+      &,
+      &:focus,
+      .mdb-form-group.is-focused & {
+        padding-right: ($input-padding-x * 3);
+        background-repeat: $mdb-form-control-bg-repeat-y, no-repeat;
+        background-position: $mdb-form-control-bg-position, center right ($variant-input-height * .25);
+      }
+
+      &:focus,
+      .mdb-form-group.is-focused & {
+        background-size: $mdb-form-control-bg-size-active, $icon-bg-size;
+      }
+    }
   }
 }

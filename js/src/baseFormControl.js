@@ -8,9 +8,6 @@ const BaseFormControl = (($) => {
    * ------------------------------------------------------------------------
    */
   const Default = {
-    decorator: {
-      template: `<span class='mdb-form-control-decorator'></span>`
-    },
     requiredClasses: ['form-control']
   }
 
@@ -28,9 +25,6 @@ const BaseFormControl = (($) => {
       if (this.isEmpty()) {
         this.removeIsFilled()
       }
-
-      // Add marker div the end of the form-group
-      this.$element.after(this.config.decorator.template)
     }
   }
 

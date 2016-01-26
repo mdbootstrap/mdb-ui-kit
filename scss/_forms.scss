@@ -23,47 +23,26 @@ form {
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 .form-control {
-  // The border bottom should be static in all states, the decorator will be animated over this.
-  &,
-  &:focus,
-  .mdb-form-group.is-focused & {
-    border: 0;
-    border-bottom: $input-btn-border-width solid $input-border-color;
-  }
+  background-repeat: $mdb-form-control-bg-repeat-y;
+  background-position: $mdb-form-control-bg-position;
+  background-size: $mdb-form-control-bg-size;
+  border: 0;
+  transition: background 0s ease-out;
 
+  // on disabled, kill the bg animation image and fall back to a simple dotted bottom border
   @include mdb-disabled() {
+    background-image: none;
     border-bottom: $input-btn-border-width dotted $input-border-color;
   }
-}
 
-// Focus underline animation =================================
-.mdb-form-control-decorator {
-  position: relative;
-  top: (-1 * $input-btn-border-width); // move the top up enough to overlay the border from the input
-  display: block;
-  &::before,
-  &::after {
-    position: absolute;
-    width: 0;
-    height: $input-btn-border-width + 1;
-    content: "";
-    transition: 0.3s ease all;
-
-    // focused state - it transitions the width of each (before and after) to 50% creating the center out effect
-    .form-control:focus ~ &,
-    .mdb-form-group.is-focused .form-control ~ & {
-      width: 50%;
-    }
-  }
-  &::before {
-    left: 50%;
-  }
-  &::after {
-    right: 50%;
+  // The border bottom should be static in all states, the decorator will be animated over this.
+  &:focus,
+  .mdb-form-group.is-focused & {
+    background-size: $mdb-form-control-bg-size-active;
+    //border-bottom: $input-btn-border-width solid $input-border-color;
+    transition-duration: 0.3s;
   }
 }
-
-// End: Focus underline animation =================================
 
 // Help blocks (not in v4)
 //  position: absolute approach - uses no vertical space and there is no form jumping, but text wrapping - not so good.

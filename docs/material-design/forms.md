@@ -97,7 +97,7 @@ Below is a complete list of options supported by Material Design for Bootstrap a
       <td>
         <code>.mdb-form-group</code>
       </td>
-      <td class="text-nowrap">
+      <td>
         Any group of form controls (e.g. combination of label/input).
       </td>
       <td>
@@ -111,7 +111,7 @@ Below is a complete list of options supported by Material Design for Bootstrap a
       <td>
         <code>.mdb-form-group-sm</code>
       </td>
-      <td class="text-nowrap">
+      <td>
         {% markdown %}Added to the `.mdb-form-group`, this will render the combination label/input/help in the smaller variation.{% endmarkdown %}
       </td>
       <td>
@@ -122,7 +122,7 @@ Below is a complete list of options supported by Material Design for Bootstrap a
       <td>
         <code>.mdb-form-group-lg</code>
       </td>
-      <td class="text-nowrap">
+      <td>
         {% markdown %}Added to the `.mdb-form-group`, this will render the combination label/input/help in the larger variation.{% endmarkdown %}
       </td>
       <td>
@@ -133,7 +133,7 @@ Below is a complete list of options supported by Material Design for Bootstrap a
       <td>
         <code>.mdb-help</code>
       </td>
-      <td class="text-nowrap">
+      <td>
         Any help text
       </td>
       <td>
