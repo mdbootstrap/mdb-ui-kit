@@ -482,6 +482,10 @@ module.exports = function (grunt) {
     },
 
     gitcommit: {
+      // NOTE: you may need: `git config core.autocrlf true` on your system if you receive:
+      //    Warning: warning: CRLF will be replaced by LF in dist/js/bootstrap-material-design.es2015.js.
+      //    The file will have its original line endings in your working directory. Use --force to continue.
+
       dist: {
         options: {
           message: 'dist - publish',
