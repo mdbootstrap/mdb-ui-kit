@@ -92,7 +92,7 @@ const BootstrapMaterialDesign = (($) => {
       'checkboxInline',
       'collapseInline',
       'drawer',
-      'file',
+      //'file',
       'radio',
       'radioInline',
       'switch',
