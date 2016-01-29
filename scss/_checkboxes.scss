@@ -30,7 +30,8 @@ label.checkbox-inline {
       width: $mdb-checkbox-size;
       height: $mdb-checkbox-size;
       overflow: hidden;
-      border: $border-radius solid $mdb-checkbox-border-color;
+      border: $mdb-checkbox-border-size solid $mdb-checkbox-border-color;
+      border-radius: $border-radius;
 
       // checkbox outline
       &::before {
