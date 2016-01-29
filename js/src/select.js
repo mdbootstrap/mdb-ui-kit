@@ -20,7 +20,7 @@ const Select = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
-    requiredClasses: ['form-control||c-select']
+    requiredClasses: ['form-control||custom-select']
   }
 
   /**
