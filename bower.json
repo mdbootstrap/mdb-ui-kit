@@ -31,12 +31,12 @@
     "js/tests",
     "test-infra"
   ],
-  "dependencies": {
+  "x-private-dependencies": {
     "bootstrap": "git@github.com:rosskevin/bootstrap.git#v4-tmp-flex-master",
     "tether": "^1.1"
   },
-  "old-dependencies": {
-    "bootstrap": "v4-dev",
+  "dependencies": {
+    "bootstrap": "git@github.com:twbs/bootstrap.git#v4-dev",
     "tether": "^1.1"
   }
 }

@@ -6,6 +6,13 @@
 // - triple line 88dp
 
 .list-group {
+  // #853 start -- https://github.com/twbs/bootstrap/pull/18981/files
+  @if $enable-flex {
+    display: flex;
+    flex-direction: column;
+  }
+  // #853 end -- https://github.com/twbs/bootstrap/pull/18981/files
+
   flex-grow: 1;
 
   // Add 8dp of padding at the top and bottom of a list. One exception is at the top of a list with a subheader, because subheaders contain their own padding.
@@ -29,13 +36,22 @@
 }
 
 .list-group-item {
+  // #853 start -- https://github.com/twbs/bootstrap/pull/18981/files
+  @if $enable-flex {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  } @else {
+    display: block;
+  }
+  // #853 end -- https://github.com/twbs/bootstrap/pull/18981/files
   padding: 1rem;
   line-height: 1;
 
-  .list-group-item-text {    // word wrap? http://stackoverflow.com/a/26535469/2363935
+  .list-group-item-text { // word wrap? http://stackoverflow.com/a/26535469/2363935
     //flex-flow: row wrap;
     min-width: 0;
-    max-height: 2.188rem;  // 88dp tile total height
+    max-height: 2.188rem; // 88dp tile total height
     // FIXME: text overflow with ellipsis is not working
     //flex: 0 1 auto; //    http://stackoverflow.com/questions/12022288/how-to-keep-a-flex-item-from-overflowing-due-to-its-text
     overflow: hidden;

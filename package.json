@@ -33,7 +33,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "rosskevin/bootstrap#v4-tmp-flex-master",
+    "bootstrap": "twbs/bootstrap#v4-dev",
     "jquery": "^2.0",
     "tether": "^1.1.1"
   },

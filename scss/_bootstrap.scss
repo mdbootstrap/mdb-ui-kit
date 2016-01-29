@@ -1,4 +1,4 @@
-// FIXME: temporarily use the local bootstrap - waiting on flex enable navbar https://github.com/twbs/bootstrap/pull/18976
+// FIXME: only necessary because there isn't an underscored file - see https://github.com/twbs/bootstrap/issues/18350
 //@import "../bower_components/bootstrap/scss/
 //@import "../../bootstrap/scss/
 
@@ -6,6 +6,23 @@
 @import "bootstrap/scss/custom";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
+
+// #853 start - https://github.com/twbs/bootstrap/pull/18976/files
+// hack
+@mixin pull-left {
+  float: left !important;
+  @if $enable-flex {
+    margin-right: auto;
+  }
+}
+@mixin pull-right {
+  float: right !important;
+  @if $enable-flex {
+    margin-left: auto;
+  }
+}
+// #853 end - https://github.com/twbs/bootstrap/pull/18976/files
+
 
 // Reset and dependencies
 @import "bootstrap/scss/normalize";
