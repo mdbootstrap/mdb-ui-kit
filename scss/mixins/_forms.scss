@@ -166,18 +166,21 @@
     padding-top: ($label-top-margin + $static-font-size);
     // note: bottom-margin of this is determined by $spacer.  @see _spacer.scss
     //margin-bottom: (1.5 * $help-font-size);
-  } @else {
-
-    // for radios and checkboxes without a form-group, add some extra vertical spacing to pad down so that
-    //  any help text above is not encroached upon, or so that it appears more evenly spaced vs form-groups
-    .radio,
-    label.radio-inline,
-    .checkbox,
-    label.checkbox-inline,
-    .switch {
-      padding-top: $spacer-y;
-    }
   }
+
+  // TODO: remove this when known stable.  https://github.com/FezVrasta/bootstrap-material-design/issues/849
+  //@else {
+  //
+  //  // for radios and checkboxes without a form-group, add some extra vertical spacing to pad down so that
+  //  //  any help text above is not encroached upon, or so that it appears more evenly spaced vs form-groups
+  //  .radio,
+  //  label.radio-inline,
+  //  .checkbox,
+  //  label.checkbox-inline,
+  //  .switch {
+  //    padding-top: $spacer-y;
+  //  }
+  //}
 
   // Set all line-heights preferably to 1 so that we can space out everything manually without additional added space
   //  from the default line-height of 1.5
