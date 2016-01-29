@@ -4,6 +4,16 @@ title: Download
 group: getting-started
 ---
 
+{% callout warning %}
+## **Heads up! Use the repository branch!**
+ 
+With the pace of current changes, any published package would be out of date almost every day.
+
+For the current time, please use the `v4-dev` branch for **all package managers including bower and npm** by pointing to `FezVrasta/bootstrap-material-design#v4-dev`.
+{% endcallout %}
+
+
+
 **Material Design for Bootstrap v{{ site.data.version}}** is available for download in several ways, including some of your favorite package managers. Choose from the options below to snag just what you need.
 
 <div class="row m-t-md">
@@ -31,10 +41,6 @@ Download everything: source Sass, JavaScript, and documentation files. **Require
 ## Package managers
 
 Pull in Material Design for Bootstrap's **source files** into nearly any project with some of the most popular package managers. No matter the package manager, Material Design for Bootstrap will **require a Sass compiler and [Autoprefixer](https://github.com/postcss/autoprefixer)** for a setup that matches our official compiled versions.
-
-{% callout warning %}
-**Heads up!** Not all package managers have the v4 alpha published yet, but we should have them up shortly!
-{% endcallout %}
 
 ### npm
 
