@@ -2617,7 +2617,7 @@ fieldset[disabled] .navbar .btn-link:focus {
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 .dropdown-menu .divider {
-  background-color: rgba(229, 229, 229, 0.12);
+  background-color: rgba(0, 0, 0, 0.12);
 }
 .dropdown-menu li {
   overflow: hidden;
@@ -3245,15 +3245,15 @@ hr.on-light {
 .selectize-control.multi .selectize-input.input-active:after {
   right: 5px;
   position: absolute;
-  font-size: 7px;
-  content: "\e894";
-  font-family: "Material-Design-Icons";
+  font-size: 25px;
+  content: "\e5c5";
+  font-family: 'Material Icons';
   speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 4;
+  line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
