@@ -28,7 +28,7 @@ Major differences:
 
 ## How to install
 
-You may install this theme using Bower or [Meteor (package requires community help to be updated #769)](https://github.com/FezVrasta/bootstrap-material-design/issues/769):
+You may install this theme using Bower or Meteor:
 
 - Bower : `bower install bootstrap-material-design`
 - Meteor: `meteor add fezvrasta:bootstrap-material-design`
