@@ -1,4 +1,5 @@
 'use strict';
+$ =jQuery.noConflict();
 
 //var packageName;  // there seems to be no official way of finding out the name of the very package we're testing - http://stackoverflow.com/questions/27180709/in-a-tinytest-test-file-how-do-i-get-the-name-of-the-package
 //
