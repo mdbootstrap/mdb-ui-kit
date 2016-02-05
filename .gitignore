@@ -1,6 +1,6 @@
 
-# Ignore dist as buildcontrol will place it on it's own branch
-dist
+# Ignore the root dist as buildcontrol will place it on it's own branch (same for gh-pages)
+/dist
 
 # Ignore docs dist files
 docs/dist/**/*
