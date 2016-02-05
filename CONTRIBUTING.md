@@ -34,23 +34,6 @@ restrictions:
 * Please **close your own issue** once it is resolved.
 
 
-## Issues and labels
-
-Our bug tracker utilizes several labels to help organize and identify issues. Here's what they represent and how we use them:
-
-- `spec compliance` - Issues that are not conforming to the [Material Design Specification](https://www.google.com/design/spec/material-design/introduction.html).
-- `bootstrap compliance` - Issues that are implemented in Bootstrap, but have no Material Design implementation
-- `bug confirmed` - Issues that have been confirmed with a reduced test case and identify a bug in Bootstrap.
-- `docs & examples` - Issues for improving or updating our documentation or examples.
-- `feature` - Issues asking for a new feature to be added, or an existing one to be extended or modified. New features require a minor version bump (e.g., `v3.0.0` to `v3.1.0`).
-- `enhancement` - Issues for improving existing features
-- `grunt` - Issues with our included JavaScript-based Gruntfile, which is used to run all our tests, concatenate and compile source files, and more.
-- `help wanted` - Issues we need or would love help from the community to resolve.
-- `js` - Issues stemming from our compiled or source JavaScript files.
-
-For a complete look at our labels, see the [project labels page](https://github.com/FezVrasta/bootstrap-material-design/labels).
-
-
 ## Bug reports
 
 A bug is a _demonstrable problem_ that is caused by the code in the repository.
@@ -98,6 +81,31 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
+
+## Why was my issue summarily closed?
+Please don't take this the wrong way, but we receive a lot of issues and in order to effectively help, we need you to follow the guidelines written above.
+
+We try our best to maintain a great project, and do so with a considerable amount of our personal time and effort.  Following these guidelines facilitates an efficient way to communicate about bugs or simply help. Failure to follow these guidelines leads to confusion and wasted time.  
+
+Many times, we find that the process of creating the codepen test case solves the user's problem, and shows that an interaction with code outside this library are causing undesirable side effects.
+
+If you do not take the time to read and follow these guidelines (including submitting a reduced test case with _our codepen template_), then why should we take more time to help you?
+
+
+## Issues and labels
+Our bug tracker utilizes several labels to help organize and identify issues. Here's what they represent and how we use them:
+
+- `spec compliance` - Issues that are not conforming to the [Material Design Specification](https://www.google.com/design/spec/material-design/introduction.html).
+- `bootstrap compliance` - Issues that are implemented in Bootstrap, but have no Material Design implementation
+- `bug confirmed` - Issues that have been confirmed with a reduced test case and identify a bug in Bootstrap.
+- `docs & examples` - Issues for improving or updating our documentation or examples.
+- `feature` - Issues asking for a new feature to be added, or an existing one to be extended or modified. New features require a minor version bump (e.g., `v3.0.0` to `v3.1.0`).
+- `enhancement` - Issues for improving existing features
+- `grunt` - Issues with our included JavaScript-based Gruntfile, which is used to run all our tests, concatenate and compile source files, and more.
+- `help wanted` - Issues we need or would love help from the community to resolve.
+- `js` - Issues stemming from our compiled or source JavaScript files.
+
+For a complete look at our labels, see the [project labels page](https://github.com/FezVrasta/bootstrap-material-design/labels).
 
 ## Feature requests
 
