@@ -6,7 +6,7 @@
 
     .mdb-switch-track {
       position: absolute;
-      top: calc-top($line-height, $font-size-base, $mdb-switch-height);
+      top: calc-top($line-height-base, $font-size-base, $mdb-switch-height);
       left: 0;
       display: inline-block;
       width: $mdb-switch-width;

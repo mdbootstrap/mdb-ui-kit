@@ -195,7 +195,7 @@
   .checkbox label,
   label.checkbox-inline,
   .switch label {
-    line-height: $line-height; // keep the same line height for radios and checkboxes
+    line-height: $line-height-base; // keep the same line height for radios and checkboxes
   }
 
   // Note: this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg

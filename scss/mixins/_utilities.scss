@@ -1,5 +1,5 @@
-@function calc-top($line-height, $font-size, $component-height) {
-  @return (($line-height * $font-size) - $component-height) / 2; // vertical center of line-height
+@function calc-top($line-height-base, $font-size, $component-height) {
+  @return (($line-height-base * $font-size) - $component-height) / 2; // vertical center of line-height
 }
 
 
