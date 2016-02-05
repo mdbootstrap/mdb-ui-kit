@@ -30,7 +30,7 @@ Major differences:
 
 You may install this theme using Bower or Meteor:
 
-- NPM : `npm install bootstrap-material-design`
+- NPM : `npm install bootstrap-material`
 - Bower : `bower install bootstrap-material-design`
 - Meteor: `meteor add fezvrasta:bootstrap-material-design`
 
