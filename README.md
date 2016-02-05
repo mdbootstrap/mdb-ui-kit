@@ -28,7 +28,7 @@ Major differences:
 
 ## How to install
 
-You may install this theme using Bower or Meteor:
+You may install this theme using NPM, Bower or Meteor:
 
 - NPM : `npm install bootstrap-material`
 - Bower : `bower install bootstrap-material-design`
