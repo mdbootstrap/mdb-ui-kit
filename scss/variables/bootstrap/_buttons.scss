@@ -30,10 +30,12 @@ $mdb-btn-icon-font-size-sm: (.75 * $mdb-btn-fab-font-size) !default;
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border color.
-$btn-box-shadow:                 none !default;
 $btn-padding-x:                  1rem !default; // 1rem
 $btn-padding-y:                  .46875rem !default; // .375rem achieve a 36dp height
 $btn-font-weight:                500 !default; // normal
+$btn-box-shadow:                 none !default;
+$btn-active-box-shadow:          none !default; // inset 0 3px 5px rgba(0,0,0,.125)
+
 //
 //$btn-primary-color:              #fff !default;
 //$btn-primary-bg:                 $brand-primary !default;
