@@ -153,8 +153,9 @@ module.exports = function (grunt) {
       dist: {
         files: {
           'dist/js/bootstrap-material-design.iife.min.js': 'dist/js/bootstrap-material-design.iife.js',
-          'dist/js/bootstrap-material-design.umd.min.js': 'dist/js/bootstrap-material-design.umd.js',
-          'dist/js/bootstrap-material-design.es6.min.js': 'dist/js/bootstrap-material-design.es6.js'
+          'dist/js/bootstrap-material-design.umd.min.js': 'dist/js/bootstrap-material-design.umd.js'
+          //,
+          //'dist/js/bootstrap-material-design.es.min.js': 'dist/js/bootstrap-material-design.es.js'
         }
       },
 
@@ -460,7 +461,7 @@ module.exports = function (grunt) {
         command: 'rollup -c grunt/rollup.umd.config.js'
       },
       'rollup-es2015': {
-        command: 'rollup -c grunt/rollup.es2015.config.js'
+        command: 'rollup -c grunt/rollup.es.config.js'
       }
     },
 
