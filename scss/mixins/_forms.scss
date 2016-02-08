@@ -86,19 +86,19 @@
     &.form-control-success {
       &,
       .is-focused & {
-        background-image: $underline-background-image, url($form-icon-success);
+        background-image: $underline-background-image, $form-icon-success;
       }
     }
     &.form-control-warning {
       &,
       .is-focused & {
-        background-image: $underline-background-image, url($form-icon-warning);
+        background-image: $underline-background-image, $form-icon-warning;
       }
     }
     &.form-control-danger {
       &,
       .is-focused & {
-        background-image: $underline-background-image, url($form-icon-danger);
+        background-image: $underline-background-image, $form-icon-danger;
       }
     }
   }
@@ -246,7 +246,7 @@
     &.form-control-success,
     &.form-control-warning,
     &.form-control-danger {
-      $icon-bg-size: ($variant-input-height * .65) ($variant-input-height * .65);
+      $icon-bg-size: ($variant-input-height * .5) ($variant-input-height * .5);
       background-size: $mdb-form-control-bg-size, $icon-bg-size;
 
       &,

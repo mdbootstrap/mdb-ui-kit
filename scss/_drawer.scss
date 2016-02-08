@@ -6,10 +6,11 @@
   z-index: 5; // over a header and content
   box-sizing: border-box;
   display: flex;
-  max-height: 100%;
 
   flex-direction: column;
   flex-wrap: nowrap;
+
+  max-height: 100%;
   overflow: visible;
   overflow-y: auto;
   font-size: .875rem;

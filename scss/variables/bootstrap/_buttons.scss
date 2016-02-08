@@ -31,7 +31,8 @@ $mdb-btn-icon-font-size-sm: (.75 * $mdb-btn-fab-font-size) !default;
 //
 // For each of Bootstrap's buttons, define text, background and border color.
 $btn-padding-x:                  1rem !default; // 1rem
-$btn-padding-y:                  .46875rem !default; // .375rem achieve a 36dp height
+$btn-padding-y:                  .46875rem !default; // .5rem achieve a 36dp height
+//$btn-line-height:                1 !default; //1.25
 $btn-font-weight:                500 !default; // normal
 $btn-box-shadow:                 none !default;
 $btn-active-box-shadow:          none !default; // inset 0 3px 5px rgba(0,0,0,.125)
@@ -63,10 +64,10 @@ $btn-secondary-bg:               $body-bg !default; // #fff
 //
 //$btn-link-disabled-color:        $gray-light !default;
 //
-//$btn-padding-x-sm:               .75rem !default;
+//$btn-padding-x-sm:               .5rem !default;
 $btn-padding-y-sm:               .40625rem !default; // achieve a 32dp height was .25rem
 //
-//$btn-padding-x-lg:               1.25rem !default;
+//$btn-padding-x-lg:               1.5rem !default;
 //$btn-padding-y-lg:               .75rem !default;
 //
 //// Allows for customizing button radius independently from global border radius

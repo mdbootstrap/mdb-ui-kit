@@ -60,12 +60,12 @@
   .dropdown-item {
 
     display: flex;
+    flex-flow: row wrap;
 
     min-width: $mdb-menu-item-min-width;
     max-width: $mdb-menu-item-max-width;
     min-height: $mdb-menu-item-min-height;
 
-    flex-flow: row wrap;
     align-items: center;
 
     padding-top: $mdb-menu-item-padding-top;

@@ -261,28 +261,6 @@ module.exports = function (grunt) {
       }
     },
 
-    csscomb: {
-      options: {
-        config: 'scss/.csscomb.json'
-      },
-      dist: {
-        expand: true,
-        cwd: 'dist/css/',
-        src: ['*.css', '!*.min.css'],
-        dest: 'dist/css/'
-      },
-      examples: {
-        expand: true,
-        cwd: 'docs/examples/',
-        src: '**/*.css',
-        dest: 'docs/examples/'
-      },
-      docs: {
-        src: 'docs/dist/css/docs.css',
-        dest: 'docs/dist/css/docs.css'
-      }
-    },
-
     copy: {
       'dist-to-docs': {  // for example templates
         expand: true,
@@ -587,7 +565,6 @@ module.exports = function (grunt) {
     'clean:dist-css',
     'sass-compile',
     'postcss:core',
-    'csscomb:dist',
     'cssmin:core',
     'copy:dist-to-docs'
   ]);
@@ -599,8 +576,6 @@ module.exports = function (grunt) {
     'sass:docs',
     'postcss:docs',
     'postcss:examples',
-    'csscomb:docs',
-    'csscomb:examples',
     'cssmin:docs'
   ]);
 
@@ -629,6 +604,7 @@ module.exports = function (grunt) {
   //------
   // Release and publish
   grunt.registerTask('prep-release', [
+    //'update-shrinkwrap',
     'dist',
     'jekyll:github' // build site from scratch
     //'compress' // compress zip

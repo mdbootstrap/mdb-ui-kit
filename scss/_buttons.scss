@@ -154,11 +154,11 @@
   // Size variations
   &.btn-lg,
   .btn-group-lg & {
-    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $mdb-btn-font-size-lg, $line-height-lg, $btn-border-radius-lg);
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $mdb-btn-font-size-lg, $btn-border-radius-lg);
   }
   &.btn-sm,
   .btn-group-sm & {
-    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $mdb-btn-font-size-sm, $line-height-sm, $btn-border-radius-sm);
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $mdb-btn-font-size-sm, $btn-border-radius-sm);
     font-size: $mdb-btn-font-size-sm;
   }
 }
