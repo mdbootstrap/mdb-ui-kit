@@ -45,15 +45,15 @@ If you prefer, you can include this framework in your project using our official
 Add the necessary links to your `<head>` element for fonts and stylsheets:
 ```html
   <!-- Material Design fonts -->
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
   <!-- Bootstrap -->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
   <!-- Bootstrap Material Design -->
-  <link href="dist/css/bootstrap-material-design.css" rel="stylesheet">
-  <link href="dist/css/ripples.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="dist/css/bootstrap-material-design.css">
+  <link rel="stylesheet" type="text/css" href="dist/css/ripples.min.css">
 ```
 
 ### Bower
