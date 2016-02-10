@@ -528,15 +528,15 @@ module.exports = function (grunt) {
     testSubtasks.push('saucelabs-qunit');
   }
   grunt.registerTask('test', testSubtasks);
-  grunt.registerTask('test-js', ['eslint', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
+  grunt.registerTask('test-js', ['eslint'/*, 'jscs:core', 'jscs:test', 'jscs:grunt'*/, 'qunit']);
 
   // JS distribution task.
   grunt.registerTask('dist-js', [
     'clean:dist-js',
     'eslint',
-    'jscs:grunt',
-    'jscs:core',
-    'jscs:test',
+    //'jscs:grunt',
+    //'jscs:core',
+    //'jscs:test',
     'exec:rollup-iife',
     'exec:rollup-umd',
     'exec:rollup-es2015',

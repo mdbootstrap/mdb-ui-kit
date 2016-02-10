@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-material-design",
   "description": "Material Design for Bootstrap 4",
-  "version": "4.0.0-prealpha",
+  "version": "4.0.0-alpha",
   "keywords": [
     "material",
     "design",
@@ -58,7 +58,6 @@
     "grunt-exec": "~0.4.6",
     "grunt-html": "~6.0.0",
     "grunt-jekyll": "~0.4.3",
-    "grunt-jscs": "~2.7.0",
     "grunt-postcss": "^0.7.1",
     "grunt-sass": "^1.1.0",
     "grunt-saucelabs": "~8.6.2",
