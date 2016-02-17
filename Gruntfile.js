@@ -548,7 +548,7 @@ module.exports = function (grunt) {
     'clean:docs-dist-js',
     'copy:dist-to-docs', // ensure dist is present after cleaning
     'eslint',
-    'jscs:docs',
+    //'jscs:docs',
     'exec:rollup-docs-iife',
     'uglify:docs',
     'uglify:docs-vendor'
