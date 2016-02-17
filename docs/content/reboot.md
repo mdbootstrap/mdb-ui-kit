@@ -45,20 +45,24 @@ The `<html>` and `<body>` elements are updated to provide better page-wide defau
 
 ## Native font stack
 
-The default web (Helvetica Neue, Helvetica, and Arial) fonts have been dropped in Bootstrap 4 and replaced with a "native font stack" for optimum text rendering on every device and OS. Read more about [native font stacks in this Smashing Magazine article](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/).
+The default web fonts (Helvetica Neue, Helvetica, and Arial) have been dropped in Bootstrap 4 and replaced with a "native font stack" for optimum text rendering on every device and OS. Read more about [native font stacks in this *Smashing Magazine* article](https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/).
 
 {% highlight sass %}
 $font-family-sans-serif:
   // Safari for OS X and iOS (San Francisco)
   -apple-system,
-  // Chrome for OS X (San Francisco) and Windows (Segoe UI)
+  // Chrome for OS X (San Francisco)
   BlinkMacSystemFont,
   // Windows
   "Segoe UI",
   // Android
   "Roboto",
-  // Linux distros
-  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  // Linux
+  "Oxygen", // KDE
+  "Ubuntu",
+  "Cantarell", // GNOME
+  // Firefox OS [R.I.P.]
+  "Fira Sans",
   // Older Android
   "Droid Sans",
   // Basic web fallback
@@ -200,7 +204,7 @@ Various form elements have been rebooted for simpler base styles. Here are some 
 - `<fieldset>`s have no borders, padding, or margin so they can be easily used as wrappers for individual inputs or groups of inputs.
 - `<legend>`s, like fieldsets, have also been restyled to be displayed as a heading of sorts.
 - `<label>`s are set to `display: inline-block` to allow `margin` to be applied.
-- `<input>`s, `<selects>`s, `<textareas>`s, and `<buttons>`s are mostly addressed by Normalize, but Reboot removes their `margin` and sets `line-height: inherit`, too.
+- `<input>`s, `<select>`s, `<textarea>`s, and `<button>`s are mostly addressed by Normalize, but Reboot removes their `margin` and sets `line-height: inherit`, too.
 - `<textarea>`s are modified to only be resizable vertically as horizontal resizing often "breaks" page layout.
 
 These changes, and more, are demonstrated below.

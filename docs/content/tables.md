@@ -431,6 +431,9 @@ Use contextual classes to color table rows or individual cells.
   </table>
 </div>
 
+{% capture callout-include %}{% include callout-warning-color-assistive-technologies.md %}{% endcapture %}
+{{ callout-include | markdownify }}
+
 {% highlight html %}
 <!-- On rows -->
 <tr class="table-active">...</tr>
