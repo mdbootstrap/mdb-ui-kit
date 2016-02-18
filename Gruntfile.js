@@ -2,16 +2,7 @@ module.exports = function (grunt) {
   "use strict";
 
   require("load-grunt-tasks")(grunt);
-
-  var path = require('path');
   var configBridge = grunt.file.readJSON('./grunt/configBridge.json', {encoding: 'utf8'});
-  var generateIconsData = require('./grunt/bmd-icons-data-generator.js');
-
-  Object.keys(configBridge.paths).forEach(function (key) {
-    configBridge.paths[key].forEach(function (val, i, arr) {
-      arr[i] = path.join('./docs/assets', val);
-    });
-  });
 
   grunt.initConfig({
 
@@ -22,20 +13,7 @@ module.exports = function (grunt) {
 
     // Task configuration.
     clean: {
-      dist: 'dist',
-      docs: 'docs/dist'
-    },
-
-    jekyll: {
-      options: {
-        config: '_config.yml'
-      },
-      docs: {},
-      github: {
-        options: {
-          raw: 'github: true'
-        }
-      }
+      dist: 'dist'
     },
 
     htmlmin: {
@@ -268,18 +246,6 @@ module.exports = function (grunt) {
         files: {
           "dist/css/ripples.css": "less/ripples.less",
         }
-      },
-      docs: {
-        options: {
-          paths: ["less"],
-          sourceMap: true,
-          sourceMapRootpath: "/",
-          sourceMapFilename: "docs/assets/css/src/docs.css.map",
-          sourceMapURL: "docs.css.map"
-        },
-        files: {
-          "docs/assets/css/src/docs.css": "docs/assets/css/src/docs.less",
-        }
       }
     },
 
@@ -299,15 +265,6 @@ module.exports = function (grunt) {
         files: {
           "dist/css/ripples.css": "dist/css/ripples.css"
         }
-      },
-      docs: {
-        src: ['docs/assets/css/src/docs.css']
-      },
-      examples: {
-        expand: true,
-        cwd: 'docs/examples/',
-        src: ['**/*.css'],
-        dest: 'docs/examples/'
       }
     },
 
@@ -322,17 +279,7 @@ module.exports = function (grunt) {
       distmin: [
         'dist/css/bootstrap-material-design.min.css',
         'dist/css/ripples.min.css',
-      ],
-      examples: [
-        'docs/examples/**/*.css'
-      ],
-      docs: {
-        options: {
-          ids: false,
-          'overqualified-elements': false
-        },
-        src: 'docs/assets/css/src/docs.css'
-      }
+      ]
     },
 
     // Minify CSS and adapt maps
@@ -352,14 +299,6 @@ module.exports = function (grunt) {
       ripples: {
         src: "dist/css/ripples.css",
         dest: "dist/css/ripples.min.css"
-      },
-      docs: {
-        src: [
-          'docs/assets/css/ie10-viewport-bug-workaround.css',
-          'docs/assets/css/src/pygments-manni.css',
-          'docs/assets/css/src/docs.css'
-        ],
-        dest: 'docs/assets/css/docs.min.css'
       }
     },
 
@@ -380,14 +319,6 @@ module.exports = function (grunt) {
         dest: "dist/fonts/",
         flatten: true,
         filter: "isFile"
-      },
-      docs: {
-        expand: true,
-        cwd: 'dist/',
-        src: [
-          '**/*'
-        ],
-        dest: 'docs/dist/'
       }
     },
 
@@ -405,14 +336,6 @@ module.exports = function (grunt) {
         files: {
           "dist/js/ripples.min.js": "dist/js/ripples.js"
         }
-      },
-      customize: {
-        src: configBridge.paths.customizerJs,
-        dest: 'docs/assets/js/customize.min.js'
-      },
-      docsJs: {
-        src: configBridge.paths.docsJs,
-        dest: 'docs/assets/js/docs.min.js'
       }
     },
 
@@ -465,12 +388,6 @@ module.exports = function (grunt) {
       },
       test: {
         src: ["test/**/*.js"]
-      },
-      assets: {
-        options: {
-          jshintrc: "docs/assets/js/.jshintrc"
-        },
-        src: ['docs/assets/js/src/*.js', 'docs/assets/js/*.js', '!docs/assets/js/*.min.js']
       }
     },
 
@@ -587,7 +504,7 @@ module.exports = function (grunt) {
   ]);
 
   // Docs HTML validation task
-  grunt.registerTask('validate-html', ['jekyll:docs', 'htmllint']);
+  grunt.registerTask('validate-html', ['htmllint']);
 
   grunt.loadNpmTasks("grunt-less-to-sass");
 
@@ -657,17 +574,4 @@ module.exports = function (grunt) {
   grunt.registerTask("meteor-test", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-cleanup"]);
   grunt.registerTask("meteor-publish", ["exec:meteor-init", "exec:meteor-publish", "exec:meteor-cleanup"]);
   grunt.registerTask("meteor", ["exec:meteor-init", "exec:meteor-test", "exec:meteor-publish", "exec:meteor-cleanup"]);
-
-
-  // Docs task.
-  grunt.registerTask('build-icons-data', function () { generateIconsData.call(this, grunt); });
-  grunt.registerTask('docs-css', ['less:docs','autoprefixer:docs', 'autoprefixer:examples', 'cssmin:docs']);
-  grunt.registerTask('lint-docs-css', ['csslint:docs', 'csslint:examples']);
-  grunt.registerTask('docs-js', ['uglify:docsJs', 'uglify:customize']);
-  grunt.registerTask('lint-docs-js', ['jshint:assets', 'jscs:assets']);
-  grunt.registerTask('docs', [
-    'docs-css', 'lint-docs-css', 'docs-js', 'lint-docs-js', 'clean:docs', 'copy:docs', 'build-icons-data'
-  ]);
-
-  grunt.registerTask('prep-release', ['dist', 'docs', 'jekyll:github', 'htmlmin']); //, 'compress']);
 };
