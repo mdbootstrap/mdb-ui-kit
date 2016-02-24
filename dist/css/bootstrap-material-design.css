@@ -2334,23 +2334,53 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #009688;
   color: rgba(255,255,255, 0.84);
 }
-.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
-.navbar.navbar-default .navbar-form .form-group input.form-control::-moz-placeholder,
 .navbar .navbar-form input.form-control::-moz-placeholder,
-.navbar.navbar-default .navbar-form input.form-control::-moz-placeholder {
+.navbar.navbar-default .navbar-form input.form-control::-moz-placeholder,
+.navbar .navbar-form .form-group input.form-control::-moz-placeholder,
+.navbar.navbar-default .navbar-form .form-group input.form-control::-moz-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
-.navbar.navbar-default .navbar-form .form-group input.form-control:-ms-input-placeholder,
 .navbar .navbar-form input.form-control:-ms-input-placeholder,
-.navbar.navbar-default .navbar-form input.form-control:-ms-input-placeholder {
+.navbar.navbar-default .navbar-form input.form-control:-ms-input-placeholder,
+.navbar .navbar-form .form-group input.form-control:-ms-input-placeholder,
+.navbar.navbar-default .navbar-form .form-group input.form-control:-ms-input-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
-.navbar.navbar-default .navbar-form .form-group input.form-control::-webkit-input-placeholder,
 .navbar .navbar-form input.form-control::-webkit-input-placeholder,
-.navbar.navbar-default .navbar-form input.form-control::-webkit-input-placeholder {
+.navbar.navbar-default .navbar-form input.form-control::-webkit-input-placeholder,
+.navbar .navbar-form .form-group input.form-control::-webkit-input-placeholder,
+.navbar.navbar-default .navbar-form .form-group input.form-control::-webkit-input-placeholder {
   color: rgba(255,255,255, 0.84);
+}
+.navbar .navbar-form .form-group.label-floating label.control-label,
+.navbar.navbar-default .navbar-form .form-group.label-floating label.control-label,
+.navbar .navbar-form .form-group.label-placeholder label.control-label,
+.navbar.navbar-default .navbar-form .form-group.label-placeholder label.control-label {
+  color: rgba(255,255,255, 0.84);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0.87;
+}
+.navbar .navbar-form .form-group.label-floating.is-empty:not(.is-focused) label.control-label,
+.navbar.navbar-default .navbar-form .form-group.label-floating.is-empty:not(.is-focused) label.control-label,
+.navbar .navbar-form .form-group.label-placeholder.is-empty:not(.is-focused) label.control-label,
+.navbar.navbar-default .navbar-form .form-group.label-placeholder.is-empty:not(.is-focused) label.control-label {
+  top: -10px;
+}
+@media (max-width: 1200px) {
+  .navbar .navbar-form .form-group.label-floating.is-focused label.control-label,
+  .navbar.navbar-default .navbar-form .form-group.label-floating.is-focused label.control-label,
+  .navbar .navbar-form .form-group.label-placeholder.is-focused label.control-label,
+  .navbar.navbar-default .navbar-form .form-group.label-placeholder.is-focused label.control-label,
+  .navbar .navbar-form .form-group.label-floating:not(.is-empty) label.control-label,
+  .navbar.navbar-default .navbar-form .form-group.label-floating:not(.is-empty) label.control-label,
+  .navbar .navbar-form .form-group.label-placeholder:not(.is-empty) label.control-label,
+  .navbar.navbar-default .navbar-form .form-group.label-placeholder:not(.is-empty) label.control-label {
+    top: -23px;
+    line-height: 1.4em;
+    font-size: 10px;
+  }
 }
 .navbar .dropdown-menu,
 .navbar.navbar-default .dropdown-menu {
@@ -2383,17 +2413,39 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #3f51b5;
   color: #ffffff;
 }
-.navbar.navbar-inverse .navbar-form .form-group input.form-control::-moz-placeholder,
-.navbar.navbar-inverse .navbar-form input.form-control::-moz-placeholder {
+.navbar.navbar-inverse .navbar-form input.form-control::-moz-placeholder,
+.navbar.navbar-inverse .navbar-form .form-group input.form-control::-moz-placeholder {
   color: #ffffff;
 }
-.navbar.navbar-inverse .navbar-form .form-group input.form-control:-ms-input-placeholder,
-.navbar.navbar-inverse .navbar-form input.form-control:-ms-input-placeholder {
+.navbar.navbar-inverse .navbar-form input.form-control:-ms-input-placeholder,
+.navbar.navbar-inverse .navbar-form .form-group input.form-control:-ms-input-placeholder {
   color: #ffffff;
 }
-.navbar.navbar-inverse .navbar-form .form-group input.form-control::-webkit-input-placeholder,
-.navbar.navbar-inverse .navbar-form input.form-control::-webkit-input-placeholder {
+.navbar.navbar-inverse .navbar-form input.form-control::-webkit-input-placeholder,
+.navbar.navbar-inverse .navbar-form .form-group input.form-control::-webkit-input-placeholder {
   color: #ffffff;
+}
+.navbar.navbar-inverse .navbar-form .form-group.label-floating label.control-label,
+.navbar.navbar-inverse .navbar-form .form-group.label-placeholder label.control-label {
+  color: #ffffff;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0.87;
+}
+.navbar.navbar-inverse .navbar-form .form-group.label-floating.is-empty:not(.is-focused) label.control-label,
+.navbar.navbar-inverse .navbar-form .form-group.label-placeholder.is-empty:not(.is-focused) label.control-label {
+  top: -10px;
+}
+@media (max-width: 1200px) {
+  .navbar.navbar-inverse .navbar-form .form-group.label-floating.is-focused label.control-label,
+  .navbar.navbar-inverse .navbar-form .form-group.label-placeholder.is-focused label.control-label,
+  .navbar.navbar-inverse .navbar-form .form-group.label-floating:not(.is-empty) label.control-label,
+  .navbar.navbar-inverse .navbar-form .form-group.label-placeholder:not(.is-empty) label.control-label {
+    top: -23px;
+    line-height: 1.4em;
+    font-size: 10px;
+  }
 }
 .navbar.navbar-inverse .dropdown-menu {
   border-radius: 2px;
@@ -2419,17 +2471,39 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #009688;
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-primary .navbar-form .form-group input.form-control::-moz-placeholder,
-.navbar.navbar-primary .navbar-form input.form-control::-moz-placeholder {
+.navbar.navbar-primary .navbar-form input.form-control::-moz-placeholder,
+.navbar.navbar-primary .navbar-form .form-group input.form-control::-moz-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-primary .navbar-form .form-group input.form-control:-ms-input-placeholder,
-.navbar.navbar-primary .navbar-form input.form-control:-ms-input-placeholder {
+.navbar.navbar-primary .navbar-form input.form-control:-ms-input-placeholder,
+.navbar.navbar-primary .navbar-form .form-group input.form-control:-ms-input-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-primary .navbar-form .form-group input.form-control::-webkit-input-placeholder,
-.navbar.navbar-primary .navbar-form input.form-control::-webkit-input-placeholder {
+.navbar.navbar-primary .navbar-form input.form-control::-webkit-input-placeholder,
+.navbar.navbar-primary .navbar-form .form-group input.form-control::-webkit-input-placeholder {
   color: rgba(255,255,255, 0.84);
+}
+.navbar.navbar-primary .navbar-form .form-group.label-floating label.control-label,
+.navbar.navbar-primary .navbar-form .form-group.label-placeholder label.control-label {
+  color: rgba(255,255,255, 0.84);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0.87;
+}
+.navbar.navbar-primary .navbar-form .form-group.label-floating.is-empty:not(.is-focused) label.control-label,
+.navbar.navbar-primary .navbar-form .form-group.label-placeholder.is-empty:not(.is-focused) label.control-label {
+  top: -10px;
+}
+@media (max-width: 1200px) {
+  .navbar.navbar-primary .navbar-form .form-group.label-floating.is-focused label.control-label,
+  .navbar.navbar-primary .navbar-form .form-group.label-placeholder.is-focused label.control-label,
+  .navbar.navbar-primary .navbar-form .form-group.label-floating:not(.is-empty) label.control-label,
+  .navbar.navbar-primary .navbar-form .form-group.label-placeholder:not(.is-empty) label.control-label {
+    top: -23px;
+    line-height: 1.4em;
+    font-size: 10px;
+  }
 }
 .navbar.navbar-primary .dropdown-menu {
   border-radius: 2px;
@@ -2455,17 +2529,39 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #4caf50;
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-success .navbar-form .form-group input.form-control::-moz-placeholder,
-.navbar.navbar-success .navbar-form input.form-control::-moz-placeholder {
+.navbar.navbar-success .navbar-form input.form-control::-moz-placeholder,
+.navbar.navbar-success .navbar-form .form-group input.form-control::-moz-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-success .navbar-form .form-group input.form-control:-ms-input-placeholder,
-.navbar.navbar-success .navbar-form input.form-control:-ms-input-placeholder {
+.navbar.navbar-success .navbar-form input.form-control:-ms-input-placeholder,
+.navbar.navbar-success .navbar-form .form-group input.form-control:-ms-input-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-success .navbar-form .form-group input.form-control::-webkit-input-placeholder,
-.navbar.navbar-success .navbar-form input.form-control::-webkit-input-placeholder {
+.navbar.navbar-success .navbar-form input.form-control::-webkit-input-placeholder,
+.navbar.navbar-success .navbar-form .form-group input.form-control::-webkit-input-placeholder {
   color: rgba(255,255,255, 0.84);
+}
+.navbar.navbar-success .navbar-form .form-group.label-floating label.control-label,
+.navbar.navbar-success .navbar-form .form-group.label-placeholder label.control-label {
+  color: rgba(255,255,255, 0.84);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0.87;
+}
+.navbar.navbar-success .navbar-form .form-group.label-floating.is-empty:not(.is-focused) label.control-label,
+.navbar.navbar-success .navbar-form .form-group.label-placeholder.is-empty:not(.is-focused) label.control-label {
+  top: -10px;
+}
+@media (max-width: 1200px) {
+  .navbar.navbar-success .navbar-form .form-group.label-floating.is-focused label.control-label,
+  .navbar.navbar-success .navbar-form .form-group.label-placeholder.is-focused label.control-label,
+  .navbar.navbar-success .navbar-form .form-group.label-floating:not(.is-empty) label.control-label,
+  .navbar.navbar-success .navbar-form .form-group.label-placeholder:not(.is-empty) label.control-label {
+    top: -23px;
+    line-height: 1.4em;
+    font-size: 10px;
+  }
 }
 .navbar.navbar-success .dropdown-menu {
   border-radius: 2px;
@@ -2491,17 +2587,39 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #03a9f4;
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-info .navbar-form .form-group input.form-control::-moz-placeholder,
-.navbar.navbar-info .navbar-form input.form-control::-moz-placeholder {
+.navbar.navbar-info .navbar-form input.form-control::-moz-placeholder,
+.navbar.navbar-info .navbar-form .form-group input.form-control::-moz-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-info .navbar-form .form-group input.form-control:-ms-input-placeholder,
-.navbar.navbar-info .navbar-form input.form-control:-ms-input-placeholder {
+.navbar.navbar-info .navbar-form input.form-control:-ms-input-placeholder,
+.navbar.navbar-info .navbar-form .form-group input.form-control:-ms-input-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-info .navbar-form .form-group input.form-control::-webkit-input-placeholder,
-.navbar.navbar-info .navbar-form input.form-control::-webkit-input-placeholder {
+.navbar.navbar-info .navbar-form input.form-control::-webkit-input-placeholder,
+.navbar.navbar-info .navbar-form .form-group input.form-control::-webkit-input-placeholder {
   color: rgba(255,255,255, 0.84);
+}
+.navbar.navbar-info .navbar-form .form-group.label-floating label.control-label,
+.navbar.navbar-info .navbar-form .form-group.label-placeholder label.control-label {
+  color: rgba(255,255,255, 0.84);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0.87;
+}
+.navbar.navbar-info .navbar-form .form-group.label-floating.is-empty:not(.is-focused) label.control-label,
+.navbar.navbar-info .navbar-form .form-group.label-placeholder.is-empty:not(.is-focused) label.control-label {
+  top: -10px;
+}
+@media (max-width: 1200px) {
+  .navbar.navbar-info .navbar-form .form-group.label-floating.is-focused label.control-label,
+  .navbar.navbar-info .navbar-form .form-group.label-placeholder.is-focused label.control-label,
+  .navbar.navbar-info .navbar-form .form-group.label-floating:not(.is-empty) label.control-label,
+  .navbar.navbar-info .navbar-form .form-group.label-placeholder:not(.is-empty) label.control-label {
+    top: -23px;
+    line-height: 1.4em;
+    font-size: 10px;
+  }
 }
 .navbar.navbar-info .dropdown-menu {
   border-radius: 2px;
@@ -2527,17 +2645,39 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #ff5722;
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-warning .navbar-form .form-group input.form-control::-moz-placeholder,
-.navbar.navbar-warning .navbar-form input.form-control::-moz-placeholder {
+.navbar.navbar-warning .navbar-form input.form-control::-moz-placeholder,
+.navbar.navbar-warning .navbar-form .form-group input.form-control::-moz-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-warning .navbar-form .form-group input.form-control:-ms-input-placeholder,
-.navbar.navbar-warning .navbar-form input.form-control:-ms-input-placeholder {
+.navbar.navbar-warning .navbar-form input.form-control:-ms-input-placeholder,
+.navbar.navbar-warning .navbar-form .form-group input.form-control:-ms-input-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-warning .navbar-form .form-group input.form-control::-webkit-input-placeholder,
-.navbar.navbar-warning .navbar-form input.form-control::-webkit-input-placeholder {
+.navbar.navbar-warning .navbar-form input.form-control::-webkit-input-placeholder,
+.navbar.navbar-warning .navbar-form .form-group input.form-control::-webkit-input-placeholder {
   color: rgba(255,255,255, 0.84);
+}
+.navbar.navbar-warning .navbar-form .form-group.label-floating label.control-label,
+.navbar.navbar-warning .navbar-form .form-group.label-placeholder label.control-label {
+  color: rgba(255,255,255, 0.84);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0.87;
+}
+.navbar.navbar-warning .navbar-form .form-group.label-floating.is-empty:not(.is-focused) label.control-label,
+.navbar.navbar-warning .navbar-form .form-group.label-placeholder.is-empty:not(.is-focused) label.control-label {
+  top: -10px;
+}
+@media (max-width: 1200px) {
+  .navbar.navbar-warning .navbar-form .form-group.label-floating.is-focused label.control-label,
+  .navbar.navbar-warning .navbar-form .form-group.label-placeholder.is-focused label.control-label,
+  .navbar.navbar-warning .navbar-form .form-group.label-floating:not(.is-empty) label.control-label,
+  .navbar.navbar-warning .navbar-form .form-group.label-placeholder:not(.is-empty) label.control-label {
+    top: -23px;
+    line-height: 1.4em;
+    font-size: 10px;
+  }
 }
 .navbar.navbar-warning .dropdown-menu {
   border-radius: 2px;
@@ -2563,17 +2703,39 @@ fieldset[disabled] .navbar .btn-link:focus {
   background-color: #f44336;
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-danger .navbar-form .form-group input.form-control::-moz-placeholder,
-.navbar.navbar-danger .navbar-form input.form-control::-moz-placeholder {
+.navbar.navbar-danger .navbar-form input.form-control::-moz-placeholder,
+.navbar.navbar-danger .navbar-form .form-group input.form-control::-moz-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-danger .navbar-form .form-group input.form-control:-ms-input-placeholder,
-.navbar.navbar-danger .navbar-form input.form-control:-ms-input-placeholder {
+.navbar.navbar-danger .navbar-form input.form-control:-ms-input-placeholder,
+.navbar.navbar-danger .navbar-form .form-group input.form-control:-ms-input-placeholder {
   color: rgba(255,255,255, 0.84);
 }
-.navbar.navbar-danger .navbar-form .form-group input.form-control::-webkit-input-placeholder,
-.navbar.navbar-danger .navbar-form input.form-control::-webkit-input-placeholder {
+.navbar.navbar-danger .navbar-form input.form-control::-webkit-input-placeholder,
+.navbar.navbar-danger .navbar-form .form-group input.form-control::-webkit-input-placeholder {
   color: rgba(255,255,255, 0.84);
+}
+.navbar.navbar-danger .navbar-form .form-group.label-floating label.control-label,
+.navbar.navbar-danger .navbar-form .form-group.label-placeholder label.control-label {
+  color: rgba(255,255,255, 0.84);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0.87;
+}
+.navbar.navbar-danger .navbar-form .form-group.label-floating.is-empty:not(.is-focused) label.control-label,
+.navbar.navbar-danger .navbar-form .form-group.label-placeholder.is-empty:not(.is-focused) label.control-label {
+  top: -10px;
+}
+@media (max-width: 1200px) {
+  .navbar.navbar-danger .navbar-form .form-group.label-floating.is-focused label.control-label,
+  .navbar.navbar-danger .navbar-form .form-group.label-placeholder.is-focused label.control-label,
+  .navbar.navbar-danger .navbar-form .form-group.label-floating:not(.is-empty) label.control-label,
+  .navbar.navbar-danger .navbar-form .form-group.label-placeholder:not(.is-empty) label.control-label {
+    top: -23px;
+    line-height: 1.4em;
+    font-size: 10px;
+  }
 }
 .navbar.navbar-danger .dropdown-menu {
   border-radius: 2px;

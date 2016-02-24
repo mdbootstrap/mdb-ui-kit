@@ -188,13 +188,47 @@
   .generic-variations(~".navbar", ~"", @brand-primary, {
     background-color: @variation-color;
     color: @variation-color-text;
-    // deeply defined to override welljumbo class without !impotant need
-    .navbar-form .form-group input.form-control,
-    .navbar-form input.form-control {
-      .material-placeholder({
-        color: @variation-color-text;
-      });
+
+    .navbar-form {
+      input.form-control,
+      .form-group input.form-control {
+        .material-placeholder({
+          color: @variation-color-text;
+        });
+      }
+
+      .form-group {
+        &.label-floating,
+        &.label-placeholder {
+          label.control-label {
+            color: @variation-color-text;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: 0.87;
+          }
+          &.is-empty:not(.is-focused) label.control-label {
+            top: -10px;
+          }
+        }
+
+        // Navbars change height slightly, this also fixes inputs in collapsed navbars
+        @media (max-width: @screen-lg) {
+          &.label-floating,
+          &.label-placeholder {
+            &.is-focused,
+            &:not(.is-empty) {
+              label.control-label {
+                top: -23px;
+                line-height: 1.4em;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
     }
+
     .dropdown-menu {
       border-radius: @border-radius-base;
       li > a {
