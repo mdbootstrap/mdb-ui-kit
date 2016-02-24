@@ -171,13 +171,14 @@
       color: inherit;
       padding: 0;
       margin: 0;
+      margin-top: 4px;
 
       // re-normalize inputs in a navbar the size of standard bootstrap since our normal inputs are larger by spec than bootstrap
       //---
       //height: @mdb-input-height-base;
       @bs-line-height-base: 1.428571429;
       @bs-line-height-computed:    floor((@font-size-base * @bs-line-height-base)); // ~20px
-      height: (@bs-line-height-computed + 8px);
+      height: (@bs-line-height-computed + 2px);
       font-size: @font-size-base;
       line-height: @bs-line-height-base;
       //---
@@ -188,13 +189,52 @@
   .generic-variations(~".navbar", ~"", @brand-primary, {
     background-color: @variation-color;
     color: @variation-color-text;
-    // deeply defined to override welljumbo class without !impotant need
-    .navbar-form .form-group input.form-control,
-    .navbar-form input.form-control {
-      .material-placeholder({
-        color: @variation-color-text;
-      });
+
+    .navbar-form {
+      input.form-control,
+      .form-group input.form-control {
+        .material-placeholder({
+          color: @variation-color-text;
+        });
+      }
+
+      .form-group {
+        &.is-focused .form-control {
+          background-image: linear-gradient(@variation-color-text, @variation-color-text), linear-gradient(@variation-color-text, @variation-color-text);
+        }
+
+        &.label-floating,
+        &.label-placeholder {
+          label.control-label {
+            color: @variation-color-text;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            opacity: 0.87;
+            font-size: 0.9em;
+          }
+          &.is-empty:not(.is-focused) label.control-label {
+            top: -10px;
+          }
+        }
+
+        // Navbars change height slightly, this also fixes inputs in collapsed navbars
+        @media (max-width: @screen-lg) {
+          &.label-floating,
+          &.label-placeholder {
+            &.is-focused,
+            &:not(.is-empty) {
+              label.control-label {
+                top: -23px;
+                line-height: 1.4em;
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
     }
+
     .dropdown-menu {
       border-radius: @border-radius-base;
       li > a {

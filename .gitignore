@@ -16,6 +16,7 @@ Thumbs.db
 /node_modules/
 .grunt/
 /bower_components/
+/app/
 .build*
 /_SpecRunner.html
 Gemfile.lock
