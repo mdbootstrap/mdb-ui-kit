@@ -15,6 +15,7 @@ Thumbs.db
 .DS_Store
 /node_modules/
 .grunt/
+/bower_components/
 /app/
 .build*
 /_SpecRunner.html
