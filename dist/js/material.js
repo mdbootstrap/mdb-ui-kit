@@ -114,7 +114,7 @@
 
           // Requires form-group standard markup (will add it if necessary)
           var $formGroup = $input.closest(".form-group"); // note that form-group may be grandparent in the case of an input-group
-          if ($formGroup.length === 0) {
+          if ($formGroup.length === 0 && $input.attr('type') !== "hidden" && !$input.attr('hidden')) {
             $input.wrap("<div class='form-group'></div>");
             $formGroup = $input.closest(".form-group"); // find node after attached (otherwise additional attachments don't work)
           }
