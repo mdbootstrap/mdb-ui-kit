@@ -62,9 +62,8 @@
       animation: rippleOff 500ms;
     }
     input[type=radio]:checked ~ .check:after {
-      animation: rippleOn 500ms;
+      animation: rippleOn;
     }
-
   }
 
   input[type=radio] {
@@ -89,6 +88,15 @@
     // dark theme spec: Disabled: #FFFFFF, Opacity  30%
     .theme-dark & {
       @include radio-color($white, 0.30);
+    }
+  }
+}
+
+// Prevent ripple effect on page load
+.is-focused {
+  .radio {
+    input[type=radio]:checked ~ .check:after {
+      animation: rippleOn 500ms;
     }
   }
 }
