@@ -56,7 +56,12 @@ label.radio-inline {
       ~ .mdb-radio-inner-circle {
         transform: scale3d(0.55, 0.55, 1);
         &::after {
-          animation: rippleOn 500ms;
+          animation: rippleOn;
+
+          .is-focused & {
+            // Prevent ripple effect on page load
+            animation: rippleOn 500ms;
+          }
         }
       }
     }

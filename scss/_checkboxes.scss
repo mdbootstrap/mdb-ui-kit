@@ -50,7 +50,12 @@ label.checkbox-inline {
         0 0 0 0,
         0 0 0 0 inset;
         transform: rotate(45deg);
-        animation: checkbox-off $mdb-checkbox-animation-check forwards;
+        animation: checkbox-off;
+
+        .is-focused & {
+          // Prevent checkbox animation and ripple effect on page load
+          animation: checkbox-off $mdb-checkbox-animation-check forwards;
+        }
       }
     }
   }
@@ -92,7 +97,11 @@ label.checkbox-inline {
       }
 
       + .checkbox-decorator::before {
-        animation: rippleOn $mdb-checkbox-animation-ripple;
+        animation: rippleOn;
+        .is-focused & {
+          // Prevent checkbox animation and ripple effect on page load
+          animation: rippleOn $mdb-checkbox-animation-ripple;
+        }
       }
 
       + .checkbox-decorator .check::after {
@@ -103,12 +112,15 @@ label.checkbox-inline {
 
     &:not(:checked) {
       + .checkbox-decorator::before {
-        animation: rippleOff $mdb-checkbox-animation-ripple;
+        animation: rippleOff;
+        .is-focused & {
+          // Prevent checkbox animation and ripple effect on page load
+          animation: rippleOff $mdb-checkbox-animation-ripple;
+        }
       }
 
       + .checkbox-decorator .check::after {
         animation: rippleOff $mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
-
       }
     }
 
@@ -125,7 +137,6 @@ label.checkbox-inline {
       }
     }
   }
-
 }
 
 @keyframes checkbox-on {
@@ -165,7 +176,6 @@ label.checkbox-inline {
     20px -12px 0 11px,
     0 0 0 0 inset;
   }
-
   25% {
     box-shadow: 0 0 0 10px,
     10px -10px 0 10px,
