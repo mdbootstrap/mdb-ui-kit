@@ -49,7 +49,8 @@
       display: inline-block;
       width: $mdb-checkbox-size;
       height: $mdb-checkbox-size;
-      border: $border-radius-base solid $mdb-checkbox-border-color;
+      border: $mdb-checkbox-border-size solid $mdb-checkbox-border-color;
+      border-radius: $border-radius-base;
       overflow: hidden;
       z-index: 1;
     }
