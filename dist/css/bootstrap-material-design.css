@@ -869,6 +869,7 @@ fieldset[disabled] .form-group.is-focused .checkbox label {
   width: 20px;
   height: 20px;
   border: 2px solid rgba(0,0,0, .54);
+  border-radius: 2px;
   overflow: hidden;
   z-index: 1;
 }
@@ -898,9 +899,9 @@ fieldset[disabled] .form-group.is-focused .checkbox label {
         0 0 0 0,
         0 0 0 0,
         0 0 0 0 inset;
-  -webkit-animation: checkbox-off 0.3s forwards;
-       -o-animation: checkbox-off 0.3s forwards;
-          animation: checkbox-off 0.3s forwards;
+  -webkit-animation: checkbox-off;
+       -o-animation: checkbox-off;
+          animation: checkbox-off;
 }
 .checkbox input[type=checkbox]:focus + .checkbox-material .check:after {
   opacity: 0.2;
@@ -918,9 +919,9 @@ fieldset[disabled] .form-group.is-focused .checkbox label {
           animation: checkbox-on 0.3s forwards;
 }
 .checkbox input[type=checkbox]:checked + .checkbox-material:before {
-  -webkit-animation: rippleOn 500ms;
-       -o-animation: rippleOn 500ms;
-          animation: rippleOn 500ms;
+  -webkit-animation: rippleOn;
+       -o-animation: rippleOn;
+          animation: rippleOn;
 }
 .checkbox input[type=checkbox]:checked + .checkbox-material .check:after {
   -webkit-animation: rippleOn 500ms forwards;
@@ -928,9 +929,9 @@ fieldset[disabled] .form-group.is-focused .checkbox label {
           animation: rippleOn 500ms forwards;
 }
 .checkbox input[type=checkbox]:not(:checked) + .checkbox-material:before {
-  -webkit-animation: rippleOff 500ms;
-       -o-animation: rippleOff 500ms;
-          animation: rippleOff 500ms;
+  -webkit-animation: rippleOff;
+       -o-animation: rippleOff;
+          animation: rippleOff;
 }
 .checkbox input[type=checkbox]:not(:checked) + .checkbox-material .check:after {
   -webkit-animation: rippleOff 500ms forwards;
@@ -950,6 +951,21 @@ fieldset[disabled] .checkbox input[type=checkbox],
       -ms-transform: rotate(-45deg);
        -o-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+.is-focused .checkbox .checkbox-material .check:before {
+  -webkit-animation: checkbox-off 0.3s forwards;
+       -o-animation: checkbox-off 0.3s forwards;
+          animation: checkbox-off 0.3s forwards;
+}
+.is-focused .checkbox input[type=checkbox]:checked + .checkbox-material:before {
+  -webkit-animation: rippleOn 500ms;
+       -o-animation: rippleOn 500ms;
+          animation: rippleOn 500ms;
+}
+.is-focused .checkbox input[type=checkbox]:not(:checked) + .checkbox-material:before {
+  -webkit-animation: rippleOff 500ms;
+       -o-animation: rippleOff 500ms;
+          animation: rippleOff 500ms;
 }
 @-webkit-keyframes checkbox-on {
   0% {
@@ -1381,9 +1397,9 @@ fieldset[disabled] .form-group.is-focused .radio label {
           animation: rippleOff 500ms;
 }
 .radio label input[type=radio]:checked ~ .check:after {
-  -webkit-animation: rippleOn 500ms;
-       -o-animation: rippleOn 500ms;
-          animation: rippleOn 500ms;
+  -webkit-animation: rippleOn;
+       -o-animation: rippleOn;
+          animation: rippleOn;
 }
 .radio input[type=radio] {
   opacity: 0;
@@ -1424,6 +1440,11 @@ fieldset[disabled] .form-group.is-focused .radio label {
 }
 .theme-dark .radio input[type=radio][disabled] ~ .circle {
   border-color: #ffffff;
+}
+.is-focused .radio input[type=radio]:checked ~ .check:after {
+  -webkit-animation: rippleOn 500ms;
+       -o-animation: rippleOn 500ms;
+          animation: rippleOn 500ms;
 }
 @keyframes rippleOn {
   0% {
