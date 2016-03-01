@@ -37,8 +37,9 @@ Add jQuery, Bootstrap, and our Javascript plugins near the end of your pages, ri
 {% highlight html %}
 <script src="{{ site.data.cdn.jquery }}.min.js"></script>
 <script src="{{ site.data.cdn.tether }}.min.js"></script>
-<script src="{{ site.data.cdn.bootstrap }}.min.js"></script>
 <script src="{{ site.cdn.js }}.iife.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{{ site.data.cdn['ie10-viewport-bug-workaround'] }}"></script>
 <script>
   $('body').bootstrapMaterialDesign()
 </script>
@@ -78,8 +79,9 @@ Put it all together and your pages should look like this:
     <!-- jQuery first, optional tether for tooltips, then Bootstrap and Material Design for Bootstrap JS. -->
     <script src="{{ site.data.cdn.jquery }}.min.js"></script>
     <script src="{{ site.data.cdn.tether }}.min.js"></script>
-    <script src="{{ site.data.cdn.bootstrap }}.min.js"></script>
     <script src="{{ site.cdn.js }}.iife.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ site.data.cdn['ie10-viewport-bug-workaround'] }}"></script>
     <script>
       $('body').bootstrapMaterialDesign()
     </script>

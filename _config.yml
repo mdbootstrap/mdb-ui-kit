@@ -61,6 +61,8 @@ cdn:
   bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap
   tether:         https://cdn.rawgit.com/HubSpot/tether/vVERSION/dist/js/tether
 
+  'ie10-viewport-bug-workaround': https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js
+
 
 
 #twitter:

@@ -1,6 +1,6 @@
 import Style from './style'
 import Clipboard from 'clipboard'
-import anchors from 'anchor'
+import anchors from 'anchor-js'
 
 // import all the mdb code
 import '../../../../js/src/index' // eslint-disable-line no-unused-vars
