@@ -187,7 +187,7 @@
 // Overlay - left/right responsive overlay classes and marker class
 @mixin mdb-drawer-x-overlay-down($breakpoint) {
   // e.g. &, &-sm, &-md, &-lg
-  $name: mdb-drawer-breakpoint-name($breakpoint, '-down');
+  $name: mdb-drawer-breakpoint-name($breakpoint, "-down");
 
   &.mdb-drawer-overlay {
     #{unquote($name)} { // mdb-drawer-overlay, mdb-drawer-overlay-sm, mdb-drawer-overlay-md, mdb-drawer-overlay-lg
@@ -199,11 +199,11 @@
         // Must double up on the .mdb-drawer-overlay class to increase specificity otherwise the
         //  responsive mdb-drawer-in-* media queries above win (and overlay is ignored)
         &.mdb-drawer-overlay {
-          @include mdb-drawer-x-overlay()
+          @include mdb-drawer-x-overlay();
         }
       } @else {
         @include media-breakpoint-down($breakpoint) { // overlay responsive class
-          @include mdb-drawer-x-overlay()
+          @include mdb-drawer-x-overlay();
         }
       }
     }
