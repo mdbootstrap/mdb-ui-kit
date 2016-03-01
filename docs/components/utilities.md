@@ -50,6 +50,8 @@ Where *size* is one of:
 * `2` - (by default) for classes that set the `margin` or `padding` to `$spacer-x * 1.5` or `$spacer-y * 1.5`
 * `3` - (by default) for classes that set the `margin` or `padding` to `$spacer-x * 3` or `$spacer-y * 3`
 
+(You can add more sizes by adding entries to the `$spacers` Sass map variable.)
+
 Here are some representative examples of these classes:
 
 {% highlight scss %}
@@ -235,6 +237,20 @@ Easily clear `float`s by adding `.clearfix` **to the parent element**. Utilizes 
 // Usage as a mixin
 .element {
   @include clearfix;
+}
+{% endhighlight %}
+
+## Fixed positioning
+
+The `.pos-f-t` class can be used to easily position elements at the top of the viewport and make them as wide as the viewport. **Be sure you understand the ramifications of fixed-position elements within your project.** Here's how the class is defined:
+
+{% highlight scss %}
+.pos-f-t {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-navbar-fixed;
 }
 {% endhighlight %}
 
