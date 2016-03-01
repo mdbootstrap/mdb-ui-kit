@@ -1,4 +1,4 @@
-import {Preset, Clean, MinifyCss, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, TaskSeries} from 'gulp-pipeline/src/index'
+import {Preset, Clean, MinifyCss, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, TaskSeries, Uglify} from 'gulp-pipeline/src/index'
 
 // debug the project source - remove for repo
 //import {Clean, CleanDigest, Images, MinifyCss, Sass, RollupIife, ScssLint, EsLint, Rev, TaskSeries} from 'gulp-pipeline'
@@ -34,7 +34,7 @@ let namedExports = {}
 //namedExports[`${node_modules}/anchor-js/anchor.js`] = ['AnchorJS']
 
 let rollupConfig = {
-  debug: true,
+  //debug: true,
   options: {
     external: [
       'anchor-js',
@@ -114,11 +114,25 @@ let docsPreset = Preset.baseline({
 const docsConfig = {task: {prefix: 'docs:'}}
 
 let docs = [
-  new EsLint(gulp, docsPreset, docsConfig),
-  new RollupIife(gulp, docsPreset, extend(true, {}, docsConfig, rollupConfig, {
-    options: {
-      dest: 'docs.iife.js',
-      moduleName: 'docs'
-    }
-  }))
+  [
+    new ScssLint(gulp, docsPreset, extend(true, {}, docsConfig, {
+      source: {glob: ['**/*.scss', '!docs.scss']},
+      watch: {glob: ['**/*.scss', '!docs.scss']}
+    })),
+    new EsLint(gulp, docsPreset, docsConfig)
+  ],
+  [
+    new RollupIife(gulp, docsPreset, extend(true, {}, docsConfig, rollupConfig, {
+      options: {
+        dest: 'docs.iife.js',
+        moduleName: 'docs'
+      }
+    })),
+    new Uglify(gulp, docsPreset, extend(true, {}, docsConfig, {
+      task: {name: 'vendor:uglify'},
+      source: {options: {cwd: 'docs/assets/js/vendor'}},
+      options: {dest: 'docs-vendor.min.js'}
+    })),
+    new Sass(gulp, docsPreset, docsConfig)
+  ]
 ]
