@@ -335,24 +335,24 @@ module.exports = function (grunt) {
         ],
         dest: 'docs/getting-started/'
       },
-      'bs-docs-content': {
-        options: {
-          // https://regex101.com/r/cZ7aO8/2
-          process: function (content, srcpath) {
-            return content
-            // insert docs reference
-              .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice)
-              // remove sample text 'display' as this is a particular style and is confusing
-              .replace(/Fancy display heading/, 'Fancy heading');
-          }
-        },
-        expand: true,
-        cwd: '../bootstrap/docs/content',
-        src: [
-          '**/*'
-        ],
-        dest: 'docs/content/'
-      }
+      //'bs-docs-content': {
+      //  options: {
+      //    // https://regex101.com/r/cZ7aO8/2
+      //    process: function (content, srcpath) {
+      //      return content
+      //      // insert docs reference
+      //        .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice)
+      //        // remove sample text 'display' as this is a particular style and is confusing
+      //        .replace(/Fancy display heading/, 'Fancy heading');
+      //    }
+      //  },
+      //  expand: true,
+      //  cwd: '../bootstrap/docs/content',
+      //  src: [
+      //    '**/*'
+      //  ],
+      //  dest: 'docs/content/'
+      //}
     },
 
     connect: {
