@@ -154,6 +154,12 @@ let docs = [
 ]
 
 
+const docsProcess = (content, srcpath) => { // https://regex101.com/r/cZ7aO8/2
+  return content
+    .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice) // insert docs reference
+    .replace(/Fancy display heading/, 'Fancy heading')          // remove sample text 'display' as this is a particular MD style and is confusing
+}
+
 let bsDocs = [
   new Copy(gulp, docsPreset, docsConfig, {
     task: {name: 'copy:bs-docs-content'},
@@ -162,10 +168,28 @@ let bsDocs = [
       glob: ['**/*']
     },
     dest: 'docs/content/',
-    process: (content, srcpath) => { // https://regex101.com/r/cZ7aO8/2
-      return content
-        .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice) // insert docs reference
-        .replace(/Fancy display heading/, 'Fancy heading')          // remove sample text 'display' as this is a particular MD style and is confusing
-    }
-  })
+    process: docsProcess
+  }),
+
+  //new Copy(gulp, docsPreset, docsConfig, {
+  //  task: {name: 'copy:bs-docs-getting-started'},
+  //  source: {
+  //    options: {cwd: '../bootstrap/docs/getting-started'},
+  //    glob: ['**/*']
+  //  },
+  //  dest: 'docs/getting-started/',
+  //  process: docsProcess
+  //}),
+
+  new Copy(gulp, docsPreset, docsConfig, {
+    task: {name: 'copy:bs-docs-components'},
+    source: {
+      options: {cwd: '../bootstrap/docs/components'},
+      glob: ['**/*']
+    },
+    dest: 'docs/components/',
+    process: docsProcess
+  }),
 ]
+
+new TaskSeries(gulp, 'bsDocs', bsDocs)

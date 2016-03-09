@@ -303,38 +303,38 @@ module.exports = function (grunt) {
         ],
         dest: 'docs/assets/scss/'
       },
-      'bs-docs-components': {
-        options: {
-          // //https://regex101.com/r/cZ7aO8/2
-          process: function (content, srcpath) {
-            return content.replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice);
-          }
-        },
-        expand: true,
-        cwd: '../bootstrap/docs/components',
-        src: [
-          '**/*'
-        ],
-        dest: 'docs/components/'
-      },
-      'bs-docs-getting-started': {
-        options: {
-          // https://regex101.com/r/cZ7aO8/2
-          process: function (content, srcpath) {
-            return content
-            // insert docs reference
-              .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice)
-              // remove sample text 'display' as this is a particular style and is confusing
-              .replace(/Fancy display heading/, 'Fancy heading');
-          }
-        },
-        expand: true,
-        cwd: '../bootstrap/docs/getting-started',
-        src: [
-          'browsers-devices.md' // only one file
-        ],
-        dest: 'docs/getting-started/'
-      },
+      //'bs-docs-components': {
+      //  options: {
+      //    // //https://regex101.com/r/cZ7aO8/2
+      //    process: function (content, srcpath) {
+      //      return content.replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice);
+      //    }
+      //  },
+      //  expand: true,
+      //  cwd: '../bootstrap/docs/components',
+      //  src: [
+      //    '**/*'
+      //  ],
+      //  dest: 'docs/components/'
+      //},
+      //'bs-docs-getting-started': {
+      //  options: {
+      //    // https://regex101.com/r/cZ7aO8/2
+      //    process: function (content, srcpath) {
+      //      return content
+      //      // insert docs reference
+      //        .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice)
+      //        // remove sample text 'display' as this is a particular style and is confusing
+      //        .replace(/Fancy display heading/, 'Fancy heading');
+      //    }
+      //  },
+      //  expand: true,
+      //  cwd: '../bootstrap/docs/getting-started',
+      //  src: [
+      //    'browsers-devices.md' // only one file
+      //  ],
+      //  dest: 'docs/getting-started/'
+      //},
       //'bs-docs-content': {
       //  options: {
       //    // https://regex101.com/r/cZ7aO8/2
@@ -592,7 +592,7 @@ module.exports = function (grunt) {
   grunt.registerTask('docs-copy-bootstrap-docs', [
     'copy:bs-docs-js-vendor',
     'copy:bs-docs-scss',
-    'copy:bs-docs-getting-started',
+    //'copy:bs-docs-getting-started',
     'copy:bs-docs-components',
     'copy:bs-docs-content',
     'copy:bs-docs-plugins'
