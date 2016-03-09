@@ -1,4 +1,4 @@
-import {Preset, Clean, Copy, MinifyCss, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, TaskSeries, Uglify} from 'gulp-pipeline/src/index'
+import {Preset, Clean, Copy, Jekyll, MinifyCss, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, TaskSeries, Uglify} from 'gulp-pipeline/src/index'
 
 // debug the project source - remove for repo
 //import {Clean, CleanDigest, Images, MinifyCss, Sass, RollupIife, ScssLint, EsLint, Rev, TaskSeries} from 'gulp-pipeline'
@@ -218,3 +218,5 @@ new Copy(gulp, docsPreset, docsConfig, {
   },
   dest: 'docs/dist/'
 })
+
+new Jekyll(gulp, docsPreset, docsConfig, {options: {raw: 'baseurl: "/bootstrap-material-design"'}})

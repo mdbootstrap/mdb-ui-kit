@@ -363,20 +363,20 @@ module.exports = function (grunt) {
       }
     },
 
-    jekyll: {
-      options: {
-        bundleExec: true,
-        config: '_config.yml',
-        incremental: false
-      },
-      docs: {},
-      github: {
-        options: {
-          //raw: 'github: true'
-          raw: 'baseurl: "/bootstrap-material-design"'
-        }
-      }
-    },
+    //jekyll: {
+    //  options: {
+    //    bundleExec: true,
+    //    config: '_config.yml',
+    //    incremental: false
+    //  },
+    //  docs: {},
+    //  github: {
+    //    options: {
+    //      //raw: 'github: true'
+    //      raw: 'baseurl: "/bootstrap-material-design"'
+    //    }
+    //  }
+    //},
 
     htmllint: {
       options: {
