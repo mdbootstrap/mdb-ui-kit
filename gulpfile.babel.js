@@ -1,4 +1,4 @@
-import {Preset, Clean, Copy, Jekyll, MinifyCss, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, TaskSeries, Uglify} from 'gulp-pipeline/src/index'
+import {Preset, Clean, Copy, Jekyll, MinifyCss, Prepublish, PublishBuild, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, TaskSeries, Uglify} from 'gulp-pipeline/src/index'
 import gulp from 'gulp'
 import findup from 'findup-sync'
 import pkg from './package.json'
@@ -92,13 +92,28 @@ gulpDocs(gulp, {rollupConfig: rollupConfig})
 
 
 //
-//new Copy(gulp, preset, {
-//  task: {name: 'copy:dist-to-docs'},
-//  source: {
-//    options: {cwd: 'dist'},
-//    glob: ['js/*.iife*', 'css/*.*']
-//  },
-//  dest: 'docs/dist/'
-//})
-//
-//new TaskSeries(gulp, 'prep-release', [])
+let prepRelease = new TaskSeries(gulp, 'prep-release', [
+  new Prepublish(gulp, preset),
+  'default',
+  'docs:default',
+  new Copy(gulp, preset, {
+    task: {name: 'copy:dist-to-docs'},
+    source: {
+      options: {cwd: 'dist'},
+      glob: ['js/*.iife*', 'css/*.*']
+    },
+    dest: 'docs/dist/'
+  }),
+  new Jekyll(gulp, preset, {options: {raw: 'baseurl: "/bootstrap-material-design"'}})
+])
+
+
+new TaskSeries(gulp, 'publish', [
+  prepRelease,
+  new PublishBuild(gulp, preset, {
+    npm: {
+      bump: false,
+      publish: false
+    }
+  })
+])

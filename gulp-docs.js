@@ -1,8 +1,4 @@
 import {Preset, Clean, Copy, Jekyll, MinifyCss, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, TaskSeries, Uglify} from 'gulp-pipeline/src/index'
-//import gulp from 'gulp'
-//import findup from 'findup-sync'
-//import pkg from './package.json'
-//import moment from 'moment'
 
 const referenceDocNotice =
   `$1\n
@@ -59,10 +55,9 @@ export default function (gulp, options) {
   })
   let linters = [scsslint, eslint]
   let sass = new Sass(gulp, preset, prefix)
-  let jekyll = new Jekyll(gulp, preset, prefix, {options: {raw: 'baseurl: "/bootstrap-material-design"'}})
 
   new TaskSeries(gulp, 'default', [
-    new Clean(gulp, preset),
+    new Clean(gulp, preset, prefix),
     linters,
     [
       sass,
