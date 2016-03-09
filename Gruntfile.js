@@ -281,13 +281,12 @@ module.exports = function (grunt) {
         ],
         dest: 'docs/assets/js/vendor/'
       },
-      'bs-docs-plugins': {
-        expand: true,
-        cwd: '../bootstrap/docs/_plugins',
-        src: ['**/*', '!bridge.rb'],
-        dest: 'docs/_plugins/'
-      },
-
+      //'bs-docs-plugins': {
+      //  expand: true,
+      //  cwd: '../bootstrap/docs/_plugins',
+      //  src: ['**/*', '!bridge.rb'],
+      //  dest: 'docs/_plugins/'
+      //},
       //'bs-docs-scss': {
       //  options: {
       //    // https://regex101.com/r/hG8lU4/1
