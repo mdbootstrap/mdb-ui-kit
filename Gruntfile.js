@@ -262,15 +262,15 @@ module.exports = function (grunt) {
     },
 
     copy: {
-      'dist-to-docs': {  // for example templates
-        expand: true,
-        cwd: 'dist',
-        src: [
-          'js/*.iife*',
-          'css/*.*'
-        ],
-        dest: 'docs/dist/'
-      },
+      //'dist-to-docs': {  // for example templates
+      //  expand: true,
+      //  cwd: 'dist',
+      //  src: [
+      //    'js/*.iife*',
+      //    'css/*.*'
+      //  ],
+      //  dest: 'docs/dist/'
+      //},
       //'bs-docs-js-vendor': {
       //  expand: true,
       //  cwd: '../bootstrap/docs/assets/js/vendor',
