@@ -201,7 +201,21 @@ let bsDocs = [
     },
     dest: 'docs/_plugins/'
   }),
+
+  new Copy(gulp, docsPreset, docsConfig, {
+    task: {name: 'copy:bs-docs-js-vendor'},
+    source: {
+      options: {cwd: '../bootstrap/docs/assets/js/vendor'},
+      glob: [
+        '**/*',
+        '!tether.min.js',
+        '!jquery.min.js'
+      ]
+    },
+    dest: 'docs/assets/js/vendor/'
+  }),
 ]
+
 
 
 new TaskSeries(gulp, 'docs:copy-bs', bsDocs)

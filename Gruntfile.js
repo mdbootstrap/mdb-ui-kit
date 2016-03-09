@@ -271,16 +271,16 @@ module.exports = function (grunt) {
         ],
         dest: 'docs/dist/'
       },
-      'bs-docs-js-vendor': {
-        expand: true,
-        cwd: '../bootstrap/docs/assets/js/vendor',
-        src: [
-          '**/*',
-          '!tether.min.js',
-          '!jquery.min.js'
-        ],
-        dest: 'docs/assets/js/vendor/'
-      },
+      //'bs-docs-js-vendor': {
+      //  expand: true,
+      //  cwd: '../bootstrap/docs/assets/js/vendor',
+      //  src: [
+      //    '**/*',
+      //    '!tether.min.js',
+      //    '!jquery.min.js'
+      //  ],
+      //  dest: 'docs/assets/js/vendor/'
+      //},
       //'bs-docs-plugins': {
       //  expand: true,
       //  cwd: '../bootstrap/docs/_plugins',
