@@ -30,7 +30,6 @@ let namedExports = {}
 //namedExports[`${node_modules}/anchor-js/anchor.js`] = ['AnchorJS']
 
 let rollupConfig = {
-  //debug: true,
   options: {
     external: [
       'anchor-js',
@@ -53,7 +52,7 @@ let rollupConfig = {
   }
 }
 
-let rollups = [
+let javascripts = [
   new RollupEs(gulp, preset, rollupConfig, {options: {dest: 'bootstrap-material-design.es.js'}}),
   new RollupUmd(gulp, preset, rollupConfig, {
     options: {
@@ -77,14 +76,12 @@ let linters = [scsslint, eslint]
 new TaskSeries(gulp, 'default', [
   new Clean(gulp, preset),
   linters,
-  [
-    sass,
-    rollups
-  ],
+  sass,
+  javascripts,
   new MinifyCss(gulp, preset)
 ])
 new TaskSeries(gulp, 'lint', linters)
-new TaskSeries(gulp, 'js', [eslint, rollups])
+new TaskSeries(gulp, 'js', [eslint, javascripts])
 new TaskSeries(gulp, 'css', [scsslint, sass])
 
 

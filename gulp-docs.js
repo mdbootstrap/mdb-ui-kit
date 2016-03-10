@@ -36,11 +36,11 @@ export default function (gulp, options) {
 
   let javascripts = [
     new RollupIife(gulp, preset, prefix, options.rollupConfig, {
-    options: {
-      dest: 'docs.iife.js',
-      moduleName: 'docs'
-    }
-  }),
+      options: {
+        dest: 'docs.iife.js',
+        moduleName: 'docs'
+      }
+    }),
     new Uglify(gulp, preset, prefix, {
       task: {name: 'vendor:uglify'},
       source: {options: {cwd: 'docs/assets/js/vendor'}},
@@ -59,10 +59,8 @@ export default function (gulp, options) {
   new TaskSeries(gulp, 'default', [
     new Clean(gulp, preset, prefix),
     linters,
-    [
-      sass,
-      javascripts
-    ],
+    sass,
+    javascripts,
     new MinifyCss(gulp, preset, prefix)
   ], prefix)
   new TaskSeries(gulp, 'lint', linters, prefix)
