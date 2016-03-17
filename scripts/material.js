@@ -91,8 +91,11 @@
       // Add fake-checkbox to material checkboxes
       var $input = $((selector) ? selector : this.options.togglebuttonElements)
         .filter(":notmdproc")
-        .data("mdproc", true)
-        .after("<span class='toggle'></span>");
+        .data("mdproc", true);
+
+      if (!$input.next("span.toggle").length) {
+        $input.after("<span class='toggle'></span>");
+      }
 
       _toggleTypeFocus($input);
     },
