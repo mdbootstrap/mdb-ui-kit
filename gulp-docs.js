@@ -1,4 +1,4 @@
-import {Preset, Clean, Copy, Jekyll, MinifyCss, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, TaskSeries, Uglify} from 'gulp-pipeline/src/index'
+import {Preset, Clean, Copy, Jekyll, MinifyCss, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, parallel, series} from 'gulp-pipeline/src/index'
 
 const referenceDocNotice =
   `$1\n
@@ -34,7 +34,7 @@ const prefix = {task: {prefix: 'docs:'}}
 
 export default function (gulp, options) {
 
-  let javascripts = [
+  let javascripts = parallel(gulp,
     new RollupIife(gulp, preset, prefix, options.rollupConfig, {
       options: {
         dest: 'docs.iife.js',
@@ -46,31 +46,34 @@ export default function (gulp, options) {
       source: {options: {cwd: 'docs/assets/js/vendor'}},
       options: {dest: 'docs-vendor.min.js'}
     })
-  ]
+  )
 
   let eslint = new EsLint(gulp, preset, prefix)
   let scsslint = new ScssLint(gulp, preset, prefix, {
     source: {glob: ['**/*.scss', '!docs.scss']},
     watch: {glob: ['**/*.scss', '!docs.scss']}
   })
-  let linters = [scsslint, eslint]
+  let linters = parallel(gulp, scsslint, eslint)
   let sass = new Sass(gulp, preset, prefix)
 
-  new TaskSeries(gulp, 'default', [
+  let recipes = series(gulp,
     new Clean(gulp, preset, prefix),
     linters,
     sass,
     javascripts,
     new MinifyCss(gulp, preset, prefix)
-  ], prefix)
-  new TaskSeries(gulp, 'lint', linters, prefix)
-  new TaskSeries(gulp, 'js', [eslint, javascripts], prefix)
-  new TaskSeries(gulp, 'css', [scsslint, sass], prefix)
+  )
+
+  new Aggregate(gulp, 'default', recipes, prefix)
+  new Aggregate(gulp, 'lint', linters, prefix)
+  new Aggregate(gulp, 'js', series(gulp, eslint, javascripts), prefix)
+  new Aggregate(gulp, 'css', series(gulp, scsslint, sass), prefix)
 
   // docs copy
-  new TaskSeries(gulp, 'copy:bs-docs', [
+  new Aggregate(gulp, 'copy:bs-docs', parallel(gulp,
     new Copy(gulp, preset, prefix, {
-      task: {name: 'copy:bs-docs-content'},
+      debug: true,
+      task: false, //{name: 'copy:bs-docs-content'},
       source: {
         options: {cwd: '../bootstrap/docs/content'},
         glob: ['**/*']
@@ -79,7 +82,7 @@ export default function (gulp, options) {
       process: copyProcessor
     }),
     new Copy(gulp, preset, prefix, {
-      task: {name: 'copy:bs-docs-components'},
+      task: false, //{name: 'copy:bs-docs-components'},
       source: {
         options: {cwd: '../bootstrap/docs/components'},
         glob: ['**/*']
@@ -88,7 +91,7 @@ export default function (gulp, options) {
       process: copyProcessor
     }),
     new Copy(gulp, preset, prefix, {
-      task: {name: 'copy:bs-docs-scss'},
+      task: false, //{name: 'copy:bs-docs-scss'},
       source: {
         options: {cwd: '../bootstrap/docs/assets/scss'},
         glob: ['**/*', '!docs.scss'] // keep variable customizations
@@ -99,7 +102,7 @@ export default function (gulp, options) {
       }
     }),
     new Copy(gulp, preset, prefix, {
-      task: {name: 'copy:bs-docs-plugins'},
+      task: false, //{name: 'copy:bs-docs-plugins'},
       source: {
         options: {cwd: '../bootstrap/docs/_plugins'},
         glob: ['**/*', '!bridge.rb']
@@ -107,7 +110,7 @@ export default function (gulp, options) {
       dest: 'docs/_plugins/'
     }),
     new Copy(gulp, preset, prefix, {
-      task: {name: 'copy:bs-docs-js-vendor'},
+      task: false, //{name: 'copy:bs-docs-js-vendor'},
       source: {
         options: {cwd: '../bootstrap/docs/assets/js/vendor'},
         glob: [
@@ -118,5 +121,7 @@ export default function (gulp, options) {
       },
       dest: 'docs/assets/js/vendor/'
     }, prefix)
-  ])
+  ))
+
+  return recipes
 }
