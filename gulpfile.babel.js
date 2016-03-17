@@ -7,6 +7,9 @@ import gulpDocs from './gulp-docs'
 
 const node_modules = findup('node_modules')
 
+// we have a lot of aggregates, which add listeners
+gulp.setMaxListeners(20)
+
 let preset = Preset.baseline({
   javascripts: {
     source: {options: {cwd: 'js/src'}},
@@ -91,12 +94,10 @@ new Aggregate(gulp, 'css', series(gulp, scsslint, sass))
 
 let docsDefaultRecipes = gulpDocs(gulp, {rollupConfig: rollupConfig})
 
-let prepRelease = new Aggregate(gulp, 'prep-release', [
-  //new Prepublish(gulp, preset),   // asserts committed
-  [
-    recipes,
-    docsDefaultRecipes
-  ],
+let prepRelease = series(gulp,
+  new Prepublish(gulp, preset),   // asserts committed
+  recipes,
+  docsDefaultRecipes,
   new Copy(gulp, preset, {
     task: {name: 'copy:dist-to-docs'},
     source: {
@@ -106,10 +107,11 @@ let prepRelease = new Aggregate(gulp, 'prep-release', [
     dest: 'docs/dist/'
   }),
   new Jekyll(gulp, preset, {options: {raw: 'baseurl: "/bootstrap-material-design"'}})
-])
+)
 
+new Aggregate(gulp, 'prep-release', prepRelease)
 
-new Aggregate(gulp, 'publish', [
+new Aggregate(gulp, 'publish', series(gulp,
   prepRelease,
   new PublishBuild(gulp, preset, {
     npm: {
@@ -117,4 +119,6 @@ new Aggregate(gulp, 'publish', [
       publish: false
     }
   })
-])
+  // FIXME: publish pages
+))
+

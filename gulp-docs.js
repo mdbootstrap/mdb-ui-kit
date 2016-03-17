@@ -72,7 +72,6 @@ export default function (gulp, options) {
   // docs copy
   new Aggregate(gulp, 'copy:bs-docs', parallel(gulp,
     new Copy(gulp, preset, prefix, {
-      debug: true,
       task: false, //{name: 'copy:bs-docs-content'},
       source: {
         options: {cwd: '../bootstrap/docs/content'},
@@ -121,7 +120,7 @@ export default function (gulp, options) {
       },
       dest: 'docs/assets/js/vendor/'
     }, prefix)
-  ))
+  ), prefix)
 
   return recipes
 }
