@@ -1,4 +1,4 @@
-import {Preset, Clean, Copy, Jekyll, MinifyCss, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, parallel, series} from 'gulp-pipeline/src/index'
+import {Preset, Clean, Copy, Jekyll, CssNano, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, parallel, series} from 'gulp-pipeline/src/index'
 
 const referenceDocNotice =
   `$1\n
@@ -61,7 +61,7 @@ export default function (gulp, options) {
     linters,
     sass,
     javascripts,
-    new MinifyCss(gulp, preset, prefix)
+    new CssNano(gulp, preset, prefix)
   )
 
   new Aggregate(gulp, 'default', recipes, prefix)

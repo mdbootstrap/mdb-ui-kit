@@ -1,4 +1,4 @@
-import {Preset, Clean, Copy, Jekyll, MinifyCss, Prepublish, PublishBuild, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, series, parallel} from 'gulp-pipeline/src/index'
+import {Preset, Clean, Copy, Jekyll, CssNano, Prepublish, PublishBuild, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, series, parallel} from 'gulp-pipeline/src/index'
 import gulp from 'gulp'
 import findup from 'findup-sync'
 import pkg from './package.json'
@@ -23,6 +23,9 @@ let preset = Preset.baseline({
   images: {
     source: {options: {cwd: 'images'}},
     watch: {options: {cwd: 'images'}}
+  },
+  postProcessor: {
+    dest: 'dist' //'dist/digest'
   }
 })
 
@@ -55,25 +58,45 @@ let rollupConfig = {
   }
 }
 
-let javascripts = parallel(gulp,
-  new RollupEs(gulp, preset, rollupConfig, {options: {dest: 'bootstrap-material-design.es.js'}}),
-  new RollupUmd(gulp, preset, rollupConfig, {
-    options: {
-      dest: 'bootstrap-material-design.umd.js',
-      moduleName: 'bootstrapMaterialDesign'
-    }
-  }),
-  new RollupIife(gulp, preset, rollupConfig, {
-    options: {
-      dest: 'bootstrap-material-design.iife.js',
-      moduleName: 'bootstrapMaterialDesign'
-    }
+let javascripts = series(gulp,
+  parallel(gulp,
+    new RollupEs(gulp, preset, rollupConfig, {options: {dest: 'bootstrap-material-design.es.js'}}),
+    new RollupUmd(gulp, preset, rollupConfig, {
+      options: {
+        dest: 'bootstrap-material-design.umd.js',
+        moduleName: 'bootstrapMaterialDesign'
+      }
+    }),
+    new RollupIife(gulp, preset, rollupConfig, {
+      options: {
+        dest: 'bootstrap-material-design.iife.js',
+        moduleName: 'bootstrapMaterialDesign'
+      }
+    })),
+  new Copy(gulp, preset, {
+    task: false,
+    source: {
+      options: {cwd: 'dist'},
+      glob: ['*.iife*']
+    },
+    dest: 'docs/dist/'
   })
 )
 
 let eslint = new EsLint(gulp, preset)
 let scsslint = new ScssLint(gulp, preset)
-let sass = new Sass(gulp, preset)
+let sass = series(gulp,
+  new Sass(gulp, preset),
+  new CssNano(gulp, preset, {debug: true}),
+  new Copy(gulp, preset, {
+    task: false,
+    source: {
+      options: {cwd: 'dist'},
+      glob: ['*.css*']
+    },
+    dest: 'docs/dist/'
+  })
+)
 let linters = parallel(gulp, scsslint, eslint)
 
 let recipes = series(gulp,
@@ -82,11 +105,10 @@ let recipes = series(gulp,
   parallel(gulp,
     sass,
     javascripts
-  ),
-  new MinifyCss(gulp, preset)
+  )
 )
 
-new Aggregate(gulp, 'default', recipes, {debug: true})
+new Aggregate(gulp, 'default', recipes)
 new Aggregate(gulp, 'lint', linters)
 new Aggregate(gulp, 'js', series(gulp, eslint, javascripts))
 new Aggregate(gulp, 'css', series(gulp, scsslint, sass))
@@ -98,18 +120,10 @@ let prepRelease = series(gulp,
   new Prepublish(gulp, preset),   // asserts committed
   recipes,
   docsDefaultRecipes,
-  new Copy(gulp, preset, {
-    task: {name: 'copy:dist-to-docs'},
-    source: {
-      options: {cwd: 'dist'},
-      glob: ['js/*.iife*', 'css/*.*']
-    },
-    dest: 'docs/dist/'
-  }),
   new Jekyll(gulp, preset, {options: {raw: 'baseurl: "/bootstrap-material-design"'}})
 )
 
-new Aggregate(gulp, 'prep-release', prepRelease)
+new Aggregate(gulp, 'prepRelease', prepRelease)
 
 new Aggregate(gulp, 'publish', series(gulp,
   prepRelease,
