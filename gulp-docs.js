@@ -1,4 +1,4 @@
-import {Preset, Clean, Copy, Jekyll, CssNano, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, parallel, series} from 'gulp-pipeline/src/index'
+import {Preset, Clean, Copy, Jekyll, CssNano, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, parallel, series} from 'gulp-pipeline'
 
 const referenceDocNotice =
   `$1\n
