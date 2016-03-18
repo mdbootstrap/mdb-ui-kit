@@ -53,11 +53,11 @@ cdn:
 #  js_hash:        "sha384-XXXXXXXX"
 
   # fonts
-  font_roboto:    http://fonts.googleapis.com/css?family=Roboto:300,400,500,700
+  font_roboto:    https://fonts.googleapis.com/css?family=Roboto:300,400,500,700
   font_icons:     https://fonts.googleapis.com/icon?family=Material+Icons
 
   # VERSION is substituted in variables.rb and these are made available as site.data.cdn.*
-  jquery:         https://ajax.googleapis.com/ajax/libs/jquery/VERSION/jquery
+  jquery:         https://code.jquery.com/jquery-VERSION
   bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap
   tether:         https://cdn.rawgit.com/HubSpot/tether/vVERSION/dist/js/tether
 
