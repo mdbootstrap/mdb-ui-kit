@@ -27,6 +27,12 @@ const preset = Preset.baseline({
     source: {options: {cwd: 'docs/assets/scss'}},
     watch: {options: {cwd: 'docs/assets/scss'}},
     dest: 'docs/dist'
+  },
+  images: {
+    dest: 'docs/dist'
+  },
+  postProcessor: {
+    dest: 'docs/dist'
   }
 })
 

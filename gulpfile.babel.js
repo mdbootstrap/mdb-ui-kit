@@ -1,4 +1,4 @@
-import {Preset, Clean, Copy, Jekyll, CssNano, Prepublish, PublishBuild, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, series, parallel} from 'gulp-pipeline/src/index'
+import {Preset, Clean, Copy, Jekyll, CssNano, Prepublish, PublishBuild, PublishGhPages, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, series, parallel} from 'gulp-pipeline/src/index'
 import gulp from 'gulp'
 import findup from 'findup-sync'
 import pkg from './package.json'
@@ -10,7 +10,7 @@ const node_modules = findup('node_modules')
 // we have a lot of aggregates, which add listeners
 gulp.setMaxListeners(20)
 
-let preset = Preset.baseline({
+const preset = Preset.baseline({
   javascripts: {
     source: {options: {cwd: 'js/src'}},
     watch: {options: {cwd: 'js/src'}},
@@ -35,7 +35,7 @@ let namedExports = {}
 //namedExports[`${node_modules}/corejs-typeahead/dist/bloodhound.js`] = ['Bloodhound']
 //namedExports[`${node_modules}/anchor-js/anchor.js`] = ['AnchorJS']
 
-let rollupConfig = {
+const rollupConfig = {
   options: {
     external: [
       'anchor-js',
@@ -58,7 +58,16 @@ let rollupConfig = {
   }
 }
 
-let javascripts = series(gulp,
+const copyJsToDocs = new Copy(gulp, preset, {
+  task: {name: 'dist:js->docs'},
+  source: {
+    options: {cwd: 'dist'},
+    glob: ['*.iife.js']
+  },
+  dest: 'docs/dist/'
+})
+
+const javascripts = series(gulp,
   parallel(gulp,
     new RollupEs(gulp, preset, rollupConfig, {options: {dest: 'bootstrap-material-design.es.js'}}),
     new RollupUmd(gulp, preset, rollupConfig, {
@@ -72,30 +81,26 @@ let javascripts = series(gulp,
         dest: 'bootstrap-material-design.iife.js',
         moduleName: 'bootstrapMaterialDesign'
       }
-    })),
-  new Copy(gulp, preset, {
-    task: false,
-    source: {
-      options: {cwd: 'dist'},
-      glob: ['*.iife*']
-    },
-    dest: 'docs/dist/'
-  })
+    })
+  ),
+  copyJsToDocs
 )
 
 let eslint = new EsLint(gulp, preset)
 let scsslint = new ScssLint(gulp, preset)
-let sass = series(gulp,
+const copyCssToDocs = new Copy(gulp, preset, {
+  task: {name: 'dist:css->docs'},
+  source: {
+    options: {cwd: 'dist'},
+    glob: ['*.css']
+  },
+  dest: 'docs/dist/'
+})
+
+const sass = series(gulp,
   new Sass(gulp, preset),
-  new CssNano(gulp, preset, {debug: true}),
-  new Copy(gulp, preset, {
-    task: false,
-    source: {
-      options: {cwd: 'dist'},
-      glob: ['*.css*']
-    },
-    dest: 'docs/dist/'
-  })
+  new CssNano(gulp, preset),
+  copyCssToDocs
 )
 let linters = parallel(gulp, scsslint, eslint)
 
@@ -116,10 +121,18 @@ new Aggregate(gulp, 'css', series(gulp, scsslint, sass))
 
 let docsDefaultRecipes = gulpDocs(gulp, {rollupConfig: rollupConfig})
 
-let prepRelease = series(gulp,
+const buildControlConfig = {
+  options: { // see https://github.com/alienfast/build-control/blob/master/src/buildControl.js#L11
+    //branch: 'v4-dist'
+  }
+}
+
+
+const prepRelease = series(gulp,
   new Prepublish(gulp, preset),   // asserts committed
   recipes,
-  docsDefaultRecipes,
+  docsDefaultRecipes, // this cleans docs, so we need to re-copy dist to docs in this scenario
+  parallel(gulp, copyCssToDocs, copyJsToDocs),
   new Jekyll(gulp, preset, {options: {raw: 'baseurl: "/bootstrap-material-design"'}})
 )
 
@@ -132,7 +145,15 @@ new Aggregate(gulp, 'publish', series(gulp,
       bump: false,
       publish: false
     }
-  })
+  }),
+
   // FIXME: publish pages
+  new PublishGhPages(gulp, preset, {
+    options: {
+      remote: {
+        repo: 'git@github.com:rosskevin/bootstrap-material-design.git' // FIXME: temporary, remove this option when we are deploying to our home repo
+      }
+    }
+  })
 ))
 
