@@ -3,16 +3,12 @@
 /dist
 /build
 
-# Ignore docs dist files
-docs/dist/**/*
-docs/assets/css/*
-docs/assets/js/dist/*
-docs/assets/js/docs.*
-js/dist/**/*
-
 # Ignore docs files
 _gh_pages
 _site
+
+# Ignore docs dist files
+docs/dist/**/*
 
 # Ignore ruby files
 .ruby-version
