@@ -146,6 +146,7 @@ new Aggregate(gulp, 'publish',
     }),
 
     new PublishGhPages(gulp, preset, {
+      debug: true,
       options: {
         remote: {
           repo: 'git@github.com:rosskevin/bootstrap-material-design.git' // FIXME: temporary, remove this option when we are deploying to our home repo
