@@ -55,9 +55,13 @@ export default function (gulp, options) {
         new Uglify(gulp, preset, prefix, {
           task: {name: 'vendor:uglify'},
           source: {options: {cwd: 'docs/assets/js/vendor'}},
-          options: {dest: 'docs-vendor.min.js'}
+          concat: {dest: 'docs-vendor.min.js'}
         })
-      )
+      ),
+      new Uglify(gulp, preset, prefix, {
+        task: {name: 'iife:uglify'},
+        source: { glob: '*.iife.js' }
+      })
     ),
     prefix)
 

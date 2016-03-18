@@ -94,6 +94,11 @@ const js = new Aggregate(gulp, 'js',
         }
       })
     ),
+    new Uglify(gulp, preset, {
+      task: {name: 'iife:uglify'},
+      source: { glob: '*.iife.js' }
+    }),
+
     copyJsToDocs
   )
 )
