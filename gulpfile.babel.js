@@ -140,14 +140,7 @@ new Aggregate(gulp, 'prepRelease', prepRelease)
 
 new Aggregate(gulp, 'publish', series(gulp,
   prepRelease,
-  new PublishBuild(gulp, preset, {
-    npm: {
-      bump: false,
-      publish: false
-    }
-  }),
-
-  // FIXME: publish pages
+  new PublishBuild(gulp, preset),
   new PublishGhPages(gulp, preset, {
     options: {
       remote: {
