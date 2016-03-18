@@ -32,6 +32,8 @@ const preset = Preset.baseline({
     dest: 'docs/dist'
   },
   postProcessor: {
+    source: {options: {cwd: 'docs/dist'}},
+    watch: {options: {cwd: 'docs/dist'}},
     dest: 'docs/dist'
   }
 })
