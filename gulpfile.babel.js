@@ -67,27 +67,6 @@ const copyJsToDocs = new Copy(gulp, preset, {
   dest: 'docs/dist/'
 })
 
-const javascripts = series(gulp,
-  parallel(gulp,
-    new RollupEs(gulp, preset, rollupConfig, {options: {dest: 'bootstrap-material-design.es.js'}}),
-    new RollupUmd(gulp, preset, rollupConfig, {
-      options: {
-        dest: 'bootstrap-material-design.umd.js',
-        moduleName: 'bootstrapMaterialDesign'
-      }
-    }),
-    new RollupIife(gulp, preset, rollupConfig, {
-      options: {
-        dest: 'bootstrap-material-design.iife.js',
-        moduleName: 'bootstrapMaterialDesign'
-      }
-    })
-  ),
-  copyJsToDocs
-)
-
-let eslint = new EsLint(gulp, preset)
-let scsslint = new ScssLint(gulp, preset)
 const copyCssToDocs = new Copy(gulp, preset, {
   task: {name: 'dist:css->docs'},
   source: {
@@ -97,56 +76,77 @@ const copyCssToDocs = new Copy(gulp, preset, {
   dest: 'docs/dist/'
 })
 
-const sass = series(gulp,
-  new Sass(gulp, preset),
-  new CssNano(gulp, preset),
-  copyCssToDocs
-)
-let linters = parallel(gulp, scsslint, eslint)
-
-let recipes = series(gulp,
-  new Clean(gulp, preset),
-  linters,
-  parallel(gulp,
-    sass,
-    javascripts
+const js = new Aggregate(gulp, 'js',
+  series(gulp,
+    new EsLint(gulp, preset),
+    parallel(gulp,
+      new RollupEs(gulp, preset, rollupConfig, {options: {dest: 'bootstrap-material-design.es.js'}}),
+      new RollupUmd(gulp, preset, rollupConfig, {
+        options: {
+          dest: 'bootstrap-material-design.umd.js',
+          moduleName: 'bootstrapMaterialDesign'
+        }
+      }),
+      new RollupIife(gulp, preset, rollupConfig, {
+        options: {
+          dest: 'bootstrap-material-design.iife.js',
+          moduleName: 'bootstrapMaterialDesign'
+        }
+      })
+    ),
+    copyJsToDocs
   )
 )
 
-new Aggregate(gulp, 'default', recipes)
-new Aggregate(gulp, 'lint', linters)
-new Aggregate(gulp, 'js', series(gulp, eslint, javascripts))
-new Aggregate(gulp, 'css', series(gulp, scsslint, sass))
-
-
-let docsDefaultRecipes = gulpDocs(gulp, {rollupConfig: rollupConfig})
-
-const buildControlConfig = {
-  options: { // see https://github.com/alienfast/build-control/blob/master/src/buildControl.js#L11
-    //branch: 'v4-dist'
-  }
-}
-
-
-const prepRelease = series(gulp,
-  new Prepublish(gulp, preset),   // asserts committed
-  recipes,
-  docsDefaultRecipes, // this cleans docs, so we need to re-copy dist to docs in this scenario
-  parallel(gulp, copyCssToDocs, copyJsToDocs),
-  new Jekyll(gulp, preset, {options: {raw: 'baseurl: "/bootstrap-material-design"'}})
+const css = new Aggregate(gulp, 'css',
+  series(gulp,
+    new ScssLint(gulp, preset),
+    new Sass(gulp, preset),
+    new CssNano(gulp, preset),
+    copyCssToDocs
+  )
 )
 
-new Aggregate(gulp, 'prepRelease', prepRelease)
-
-new Aggregate(gulp, 'publish', series(gulp,
-  prepRelease,
-  new PublishBuild(gulp, preset),
-  new PublishGhPages(gulp, preset, {
-    options: {
-      remote: {
-        repo: 'git@github.com:rosskevin/bootstrap-material-design.git' // FIXME: temporary, remove this option when we are deploying to our home repo
-      }
-    }
-  })
+const defaultRecipes = new Aggregate(gulp, 'default', series(gulp,
+  new Clean(gulp, preset),
+  parallel(gulp,
+    css,
+    js
+  )
 ))
+
+// load all docs tasks
+let docsDefaultRecipes = gulpDocs(gulp, {rollupConfig: rollupConfig})
+
+// publish
+new Aggregate(gulp, 'publish',
+
+  series(gulp,
+    new Prepublish(gulp, preset),   // asserts committed
+
+    defaultRecipes,
+
+    docsDefaultRecipes,
+
+    // ^^^docs:default cleans docs/dist, so we need to re-copy dist to docs in this scenario
+    parallel(gulp, copyCssToDocs, copyJsToDocs),
+
+    new Jekyll(gulp, preset, {options: {raw: 'baseurl: "/bootstrap-material-design"'}}),
+
+    new PublishBuild(gulp, preset, {
+      npm: {
+        bump: false,
+        publish: false
+      }
+    }),
+
+    new PublishGhPages(gulp, preset, {
+      options: {
+        remote: {
+          repo: 'git@github.com:rosskevin/bootstrap-material-design.git' // FIXME: temporary, remove this option when we are deploying to our home repo
+        }
+      }
+    })
+  )
+)
 
