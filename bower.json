@@ -36,7 +36,9 @@
     "tether": "^1.1"
   },
   "dependencies": {
-    "bootstrap": "~4.0.0-alpha.2",
     "tether": "^1.1"
+  },
+  "devDependencies": {
+    "bootstrap": "v4-dev"
   }
 }
