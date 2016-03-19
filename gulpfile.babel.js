@@ -1,4 +1,7 @@
-import {Preset, Clean, Copy, Jekyll, CssNano, Prepublish, PublishBuild, PublishGhPages, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, series, parallel} from 'gulp-pipeline'
+import {Preset, Clean, Copy, Jekyll, CssNano, Prepublish, PublishBuild, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, series, parallel} from 'gulp-pipeline'
+
+import PublishGhPages from 'gulp-pipeline/src/publishGhPages'
+
 import gulp from 'gulp'
 import findup from 'findup-sync'
 import pkg from './package.json'
