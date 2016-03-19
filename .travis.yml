@@ -1,8 +1,9 @@
 branches:
   except:
     - v4-dist
-    # remove this later
+    # remove the following later:
     - v4-dev
+    - v4-gulp
 
 sudo: false # use the container infrastructure
 language: node_js

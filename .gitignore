@@ -1,17 +1,14 @@
 
 # Ignore the root dist as buildcontrol will place it on it's own branch (same for gh-pages)
 /dist
-
-# Ignore docs dist files
-docs/dist/**/*
-docs/assets/css/*
-docs/assets/js/dist/*
-docs/assets/js/docs.*
-js/dist/**/*
+/build
 
 # Ignore docs files
 _gh_pages
 _site
+
+# Ignore docs dist files
+docs/dist/**/*
 
 # Ignore ruby files
 .ruby-version

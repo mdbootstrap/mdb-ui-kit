@@ -47,19 +47,21 @@ url: "http://rosskevin.github.io"
 #
 cdn:
 #  # See https://www.srihash.org for info on how to generate the hashes
-  css:            https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/v4-dist/css/bootstrap-material-design.css
+  css:            https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css
 #  css_hash:       "sha384-XXXXXXXX"
-  js:             https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/v4-dist/js/bootstrap-material-design
+  js:             https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/dist/dist/bootstrap-material-design
 #  js_hash:        "sha384-XXXXXXXX"
 
   # fonts
-  font_roboto:    http://fonts.googleapis.com/css?family=Roboto:300,400,500,700
+  font_roboto:    https://fonts.googleapis.com/css?family=Roboto:300,400,500,700
   font_icons:     https://fonts.googleapis.com/icon?family=Material+Icons
 
   # VERSION is substituted in variables.rb and these are made available as site.data.cdn.*
-  jquery:         https://ajax.googleapis.com/ajax/libs/jquery/VERSION/jquery
+  jquery:         https://code.jquery.com/jquery-VERSION
   bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap
   tether:         https://cdn.rawgit.com/HubSpot/tether/vVERSION/dist/js/tether
+
+  'ie10-viewport-bug-workaround': https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js
 
 
 

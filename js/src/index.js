@@ -8,7 +8,8 @@
  */
 
 /* eslint-disable no-unused-vars */
-import '../../node_modules/babel-polyfill/dist/polyfill'
+import 'babel-polyfill/dist/polyfill'
+import 'bootstrap'
 
 // invalidComponentMatches is currently disabled due to https://github.com/rollup/rollup/issues/428#issuecomment-170066452
 import Checkbox from './checkbox'
