@@ -63,7 +63,7 @@ const copyJsToDocs = new Copy(gulp, preset, {
   task: {name: 'dist:js->docs'},
   source: {
     options: {cwd: 'dist'},
-    glob: ['*.iife.js']
+    glob: ['*.iife*.js']
   },
   dest: 'docs/dist/'
 })
