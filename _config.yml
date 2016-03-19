@@ -47,9 +47,9 @@ url: "http://rosskevin.github.io"
 #
 cdn:
 #  # See https://www.srihash.org for info on how to generate the hashes
-  css:            https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/v4-dist/css/bootstrap-material-design.css
+  css:            https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css
 #  css_hash:       "sha384-XXXXXXXX"
-  js:             https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/v4-dist/js/bootstrap-material-design
+  js:             https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/dist/dist/bootstrap-material-design
 #  js_hash:        "sha384-XXXXXXXX"
 
   # fonts
