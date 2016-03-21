@@ -61,7 +61,7 @@ $icon-color: rgba($black, 0.5) !default;
 
 // --------------------
 // inputs
-$mdb-mdb-label-static-size-ratio: 75 / 100 !default;
+$mdb-bmd-label-static-size-ratio: 75 / 100 !default;
 $mdb-help-size-ratio: 75 / 100 !default;
 
 //$mdb-form-control-bg-repeat-y: repeat-y !default; // it could work with no-repeat, but on Safari it's bugged and repeat-y is needed, but repeat-y is bugged on the warning icon.

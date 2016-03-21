@@ -16,7 +16,7 @@ Below is a complete list of `<label>` class options supported by Material Design
   <tbody>
     <tr>
       <td>
-        <code>.mdb-label-static</code>
+        <code>.bmd-label-static</code>
       </td>
       <td>
         {% markdown %}Statically positioned above the input{% endmarkdown %}
@@ -24,7 +24,7 @@ Below is a complete list of `<label>` class options supported by Material Design
     </tr>
     <tr>
       <td>
-        <code>.mdb-label-placeholder</code>
+        <code>.bmd-label-placeholder</code>
       </td>
       <td>
 {% markdown %}
@@ -39,7 +39,7 @@ Renders a `<label>` as a placeholder
     </tr>
     <tr>
       <td>
-        <code>.mdb-label-floating</code>
+        <code>.bmd-label-floating</code>
       </td>
       <td>
 {% markdown %}
@@ -47,7 +47,7 @@ Animated combination of placeholder and label:
 
 - _focused_: label animates from placeholder to static label
 - _unfocused & empty_: placeholder
-- _unfocused & filled_: renders the same as `.mdb-label-static`
+- _unfocused & filled_: renders the same as `.bmd-label-static`
 {% endmarkdown %}
       </td>
     </tr>
@@ -64,19 +64,19 @@ Animated combination of placeholder and label:
 {% example html %}
 <form>
   <fieldset class="form-group">
-    <label for="exampleInputEmail1" class="mdb-label-static">label-static</label>
+    <label for="exampleInputEmail1" class="bmd-label-static">label-static</label>
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="placeholder text">
-    <span class="mdb-help">We'll never share your email with anyone else.</span>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
   </fieldset>
   <fieldset class="form-group">
-    <label for="exampleInputEmail1" class="mdb-label-floating">label-floating</label>
+    <label for="exampleInputEmail1" class="bmd-label-floating">label-floating</label>
     <input type="email" class="form-control" id="exampleInputEmail1">
-    <span class="mdb-help">We'll never share your email with anyone else.</span>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
   </fieldset>
   <fieldset class="form-group">
-    <label for="exampleInputEmail1" class="mdb-label-placeholder">label-placeholder</label>
+    <label for="exampleInputEmail1" class="bmd-label-placeholder">label-placeholder</label>
     <input type="email" class="form-control" id="exampleInputEmail1">
-    <span class="mdb-help">We'll never share your email with anyone else.</span>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
   </fieldset>
 </form>
 {% endexample %}

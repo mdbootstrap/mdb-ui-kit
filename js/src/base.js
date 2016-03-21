@@ -3,7 +3,7 @@ import Util from './util'
 const Base = (($) => {
 
   const ClassName = {
-    MDB_FORM_GROUP: 'mdb-form-group',
+    MDB_FORM_GROUP: 'bmd-form-group',
     IS_FILLED: 'is-filled',
     IS_FOCUSED: 'is-focused'
   }
@@ -64,7 +64,7 @@ const Base = (($) => {
       this.$mdbFormGroup.addClass(ClassName.IS_FILLED)
     }
 
-    // Find mdb-form-group
+    // Find bmd-form-group
     findMdbFormGroup(raiseError = true) {
       let mfg = this.$element.closest(Selector.MDB_FORM_GROUP)
       if (mfg.length === 0 && raiseError) {

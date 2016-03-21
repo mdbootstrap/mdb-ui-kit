@@ -11,20 +11,20 @@ Bootstrap provides several form control styles, layout options, and custom compo
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-Form controls flavored by Material Design for Bootstrap customizations such as `mdb-label-floating`.
+Form controls flavored by Material Design for Bootstrap customizations such as `bmd-label-floating`.
 {% example html %}
 <form>
   <fieldset class="form-group">
-    <label for="exampleInputEmail1" class="mdb-label-floating">Email address</label>
+    <label for="exampleInputEmail1" class="bmd-label-floating">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1">
-    <span class="mdb-help">We'll never share your email with anyone else.</span>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
   </fieldset>
   <fieldset class="form-group">
-    <label for="exampleInputPassword1" class="mdb-label-floating">Password</label>
+    <label for="exampleInputPassword1" class="bmd-label-floating">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1">
   </fieldset>
   <fieldset class="form-group">
-    <label for="exampleSelect1" class="mdb-label-floating">Example select</label>
+    <label for="exampleSelect1" class="bmd-label-floating">Example select</label>
     <select class="form-control" id="exampleSelect1">
       <option>1</option>
       <option>2</option>
@@ -34,7 +34,7 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
     </select>
   </fieldset>
   <fieldset class="form-group">
-    <label for="exampleSelect2" class="mdb-label-floating">Example multiple select</label>
+    <label for="exampleSelect2" class="bmd-label-floating">Example multiple select</label>
     <select multiple class="form-control" id="exampleSelect2">
       <option>1</option>
       <option>2</option>
@@ -44,11 +44,11 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
     </select>
   </fieldset>
   <fieldset class="form-group">
-    <label for="exampleTextarea" class="mdb-label-floating">Example textarea</label>
+    <label for="exampleTextarea" class="bmd-label-floating">Example textarea</label>
     <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
   </fieldset>
   <fieldset class="form-group">
-    <label for="exampleInputFile" class="mdb-label-floating">File input</label>
+    <label for="exampleInputFile" class="bmd-label-floating">File input</label>
     <input type="file" class="form-control-file" id="exampleInputFile">
     <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
   </fieldset>
@@ -95,13 +95,13 @@ Below is a complete list of options supported by Material Design for Bootstrap a
   <tbody>
     <tr>
       <td>
-        <code>.mdb-form-group</code>
+        <code>.bmd-form-group</code>
       </td>
       <td>
         Any group of form controls (e.g. combination of label/input).
       </td>
       <td>
-        {% markdown %}This is automatically added by javascript, but if your code is templated, adding `.mdb-form-group` 
+        {% markdown %}This is automatically added by javascript, but if your code is templated, adding `.bmd-form-group` 
         to your form groups or otherwise your groups of controls can reduce rendering churn since the javascript will not
         add the class after the initial page rendering.  This can also demarcate complex label/input combinations inside the 
         same `.form-group`.{% endmarkdown %}
@@ -109,10 +109,10 @@ Below is a complete list of options supported by Material Design for Bootstrap a
     </tr>
     <tr>
       <td>
-        <code>.mdb-form-group-sm</code>
+        <code>.bmd-form-group-sm</code>
       </td>
       <td>
-        {% markdown %}Added to the `.mdb-form-group`, this will render the combination label/input/help in the smaller variation.{% endmarkdown %}
+        {% markdown %}Added to the `.bmd-form-group`, this will render the combination label/input/help in the smaller variation.{% endmarkdown %}
       </td>
       <td>
         {% markdown %}{% endmarkdown %}
@@ -120,10 +120,10 @@ Below is a complete list of options supported by Material Design for Bootstrap a
     </tr>    
     <tr>
       <td>
-        <code>.mdb-form-group-lg</code>
+        <code>.bmd-form-group-lg</code>
       </td>
       <td>
-        {% markdown %}Added to the `.mdb-form-group`, this will render the combination label/input/help in the larger variation.{% endmarkdown %}
+        {% markdown %}Added to the `.bmd-form-group`, this will render the combination label/input/help in the larger variation.{% endmarkdown %}
       </td>
       <td>
         {% markdown %}{% endmarkdown %}
@@ -131,13 +131,13 @@ Below is a complete list of options supported by Material Design for Bootstrap a
     </tr>     
     <tr>
       <td>
-        <code>.mdb-help</code>
+        <code>.bmd-help</code>
       </td>
       <td>
         Any help text
       </td>
       <td>
-        {% markdown %}Mark any help text next to an input with `.mdb-help` to gain behaviors such as showing upon focus.{% endmarkdown %}
+        {% markdown %}Mark any help text next to an input with `.bmd-help` to gain behaviors such as showing upon focus.{% endmarkdown %}
       </td>
     </tr>    
   </tbody>
@@ -146,22 +146,22 @@ Below is a complete list of options supported by Material Design for Bootstrap a
 
 ## Form groups
 
-The `.mdb-form-group` class is usually added to the `.form-group` element. Whereas the `.form-group` adds structure to forms by providing `margin-bottom` around a label and control pairing,
- the only purpose of the  `.mdb-form-group` is to demarcate Material Design behaviors for a combination of label/input.  Focus/hover styling for the label/input is determined based on the `.mdb-form-group`. 
+The `.bmd-form-group` class is usually added to the `.form-group` element. Whereas the `.form-group` adds structure to forms by providing `margin-bottom` around a label and control pairing,
+ the only purpose of the  `.bmd-form-group` is to demarcate Material Design behaviors for a combination of label/input.  Focus/hover styling for the label/input is determined based on the `.bmd-form-group`. 
 
-The `.mdb-form-group` is added automatically by javascript through basic discovery of the outer demarcation of the component defined by the Bootstrap standard 
-markup.  If your code is templated, you may want to add `.mdb-form-group` to the markup directly to prevent any rendering churn from the javascript determining 
-and adding the class to the markup.  In custom situations, the javascript may not be able to properly resolve the location for the `.mdb-form-group`, so in rare or complex cases
-you may need to wrap your markup in an `.mdb-form-group` to get appropriate focus/hover behavior.
+The `.bmd-form-group` is added automatically by javascript through basic discovery of the outer demarcation of the component defined by the Bootstrap standard 
+markup.  If your code is templated, you may want to add `.bmd-form-group` to the markup directly to prevent any rendering churn from the javascript determining 
+and adding the class to the markup.  In custom situations, the javascript may not be able to properly resolve the location for the `.bmd-form-group`, so in rare or complex cases
+you may need to wrap your markup in an `.bmd-form-group` to get appropriate focus/hover behavior.
 
 {% example html %}
 <form>
-  <fieldset class="form-group"> <!-- left unspecified, .mdb-form-group will be automatically added (inspect the code) -->
-    <label for="formGroupExampleInput" class="mdb-label-floating">Example label</label>
+  <fieldset class="form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+    <label for="formGroupExampleInput" class="bmd-label-floating">Example label</label>
     <input type="text" class="form-control" id="formGroupExampleInput">
   </fieldset>
-  <fieldset class="form-group mdb-form-group"> <!-- manually specified --> 
-    <label for="formGroupExampleInput2" class="mdb-label-floating">Another label</label>
+  <fieldset class="form-group bmd-form-group"> <!-- manually specified --> 
+    <label for="formGroupExampleInput2" class="bmd-label-floating">Another label</label>
     <input type="text" class="form-control" id="formGroupExampleInput2">
   </fieldset>
 </form>
@@ -182,11 +182,11 @@ Because of this, you may need to manually address the width and alignment of ind
 {% example html %}
 <form class="form-inline">
   <div class="form-group">
-    <label for="exampleInputName2" class="mdb-label-floating">Name</label>
+    <label for="exampleInputName2" class="bmd-label-floating">Name</label>
     <input type="text" class="form-control" id="exampleInputName2">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail2" class="mdb-label-floating">Email</label>
+    <label for="exampleInputEmail2" class="bmd-label-floating">Email</label>
     <input type="email" class="form-control" id="exampleInputEmail2">
   </div>
   <button type="submit" class="btn btn-primary">Send invitation</button>

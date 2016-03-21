@@ -1,12 +1,12 @@
 form {
-  // ensure enough room at the bottom of any form to display a one-line mdb-help
+  // ensure enough room at the bottom of any form to display a one-line bmd-help
   margin-bottom: ($mdb-help-size-ratio * $font-size-base) * $line-height-base;
 
   // reverse the above for navbars (no help expected in a navbar form)
   .navbar & {
     margin-bottom: 0; // only adjust bottom so that pull-xs-right flexed margin-left: auto works
 
-    .mdb-form-group {
+    .bmd-form-group {
       display: inline-block;
       padding-top: 0;
     }
@@ -30,14 +30,14 @@ form {
   transition: background 0s ease-out;
 
   // on disabled, kill the bg animation image and fall back to a simple dotted bottom border
-  @include mdb-disabled() {
+  @include bmd-disabled() {
     background-image: none;
     border-bottom: $input-btn-border-width dotted $input-border-color;
   }
 
   // The border bottom should be static in all states, the decorator will be animated over this.
   &:focus,
-  .mdb-form-group.is-focused & {
+  .bmd-form-group.is-focused & {
     background-size: $mdb-form-control-bg-size-active;
     //border-bottom: $input-btn-border-width solid $input-border-color;
     transition-duration: 0.3s;
@@ -48,14 +48,14 @@ form {
 //  position: absolute approach - uses no vertical space and there is no form jumping, but text wrapping - not so good.
 //  FIXME: width/wrapping isn't automatic and overflows occur.  What are some solutions?
 //
-.mdb-help {
+.bmd-help {
   position: absolute;
   display: none;
   font-size: 80%;
   font-weight: normal;
   @extend .text-muted;
 
-  .mdb-form-group.is-focused & {
+  .bmd-form-group.is-focused & {
     display: block;
   }
 }
@@ -63,31 +63,31 @@ form {
 // -----
 // State coloring: default, success, info, warning, danger
 //
-@include mdb-selection-color();
-@include mdb-form-color($mdb-label-color, $mdb-label-color-focus, $input-border-color);
+@include bmd-selection-color();
+@include bmd-form-color($mdb-label-color, $mdb-label-color-focus, $input-border-color);
 
 .has-success {
-  @include mdb-form-color($brand-success, $brand-success, $brand-success);
+  @include bmd-form-color($brand-success, $brand-success, $brand-success);
 }
 
 .has-info {
-  @include mdb-form-color($brand-info, $brand-info, $brand-info);
+  @include bmd-form-color($brand-info, $brand-info, $brand-info);
 }
 
 .has-warning {
-  @include mdb-form-color($brand-warning, $brand-warning, $brand-warning);
+  @include bmd-form-color($brand-warning, $brand-warning, $brand-warning);
 }
 
 .has-danger {
-  @include mdb-form-color($brand-danger, $brand-danger, $brand-danger);
+  @include bmd-form-color($brand-danger, $brand-danger, $brand-danger);
 }
 
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 //.variations(unquote(" label"), color, $mdb-input-placeholder-color);  // default label color variations
 
-// Whereas .form-group adds structure, mdb-form-group just needs to make sure we have enough padding for our labels to work.  That's the only purpose.
-.mdb-form-group {
+// Whereas .form-group adds structure, bmd-form-group just needs to make sure we have enough padding for our labels to work.  That's the only purpose.
+.bmd-form-group {
   position: relative;
 
   // -----
@@ -95,28 +95,28 @@ form {
   //
   // Reference http://www.google.com/design/spec/components/text-fields.html
   // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-  [class^='mdb-label'],
-  [class*=' mdb-label'] {
+  [class^='bmd-label'],
+  [class*=' bmd-label'] {
     position: absolute;
     pointer-events: none;
     transition: 0.3s ease all;
 
     // hint to browser for optimization
-    &.mdb-label-floating {
+    &.bmd-label-floating {
       will-change: left, top, contents; // TODO: evaluate effectiveness - looking for community feedback
     }
   }
 
   // hide label-placeholders when the field is filled
-  &.is-filled .mdb-label-placeholder {
+  &.is-filled .bmd-label-placeholder {
     display: none;
   }
 
   // Optional class to make the text field inline collapsible/expandable (collapsed by default)
   //    This uses the BS collapse js to make the width expand.
-  //    `width` class must also be on the element FIXME: do this with JS, it is a marker class and should be implicit because after all, we are an mdb-collapse-inline
+  //    `width` class must also be on the element FIXME: do this with JS, it is a marker class and should be implicit because after all, we are an bmd-collapse-inline
   //    FIXME: js needs to do the focus on shown.bs.collapse event http://v4-alpha.getbootstrap.com/components/collapse/#events
-  &.mdb-collapse-inline {
+  &.bmd-collapse-inline {
     padding: 0; // get rid of any padding as this is a width transition
 
     // Expandable Holder.
@@ -141,22 +141,22 @@ form {
     }
   }
 
-  // default floating size/location with an mdb-form-group
-  @include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height, "mdb-form-group default");
+  // default floating size/location with an bmd-form-group
+  @include bmd-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height, "bmd-form-group default");
 
   // sm floating size/location
-  &.mdb-form-group-sm {
-    @include mdb-form-size-variant($font-size-sm, $mdb-label-top-margin-sm, $input-padding-y-sm, $mdb-form-line-height-sm, "mdb-form-group sm");
+  &.bmd-form-group-sm {
+    @include bmd-form-size-variant($font-size-sm, $mdb-label-top-margin-sm, $input-padding-y-sm, $mdb-form-line-height-sm, "bmd-form-group sm");
   }
 
   // lg floating size/location
-  &.mdb-form-group-lg {
-    @include mdb-form-size-variant($font-size-lg, $mdb-label-top-margin-lg, $input-padding-y-lg, $mdb-form-line-height-sm, "mdb-form-group lg");
+  &.bmd-form-group-lg {
+    @include bmd-form-size-variant($font-size-lg, $mdb-label-top-margin-lg, $input-padding-y-lg, $mdb-form-line-height-sm, "bmd-form-group lg");
   }
 }
 
 // default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation) - IMPORTANT for non-form-group spacing such as radio/checkbox/switch
-@include mdb-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height);
+@include bmd-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height);
 
 select {
   &,
@@ -168,7 +168,7 @@ select {
 }
 
 // Input files - hide actual input - requires specific markup in the sample.
-//.mdb-form-group input[type=file] {
+//.bmd-form-group input[type=file] {
 //  opacity: 0;
 //  position: absolute;
 //  top: 0;

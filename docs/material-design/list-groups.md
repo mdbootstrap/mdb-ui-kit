@@ -30,7 +30,7 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
 ### Dense
 
 {% example html %}
-<ul class="list-group mdb-list-group-sm">
+<ul class="list-group bmd-list-group-sm">
   <li class="list-group-item">Text</li>
   <a href="#" class="list-group-item">Link item</a>
   <button type="button" class="list-group-item">Button item</button>
@@ -94,19 +94,19 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
 {% example html %}
 <ul class="list-group">
   <a class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Some text</p>
     </div>
   </a>
   <a class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Some text</p>
     </div>
   </a>
   <a class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Some text</p>
     </div>
@@ -117,21 +117,21 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
 ###  Dense
 
 {% example html %}
-<ul class="list-group mdb-list-group-sm">
+<ul class="list-group bmd-list-group-sm">
   <a class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Some text</p>
     </div>
   </a>
   <a class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Some text</p>
     </div>
   </a>
   <a class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Some text</p>
     </div>
@@ -145,7 +145,7 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
 <ul class="list-group">
   <a class="list-group-item">
     <i class="material-icons">inbox</i>
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Icon left</p>
     </div>
@@ -153,7 +153,7 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
 
   <a class="list-group-item">
     <span class="label label-default label-pill">14</span>
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Icon left</p>
     </div>
@@ -161,7 +161,7 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
 
   <a class="list-group-item">
     <i class="material-icons">inbox</i>
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Icons left and right</p>
     </div>
@@ -169,7 +169,7 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
   </a>
 
   <a class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Icon right</p>
     </div>
@@ -177,7 +177,7 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
   </a>
 
   <a class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">List group item heading</p>
       <p class="list-group-item-text">Label pill to the right</p>
     </div>
@@ -193,13 +193,13 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
 {% example html %}
 <ul class="list-group">
   <a class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">Linked list group item heading</p>
       <p class="list-group-item-text">This disallows more than two lines.  Hopefully an ellipsis ends this text.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut malesuada elit. Proin tristique, lorem eu vehicula congue, lectus ipsum porta quam, eget rutrum sapien turpis et libero.</p>
     </div>
   </a>
   <li class="list-group-item">
-    <div class="mdb-list-group-col">
+    <div class="bmd-list-group-col">
       <p class="list-group-item-heading">Text list group item heading</p>
       <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut malesuada elit. Proin tristique, lorem eu vehicula congue, lectus ipsum porta quam, eget rutrum sapien turpis et libero.</p>
     </div>
@@ -231,7 +231,7 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
     </tr>
     <tr>
       <td>
-        <code>.mdb-list-group-col</code>
+        <code>.bmd-list-group-col</code>
       </td>
       <td class="text-nowrap">
         {% markdown %}None{% endmarkdown %}
@@ -242,13 +242,13 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
     </tr>
     <tr>
       <td>
-        <code>.mdb-list-group-sm</code>
+        <code>.bmd-list-group-sm</code>
       </td>
       <td class="text-nowrap">
         {% markdown %}None{% endmarkdown %}
       </td>
       <td>
-        {% markdown %}Use on `.mdb-list-group` for the dense list display{% endmarkdown %}
+        {% markdown %}Use on `.bmd-list-group` for the dense list display{% endmarkdown %}
       </td>
     </tr>
 

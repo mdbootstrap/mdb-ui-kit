@@ -35,14 +35,14 @@
   }
 
   // colors
-  @include mdb-tabs-color($mdb-nav-tabs-color, $mdb-nav-tabs-active-color, $mdb-nav-tabs-active-border-color, $mdb-nav-tabs-disabled-link-color, $mdb-nav-tabs-disabled-link-color-hover);
+  @include bmd-tabs-color($mdb-nav-tabs-color, $mdb-nav-tabs-active-color, $mdb-nav-tabs-active-border-color, $mdb-nav-tabs-disabled-link-color, $mdb-nav-tabs-disabled-link-color-hover);
 
   &.bg-primary {
-    @include mdb-tabs-color($mdb-nav-tabs-primary-color, $mdb-nav-tabs-primary-active-color, $mdb-nav-tabs-primary-active-border-color, $mdb-nav-tabs-primary-disabled-link-color, $mdb-nav-tabs-primary-disabled-link-color-hover);
+    @include bmd-tabs-color($mdb-nav-tabs-primary-color, $mdb-nav-tabs-primary-active-color, $mdb-nav-tabs-primary-active-border-color, $mdb-nav-tabs-primary-disabled-link-color, $mdb-nav-tabs-primary-disabled-link-color-hover);
   }
 
   &.bg-inverse {
-    @include mdb-tabs-color($mdb-nav-tabs-inverse-color, $mdb-nav-tabs-inverse-active-color, $mdb-nav-tabs-inverse-active-border-color, $mdb-nav-tabs-inverse-disabled-link-color, $mdb-nav-tabs-inverse-disabled-link-color-hover);
+    @include bmd-tabs-color($mdb-nav-tabs-inverse-color, $mdb-nav-tabs-inverse-active-color, $mdb-nav-tabs-inverse-active-border-color, $mdb-nav-tabs-inverse-disabled-link-color, $mdb-nav-tabs-inverse-disabled-link-color-hover);
   }
 }
 

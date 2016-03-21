@@ -3,8 +3,8 @@ label.radio-inline {
   position: relative;
   padding-left: $mdb-radio-size + $mdb-radio-label-padding; // absolutely positioned so add the radio size
 
-  .mdb-radio-outer-circle, // don't use generic span, it may conflict with span in user markup #693
-  .mdb-radio-inner-circle {
+  .bmd-radio-outer-circle, // don't use generic span, it may conflict with span in user markup #693
+  .bmd-radio-inner-circle {
     position: absolute;
     top: calc-top($line-height-base, $font-size-base, $mdb-radio-size); // vertical center of line-height
     left: 0;
@@ -13,12 +13,12 @@ label.radio-inline {
     height: $mdb-radio-size;
     transition-duration: 0.2s;
 
-    &.mdb-radio-outer-circle {
+    &.bmd-radio-outer-circle {
       border: $mdb-radio-border solid $mdb-radio-color-off;
       border-radius: 50%;
       transition: border-color ease .28s;
     }
-    &.mdb-radio-inner-circle {
+    &.bmd-radio-inner-circle {
       display: inline-block;
       background-color: $mdb-radio-color-on;
       border-radius: 50%;
@@ -51,9 +51,9 @@ label.radio-inline {
     opacity: 0;
 
     &:checked {
-      @include mdb-radio-color($mdb-radio-color-on);
+      @include bmd-radio-color($mdb-radio-color-on);
 
-      ~ .mdb-radio-inner-circle {
+      ~ .bmd-radio-inner-circle {
         transform: scale3d(0.55, 0.55, 1);
         &::after {
           animation: rippleOn;
@@ -66,16 +66,16 @@ label.radio-inline {
       }
     }
 
-    &:not(:checked) ~ .mdb-radio-inner-circle::after {
+    &:not(:checked) ~ .bmd-radio-inner-circle::after {
       animation: rippleOff 500ms;
     }
 
     &[disabled],
     fieldset[disabled] & {
-      @include mdb-radio-color($mdb-radio-color-disabled);
+      @include bmd-radio-color($mdb-radio-color-disabled);
 
       .bg-inverse & {
-        @include mdb-radio-color($mdb-radio-color-disabled-inverse);
+        @include bmd-radio-color($mdb-radio-color-disabled-inverse);
       }
     }
   }

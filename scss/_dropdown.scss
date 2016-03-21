@@ -44,14 +44,14 @@
 
   &.dropdown-menu-top-left {
     top: auto;
-    bottom: 0;  // needs to be overridden with the toggle-button height, see mdb-btn-icon above
+    bottom: 0;  // needs to be overridden with the toggle-button height, see bmd-btn-icon above
     transform-origin: 0 100%;
   }
 
   &.dropdown-menu-top-right {
     top: auto;
     right: 0;
-    bottom: 0;  // needs to be overridden with the toggle-button height, see mdb-btn-icon above
+    bottom: 0;  // needs to be overridden with the toggle-button height, see bmd-btn-icon above
     left: auto;
     transform-origin: 100% 100%;
   }
@@ -93,8 +93,8 @@
 
   .dropdown-toggle {
 
-    &.mdb-btn-icon,
-    &.mdb-btn-fab {
+    &.bmd-btn-icon,
+    &.bmd-btn-fab {
       // remove the dropdown icon
       &::after {
         display: none;
@@ -108,7 +108,7 @@
       }
     }
 
-    &.mdb-btn-fab-sm {
+    &.bmd-btn-fab-sm {
       ~ .dropdown-menu {
         &.dropdown-menu-top-left,
         &.dropdown-menu-top-right {
@@ -117,7 +117,7 @@
       }
     }
 
-    &.mdb-btn-icon {
+    &.bmd-btn-icon {
       ~ .dropdown-menu {
         // collapse some spacing
         margin: 0;

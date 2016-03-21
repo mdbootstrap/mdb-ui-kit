@@ -24,10 +24,10 @@ Below is a list of relevant classes options:
   <tbody>
     <tr>
       <td>
-        <code>.mdb-collapse-inline</code>
+        <code>.bmd-collapse-inline</code>
       </td>
       <td>
-        {% markdown %}Marker class. It is usually included on the `.mdb-form-group` if the collapse scenario has any inputs.{% endmarkdown %}
+        {% markdown %}Marker class. It is usually included on the `.bmd-form-group` if the collapse scenario has any inputs.{% endmarkdown %}
       </td>
     </tr>
     <tr>
@@ -51,8 +51,8 @@ Below is a list of relevant classes options:
 Click the search icon below (on the right).  
 
 {% example html %}
-<div class="mdb-form-group mdb-collapse-inline pull-xs-right">
-  <button class="btn mdb-btn-icon" for="search" data-toggle="collapse" data-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
+<div class="bmd-form-group bmd-collapse-inline pull-xs-right">
+  <button class="btn bmd-btn-icon" for="search" data-toggle="collapse" data-target="#collapse-search" aria-expanded="false" aria-controls="collapse-search">
     <i class="material-icons">search</i>
   </button>  
   <span id="collapse-search" class="collapse">

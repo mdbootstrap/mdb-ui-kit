@@ -1,4 +1,4 @@
-@mixin mdb-tabs-color($color, $active-color, $active-border, $disabled-link-color, $disabled-link-hover-color) {
+@mixin bmd-tabs-color($color, $active-color, $active-border, $disabled-link-color, $disabled-link-hover-color) {
   .nav-link {
 
     color: $color;

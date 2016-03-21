@@ -4,9 +4,9 @@ import Util from './util'
 const BaseLayout = (($) => {
 
   const ClassName = {
-    CANVAS: 'mdb-layout-canvas',
-    CONTAINER: 'mdb-layout-container',
-    BACKDROP: `mdb-layout-backdrop`
+    CANVAS: 'bmd-layout-canvas',
+    CONTAINER: 'bmd-layout-container',
+    BACKDROP: `bmd-layout-backdrop`
   }
 
   const Selector = {
@@ -52,7 +52,7 @@ const BaseLayout = (($) => {
     // ------------------------------------------------------------------------
     // protected
 
-    // Will wrap container in mdb-layout-canvas if necessary
+    // Will wrap container in bmd-layout-canvas if necessary
     resolveCanvas() {
       let bd = this.findCanvas(false)
       if (bd === undefined || bd.length === 0) {
@@ -66,7 +66,7 @@ const BaseLayout = (($) => {
       return bd
     }
 
-    // Find closest mdb-layout-container based on the given context
+    // Find closest bmd-layout-container based on the given context
     findCanvas(raiseError = true, context = this.$container) {
       let canvas = context.closest(Selector.CANVAS)
       if (canvas.length === 0 && raiseError) {
@@ -75,7 +75,7 @@ const BaseLayout = (($) => {
       return canvas
     }
 
-    // Will add mdb-layout-backdrop to mdb-layout-container if necessary
+    // Will add bmd-layout-backdrop to bmd-layout-container if necessary
     resolveBackdrop() {
       let bd = this.findBackdrop(false)
       if (bd === undefined || bd.length === 0) {
@@ -89,7 +89,7 @@ const BaseLayout = (($) => {
       return bd
     }
 
-    // Find closest mdb-layout-container based on the given context
+    // Find closest bmd-layout-container based on the given context
     findBackdrop(raiseError = true, context = this.$container) {
       let backdrop = context.find(`> ${Selector.BACKDROP}`)
       if (backdrop.length === 0 && raiseError) {
@@ -98,7 +98,7 @@ const BaseLayout = (($) => {
       return backdrop
     }
 
-    // Find closest mdb-layout-container based on the given context
+    // Find closest bmd-layout-container based on the given context
     findContainer(raiseError = true, context = this.$element) {
       let container = context.closest(Selector.CONTAINER)
       if (container.length === 0 && raiseError) {

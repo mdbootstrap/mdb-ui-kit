@@ -12,7 +12,7 @@ const BaseSelection = (($) => {
     label: {
       required: false
 
-      // Prioritized find order for resolving the label to be used as an mdb-label if not specified in the markup
+      // Prioritized find order for resolving the label to be used as an bmd-label if not specified in the markup
       //  - a function(thisComponent); or
       //  - a string selector used like $mdbFormGroup.find(selector)
       //

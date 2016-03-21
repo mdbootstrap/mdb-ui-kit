@@ -16,10 +16,10 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 {% example html %}
 <!-- icon with buttons -->
 <div class="dropdown">
-  <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="ex1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="ex1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
-  An <code>.mdb-btn-icon</code> with menu buttons
+  An <code>.bmd-btn-icon</code> with menu buttons
   <div class="dropdown-menu" aria-labelledby="ex1">
     <button class="dropdown-item" type="button">Action</button>
     <button class="dropdown-item disabled" type="button">Another action</button>
@@ -29,10 +29,10 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 <!-- icon with links -->
 <div class="dropdown">
-  <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="ex2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="ex2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
-  An <code>.mdb-btn-icon</code> with menu links
+  An <code>.bmd-btn-icon</code> with menu links
   <div class="dropdown-menu" aria-labelledby="ex2">
     <a class="dropdown-item" href="#">Regular link</a>
     <a class="dropdown-item disabled" href="#">Disabled link</a>
@@ -42,10 +42,10 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 <!-- fab-sm -->
 <div class="dropdown">
-  <button class="btn mdb-btn-fab mdb-btn-fab-sm dropdown-toggle" type="button" id="ex3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-fab bmd-btn-fab-sm dropdown-toggle" type="button" id="ex3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
-  An <code>.mdb-btn-fab-sm</code>
+  An <code>.bmd-btn-fab-sm</code>
   <div class="dropdown-menu" aria-labelledby="ex3">
     <button class="dropdown-item" type="button">Action</button>
     <button class="dropdown-item" type="button">Another action</button>
@@ -54,10 +54,10 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 <!-- fab -->
 <div class="dropdown">
-  <button class="btn mdb-btn-fab dropdown-toggle" type="button" id="ex4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-fab dropdown-toggle" type="button" id="ex4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
-  An <code>.mdb-btn-fab</code>
+  An <code>.bmd-btn-fab</code>
   <div class="dropdown-menu" aria-labelledby="ex4">
     <button class="dropdown-item" type="button">Action</button>
     <button class="dropdown-item" type="button">Another action</button>
@@ -83,7 +83,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 ### Lower left side
 {% example html %}
 <div class="dropdown open">
-  <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="ll1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="ll1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
   <div class="dropdown-menu" aria-labelledby="ll1">
@@ -99,7 +99,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 ### Lower right side
 {% example html %}
 <div class="dropdown open pull-xs-right">
-  <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="lr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="lr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="lr1">
@@ -115,7 +115,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 ### Top left side
 {% example html %}
 <div class="dropdown open">
-  <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="tl1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="tl1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
   <div class="dropdown-menu dropdown-menu-top-left" aria-labelledby="tl1">
@@ -131,7 +131,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 ### Top right side
 {% example html %}
 <div class="dropdown open pull-xs-right">
-  <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="tr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="tr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
   <div class="dropdown-menu dropdown-menu-top-right" aria-labelledby="tr1">
@@ -152,7 +152,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 {% example html %}
 <div class="dropdown open pull-xs-right">
-  <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="mw1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="mw1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mw1">
@@ -167,7 +167,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 {% example html %}
 <div class="dropdown open pull-xs-right">
-  <button class="btn mdb-btn-icon dropdown-toggle" type="button" id="mw2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="mw2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mw2">

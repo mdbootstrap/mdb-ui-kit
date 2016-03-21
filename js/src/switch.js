@@ -13,7 +13,7 @@ const Switch = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
-    template: `<span class='mdb-switch-track'></span>`
+    template: `<span class='bmd-switch-track'></span>`
   }
 
   /**

@@ -37,19 +37,19 @@
     }
   }
 
-  .mdb-card-actions, // needed?  if you have actions in the middle of the card (see spec), it may be necessary
+  .bmd-card-actions, // needed?  if you have actions in the middle of the card (see spec), it may be necessary
   .card-footer { // assume footer is the set of actions?
     padding: .5rem;
   }
 
-  &.mdb-card-raised {
+  &.bmd-card-raised {
     // Card raised elevation: 8dp
     @include box-shadow($mdb-shadow-8dp);
   }
 
   @include media-breakpoint-up(lg) {
     // On desktop, cards can have a resting elevation of 0dp and gain an elevation of 8dp on hover.
-    &.mdb-card-flat {
+    &.bmd-card-flat {
       box-shadow: none;
     }
   }

@@ -32,7 +32,7 @@ const BootstrapMaterialDesign = (($) => {
     global: {
       validate: false,
       label: {
-        className: 'mdb-label-static' // default style of label to be used if not specified in the html markup
+        className: 'bmd-label-static' // default style of label to be used if not specified in the html markup
       }
     },
     autofill: {
@@ -45,10 +45,10 @@ const BootstrapMaterialDesign = (($) => {
       selector: 'label.checkbox-inline > input[type=checkbox]'
     },
     collapseInline: {
-      selector: '.mdb-collapse-inline [data-toggle="collapse"]'
+      selector: '.bmd-collapse-inline [data-toggle="collapse"]'
     },
     drawer: {
-      selector: '.mdb-layout-drawer'
+      selector: '.bmd-layout-drawer'
     },
     file: {
       selector: 'input[type=file]'

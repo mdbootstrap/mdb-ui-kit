@@ -5,11 +5,11 @@ const BaseInput = (($) => {
 
   const ClassName = {
     FORM_GROUP: 'form-group',
-    MDB_FORM_GROUP: 'mdb-form-group',
-    MDB_LABEL: 'mdb-label',
-    MDB_LABEL_STATIC: 'mdb-label-static',
-    MDB_LABEL_PLACEHOLDER: 'mdb-label-placeholder',
-    MDB_LABEL_FLOATING: 'mdb-label-floating',
+    MDB_FORM_GROUP: 'bmd-form-group',
+    MDB_LABEL: 'bmd-label',
+    MDB_LABEL_STATIC: 'bmd-label-static',
+    MDB_LABEL_PLACEHOLDER: 'bmd-label-placeholder',
+    MDB_LABEL_FLOATING: 'bmd-label-floating',
     HAS_DANGER: 'has-danger',
     IS_FILLED: 'is-filled',
     IS_FOCUSED: 'is-focused'
@@ -34,7 +34,7 @@ const BaseInput = (($) => {
     label: {
       required: false,
 
-      // Prioritized find order for resolving the label to be used as an mdb-label if not specified in the markup
+      // Prioritized find order for resolving the label to be used as an bmd-label if not specified in the markup
       //  - a function(thisComponent); or
       //  - a string selector used like $mdbFormGroup.find(selector)
       //
@@ -52,8 +52,8 @@ const BaseInput = (($) => {
   }
 
   const FormControlSizeMarkers = {
-    'form-control-lg': 'mdb-form-group-lg',
-    'form-control-sm': 'mdb-form-group-sm'
+    'form-control-lg': 'bmd-form-group-lg',
+    'form-control-sm': 'bmd-form-group-sm'
   }
 
   /**
@@ -81,19 +81,19 @@ const BaseInput = (($) => {
       // Enforce required classes for a consistent rendering
       this._rejectWithoutRequiredClasses()
 
-      // Resolve the form-group first, it will be used for mdb-form-group if possible
+      // Resolve the form-group first, it will be used for bmd-form-group if possible
       //   note: different components have different rules
       this.$formGroup = this.findFormGroup(this.config.formGroup.required)
 
-      // Will add mdb-form-group to form-group or create an mdb-form-group
-      //  Performance Note: for those forms that are really performance driven, create the markup with the .mdb-form-group to avoid
+      // Will add bmd-form-group to form-group or create an bmd-form-group
+      //  Performance Note: for those forms that are really performance driven, create the markup with the .bmd-form-group to avoid
       //    rendering changes once added.
       this.$mdbFormGroup = this.resolveMdbFormGroup()
 
       // Resolve and mark the mdbLabel if necessary as defined by the config
       this.$mdbLabel = this.resolveMdbLabel()
 
-      // Signal to the mdb-form-group that a form-control-* variation is being used
+      // Signal to the bmd-form-group that a form-control-* variation is being used
       this.resolveMdbFormGroupSizing()
 
       this.addFocusListener()
@@ -169,7 +169,7 @@ const BaseInput = (($) => {
       return (this.$element.val() === null || this.$element.val() === undefined || this.$element.val() === '')
     }
 
-    // Will add mdb-form-group to form-group or create a mdb-form-group if necessary
+    // Will add bmd-form-group to form-group or create a bmd-form-group if necessary
     resolveMdbFormGroup() {
       let mfg = this.findMdbFormGroup(false)
       if (mfg === undefined || mfg.length === 0) {
@@ -182,7 +182,7 @@ const BaseInput = (($) => {
           this.$formGroup.addClass(ClassName.MDB_FORM_GROUP)
 
           // OLD: may want to implement this after all, see how the styling turns out, but using an existing form-group is less manipulation of the dom and therefore preferable
-          // A form-group does exist, so add an mdb-form-group wrapping it's internal contents
+          // A form-group does exist, so add an bmd-form-group wrapping it's internal contents
           //fg.wrapInner(this.config.mdbFormGroup.template)
         }
 
@@ -198,7 +198,7 @@ const BaseInput = (($) => {
       return this.$element
     }
 
-    // Will add mdb-label to mdb-form-group if not already specified
+    // Will add bmd-label to bmd-form-group if not already specified
     resolveMdbLabel() {
 
       let label = this.$mdbFormGroup.find(Selector.MDB_LABEL_WILDCARD)
@@ -217,7 +217,7 @@ const BaseInput = (($) => {
       return label
     }
 
-    // Find mdb-label variant based on the config selectors
+    // Find bmd-label variant based on the config selectors
     findMdbLabel(raiseError = true) {
       let label = null
 
@@ -240,7 +240,7 @@ const BaseInput = (($) => {
       return label
     }
 
-    // Find mdb-form-group
+    // Find bmd-form-group
     findFormGroup(raiseError = true) {
       let fg = this.$element.closest(Selector.FORM_GROUP)
       if (fg.length === 0 && raiseError) {
@@ -249,7 +249,7 @@ const BaseInput = (($) => {
       return fg
     }
 
-    // Due to the interconnected nature of labels/inputs/help-blocks, signal the mdb-form-group-* size variation based on
+    // Due to the interconnected nature of labels/inputs/help-blocks, signal the bmd-form-group-* size variation based on
     //  a found form-control-* size
     resolveMdbFormGroupSizing() {
       if (!this.config.convertInputSizeVariations) {

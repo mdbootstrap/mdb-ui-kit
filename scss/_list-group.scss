@@ -19,7 +19,7 @@
   padding: .5rem 0;
 
   // dense size variation
-  &.mdb-list-group-sm {
+  &.bmd-list-group-sm {
     padding: .25rem 0;
 
     .list-group-item {
@@ -28,7 +28,7 @@
   }
 }
 
-.mdb-list-group-col {
+.bmd-list-group-col {
   display: flex;
   flex-direction: column;
   min-width: 0;

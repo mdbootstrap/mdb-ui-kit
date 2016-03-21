@@ -20,10 +20,10 @@ const Drawer = (($) => {
 
   const ClassName = {
     IN: 'in',
-    DRAWER_IN: `mdb-drawer-in`,
-    DRAWER_OUT: `mdb-drawer-out`,
-    DRAWER: 'mdb-layout-drawer',
-    CONTAINER: 'mdb-layout-container'
+    DRAWER_IN: `bmd-drawer-in`,
+    DRAWER_OUT: `bmd-drawer-out`,
+    DRAWER: 'bmd-layout-drawer',
+    CONTAINER: 'bmd-layout-container'
   }
 
   const Default = {
@@ -38,7 +38,7 @@ const Drawer = (($) => {
   class Drawer extends BaseLayout {
 
     // $element is expected to be the trigger
-    //  i.e. <button class="btn mdb-btn-icon" for="search" data-toggle="drawer" data-target="#my-side-nav-drawer" aria-expanded="false" aria-controls="my-side-nav-drawer">
+    //  i.e. <button class="btn bmd-btn-icon" for="search" data-toggle="drawer" data-target="#my-side-nav-drawer" aria-expanded="false" aria-controls="my-side-nav-drawer">
     constructor($element, config) {
       super($element, $.extend(true, {}, Default, config))
 
@@ -97,7 +97,7 @@ const Drawer = (($) => {
       }
 
       this.$container.addClass(ClassName.DRAWER_IN)
-      // backdrop is responsively styled based on mdb-drawer-overlay, therefore style is none of our concern, simply add the marker class and let the scss determine if it should be displayed or not.
+      // backdrop is responsively styled based on bmd-drawer-overlay, therefore style is none of our concern, simply add the marker class and let the scss determine if it should be displayed or not.
       this.$backdrop.addClass(ClassName.IN)
     }
 

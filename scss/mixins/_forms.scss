@@ -1,4 +1,4 @@
-@mixin mdb-disabled() {
+@mixin bmd-disabled() {
   fieldset[disabled][disabled] &,
   &.disabled,
   &:disabled,
@@ -7,7 +7,7 @@
   }
 }
 
-@mixin mdb-selection-color() {
+@mixin bmd-selection-color() {
   .radio label,
   .radio-inline,
   .checkbox label,
@@ -47,26 +47,26 @@
   //fieldset[disabled] & input[type=checkbox],
   //input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check::before,
   //input[type=checkbox][disabled]:not(:checked) ~ .checkbox-decorator .check,
-  //input[type=checkbox][disabled] + .mdb-radio-outer-circle {
+  //input[type=checkbox][disabled] + .bmd-radio-outer-circle {
   //  opacity: 0.5;
   //}
 }
 
-@mixin mdb-radio-color($color) {
+@mixin bmd-radio-color($color) {
 
-  ~ .mdb-radio-inner-circle {
+  ~ .bmd-radio-inner-circle {
     background-color: $color;
   }
 
-  ~ .mdb-radio-outer-circle {
+  ~ .bmd-radio-outer-circle {
     border-color: $color;
   }
 }
 
-@mixin mdb-form-color($label-color, $label-color-focus, $border-color) {
+@mixin bmd-form-color($label-color, $label-color-focus, $border-color) {
 
-  [class^='mdb-label'],
-  [class*=' mdb-label'] {
+  [class^='bmd-label'],
+  [class*=' bmd-label'] {
     color: $label-color;
   }
 
@@ -103,19 +103,19 @@
     }
   }
 
-  .is-focused, // may or may not be a form-group or mdb-form-group
+  .is-focused, // may or may not be a form-group or bmd-form-group
   &.is-focused {
     // on focus set borders and labels to the validation color
 
     // Use the BS provided mixin for the bulk of the color
     @include form-control-validation($label-color);
 
-    [class^='mdb-label'],
-    [class*=' mdb-label'] {
+    [class^='bmd-label'],
+    [class*=' bmd-label'] {
       color: $label-color-focus;
     }
 
-    .mdb-label-placeholder {
+    .bmd-label-placeholder {
       color: $label-color; // keep the placeholder color
     }
 
@@ -129,24 +129,24 @@
       border-color: $border-color;
     }
 
-    .mdb-help {
+    .bmd-help {
       color: $mdb-label-color-inner-focus;
     }
   }
 }
 
 // must be broken out for reuse - webkit selector breaks firefox
-@mixin mdb-label-static($label-top, $static-font-size) {
+@mixin bmd-label-static($label-top, $static-font-size) {
   top: $label-top;
   left: 0;
   // must repeat because the previous (more generic) selectors
   font-size: $static-font-size;
 }
 
-@mixin mdb-form-size-variant($font-size, $label-top-margin, $variant-padding-y, $variant-line-height, $form-group-context: null) {
+@mixin bmd-form-size-variant($font-size, $label-top-margin, $variant-padding-y, $variant-line-height, $form-group-context: null) {
 
   $variant-input-height: (($font-size * $variant-line-height) + ($variant-padding-y * 2));
-  $static-font-size: ($mdb-mdb-label-static-size-ratio * $font-size);
+  $static-font-size: ($mdb-bmd-label-static-size-ratio * $font-size);
   $help-font-size: ($mdb-help-size-ratio * $font-size);
 
   $label-static-top: $label-top-margin;
@@ -161,7 +161,7 @@
   //Padding below text divider: 8dp
 
   @if $form-group-context {
-    // Create a space at the top of the mdb-form-group for the label.
+    // Create a space at the top of the bmd-form-group for the label.
     //  The label is absolutely positioned, so we use top padding to make space.  This padding extends over the label down to the top of the input (padding).
     padding-top: ($label-top-margin + $static-font-size);
     // note: bottom-margin of this is determined by $spacer.  @see _spacer.scss
@@ -198,7 +198,7 @@
     line-height: $line-height-base; // keep the same line height for radios and checkboxes
   }
 
-  // Note: this may be inside or outside a form-group, may be .mdb-form-group.mdb-form-group-sm or .mdb-form-group.mdb-form-group-lg
+  // Note: this may be inside or outside a form-group, may be .bmd-form-group.bmd-form-group-sm or .bmd-form-group.bmd-form-group-lg
   input::placeholder {
     font-size: $font-size;
   }
@@ -211,8 +211,8 @@
   }
 
   // floating/placeholder default (no focus)
-  .mdb-label-floating,
-  .mdb-label-placeholder {
+  .bmd-label-floating,
+  .bmd-label-placeholder {
     //@debug "top: #{$label-as-placeholder-top}";
     top: $label-placeholder-top; // place the floating label to look like a placeholder with input padding
   }
@@ -222,21 +222,21 @@
   .is-focused,
   &.is-filled,
   .is-filled {
-    .mdb-label-floating {
-      @include mdb-label-static($label-static-top, $static-font-size);
+    .bmd-label-floating {
+      @include bmd-label-static($label-static-top, $static-font-size);
     }
   }
 
   // static
-  .mdb-label-static {
-    @include mdb-label-static($label-static-top, $static-font-size);
+  .bmd-label-static {
+    @include bmd-label-static($label-static-top, $static-font-size);
   }
   // #559 Fix for webkit/chrome autofill - rule must be separate because it breaks firefox otherwise #731
-  //input:-webkit-autofill ~ .mdb-label-floating {  FIXME: confirm that the autofill js generation of change event makes this unnecessary
-  //  @include mdb-label-static($label-top, $static-font-size, $static-line-height);
+  //input:-webkit-autofill ~ .bmd-label-floating {  FIXME: confirm that the autofill js generation of change event makes this unnecessary
+  //  @include bmd-label-static($label-top, $static-font-size, $static-line-height);
   //}
 
-  .mdb-help {
+  .bmd-help {
     margin-top: 0; // allow the input margin to set-off the top of the help-block
     font-size: $help-font-size;
   }
@@ -251,14 +251,14 @@
 
       &,
       &:focus,
-      .mdb-form-group.is-focused & {
+      .bmd-form-group.is-focused & {
         padding-right: ($input-padding-x * 3);
         background-repeat: $mdb-form-control-bg-repeat-y, no-repeat;
         background-position: $mdb-form-control-bg-position, center right ($variant-input-height * .25);
       }
 
       &:focus,
-      .mdb-form-group.is-focused & {
+      .bmd-form-group.is-focused & {
         background-size: $mdb-form-control-bg-size-active, $icon-bg-size;
       }
     }

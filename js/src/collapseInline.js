@@ -34,7 +34,7 @@ const CollapseInline = (($) => {
   class CollapseInline extends Base {
 
     // $element is expected to be the trigger
-    //  i.e. <button class="btn mdb-btn-icon" for="search" data-toggle="collapse" data-target="#search-field" aria-expanded="false" aria-controls="search-field">
+    //  i.e. <button class="btn bmd-btn-icon" for="search" data-toggle="collapse" data-target="#search-field" aria-expanded="false" aria-controls="search-field">
     constructor($element, config) {
       super($element, $.extend(true, {}, Default, config))
       this.$mdbFormGroup = this.findMdbFormGroup(true)

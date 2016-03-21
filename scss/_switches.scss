@@ -4,7 +4,7 @@
     position: relative;
     padding-left: $mdb-switch-width + $mdb-switch-label-padding; // absolutely positioned so add the radio size
 
-    .mdb-switch-track {
+    .bmd-switch-track {
       position: absolute;
       top: calc-top($line-height-base, $font-size-base, $mdb-switch-height);
       left: 0;
@@ -55,7 +55,7 @@
       opacity: 0;
 
       &:checked {
-        + .mdb-switch-track {
+        + .bmd-switch-track {
           background-position: -100%;
           &::after {
             left: unquote("calc(100% - #{$mdb-switch-handle-size})"); //calc(100% - $mdb-switch-handle-size);
@@ -66,11 +66,11 @@
 
       &:disabled {
         // No jelly effect on disabled switchs
-        + .mdb-switch-track:active::after {
+        + .bmd-switch-track:active::after {
           transform: translateY(-50%);
         }
 
-        + .mdb-switch-track {
+        + .bmd-switch-track {
           cursor: default;
           background: $mdb-switch-disabled-bg;
           &::after {

@@ -31,7 +31,7 @@ Here are the big ticket items you'll want to be aware of when moving from MDB v3
 - Switched from `px` to `rem` as our primary CSS unit.
 - Global font-size increased from `14px` to `16px`.
 - Switched Javascript to ES6 classes
-- Globally switched MDB variables and classes to the prefix `mdb-` to avoid confusion with Bootstrap variables.
+- Globally switched MDB variables and classes to the prefix `bmd-` to avoid confusion with Bootstrap variables.
 - Added strong scss-lint and eslint rules from Bootstrap
 - Adopted Bootstrap project organization and Build structure
 - Reference documentation is now synced from Bootstrap, rendered with MDB to show default rendering examples
@@ -63,26 +63,26 @@ This list highlights key changes by component between v3.x.x and v4.0.0.
 ### [Forms](../material-design/forms)
 - Refactored with much less code now that we are customizing Bootstrap
 - Simpler selectors
-- Introduced `.mdb-form-group` to provide demarcation for label/input combinations, disconnecting it explicitly from `.form-group` so that they can be used independently.
+- Introduced `.bmd-form-group` to provide demarcation for label/input combinations, disconnecting it explicitly from `.form-group` so that they can be used independently.
 - Spec review for sizing
-- Bootstrap removed `.help-block`, MDB added `.mdb-help` class to mark added behaviors.
+- Bootstrap removed `.help-block`, MDB added `.bmd-help` class to mark added behaviors.
 - Inverted marker class to use `.is-filled` instead of `.is-empty` for simpler css matches
-- Bootstrap removed `.form-group-sm` and `.form-group-lg`.  `.mdb-form-group-*` variants added to address sizing combinations of label/input/help
-- V3 MDB `toggle` is now `mdb-switch` for more consistent naming with the spec
+- Bootstrap removed `.form-group-sm` and `.form-group-lg`.  `.bmd-form-group-*` variants added to address sizing combinations of label/input/help
+- V3 MDB `toggle` is now `bmd-switch` for more consistent naming with the spec
 - TODO - File Input 
 
 ### [Labels](../material-design/labels)
 - Labels are now (once again) set as a class on the `label` element.
-- Use of `mdb-` prefixes.
+- Use of `bmd-` prefixes.
 
 ### [Buttons](../material-design/buttons)
 - Bootstrap renamed `.btn-default` to `.btn-secondary`.
 - Utilized Bootstrap mixins for plain/hover/focus/active
-- Introduced mixin `mdb-hover-focus-active` to address `.active` in addition to Bootstraps `hover-focus-active`
+- Introduced mixin `bmd-hover-focus-active` to address `.active` in addition to Bootstraps `hover-focus-active`
 - Refactored shadow behaviors, now more consistent
-- Changed `btn-fab` to `mdb-btn-fab` to denote MDB only component
+- Changed `btn-fab` to `bmd-btn-fab` to denote MDB only component
 - `btn-fab-mini` is now `btn-fab-sm` for consistency with Bootstrap size naming
-- Introduced shadow behaviors to `mdb-btn-fab`. Spec is silent on this.
+- Introduced shadow behaviors to `bmd-btn-fab`. Spec is silent on this.
 
 
 ### Navs

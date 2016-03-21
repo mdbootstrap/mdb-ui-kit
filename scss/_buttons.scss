@@ -21,16 +21,16 @@
   // Colors
 
   // flat removes bg, add color variations to text
-  @include mdb-flat-button-color();
+  @include bmd-flat-button-color();
 
   // fab and raised
   //  - colored, add their text and bg
   //  - hover color contrasted
   //  - shared shadow state on hover/active/focus
-  &.mdb-btn-fab,
+  &.bmd-btn-fab,
   &.btn-raised,
   .btn-group-raised & {
-    @include mdb-raised-button-color();
+    @include bmd-raised-button-color();
 
     // enlarged shadow on hover, focus
     @include hover-focus() {
@@ -60,19 +60,19 @@
     // reverse any of the above for links
     &.btn-link {
       box-shadow: none;
-      @include mdb-hover-focus-active() {
+      @include bmd-hover-focus-active() {
         box-shadow: none;
       }
     }
 
-    @include mdb-disabled() {
+    @include bmd-disabled() {
       box-shadow: none;
     }
   }
 
   // https://www.google.com/design/spec/components/buttons-floating-action-button.html
-  &.mdb-btn-fab,
-  &.mdb-btn-icon {
+  &.bmd-btn-fab,
+  &.bmd-btn-icon {
     padding: 0;
     overflow: hidden;
     font-size: $mdb-btn-fab-font-size;
@@ -93,7 +93,7 @@
     }
   }
 
-  &.mdb-btn-fab {
+  &.bmd-btn-fab {
     // see above for color variations
     width: $mdb-btn-fab-size;
     min-width: $mdb-btn-fab-size;
@@ -106,7 +106,7 @@
       border-radius: 50%;
     }
 
-    &.mdb-btn-fab-sm,
+    &.bmd-btn-fab-sm,
     .btn-group-sm & {
       width: $mdb-btn-fab-size-sm;
       min-width: $mdb-btn-fab-size-sm;
@@ -121,14 +121,14 @@
   }
 
   // Icon buttons
-  &.mdb-btn-icon {
+  &.bmd-btn-icon {
     width: $mdb-btn-icon-size;
     min-width: $mdb-btn-icon-size;
     height: $mdb-btn-icon-size;
     margin: 0;
     color: inherit;
 
-    &.mdb-btn-icon-sm,
+    &.bmd-btn-icon-sm,
     .btn-group-sm & {
       width: $mdb-btn-icon-size-sm;
       min-width: $mdb-btn-icon-size-sm;
@@ -169,7 +169,7 @@
 .btn-group,
 .btn-group-vertical {
   // have to ratchet up the specificity to kill drop shadows on disabled raised buttons
-  @include mdb-disabled() {
+  @include bmd-disabled() {
     color: $mdb-btn-disabled;
     .bg-inverse & {
       color: $mdb-inverse-btn-disabled;
@@ -197,7 +197,7 @@
   //  }
   //
   //  > .dropdown-toggle.btn {
-  //    @include mdb-raised-button-color-bg();
+  //    @include bmd-raised-button-color-bg();
   //  }
   //}
 
