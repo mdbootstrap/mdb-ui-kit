@@ -19,7 +19,7 @@
   "moduleType": "globals",
   "main": [
     "scss/bootstrap-material-design.scss",
-    "dist/js/bootstrap-material-design.js"
+    "dist/bootstrap-material-design.js"
   ],
   "ignore": [
     "/.*",
@@ -31,12 +31,7 @@
     "js/tests",
     "test-infra"
   ],
-  "x-private-dependencies": {
-    "bootstrap": "git@github.com:rosskevin/bootstrap.git#v4-tmp-flex-master",
-    "tether": "^1.1"
-  },
   "dependencies": {
-    "bootstrap": "v4-dev",
-    "tether": "^1.1"
+    "tether": "^1.2"
   }
 }
