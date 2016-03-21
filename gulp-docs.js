@@ -49,8 +49,10 @@ export default function (gulp, corePreset, options) {
 
   const js = new Aggregate(gulp, 'js',
     series(gulp,
-      new EsLint(gulp, preset, prefix),
-      new EsLint(gulp, corePreset, {task: false}), // lint the core as well - easier for development
+      parallel(gulp,
+        new EsLint(gulp, preset, prefix),
+        new EsLint(gulp, corePreset, {task: false}) // lint the core as well - easier for development
+      ),
       parallel(gulp,
         new RollupIife(gulp, preset, prefix, options.rollupConfig, {
           options: {
@@ -73,11 +75,13 @@ export default function (gulp, corePreset, options) {
 
   const css = new Aggregate(gulp, 'css',
     series(gulp,
-      new ScssLint(gulp, preset, prefix, {
-        source: {glob: ['**/*.scss', '!docs.scss']},
-        watch: {glob: ['**/*.scss', '!docs.scss']}
-      }),
-      new ScssLint(gulp, corePreset, {task: false}), // lint the core as well - easier for development
+      parallel(gulp,
+        new ScssLint(gulp, preset, prefix, {
+          source: {glob: ['**/*.scss', '!docs.scss']},
+          watch: {glob: ['**/*.scss', '!docs.scss']}
+        }),
+        new ScssLint(gulp, corePreset, {task: false}) // lint the core as well - easier for development
+      ),
       new Sass(gulp, preset, prefix),
       new CssNano(gulp, preset, prefix)
     ),

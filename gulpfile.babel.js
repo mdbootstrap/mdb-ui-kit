@@ -124,15 +124,22 @@ const defaultRecipes = new Aggregate(gulp, 'default', series(gulp,
 // load all docs tasks
 let docsDefaultRecipes = gulpDocs(gulp, preset, {rollupConfig: rollupConfig})
 
+
+// build - both core and docs
+const build = new Aggregate(gulp, 'build',
+  parallel(gulp,
+    defaultRecipes,
+    docsDefaultRecipes
+  )
+)
+
 // publish
 new Aggregate(gulp, 'publish',
 
   series(gulp,
     new Prepublish(gulp, preset),   // asserts committed
 
-    defaultRecipes,
-
-    docsDefaultRecipes,
+    build,
 
     // ^^^docs:default cleans docs/dist, so we need to re-copy dist to docs in this scenario
     parallel(gulp, copyCssToDocs, copyJsToDocs),
