@@ -18,20 +18,12 @@
   "license": "MIT",
   "moduleType": "globals",
   "main": [
-    "scss/bootstrap-material-design.scss",
-    "dist/bootstrap-material-design.js"
-  ],
-  "ignore": [
-    "/.*",
-    "_config.yml",
-    "CNAME",
-    "composer.json",
-    "CONTRIBUTING.md",
-    "docs",
-    "js/tests",
-    "test-infra"
+    "scss/_core.scss",
+    "dist/bootstrap-material-design.iife.js"
   ],
   "dependencies": {
-    "tether": "^1.2"
+    "jquery": "^2.2",
+    "tether": "^1.2",
+    "bootstrap": "v4-dev"
   }
 }
