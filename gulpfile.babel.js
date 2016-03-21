@@ -122,7 +122,7 @@ const defaultRecipes = new Aggregate(gulp, 'default', series(gulp,
 ))
 
 // load all docs tasks
-let docsDefaultRecipes = gulpDocs(gulp, {rollupConfig: rollupConfig})
+let docsDefaultRecipes = gulpDocs(gulp, preset, {rollupConfig: rollupConfig})
 
 // publish
 new Aggregate(gulp, 'publish',
