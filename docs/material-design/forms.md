@@ -192,3 +192,27 @@ Because of this, you may need to manually address the width and alignment of ind
   <button type="submit" class="btn btn-primary">Send invitation</button>
 </form>
 {% endexample %}
+
+
+## Help blocks
+
+`bmd-help` can be used for form tips (known as `help-block` in v3 which has been removed in v4).  These elements are absolutely positioned but hidden, they occupy the space when hidden to prevent form bouncing.
+
+### Multiple
+
+Multiple help blocks will cause the form to bounce because subsequent blocks are relatively positioned.  The space used when hidden is that of a single help comment only.
+
+{% example html %}
+<form>
+  <fieldset class="form-group">
+    <label for="exampleInputEmail1" class="bmd-label-floating">Email address (two help blocks)</label>
+    <input type="email" class="form-control" id="exampleInputEmail1">
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
+    <span class="bmd-help">And this is probably from a second plugin showing in a non-optimal way</span>
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="exampleInputPassword1" class="bmd-label-floating">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </fieldset>  
+</form>
+{% endexample %}
