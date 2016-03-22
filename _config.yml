@@ -1,7 +1,6 @@
 include:
   - .nojekyll
 
-
 sass:
     sass_dir: sass
 
@@ -20,10 +19,6 @@ source:           docs
 destination:      _gh_pages
 host:             0.0.0.0
 port:             9000
-
-
-
-
 encoding:         UTF-8
 exclude:          [assets/scss/]
 
@@ -62,7 +57,6 @@ cdn:
   tether:         https://cdn.rawgit.com/HubSpot/tether/vVERSION/dist/js/tether
 
   'ie10-viewport-bug-workaround': https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js
-
 
 
 #twitter:

@@ -144,7 +144,7 @@ new Aggregate(gulp, 'publish',
     // ^^^docs:default cleans docs/dist, so we need to re-copy dist to docs in this scenario
     parallel(gulp, copyCssToDocs, copyJsToDocs),
 
-    new Jekyll(gulp, preset, {options: {raw: 'baseurl: "/bootstrap-material-design"'}}),
+    new Jekyll(gulp, preset, {debug: true, options: {raw: 'baseurl: "/bootstrap-material-design"'}}),
 
     new PublishBuild(gulp, preset, {
       npm: {
