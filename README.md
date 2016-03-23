@@ -32,7 +32,7 @@ You may install this theme using NPM, Bower or Meteor:
 
 - NPM : `npm install bootstrap-material-design`
 - Bower : `bower install bootstrap-material-design`
-- Meteor: `meteor add fezvrasta:bootstrap-material-design`
+- Meteor : **Not supported** : Needs new package and maintainer - see #930
 
 If you prefer, you can include this framework in your project using our official CDN:
 
