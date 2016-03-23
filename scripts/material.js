@@ -82,27 +82,30 @@
       // Add fake-checkbox to material checkboxes
       var $input = $((selector) ? selector : this.options.checkboxElements)
         .filter(":notmdproc")
-        .data("mdproc", true)
-        .after("<span class='checkbox-material'><span class='check'></span></span>");
-
+        .data("mdproc", true);
+      if ($input.siblings(".checkbox-material").length === 0) {
+        $input.after("<span class='checkbox-material'><span class='check'></span></span>");
+      }
       _toggleTypeFocus($input);
     },
     "togglebutton": function (selector) {
       // Add fake-checkbox to material checkboxes
       var $input = $((selector) ? selector : this.options.togglebuttonElements)
         .filter(":notmdproc")
-        .data("mdproc", true)
-        .after("<span class='toggle'></span>");
-
+        .data("mdproc", true);
+      if ($input.siblings(".toggle").length === 0) {
+        $input.after("<span class='toggle'></span>");
+      }
       _toggleTypeFocus($input);
     },
     "radio": function (selector) {
       // Add fake-radio to material radios
       var $input = $((selector) ? selector : this.options.radioElements)
         .filter(":notmdproc")
-        .data("mdproc", true)
-        .after("<span class='circle'></span><span class='check'></span>");
-
+        .data("mdproc", true);
+      if ($input.siblings(".circle").length === 0) {
+        $input.after("<span class='circle'></span><span class='check'></span>");
+      }
       _toggleTypeFocus($input);
     },
     "input": function (selector) {
@@ -156,8 +159,9 @@
           }
 
           // Add at the end of the form-group
-          $formGroup.append("<span class='material-input'></span>");
-
+          if ($formGroup.siblings(".material-input").length === 0) {
+            $formGroup.append("<span class='material-input'></span>");
+          }
           // Support for file input
           if ($formGroup.find("input[type=file]").length > 0) {
             $formGroup.addClass("is-fileinput");
