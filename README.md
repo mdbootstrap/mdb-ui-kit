@@ -1,11 +1,11 @@
-# bootstrap-material-design
+[![banner](demo/imgs/banner.jpg)](#)
 
 [![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
 [![gratipay](https://img.shields.io/gratipay/FezVrasta.svg)](https://gratipay.com/FezVrasta)
 [![Bower version](https://badge.fury.io/bo/bootstrap-material-design.svg)](https://github.com/FezVrasta/bootstrap-material-design)
 
-[![banner](demo/imgs/banner.jpg)](#)
 
+## About
 Material Design for Bootstrap is a Bootstrap V3 compatible theme; it is an easy way to use the new [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) in your Bootstrap 3 based application.
 Just include the theme, after the Bootstrap CSS and include the JavaScript at the end of your document (just before the `</body>` tag), and everything will be converted to Material Design (Paper) style.
 
@@ -95,7 +95,7 @@ The upcoming 4.x compatible version is being actively developed using SASS on th
 
 ## Documentation
 
-Material Design ([spec](http://www.google.com/design/spec/material-design/introduction.html)) for Bootstrap provides 
+Material Design ([spec](http://www.google.com/design/spec/material-design/introduction.html)) for Bootstrap provides
 styles for bootstrap based markup to comply with Material Design concepts.
 
 
@@ -123,11 +123,11 @@ If you are using the static css files, you may want to use your own color variat
     ```
 3. Compile and test your distributable css by running `grunt serve`, this will launch your browser to the test site.  Peruse and verify your color choices
 4. From your application, you may now reference the compiled css files in `dist/css`
-    
+
 ##### Customize via less variables
 
 If you are referencing source from your own application's less file, you may simply customize the colors by redefining the color variables _after_ including bootstrap-material-design.  See above for a description of variables.  
-    
+
 ### Forms
 
 All inputs should be surrounded by a standard `.form-group`, and as such `material.js` will enforce this.  The `.form-group` is
@@ -136,13 +136,13 @@ used to signal different input styles and variations.  See the examples for vari
 #### Sizing
 
 In general, it is preferred that sizing be altered with either `.form-group-sm` or `.form-group-lg`.  Due to the interconnected
-nature of inputs, labels, margins and padding, `material.js` will convert any use of `.input-sm` or `.input-lg` to 
+nature of inputs, labels, margins and padding, `material.js` will convert any use of `.input-sm` or `.input-lg` to
 `.form-group-sm` or `.form-group-lg` in order to reduce the necessary markup/variations and get a standard sizing with
 fewer side effects.
 
 #### Buttons
 
-Buttons are flat by default, without shadows.  Add `.btn-raised` to a button to add a permanent shadow to it.  See the [button examples](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html#buttons) 
+Buttons are flat by default, without shadows.  Add `.btn-raised` to a button to add a permanent shadow to it.  See the [button examples](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html#buttons)
 
 #### Inputs
 
@@ -152,7 +152,7 @@ The following classes should be placed on the `.form-group` to indicate the labe
 
 - `.label-floating` - renders label as a placeholder, that animates above the field upon focus
 - `.label-static` - renders label above the field. `input placeholder` attribute can also be used in conjunction
-- `.label-placeholder` - renders a label as a placeholder only 
+- `.label-placeholder` - renders a label as a placeholder only
 - no label, but use of `input placeholder` attribute - same rendering as `.label-placeholder`
 
 ##### Hints
@@ -209,22 +209,22 @@ Radio example:
   </div>
 </div>
 ```      
-        
-        
+
+
 
 ### Icons
 
 Bootstrap Material Design supports the full range of original Material Design icons!
 [See the full set of material design icons at the material icons library.](https://www.google.com/design/icons/)
 
-It’s easy to incorporate icons into your web page. [Here’s an example](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html#icon): 
+It’s easy to incorporate icons into your web page. [Here’s an example](http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html#icon):
 ```
 <i class="material-icons">face</i> face
 ```
 
 Please be sure that the fonts are properly setup, see [Getting Started](#getting-started).
 
-### Cards 
+### Cards
 
 A card will expand to fill all of the available width (e.g. column's width). Card's height will be automatically resized to match width.
 
@@ -255,7 +255,7 @@ Here is an example on how to use it:
 
 </div>
 ```    
-    
+
 Cards will adapt to column's width. The card below will have width equal to col-lg-6:
 
 ```html
@@ -350,4 +350,4 @@ Currently, Material Design for Bootstrap supports Google Chrome (tested v37+), M
 
 
 ## License
-[MIT License](LICENSE.md) 
+[MIT License](LICENSE.md)
