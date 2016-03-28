@@ -11,8 +11,10 @@ $gray-dark: rgba($black, 0.87) !default;   // used for text color - others use g
 $bmd-font-weight-base: 400;
 
 // wondering if any of these could still be refactored out, but are definitely in use.
-$bmd-text-color-inverse: rgba($white, 0.84) !default;
-$bmd-text-color-inverse-light: rgba($white, 0.54) !default;
+$bmd-inverse: rgba($white, 1) !default;
+$bmd-inverse-light: rgba($white, 0.84) !default;
+$bmd-inverse-lighter: rgba($white, 0.54) !default;
+
 $bmd-label-color: $gray-light !default;
 $bmd-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
 
