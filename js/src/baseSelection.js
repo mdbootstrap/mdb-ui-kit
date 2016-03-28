@@ -16,7 +16,7 @@ const BaseSelection = (($) => {
       //  - a function(thisComponent); or
       //  - a string selector used like $mdbFormGroup.find(selector)
       //
-      // Note this only runs if $mdbFormGroup.find(Selector.MDB_LABEL_WILDCARD) fails to find a label (as authored in the markup)
+      // Note this only runs if $mdbFormGroup.find(Selector.BMD_LABEL_WILDCARD) fails to find a label (as authored in the markup)
       //
       //selectors: [
       //  `.form-control-label`, // in the case of horizontal or inline forms, this will be marked

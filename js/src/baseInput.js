@@ -5,11 +5,11 @@ const BaseInput = (($) => {
 
   const ClassName = {
     FORM_GROUP: 'form-group',
-    MDB_FORM_GROUP: 'bmd-form-group',
-    MDB_LABEL: 'bmd-label',
-    MDB_LABEL_STATIC: 'bmd-label-static',
-    MDB_LABEL_PLACEHOLDER: 'bmd-label-placeholder',
-    MDB_LABEL_FLOATING: 'bmd-label-floating',
+    BMD_FORM_GROUP: 'bmd-form-group',
+    BMD_LABEL: 'bmd-label',
+    BMD_LABEL_STATIC: 'bmd-label-static',
+    BMD_LABEL_PLACEHOLDER: 'bmd-label-placeholder',
+    BMD_LABEL_FLOATING: 'bmd-label-floating',
     HAS_DANGER: 'has-danger',
     IS_FILLED: 'is-filled',
     IS_FOCUSED: 'is-focused'
@@ -17,8 +17,8 @@ const BaseInput = (($) => {
 
   const Selector = {
     FORM_GROUP: `.${ClassName.FORM_GROUP}`,
-    MDB_FORM_GROUP: `.${ClassName.MDB_FORM_GROUP}`,
-    MDB_LABEL_WILDCARD: `label[class^='${ClassName.MDB_LABEL}'], label[class*=' ${ClassName.MDB_LABEL}']` // match any label variant if specified
+    BMD_FORM_GROUP: `.${ClassName.BMD_FORM_GROUP}`,
+    BMD_LABEL_WILDCARD: `label[class^='${ClassName.BMD_LABEL}'], label[class*=' ${ClassName.BMD_LABEL}']` // match any label variant if specified
   }
 
   const Default = {
@@ -27,7 +27,7 @@ const BaseInput = (($) => {
       required: false
     },
     mdbFormGroup: {
-      template: `<span class='${ClassName.MDB_FORM_GROUP}'></span>`,
+      template: `<span class='${ClassName.BMD_FORM_GROUP}'></span>`,
       create: true, // create a wrapper if form-group not found
       required: true // not recommended to turn this off, only used for inline components
     },
@@ -38,13 +38,13 @@ const BaseInput = (($) => {
       //  - a function(thisComponent); or
       //  - a string selector used like $mdbFormGroup.find(selector)
       //
-      // Note this only runs if $mdbFormGroup.find(Selector.MDB_LABEL_WILDCARD) fails to find a label (as authored in the markup)
+      // Note this only runs if $mdbFormGroup.find(Selector.BMD_LABEL_WILDCARD) fails to find a label (as authored in the markup)
       //
       selectors: [
         `.form-control-label`, // in the case of horizontal or inline forms, this will be marked
         `> label` // usual case for text inputs, first child.  Deeper would find toggle labels so don't do that.
       ],
-      className: ClassName.MDB_LABEL_STATIC
+      className: ClassName.BMD_LABEL_STATIC
     },
     requiredClasses: [],
     invalidComponentMatches: [],
@@ -179,7 +179,7 @@ const BaseInput = (($) => {
           this.outerElement().wrap(this.config.mdbFormGroup.template)
         } else {
           // a form-group does exist, add our marker class to it
-          this.$formGroup.addClass(ClassName.MDB_FORM_GROUP)
+          this.$formGroup.addClass(ClassName.BMD_FORM_GROUP)
 
           // OLD: may want to implement this after all, see how the styling turns out, but using an existing form-group is less manipulation of the dom and therefore preferable
           // A form-group does exist, so add an bmd-form-group wrapping it's internal contents
@@ -201,7 +201,7 @@ const BaseInput = (($) => {
     // Will add bmd-label to bmd-form-group if not already specified
     resolveMdbLabel() {
 
-      let label = this.$mdbFormGroup.find(Selector.MDB_LABEL_WILDCARD)
+      let label = this.$mdbFormGroup.find(Selector.BMD_LABEL_WILDCARD)
       if (label === undefined || label.length === 0) {
         // we need to find it based on the configured selectors
         label = this.findMdbLabel(this.config.label.required)
@@ -235,7 +235,7 @@ const BaseInput = (($) => {
       }
 
       if (label.length === 0 && raiseError) {
-        $.error(`Failed to find ${Selector.MDB_LABEL_WILDCARD} within form-group for ${Util.describe(this.$element)}`)
+        $.error(`Failed to find ${Selector.BMD_LABEL_WILDCARD} within form-group for ${Util.describe(this.$element)}`)
       }
       return label
     }

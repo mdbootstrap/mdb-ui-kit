@@ -4,7 +4,7 @@ title: Drawers
 group: material-design
 ---
 
-The Material Design for Bootstrap `Drawer` provides a markup structure and plugin that allows you to display content on the bounds of any containing element.  Drawers are commonly referred to as a side nav or offcanvas nav.  The MDB implementation allows for positioning top, left, bottom, right, as well as two styles including push (default) as well as overlay.  Both the drawer position and style can be set statically or responsively with the provided classes.  
+The Material Design for Bootstrap `Drawer` provides a markup structure and plugin that allows you to display content on the bounds of any containing element.  Drawers are commonly referred to as a side nav or offcanvas nav.  The BMD implementation allows for positioning top, left, bottom, right, as well as two styles including push (default) as well as overlay.  Both the drawer position and style can be set statically or responsively with the provided classes.  
 
 ## Contents
 
@@ -26,7 +26,7 @@ The default behavior for any drawer is to be _out_ of the frame of view.  It can
 
 ### Markup
 
-In order to use the drawer component you must use MDB's flex based layout structure.  If this layout structure is not a direct child of `<body>`, be sure that the containing element has set `position: relative` as this layout structure utilizes an outer element that is absolutely positioned in order to enable features such as content scrolling and sticky header.
+In order to use the drawer component you must use BMD's flex based layout structure.  If this layout structure is not a direct child of `<body>`, be sure that the containing element has set `position: relative` as this layout structure utilizes an outer element that is absolutely positioned in order to enable features such as content scrolling and sticky header.
 
 {% highlight html %}
 <div class="bmd-layout-container">

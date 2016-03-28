@@ -3,13 +3,13 @@ import Util from './util'
 const Base = (($) => {
 
   const ClassName = {
-    MDB_FORM_GROUP: 'bmd-form-group',
+    BMD_FORM_GROUP: 'bmd-form-group',
     IS_FILLED: 'is-filled',
     IS_FOCUSED: 'is-focused'
   }
 
   const Selector = {
-    MDB_FORM_GROUP: `.${ClassName.MDB_FORM_GROUP}`
+    BMD_FORM_GROUP: `.${ClassName.BMD_FORM_GROUP}`
   }
 
   const Default = {}
@@ -66,9 +66,9 @@ const Base = (($) => {
 
     // Find bmd-form-group
     findMdbFormGroup(raiseError = true) {
-      let mfg = this.$element.closest(Selector.MDB_FORM_GROUP)
+      let mfg = this.$element.closest(Selector.BMD_FORM_GROUP)
       if (mfg.length === 0 && raiseError) {
-        $.error(`Failed to find ${Selector.MDB_FORM_GROUP} for ${Util.describe(this.$element)}`)
+        $.error(`Failed to find ${Selector.BMD_FORM_GROUP} for ${Util.describe(this.$element)}`)
       }
       return mfg
     }

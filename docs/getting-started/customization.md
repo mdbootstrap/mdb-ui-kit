@@ -4,7 +4,7 @@ title: Customization options
 group: getting-started
 ---
 
-Material Design for Bootstrap 4 is designed to be customized via Sass variables. You may customize any Bootstrap or MDB variable. 
+Material Design for Bootstrap 4 is designed to be customized via Sass variables. You may customize any Bootstrap or BMD variable. 
 
 {% callout info %}
 The following assumes you have [setup your Build tools](../build-tools)
@@ -18,7 +18,7 @@ Here are some ways to customize:
 
 ## 1. (Recommended) Include the source in your application
 
-Installing via npm (recommended) or bower, customizing MDB is a breeze.  
+Installing via npm (recommended) or bower, customizing BMD is a breeze.  
  
 1. Add `bootstrap-material-design` as a dependency to your `package.json` or your `bower.json`
 1. `npm install` or `bower install` depending on your tool of choice

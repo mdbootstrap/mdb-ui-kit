@@ -4,7 +4,7 @@ title: Collapse inline
 group: material-design
 ---
 
-The Material Design for Bootstrap `CollapseInline` plugin allows you to toggle inline content on your pages with a bit of JavaScript and some classes. This plugin utilizes a handful of classes from the [Bootstrap collapse plugin]({{ site.baseurl }}/components/collapse/) for easy toggle behavior. Since most functionality and documentation (including a rich set of Javascript events) is already provided by the [Bootstrap collapse plugin]({{ site.baseurl }}/components/collapse/), the following will focus only on some samples utilizing the MDB `CollapseInline` component. 
+The Material Design for Bootstrap `CollapseInline` plugin allows you to toggle inline content on your pages with a bit of JavaScript and some classes. This plugin utilizes a handful of classes from the [Bootstrap collapse plugin]({{ site.baseurl }}/components/collapse/) for easy toggle behavior. Since most functionality and documentation (including a rich set of Javascript events) is already provided by the [Bootstrap collapse plugin]({{ site.baseurl }}/components/collapse/), the following will focus only on some samples utilizing the BMD `CollapseInline` component. 
 
 ## Contents
 

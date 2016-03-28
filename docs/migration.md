@@ -12,12 +12,12 @@ The most notable changes are summarized immediately below, followed by more spec
 {% endcallout %}
 
 {% callout info %}
-These migration changes are for MDB, and should be considered **in addition** to the [Bootstrap migration guidelines](http://v4-alpha.getbootstrap.com/migration/).
+These migration changes are for BMD, and should be considered **in addition** to the [Bootstrap migration guidelines](http://v4-alpha.getbootstrap.com/migration/).
 {% endcallout %}
 
 ## Summary
 
-Here are the big ticket items you'll want to be aware of when moving from MDB v3 to v4.
+Here are the big ticket items you'll want to be aware of when moving from BMD v3 to v4.
 
 ### Browser support
 
@@ -31,10 +31,10 @@ Here are the big ticket items you'll want to be aware of when moving from MDB v3
 - Switched from `px` to `rem` as our primary CSS unit.
 - Global font-size increased from `14px` to `16px`.
 - Switched Javascript to ES6 classes
-- Globally switched MDB variables and classes to the prefix `bmd-` to avoid confusion with Bootstrap variables.
+- Globally switched BMD variables and classes to the prefix `bmd-` to avoid confusion with Bootstrap variables.
 - Added strong scss-lint and eslint rules from Bootstrap
 - Adopted Bootstrap project organization and Build structure
-- Reference documentation is now synced from Bootstrap, rendered with MDB to show default rendering examples
+- Reference documentation is now synced from Bootstrap, rendered with BMD to show default rendering examples
 - File renaming to be equivalent to Bootstrap files
 
 ### Components
@@ -65,10 +65,10 @@ This list highlights key changes by component between v3.x.x and v4.0.0.
 - Simpler selectors
 - Introduced `.bmd-form-group` to provide demarcation for label/input combinations, disconnecting it explicitly from `.form-group` so that they can be used independently.
 - Spec review for sizing
-- Bootstrap removed `.help-block`, MDB added `.bmd-help` class to mark added behaviors.
+- Bootstrap removed `.help-block`, BMD added `.bmd-help` class to mark added behaviors.
 - Inverted marker class to use `.is-filled` instead of `.is-empty` for simpler css matches
 - Bootstrap removed `.form-group-sm` and `.form-group-lg`.  `.bmd-form-group-*` variants added to address sizing combinations of label/input/help
-- V3 MDB `toggle` is now `bmd-switch` for more consistent naming with the spec
+- V3 BMD `toggle` is now `bmd-switch` for more consistent naming with the spec
 - TODO - File Input 
 
 ### [Labels](../material-design/labels)
@@ -80,7 +80,7 @@ This list highlights key changes by component between v3.x.x and v4.0.0.
 - Utilized Bootstrap mixins for plain/hover/focus/active
 - Introduced mixin `bmd-hover-focus-active` to address `.active` in addition to Bootstraps `hover-focus-active`
 - Refactored shadow behaviors, now more consistent
-- Changed `btn-fab` to `bmd-btn-fab` to denote MDB only component
+- Changed `btn-fab` to `bmd-btn-fab` to denote BMD only component
 - `btn-fab-mini` is now `btn-fab-sm` for consistency with Bootstrap size naming
 - Introduced shadow behaviors to `bmd-btn-fab`. Spec is silent on this.
 
