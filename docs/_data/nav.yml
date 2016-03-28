@@ -1,11 +1,11 @@
 - title: Getting started
   pages:
     - title: Introduction
+    - title: Building
     - title: Download
     - title: Browsers & devices
     - title: Customization
     - title: Best practices
-    - title: Build tools
     - title: Release process
 
 - title: Material Design

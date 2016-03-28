@@ -10,7 +10,7 @@ We've designed and developed Material Design for Bootstrap to work in a number o
 **Heads up!** This copy is a work in progress.
 {% endcallout %}
 
-### General outline
-- Working with CSS
-- Working with Sass files
-- Building new CSS components
+## SASS
+
+### Avoid vendor prefixes 
+Material Design for Bootstrap uses Autoprefixer (included in our gulpfile and build process) to automatically add vendor prefixes to some CSS properties at build time. Doing so saves us time and code by allowing us to write key parts of our CSS a single time.

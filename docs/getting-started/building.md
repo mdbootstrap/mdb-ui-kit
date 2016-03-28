@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Build tools
+title: Building
 group: getting-started
 ---
 
@@ -31,10 +31,6 @@ Our gulpfile includes the many tasks you can view with `gulp --tasks`, here are 
 | `gulp` | `gulp` runs the `default` task that builds all core files to the `dist` directory |
 | `gulp docs:default` | creates all the `docs/dist` files needed to support the documentation |
 
-## Autoprefixer
-
-Material Design for Bootstrap uses [Autoprefixer][autoprefixer] (included in our gulpfile and build process) to automatically add vendor prefixes to some CSS properties at build time. Doing so saves us time and code by allowing us to write key parts of our CSS a single time while eliminating the need for vendor mixins like those found in v3.
-
 
 ## Local documentation
 
@@ -61,7 +57,7 @@ Bootstrap checked out in parallel to this project, running two (2) different ter
          
     1. Watch both the core and docs sources for changes and build to the docs site
     
-        `grunt docs:default:watch` 
+        `gulp docs:default:watch` 
 
 1. _Terminal 2_: Start serving documentation on <http://localhost:9000> with `jekyll serve`
     

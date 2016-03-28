@@ -7,7 +7,7 @@ group: getting-started
 Material Design for Bootstrap 4 is designed to be customized via Sass variables. You may customize any Bootstrap or BMD variable. 
 
 {% callout info %}
-The following assumes you have [setup your Build tools](../build-tools)
+The following assumes you have [setup your build tools and are building successfully](../building).
 {% endcallout %}
 
 {% callout warning %}
@@ -18,11 +18,11 @@ Here are some ways to customize:
 
 ## 1. (Recommended) Include the source in your application
 
-Installing via npm (recommended) or bower, customizing BMD is a breeze.  
+Installing via `npm` (recommended) or `bower`, customizing BMD is a breeze.  
  
 1. Add `bootstrap-material-design` as a dependency to your `package.json` or your `bower.json`
-1. `npm install` or `bower install` depending on your tool of choice
-1. Add either `node_modules` or `bower_components` in the `includePaths` for your grunt-sass, gulp-sass, or equivalent so you are able to import without specifying the full path of the resource.
+1. `npm install` OR `bower install` depending on your tool of choice
+1. Add either `node_modules` or `bower_components` in the `includePaths` for your `grunt-sass`, `gulp-sass`, or equivalent configurations so you are able to import without specifying the full path of the resource.
 1. In your application's SCSS, redefine any customized variable _before_ `@import`ing bootstrap material design.  For example:
 
 ~~~~~~~~
@@ -39,7 +39,7 @@ $mdb-label-color-focus: #303f9f; // mdb variable
 This method is not recommended because it may be difficult to use source control **and** keep up to date with new releases.  Please consider the recommended method above. 
 {% endcallout %}
 
-1. Download the source via npm, bower or otherwise
+1. Download the source via `npm`, `bower` or otherwise
 2. Change any of the variables
-3. Run `grunt dist`
+3. Run `gulp`
 

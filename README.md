@@ -16,11 +16,11 @@ the end of your document (just before the `</body>` tag), and everything will be
 
 NOTE: this is a temporary site location that will be published in at http://fezvrasta.github.io/bootstrap-material-design in the future. 
 
-- [Migration](http://rosskevin.github.io/bootstrap-material-design/migration/)
 - [Getting Started](http://rosskevin.github.io/bootstrap-material-design/getting-started/introduction/)
+- [Building](http://rosskevin.github.io/bootstrap-material-design/getting-started/building/)
 - [Material Design components](http://rosskevin.github.io/bootstrap-material-design/material-design/list-group/)
 - [Bootstrap default rendering reference documentation](http://rosskevin.github.io/bootstrap-material-design/components/buttons/)
-
+- [Migration](http://rosskevin.github.io/bootstrap-material-design/migration/)
 
 ## Support
 
