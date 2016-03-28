@@ -106,7 +106,7 @@ styles for bootstrap based markup to comply with Material Design concepts.
 
 There are 17 color variations (in addition to the classic 4 variations) described by the Material Design color palette:
 
-![palette](docs/assets/img/material-design-color-palette.jpg)
+![palette](material-design-color-palette.jpg)
 
 ##### Compile your customized distributable
 
