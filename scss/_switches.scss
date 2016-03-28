@@ -2,26 +2,26 @@
 .switch {
   label {
     position: relative;
-    padding-left: $mdb-switch-width + $mdb-switch-label-padding; // absolutely positioned so add the radio size
+    padding-left: $bmd-switch-width + $bmd-switch-label-padding; // absolutely positioned so add the radio size
 
     .bmd-switch-track {
       position: absolute;
-      top: calc-top($line-height-base, $font-size-base, $mdb-switch-height);
+      top: calc-top($line-height-base, $font-size-base, $bmd-switch-height);
       left: 0;
       display: inline-block;
-      width: $mdb-switch-width;
-      height: $mdb-switch-height;
+      width: $bmd-switch-width;
+      height: $bmd-switch-height;
       cursor: pointer;
       background-image: linear-gradient(
           to right,
-          $mdb-switch-unchecked-bg 0%,
-          $mdb-switch-unchecked-bg 50%,
-          $mdb-switch-checked-bg 50%,
-          $mdb-switch-checked-bg 100%
+          $bmd-switch-unchecked-bg 0%,
+          $bmd-switch-unchecked-bg 50%,
+          $bmd-switch-checked-bg 50%,
+          $bmd-switch-checked-bg 100%
       );
       background-position: 0%;
-      background-size: $mdb-switch-width * 2 $mdb-switch-height;
-      border-radius: $mdb-switch-width;
+      background-size: $bmd-switch-width * 2 $bmd-switch-height;
+      border-radius: $bmd-switch-width;
       transition: background-position 0.2s ease-in;
 
       &::after {
@@ -29,11 +29,11 @@
         top: 50%;
         left: 0;
         display: block;
-        width: $mdb-switch-handle-size;
-        height: $mdb-switch-handle-size;
+        width: $bmd-switch-handle-size;
+        height: $bmd-switch-handle-size;
         align-self: center;
         content: "";
-        background: $mdb-switch-handle-unchecked-bg;
+        background: $bmd-switch-handle-unchecked-bg;
         border-radius: 100%;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         transition: left 0.2s ease-in, background-color 0.2s ease-in, transform 0.3s ease;
@@ -58,8 +58,8 @@
         + .bmd-switch-track {
           background-position: -100%;
           &::after {
-            left: unquote("calc(100% - #{$mdb-switch-handle-size})"); //calc(100% - $mdb-switch-handle-size);
-            background-color: $mdb-switch-handle-checked-bg;
+            left: unquote("calc(100% - #{$bmd-switch-handle-size})"); //calc(100% - $bmd-switch-handle-size);
+            background-color: $bmd-switch-handle-checked-bg;
           }
         }
       }
@@ -72,9 +72,9 @@
 
         + .bmd-switch-track {
           cursor: default;
-          background: $mdb-switch-disabled-bg;
+          background: $bmd-switch-disabled-bg;
           &::after {
-            background: $mdb-switch-handle-disabled-bg;
+            background: $bmd-switch-handle-disabled-bg;
           }
         }
       }

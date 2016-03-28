@@ -27,7 +27,7 @@ Installing via `npm` (recommended) or `bower`, customizing BMD is a breeze.
 
 ~~~~~~~~
 $brand-primary: #3f51b5;         // bootstrap variable
-$mdb-label-color-focus: #303f9f; // mdb variable
+$bmd-label-color-focus: #303f9f; // bmd variable
 
 @import "bootstrap-material-design/scss/core"; // make sure to use _core.scss!
 ~~~~~~~~

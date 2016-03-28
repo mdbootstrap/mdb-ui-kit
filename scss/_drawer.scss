@@ -14,14 +14,14 @@
   overflow: visible;
   overflow-y: auto;
   font-size: .875rem;
-  //color: $mdb-layout-drawer-text-color;
-  //background: $mdb-layout-drawer-bg-color;
+  //color: $bmd-layout-drawer-text-color;
+  //background: $bmd-layout-drawer-bg-color;
 
   // Transform offscreen.
   transition: transform;
   will-change: transform;
   transform-style: preserve-3d;
-  @include box-shadow($mdb-shadow-2dp);
+  @include box-shadow($bmd-shadow-2dp);
   @include material-animation-default();
 
   > * {
@@ -58,10 +58,10 @@
 // Sizing and positioning below here
 
 // for left or right drawers, setup widths, heights and positions
-@include bmd-drawer-x-out($mdb-drawer-x-size);
+@include bmd-drawer-x-out($bmd-drawer-x-size);
 
 // for top or bottom drawers, setup widths, heights and positions
-@include bmd-drawer-y-out($mdb-drawer-y-size);
+@include bmd-drawer-y-out($bmd-drawer-y-size);
 
 // Marker class for both triggering the opening of the drawer (i.e. javascript #addClass('.bmd-drawer-in')), as well
 //  as responsive sizes (i.e. bmd-drawer-in-md will open once the browser is wider than 768px).
@@ -90,8 +90,8 @@
 :not(.bmd-drawer-out) { // first eliminate positioning or sizing rules if the drawer is already forced closed
   @each $breakpoint in map-keys($grid-breakpoints) {
 
-    @include bmd-drawer-x-in-up($mdb-drawer-x-size, $breakpoint);
-    @include bmd-drawer-y-in-up($mdb-drawer-y-size, $breakpoint);
+    @include bmd-drawer-x-in-up($bmd-drawer-x-size, $breakpoint);
+    @include bmd-drawer-y-in-up($bmd-drawer-y-size, $breakpoint);
 
     @include bmd-drawer-x-overlay-down($breakpoint);
     @include bmd-drawer-y-overlay-down($breakpoint);

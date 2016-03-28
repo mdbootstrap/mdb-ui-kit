@@ -3,8 +3,8 @@
 // bmd default buttons are flat by default
 .btn {
   position: relative;
-  margin-bottom: $mdb-btn-margin-bottom; // just enough room so that focus shadows aren't covered up
-  font-size: $mdb-btn-font-size;
+  margin-bottom: $bmd-btn-margin-bottom; // just enough room so that focus shadows aren't covered up
+  font-size: $bmd-btn-font-size;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0;
@@ -12,7 +12,7 @@
   background-color: transparent;
   border: 0;
   outline: 0;
-  transition: box-shadow 0.2s $mdb-animation-curve-fast-out-linear-in, background-color 0.2s $mdb-animation-curve-default, color 0.2s $mdb-animation-curve-default;
+  transition: box-shadow 0.2s $bmd-animation-curve-fast-out-linear-in, background-color 0.2s $bmd-animation-curve-default, color 0.2s $bmd-animation-curve-default;
   will-change: box-shadow, transform;
 
   @include undo-bs-tab-focus();
@@ -36,7 +36,7 @@
     @include hover-focus() {
       //border: 1px solid $blue;
       z-index: 1; // add to the z-index so that the expanded shadow is above anything below it i.e. another button
-      @include box-shadow($mdb-shadow-4dp);
+      @include box-shadow($bmd-shadow-4dp);
     }
 
     // :active - momentary press: big shadow, release and it is gone
@@ -44,7 +44,7 @@
     &.active,
     &:active {
       z-index: 1; // add to the z-index so that the expanded shadow is above anything below it i.e. another button
-      @include box-shadow($mdb-shadow-focus);
+      @include box-shadow($bmd-shadow-focus);
       //border: 1px solid $green;
     }
   }
@@ -55,7 +55,7 @@
   .btn-group-raised & {
 
     // baseline shadow
-    @include box-shadow($mdb-shadow-2dp);
+    @include box-shadow($bmd-shadow-2dp);
 
     // reverse any of the above for links
     &.btn-link {
@@ -75,7 +75,7 @@
   &.bmd-btn-icon {
     padding: 0;
     overflow: hidden;
-    font-size: $mdb-btn-fab-font-size;
+    font-size: $bmd-btn-fab-font-size;
     line-height: normal;
     border-radius: 50%;
 
@@ -87,17 +87,17 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: $mdb-btn-fab-font-size;
-      line-height: $mdb-btn-fab-font-size;
-      transform: translate(-($mdb-btn-fab-font-size / 2), -($mdb-btn-fab-font-size / 2));
+      width: $bmd-btn-fab-font-size;
+      line-height: $bmd-btn-fab-font-size;
+      transform: translate(-($bmd-btn-fab-font-size / 2), -($bmd-btn-fab-font-size / 2));
     }
   }
 
   &.bmd-btn-fab {
     // see above for color variations
-    width: $mdb-btn-fab-size;
-    min-width: $mdb-btn-fab-size;
-    height: $mdb-btn-fab-size;
+    width: $bmd-btn-fab-size;
+    min-width: $bmd-btn-fab-size;
+    height: $bmd-btn-fab-size;
     //margin: auto;
     //margin: 2px; // use z-index focus/hover/active instead. This is not called for in the spec, but it ensures room for the box-shadow, which is nice to have.
     box-shadow: 0 1px 1.5px 0 $gray-lighter, 0 1px 1px 0 $gray-light;
@@ -108,9 +108,9 @@
 
     &.bmd-btn-fab-sm,
     .btn-group-sm & {
-      width: $mdb-btn-fab-size-sm;
-      min-width: $mdb-btn-fab-size-sm;
-      height: $mdb-btn-fab-size-sm;
+      width: $bmd-btn-fab-size-sm;
+      min-width: $bmd-btn-fab-size-sm;
+      height: $bmd-btn-fab-size-sm;
       //margin: 1px; // use z-index focus/hover/active instead. This is not called for in the spec, but it ensures room for the box-shadow, which is nice to have.
 
       //.material-icons {
@@ -122,26 +122,26 @@
 
   // Icon buttons
   &.bmd-btn-icon {
-    width: $mdb-btn-icon-size;
-    min-width: $mdb-btn-icon-size;
-    height: $mdb-btn-icon-size;
+    width: $bmd-btn-icon-size;
+    min-width: $bmd-btn-icon-size;
+    height: $bmd-btn-icon-size;
     margin: 0;
     color: inherit;
 
     &.bmd-btn-icon-sm,
     .btn-group-sm & {
-      width: $mdb-btn-icon-size-sm;
-      min-width: $mdb-btn-icon-size-sm;
-      height: $mdb-btn-icon-size-sm;
+      width: $bmd-btn-icon-size-sm;
+      min-width: $bmd-btn-icon-size-sm;
+      height: $bmd-btn-icon-size-sm;
 
       .material-icons {
         //$position: ($bmd-btn-icon-size-sm - $bmd-btn-icon-font-size-sm) / 2;
         //top: $position;
         //left: $position;
-        width: $mdb-btn-icon-font-size-sm;
-        font-size: $mdb-btn-icon-font-size-sm;
+        width: $bmd-btn-icon-font-size-sm;
+        font-size: $bmd-btn-icon-font-size-sm;
         line-height: 1;
-        transform: translate(-($mdb-btn-icon-font-size-sm / 2), -($mdb-btn-icon-font-size-sm / 2));
+        transform: translate(-($bmd-btn-icon-font-size-sm / 2), -($bmd-btn-icon-font-size-sm / 2));
       }
     }
   }
@@ -154,12 +154,12 @@
   // Size variations
   &.btn-lg,
   .btn-group-lg & {
-    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $mdb-btn-font-size-lg, $btn-border-radius-lg);
+    @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $bmd-btn-font-size-lg, $btn-border-radius-lg);
   }
   &.btn-sm,
   .btn-group-sm & {
-    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $mdb-btn-font-size-sm, $btn-border-radius-sm);
-    font-size: $mdb-btn-font-size-sm;
+    @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $bmd-btn-font-size-sm, $btn-border-radius-sm);
+    font-size: $bmd-btn-font-size-sm;
   }
 }
 
@@ -170,9 +170,9 @@
 .btn-group-vertical {
   // have to ratchet up the specificity to kill drop shadows on disabled raised buttons
   @include bmd-disabled() {
-    color: $mdb-btn-disabled;
+    color: $bmd-btn-disabled;
     .bg-inverse & {
-      color: $mdb-inverse-btn-disabled;
+      color: $bmd-inverse-btn-disabled;
     }
 
     // flat buttons shouldn't lose transparency on disabled hover/focus
@@ -206,7 +206,7 @@
   }
 
   &.btn-group-raised {
-    @include box-shadow($mdb-shadow-2dp);
+    @include box-shadow($bmd-shadow-2dp);
   }
 
   .btn + .btn,

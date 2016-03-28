@@ -1,6 +1,6 @@
 form {
   // ensure enough room at the bottom of any form to display a one-line bmd-help
-  margin-bottom: ($mdb-help-size-ratio * $font-size-base) * $line-height-base;
+  margin-bottom: ($bmd-help-size-ratio * $font-size-base) * $line-height-base;
 
   // reverse the above for navbars (no help expected in a navbar form)
   .navbar & {
@@ -23,9 +23,9 @@ form {
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 .form-control {
-  background-repeat: $mdb-form-control-bg-repeat-y;
-  background-position: $mdb-form-control-bg-position;
-  background-size: $mdb-form-control-bg-size;
+  background-repeat: $bmd-form-control-bg-repeat-y;
+  background-position: $bmd-form-control-bg-position;
+  background-size: $bmd-form-control-bg-size;
   border: 0;
   transition: background 0s ease-out;
 
@@ -38,7 +38,7 @@ form {
   // The border bottom should be static in all states, the decorator will be animated over this.
   &:focus,
   .bmd-form-group.is-focused & {
-    background-size: $mdb-form-control-bg-size-active;
+    background-size: $bmd-form-control-bg-size-active;
     //border-bottom: $input-btn-border-width solid $input-border-color;
     transition-duration: 0.3s;
   }
@@ -77,7 +77,7 @@ form {
 // State coloring: default, success, info, warning, danger
 //
 @include bmd-selection-color();
-@include bmd-form-color($mdb-label-color, $mdb-label-color-focus, $input-border-color);
+@include bmd-form-color($bmd-label-color, $bmd-label-color-focus, $input-border-color);
 
 .has-success {
   @include bmd-form-color($brand-success, $brand-success, $brand-success);
@@ -97,7 +97,7 @@ form {
 
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
-//.variations(unquote(" label"), color, $mdb-input-placeholder-color);  // default label color variations
+//.variations(unquote(" label"), color, $bmd-input-placeholder-color);  // default label color variations
 
 // Whereas .form-group adds structure, bmd-form-group just needs to make sure we have enough padding for our labels to work.  That's the only purpose.
 .bmd-form-group {
@@ -155,21 +155,21 @@ form {
   }
 
   // default floating size/location with an bmd-form-group
-  @include bmd-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height, "bmd-form-group default");
+  @include bmd-form-size-variant($font-size-base, $bmd-label-top-margin-base, $input-padding-y, $bmd-form-line-height, "bmd-form-group default");
 
   // sm floating size/location
   &.bmd-form-group-sm {
-    @include bmd-form-size-variant($font-size-sm, $mdb-label-top-margin-sm, $input-padding-y-sm, $mdb-form-line-height-sm, "bmd-form-group sm");
+    @include bmd-form-size-variant($font-size-sm, $bmd-label-top-margin-sm, $input-padding-y-sm, $bmd-form-line-height-sm, "bmd-form-group sm");
   }
 
   // lg floating size/location
   &.bmd-form-group-lg {
-    @include bmd-form-size-variant($font-size-lg, $mdb-label-top-margin-lg, $input-padding-y-lg, $mdb-form-line-height-sm, "bmd-form-group lg");
+    @include bmd-form-size-variant($font-size-lg, $bmd-label-top-margin-lg, $input-padding-y-lg, $bmd-form-line-height-sm, "bmd-form-group lg");
   }
 }
 
 // default floating size/location without a form-group (will skip form-group styles, and just render default sizing variation) - IMPORTANT for non-form-group spacing such as radio/checkbox/switch
-@include bmd-form-size-variant($font-size-base, $mdb-label-top-margin-base, $input-padding-y, $mdb-form-line-height);
+@include bmd-form-size-variant($font-size-base, $bmd-label-top-margin-base, $input-padding-y, $bmd-form-line-height);
 
 select {
   &,

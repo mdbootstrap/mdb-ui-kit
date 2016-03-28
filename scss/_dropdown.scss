@@ -18,7 +18,7 @@
   padding: .5rem 0;
   border: 0;
   opacity: 0;
-  transition: transform $mdb-menu-expand-duration $mdb-animation-curve-default, opacity $mdb-menu-fade-duration $mdb-animation-curve-default;
+  transition: transform $bmd-menu-expand-duration $bmd-animation-curve-default, opacity $bmd-menu-fade-duration $bmd-animation-curve-default;
   transform: scale(0);
   transform-origin: 0 0;
   will-change: transform;
@@ -61,29 +61,29 @@
     display: flex;
     flex-flow: row wrap;
 
-    min-width: $mdb-menu-item-min-width;
-    max-width: $mdb-menu-item-max-width;
-    min-height: $mdb-menu-item-min-height;
+    min-width: $bmd-menu-item-min-width;
+    max-width: $bmd-menu-item-max-width;
+    min-height: $bmd-menu-item-min-height;
 
     align-items: center;
 
-    padding-top: $mdb-menu-item-padding-top;
-    padding-right: $mdb-menu-item-padding-right;
-    padding-bottom: $mdb-menu-item-padding-bottom;
-    padding-left: $mdb-menu-item-padding-left;
+    padding-top: $bmd-menu-item-padding-top;
+    padding-right: $bmd-menu-item-padding-right;
+    padding-bottom: $bmd-menu-item-padding-bottom;
+    padding-left: $bmd-menu-item-padding-left;
 
 
     // FIXME: multi-line menu word wrapping doesn't work - see the maximum width example in menus.md
     overflow: hidden;
-    line-height: $mdb-menu-line-height;
+    line-height: $bmd-menu-line-height;
     text-overflow: ellipsis;
     word-wrap: break-word;
 
 
     // Simple menus always maintain a 16dp margin (phone) or 24dp margin (tablet) to the left and right edges of the screen.
     @include media-breakpoint-up(md) {
-      padding-right: $mdb-menu-item-padding-right-md;
-      padding-left: $mdb-menu-item-padding-left-md;
+      padding-right: $bmd-menu-item-padding-right-md;
+      padding-left: $bmd-menu-item-padding-left-md;
     }
   }
 }
@@ -102,7 +102,7 @@
     ~ .dropdown-menu {
       &.dropdown-menu-top-left,
       &.dropdown-menu-top-right {
-        bottom: $mdb-btn-icon-size; // push up the bottom of the menu the height of the button
+        bottom: $bmd-btn-icon-size; // push up the bottom of the menu the height of the button
       }
     }
   }
@@ -111,7 +111,7 @@
     ~ .dropdown-menu {
       &.dropdown-menu-top-left,
       &.dropdown-menu-top-right {
-        bottom: $mdb-btn-fab-size-sm; // push up the bottom of the menu the height of the button
+        bottom: $bmd-btn-fab-size-sm; // push up the bottom of the menu the height of the button
       }
     }
   }

@@ -9,8 +9,8 @@ const CollapseInline = (($) => {
    * ------------------------------------------------------------------------
    */
   const NAME = 'collapseInline'
-  const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const DATA_KEY = `bmd.${NAME}`
+  const JQUERY_NAME = `bmd${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Selector = {
@@ -37,7 +37,7 @@ const CollapseInline = (($) => {
     //  i.e. <button class="btn bmd-btn-icon" for="search" data-toggle="collapse" data-target="#search-field" aria-expanded="false" aria-controls="search-field">
     constructor($element, config) {
       super($element, $.extend(true, {}, Default, config))
-      this.$mdbFormGroup = this.findMdbFormGroup(true)
+      this.$bmdFormGroup = this.findMdbFormGroup(true)
 
       let collapseSelector = $element.data('target')
       this.$collapse = $(collapseSelector)
@@ -46,7 +46,7 @@ const CollapseInline = (($) => {
       Util.assert(this.$collapse, !this.$collapse.hasClass(ClassName.COLLAPSE), `${Util.describe(this.$collapse)} is expected to have the '${ClassName.COLLAPSE}' class.  It is being targeted by ${Util.describe($element)}`)
 
       // find the first input for focusing
-      let $inputs = this.$mdbFormGroup.find(Selector.ANY_INPUT)
+      let $inputs = this.$bmdFormGroup.find(Selector.ANY_INPUT)
       if ($inputs.length > 0) {
         this.$input = $inputs.first()
       }
@@ -71,7 +71,7 @@ const CollapseInline = (($) => {
 
     dispose() {
       super.dispose(DATA_KEY)
-      this.$mdbFormGroup = null
+      this.$bmdFormGroup = null
       this.$collapse = null
       this.$input = null
     }

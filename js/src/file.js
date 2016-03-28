@@ -15,8 +15,8 @@ const File = (($) => {
    * ------------------------------------------------------------------------
    */
   const NAME = 'file'
-  const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const DATA_KEY = `bmd.${NAME}`
+  const JQUERY_NAME = `bmd${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {}
@@ -42,7 +42,7 @@ const File = (($) => {
         //{invalidComponentMatches: [Checkbox, Radio, Text, Textarea, Select, Switch]},
         Default, config))
 
-      this.$mdbFormGroup.addClass(ClassName.IS_FILE)
+      this.$bmdFormGroup.addClass(ClassName.IS_FILE)
     }
 
     dispose() {
@@ -76,7 +76,7 @@ const File = (($) => {
     }
 
     addFocusListener() {
-      this.$mdbFormGroup
+      this.$bmdFormGroup
         .on('focus', () => {
           this.addFormGroupFocus()
         })
@@ -98,7 +98,7 @@ const File = (($) => {
         } else {
           this.removeIsFilled()
         }
-        this.$mdbFormGroup.find(Selector.FILENAMES).val(value)
+        this.$bmdFormGroup.find(Selector.FILENAMES).val(value)
       })
     }
 

@@ -1,26 +1,26 @@
 .radio label,
 label.radio-inline {
   position: relative;
-  padding-left: $mdb-radio-size + $mdb-radio-label-padding; // absolutely positioned so add the radio size
+  padding-left: $bmd-radio-size + $bmd-radio-label-padding; // absolutely positioned so add the radio size
 
   .bmd-radio-outer-circle, // don't use generic span, it may conflict with span in user markup #693
   .bmd-radio-inner-circle {
     position: absolute;
-    top: calc-top($line-height-base, $font-size-base, $mdb-radio-size); // vertical center of line-height
+    top: calc-top($line-height-base, $font-size-base, $bmd-radio-size); // vertical center of line-height
     left: 0;
     display: inline-block;
-    width: $mdb-radio-size;
-    height: $mdb-radio-size;
+    width: $bmd-radio-size;
+    height: $bmd-radio-size;
     transition-duration: 0.2s;
 
     &.bmd-radio-outer-circle {
-      border: $mdb-radio-border solid $mdb-radio-color-off;
+      border: $bmd-radio-border solid $bmd-radio-color-off;
       border-radius: 50%;
       transition: border-color ease .28s;
     }
     &.bmd-radio-inner-circle {
       display: inline-block;
-      background-color: $mdb-radio-color-on;
+      background-color: $bmd-radio-color-on;
       border-radius: 50%;
       transition: transform ease .28s;
       transform: scale3d(0, 0, 0);
@@ -28,8 +28,8 @@ label.radio-inline {
       // focus/press ripple
       &::after {
         position: absolute;
-        top: -#{$mdb-radio-size};
-        left: -#{$mdb-radio-size};
+        top: -#{$bmd-radio-size};
+        left: -#{$bmd-radio-size};
         z-index: 1;
         display: block;
         width: 50px;
@@ -51,7 +51,7 @@ label.radio-inline {
     opacity: 0;
 
     &:checked {
-      @include bmd-radio-color($mdb-radio-color-on);
+      @include bmd-radio-color($bmd-radio-color-on);
 
       ~ .bmd-radio-inner-circle {
         transform: scale3d(0.55, 0.55, 1);
@@ -72,10 +72,10 @@ label.radio-inline {
 
     &[disabled],
     fieldset[disabled] & {
-      @include bmd-radio-color($mdb-radio-color-disabled);
+      @include bmd-radio-color($bmd-radio-color-disabled);
 
       .bg-inverse & {
-        @include bmd-radio-color($mdb-radio-color-disabled-inverse);
+        @include bmd-radio-color($bmd-radio-color-disabled-inverse);
       }
     }
   }

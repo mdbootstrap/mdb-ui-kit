@@ -48,20 +48,20 @@ const Base = (($) => {
 
     addFormGroupFocus() {
       if (!this.$element.prop('disabled')) {
-        this.$mdbFormGroup.addClass(ClassName.IS_FOCUSED)
+        this.$bmdFormGroup.addClass(ClassName.IS_FOCUSED)
       }
     }
 
     removeFormGroupFocus() {
-      this.$mdbFormGroup.removeClass(ClassName.IS_FOCUSED)
+      this.$bmdFormGroup.removeClass(ClassName.IS_FOCUSED)
     }
 
     removeIsFilled() {
-      this.$mdbFormGroup.removeClass(ClassName.IS_FILLED)
+      this.$bmdFormGroup.removeClass(ClassName.IS_FILLED)
     }
 
     addIsFilled() {
-      this.$mdbFormGroup.addClass(ClassName.IS_FILLED)
+      this.$bmdFormGroup.addClass(ClassName.IS_FILLED)
     }
 
     // Find bmd-form-group

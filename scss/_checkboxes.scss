@@ -13,8 +13,8 @@ label.checkbox-inline {
       left: 0;
       z-index: 1;
       display: block;
-      width: $mdb-checkbox-size;
-      height: $mdb-checkbox-size;
+      width: $bmd-checkbox-size;
+      height: $bmd-checkbox-size;
       margin: 0;
       content: "";
       background-color: rgba($black, .84);
@@ -27,10 +27,10 @@ label.checkbox-inline {
       position: relative;
       z-index: 1;
       display: inline-block;
-      width: $mdb-checkbox-size;
-      height: $mdb-checkbox-size;
+      width: $bmd-checkbox-size;
+      height: $bmd-checkbox-size;
       overflow: hidden;
-      border: $mdb-checkbox-border-size solid $mdb-checkbox-border-color;
+      border: $bmd-checkbox-border-size solid $bmd-checkbox-border-color;
       border-radius: $border-radius;
 
       // checkbox outline
@@ -54,7 +54,7 @@ label.checkbox-inline {
 
         .is-focused & {
           // Prevent checkbox animation and ripple effect on page load
-          animation: checkbox-off $mdb-checkbox-animation-check forwards;
+          animation: checkbox-off $bmd-checkbox-animation-check forwards;
         }
       }
     }
@@ -81,32 +81,32 @@ label.checkbox-inline {
 
       // FIXME: once working - combine further to reduce code
       + .checkbox-decorator .check {
-        color: $mdb-checkbox-checked-color;
-        border-color: $mdb-checkbox-checked-color;
+        color: $bmd-checkbox-checked-color;
+        border-color: $bmd-checkbox-checked-color;
       }
 
       + .checkbox-decorator .check::before {
-        color: $mdb-checkbox-checked-color;
+        color: $bmd-checkbox-checked-color;
         box-shadow: 0 0 0 10px,
         10px -10px 0 10px,
         32px 0 0 20px,
         032px 0 20px,
         -5px 5px 0 10px,
         20px -12px 0 11px;
-        animation: checkbox-on $mdb-checkbox-animation-check forwards;
+        animation: checkbox-on $bmd-checkbox-animation-check forwards;
       }
 
       + .checkbox-decorator::before {
         animation: rippleOn;
         .is-focused & {
           // Prevent checkbox animation and ripple effect on page load
-          animation: rippleOn $mdb-checkbox-animation-ripple;
+          animation: rippleOn $bmd-checkbox-animation-ripple;
         }
       }
 
       + .checkbox-decorator .check::after {
         //background-color: $brand-success; // FIXME: seems like tho wrong color, test and make sure it can be removed
-        animation: rippleOn $mdb-checkbox-animation-ripple forwards; // Ripple effect on check
+        animation: rippleOn $bmd-checkbox-animation-ripple forwards; // Ripple effect on check
       }
     }
 
@@ -115,12 +115,12 @@ label.checkbox-inline {
         animation: rippleOff;
         .is-focused & {
           // Prevent checkbox animation and ripple effect on page load
-          animation: rippleOff $mdb-checkbox-animation-ripple;
+          animation: rippleOff $bmd-checkbox-animation-ripple;
         }
       }
 
       + .checkbox-decorator .check::after {
-        animation: rippleOff $mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
+        animation: rippleOff $bmd-checkbox-animation-ripple forwards; // Ripple effect on uncheck
       }
     }
 
@@ -133,7 +133,7 @@ label.checkbox-inline {
       }
       + .checkbox-decorator .check,
       .check {
-        border-color: $mdb-checkbox-border-color-disabled;
+        border-color: $bmd-checkbox-border-color-disabled;
       }
     }
   }

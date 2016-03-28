@@ -12,7 +12,7 @@ const BootstrapMaterialDesign = (($) => {
    * ------------------------------------------------------------------------
    */
   const NAME = 'bootstrapMaterialDesign'
-  const DATA_KEY = `mdb.${NAME}`
+  const DATA_KEY = `bmd.${NAME}`
   const JQUERY_NAME = NAME // retain this full name since it is long enough not to conflict
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
@@ -129,9 +129,9 @@ const BootstrapMaterialDesign = (($) => {
           // mix in global options
           componentConfig = $.extend(true, {}, this.config.global, componentConfig)
 
-          // create the jquery fn name e.g. 'mdbText' for 'text'
+          // create the jquery fn name e.g. 'bmdText' for 'text'
           let componentName = `${component.charAt(0).toUpperCase() + component.slice(1)}`
-          let jqueryFn = `mdb${componentName}`
+          let jqueryFn = `bmd${componentName}`
 
           try {
             // safely instantiate component on selector elements with config, report errors and move on.

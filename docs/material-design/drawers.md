@@ -302,8 +302,8 @@ The following positioning marker classes should be placed on the `bmd-layout-con
 
 Globally, you may alter the size of _x_ vs _y_ drawers with the following variables:
 
-- `$mdb-drawer-x-size`
-- `$mdb-drawer-y-size`
+- `$bmd-drawer-x-size`
+- `$bmd-drawer-y-size`
 
 
 ### Custom responsive drawer

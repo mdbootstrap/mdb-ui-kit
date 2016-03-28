@@ -121,7 +121,7 @@ class Application {
 $(() => {
   let app = new Application()
   app.displayTypographyProperties()
-  $('.btn-clipboard').mdbRipples()
+  $('.btn-clipboard').bmdRipples()
 
   // FIXME: file inputs seems to be in flux, delete the offending one for now.
   $('#exampleInputFile').closest('.form-group').detach()

@@ -1,30 +1,30 @@
 // Buttons:
-$mdb-btn-font-size: .875rem !default; // 14px
-$mdb-btn-font-size-lg: 1.25rem !default;
-$mdb-btn-font-size-sm: .8125rem !default; // 13px
-$mdb-btn-margin-bottom: .3125rem !default; // 5px
+$bmd-btn-font-size: .875rem !default; // 14px
+$bmd-btn-font-size-lg: 1.25rem !default;
+$bmd-btn-font-size-sm: .8125rem !default; // 13px
+$bmd-btn-margin-bottom: .3125rem !default; // 5px
 
 // default btn with no specific type designation
-$mdb-btn-color:            $gray-dark !default;
-$mdb-btn-bg:               inherit !default; //$body-bg !default; // #fff
-$mdb-btn-border:           #ccc !default;
+$bmd-btn-color:            $gray-dark !default;
+$bmd-btn-bg:               inherit !default; //$body-bg !default; // #fff
+$bmd-btn-border:           #ccc !default;
 
-$mdb-btn-focus-bg: rgba(#999, .20) !default; // spec: bg Hover: 20% #999999
-$mdb-btn-active-bg: rgba(#999, .40) !default; // spec: bg Pressed: 40% #999999
-$mdb-btn-disabled: rgba($black, .26) !default; // spec: light theme: Disabled text: 26% $black
+$bmd-btn-focus-bg: rgba(#999, .20) !default; // spec: bg Hover: 20% #999999
+$bmd-btn-active-bg: rgba(#999, .40) !default; // spec: bg Pressed: 40% #999999
+$bmd-btn-disabled: rgba($black, .26) !default; // spec: light theme: Disabled text: 26% $black
 
-$mdb-inverse-btn-focus-bg: rgba(#ccc, .15) !default; // spec: dark bg Hover: 15% #CCCCCC
-$mdb-inverse-btn-active-bg: rgba(#ccc, .25) !default; // spec: dark Pressed: 25% #CCCCCC
-$mdb-inverse-btn-disabled: rgba($white, .30) !default; // spec: dark theme: Disabled text: 30% $white
+$bmd-inverse-btn-focus-bg: rgba(#ccc, .15) !default; // spec: dark bg Hover: 15% #CCCCCC
+$bmd-inverse-btn-active-bg: rgba(#ccc, .25) !default; // spec: dark Pressed: 25% #CCCCCC
+$bmd-inverse-btn-disabled: rgba($white, .30) !default; // spec: dark theme: Disabled text: 30% $white
 
-$mdb-btn-fab-size: 3.5rem !default; // 56px
-$mdb-btn-fab-size-sm: 2.5rem !default; // 40px
-$mdb-btn-fab-font-size: 1.5rem !default; // 24px
+$bmd-btn-fab-size: 3.5rem !default; // 56px
+$bmd-btn-fab-size-sm: 2.5rem !default; // 40px
+$bmd-btn-fab-font-size: 1.5rem !default; // 24px
 
 // icons
-$mdb-btn-icon-size: 2rem !default; // 32px
-$mdb-btn-icon-size-sm: (.75 * $mdb-btn-icon-size) !default; // ~24px
-$mdb-btn-icon-font-size-sm: (.75 * $mdb-btn-fab-font-size) !default;
+$bmd-btn-icon-size: 2rem !default; // 32px
+$bmd-btn-icon-size-sm: (.75 * $bmd-btn-icon-size) !default; // ~24px
+$bmd-btn-icon-font-size-sm: (.75 * $bmd-btn-fab-font-size) !default;
 
 
 // Buttons

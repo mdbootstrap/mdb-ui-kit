@@ -60,14 +60,14 @@
 
 @mixin bmd-flat-button-variant($color) {
 
-  $background: $mdb-btn-bg;
-  $border: $mdb-btn-border;
+  $background: $bmd-btn-bg;
+  $border: $bmd-btn-border;
 
-  $focus-background: $mdb-btn-focus-bg;
-  $focus-border: $mdb-btn-focus-bg;
+  $focus-background: $bmd-btn-focus-bg;
+  $focus-border: $bmd-btn-focus-bg;
 
-  $active-background: $mdb-btn-active-bg;
-  $active-border: $mdb-btn-active-bg;
+  $active-background: $bmd-btn-active-bg;
+  $active-border: $bmd-btn-active-bg;
 
   @include bmd-button-variant($color,
     $background,
@@ -79,11 +79,11 @@
 
   // inverse color scheme
   .bg-inverse & {
-    $focus-background: $mdb-inverse-btn-focus-bg;
-    $focus-border: $mdb-inverse-btn-focus-bg;
+    $focus-background: $bmd-inverse-btn-focus-bg;
+    $focus-border: $bmd-inverse-btn-focus-bg;
 
-    $active-background: $mdb-inverse-btn-active-bg;
-    $active-border: $mdb-inverse-btn-active-bg;
+    $active-background: $bmd-inverse-btn-active-bg;
+    $active-border: $bmd-inverse-btn-active-bg;
 
     @include bmd-button-variant($color,
       $background,
@@ -102,7 +102,7 @@
 
 @mixin bmd-flat-button-color() {
 
-  @include bmd-flat-button-variant($mdb-btn-color);
+  @include bmd-flat-button-variant($bmd-btn-color);
 
   // flat bg with text color variations
   &.btn-primary {

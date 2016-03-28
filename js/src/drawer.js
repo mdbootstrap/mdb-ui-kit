@@ -8,8 +8,8 @@ const Drawer = (($) => {
    * ------------------------------------------------------------------------
    */
   const NAME = 'drawer'
-  const DATA_KEY = `mdb.${NAME}`
-  const JQUERY_NAME = `mdb${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
+  const DATA_KEY = `bmd.${NAME}`
+  const JQUERY_NAME = `bmd${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Keycodes = {

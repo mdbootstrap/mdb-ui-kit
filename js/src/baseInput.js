@@ -26,7 +26,7 @@ const BaseInput = (($) => {
     formGroup: {
       required: false
     },
-    mdbFormGroup: {
+    bmdFormGroup: {
       template: `<span class='${ClassName.BMD_FORM_GROUP}'></span>`,
       create: true, // create a wrapper if form-group not found
       required: true // not recommended to turn this off, only used for inline components
@@ -36,9 +36,9 @@ const BaseInput = (($) => {
 
       // Prioritized find order for resolving the label to be used as an bmd-label if not specified in the markup
       //  - a function(thisComponent); or
-      //  - a string selector used like $mdbFormGroup.find(selector)
+      //  - a string selector used like $bmdFormGroup.find(selector)
       //
-      // Note this only runs if $mdbFormGroup.find(Selector.BMD_LABEL_WILDCARD) fails to find a label (as authored in the markup)
+      // Note this only runs if $bmdFormGroup.find(Selector.BMD_LABEL_WILDCARD) fails to find a label (as authored in the markup)
       //
       selectors: [
         `.form-control-label`, // in the case of horizontal or inline forms, this will be marked
@@ -88,10 +88,10 @@ const BaseInput = (($) => {
       // Will add bmd-form-group to form-group or create an bmd-form-group
       //  Performance Note: for those forms that are really performance driven, create the markup with the .bmd-form-group to avoid
       //    rendering changes once added.
-      this.$mdbFormGroup = this.resolveMdbFormGroup()
+      this.$bmdFormGroup = this.resolveMdbFormGroup()
 
-      // Resolve and mark the mdbLabel if necessary as defined by the config
-      this.$mdbLabel = this.resolveMdbLabel()
+      // Resolve and mark the bmdLabel if necessary as defined by the config
+      this.$bmdLabel = this.resolveMdbLabel()
 
       // Signal to the bmd-form-group that a form-control-* variation is being used
       this.resolveMdbFormGroupSizing()
@@ -102,7 +102,7 @@ const BaseInput = (($) => {
 
     dispose(dataKey) {
       super.dispose(dataKey)
-      this.$mdbFormGroup = null
+      this.$bmdFormGroup = null
       this.$formGroup = null
     }
 
@@ -158,11 +158,11 @@ const BaseInput = (($) => {
     }
 
     addHasDanger() {
-      this.$mdbFormGroup.addClass(ClassName.HAS_DANGER)
+      this.$bmdFormGroup.addClass(ClassName.HAS_DANGER)
     }
 
     removeHasDanger() {
-      this.$mdbFormGroup.removeClass(ClassName.HAS_DANGER)
+      this.$bmdFormGroup.removeClass(ClassName.HAS_DANGER)
     }
 
     isEmpty() {
@@ -173,20 +173,20 @@ const BaseInput = (($) => {
     resolveMdbFormGroup() {
       let mfg = this.findMdbFormGroup(false)
       if (mfg === undefined || mfg.length === 0) {
-        if (this.config.mdbFormGroup.create && (this.$formGroup === undefined || this.$formGroup.length === 0)) {
+        if (this.config.bmdFormGroup.create && (this.$formGroup === undefined || this.$formGroup.length === 0)) {
           // If a form-group doesn't exist (not recommended), take a guess and wrap the element (assuming no label).
           //  note: it's possible to make this smarter, but I need to see valid cases before adding any complexity.
-          this.outerElement().wrap(this.config.mdbFormGroup.template)
+          this.outerElement().wrap(this.config.bmdFormGroup.template)
         } else {
           // a form-group does exist, add our marker class to it
           this.$formGroup.addClass(ClassName.BMD_FORM_GROUP)
 
           // OLD: may want to implement this after all, see how the styling turns out, but using an existing form-group is less manipulation of the dom and therefore preferable
           // A form-group does exist, so add an bmd-form-group wrapping it's internal contents
-          //fg.wrapInner(this.config.mdbFormGroup.template)
+          //fg.wrapInner(this.config.bmdFormGroup.template)
         }
 
-        mfg = this.findMdbFormGroup(this.config.mdbFormGroup.required)
+        mfg = this.findMdbFormGroup(this.config.bmdFormGroup.required)
       }
 
       return mfg
@@ -201,7 +201,7 @@ const BaseInput = (($) => {
     // Will add bmd-label to bmd-form-group if not already specified
     resolveMdbLabel() {
 
-      let label = this.$mdbFormGroup.find(Selector.BMD_LABEL_WILDCARD)
+      let label = this.$bmdFormGroup.find(Selector.BMD_LABEL_WILDCARD)
       if (label === undefined || label.length === 0) {
         // we need to find it based on the configured selectors
         label = this.findMdbLabel(this.config.label.required)
@@ -226,7 +226,7 @@ const BaseInput = (($) => {
         if ($.isFunction(selector)) {
           label = selector(this)
         } else {
-          label = this.$mdbFormGroup.find(selector)
+          label = this.$bmdFormGroup.find(selector)
         }
 
         if (label !== undefined && label.length > 0) {
@@ -260,7 +260,7 @@ const BaseInput = (($) => {
       for (let inputSize in FormControlSizeMarkers) {
         if (this.$element.hasClass(inputSize)) {
           //this.$element.removeClass(inputSize)
-          this.$mdbFormGroup.addClass(FormControlSizeMarkers[inputSize])
+          this.$bmdFormGroup.addClass(FormControlSizeMarkers[inputSize])
         }
       }
     }

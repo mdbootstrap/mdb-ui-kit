@@ -15,18 +15,18 @@
   .switch label {
 
     // override bootstrap focus and keep all the standard color (could be multiple radios in the form group)
-    //color: $mdb-label-color;
+    //color: $bmd-label-color;
 
     &,
     .is-focused & {
       // form-group focus could change multiple checkboxes/radios, disable that change by using the same color as non-form-group is-focused
-      color: $mdb-label-color;
+      color: $bmd-label-color;
 
       // on focus just darken the specific labels, do not turn them to the brand-primary
       @include hover-focus-active() {
         //&:hover,
         //&:focus {
-        color: $mdb-label-color-inner-focus;
+        color: $bmd-label-color-inner-focus;
       }
 
       // correct the above focus color for disabled items
@@ -36,7 +36,7 @@
         &,
         &:hover,
         &:focus {
-          color: $mdb-label-color;
+          color: $bmd-label-color;
         }
       }
     }
@@ -130,7 +130,7 @@
     }
 
     .bmd-help {
-      color: $mdb-label-color-inner-focus;
+      color: $bmd-label-color-inner-focus;
     }
   }
 }
@@ -146,8 +146,8 @@
 @mixin bmd-form-size-variant($font-size, $label-top-margin, $variant-padding-y, $variant-line-height, $form-group-context: null) {
 
   $variant-input-height: (($font-size * $variant-line-height) + ($variant-padding-y * 2));
-  $static-font-size: ($mdb-bmd-label-static-size-ratio * $font-size);
-  $help-font-size: ($mdb-help-size-ratio * $font-size);
+  $static-font-size: ($bmd-bmd-label-static-size-ratio * $font-size);
+  $help-font-size: ($bmd-help-size-ratio * $font-size);
 
   $label-static-top: $label-top-margin;
   $label-placeholder-top: $label-top-margin + $static-font-size + $variant-padding-y;
@@ -247,19 +247,19 @@
     &.form-control-warning,
     &.form-control-danger {
       $icon-bg-size: ($variant-input-height * .5) ($variant-input-height * .5);
-      background-size: $mdb-form-control-bg-size, $icon-bg-size;
+      background-size: $bmd-form-control-bg-size, $icon-bg-size;
 
       &,
       &:focus,
       .bmd-form-group.is-focused & {
         padding-right: ($input-padding-x * 3);
-        background-repeat: $mdb-form-control-bg-repeat-y, no-repeat;
-        background-position: $mdb-form-control-bg-position, center right ($variant-input-height * .25);
+        background-repeat: $bmd-form-control-bg-repeat-y, no-repeat;
+        background-position: $bmd-form-control-bg-position, center right ($variant-input-height * .25);
       }
 
       &:focus,
       .bmd-form-group.is-focused & {
-        background-size: $mdb-form-control-bg-size-active, $icon-bg-size;
+        background-size: $bmd-form-control-bg-size-active, $icon-bg-size;
       }
     }
   }
