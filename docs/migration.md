@@ -27,7 +27,7 @@ Here are the big ticket items you'll want to be aware of when moving from BMD v3
 ### Global changes
 
 - Switched from [Less](http://lesscss.org/) to [SCSS](http://sass-lang.com/) for our source CSS files.
-- No longer a theme that overrides Bootstrap, instead it is a full customization of Bootstrap.
+- Full customization of Bootstrap, no longer a theme that overrides Bootstrap.  **DO NOT** include Bootstrap CSS or Javascript in your page, see [getting started](../getting-started/introduction#quick-start).
 - Switched from `px` to `rem` as our primary CSS unit.
 - Global font-size increased from `14px` to `16px`.
 - Switched Javascript to ES6 classes

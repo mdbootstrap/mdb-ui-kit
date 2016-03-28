@@ -21,6 +21,10 @@ Looking to quickly add Material Design for Bootstrap to your project? Use the Ma
 provided for free by the folks at MaxCDN. Using a package manager or need to download the source files? 
 [Head to the downloads page.]({{ site.baseurl }}/getting-started/download)
 
+{% callout info %}
+**Heads up!** DO NOT include Bootstrap CSS or Javascript, it is bundled with BMD.
+{% endcallout %}
+
 Copy-paste the font and stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
 
 {% highlight html %}
