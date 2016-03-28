@@ -6,5 +6,13 @@ scss:
 javascript:
   enabled: false
 
+eslint:
+  enabled: true
+  config_file: .eslintrc
+
+jscs:
+  enabled: true
+  config_file: js/.jscsrc
+
 ruby:
   enabled: false

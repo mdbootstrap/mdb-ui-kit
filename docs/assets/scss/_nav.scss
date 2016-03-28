@@ -5,8 +5,6 @@
 //
 
 .bd-navbar {
-  font-size: 87.5%; // 14px
-
   .navbar-nav {
     .nav-link {
       color: $bd-graphite-light;
@@ -19,7 +17,8 @@
       }
 
       &.active {
-        color: darken($gray-dark, 25%);
+        font-weight: 500;
+        color: darken($gray-dark, 15%);
       }
     }
   }

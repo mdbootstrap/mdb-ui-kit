@@ -25,6 +25,10 @@ restrictions:
 
 * Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
+  
+* Please **do not** post comments consisting solely of "+1" or ":thumbsup:".
+  Use [GitHub's "reactions" feature](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments) 
+  instead. We reserve the right to delete comments which violate this rule.  
 
 * Please **do not** open issues or pull requests regarding the code in dependencies such as:
   [`Bootstrap`](https://github.com/twbs/bootstrap) (open them in their respective repositories).
