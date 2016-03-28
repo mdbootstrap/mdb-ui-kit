@@ -10,7 +10,6 @@ language: node_js
 git:
   depth: 10
 node_js:
-  - "4"
   - "5"
 before_install:
   # Remove ./node_modules/.bin from PATH so node-which doesn't replace Unix which and cause RVM to barf. See https://github.com/travis-ci/travis-ci/issues/5092
@@ -19,11 +18,11 @@ before_install:
   - rvm install 2.2.2
   - rvm use 2.2.2 --fuzzy
   - export GEMDIR=$(rvm gemdir)
-  - npm install -g npm@3
+  - npm install -g npm
   - "export TRAVIS_COMMIT_MSG=\"$(git log --format=%B --no-merges -n 1)\""
-  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip validator\]'; export MDB_DO_VALIDATOR=$?; true
-  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip sauce\]'; export MDB_DO_SAUCE=$?; true
-#  - if [ "$TRAVIS_REPO_SLUG" = twbs-savage/bootstrap ]; then export MDB_DO_VALIDATOR=0; fi
+  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip validator\]'; export BMD_DO_VALIDATOR=$?; true
+  - echo "$TRAVIS_COMMIT_MSG" | grep '\[skip sauce\]'; export BMD_DO_SAUCE=$?; true
+#  - if [ "$TRAVIS_REPO_SLUG" = twbs-savage/bootstrap ]; then export BMD_DO_VALIDATOR=0; fi
 
 install:
   - bundle install --deployment --jobs=3
@@ -40,14 +39,14 @@ addons:
 
 env:
   matrix:
-    - MDB_TEST=core
-    - MDB_TEST=validate-html
-    - MDB_TEST=sauce-js-unit
+    - BMD_TEST=core
+    - BMD_TEST=validate-html
+    - BMD_TEST=sauce-js-unit
 
 matrix:
   fast_finish: true
   exclude:
     - node_js: "4"
-      env: MDB_TEST=validate-html
+      env: BMD_TEST=validate-html
     - node_js: "4"
-      env: MDB_TEST=sauce-js-unit
+      env: BMD_TEST=sauce-js-unit
