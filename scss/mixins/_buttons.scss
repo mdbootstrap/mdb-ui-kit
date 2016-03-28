@@ -10,16 +10,16 @@
     border-color: $focus-border;
   }
 
-  &:focus,
-  &.focus {
+  #{if(&, "&", "*")}:focus,
+  #{if(&, "&", "*")}.focus {
     color: $color;
     background-color: $focus-background;
     border-color: $focus-border;
   }
 
-  &:active,
-  &.active,
-  .open > &.dropdown-toggle {
+  #{if(&, "&", "*")}:active,
+  #{if(&, "&", "*")}.active,
+  .open > #{if(&, "&", "*")}.dropdown-toggle {
     color: $color;
     background-color: $focus-background;
     border-color: $focus-border;
@@ -34,7 +34,7 @@
   }
 
   // when it is an icon, kill the active bg on open dropdown, but stabilize on hover
-  .open > &.dropdown-toggle.bmd-btn-icon {
+  .open > #{if(&, "&", "*")}.dropdown-toggle.bmd-btn-icon {
     color: inherit;
     background-color: $background;
 
@@ -44,8 +44,8 @@
     }
   }
 
-  &.disabled,
-  &:disabled {
+  #{if(&, "&", "*")}.disabled,
+  #{if(&, "&", "*")}:disabled {
     &:focus,
     &.focus {
       background-color: $background;
@@ -78,7 +78,7 @@
     $active-border);
 
   // inverse color scheme
-  .bg-inverse & {
+  .bg-inverse #{if(&, "&", "*")} {
     $focus-background: $mdb-inverse-btn-focus-bg;
     $focus-border: $mdb-inverse-btn-focus-bg;
 
@@ -95,7 +95,7 @@
   }
 
   // reverse the above for links
-  &.btn-link {
+  #{if(&, "&", "*")}.btn-link {
     background-color: transparent;
   }
 }
@@ -105,22 +105,22 @@
   @include bmd-flat-button-variant($mdb-btn-color);
 
   // flat bg with text color variations
-  &.btn-primary {
+  #{if(&, "&", "*")}.btn-primary {
     @include bmd-flat-button-variant($btn-primary-bg);
   }
-  &.btn-secondary {
+  #{if(&, "&", "*")}.btn-secondary {
     @include bmd-flat-button-variant($btn-secondary-color);
   }
-  &.btn-info {
+  #{if(&, "&", "*")}.btn-info {
     @include bmd-flat-button-variant($btn-info-bg);
   }
-  &.btn-success {
+  #{if(&, "&", "*")}.btn-success {
     @include bmd-flat-button-variant($btn-success-bg);
   }
-  &.btn-warning {
+  #{if(&, "&", "*")}.btn-warning {
     @include bmd-flat-button-variant($btn-warning-bg);
   }
-  &.btn-danger {
+  #{if(&, "&", "*")}.btn-danger {
     @include bmd-flat-button-variant($btn-danger-bg);
   }
 }
@@ -147,31 +147,31 @@
 
 @mixin bmd-raised-button-color() {
 
-  &.btn-primary {
+  #{if(&, "&", "*")}.btn-primary {
     @include bmd-raised-button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
   }
-  &.btn-secondary {
+  #{if(&, "&", "*")}.btn-secondary {
     @include bmd-raised-button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
   }
-  &.btn-info {
+  #{if(&, "&", "*")}.btn-info {
     @include bmd-raised-button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
   }
-  &.btn-success {
+  #{if(&, "&", "*")}.btn-success {
     @include bmd-raised-button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
   }
-  &.btn-warning {
+  #{if(&, "&", "*")}.btn-warning {
     @include bmd-raised-button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
   }
-  &.btn-danger {
+  #{if(&, "&", "*")}.btn-danger {
     @include bmd-raised-button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
   }
 }
 
 @mixin undo-bs-tab-focus() {
   // clear out the tab-focus() from BS
-  &,
-  &:active,
-  &.active {
+  #{if(&, "&", "*")},
+  #{if(&, "&", "*")}:active,
+  #{if(&, "&", "*")}.active {
     &:focus,
     &.focus {
       //@include tab-focus();
