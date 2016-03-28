@@ -2,7 +2,7 @@
 
 @mixin bmd-drawer-x-out($size) {
   @each $side, $abbrev in (left: l, right: r) {
-    &.bmd-drawer-f-#{$abbrev} {
+    #{if(&, "&", "*")}.bmd-drawer-f-#{$abbrev} {
       > .bmd-layout-drawer {
         // position
         top: 0;
@@ -28,7 +28,7 @@
 
 @mixin bmd-drawer-y-out($size) {
   @each $side, $abbrev in (top: t, bottom: b) {
-    &.bmd-drawer-f-#{$abbrev} {
+    #{if(&, "&", "*")}.bmd-drawer-f-#{$abbrev} {
       > .bmd-layout-drawer {
         // position
         #{$side}: 0;
@@ -62,7 +62,7 @@
 
 @mixin bmd-drawer-x-in($size) {
   @each $side, $abbrev in (left: l, right: r) {
-    &.bmd-drawer-f-#{$abbrev} {
+    #{if(&, "&", "*")}.bmd-drawer-f-#{$abbrev} {
       // Push - drawer will push the header and content (default behavior)
       > .bmd-layout-header {
         width: calc(100% - #{$size});
@@ -82,7 +82,7 @@
 
 @mixin bmd-drawer-y-in($size) {
   @each $side, $abbrev in (top: t, bottom: b) {
-    &.bmd-drawer-f-#{$abbrev} {
+    #{if(&, "&", "*")}.bmd-drawer-f-#{$abbrev} {
 
       // 1. Push - drawer will push the header or content
       > .bmd-layout-header {
@@ -109,7 +109,7 @@
   // e.g. &, &-sm, &-md, &-lg
   $name: bmd-drawer-breakpoint-name($breakpoint, "-up");
 
-  &.bmd-drawer-in {
+  #{if(&, "&", "*")}.bmd-drawer-in {
     #{unquote($name)} { // bmd-drawer-in, bmd-drawer-in-sm, bmd-drawer-in-md, bmd-drawer-in-lg
 
       @if $breakpoint == xs {
@@ -132,7 +132,7 @@
   // e.g. &, &-sm, &-md, &-lg
   $name: bmd-drawer-breakpoint-name($breakpoint, "-up");
 
-  &.bmd-drawer-in {
+  #{if(&, "&", "*")}.bmd-drawer-in {
     #{unquote($name)} { // bmd-drawer-in, bmd-drawer-in-sm, bmd-drawer-in-md, bmd-drawer-in-lg
 
       @if $breakpoint == xs {
@@ -154,7 +154,7 @@
   @include bmd-layout-backdrop-in();
 
   @each $side, $abbrev in (left: l, right: r) {
-    &.bmd-drawer-f-#{$abbrev} {
+    #{if(&, "&", "*")}.bmd-drawer-f-#{$abbrev} {
       > .bmd-layout-header,
       > .bmd-layout-content {
         width: 100%;
@@ -168,7 +168,7 @@
   @include bmd-layout-backdrop-in();
 
   @each $side, $abbrev in (top: t, bottom: b) {
-    &.bmd-drawer-f-#{$abbrev} {
+    #{if(&, "&", "*")}.bmd-drawer-f-#{$abbrev} {
       > .bmd-layout-header {
         @if $side == top { // only add margin-top on a header when the drawer is at the top
           margin-#{$side}: 0;
@@ -189,7 +189,7 @@
   // e.g. &, &-sm, &-md, &-lg
   $name: bmd-drawer-breakpoint-name($breakpoint, "-down");
 
-  &.bmd-drawer-overlay {
+  #{if(&, "&", "*")}.bmd-drawer-overlay {
     #{unquote($name)} { // bmd-drawer-overlay, bmd-drawer-overlay-sm, bmd-drawer-overlay-md, bmd-drawer-overlay-lg
 
       // x - left/right
@@ -215,7 +215,7 @@
   // e.g. &, &-sm, &-md, &-lg
   $name: bmd-drawer-breakpoint-name($breakpoint, "-down");
 
-  &.bmd-drawer-overlay {
+  #{if(&, "&", "*")}.bmd-drawer-overlay {
     #{unquote($name)} { // bmd-drawer-overlay, bmd-drawer-overlay-sm, bmd-drawer-overlay-md, bmd-drawer-overlay-lg
       //// y - top/bottom
 
