@@ -90,14 +90,11 @@ export default function (gulp, corePreset, options) {
     prefix)
 
   const defaultRecipes = new Aggregate(gulp, 'default',
-    series(gulp,
-      new Clean(gulp, preset, prefix),
-      parallel(gulp,
-        css,
-        js
-      )
+    parallel(gulp,
+      css,
+      js
     ),
-    prefix)
+    prefix, {debug: false})
 
   // docs copy
   new Aggregate(gulp, 'copy:bs-docs',

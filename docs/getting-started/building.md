@@ -27,9 +27,10 @@ Our gulpfile includes the many tasks you can view with `gulp --tasks`, here are 
 
 | Task | Description |
 | --- | --- |
-| `gulp publish` | Run everything, publish dist, npm, and gh-pages |
-| `gulp` | `gulp` runs the `default` task that builds all core files to the `dist` directory |
+| `gulp` | runs the `default` task that builds all core files to the `dist` directory |
 | `gulp docs:default` | creates all the `docs/dist` files needed to support the documentation |
+| `gulp all` | runs the `default` and `docs:default` tasks |
+| `gulp publish` | Run all, publish dist, npm, and gh-pages |
 
 
 ## Local documentation

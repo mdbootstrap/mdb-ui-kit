@@ -125,8 +125,8 @@ const defaultRecipes = new Aggregate(gulp, 'default', series(gulp,
 let docsDefaultRecipes = gulpDocs(gulp, preset, {rollupConfig: rollupConfig})
 
 
-// build - both core and docs
-const build = new Aggregate(gulp, 'build',
+// all - both core and docs
+const all = new Aggregate(gulp, 'all',
   parallel(gulp,
     defaultRecipes,
     docsDefaultRecipes
@@ -139,12 +139,12 @@ new Aggregate(gulp, 'publish',
   series(gulp,
     new Prepublish(gulp, preset),   // asserts committed
 
-    build,
+    all,
 
     // ^^^docs:default cleans docs/dist, so we need to re-copy dist to docs in this scenario
     parallel(gulp, copyCssToDocs, copyJsToDocs),
 
-    new Jekyll(gulp, preset, {debug: true, options: {raw: 'baseurl: "/bootstrap-material-design"'}}),
+    new Jekyll(gulp, preset, {options: {raw: 'baseurl: "/bootstrap-material-design"'}}),
 
     new PublishBuild(gulp, preset, {
       npm: {
@@ -154,7 +154,6 @@ new Aggregate(gulp, 'publish',
     }),
 
     new PublishGhPages(gulp, preset, {
-      debug: true,
       options: {
         remote: {
           repo: 'git@github.com:rosskevin/bootstrap-material-design.git' // FIXME: temporary, remove this option when we are deploying to our home repo
