@@ -1,4 +1,4 @@
-import {Preset, Clean, Copy, Jekyll, CssNano, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, parallel, series} from 'gulp-pipeline'
+import {Preset, Clean, CleanStylesheets, CleanJavascripts, Copy, Jekyll, CssNano, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, parallel, series} from 'gulp-pipeline'
 
 // since we are using a docs cwd, we need to grap the source path to watch both docs js and core js
 import findup from 'findup-sync'
@@ -50,6 +50,7 @@ export default function (gulp, corePreset, options) {
   const js = new Aggregate(gulp, 'js',
     series(gulp,
       parallel(gulp,
+        new CleanJavascripts(gulp, preset, prefix, {task: false}), // just here to trigger jekyll refresh
         new EsLint(gulp, preset, prefix),
         new EsLint(gulp, corePreset, {task: false}) // lint the core as well - easier for development
       ),
@@ -76,6 +77,7 @@ export default function (gulp, corePreset, options) {
   const css = new Aggregate(gulp, 'css',
     series(gulp,
       parallel(gulp,
+        new CleanStylesheets(gulp, preset, prefix, {task: false}), // just here to trigger jekyll refresh
         new ScssLint(gulp, preset, prefix, {
           source: {glob: ['**/*.scss', '!docs.scss']},
           watch: {glob: ['**/*.scss', '!docs.scss']}
