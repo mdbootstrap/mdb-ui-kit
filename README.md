@@ -112,7 +112,7 @@ There are 17 color variations (in addition to the classic 4 variations) describe
 
 If you are using the static css files, you may want to use your own color variation.  To do so:
 
-1. Download the source or obtain the source with bower
+1. `npm install && bower install` (alternatively you may download the source, but using npm and bower is recommended)
 2. Edit the `less/_variables.less` file and alter the color variables.  You are most likely interested in altering `@brand-primary`.  For a list of material design color palette variables, refer to `less/_colors.less`
 
     ```less
