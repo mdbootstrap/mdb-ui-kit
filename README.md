@@ -2,9 +2,7 @@
 
 ## **WARNING:** These docs relate to the next major release and integration with bootstrap V4.
 
-[![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
 [![gratipay](https://img.shields.io/gratipay/FezVrasta.svg)](https://gratipay.com/FezVrasta)
-[![Bower version](https://badge.fury.io/bo/bootstrap-material-design.svg)](https://github.com/FezVrasta/bootstrap-material-design)
 
 
 Bootstrap Material Design is the best way to use [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) 
