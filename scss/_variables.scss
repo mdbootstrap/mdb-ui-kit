@@ -2,7 +2,7 @@
 @import "variables/colors";
 @import "variables/shadow";
 
-// redefine ? TODO: do we need this mdb variant?  This is used as $body-color
+// redefine ? TODO: do we need this bmd variant?  This is used as $body-color
 $gray-lighter: rgba($black, 0.12) !default;
 $gray-light: rgba($black, 0.26) !default;
 $gray: rgba($black, .54) !default; // spec color
@@ -56,7 +56,7 @@ $icon-color: rgba($black, 0.5) !default;
 
 //---
 // FIXME: Similar but not quite the same as Bootstrap variables
-// FIXME: these need to either a) be converted to $mdb- or b) converted to bs variables
+// FIXME: these need to either a) be converted to $bmd- or b) converted to bs variables
 //---
 
 // --------------------
@@ -64,7 +64,7 @@ $icon-color: rgba($black, 0.5) !default;
 $mdb-bmd-label-static-size-ratio: 75 / 100 !default;
 $mdb-help-size-ratio: 75 / 100 !default;
 
-//$mdb-form-control-bg-repeat-y: repeat-y !default; // it could work with no-repeat, but on Safari it's bugged and repeat-y is needed, but repeat-y is bugged on the warning icon.
+//$bmd-form-control-bg-repeat-y: repeat-y !default; // it could work with no-repeat, but on Safari it's bugged and repeat-y is needed, but repeat-y is bugged on the warning icon.
 $mdb-form-control-bg-repeat-y: no-repeat !default;
 $mdb-form-control-bg-position: center bottom, center calc(100% - 1px) !default;
 $mdb-form-control-bg-size: 0 100%, 100% 100% !default;

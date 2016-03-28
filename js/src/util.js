@@ -21,7 +21,7 @@ const Util = (() => {
       return false
     }
 
-    let el = document.createElement('mdb')
+    let el = document.createElement('bmd')
 
     for (let name in TransitionEndEvent) {
       if (el.style[name] !== undefined) {

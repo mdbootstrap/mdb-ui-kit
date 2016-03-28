@@ -1,6 +1,6 @@
 // specification: https://www.google.com/design/spec/components/buttons.html
 
-// mdb default buttons are flat by default
+// bmd default buttons are flat by default
 .btn {
   position: relative;
   margin-bottom: $mdb-btn-margin-bottom; // just enough room so that focus shadows aren't covered up
@@ -114,8 +114,8 @@
       //margin: 1px; // use z-index focus/hover/active instead. This is not called for in the spec, but it ensures room for the box-shadow, which is nice to have.
 
       //.material-icons {
-      //  top: ($mdb-btn-icon-size-sm - $mdb-btn-fab-font-size) / 2;
-      //  left: ($mdb-btn-icon-size-sm - $mdb-btn-fab-font-size) / 2;
+      //  top: ($bmd-btn-icon-size-sm - $bmd-btn-fab-font-size) / 2;
+      //  left: ($bmd-btn-icon-size-sm - $bmd-btn-fab-font-size) / 2;
       //}
     }
   }
@@ -135,7 +135,7 @@
       height: $mdb-btn-icon-size-sm;
 
       .material-icons {
-        //$position: ($mdb-btn-icon-size-sm - $mdb-btn-icon-font-size-sm) / 2;
+        //$position: ($bmd-btn-icon-size-sm - $bmd-btn-icon-font-size-sm) / 2;
         //top: $position;
         //left: $position;
         width: $mdb-btn-icon-font-size-sm;

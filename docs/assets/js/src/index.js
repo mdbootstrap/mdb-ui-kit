@@ -2,7 +2,7 @@ import Style from './style'
 import Clipboard from 'clipboard'
 import anchors from 'anchor-js'
 
-// import all the mdb code
+// import all the bmd code
 import '../../../../js/src/index' // eslint-disable-line no-unused-vars
 
 class Application {
