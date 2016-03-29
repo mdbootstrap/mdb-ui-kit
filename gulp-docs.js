@@ -52,7 +52,7 @@ export default function (gulp, corePreset, options) {
       parallel(gulp,
         new CleanJavascripts(gulp, preset, prefix, {task: false}), // just here to trigger jekyll refresh
         new EsLint(gulp, preset, prefix),
-        new EsLint(gulp, corePreset, {task: false}) // lint the core as well - easier for development
+        new EsLint(gulp, corePreset, {task: false}) // lint the core as well - easier for development - and adds watch
       ),
       parallel(gulp,
         new RollupIife(gulp, preset, prefix, options.rollupConfig, {
@@ -82,7 +82,7 @@ export default function (gulp, corePreset, options) {
           source: {glob: ['**/*.scss', '!docs.scss']},
           watch: {glob: ['**/*.scss', '!docs.scss']}
         }),
-        new ScssLint(gulp, corePreset, {task: false}) // lint the core as well - easier for development
+        new ScssLint(gulp, corePreset, {task: false}) // lint the core as well - easier for development - and adds watch
       ),
       new Sass(gulp, preset, prefix),
       new CssNano(gulp, preset, prefix)
