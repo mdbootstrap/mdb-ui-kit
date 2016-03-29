@@ -23,7 +23,7 @@
   "style": "dist/css/bootstrap-material-design.css",
   "sass": "scss/_core.scss",
   "main": "dist/bootstrap-material-design.umd.js",
-  "jsnext:main": "dist/bootstrap-material-design.es.js",
+  "jsnext:main": "js/src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/FezVrasta/bootstrap-material-design.git"
