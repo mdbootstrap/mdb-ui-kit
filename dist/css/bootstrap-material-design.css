@@ -1621,6 +1621,7 @@ output {
 }
 .label {
   border-radius: 1px;
+  padding: .3em .6em;
 }
 .label,
 .label.label-default {
@@ -1847,7 +1848,6 @@ label {
 label.control-label {
   font-size: 12px;
   line-height: 1.07142857;
-  color: #BDBDBD;
   font-weight: 400;
   margin: 16px 0 0 0;
 }
@@ -1891,7 +1891,6 @@ label.control-label {
 .form-group label.control-label {
   font-size: 12px;
   line-height: 1.07142857;
-  color: #BDBDBD;
   font-weight: 400;
   margin: 16px 0 0 0;
 }
@@ -1955,7 +1954,6 @@ label.control-label {
 .form-group.form-group-sm label.control-label {
   font-size: 9px;
   line-height: 1.125;
-  color: #BDBDBD;
   font-weight: 400;
   margin: 16px 0 0 0;
 }
@@ -2019,7 +2017,6 @@ label.control-label {
 .form-group.form-group-lg label.control-label {
   font-size: 14px;
   line-height: 0.99999998;
-  color: #BDBDBD;
   font-weight: 400;
   margin: 16px 0 0 0;
 }
