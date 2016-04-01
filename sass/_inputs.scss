@@ -6,6 +6,7 @@
 .label {
   border-radius: $border-radius-small;
   @include variations(unquote(".label"), unquote(""), background-color, $grey);
+  padding: .3em .6em; // Make top & bottom .label padding the same: https://github.com/twbs/bootstrap/pull/19631
 }
 
 // must be broken out for reuse - webkit selector breaks firefox
@@ -47,7 +48,6 @@
   label.control-label {
     font-size: $static-font-size;
     line-height: $static-line-height;
-    color: $mdb-input-placeholder-color;
     font-weight: 400;
     margin: 16px 0 0 0; // std and lg
   }
@@ -352,4 +352,3 @@ select.form-control {
   height: 100%;
   z-index: 100;
 }
-
