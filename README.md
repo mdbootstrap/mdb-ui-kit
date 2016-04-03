@@ -51,6 +51,8 @@ For transparency into our release cycle and in striving to maintain backward com
 See [the Releases section of our GitHub project](https://github.com/fezvrasta/bootstrap-material-design/releases) for changelogs 
 of each release version. 
 
+## Examples
+ - [Material Design for Bootstrap Style guide](https://github.com/bassjobsen/bootstrap-material-design-styleguide) basic starter style guide for Material Design for Bootstrap and Bootstrap 4. 
 
 ## License
 [MIT License](LICENSE.md) 
