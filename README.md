@@ -16,7 +16,7 @@ NOTE: this is a temporary site location that will be published in at http://fezv
 
 - [Getting Started](http://rosskevin.github.io/bootstrap-material-design/getting-started/introduction/)
 - [Building](http://rosskevin.github.io/bootstrap-material-design/getting-started/building/)
-- [Material Design components](http://rosskevin.github.io/bootstrap-material-design/material-design/list-group/)
+- [Material Design components](http://rosskevin.github.io/bootstrap-material-design/material-design/list-groups/)
 - [Bootstrap default rendering reference documentation](http://rosskevin.github.io/bootstrap-material-design/components/buttons/)
 - [Migration](http://rosskevin.github.io/bootstrap-material-design/migration/)
 
