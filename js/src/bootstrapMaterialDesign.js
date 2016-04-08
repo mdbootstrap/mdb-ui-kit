@@ -79,7 +79,7 @@ const BootstrapMaterialDesign = (($) => {
     },
     text: {
       // omit inputs we have specialized components to handle - we need to match text, email, etc.  The easiest way to do this appears to be just omit the ones we don't want to match and let the rest fall through to this.
-      selector: [`input[type!='hidden'][type!='checkbox'][type!='radio'][type!='file'][type!='button'][type!='submit'][type!='reset']`]
+      selector: [`input:not([type=hidden]):not([type=checkbox]):not([type=radio]):not([type=file]):not([type=button]):not([type=submit]):not([type=reset])`]
     },
     textarea: {
       selector: ['textarea']
@@ -140,8 +140,8 @@ const BootstrapMaterialDesign = (($) => {
 
             // add to arrive if present and enabled
             if (document.arrive && this.config.arrive) {
-              $document.arrive(selector, (element) => {  // eslint-disable-line no-loop-func
-                $(element)[jqueryFn](componentConfig)
+              $document.arrive(selector, function(){  // eslint-disable-line no-loop-func
+                $(this)[jqueryFn](componentConfig)
               })
             }
           } catch (e) {
