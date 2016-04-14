@@ -78,7 +78,7 @@ If you like this project you may support it by donating via Gittip, starring thi
 ## Development
 
 We are using Grunt to automate the workflow and build process. Ensure you have nodejs installed and grunt-cli installed globally.
-After cloning the repo, run `npm install` to ensure you have all dev dependencies.
+After cloning the repo, run `npm install && bower install` to ensure you have all dev dependencies.
 
 ### Grunt
 
