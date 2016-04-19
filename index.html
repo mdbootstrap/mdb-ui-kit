@@ -50,7 +50,7 @@
       <ul>
         <li class="active withripple" data-target="#about">Material Design for Bootstrap</li>
         <li class="withripple" data-target="#getting-started">Getting Started</li>
-        <li><a href="bootstrap-elements.html" target="_blank">Bootstrap elements <i class="mdi-action-open-in-new"></i></a>
+        <li><a href="bootstrap-elements.html" target="_blank">Bootstrap elements <i class="material-icons">open_in_new</i></a>
         </li>
         <li class="withripple" data-target="#checkbox">Checkbox</li>
         <li class="withripple" data-target="#radio-button">Radio Button</li>
@@ -880,7 +880,7 @@
         </div>
         <div class="col-xs-2">
           <button type="button" class="btn btn-fab btn-material-grey-200 opensource">
-            <i class="mdi-action-open-in-new"></i>
+            <i class="material-icons">open_in_new</i>
           </button>
         </div>
       </div>
@@ -1009,7 +1009,7 @@
     return lines;
   }
 
-  $("#opensource").click(function () {
+  $(".opensource").click(function () {
     $.get(window.location.href, function (data) {
       var html = $(data).find(window.page).html();
       html = cleanSource(html);
