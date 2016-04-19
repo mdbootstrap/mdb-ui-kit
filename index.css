@@ -86,6 +86,7 @@
     display: none;
     opacity: 0;
     font-size: 16px;
+    margin-left: 1em;
 }
 
 .page.active {
