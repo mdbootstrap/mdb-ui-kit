@@ -155,9 +155,6 @@
             $formGroup.addClass("is-empty");
           }
 
-          // Add at the end of the form-group
-          $formGroup.append("<span class='material-input'></span>");
-
           // Support for file input
           if ($formGroup.find("input[type=file]").length > 0) {
             $formGroup.addClass("is-fileinput");
