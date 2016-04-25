@@ -14,12 +14,8 @@
     if (typeof evt.which == "undefined") {
       return true;
     } else if (typeof evt.which == "number" && evt.which > 0) {
-      return (
-        !evt.ctrlKey
-        && !evt.metaKey
-        && !evt.altKey
-        && evt.which != 8  // backspace
-        && evt.which != 9  // tab
+      return (!evt.ctrlKey && !evt.metaKey && !evt.altKey && evt.which != 8 // backspace
+        && evt.which != 9 // tab
         && evt.which != 13 // enter
         && evt.which != 16 // shift
         && evt.which != 17 // ctrl
@@ -32,7 +28,7 @@
 
   function _addFormGroupFocus(element) {
     var $element = $(element);
-    if (!$element.prop('disabled')) {  // this is showing as undefined on chrome but works fine on firefox??
+    if (!$element.prop('disabled')) { // this is showing as undefined on chrome but works fine on firefox??
       $element.closest(".form-group").addClass("is-focused");
     }
   }
@@ -41,7 +37,7 @@
     $input.closest('label').hover(function () {
       var $i = $(this).find('input');
       if (!$i.prop('disabled')) { // hack because the _addFormGroupFocus() wasn't identifying the property on chrome
-        _addFormGroupFocus($i);     // need to find the input so we can check disablement
+        _addFormGroupFocus($i); // need to find the input so we can check disablement
       }
     }, function () {
       _removeFormGroupFocus($(this).find('input'));
@@ -74,7 +70,7 @@
         ".pagination li:not(.active):not(.disabled) a:not(.withoutripple)"
       ].join(","),
       "inputElements": "input.form-control, textarea.form-control, select.form-control",
-      "checkboxElements": ".checkbox > label > input[type=checkbox]",
+      "checkboxElements": ".checkbox > label > input[type=checkbox], label.checkbox-inline > input[type=checkbox]",
       "togglebuttonElements": ".togglebutton > label > input[type=checkbox]",
       "radioElements": ".radio > label > input[type=radio]"
     },
@@ -180,8 +176,7 @@
 
           if ($input.val() === "") {
             $formGroup.addClass("is-empty");
-          }
-          else {
+          } else {
             $formGroup.removeClass("is-empty");
           }
 
@@ -194,8 +189,7 @@
           if (validate) {
             if (isValid) {
               $formGroup.removeClass("has-error");
-            }
-            else {
+            } else {
               $formGroup.addClass("has-error");
             }
           }
