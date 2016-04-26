@@ -59,7 +59,7 @@ const Ripples = (($) => {
 
 
     dispose() {
-      $.removeData(this.$element, DATA_KEY)
+      this.$element.data(DATA_KEY, null)
       this.$element = null
       this.$container = null
       this.$decorator = null
