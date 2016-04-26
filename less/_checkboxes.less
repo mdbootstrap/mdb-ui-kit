@@ -2,14 +2,16 @@
 .form-group {
 }
 
-.checkbox {
-  label {
-    cursor: pointer;
-    padding-left: 0; // Reset for Bootstrap rule
-    color: @mdb-checkbox-label-color;
-    .mdb-label-color-toggle-focus();
-  }
+.checkbox label,
+label.checkbox-inline {
+  cursor: pointer;
+  padding-left: 0; // Reset for Bootstrap rule
+  color: @mdb-checkbox-label-color;
+  .mdb-label-color-toggle-focus();
+}
 
+.checkbox,
+label.checkbox-inline {
   // Hide native checkbox
   input[type=checkbox] {
     opacity: 0;
@@ -135,7 +137,8 @@
 
 // Prevent checkbox animation and ripple effect on page load
 .is-focused {
-  .checkbox {
+  .checkbox,
+  label.checkbox-inline {
     .checkbox-material {
       .check:before {
         animation: checkbox-off @mdb-checkbox-animation-check forwards;
