@@ -73,14 +73,14 @@
   // https://www.google.com/design/spec/components/buttons-floating-action-button.html
   &.bmd-btn-fab,
   &.bmd-btn-icon {
-    padding: 0;
     overflow: hidden;
     font-size: $bmd-btn-fab-font-size;
     line-height: normal;
-    border-radius: 50%;
 
-    .btn-group-sm & {
+    .btn-group-sm &,
+    & {
       padding: 0; // need specificity
+      border-radius: 50%;
     }
 
     .material-icons {
@@ -133,6 +133,7 @@
       width: $bmd-btn-icon-size-sm;
       min-width: $bmd-btn-icon-size-sm;
       height: $bmd-btn-icon-size-sm;
+      font-size: $bmd-btn-icon-font-size-sm;
 
       .material-icons {
         //$position: ($bmd-btn-icon-size-sm - $bmd-btn-icon-font-size-sm) / 2;
