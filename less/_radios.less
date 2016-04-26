@@ -13,55 +13,55 @@
   }
 }
 
-.radio {
-  label {
+.radio label, label.radio-inline {
     cursor: pointer;
     padding-left: 45px;
     position: relative;
     color: @mdb-radio-label-color;
     .mdb-label-color-toggle-focus();
+}
 
-    span {
-      display: block;
-      position: absolute;
-      left: 10px;
-      top: 2px;
-      transition-duration: 0.2s;
-    }
-    .circle {
-      border: 2px solid @mdb-radio-color-off;
-      height: 15px;
-      width: 15px;
-      border-radius: 100%;
-    }
-    .check {
-      height: 15px;
-      width: 15px;
-      border-radius: 100%;
-      background-color: @mdb-radio-color-on;
-      transform: scale3d(0, 0, 0);
-    }
-    .check:after {
-      display: block;
-      position: absolute;
-      content: "";
-      background-color: @mdb-text-color-primary;
-      left: -18px;
-      top: -18px;
-      height: 50px;
-      width: 50px;
-      border-radius: 100%;
-      z-index: 1;
-      opacity: 0;
-      margin: 0;
-      transform: scale3d(1.5, 1.5, 1);
-    }
-    input[type=radio]:not(:checked) ~ .check:after {
-      animation: rippleOff 500ms;
-    }
-    input[type=radio]:checked ~ .check:after {
-      animation: rippleOn;
-    }
+.radio, label.radio-inline {
+  span {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 2px;
+    transition-duration: 0.2s;
+  }
+  .circle {
+    border: 2px solid @mdb-radio-color-off;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+  }
+  .check {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: @mdb-radio-color-on;
+    transform: scale3d(0, 0, 0);
+  }
+  .check:after {
+    display: block;
+    position: absolute;
+    content: "";
+    background-color: @mdb-text-color-primary;
+    left: -18px;
+    top: -18px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    z-index: 1;
+    opacity: 0;
+    margin: 0;
+    transform: scale3d(1.5, 1.5, 1);
+  }
+  input[type=radio]:not(:checked) ~ .check:after {
+    animation: rippleOff 500ms;
+  }
+  input[type=radio]:checked ~ .check:after {
+    animation: rippleOn;
   }
 
   input[type=radio] {
@@ -92,7 +92,7 @@
 
 // Prevent ripple effect on page load
 .is-focused {
-  .radio {
+  .radio, label.radio-inline {
     input[type=radio]:checked ~ .check:after {
       animation: rippleOn 500ms;
     }
