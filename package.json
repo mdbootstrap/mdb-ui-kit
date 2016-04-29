@@ -33,7 +33,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "^6.7",
+    "babel-polyfill": "^6.7.4",
     "bootstrap": "twbs/bootstrap#v4-dev",
     "jquery": "^2.2",
     "tether": "^1.3.2"
