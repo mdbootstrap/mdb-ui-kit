@@ -35,8 +35,8 @@ $input-padding-y-lg:             .5625rem !default; // no-spec 9px // .75rem !de
 //
 //$form-group-margin-bottom:       $spacer-y !default;
 //
-//$input-group-addon-bg:           $gray-lighter !default;
-//$input-group-addon-border-color: $input-border-color !default;
+$input-group-addon-bg:            transparent !default; //$gray-lighter !default;
+$input-group-addon-border-color:  transparent !default; //$input-border-color !default;
 //
 //$cursor-disabled:                not-allowed !default;
 //

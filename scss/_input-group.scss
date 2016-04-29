@@ -22,12 +22,19 @@
 }
 
 .input-group { // may be in or outside of form-group
-  .input-group-btn {
-    //padding: 0 12px; // match addon spacing
-  }
 
   .input-group-addon {
-    //border: 0;
-    //background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .input-group-addon + input,
+  input + .input-group-addon {
+    margin-left: .75rem;
   }
 }
+

@@ -12,7 +12,8 @@ const BaseInput = (($) => {
     BMD_LABEL_FLOATING: 'bmd-label-floating',
     HAS_DANGER: 'has-danger',
     IS_FILLED: 'is-filled',
-    IS_FOCUSED: 'is-focused'
+    IS_FOCUSED: 'is-focused',
+    INPUT_GROUP: 'input-group'
   }
 
   const Selector = {
@@ -176,7 +177,14 @@ const BaseInput = (($) => {
         if (this.config.bmdFormGroup.create && (this.$formGroup === undefined || this.$formGroup.length === 0)) {
           // If a form-group doesn't exist (not recommended), take a guess and wrap the element (assuming no label).
           //  note: it's possible to make this smarter, but I need to see valid cases before adding any complexity.
-          this.outerElement().wrap(this.config.bmdFormGroup.template)
+
+          // this may be an input-group, wrap that instead
+          if(this.outerElement().parent().hasClass(ClassName.INPUT_GROUP)){
+            this.outerElement().parent().wrap(this.config.bmdFormGroup.template)
+          }
+          else{
+            this.outerElement().wrap(this.config.bmdFormGroup.template)
+          }
         } else {
           // a form-group does exist, add our marker class to it
           this.$formGroup.addClass(ClassName.BMD_FORM_GROUP)
