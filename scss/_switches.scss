@@ -29,9 +29,9 @@
         top: 50%;
         left: 0;
         display: block;
+        align-self: center;
         width: $bmd-switch-handle-size;
         height: $bmd-switch-handle-size;
-        align-self: center;
         content: "";
         background: $bmd-switch-handle-unchecked-bg;
         border-radius: 100%;

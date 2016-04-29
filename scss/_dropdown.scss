@@ -60,18 +60,13 @@
 
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
 
     min-width: $bmd-menu-item-min-width;
     max-width: $bmd-menu-item-max-width;
     min-height: $bmd-menu-item-min-height;
 
-    align-items: center;
-
-    padding-top: $bmd-menu-item-padding-top;
-    padding-right: $bmd-menu-item-padding-right;
-    padding-bottom: $bmd-menu-item-padding-bottom;
-    padding-left: $bmd-menu-item-padding-left;
-
+    padding: $bmd-menu-item-padding-top $bmd-menu-item-padding-right $bmd-menu-item-padding-bottom $bmd-menu-item-padding-left;
 
     // FIXME: multi-line menu word wrapping doesn't work - see the maximum width example in menus.md
     overflow: hidden;

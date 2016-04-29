@@ -1,35 +1,34 @@
-import {Preset, Clean, Copy, Jekyll, CssNano, Prepublish, PublishBuild, PublishGhPages, Sass, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, series, parallel} from 'gulp-pipeline'
-
+import {
+  Preset,
+  Clean,
+  Copy,
+  Jekyll,
+  CssNano,
+  Prepublish,
+  PublishBuild,
+  PublishGhPages,
+  Sass,
+  RollupUmd,
+  RollupIife,
+  ScssLint,
+  EsLint,
+  Aggregate,
+  Uglify,
+  series,
+  parallel
+} from 'gulp-pipeline'
 import gulp from 'gulp'
 import findup from 'findup-sync'
 import pkg from './package.json'
 import moment from 'moment'
-import gulpDocs from './gulp-docs'
+import gulpDocs from './gulpfile.babel.docs'
 
 const node_modules = findup('node_modules')
 
 // we have a lot of aggregates, which add listeners
 gulp.setMaxListeners(20)
 
-const preset = Preset.baseline({
-  javascripts: {
-    source: {options: {cwd: 'js/src'}},
-    watch: {options: {cwd: 'js/src'}},
-    test: {options: {cwd: 'js/tests'}}
-  },
-  stylesheets: {
-    source: {options: {cwd: 'scss'}},
-    watch: {options: {cwd: 'scss'}}
-  },
-  images: {
-    source: {options: {cwd: 'images'}},
-    watch: {options: {cwd: 'images'}}
-  },
-  postProcessor: {
-    dest: 'dist' //'dist/digest'
-  }
-})
-
+const preset = Preset.baseline({postProcessor: {dest: 'dist'}})
 
 // When converting non-modular dependencies into usable ones using rollup-plugin-commonjs, if they don't have properly read exports add them here.
 let namedExports = {}
@@ -47,9 +46,9 @@ const rollupConfig = {
       clipboard: 'Clipboard'
     },
     banner: `/*!
-  * Bootstrap Material Design v${pkg.version} (${pkg.homepage})
-  * Copyright 2014-${moment().format("YYYY")} ${pkg.author}
-  * Licensed under MIT (https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE)
+  * ${pkg.name}  v${pkg.version} (${pkg.homepage})
+  * Copyright ${moment().format("YYYY")} ${pkg.author}
+  * Licensed under ${pkg.license}
   */`
   },
   commonjs: {
@@ -96,9 +95,8 @@ const js = new Aggregate(gulp, 'js',
     ),
     new Uglify(gulp, preset, {
       task: {name: 'iife:uglify'},
-      source: { glob: '*.iife.js' }
+      source: {glob: '*.iife.js'}
     }),
-
     copyJsToDocs
   )
 )
@@ -107,7 +105,7 @@ const css = new Aggregate(gulp, 'css',
   series(gulp,
     new ScssLint(gulp, preset),
     new Sass(gulp, preset),
-    new CssNano(gulp, preset),
+    new CssNano(gulp, preset, {debug: true}),
     copyCssToDocs
   )
 )

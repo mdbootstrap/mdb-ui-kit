@@ -1,9 +1,9 @@
 import {Preset, Clean, CleanStylesheets, CleanJavascripts, Copy, Jekyll, CssNano, Sass, RollupEs, RollupUmd, RollupIife, ScssLint, EsLint, Aggregate, Uglify, parallel, series} from 'gulp-pipeline'
 
 // since we are using a docs cwd, we need to grap the source path to watch both docs js and core js
-import findup from 'findup-sync'
-const coreJs = findup('js')
-const coreScss = findup('scss')
+// import findup from 'findup-sync'
+// const coreJs = findup('js')
+// const coreScss = findup('scss')
 
 const referenceDocNotice =
   `$1\n
