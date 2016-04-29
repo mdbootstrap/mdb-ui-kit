@@ -189,7 +189,9 @@ Because of this, you may need to manually address the width and alignment of ind
     <label for="exampleInputEmail2" class="bmd-label-floating">Email</label>
     <input type="email" class="form-control" id="exampleInputEmail2">
   </div>
-  <button type="submit" class="btn btn-primary">Send invitation</button>
+  <span class="form-group bmd-form-group"> <!-- needed to match padding for floating labels -->
+    <button type="submit" class="btn btn-primary">Send invitation</button>
+  </span>
 </form>
 {% endexample %}
 
