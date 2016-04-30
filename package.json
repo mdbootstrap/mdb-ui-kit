@@ -35,6 +35,7 @@
   "dependencies": {
     "babel-polyfill": "^6.7.4",
     "bootstrap": "twbs/bootstrap#v4-dev",
+    "extend": "^3.0.0",
     "jquery": "^2.2",
     "tether": "^1.3.2"
   },
@@ -42,9 +43,8 @@
     "babel-core": "^6.7.7",
     "babel-eslint": ">=6.0.4",
     "babel-preset-es2015": "^6.6.0",
-    "extend": "^3.0.0",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-pipeline": "^4.0.33",
+    "gulp-pipeline": "^4.0.34",
     "moment": "^2.13.0"
   },
   "engines": {

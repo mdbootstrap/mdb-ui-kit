@@ -76,8 +76,8 @@ export default function (gulp, corePreset, options) {
 
   const css = new Aggregate(gulp, 'css',
     series(gulp,
+      new CleanStylesheets(gulp, preset, prefix, {task: false}), // just here to trigger jekyll refresh
       parallel(gulp,
-        new CleanStylesheets(gulp, preset, prefix, {task: false}), // just here to trigger jekyll refresh
         new ScssLint(gulp, preset, prefix, {
           source: {glob: ['**/*.scss', '!docs.scss']},
           watch: {glob: ['**/*.scss', '!docs.scss']}

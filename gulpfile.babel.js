@@ -105,7 +105,7 @@ const css = new Aggregate(gulp, 'css',
   series(gulp,
     new ScssLint(gulp, preset),
     new Sass(gulp, preset),
-    new CssNano(gulp, preset, {debug: true}),
+    new CssNano(gulp, preset),
     copyCssToDocs
   )
 )
