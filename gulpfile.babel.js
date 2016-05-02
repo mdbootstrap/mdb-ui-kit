@@ -15,22 +15,19 @@ import {
   Aggregate,
   Uglify,
   series,
-  parallel
+  parallel,
+  File
 } from 'gulp-pipeline'
 import gulp from 'gulp'
-import findup from 'findup-sync'
 import pkg from './package.json'
 import moment from 'moment'
 import gulpDocs from './gulpfile.babel.docs'
 
-const node_modules = findup('node_modules')
-
 // we have a lot of aggregates, which add listeners
 gulp.setMaxListeners(20)
 
-const preset = Preset.baseline({postProcessor: {dest: 'dist'}})
-
 // When converting non-modular dependencies into usable ones using rollup-plugin-commonjs, if they don't have properly read exports add them here.
+const node_modules = File.findup('node_modules')
 let namedExports = {}
 //namedExports[`${node_modules}/corejs-typeahead/dist/bloodhound.js`] = ['Bloodhound']
 //namedExports[`${node_modules}/anchor-js/anchor.js`] = ['AnchorJS']
@@ -57,6 +54,8 @@ const rollupConfig = {
     }
   }
 }
+
+const preset = Preset.baseline()
 
 const copyJsToDocs = new Copy(gulp, preset, {
   task: {name: 'dist:js->docs'},
