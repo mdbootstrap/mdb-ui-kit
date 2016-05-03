@@ -23,7 +23,6 @@ before_install:
   - rvm use 2.2 --fuzzy
   - gem install scss-lint
 
-
 before_script:
   - npm install -g gulpjs/gulp-cli#4.0
 
