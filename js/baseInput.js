@@ -99,6 +99,10 @@ const BaseInput = (($) => {
 
       this.addFocusListener()
       this.addChangeListener()
+
+      if(this.$element.val() != ''){
+        this.addIsFilled()
+      }
     }
 
     dispose(dataKey) {
