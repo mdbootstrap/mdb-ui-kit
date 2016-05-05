@@ -36,6 +36,7 @@ const rollupConfig = {
   options: {
     moduleName: 'BMD',
     external: [
+      'jquery',
       'anchor-js',
       'clipboard'
     ],

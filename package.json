@@ -45,7 +45,6 @@
     "gulp-pipeline": "^4.0.40",
     "jquery": "^2.2",
     "moment": "^2.13.0",
-    "select2": "^4.0.2",
     "tether": "^1.3.2"
   },
   "engines": {
