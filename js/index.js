@@ -1,31 +1,29 @@
 /*
- * This is the main entry point for your package.
+ * This is the main entry point.
  *
- * You can import other modules here, including external packages. When
- * bundling using rollup you can mark those modules as external and have them
- * excluded or, if they have a jsnext:main entry in their package.json (like
- * this package does), let rollup bundle them into your dist file.
+ * You can import other modules here, including external packages. When bundling using rollup you can mark those modules as external and have them excluded or, if they have a jsnext:main entry in their package.json (like this package does), let rollup bundle them into your dist file.
+ *
+ * IMPORTANT NOTE: If you are ultimately creating an iife/self executing bundle for the browser, be sure to:
+ *  import 'babel-polyfill'
+ *
+ * at your application entry point.  This is necessary for browsers that do not yet support some ES2015 runtime necessities such as Symbol.  We do this in `index-iife.js` for our iife rollup bundle.
  */
-
-/* eslint-disable no-unused-vars */
-import 'babel-polyfill/dist/polyfill'
 import 'bootstrap'
 
 // invalidComponentMatches is currently disabled due to https://github.com/rollup/rollup/issues/428#issuecomment-170066452
-import Checkbox from './checkbox'
-import CheckboxInline from './checkboxInline'
-import CollapseInline from './collapseInline'
-import File from './file'
-import Radio from './radio'
-import RadioInline from './radioInline'
-import Select from './select'
-import Switch from './switch'
-import Text from './text'
-import Textarea from './textarea'
+import './checkbox'
+import './checkboxInline'
+import './collapseInline'
+import './file'
+import './radio'
+import './radioInline'
+import './select'
+import './switch'
+import './text'
+import './textarea'
 
-import Drawer from './drawer'
+import './drawer'
 
-import Ripples from './ripples'
-import Autofill from './autofill'
-import BootstrapMaterialDesign from './bootstrapMaterialDesign'
-/* eslint-enable no-unused-vars */
+import './ripples'
+import './autofill'
+import './bootstrapMaterialDesign'

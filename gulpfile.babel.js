@@ -34,6 +34,7 @@ let namedExports = {}
 
 const rollupConfig = {
   options: {
+    moduleName: 'BMD',
     external: [
       'anchor-js',
       'clipboard'
@@ -81,14 +82,15 @@ const js = new Aggregate(gulp, 'js',
     parallel(gulp,
       new RollupUmd(gulp, preset, rollupConfig, {
         options: {
-          dest: 'bootstrap-material-design.umd.js',
-          moduleName: 'bootstrapMaterialDesign'
+          dest: 'bootstrap-material-design.umd.js'
         }
       }),
       new RollupIife(gulp, preset, rollupConfig, {
+        source: {
+          glob: 'index-iife.js'
+        },
         options: {
-          dest: 'bootstrap-material-design.iife.js',
-          moduleName: 'bootstrapMaterialDesign'
+          dest: 'bootstrap-material-design.iife.js'
         }
       })
     ),
