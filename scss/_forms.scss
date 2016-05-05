@@ -23,8 +23,7 @@ form {
 // Reference http://www.google.com/design/spec/components/text-fields.html
 // MDL implementation: http://www.getmdl.io/components/index.html#textfields-section
 .form-control {
-  background-repeat: $bmd-form-control-bg-repeat-y;
-  background-position: $bmd-form-control-bg-position;
+  background: $bmd-form-control-bg-repeat-y $bmd-form-control-bg-position;
   background-size: $bmd-form-control-bg-size;
   border: 0;
   transition: background 0s ease-out;
