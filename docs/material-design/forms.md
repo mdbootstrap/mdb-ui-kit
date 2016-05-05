@@ -14,16 +14,16 @@ Bootstrap provides several form control styles, layout options, and custom compo
 Form controls flavored by Material Design for Bootstrap customizations such as `bmd-label-floating`.
 {% example html %}
 <form>
-  <fieldset class="form-group">
+  <div class="form-group">
     <label for="exampleInputEmail1" class="bmd-label-floating">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1">
     <span class="bmd-help">We'll never share your email with anyone else.</span>
-  </fieldset>
-  <fieldset class="form-group">
+  </div>
+  <div class="form-group">
     <label for="exampleInputPassword1" class="bmd-label-floating">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1">
-  </fieldset>
-  <fieldset class="form-group">
+  </div>
+  <div class="form-group">
     <label for="exampleSelect1" class="bmd-label-floating">Example select</label>
     <select class="form-control" id="exampleSelect1">
       <option>1</option>
@@ -32,8 +32,8 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
       <option>4</option>
       <option>5</option>
     </select>
-  </fieldset>
-  <fieldset class="form-group">
+  </div>
+  <div class="form-group">
     <label for="exampleSelect2" class="bmd-label-floating">Example multiple select</label>
     <select multiple class="form-control" id="exampleSelect2">
       <option>1</option>
@@ -42,16 +42,16 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
       <option>4</option>
       <option>5</option>
     </select>
-  </fieldset>
-  <fieldset class="form-group">
+  </div>
+  <div class="form-group">
     <label for="exampleTextarea" class="bmd-label-floating">Example textarea</label>
     <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-  </fieldset>
-  <fieldset class="form-group">
+  </div>
+  <div class="form-group">
     <label for="exampleInputFile" class="bmd-label-floating">File input</label>
     <input type="file" class="form-control-file" id="exampleInputFile">
     <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
-  </fieldset>
+  </div>
   <div class="radio">
     <label>
       <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
@@ -156,14 +156,14 @@ you may need to wrap your markup in an `.bmd-form-group` to get appropriate focu
 
 {% example html %}
 <form>
-  <fieldset class="form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
+  <div class="form-group"> <!-- left unspecified, .bmd-form-group will be automatically added (inspect the code) -->
     <label for="formGroupExampleInput" class="bmd-label-floating">Example label</label>
     <input type="text" class="form-control" id="formGroupExampleInput">
-  </fieldset>
-  <fieldset class="form-group bmd-form-group"> <!-- manually specified --> 
+  </div>
+  <div class="form-group bmd-form-group"> <!-- manually specified --> 
     <label for="formGroupExampleInput2" class="bmd-label-floating">Another label</label>
     <input type="text" class="form-control" id="formGroupExampleInput2">
-  </fieldset>
+  </div>
 </form>
 {% endexample %}
 
@@ -206,15 +206,15 @@ Multiple help blocks will cause the form to bounce because subsequent blocks are
 
 {% example html %}
 <form>
-  <fieldset class="form-group">
+  <div class="form-group">
     <label for="exampleInputEmail1" class="bmd-label-floating">Email address (two help blocks)</label>
     <input type="email" class="form-control" id="exampleInputEmail1">
     <span class="bmd-help">We'll never share your email with anyone else.</span>
     <span class="bmd-help">And this is probably from a second plugin showing in a non-optimal way</span>
-  </fieldset>
-  <fieldset class="form-group">
+  </div>
+  <div class="form-group">
     <label for="exampleInputPassword1" class="bmd-label-floating">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1">
-  </fieldset>  
+  </div>  
 </form>
 {% endexample %}

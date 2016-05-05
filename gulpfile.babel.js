@@ -45,7 +45,7 @@ const rollupConfig = {
     },
     banner: `/*!
   * ${pkg.name}  v${pkg.version} (${pkg.homepage})
-  * Copyright ${moment().format("YYYY")} ${pkg.author}
+  * Copyright ${moment().format("YYYY")} ${pkg.author} and contributors
   * Licensed under ${pkg.license}
   */`
   },
