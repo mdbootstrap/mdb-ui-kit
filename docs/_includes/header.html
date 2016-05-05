@@ -28,3 +28,11 @@
   ga('send', 'pageview');
 </script>
 -->
+
+
+<!-- NOTE: @see footer - jquery (for this docs site only) is included in the <head> so that example scripts run on ready -->
+{% if site.data.minified %}
+<script src="{{ site.data.cdn.jquery }}.min.js"></script>
+{% else %}
+<script src="{{ site.data.cdn.jquery }}.js"></script>
+{% endif %}
