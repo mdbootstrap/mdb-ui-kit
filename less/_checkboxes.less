@@ -30,6 +30,7 @@ label.checkbox-inline {
     &:before { // FIXME: document why this is necessary (doesn't seem to be on chrome)
       display: block;
       position: absolute;
+      top:-5px;
       left: 0;
       content: "";
       background-color: rgba(0, 0, 0, .84);
@@ -78,28 +79,32 @@ label.checkbox-inline {
       opacity: 0.2;
     }
  
-    &:focus:checked{
-      & + .checkbox-material:before {
-       animation: rippleOn 500ms;
+    &:focus{
+      
+      &:checked{
+        & + .checkbox-material:before {
+          animation: rippleOn 500ms;
+        }
+        & + .checkbox-material .check:before {
+          animation: checkbox-on @mdb-checkbox-animation-check forwards;
+        }
+        & + .checkbox-material .check:after {
+          animation: rippleOn @mdb-checkbox-animation-ripple forwards; // Ripple effect on check
+        }
       }
-      & + .checkbox-material .check:before {
-        animation: checkbox-on @mdb-checkbox-animation-check forwards;
+      
+      &:not(:checked) {
+        & + .checkbox-material:before {
+          animation: rippleOff 500ms;
+        }
+        & + .checkbox-material .check:before {
+          animation: checkbox-off @mdb-checkbox-animation-check forwards;
+        }
+        & + .checkbox-material .check:after {
+          animation: rippleOff @mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
+        }
       }
-      & + .checkbox-material .check:after {
-        animation: rippleOn @mdb-checkbox-animation-ripple forwards; // Ripple effect on check
-      }
-    }
-    
-    &:focus:not(:checked){
-      & + .checkbox-material:before {
-       animation: rippleOff 500ms;
-      }
-      & + .checkbox-material .check:before {
-        animation: checkbox-off @mdb-checkbox-animation-check forwards;
-      }
-      & + .checkbox-material .check:after {
-        animation: rippleOff @mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
-      }
+      
     }
     
     
@@ -120,26 +125,10 @@ label.checkbox-inline {
           0px 32px 0 20px,
           -5px 5px 0 10px,
           20px -12px 0 11px;
-        //animation: checkbox-on @mdb-checkbox-animation-check forwards;
-      }
-
-      & + .checkbox-material:before {
-        //animation: rippleOn 500ms;
       }
 
       & + .checkbox-material .check:after {
         //background-color: @brand-success; // FIXME: seems like tho wrong color, test and make sure it can be removed
-        //animation: rippleOn @mdb-checkbox-animation-ripple forwards; // Ripple effect on check
-      }
-    }
-
-    &:not(:checked) {
-      & + .checkbox-material:before {
-        //animation: rippleOff 500ms;
-      }
-
-      & + .checkbox-material .check:after {
-        //animation: rippleOff @mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
       }
     }
   }
@@ -157,30 +146,6 @@ label.checkbox-inline {
     transform: rotate(-45deg);
   }
 }
-
-// Prevent checkbox animation and ripple effect on page load - removed in favour of supporting animation without .form-group
-/*.is-focused {
-  .checkbox,
-  label.checkbox-inline {
-    .checkbox-material {
-      .check:before {
-        animation: checkbox-off @mdb-checkbox-animation-check forwards;
-      }
-    }
-    input[type=checkbox] {
-      &:checked {
-        & + .checkbox-material:before {
-          animation: rippleOn @mdb-checkbox-animation-ripple;
-        }
-      }
-      &:not(:checked) {
-        & + .checkbox-material:before {
-          animation: rippleOff @mdb-checkbox-animation-ripple;
-        }
-      }
-    }
-  }
-}*/
 
 @keyframes checkbox-on {
   0% {

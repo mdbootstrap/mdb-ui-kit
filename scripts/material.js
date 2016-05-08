@@ -165,10 +165,6 @@
       var validate = this.options.validate;
 
       $(document)
-        /* removed in favour of supporting animation without .form-group using :focus */
-        /*.on("change", ".checkbox input[type=checkbox]", function () {
-          $(this).blur();
-        })*/
         .on("keydown paste", ".form-control", function (e) {
           if (_isChar(e)) {
             $(this).closest(".form-group").removeClass("is-empty");
