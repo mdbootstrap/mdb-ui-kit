@@ -57,11 +57,12 @@
     margin: 0;
     transform: scale3d(1.5, 1.5, 1);
   }
-  input[type=radio]:not(:checked) ~ .check:after {
+  
+  input[type=radio]:focus:not(:checked) ~ .check:after {
     animation: rippleOff 500ms;
   }
-  input[type=radio]:checked ~ .check:after {
-    animation: rippleOn;
+  input[type=radio]:focus:checked ~ .check:after {
+    animation: rippleOn 500ms;
   }
 
   input[type=radio] {
@@ -90,15 +91,6 @@
   }
 }
 
-// Prevent ripple effect on page load
-.is-focused {
-  .radio, label.radio-inline {
-    input[type=radio]:checked ~ .check:after {
-      animation: rippleOn 500ms;
-    }
-  }
-}
-
 @keyframes rippleOn {
   0% {
     opacity: 0;
@@ -110,7 +102,6 @@
     opacity: 0;
   }
 }
-
 @keyframes rippleOff {
   0% {
     opacity: 0;
