@@ -165,9 +165,6 @@
       var validate = this.options.validate;
 
       $(document)
-        .on("change", ".checkbox input[type=checkbox]", function () {
-          $(this).blur();
-        })
         .on("keydown paste", ".form-control", function (e) {
           if (_isChar(e)) {
             $(this).closest(".form-group").removeClass("is-empty");
