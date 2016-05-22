@@ -37,15 +37,34 @@
     }
   }
 
+  function _toggleDisabledState($element, state) {
+    var $target;
+    if ($element.hasClass('checkbox-inline') || $element.hasClass('radio-inline')) {
+      $target = $element;
+    } else {
+      $target = $element.closest('.checkbox').length ? $element.closest('.checkbox') : $element.closest('.radio');
+    }
+    return $target.toggleClass('disabled', state);
+  }
+
   function _toggleTypeFocus($input) {
+    var disabledToggleType = false;
+    if ($input.is($.material.options.checkboxElements) || $input.is($.material.options.radioElements)) {
+      disabledToggleType = true;
+    }
     $input.closest('label').hover(function () {
-      var $i = $(this).find('input');
-      if (!$i.prop('disabled')) { // hack because the _addFormGroupFocus() wasn't identifying the property on chrome
-        _addFormGroupFocus($i);     // need to find the input so we can check disablement
-      }
-    }, function () {
-      _removeFormGroupFocus($(this).find('input'));
-    });
+        var $i = $(this).find('input');
+        var isDisabled = $i.prop('disabled'); // hack because the _addFormGroupFocus() wasn't identifying the property on chrome
+        if (disabledToggleType) {
+          _toggleDisabledState($(this), isDisabled);
+        }
+        if (!isDisabled) {
+          _addFormGroupFocus($i);     // need to find the input so we can check disablement
+        }
+      },
+      function () {
+        _removeFormGroupFocus($(this).find('input'));
+      });
   }
 
   function _removeFormGroupFocus(element) {
