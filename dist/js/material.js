@@ -37,15 +37,34 @@
     }
   }
 
+  function _toggleDisabledState($element, state) {
+    var $target;
+    if ($element.hasClass('checkbox-inline') || $element.hasClass('radio-inline')) {
+      $target = $element;
+    } else {
+      $target = $element.closest('.checkbox').length ? $element.closest('.checkbox') : $element.closest('.radio');
+    }
+    return $target.toggleClass('disabled', state);
+  }
+
   function _toggleTypeFocus($input) {
+    var disabledToggleType = false;
+    if ($input.is($.material.options.checkboxElements) || $input.is($.material.options.radioElements)) {
+      disabledToggleType = true;
+    }
     $input.closest('label').hover(function () {
-      var $i = $(this).find('input');
-      if (!$i.prop('disabled')) { // hack because the _addFormGroupFocus() wasn't identifying the property on chrome
-        _addFormGroupFocus($i);     // need to find the input so we can check disablement
-      }
-    }, function () {
-      _removeFormGroupFocus($(this).find('input'));
-    });
+        var $i = $(this).find('input');
+        var isDisabled = $i.prop('disabled'); // hack because the _addFormGroupFocus() wasn't identifying the property on chrome
+        if (disabledToggleType) {
+          _toggleDisabledState($(this), isDisabled);
+        }
+        if (!isDisabled) {
+          _addFormGroupFocus($i);     // need to find the input so we can check disablement
+        }
+      },
+      function () {
+        _removeFormGroupFocus($(this).find('input'));
+      });
   }
 
   function _removeFormGroupFocus(element) {
@@ -74,9 +93,9 @@
         ".pagination li:not(.active):not(.disabled) a:not(.withoutripple)"
       ].join(","),
       "inputElements": "input.form-control, textarea.form-control, select.form-control",
-      "checkboxElements": ".checkbox > label > input[type=checkbox]",
+      "checkboxElements": ".checkbox > label > input[type=checkbox], label.checkbox-inline > input[type=checkbox]",
       "togglebuttonElements": ".togglebutton > label > input[type=checkbox]",
-      "radioElements": ".radio > label > input[type=radio]"
+      "radioElements": ".radio > label > input[type=radio], label.radio-inline > input[type=radio]"
     },
     "checkbox": function (selector) {
       // Add fake-checkbox to material checkboxes
@@ -114,7 +133,7 @@
 
           // Requires form-group standard markup (will add it if necessary)
           var $formGroup = $input.closest(".form-group"); // note that form-group may be grandparent in the case of an input-group
-          if ($formGroup.length === 0) {
+          if ($formGroup.length === 0 && $input.attr('type') !== "hidden" && !$input.attr('hidden')) {
             $input.wrap("<div class='form-group'></div>");
             $formGroup = $input.closest(".form-group"); // find node after attached (otherwise additional attachments don't work)
           }
@@ -155,9 +174,6 @@
             $formGroup.addClass("is-empty");
           }
 
-          // Add at the end of the form-group
-          $formGroup.append("<span class='material-input'></span>");
-
           // Support for file input
           if ($formGroup.find("input[type=file]").length > 0) {
             $formGroup.addClass("is-fileinput");
@@ -168,9 +184,6 @@
       var validate = this.options.validate;
 
       $(document)
-        .on("change", ".checkbox input[type=checkbox]", function () {
-          $(this).blur();
-        })
         .on("keydown paste", ".form-control", function (e) {
           if (_isChar(e)) {
             $(this).closest(".form-group").removeClass("is-empty");

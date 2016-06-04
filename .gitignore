@@ -37,3 +37,6 @@ bower.json
 testcase.html
 package.js
 .versions
+ISSUE_TEMPLATE.md
+material-design-color-palette.jpg
+grunt/**
