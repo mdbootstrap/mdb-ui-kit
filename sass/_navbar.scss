@@ -96,37 +96,59 @@
       }
 
       // Dropdowns get custom display
-      .open .dropdown-menu {
-        > .dropdown-header {
-          border: 0;
-          color: inherit;
-        }
-        .divider {
-          border-bottom: 1px solid;
-          opacity: 0.08;
-        }
-        > li > a {
-          color: inherit;
-          &:hover,
-          &:focus {
-            color: inherit;
-            background-color: transparent;
+      .dropdown{
+        .dropdown-toggle{
+          .caret{
+            display:none;
+          }
+          &:after{
+            content: 'keyboard_arrow_right';
+            font-family: 'Material Icons';
+            font-size: 1.5em;
+            float:right;
           }
         }
-        > .active > a {
-          &,
-          &:hover,
-          &:focus {
-            color: inherit;
-            background-color: transparent;
-          }
+        .dropdown-menu{
+          margin-left:20px;
         }
-        > .disabled > a {
-          &,
-          &:hover,
-          &:focus {
-            color: inherit;
-            background-color: transparent;
+        &.open{
+          .dropdown-toggle:after{
+            content: 'keyboard_arrow_down';
+          }
+          .dropdown-menu {
+            > .dropdown-header {
+              border: 0;
+              color: inherit;
+            }
+            .divider {
+              border-bottom: 1px solid;
+              opacity: 0.08;
+            }
+            > li > a {
+              color: inherit;
+              font-size: inherit;
+              &:hover,
+              &:focus {
+                color: inherit;
+                background-color: transparent;
+              }
+            }
+            > .active > a {
+              &,
+              &:hover,
+              &:focus {
+                color: inherit;
+                background-color: transparent;
+              }
+            }
+            > .disabled > a {
+              &,
+              &:hover,
+              &:focus {
+                color: inherit;
+                background-color: transparent;
+              }
+            }
           }
         }
       }
