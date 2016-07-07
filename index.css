@@ -69,6 +69,7 @@
 .pages > div {
     padding: 0 5px;
     padding-top: 64px;
+    margin: 0;
 }
 
 .pages .header {
