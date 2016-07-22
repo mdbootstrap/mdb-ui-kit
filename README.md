@@ -303,7 +303,7 @@ $.material.options = {
 
 ### Arrive.js support
 
-If you need to dynamically add elements to your DOM then you may need to include `Arrive.js` before `Material.js`. This will automatically apply `material.js` to every new element added via JavaScript.
+If you need to dynamically add elements to your DOM then you may need to include [`Arrive.js`](https://github.com/uzairfarooq/arrive) before `Material.js`. This will automatically apply `material.js` to every new element added via JavaScript.
 
 ## Plugins
 
