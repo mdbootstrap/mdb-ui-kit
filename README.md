@@ -7,7 +7,7 @@
 
 
 ## About
-Material Design for Bootstrap is a Bootstrap V3 compatible theme; it is an easy way to use the new [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) in your Bootstrap 3 based application.
+Material Design for Bootstrap is a Bootstrap V3 compatible theme; it is an easy way to use the new [Material Design guidelines by Google](https://material.google.com/) in your Bootstrap 3 based application.
 Just include the theme, after the Bootstrap CSS and include the JavaScript at the end of your document (just before the `</body>` tag), and everything will be converted to Material Design (Paper) style.
 
 **NOTE**: This V3 compatible theme is still in development, it could be used on production websites but I can't guarantee compatibility with previous versions.
@@ -49,7 +49,7 @@ Add the necessary links to your `<head>` element for fonts and stylsheets:
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
 
   <!-- Bootstrap -->
-  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <!-- Bootstrap Material Design -->
   <link rel="stylesheet" type="text/css" href="dist/css/bootstrap-material-design.css">
@@ -63,7 +63,7 @@ Many use bower including compiling source for this project.  Here are a couple o
   1. When using SASS, `@import` directives cannot be interpolated.  Given the variety of configurations, the typical `bower_components` directory is occasionally in a different location.  Given the options, a `loadPath` was [added to the SASS compiler](https://github.com/FezVrasta/bootstrap-material-design/pull/762/files)
      so that bootstrap files could be loaded without specifying the path to the `bower_components` directory.  You may similarly need to add a load path to your compiler.  It is still debatable if this is for the greater good, but seems like the only
      way to accommodate multiple configurations.
-  2. This project will install both `bootstrap` and `bootstrap-sass` in `bower_components`.  Each is used for the LESS and SASS version compilation respectively.   If you are only using one, feel free to [ignore the other bower dependency](http://stackoverflow.com/a/27791606/2363935).
+  2. This project will install both `bootstrap` and `bootstrap-sass` in `bower_components`.  Each is used for the LESS and SASS version compilation respectively.   If you are only using one, feel free to [ignore the other bower dependency](https://stackoverflow.com/a/27791606/2363935).
 
 ## Support and Contributions
 
@@ -95,7 +95,7 @@ The upcoming 4.x compatible version is being actively developed using SASS on th
 
 ## Documentation
 
-Material Design ([spec](http://www.google.com/design/spec/material-design/introduction.html)) for Bootstrap provides 
+Material Design ([spec](https://material.google.com/)) for Bootstrap provides 
 styles for bootstrap based markup to comply with Material Design concepts.
 
 
