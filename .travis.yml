@@ -24,6 +24,6 @@ before_install:
   - gem install scss-lint
 
 before_script:
-  - npm install -g gulpjs/gulp-cli#4.0
+  - npm install -g gulp-cli
 
 script: gulp all

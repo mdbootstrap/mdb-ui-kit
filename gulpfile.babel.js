@@ -33,6 +33,7 @@ let namedExports = {}
 //namedExports[`${node_modules}/anchor-js/anchor.js`] = ['AnchorJS']
 
 const rollupConfig = {
+  debug: true,
   options: {
     moduleName: 'BMD',
     external: [
