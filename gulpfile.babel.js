@@ -33,7 +33,7 @@ let namedExports = {}
 //namedExports[`${node_modules}/anchor-js/anchor.js`] = ['AnchorJS']
 
 const rollupConfig = {
-  debug: true,
+  debug: false,
   options: {
     moduleName: 'BMD',
     external: [
@@ -88,9 +88,6 @@ const js = new Aggregate(gulp, 'js',
         }
       }),
       new RollupIife(gulp, preset, rollupConfig, {
-        source: {
-          glob: 'index-iife.js'
-        },
         options: {
           dest: 'bootstrap-material-design.iife.js'
         }

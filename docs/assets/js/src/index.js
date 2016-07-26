@@ -3,7 +3,7 @@ import Clipboard from 'clipboard'
 import anchors from 'anchor-js'
 
 // import all the bmd code
-import '../../../../js/index-iife' // eslint-disable-line no-unused-vars
+import '../../../../js/index' // eslint-disable-line no-unused-vars
 
 class Application {
 
