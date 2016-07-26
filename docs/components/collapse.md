@@ -16,7 +16,7 @@ See the <a href="/material-design/buttons">Material Design</a> section for more 
 
 
 
-The Bootstrap collapse plugin allows you to toggle content on your pages with a bit of JavaScript and some classes. Flexible plugin that utilizes a handful of classes (from the **required [transitions plugin]({{ site.baseurl }}/components/transitions/)**) for easy toggle behavior.
+The Bootstrap collapse plugin allows you to toggle content on your pages with a few classes thanks to some helpful JavaScript.
 
 ## Contents
 
