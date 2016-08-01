@@ -1,5 +1,5 @@
 .navbar {
-  margin-bottom: .25rem; // required to provide space for the shadow to render (need is visible in mobile drawer overlay)
+  z-index: 1; // required to make the shadow overlap the below content (need is visible in mobile drawer overlay)
   border: 0;
   border-radius: 0;
   @include box-shadow($bmd-shadow-2dp);
@@ -19,4 +19,14 @@
     @include clearfix;
   }
   // #853 end - https://github.com/twbs/bootstrap/pull/18976/files
+}
+
+.navbar-nav {
+  .nav-item {
+    position: relative; // used to correctly size ripple container
+  }
+}
+
+.navbar > .container {
+  flex: 1;
 }
