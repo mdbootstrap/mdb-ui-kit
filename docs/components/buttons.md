@@ -61,7 +61,7 @@ The `.btn` classes are designed to be used with the `<button>` element. However,
 When using button classes on `<a>` elements that are used to trigger in-page functionality (like collapsing content), rather than linking to new pages or sections within the current page, these links should be given a `role="button"` to appropriately convey their purpose to assistive technologies such as screen readers.
 
 {% example html %}
-<a class="btn btn-primary" href="#" role="button">Link</a>
+<a class="btn btn-primary" href="#0" role="button">Link</a>
 <button class="btn btn-primary" type="submit">Button</button>
 <input class="btn btn-primary" type="button" value="Input">
 <input class="btn btn-primary" type="submit" value="Submit">
@@ -108,8 +108,8 @@ Create block level buttons—those that span the full width of a parent—by add
 Buttons will appear pressed (with a darker background, darker border, and inset shadow) when active. **There's no need to add a class to `<button>`s as they use a pseudo-class**. However, you can still force the same active appearance with `.active` (and include the <code>aria-pressed="true"</code> attribute) should you need to replicate the state programmatically.
 
 {% example html %}
-<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
-<a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>
+<a href="#0" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
+<a href="#0" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>
 {% endexample %}
 
 ## Disabled state
@@ -132,8 +132,8 @@ Disabled buttons using the `<a>` element behave a bit different:
 - Disabled buttons should include the `aria-disabled="true"` attribute to indicate the state of the element to assistive technologies.
 
 {% example html %}
-<a href="#" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Primary link</a>
-<a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true">Link</a>
+<a href="#0" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Primary link</a>
+<a href="#0" class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true">Link</a>
 {% endexample %}
 
 {% callout warning %}

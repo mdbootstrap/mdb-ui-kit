@@ -116,10 +116,10 @@ Toggle a modal via JavaScript by clicking the button below. It will slide down a
         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
 
         <h4>Popover in a modal</h4>
-        <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on click.</p>
+        <p>This <a href="#0" role="button" class="btn btn-secondary popover-test" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">button</a> should trigger a popover on click.</p>
 
         <h4>Tooltips in a modal</h4>
-        <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>
+        <p><a href="#0" class="tooltip-test" title="Tooltip">This link</a> and <a href="#0" class="tooltip-test" title="Tooltip">that link</a> should have tooltips on hover.</p>
 
         <hr>
 

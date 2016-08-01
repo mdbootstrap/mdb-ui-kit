@@ -63,13 +63,13 @@ Add `.disabled` to a `.list-group-item` to gray it out to appear disabled.
 
 {% example html %}
 <div class="list-group">
-  <a href="#" class="list-group-item disabled">
+  <a href="#0" class="list-group-item disabled">
     Cras justo odio
   </a>
-  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item">Morbi leo risus</a>
-  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item">Vestibulum at eros</a>
+  <a href="#0" class="list-group-item">Dapibus ac facilisis in</a>
+  <a href="#0" class="list-group-item">Morbi leo risus</a>
+  <a href="#0" class="list-group-item">Porta ac consectetur ac</a>
+  <a href="#0" class="list-group-item">Vestibulum at eros</a>
 </div>
 {% endexample %}
 
@@ -81,13 +81,13 @@ Be sure to **not use the standard `.btn` classes here**.
 
 {% example html %}
 <div class="list-group">
-  <a href="#" class="list-group-item active">
+  <a href="#0" class="list-group-item active">
     Cras justo odio
   </a>
-  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+  <a href="#0" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+  <a href="#0" class="list-group-item list-group-item-action">Morbi leo risus</a>
+  <a href="#0" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+  <a href="#0" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
 </div>
 {% endexample %}
 
@@ -109,10 +109,10 @@ Use contextual classes to style list items, default or linked. Also includes `.a
 
 {% example html %}
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action list-group-item-success">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-info">Cras sit amet nibh libero</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-warning">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item list-group-item-action list-group-item-danger">Vestibulum at eros</a>
+  <a href="#0" class="list-group-item list-group-item-action list-group-item-success">Dapibus ac facilisis in</a>
+  <a href="#0" class="list-group-item list-group-item-action list-group-item-info">Cras sit amet nibh libero</a>
+  <a href="#0" class="list-group-item list-group-item-action list-group-item-warning">Porta ac consectetur ac</a>
+  <a href="#0" class="list-group-item list-group-item-action list-group-item-danger">Vestibulum at eros</a>
 </div>
 {% endexample %}
 
@@ -125,15 +125,15 @@ Add nearly any HTML within, even for linked list groups like the one below.
 
 {% example html %}
 <div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action active">
+  <a href="#0" class="list-group-item list-group-item-action active">
     <h5 class="list-group-item-heading">List group item heading</h5>
     <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
+  <a href="#0" class="list-group-item list-group-item-action">
     <h5 class="list-group-item-heading">List group item heading</h5>
     <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
   </a>
-  <a href="#" class="list-group-item list-group-item-action">
+  <a href="#0" class="list-group-item list-group-item-action">
     <h5 class="list-group-item-heading">List group item heading</h5>
     <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
   </a>

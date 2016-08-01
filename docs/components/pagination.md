@@ -31,18 +31,18 @@ Simple pagination inspired by Rdio, great for apps and search results. The large
 <nav aria-label="Page navigation">
   <ul class="pagination">
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" href="#0" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Previous</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">4</a></li>
-    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#0">1</a></li>
+    <li class="page-item"><a class="page-link" href="#0">2</a></li>
+    <li class="page-item"><a class="page-link" href="#0">3</a></li>
+    <li class="page-item"><a class="page-link" href="#0">4</a></li>
+    <li class="page-item"><a class="page-link" href="#0">5</a></li>
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
+      <a class="page-link" href="#0" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Next</span>
       </a>
@@ -71,20 +71,20 @@ The `.disabled` class uses `pointer-events: none` to try to disable the link fun
 <nav aria-label="...">
   <ul class="pagination">
     <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-label="Previous">
+      <a class="page-link" href="#0" tabindex="-1" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Previous</span>
       </a>
     </li>
     <li class="page-item active">
-      <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+      <a class="page-link" href="#0">1 <span class="sr-only">(current)</span></a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">4</a></li>
-    <li class="page-item"><a class="page-link" href="#">5</a></li>
+    <li class="page-item"><a class="page-link" href="#0">2</a></li>
+    <li class="page-item"><a class="page-link" href="#0">3</a></li>
+    <li class="page-item"><a class="page-link" href="#0">4</a></li>
+    <li class="page-item"><a class="page-link" href="#0">5</a></li>
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
+      <a class="page-link" href="#0" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Next</span>
       </a>
@@ -118,16 +118,16 @@ Fancy larger or smaller pagination? Add `.pagination-lg` or `.pagination-sm` for
 <nav aria-label="...">
   <ul class="pagination pagination-lg">
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" href="#0" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Previous</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#0">1</a></li>
+    <li class="page-item"><a class="page-link" href="#0">2</a></li>
+    <li class="page-item"><a class="page-link" href="#0">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
+      <a class="page-link" href="#0" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Next</span>
       </a>
@@ -140,16 +140,16 @@ Fancy larger or smaller pagination? Add `.pagination-lg` or `.pagination-sm` for
 <nav aria-label="...">
   <ul class="pagination pagination-sm">
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" href="#0" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
         <span class="sr-only">Previous</span>
       </a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#0">1</a></li>
+    <li class="page-item"><a class="page-link" href="#0">2</a></li>
+    <li class="page-item"><a class="page-link" href="#0">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
+      <a class="page-link" href="#0" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
         <span class="sr-only">Next</span>
       </a>

@@ -27,7 +27,7 @@ A lightweight, flexible component that can optionally extend the entire viewport
   <hr class="m-y-2">
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <a class="btn btn-primary btn-lg" href="#0" role="button">Learn more</a>
   </p>
 </div>
 {% endexample %}

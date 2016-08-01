@@ -44,19 +44,19 @@ Here's an example of all the sub-components included in a default, light navbar:
 
 {% example html %}
 <nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#0">Navbar</a>
   <ul class="nav navbar-nav">
     <li class="nav-item active">
-      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="#0">Home <span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Features</a>
+      <a class="nav-link" href="#0">Features</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Pricing</a>
+      <a class="nav-link" href="#0">Pricing</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">About</a>
+      <a class="nav-link" href="#0">About</a>
     </li>
   </ul>
   <form class="form-inline pull-xs-right">
@@ -72,7 +72,7 @@ The `.navbar-brand` can be applied to most elements, but an anchor works best as
 
 {% example html %}
 <nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#0">Navbar</a>
 </nav>
 
 <nav class="navbar navbar-light bg-faded">
@@ -89,16 +89,16 @@ Navbar navigation is similar to our regular nav options—use the `.nav` base cl
 <nav class="navbar navbar-light bg-faded">
   <ul class="nav navbar-nav">
     <li class="nav-item active">
-      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-link" href="#0">Home <span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Features</a>
+      <a class="nav-link" href="#0">Features</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Pricing</a>
+      <a class="nav-link" href="#0">Pricing</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">About</a>
+      <a class="nav-link" href="#0">About</a>
     </li>
   </ul>
 </nav>
@@ -109,10 +109,10 @@ And because we use classes for our navs, you can avoid the list-based approach e
 {% example html %}
 <nav class="navbar navbar-light bg-faded">
   <div class="nav navbar-nav">
-    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-    <a class="nav-item nav-link" href="#">Features</a>
-    <a class="nav-item nav-link" href="#">Pricing</a>
-    <a class="nav-item nav-link" href="#">About</a>
+    <a class="nav-item nav-link active" href="#0">Home <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link" href="#0">Features</a>
+    <a class="nav-item nav-link" href="#0">Pricing</a>
+    <a class="nav-item nav-link" href="#0">About</a>
   </div>
 </nav>
 {% endexample %}
@@ -126,19 +126,19 @@ Here are some examples to show what we mean.
 
 <div class="bd-example">
   <nav class="navbar navbar-dark bg-inverse">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#0">Navbar</a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#0">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#0">Features</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#0">Pricing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#0">About</a>
       </li>
     </ul>
     <form class="form-inline pull-xs-right">
@@ -147,19 +147,19 @@ Here are some examples to show what we mean.
     </form>
   </nav>
   <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#0">Navbar</a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#0">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#0">Features</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#0">Pricing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#0">About</a>
       </li>
     </ul>
     <form class="form-inline pull-xs-right">
@@ -168,19 +168,19 @@ Here are some examples to show what we mean.
     </form>
   </nav>
   <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#0">Navbar</a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#0">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#0">Features</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#0">Pricing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#0">About</a>
       </li>
     </ul>
     <form class="form-inline pull-xs-right">
@@ -211,7 +211,7 @@ Although it's not required, you can wrap a navbar in a `.container` to center it
 {% example html %}
 <div class="container">
   <nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#0">Navbar</a>
   </nav>
 </div>
 {% endexample %}
@@ -219,7 +219,7 @@ Although it's not required, you can wrap a navbar in a `.container` to center it
 {% example html %}
 <nav class="navbar navbar-light bg-faded">
   <div class="container">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#0">Navbar</a>
   </div>
 </nav>
 {% endexample %}
@@ -230,19 +230,19 @@ Navbars can be statically placed (their default behavior), static without rounde
 
 {% example html %}
 <nav class="navbar navbar-full navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Full width</a>
+  <a class="navbar-brand" href="#0">Full width</a>
 </nav>
 {% endexample %}
 
 {% example html %}
 <nav class="navbar navbar-fixed-top navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Fixed top</a>
+  <a class="navbar-brand" href="#0">Fixed top</a>
 </nav>
 {% endexample %}
 
 {% example html %}
 <nav class="navbar navbar-fixed-bottom navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Fixed bottom</a>
+  <a class="navbar-brand" href="#0">Fixed bottom</a>
 </nav>
 {% endexample %}
 
@@ -273,19 +273,19 @@ For more complex navbar patterns, like those used in Bootstrap v3, use the `.nav
     &#9776;
   </button>
   <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-    <a class="navbar-brand" href="#">Responsive navbar</a>
+    <a class="navbar-brand" href="#0">Responsive navbar</a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#0">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#0">Features</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#0">Pricing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#0">About</a>
       </li>
     </ul>
   </div>

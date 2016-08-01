@@ -174,11 +174,11 @@ Buttons in input groups are a bit different and require one extra level of nesti
           Action
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#0">Action</a>
+          <a class="dropdown-item" href="#0">Another action</a>
+          <a class="dropdown-item" href="#0">Something else here</a>
           <div role="separator" class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
+          <a class="dropdown-item" href="#0">Separated link</a>
         </div>
       </div>
       <input type="text" class="form-control" aria-label="Text input with dropdown button">
@@ -192,11 +192,11 @@ Buttons in input groups are a bit different and require one extra level of nesti
           Action
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#0">Action</a>
+          <a class="dropdown-item" href="#0">Another action</a>
+          <a class="dropdown-item" href="#0">Something else here</a>
           <div role="separator" class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
+          <a class="dropdown-item" href="#0">Separated link</a>
         </div>
       </div>
     </div>
@@ -216,11 +216,11 @@ Buttons in input groups are a bit different and require one extra level of nesti
           <span class="sr-only">Toggle Dropdown</span>
         </button>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#0">Action</a>
+          <a class="dropdown-item" href="#0">Another action</a>
+          <a class="dropdown-item" href="#0">Something else here</a>
           <div role="separator" class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
+          <a class="dropdown-item" href="#0">Separated link</a>
         </div>
       </div>
       <input type="text" class="form-control" aria-label="Text input with segmented button dropdown">
@@ -235,11 +235,11 @@ Buttons in input groups are a bit different and require one extra level of nesti
           <span class="sr-only">Toggle Dropdown</span>
         </button>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="#0">Action</a>
+          <a class="dropdown-item" href="#0">Another action</a>
+          <a class="dropdown-item" href="#0">Something else here</a>
           <div role="separator" class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
+          <a class="dropdown-item" href="#0">Separated link</a>
         </div>
       </div>
     </div>

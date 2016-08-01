@@ -27,7 +27,7 @@ class Application {
     $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate', true)
 
     // Disable empty links in docs examples
-    $('.bd-example [href="#"]').click((e) => {
+    $('.bd-example [href="#0"]').click((e) => {
       e.preventDefault()
     })
 

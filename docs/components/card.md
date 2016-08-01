@@ -35,7 +35,7 @@ Cards require a small amount of markup and classes to provide you with as much c
   <div class="card-block">
     <h4 class="card-title">Card title</h4>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#0" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 {% endexample %}
@@ -57,8 +57,8 @@ Cards support a wide variety of content, including images, text, list groups, li
     <li class="list-group-item">Vestibulum at eros</li>
   </ul>
   <div class="card-block">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <a href="#0" class="card-link">Card link</a>
+    <a href="#0" class="card-link">Another link</a>
   </div>
 </div>
 {% endexample %}
@@ -92,8 +92,8 @@ Card titles are used by adding `.card-title` to a `<h*>` tag. In the same way, l
 <div class="card card-block">
   <h4 class="card-title">Card title</h4>
   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  <a href="#" class="card-link">Card link</a>
-  <a href="#" class="card-link">Another link</a>
+  <a href="#0" class="card-link">Card link</a>
+  <a href="#0" class="card-link">Another link</a>
 </div>
 {% endexample %}
 
@@ -110,8 +110,8 @@ The multiple content types can be easily combined to create the card you need. S
   <img data-src="holder.js/100px180/?text=Image" alt="Card image">
   <div class="card-block">
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <a href="#0" class="card-link">Card link</a>
+    <a href="#0" class="card-link">Another link</a>
   </div>
 </div>
 {% endexample %}
@@ -128,14 +128,14 @@ Using the grid:
     <div class="card card-block">
       <h3 class="card-title">Special title treatment</h3>
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="#0" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>
   <div class="col-sm-6">
     <div class="card card-block">
       <h3 class="card-title">Special title treatment</h3>
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="#0" class="btn btn-primary">Go somewhere</a>
     </div>
   </div>
 </div>
@@ -147,7 +147,7 @@ Using custom widths:
 <div class="card card-block" style="width: 18rem;">
   <h3 class="card-title">Special title treatment</h3>
   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-  <a href="#" class="btn btn-primary">Go somewhere</a>
+  <a href="#0" class="btn btn-primary">Go somewhere</a>
 </div>
 {% endexample %}
 
@@ -159,19 +159,19 @@ You can quickly change the text alignment of any card—in its entirety or speci
 <div class="card card-block">
   <h4 class="card-title">Special title treatment</h4>
   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-  <a href="#" class="btn btn-primary">Go somewhere</a>
+  <a href="#0" class="btn btn-primary">Go somewhere</a>
 </div>
 
 <div class="card card-block text-xs-center">
   <h4 class="card-title">Special title treatment</h4>
   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-  <a href="#" class="btn btn-primary">Go somewhere</a>
+  <a href="#0" class="btn btn-primary">Go somewhere</a>
 </div>
 
 <div class="card card-block text-xs-right">
   <h4 class="card-title">Special title treatment</h4>
   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-  <a href="#" class="btn btn-primary">Go somewhere</a>
+  <a href="#0" class="btn btn-primary">Go somewhere</a>
 </div>
 {% endexample %}
 
@@ -187,7 +187,7 @@ Add an optional header and/or footer within a card.
   <div class="card-block">
     <h4 class="card-title">Special title treatment</h4>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#0" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 {% endexample %}
@@ -200,7 +200,7 @@ Card headers can be styled by adding `.card-header` to `<h*>` elements.
   <div class="card-block">
     <h4 class="card-title">Special title treatment</h4>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#0" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 {% endexample %}
@@ -227,7 +227,7 @@ Card headers can be styled by adding `.card-header` to `<h*>` elements.
   <div class="card-block">
     <h4 class="card-title">Special title treatment</h4>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#0" class="btn btn-primary">Go somewhere</a>
   </div>
   <div class="card-footer text-muted">
     2 days ago
@@ -244,20 +244,20 @@ Use Bootstrap's nav pills or tabs within a card header. Be sure to always includ
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs pull-xs-left">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
+        <a class="nav-link active" href="#0">Active</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#0">Link</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link disabled" href="#0">Disabled</a>
       </li>
     </ul>
   </div>
   <div class="card-block">
     <h4 class="card-title">Special title treatment</h4>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#0" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 {% endexample %}
@@ -267,20 +267,20 @@ Use Bootstrap's nav pills or tabs within a card header. Be sure to always includ
   <div class="card-header">
     <ul class="nav nav-pills card-header-pills pull-xs-left">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
+        <a class="nav-link active" href="#0">Active</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#0">Link</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link disabled" href="#0">Disabled</a>
       </li>
     </ul>
   </div>
   <div class="card-block">
     <h4 class="card-title">Special title treatment</h4>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#0" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 {% endexample %}
@@ -334,7 +334,7 @@ You can also use `.card-inverse` with the [contextual backgrounds variants](#bac
   <div class="card-block">
     <h3 class="card-title">Special title treatment</h3>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="#0" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 {% endexample %}
