@@ -11,6 +11,7 @@ label.radio-inline {
     display: inline-block;
     width: $bmd-radio-size;
     height: $bmd-radio-size;
+    cursor: pointer;
     transition-duration: 0.2s;
 
     &.bmd-radio-outer-circle {
@@ -28,8 +29,8 @@ label.radio-inline {
       // focus/press ripple
       &::after {
         position: absolute;
-        top: -#{$bmd-radio-size};
-        left: -#{$bmd-radio-size};
+        top: -#{$bmd-radio-ripple-offset};
+        left: -#{$bmd-radio-ripple-offset};
         z-index: 1;
         display: block;
         width: 50px;
@@ -71,7 +72,13 @@ label.radio-inline {
     }
 
     &[disabled],
+    &:disabled,
     fieldset[disabled] & {
+
+      + .bmd-radio-outer-circle {
+        cursor: default;
+      }
+
       @include bmd-radio-color($bmd-radio-color-disabled);
 
       .bg-inverse & {

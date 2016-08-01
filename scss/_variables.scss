@@ -118,6 +118,7 @@ $bmd-popover-color: #ececec !default;
 // Radio:
 $bmd-radio-border: .125rem !default; // 2px
 $bmd-radio-size: 1.25rem !default;
+$bmd-radio-ripple-offset: 1em !default;
 $bmd-radio-label-padding: .3125rem !default; // 5px
 
 $bmd-radio-color-off: $bmd-label-color-inner-focus !default;  // FIXME seems inconsistent, check spec
