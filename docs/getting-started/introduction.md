@@ -5,7 +5,7 @@ group: getting-started
 redirect_from: "/getting-started/"
 ---
 
-This is Material Design for Bootstrap, the world's most popular framework for building responsive, mobile-first sites and applications. 
+This is Material Design for Bootstrap, the world's most popular framework for building responsive, mobile-first Material Design sites and applications. 
 Inside you'll find high quality HTML, CSS, and JavaScript to make starting any project easier than ever.
 
 Here's how to quickly get started with the Material Design for Bootstrap CDN and a template starter page.
@@ -17,8 +17,8 @@ Here's how to quickly get started with the Material Design for Bootstrap CDN and
 
 ## Quick start
 
-Looking to quickly add Material Design for Bootstrap to your project? Use the Material Design for Bootstrap CDN, 
-provided for free by the folks at MaxCDN. Using a package manager or need to download the source files? 
+Looking to quickly add Material Design for Bootstrap to your project? Use the Material Design for Bootstrap CDN,
+provided for free by the folks at MaxCDN. Using a package manager or need to download the source files?
 [Head to the downloads page.]({{ site.baseurl }}/getting-started/download)
 
 {% callout info %}
@@ -73,7 +73,7 @@ Put it all together and your pages should look like this:
     <!-- Material Design fonts -->
     <link rel="stylesheet" href="{{ site.cdn.font_roboto }}">
     <link rel="stylesheet" href="{{ site.cdn.font_icons }}">
-    
+
     <!-- Material Design for Bootstrap -->
     <link rel="stylesheet" href="{{ site.cdn.css }}">
   </head>
