@@ -908,7 +908,7 @@ The file input is the most gnarly of the bunch and require additional JavaScript
 {% example html %}
 <label class="custom-file">
   <input type="file" id="file" class="custom-file-input">
-  <span class="custom-file-control" tabindex="0"></span>
+  <span class="custom-file-control"></span>
 </label>
 {% endexample %}
 

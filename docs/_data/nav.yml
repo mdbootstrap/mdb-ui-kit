@@ -10,7 +10,6 @@
 
 - title: Material Design
   pages:
-    - title: Test
     - title: List groups
     - title: Menus
     - title: Navs
@@ -78,5 +77,3 @@
 #   pages:
 #     - title: Approach
 #     - title: Icon fonts
-
-
