@@ -11,7 +11,7 @@ Bootstrap provides several form control styles, layout options, and custom compo
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-Form controls flavored by Material Design for Bootstrap customizations such as `bmd-label-floating`.
+Form controls flavored by Bootstrap Material Design customizations such as `bmd-label-floating`.
 {% example html %}
 <form>
   <div class="form-group">
@@ -82,7 +82,7 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
 
 ## Classes
 
-Below is a complete list of options supported by Material Design for Bootstrap and the classes that customize them. Additional documentation is available for each group.
+Below is a complete list of options supported by Bootstrap Material Design and the classes that customize them. Additional documentation is available for each group.
 
 <table>
   <thead>

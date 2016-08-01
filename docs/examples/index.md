@@ -5,7 +5,7 @@ title: Examples
 
 ## Templates
 
-Templates that give a quick structural start to using Material Design for Bootstrap.
+Templates that give a quick structural start to using Bootstrap Material Design.
 
 <div class="card-deck">
   <div class="card card-block">
@@ -36,7 +36,7 @@ Templates that give a quick structural start to using Material Design for Bootst
 
 ## Components
 
-Components and templates to help folks quickly get started with Material Design for Bootstrap and demonstrate best practices for adding onto the framework.
+Components and templates to help folks quickly get started with Bootstrap Material Design and demonstrate best practices for adding onto the framework.
 
 <div class="card-deck">
   <div class="card card-block">

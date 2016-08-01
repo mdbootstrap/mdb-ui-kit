@@ -4,11 +4,11 @@ title: Building
 group: getting-started
 ---
 
-Material Design for Bootstrap uses [Gulp v4](http://gulpjs.com) for its CSS and JavaScript build system and Jekyll for the written documentation. Our gulpfile includes convenient methods for working with the framework, including compiling code, running tests, and more.
+Bootstrap Material Design uses [Gulp v4](http://gulpjs.com) for its CSS and JavaScript build system and Jekyll for the written documentation. Our gulpfile includes convenient methods for working with the framework, including compiling code, running tests, and more.
 
 ## Tooling setup
 
-To use our gulpfile and run our documentation locally, you'll need a copy of Material Design for Bootstrap's source files, Node, and Gulp v4. Follow these steps and you should be ready to rock:
+To use our gulpfile and run our documentation locally, you'll need a copy of Bootstrap Material Design's source files, Node, and Gulp v4. Follow these steps and you should be ready to rock:
 
 1. [Download and install Node](https://nodejs.org/download), which we use to manage our dependencies.
 2. Install the Gulp command line tools, `gulp-cli`, with `npm install -g gulpjs/gulp-cli#4.0`.

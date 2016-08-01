@@ -4,7 +4,7 @@ title: Labels
 group: material-design
 ---
 
-Below is a complete list of `<label>` class options supported by Material Design for Bootstrap:
+Below is a complete list of `<label>` class options supported by Bootstrap Material Design:
 
 <table>
   <thead>
