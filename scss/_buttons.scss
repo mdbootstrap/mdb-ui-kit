@@ -149,8 +149,12 @@
   }
 
   // Align icons inside buttons with text
-  i.material-icons {
-    vertical-align: middle;
+  .material-icons {
+    position: relative;
+    top: .25em;
+    margin-top: -1em;
+    margin-bottom: -1em;
+    font-size: 1.5em;
   }
 
   // Size variations
