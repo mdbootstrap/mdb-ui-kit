@@ -7,13 +7,13 @@
   padding: 3rem ($grid-gutter-width / 2) 2rem;
   color: $bd-purple-light;
   text-align: center;
-  background-image: url(../assets/img/bg.svg);
+  background-image: linear-gradient(rgba(0, 0, 255, 0.2), rgba(0, 0, 255, 0.4)), url(../assets/img/bg.jpg);
   background-size: cover;
 
   .bd-booticon {
     margin: 0 auto 2rem;
-    color: white;
-    border-color: white;
+    color: #ffffff;
+    border-color: #ffffff;
   }
 
   h1 {
