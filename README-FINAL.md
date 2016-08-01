@@ -8,8 +8,6 @@ the end of your document (just before the `</body>` tag), and everything will be
 
 ## Documentation
 
-NOTE: this is a temporary site location that will be published in at http://fezvrasta.github.io/bootstrap-material-design in the future.
-
 - [Getting Started](http://fezvrasta.github.io/bootstrap-material-design/getting-started/introduction/)
 - [Building](http://fezvrasta.github.io/bootstrap-material-design/getting-started/building/)
 - [Material Design components](http://fezvrasta.github.io/bootstrap-material-design/material-design/list-groups/)
