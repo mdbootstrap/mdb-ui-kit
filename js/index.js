@@ -9,7 +9,9 @@
  * at your application entry point.  This is necessary for browsers that do not yet support some ES2015 runtime necessities such as Symbol.  We do this in `index-iife.js` for our iife rollup bundle.
  */
 import 'babel-polyfill'
-import 'bootstrap'
+
+// Bootstrap components
+import 'bootstrap/dist/js/bootstrap'
 
 // invalidComponentMatches is currently disabled due to https://github.com/rollup/rollup/issues/428#issuecomment-170066452
 import './checkbox'
