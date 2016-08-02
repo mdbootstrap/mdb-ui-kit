@@ -57,6 +57,8 @@
 
   // https://www.google.com/design/spec/components/menus.html#menus-specs
   .dropdown-item {
+    // used to properly size the ripple container
+    position: relative;
 
     display: flex;
     flex-flow: row wrap;
@@ -118,4 +120,3 @@
     }
   }
 }
-
