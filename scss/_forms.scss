@@ -28,12 +28,6 @@ form {
   border: 0;
   transition: background 0s ease-out;
 
-  // on disabled, kill the bg animation image and fall back to a simple dotted bottom border
-  @include bmd-disabled() {
-    background-image: none;
-    border-bottom: $input-btn-border-width dotted $input-border-color;
-  }
-
   // The border bottom should be static in all states, the decorator will be animated over this.
   &:focus,
   .bmd-form-group.is-focused & {

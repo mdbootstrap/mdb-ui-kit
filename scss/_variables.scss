@@ -46,7 +46,10 @@ $enable-shadows: true;  // enable shadows, set to false to turn off shadows
 @import "variables/menu";
 @import "variables/drawer";
 
-$bmd-label-color-focus: $brand-primary !default;
+$bmd-label-color-focus:  $brand-primary !default;
+$bmd-invalid-underline:  $red-a700 !default;
+$bmd-readonly-underline: $input-border-color !default;
+
 //---
 // verified in use with refactoring to v4
 
