@@ -14,7 +14,13 @@ the end of your document (just before the `</body>` tag), and everything will be
 - [Bootstrap default rendering reference documentation](http://fezvrasta.github.io/bootstrap-material-design/components/buttons/)
 - [Migration](http://fezvrasta.github.io/bootstrap-material-design/migration/)
 
+
 ## Support
+
+The things to do are a lot and the time is little, if you are a passionate developer
+with experience with Bootstrap and Bootstrap Material Design and you have some spare
+time, please consider becoming a contributor of this project!  
+If you are interested contact @FezVrasta or just adopt one of our [issues](https://github.com/FezVrasta/bootstrap-material-design/issues).
 
 If you like this project you may support it by [donating](http://fezvrasta.github.io/bootstrap-material-design), starring this repository or reporting issues.  
 All issues filed should be reduced to a [CodePen](http://codepen.io/rosskevin/pen/eJMMVB) test case where possible.
