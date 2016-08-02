@@ -34,9 +34,9 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
     <i class="material-icons">more_vert</i>
   </button>  
   <div class="dropdown-menu dropdown-menu-left" aria-labelledby="ex2">
-    <a class="dropdown-item" href="#0">Regular link</a>
-    <a class="dropdown-item disabled" href="#0">Disabled link</a>
-    <a class="dropdown-item" href="#0">Another link</a>
+    <a class="dropdown-item" href="#">Regular link</a>
+    <a class="dropdown-item disabled" href="#">Disabled link</a>
+    <a class="dropdown-item" href="#">Another link</a>
   </div>
 </div>
 {% endexample %}
@@ -75,9 +75,9 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
     Dropdown
   </button>
   <div class="dropdown-menu" aria-labelledby="buttonMenu1">
-    <a class="dropdown-item" href="#0">Action</a>
-    <a class="dropdown-item" href="#0">Another action</a>
-    <a class="dropdown-item" href="#0">Something else here</a>
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div>
 {% endexample %}
@@ -96,7 +96,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item disabled" type="button">Disabled action</button>
     <div class="dropdown-divider"> </div>
-    <a class="dropdown-item" href="#0">Separated link</a>
+    <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
 {% endexample %}
@@ -114,7 +114,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item disabled" type="button">Disabled action</button>
     <div class="dropdown-divider"> </div>
-    <a class="dropdown-item" href="#0">Separated link</a>
+    <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
 {% endexample %}
@@ -131,7 +131,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item disabled" type="button">Disabled action</button>
     <div class="dropdown-divider"> </div>
-    <a class="dropdown-item" href="#0">Separated link</a>
+    <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
 {% endexample %}

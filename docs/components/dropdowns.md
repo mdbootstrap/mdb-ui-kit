@@ -37,9 +37,9 @@ Any single `.btn` can be turned into a dropdown toggle with some markup changes.
     Dropdown button
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#0">Action</a>
-    <a class="dropdown-item" href="#0">Another action</a>
-    <a class="dropdown-item" href="#0">Something else here</a>
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div>
 {% endexample %}
@@ -53,9 +53,9 @@ And with `<a>` elements:
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#0">Action</a>
-    <a class="dropdown-item" href="#0">Another action</a>
-    <a class="dropdown-item" href="#0">Something else here</a>
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
   </div>
 </div>
 {% endexample %}
@@ -66,61 +66,61 @@ The best part is you can do this with any button variant, too:
   <div class="btn-group">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Default</button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Primary</button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
     <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Success</button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
     <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Info</button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
     <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Warning</button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
     <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Danger</button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
 </div>
@@ -132,11 +132,11 @@ The best part is you can do this with any button variant, too:
     Action
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#0">Action</a>
-    <a class="dropdown-item" href="#0">Another action</a>
-    <a class="dropdown-item" href="#0">Something else here</a>
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#0">Separated link</a>
+    <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
 {% endhighlight %}
@@ -154,11 +154,11 @@ We use this extra class to reduce the horizontal `padding` on either side of the
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
@@ -167,11 +167,11 @@ We use this extra class to reduce the horizontal `padding` on either side of the
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
@@ -180,11 +180,11 @@ We use this extra class to reduce the horizontal `padding` on either side of the
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
@@ -193,11 +193,11 @@ We use this extra class to reduce the horizontal `padding` on either side of the
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
@@ -206,11 +206,11 @@ We use this extra class to reduce the horizontal `padding` on either side of the
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
   <div class="btn-group">
@@ -219,11 +219,11 @@ We use this extra class to reduce the horizontal `padding` on either side of the
       <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="#0">Action</a>
-      <a class="dropdown-item" href="#0">Another action</a>
-      <a class="dropdown-item" href="#0">Something else here</a>
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#0">Separated link</a>
+      <a class="dropdown-item" href="#">Separated link</a>
     </div>
   </div><!-- /btn-group -->
 </div>
@@ -236,11 +236,11 @@ We use this extra class to reduce the horizontal `padding` on either side of the
     <span class="sr-only">Toggle Dropdown</span>
   </button>
   <div class="dropdown-menu">
-    <a class="dropdown-item" href="#0">Action</a>
-    <a class="dropdown-item" href="#0">Another action</a>
-    <a class="dropdown-item" href="#0">Something else here</a>
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#0">Separated link</a>
+    <a class="dropdown-item" href="#">Separated link</a>
   </div>
 </div>
 {% endhighlight %}
@@ -256,11 +256,11 @@ Button dropdowns work with buttons of all sizes, including default and split dro
         Large button
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#0">Action</a>
-        <a class="dropdown-item" href="#0">Another action</a>
-        <a class="dropdown-item" href="#0">Something else here</a>
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#0">Separated link</a>
+        <a class="dropdown-item" href="#">Separated link</a>
       </div>
     </div><!-- /btn-group -->
     <div class="btn-group">
@@ -269,11 +269,11 @@ Button dropdowns work with buttons of all sizes, including default and split dro
         <span class="sr-only">Toggle Dropdown</span>
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#0">Action</a>
-        <a class="dropdown-item" href="#0">Another action</a>
-        <a class="dropdown-item" href="#0">Something else here</a>
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#0">Separated link</a>
+        <a class="dropdown-item" href="#">Separated link</a>
       </div>
     </div><!-- /btn-group -->
   </div><!-- /btn-toolbar -->
@@ -283,11 +283,11 @@ Button dropdowns work with buttons of all sizes, including default and split dro
         Small button
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#0">Action</a>
-        <a class="dropdown-item" href="#0">Another action</a>
-        <a class="dropdown-item" href="#0">Something else here</a>
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#0">Separated link</a>
+        <a class="dropdown-item" href="#">Separated link</a>
       </div>
     </div><!-- /btn-group -->
     <div class="btn-group">
@@ -296,11 +296,11 @@ Button dropdowns work with buttons of all sizes, including default and split dro
         <span class="sr-only">Toggle Dropdown</span>
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#0">Action</a>
-        <a class="dropdown-item" href="#0">Another action</a>
-        <a class="dropdown-item" href="#0">Something else here</a>
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#0">Separated link</a>
+        <a class="dropdown-item" href="#">Separated link</a>
       </div>
     </div><!-- /btn-group -->
   </div><!-- /btn-toolbar -->
@@ -361,11 +361,11 @@ Trigger dropdown menus above elements by adding `.dropup` to the parent element.
         Dropup
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#0">Action</a>
-        <a class="dropdown-item" href="#0">Another action</a>
-        <a class="dropdown-item" href="#0">Something else here</a>
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#0">Separated link</a>
+        <a class="dropdown-item" href="#">Separated link</a>
       </div>
     </div>
 
@@ -377,11 +377,11 @@ Trigger dropdown menus above elements by adding `.dropup` to the parent element.
         <span class="sr-only">Toggle Dropdown</span>
       </button>
       <div class="dropdown-menu">
-        <a class="dropdown-item" href="#0">Action</a>
-        <a class="dropdown-item" href="#0">Another action</a>
-        <a class="dropdown-item" href="#0">Something else here</a>
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#0">Separated link</a>
+        <a class="dropdown-item" href="#">Separated link</a>
       </div>
     </div>
   </div>
@@ -458,8 +458,8 @@ Add a header to label sections of actions in any dropdown menu.
 {% example html %}
 <div class="dropdown-menu">
   <h6 class="dropdown-header">Dropdown header</h6>
-  <a class="dropdown-item" href="#0">Action</a>
-  <a class="dropdown-item" href="#0">Another action</a>
+  <a class="dropdown-item" href="#">Action</a>
+  <a class="dropdown-item" href="#">Another action</a>
 </div>
 {% endexample %}
 
@@ -469,11 +469,11 @@ Separate groups of related menu items with a divider.
 
 {% example html %}
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#0">Action</a>
-  <a class="dropdown-item" href="#0">Another action</a>
-  <a class="dropdown-item" href="#0">Something else here</a>
+  <a class="dropdown-item" href="#">Action</a>
+  <a class="dropdown-item" href="#">Another action</a>
+  <a class="dropdown-item" href="#">Something else here</a>
   <div class="dropdown-divider"></div>
-  <a class="dropdown-item" href="#0">Separated link</a>
+  <a class="dropdown-item" href="#">Separated link</a>
 </div>
 {% endexample %}
 
@@ -483,9 +483,9 @@ Add `.disabled` to items in the dropdown to **style them as disabled**.
 
 {% example html %}
 <div class="dropdown-menu">
-  <a class="dropdown-item" href="#0">Regular link</a>
-  <a class="dropdown-item disabled" href="#0">Disabled link</a>
-  <a class="dropdown-item" href="#0">Another link</a>
+  <a class="dropdown-item" href="#">Regular link</a>
+  <a class="dropdown-item disabled" href="#">Disabled link</a>
+  <a class="dropdown-item" href="#">Another link</a>
 </div>
 {% endexample %}
 
@@ -512,7 +512,7 @@ Add `data-toggle="dropdown"` to a link or button to toggle a dropdown.
 </div>
 {% endhighlight %}
 
-To keep URLs intact with link buttons, use the `data-target` attribute instead of `href="#0"`.
+To keep URLs intact with link buttons, use the `data-target` attribute instead of `href="#"`.
 
 {% highlight html %}
 <div class="dropdown">

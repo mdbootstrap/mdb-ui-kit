@@ -149,12 +149,12 @@ Convey meaning through color with a handful of emphasis utility classes. These m
 Contextual text classes also work well on anchors with the provided hover and focus states.
 
 {% example html %}
-<a href="#0" class="text-muted">Muted link</a>
-<a href="#0" class="text-primary">Primary link</a>
-<a href="#0" class="text-success">Success link</a>
-<a href="#0" class="text-info">Info link</a>
-<a href="#0" class="text-warning">Warning link</a>
-<a href="#0" class="text-danger">Danger link</a>
+<a href="#" class="text-muted">Muted link</a>
+<a href="#" class="text-primary">Primary link</a>
+<a href="#" class="text-success">Success link</a>
+<a href="#" class="text-info">Info link</a>
+<a href="#" class="text-warning">Warning link</a>
+<a href="#" class="text-danger">Danger link</a>
 {% endexample %}
 
 Similar to the contextual text color classes, easily set the background of an element to any contextual class. Anchor components will darken on hover, just like the text classes.

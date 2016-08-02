@@ -20,10 +20,10 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
 {% example html %}
 <ul class="list-group">
   <li class="list-group-item">Text only</li>
-  <a href="#0" class="list-group-item">Link item</a>
+  <a href="#" class="list-group-item">Link item</a>
   <button type="button" class="list-group-item">Button item</button>
-  <a href="#0" class="list-group-item active">Active link item</a>
-  <a href="#0" class="list-group-item disabled">Disabled item</a>
+  <a href="#" class="list-group-item active">Active link item</a>
+  <a href="#" class="list-group-item disabled">Disabled item</a>
 </ul>
 {% endexample %}
 
@@ -32,10 +32,10 @@ the varieties specified. ([Specification](https://www.google.com/design/spec/com
 {% example html %}
 <ul class="list-group bmd-list-group-sm">
   <li class="list-group-item">Text</li>
-  <a href="#0" class="list-group-item">Link item</a>
+  <a href="#" class="list-group-item">Link item</a>
   <button type="button" class="list-group-item">Button item</button>
-  <a href="#0" class="list-group-item active">Active link item</a>
-  <a href="#0" class="list-group-item disabled">Disabled item</a>
+  <a href="#" class="list-group-item active">Active link item</a>
+  <a href="#" class="list-group-item disabled">Disabled item</a>
 </ul>
 {% endexample %}
 
