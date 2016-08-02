@@ -10,4 +10,14 @@
     border-style: solid;
     border-width: 1px;
   }
+
+  .cb {
+    margin-bottom: -2rem !important;
+  }
+
+  @include media-breakpoint-up(sm) {
+    .cb {
+      margin-bottom: 0 !important;
+    }
+  }
 }
