@@ -4,6 +4,11 @@
   border-radius: 0;
   @include box-shadow($bmd-shadow-2dp);
 
+  // give correct size to ripple container
+  .navbar-brand {
+    position: relative;
+  }
+
   // #853 start - https://github.com/twbs/bootstrap/pull/18976/files
   @if $enable-flex {
     display: flex;
