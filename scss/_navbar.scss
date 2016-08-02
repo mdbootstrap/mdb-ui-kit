@@ -19,14 +19,8 @@
     @include clearfix;
   }
   // #853 end - https://github.com/twbs/bootstrap/pull/18976/files
-}
 
-.navbar-nav {
-  .nav-item {
-    position: relative; // used to correctly size ripple container
+  > .container {
+    flex: 1;
   }
-}
-
-.navbar > .container {
-  flex: 1;
 }

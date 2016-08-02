@@ -46,4 +46,9 @@
   }
 }
 
-
+// used to correctly size ripple container
+.nav {
+  .nav-item {
+    position: relative;
+  }
+}
