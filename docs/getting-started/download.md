@@ -23,7 +23,7 @@ For the current time, please use the `v4-dev` branch for **all package managers 
 Download just the compiled and minified CSS and JavaScript. Doesn't include any documentation or original source files.
 
 {% comment %}
-<a href="{{ site.data.download.dist }}" class="btn btn-bs btn-outline" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download compiled');">Download Bootstrap Material Design</a>
+<a href="{{ site.data.download.dist }}" class="btn btn-primary" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download compiled');">Download Bootstrap Material Design</a>
 {% endcomment %}
 <span class="text-muted">Coming soon!</span>
 {% endmarkdown %}
@@ -33,7 +33,7 @@ Download just the compiled and minified CSS and JavaScript. Doesn't include any 
 ### Source files
 Download everything: source Sass, JavaScript, and documentation files. **Requires a Sass compiler, [Autoprefixer](https://github.com/postcss/autoprefixer), and [some setup]({{ site.baseurl }}/getting-started/build-tools/#tooling-setup).**
 
-<a href="{{ site.data.download.source }}" class="btn btn-bs btn-outline" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
+<a href="{{ site.data.download.source }}" class="btn btn-primary" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
 {% endmarkdown %}
   </div>
 </div>
