@@ -1,15 +1,15 @@
-.carbonad {
+.cb {
   background: none !important;
 }
-.carbonad div {
+.cb div {
   display: none;
 }
 
-.carbonad div:nth-child(2) {
+.cb div:nth-child(2) {
   display: block;
 }
 
-.carbonad {
+.cb {
   width: auto !important;
   height: auto !important;
   padding: 1.25rem !important;
@@ -43,7 +43,7 @@
 }
 
 .carbon-text,
-.carbonad a {
+.cb a {
   padding-top: 0 !important;
   margin-bottom: .5em !important;
   color: #fff !important;
@@ -62,7 +62,7 @@
 }
 
 @include media-breakpoint-up(sm) {
-  .carbonad {
+  .cb {
     width: 330px !important;
     padding: 1rem !important;
     margin-right: auto !important;
