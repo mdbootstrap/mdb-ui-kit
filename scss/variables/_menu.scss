@@ -7,8 +7,7 @@ $bmd-menu-item-min-height: 3rem !default; // 48px
 $bmd-menu-item-padding-right: 1rem !default;
 $bmd-menu-item-padding-bottom: 1.25rem !default;
 $bmd-menu-item-padding-left: 1rem !default;
-
-$bmd-menu-item-padding-top: ($bmd-menu-item-min-height - $font-size-base - $bmd-menu-item-padding-bottom) !default;
+$bmd-menu-item-padding-top: 1.25rem !default;
 
 // md and up
 $bmd-menu-item-padding-right-md: 1.5rem !default;
@@ -18,6 +17,3 @@ $bmd-menu-item-padding-left-md: 1.5rem !default;
 // Menu
 $bmd-menu-expand-duration: 0.3s !default;
 $bmd-menu-fade-duration: 0.2s !default;
-
-
-
