@@ -221,4 +221,9 @@
   .btn-group {
     margin: 0;
   }
+
+  // remove margin from nested btn-group(s) to properly align them with the outer buttons
+  > .btn-group {
+    margin: 0;
+  }
 }
