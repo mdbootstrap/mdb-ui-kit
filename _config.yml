@@ -43,9 +43,9 @@ mkp:               http://www.creative-tim.com/product/material-kit-pro?affiliat
 #
 cdn:
 #  # See https://www.srihash.org for info on how to generate the hashes
-  css:            https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css
+  css:            https://cdn.rawgit.com/RossKevin/bootstrap-material-design/gh-pages/dist/bootstrap-material-design.min.css
 #  css_hash:       "sha384-XXXXXXXX"
-  js:             https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design
+  js:             https://cdn.rawgit.com/RossKevin/bootstrap-material-design/gh-pages/dist/bootstrap-material-design.iife.min.js
 #  js_hash:        "sha384-XXXXXXXX"
 
   # fonts
