@@ -47,10 +47,10 @@ title: Bootstrap Material Design, the world's most popular mobile-first and resp
     </p>
 
     <p class="lead">
-      <a href="{{ site.mkp }}" class="btn btn-primary btn-raised btn-lg">More details</a>
+      <a href="{{ site.mkp }}" class="btn btn-primary btn-raised btn-lg" onclick="ga('send', 'event', 'Home', 'MKP More Details Button');">More details</a>
     </p>
 
-    <a href="{{ site.mkp }}">
+    <a href="{{ site.mkp }}" onclick="ga('send', 'event', 'Home', 'MKP Banner Link');">
       <img class="img-fluid m-x-auto" src="/assets/img/mk-pro-banner.jpg" alt="Material Kit PRO" width="1024" height="388">
     </a>
   </div>
@@ -82,18 +82,18 @@ title: Bootstrap Material Design, the world's most popular mobile-first and resp
     <hr class="half-rule m-t-0">
 
     <p><strong>Bootstrap Material Design is open source!</strong> It's hosted, developed, and maintained on GitHub by folks like you.</p>
-    <a href="{{ site.repo }}" class="btn btn-bs btn-primary">View the GitHub project</a>
+    <a href="{{ site.repo }}" class="btn btn-bs btn-primary" onclick="ga('send', 'event', 'Home', 'GitHub Button');">View the GitHub project</a>
 
     <br /><br />
     <hr class="half-rule m-t-0">
 
     <p>Looking for the <strong>Bootstrap 3 compatible</strong> version of Bootstrap Material Design? Head over the following link to find it.</p>
-    <a class="btn btn-bs btn-primary" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/gh-pages-v3/index.html">Get BMD3 Version</a>
+    <a class="btn btn-bs btn-primary" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/gh-pages-v3/index.html" onclick="ga('send', 'event', 'Home', 'Bootstrap Material Design V3 Button');">Get BMD3 Version</a>
 
     <br /><br />
     <hr class="half-rule m-t-0">
 
-    <p>Would you like to support the development of Bootstrap Material Design? Please donate with PayPal or buy <a href="{{ site.mkp }}" target="_blank">Material Kit PRO</a>!</p>
+    <p>Would you like to support the development of Bootstrap Material Design? Please donate with PayPal or buy <a href="{{ site.mkp }}" target="_blank" onclick="ga('send', 'event', 'Home', 'MKP Support Button');">Material Kit PRO</a>!</p>
     <form action="https://www.paypal.com/cgi-bin/webscr" id="paypal" method="post" target="_blank">
       <input type="hidden" name="cmd" value="_s-xclick">
 
