@@ -58,16 +58,16 @@
   }
 }
 
-@mixin bmd-flat-button-variant($color) {
+@mixin bmd-flat-button-variant(
+  $color,
+  $border: $bmd-btn-border,
+  $focus-border: $bmd-btn-focus-bg,
+  $active-border: $bmd-btn-active-bg
+) {
 
   $background: $bmd-btn-bg;
-  $border: $bmd-btn-border;
-
   $focus-background: $bmd-btn-focus-bg;
-  $focus-border: $bmd-btn-focus-bg;
-
   $active-background: $bmd-btn-active-bg;
-  $active-border: $bmd-btn-active-bg;
 
   @include bmd-button-variant($color,
     $background,
@@ -122,6 +122,43 @@
   }
   &.btn-danger {
     @include bmd-flat-button-variant($btn-danger-bg);
+  }
+}
+
+@mixin bmd-outline-button-color() {
+  &.btn-outline,
+  &.btn-outline-primary,
+  &.btn-outline-secondary,
+  &.btn-outline-info,
+  &.btn-outline-success,
+  &.btn-outline-warning,
+  &.btn-outline-danger {
+    border-color: currentColor;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  // flat bg with text and border color variations
+  &.btn-outline {
+    @include bmd-flat-button-variant($bmd-btn-color, $bmd-btn-color, $bmd-btn-color, $bmd-btn-color);
+  }
+  &.btn-outline-primary {
+    @include bmd-flat-button-variant($btn-primary-bg, $btn-primary-bg, $btn-primary-bg, $btn-primary-bg);
+  }
+  &.btn-outline-secondary {
+    @include bmd-flat-button-variant($btn-secondary-color, $btn-secondary-color, $btn-secondary-color, $btn-secondary-color);
+  }
+  &.btn-outline-info {
+    @include bmd-flat-button-variant($btn-info-bg, $btn-info-bg, $btn-info-bg, $btn-info-bg);
+  }
+  &.btn-outline-success {
+    @include bmd-flat-button-variant($btn-success-bg, $btn-success-bg, $btn-success-bg, $btn-success-bg);
+  }
+  &.btn-outline-warning {
+    @include bmd-flat-button-variant($btn-warning-bg, $btn-warning-bg, $btn-warning-bg, $btn-warning-bg);
+  }
+  &.btn-outline-danger {
+    @include bmd-flat-button-variant($btn-danger-bg, $btn-danger-bg, $btn-danger-bg, $btn-danger-bg);
   }
 }
 

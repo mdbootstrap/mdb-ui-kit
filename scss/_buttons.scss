@@ -70,6 +70,10 @@
     }
   }
 
+  //---
+  // btn-outline
+  @include bmd-outline-button-color();
+
   // https://www.google.com/design/spec/components/buttons-floating-action-button.html
   &.bmd-btn-fab,
   &.bmd-btn-icon {
