@@ -80,12 +80,12 @@ Put it all together and your pages should look like this:
   <body>
     <h1>Hello, world!</h1>
 
-    <!-- jQuery first, optional tether for tooltips, then Bootstrap Material Design JS. -->
+    <!-- jQuery first, then tether, then Bootstrap Material Design JS. -->
     <script src="{{ site.data.cdn.jquery }}.min.js"></script>
     <script src="{{ site.data.cdn.tether }}.min.js"></script>
     <script src="{{ site.cdn.js }}.iife.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{ site.data.cdn['ie10-viewport-bug-workaround'] }}"></script>
+    <script src="{{ site.cdn['ie10-viewport-bug-workaround'] }}"></script>
     <script>
       $('body').bootstrapMaterialDesign()
     </script>
