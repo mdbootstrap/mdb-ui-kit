@@ -1,3 +1,16 @@
 .bd-home {
   background-color: #fff;
 }
+.mk-pro-badge {
+  position: relative;
+  padding: .4em .9em;
+  margin-right: -4em;
+  font-size: .4em;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  vertical-align: text-top;
+  background: $pink-600;
+  border-radius: 3px;
+  box-shadow: 0 5px 5px -2px rgba(31, 31, 31, 0.4);
+}
