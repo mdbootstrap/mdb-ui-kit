@@ -29,7 +29,7 @@ gems:
 
 # Site vars
 #url:    "http://fezvrasta.github.io"
-repo:   https://github.com/fezvrasta/bootstrap-material-design
+repo:   https://github.com/FezVrasta/bootstrap-material-design
 #baseurl: "/bootstrap-material-design"
 url: "http://rosskevin.github.io"
 
@@ -44,7 +44,7 @@ cdn:
 #  # See https://www.srihash.org for info on how to generate the hashes
   css:            https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css
 #  css_hash:       "sha384-XXXXXXXX"
-  js:             https://cdn.rawgit.com/fezvrasta/bootstrap-material-design/dist/dist/bootstrap-material-design
+  js:             https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design
 #  js_hash:        "sha384-XXXXXXXX"
 
   # fonts
