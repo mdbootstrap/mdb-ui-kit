@@ -1,0 +1,52 @@
+.page-item {
+  &:first-child .page-link {
+    @include border-left-radius(4em);
+  }
+  &:last-child .page-link {
+    @include border-right-radius(4em);
+    margin-right: 0;
+  }
+
+  &:first-child,
+  &:last-child {
+    .page-link {
+      display: flex;
+      justify-content: center;
+      padding-right: 0;
+      padding-left: 0;
+      > .material-icons {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+.page-link {
+  min-width: 2.6em;
+  margin-right: 0.5em;
+  text-align: center;
+  border-radius: 4em;
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+}
+
+
+//
+// Sizing
+//
+
+.pagination-lg {
+  .page-link {
+    min-width: 2.8em;
+  }
+  @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, 4em);
+}
+
+.pagination-sm {
+  .page-link {
+    min-width: 2.2em;
+  }
+  @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, 4em);
+}

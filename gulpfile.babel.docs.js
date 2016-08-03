@@ -19,6 +19,8 @@ const copyProcessor = (content, srcpath) => { // https://regex101.com/r/cZ7aO8/2
   return content
     .replace(/(---[\s\S]+?---)([\s\S]+)/mg, referenceDocNotice) // insert docs reference
     .replace(/Fancy display heading/, 'Fancy heading')          // remove sample text 'display' as this is a particular MD style and is confusing
+    .replace(/aria-hidden="true"\>&laquo;\</g, 'aria-hidden="true" class="material-icons">chevron_left<') // replace « symbol in pagination with icon
+    .replace(/aria-hidden="true"\>&raquo;\</g, 'aria-hidden="true" class="material-icons">chevron_right<') // replace » symbol in pagination with icon
 }
 
 const preset = Preset.baseline({
