@@ -1,0 +1,14 @@
+.bd-docs {
+  .card-container {
+    @extend .card;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    @include media-breakpoint-up(sm) {
+      margin-top: -1.5rem;
+    }
+
+    .anchorjs-link {
+      margin-left: -1.5em !important;
+    }
+  }
+}
