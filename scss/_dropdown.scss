@@ -14,9 +14,8 @@
 }
 
 @mixin menu-top-left {
-  top: 100%;
-  left: 0;
   top: auto;
+  left: 0;
   bottom: 100%;
   transform-origin: 0 100%;
 }
