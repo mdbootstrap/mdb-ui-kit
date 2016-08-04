@@ -27,9 +27,9 @@ In order to make snackbars work, make sure to include `snackbar.min.js` before `
 </script>
 {% endhighlight %}
 
-<div class="alert alert-info" role="alert">
-  <strong>Heads up!</strong> You don't need to include SnackbarJS CSS, it's already bundled in BMD.
-</div>
+{% callout info %}
+**Heads up!** You don't need to include SnackbarJS CSS, it's already bundled in Bootstrap Material Design.
+{% endcallout %}
 
 ## Examples
 
