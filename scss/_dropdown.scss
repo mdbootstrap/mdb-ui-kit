@@ -13,6 +13,20 @@
   transform-origin: 100% 0;
 }
 
+@mixin menu-top-left {
+  top: 100%;
+  left: 0;
+  top: auto;
+  bottom: 100%;
+  transform-origin: 0 100%;
+}
+
+@mixin menu-top-right {
+  right: 0;
+  left: auto;
+  transform-origin: 100% 100%;
+}
+
 .dropdown-menu {
   display: block; // utilize transition transform instead of flipping display
   padding: .25rem 0;
@@ -45,19 +59,16 @@
     @include menu-bottom-right();
   }
 
-  //&.dropdown-menu-top-left {
-  //  top: auto;
-  //  bottom: 0;  // needs to be overridden with the toggle-button height, see bmd-btn-icon above
-  //  transform-origin: 0 100%;
-  //}
-  //
-  //&.dropdown-menu-top-right {
-  //  top: auto;
-  //  right: 0;
-  //  bottom: 0;  // needs to be overridden with the toggle-button height, see bmd-btn-icon above
-  //  left: auto;
-  //  transform-origin: 100% 100%;
-  //}
+  .dropup > & {
+    @include menu-top-right();
+
+    &.dropdown-menu-left {
+      @include menu-top-left();
+    }
+    &.dropdown-menu-right {
+      @include menu-top-right();
+    }
+  }
 
   // https://www.google.com/design/spec/components/menus.html#menus-specs
   .dropdown-item {
@@ -92,7 +103,6 @@
 
 // this could be in a .btn-group or .dropdown
 .dropdown-toggle {
-
   &.bmd-btn-icon,
   &.bmd-btn-fab {
     // remove the dropdown icon
