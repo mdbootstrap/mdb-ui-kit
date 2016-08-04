@@ -56,6 +56,7 @@ cdn:
   jquery:         https://code.jquery.com/jquery-VERSION.min.js
   bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap.min.js
   tether:         https://cdn.rawgit.com/HubSpot/tether/vVERSION/dist/js/tether.min.js
+  snackbar:       https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js
 
   'ie10-viewport-bug-workaround': https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js
 

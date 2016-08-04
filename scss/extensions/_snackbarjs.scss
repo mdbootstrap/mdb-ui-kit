@@ -1,27 +1,59 @@
-//// Support for SnackbarJS plugin
-//// https://github.com/FezVrasta/snackbarjs
-//
-//.snackbar {
-//  height: 0;
-//  font-size: 14px;
-//  color: $bmd-inverse;
-//  background-color: #323232;
-//  border-radius: $border-radius;
-//  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, padding 0s linear 0.2s, height 0s linear 0.2s;
-//  transform: translateY(200%);
-//
-//  @include box-shadow($bmd-shadow-2dp);
-//}
-//
-//.snackbar.snackbar-opened {
-//  height: auto;
-//  padding: 14px 15px;
-//  margin-bottom: 20px;
-//  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in, height 0s linear 0.2s, height 0s linear 0.2s;
-//  transform: none;
-//}
-//
-//// Variations
-//.snackbar.toast {
-//  border-radius: 200px;
-//}
+// Support for SnackbarJS plugin
+// https://github.com/FezVrasta/snackbarjs
+
+#snackbar-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.snackbar {
+  display: inline-block;
+  min-width: $bmd-snackbar-min-width-sm;
+  max-height: 0;
+  opacity: 0;
+  transition: transform .25s cubic-bezier(0,0,.2,1), opacity 0s .25s, max-height .25s;
+  transform: translateY(100%);
+
+  &.toast .snackbar-content {
+    border-radius: 10rem;
+  }
+}
+
+.snackbar-content {
+  display: block;
+  padding: $bmd-snackbar-padding;
+  margin-top: 3px;
+  font-size: .9rem;
+  color: $bmd-snackbar-color;
+  background-color: $bmd-snackbar-bg;
+  border-radius: 2px;
+
+  .btn {
+    margin-bottom: 0;
+  }
+}
+
+.snackbar.snackbar-opened {
+  max-height: 100px;
+  opacity: 1;
+  transition: transform .25s cubic-bezier(0,0,.2,1), opacity 0s 0s, max-height .25s;
+  transform: translateY(0%);
+}
+
+@include media-breakpoint-up(sm) {
+  #snackbar-container {
+    right: 1rem;
+    left: 1rem;
+    width: 100%;
+  }
+
+  .snackbar {
+    min-width: $bmd-snackbar-min-width;
+  }
+}

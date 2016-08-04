@@ -11,7 +11,7 @@ The Bootstrap Material Design `Drawer` provides a markup structure and plugin th
 * Will be replaced with the ToC, excluding the "Contents" header
 {:toc}
 
-## Overview 
+## Overview
 
 ### Templates and examples
 
@@ -333,4 +333,3 @@ The following generates a custom drawer at the size of 500px that is _out_ by de
   @include bmd-drawer-x-overlay(); // overlay by default, no other classes necessary
 }
 {% endhighlight %}
-

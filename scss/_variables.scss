@@ -48,6 +48,7 @@ $enable-shadows: true;  // enable shadows, set to false to turn off shadows
 @import "variables/layout";
 @import "variables/menu";
 @import "variables/drawer";
+@import "variables/snackbar";
 
 $bmd-label-color-focus:  $brand-primary !default;
 $bmd-invalid-underline:  $red-a700 !default;

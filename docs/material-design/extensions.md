@@ -4,9 +4,6 @@ title: Extensions
 group: material-design
 ---
 
-{% callout warning %}
-## **Heads up! These need work!**
- 
-Do you want to see something integrated (at least style wise)? Submit a PR!
-{% endcallout %}
+Bootstrap Material Design provides seamlessly integration with some extensions.
 
+- [SnackbarJS]({{ site.baseurl }}/material-design/snackbars)

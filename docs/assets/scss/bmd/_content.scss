@@ -1,0 +1,10 @@
+.bd-title {
+  @include media-breakpoint-up(sm) {
+    font-size: 3rem;
+
+    ~ p:first-of-type {
+      font-size: 1.25rem;
+      font-weight: 300;
+    }
+  }
+}
