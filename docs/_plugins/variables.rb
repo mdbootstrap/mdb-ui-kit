@@ -68,11 +68,10 @@ module Variables
         'dist' => "#{repo}/releases/download/v#{version}/#{name}-#{version}-dist.zip"
       }
 
-      site.data['cdn'] = {
-        'jquery' => site.config['cdn']['jquery'].gsub(/VERSION/, jquery_version),
-        'bootstrap' => site.config['cdn']['bootstrap'].gsub(/VERSION/, bootstrap_version),
-        'tether' => site.config['cdn']['tether'].gsub(/VERSION/, tether_version)
-      }
+      site.data['cdn'] = site.config['cdn'];
+      site.data['cdn']['jquery'] = site.config['cdn']['jquery'].gsub('VERSION', jquery_version);
+      site.data['cdn']['bootstrap'] = site.config['cdn']['bootstrap'].gsub('VERSION', bootstrap_version);
+      site.data['cdn']['tether'] = site.config['cdn']['tether'].gsub('VERSION', tether_version);
 
       #
       # puts "\n---------------------"

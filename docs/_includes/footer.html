@@ -19,15 +19,9 @@
 
 <!-- NOTE: jquery (for this docs site only) is included in the <head> so that example scripts run on ready -->
 <script src="{{ site.baseurl }}/dist/docs-vendor.min.js"></script>
-{% if site.data.minified %}
-  <!--<script src="{{ site.data.cdn.jquery }}.min.js"></script>-->
-  <script src="{{ site.data.cdn.tether }}.min.js"></script>
-  <script src="{{ site.baseurl }}/dist/docs.iife.min.js"></script>
-{% else %}
-  <!--<script src="{{ site.data.cdn.jquery }}.js"></script>-->
-  <script src="{{ site.data.cdn.tether }}.js"></script>
-  <script src="{{ site.baseurl }}/dist/docs.iife.js"></script>
-{% endif %}
+<!--<script src="{{ site.data.cdn.jquery }}"></script>-->
+<script src="{{ site.data.cdn.tether }}"></script>
+<script src="{{ site.baseurl }}/dist/docs.iife.min.js"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="{{ site.data.cdn['ie10-viewport-bug-workaround'] }}"></script>

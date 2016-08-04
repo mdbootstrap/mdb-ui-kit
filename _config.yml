@@ -53,9 +53,9 @@ cdn:
   font_icons:     https://fonts.googleapis.com/icon?family=Material+Icons
 
   # VERSION is substituted in variables.rb and these are made available as site.data.cdn.*
-  jquery:         https://code.jquery.com/jquery-VERSION
-  bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap
-  tether:         https://cdn.rawgit.com/HubSpot/tether/vVERSION/dist/js/tether
+  jquery:         https://code.jquery.com/jquery-VERSION.min.js
+  bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap.min.js
+  tether:         https://cdn.rawgit.com/HubSpot/tether/vVERSION/dist/js/tether.min.js
 
   'ie10-viewport-bug-workaround': https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js
 

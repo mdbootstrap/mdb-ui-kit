@@ -29,27 +29,27 @@ Copy-paste the font and stylesheet `<link>` into your `<head>` before all other 
 
 {% highlight html %}
 <!-- Material Design fonts -->
-<link rel="stylesheet" href="{{ site.cdn.font_roboto }}">
-<link rel="stylesheet" href="{{ site.cdn.font_icons }}">
+<link rel="stylesheet" href="{{ site.data.cdn.font_roboto }}">
+<link rel="stylesheet" href="{{ site.data.cdn.font_icons }}">
 
 <!-- Bootstrap Material Design -->
-<link rel="stylesheet" href="{{ site.cdn.css }}">
+<link rel="stylesheet" href="{{ site.data.cdn.css }}">
 {% endhighlight %}
 
 Add jQuery, Tether, and our Javascript near the end of your pages, right before the closing `</body>` tag. Be sure to place jQuery first as our code depends on it.
 
 {% highlight html %}
-<script src="{{ site.data.cdn.jquery }}.min.js"></script>
-<script src="{{ site.data.cdn.tether }}.min.js"></script>
-<script src="{{ site.cdn.js }}.iife.min.js"></script>
+<script src="{{ site.data.cdn.jquery }}"></script>
+<script src="{{ site.data.cdn.tether }}"></script>
+<script src="{{ site.data.cdn.js }}"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="{{ site.data.cdn['ie10-viewport-bug-workaround'] }}"></script>
 <script>
-  $('body').bootstrapMaterialDesign()
+  $('body').bootstrapMaterialDesign();
 </script>
 {% endhighlight %}
 
-And that's it—you're on your way to a fully Bootstrap Material Designped site. If you're at all unsure about the general page structure, keep reading for an example page template.
+And that's it—you're on your way to a fully Bootstrap Material styled site. If you're at all unsure about the general page structure, keep reading for an example page template.
 
 ## Starter template
 
@@ -71,23 +71,23 @@ Put it all together and your pages should look like this:
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Material Design fonts -->
-    <link rel="stylesheet" href="{{ site.cdn.font_roboto }}">
-    <link rel="stylesheet" href="{{ site.cdn.font_icons }}">
+    <link rel="stylesheet" href="{{ site.data.cdn.font_roboto }}">
+    <link rel="stylesheet" href="{{ site.data.cdn.font_icons }}">
 
     <!-- Bootstrap Material Design -->
-    <link rel="stylesheet" href="{{ site.cdn.css }}">
+    <link rel="stylesheet" href="{{ site.data.cdn.css }}">
   </head>
   <body>
     <h1>Hello, world!</h1>
 
     <!-- jQuery first, then tether, then Bootstrap Material Design JS. -->
-    <script src="{{ site.data.cdn.jquery }}.min.js"></script>
-    <script src="{{ site.data.cdn.tether }}.min.js"></script>
-    <script src="{{ site.cdn.js }}.iife.min.js"></script>
+    <script src="{{ site.data.cdn.jquery }}"></script>
+    <script src="{{ site.data.cdn.tether }}"></script>
+    <script src="{{ site.data.cdn.js }}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{ site.cdn['ie10-viewport-bug-workaround'] }}"></script>
+    <script src="{{ site.data.cdn['ie10-viewport-bug-workaround'] }}"></script>
     <script>
-      $('body').bootstrapMaterialDesign()
+      $('body').bootstrapMaterialDesign();
     </script>
   </body>
 </html>

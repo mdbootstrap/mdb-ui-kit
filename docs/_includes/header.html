@@ -5,12 +5,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 <!-- Bootstrap Material Design customization for Documentation (consider Documentation the application) -->
-{% if site.data.minified %}
 <link href="{{ site.baseurl }}/dist/docs.min.css" rel="stylesheet">
-{% else %}
-<link href="{{ site.baseurl }}/dist/docs.css" rel="stylesheet">
-{% endif %}
-
 
 <!-- Favicons -->
 <link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
@@ -29,8 +24,4 @@
 
 
 <!-- NOTE: @see footer - jquery (for this docs site only) is included in the <head> so that example scripts run on ready -->
-{% if site.data.minified %}
-<script src="{{ site.data.cdn.jquery }}.min.js"></script>
-{% else %}
-<script src="{{ site.data.cdn.jquery }}.js"></script>
-{% endif %}
+<script src="{{ site.data.cdn.jquery }}"></script>
