@@ -132,6 +132,7 @@
     height: $bmd-btn-icon-size;
     margin: 0;
     color: inherit;
+    line-height: 0;
 
     &.bmd-btn-icon-sm,
     .btn-group-sm & {
@@ -141,12 +142,10 @@
       font-size: $bmd-btn-icon-font-size-sm;
 
       .material-icons {
-        //$position: ($bmd-btn-icon-size-sm - $bmd-btn-icon-font-size-sm) / 2;
-        //top: $position;
-        //left: $position;
         width: $bmd-btn-icon-font-size-sm;
         font-size: $bmd-btn-icon-font-size-sm;
         line-height: 1;
+        vertical-align: middle;
         transform: translate(-($bmd-btn-icon-font-size-sm / 2), -($bmd-btn-icon-font-size-sm / 2));
       }
     }
@@ -155,10 +154,12 @@
   // Align icons inside buttons with text
   .material-icons {
     position: relative;
+    display: inline-block;
     top: .25em;
     margin-top: -1em;
     margin-bottom: -1em;
     font-size: 1.5em;
+    vertical-align: middle;
   }
 
   // Size variations
