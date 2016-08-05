@@ -10,7 +10,7 @@ branches:
 
 language: node_js
 node_js:
-  - "5" # "node" (v6.x) yielded v8::ObjectTemplate::Set() with non-primitive values is deprecated
+  - "6"
 
 # enable this once we have reliable builds
 cache:
