@@ -2,28 +2,16 @@
 .checkbox label,
 label.checkbox-inline {
   padding-left: $bmd-checkbox-size + $bmd-checkbox-label-padding; // absolutely positioned so add the radio size
-  cursor: pointer;
 
   .checkbox-decorator {
     position: absolute;
-    top: 0.125rem;
     left: 0;
+    padding: 1em;
+    margin: -1em;
+    line-height: .7;
     vertical-align: middle;
-
-    &::before { // FIXME: document why this is necessary (doesn't seem to be on chrome)
-      position: absolute;
-      left: 0;
-      z-index: 1;
-      display: block;
-      width: $bmd-checkbox-size;
-      height: $bmd-checkbox-size;
-      margin: 0;
-      content: "";
-      background-color: rgba($black, .84);
-      border-radius: 100%;
-      opacity: 0;
-      transform: scale3d(2.3, 2.3, 1);
-    }
+    cursor: pointer;
+    border-radius: 100%;
 
     .check {
       position: relative;
@@ -63,7 +51,6 @@ label.checkbox-inline {
   }
 
   input[type=checkbox] {
-
     // Hide native checkbox
     position: absolute;
     left: 0;
@@ -80,7 +67,6 @@ label.checkbox-inline {
     }
 
     &:checked {
-
       // FIXME: once working - combine further to reduce code
       + .checkbox-decorator .check {
         color: $bmd-checkbox-checked-color;
@@ -97,33 +83,6 @@ label.checkbox-inline {
         20px -12px 0 11px;
         animation: checkbox-on $bmd-checkbox-animation-check forwards;
       }
-
-      + .checkbox-decorator::before {
-        animation: rippleOn;
-        .is-focused & {
-          // Prevent checkbox animation and ripple effect on page load
-          animation: rippleOn $bmd-checkbox-animation-ripple;
-        }
-      }
-
-      + .checkbox-decorator .check::after {
-        //background-color: $brand-success; // FIXME: seems like tho wrong color, test and make sure it can be removed
-        animation: rippleOn $bmd-checkbox-animation-ripple forwards; // Ripple effect on check
-      }
-    }
-
-    &:not(:checked) {
-      + .checkbox-decorator::before {
-        animation: rippleOff;
-        .is-focused & {
-          // Prevent checkbox animation and ripple effect on page load
-          animation: rippleOff $bmd-checkbox-animation-ripple;
-        }
-      }
-
-      + .checkbox-decorator .check::after {
-        animation: rippleOff $bmd-checkbox-animation-ripple forwards; // Ripple effect on uncheck
-      }
     }
 
     &[disabled],
@@ -136,6 +95,10 @@ label.checkbox-inline {
       + .checkbox-decorator .check,
       .check {
         border-color: $bmd-checkbox-border-color-disabled;
+      }
+      // No ripple on disabled checkboxes
+      + .checkbox-decorator .ripple-container {
+        display: none;
       }
     }
   }
@@ -228,29 +191,5 @@ label.checkbox-inline {
     0 0 0 0,
     0 0 0 0 inset;
     transform: rotate(0deg);
-  }
-}
-
-@keyframes rippleOn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes rippleOff {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0;
   }
 }

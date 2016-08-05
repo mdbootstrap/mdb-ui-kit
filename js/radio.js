@@ -18,7 +18,7 @@ const Radio = (($) => {
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME]
 
   const Default = {
-    template: `<span class='bmd-radio-outer-circle'></span><span class='bmd-radio-inner-circle'></span>`
+    template: `<span class='bmd-radio'></span>`
   }
 
   /**

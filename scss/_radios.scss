@@ -3,45 +3,36 @@ label.radio-inline {
   position: relative;
   padding-left: $bmd-radio-size + $bmd-radio-label-padding; // absolutely positioned so add the radio size
 
-  .bmd-radio-outer-circle, // don't use generic span, it may conflict with span in user markup #693
-  .bmd-radio-inner-circle {
+  .bmd-radio {
     position: absolute;
-    top: calc-top($line-height-base, $font-size-base, $bmd-radio-size); // vertical center of line-height
     left: 0;
     display: inline-block;
-    width: $bmd-radio-size;
-    height: $bmd-radio-size;
-    cursor: pointer;
-    transition-duration: 0.2s;
+    padding: 1em;
+    margin: -1em;
+    line-height: .7;
+    border-radius: 100%;
 
-    &.bmd-radio-outer-circle {
+    &::after {
+      display: inline-block;
+      width: $bmd-radio-size;
+      height: $bmd-radio-size;
+      cursor: pointer;
+      content: "";
       border: $bmd-radio-border solid $bmd-radio-color-off;
       border-radius: 50%;
       transition: border-color ease .28s;
+      transition-duration: 0.2s;
     }
-    &.bmd-radio-inner-circle {
+    &::before {
+      position: absolute;
       display: inline-block;
+      width: $bmd-radio-size;
+      height: $bmd-radio-size;
+      content: "";
       background-color: $bmd-radio-color-on;
       border-radius: 50%;
       transition: transform ease .28s;
       transform: scale3d(0, 0, 0);
-
-      // focus/press ripple
-      &::after {
-        position: absolute;
-        top: -#{$bmd-radio-ripple-offset};
-        left: -#{$bmd-radio-ripple-offset};
-        z-index: 1;
-        display: block;
-        width: 50px;
-        height: 50px;
-        margin: 0;
-        content: "";
-        background-color: $gray-dark;
-        border-radius: 100%;
-        opacity: 0;
-        transform: scale3d(1.5, 1.5, 1);
-      }
     }
   }
 
@@ -57,63 +48,30 @@ label.radio-inline {
     pointer-events: none;
     opacity: 0;
 
-    &:checked {
+    &:checked ~ .bmd-radio {
       @include bmd-radio-color($bmd-radio-color-on);
 
-      ~ .bmd-radio-inner-circle {
+      &::before {
         transform: scale3d(0.55, 0.55, 1);
-        &::after {
-          animation: rippleOn;
-
-          .is-focused & {
-            // Prevent ripple effect on page load
-            animation: rippleOn 500ms;
-          }
-        }
       }
-    }
-
-    &:not(:checked) ~ .bmd-radio-inner-circle::after {
-      animation: rippleOff 500ms;
     }
 
     &[disabled],
     &:disabled,
     fieldset[disabled] & {
-
-      + .bmd-radio-outer-circle {
+      + .bmd-radio {
         cursor: default;
+        @include bmd-radio-color($bmd-radio-color-disabled);
       }
 
-      @include bmd-radio-color($bmd-radio-color-disabled);
+      // No ripple on disabled radios
+      + .bmd-radio .ripple-container {
+        display: none;
+      }
 
-      .bg-inverse & {
+      .bg-inverse & + .bmd-radio {
         @include bmd-radio-color($bmd-radio-color-disabled-inverse);
       }
     }
-  }
-}
-
-@keyframes rippleOn {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes rippleOff {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.2;
-  }
-  100% {
-    opacity: 0;
   }
 }

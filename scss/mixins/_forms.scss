@@ -53,13 +53,11 @@
 }
 
 @mixin bmd-radio-color($color) {
-
-  ~ .bmd-radio-inner-circle {
-    background-color: $color;
-  }
-
-  ~ .bmd-radio-outer-circle {
+  &::after {
     border-color: $color;
+  }
+  &::before {
+    background-color: $color;
   }
 }
 

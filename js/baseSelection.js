@@ -49,7 +49,13 @@ const BaseSelection = (($) => {
     // protected
 
     decorateMarkup() {
-      this.$element.after(this.config.template)
+      const $decorator = $(this.config.template);
+      this.$element.after($decorator)
+
+      // initialize ripples after decorator has been inserted into DOM
+      if (this.config.ripples !== false) {
+        $decorator.bmdRipples()
+      }
     }
 
     // Demarcation element (e.g. first child of a form-group)
