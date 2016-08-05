@@ -31,6 +31,10 @@ label.checkbox-inline {
         height: 0;
         margin-top: -4px;
         margin-left: 6px;
+        // we need a solid color here to avoid glitches in the animation
+        // it will not look great on non white backgrounds, but this is the
+        // most common case and it's better support it
+        color: lighten(rgba($gray, 1), (1 - $gray-alpha) * 100);
         content: "";
         box-shadow: 0 0 0 0,
         0 0 0 0,
