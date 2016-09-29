@@ -42,7 +42,7 @@ If you prefer, you can include this framework in your project using our official
 
 ## Getting started
 
-Add the necessary links to your `<head>` element for fonts and stylsheets:
+Add the necessary links to your `<head>` element for fonts and stylesheets:
 ```html
   <!-- Material Design fonts -->
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
