@@ -29,12 +29,18 @@ Major differences:
 
 ## How to install
 
-You may install this theme using NPM or Bower:
+You may install this theme for Bootstrap v3 using npm or Bower:
 
-- NPM : `npm install bootstrap-material-design`
+- npm : `npm install bootstrap-material-design`
 - Bower : `bower install bootstrap-material-design`
 
-If you prefer, you can include this framework in your project using our official CDN:
+
+For the v4-dev branch you can use:
+
+- npm : `npm install git://github.com/FezVrasta/bootstrap-material-design.git#v4-dev`
+- Bower : `bower install bootstrap-material-design#v4-dev`
+
+If you prefer, you can include this framework in your project using our official CDN (currently limited to v3):
 
 - [Bootstrap Material Design on CDNJS.com](https://cdnjs.com/libraries/bootstrap-material-design)
 - [Bootstrap Material Design on JSDelivr.com](http://www.jsdelivr.com/#!bootstrap.material-design)
