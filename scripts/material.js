@@ -256,7 +256,9 @@
         });
     },
     "ripples": function (selector) {
-      $((selector) ? selector : this.options.withRipples).ripples();
+      $(document).on('mousedown', selector || this.options.withRipples, function() {
+        $(this).ripples();
+      });
     },
     "autofill": function () {
       // This part of code will detect autofill when the page is loading (username and password inputs for example)
