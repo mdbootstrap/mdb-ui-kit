@@ -256,9 +256,17 @@
         });
     },
     "ripples": function (selector) {
-      $(document).on('mousedown', selector || this.options.withRipples, function() {
-        $(this).ripples();
-      });
+      if (this.options.ripplesDelegate) {
+       // Delegate mode, lazy creation
+       $(document).on('mousedown touchstart', selector || this.options.withRipples, function(event) {
+        if(!$.data($(this), "plugin_ripples")) {
+         $(this).ripples({}, event);
+        }
+       });
+      } else {
+       // Immediate and static creation
+       $((selector) ? selector : this.options.withRipples).ripples();
+      };
     },
     "autofill": function () {
       // This part of code will detect autofill when the page is loading (username and password inputs for example)
