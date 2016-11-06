@@ -77,6 +77,7 @@
       "validate": true,
       "input": true,
       "ripples": true,
+      "ripplesDelegate": true,
       "checkbox": true,
       "togglebutton": true,
       "radio": true,
