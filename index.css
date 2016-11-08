@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+@media screen and (max-width: 1300px) {
+    .block-mobile {
+        display: block !important;
+        margin-bottom: 2em !important;
+    }
+}
+
 .header-panel {
     background-color: #009587;
     height: 144px;
