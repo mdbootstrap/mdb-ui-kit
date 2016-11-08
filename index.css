@@ -360,3 +360,7 @@
 /*#toggle-button .togglebutton .toggle {*/
     /*float: right;*/
 /*}*/
+
+.btn-primary select {
+  color: black;
+}
