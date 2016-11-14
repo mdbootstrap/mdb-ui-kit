@@ -9,13 +9,13 @@
 
 // #853 start - https://github.com/twbs/bootstrap/pull/18976/files
 // hack
-@mixin pull-left {
+@mixin float-left {
   float: left !important;
   @if $enable-flex {
     margin-right: auto;
   }
 }
-@mixin pull-right {
+@mixin float-right {
   float: right !important;
   @if $enable-flex {
     margin-left: auto;
@@ -49,7 +49,7 @@
 @import "bootstrap/scss/card";
 @import "bootstrap/scss/breadcrumb";
 @import "bootstrap/scss/pagination";
-@import "bootstrap/scss/tags";
+@import "bootstrap/scss/badge";
 @import "bootstrap/scss/jumbotron";
 @import "bootstrap/scss/alert";
 @import "bootstrap/scss/progress";
