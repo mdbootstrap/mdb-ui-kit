@@ -9,13 +9,13 @@
 
 // #853 start - https://github.com/twbs/bootstrap/pull/18976/files
 // hack
-@mixin pull-left {
+@mixin float-left {
   float: left !important;
   @if $enable-flex {
     margin-right: auto;
   }
 }
-@mixin pull-right {
+@mixin float-right {
   float: right !important;
   @if $enable-flex {
     margin-left: auto;
