@@ -2,6 +2,8 @@
 - `v3` Codepen template - http://codepen.io/rosskevin/pen/VvRgrN 
 - `v4` Codepen template - http://codepen.io/rosskevin/pen/eJMMVB
 
+If your problem is related to the build steps, please create a repository on GitHub with all the files necessary to reproduce the problem and nothing else.
+
 ----
 
 #### Test Case 
