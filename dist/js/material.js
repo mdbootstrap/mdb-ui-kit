@@ -216,11 +216,28 @@
             }
           }
         })
-        .on("focus", ".form-control, .form-group.is-fileinput", function () {
-          _addFormGroupFocus(this);
+        .on("select2-focus", function (e) {
+          if (!$(e.target).is('.select2-focusser')) {
+            _addFormGroupFocus($(e.target));
+          }
         })
-        .on("blur", ".form-control, .form-group.is-fileinput", function () {
-          _removeFormGroupFocus(this);
+        .on("select2-opening", function (e) {
+          if (!$(e.target).is('.select2-focusser')) {
+            _addFormGroupFocus($(e.target));
+          }
+        })
+        .on("select2-blur", function (e) {
+          _removeFormGroupFocus($(e.target));
+        })
+        .on("focus", ".form-control", function (e) {
+          if (!$(e.target).is('.select2-focusser')) {
+            _addFormGroupFocus(this);
+          }
+        })
+        .on("blur", ".form-control, .form-group.is-fileinput", function (e) {
+          if (!$(e.target).is('.select2-focusser')) {
+            _removeFormGroupFocus(this);
+          }
         })
         // make sure empty is added back when there is a programmatic value change.
         //  NOTE: programmatic changing of value using $.val() must trigger the change event i.e. $.val('x').trigger('change')
@@ -256,7 +273,17 @@
         });
     },
     "ripples": function (selector) {
-      $((selector) ? selector : this.options.withRipples).ripples();
+      if (this.options.ripplesDelegate) {
+       // Delegate mode, lazy creation
+       $(document).on('mousedown touchstart', selector || this.options.withRipples, function(event) {
+        if(!$.data($(this), "plugin_ripples")) {
+         $(this).ripples({}, event);
+        }
+       });
+      } else {
+       // Immediate and static creation
+       $((selector) ? selector : this.options.withRipples).ripples();
+      };
     },
     "autofill": function () {
       // This part of code will detect autofill when the page is loading (username and password inputs for example)
