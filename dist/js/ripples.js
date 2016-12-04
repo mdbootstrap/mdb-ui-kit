@@ -26,7 +26,7 @@
   /**
    * Create the main plugin function
    */
-  function Ripples(element, options) {
+  function Ripples(element, options, event) {
     self = this;
 
     this.element = $(element);
@@ -36,17 +36,16 @@
     this._defaults = defaults;
     this._name = ripples;
 
-    this.init();
+    this.init(event);
   }
 
 
   /**
    * Initialize the plugin
    */
-  Ripples.prototype.init = function() {
+  Ripples.prototype.init = function(event) {
     var $element  = this.element;
-
-    $element.on("mousedown touchstart", function(event) {
+    var rippleStart = function(event) {
       /**
        * Verify if the user is just touching on a device and return if so
        */
@@ -142,7 +141,9 @@
         }
       });
 
-    });
+    };
+    $element.on("mousedown touchstart", rippleStart);
+    event && rippleStart(event);
   };
 
 
@@ -313,10 +314,10 @@
   /**
    * Create the jquery plugin function
    */
-  $.fn.ripples = function(options) {
+  $.fn.ripples = function(options, event) {
     return this.each(function() {
       if(!$.data(this, "plugin_" + ripples)) {
-        $.data(this, "plugin_" + ripples, new Ripples(this, options));
+        $.data(this, "plugin_" + ripples, new Ripples(this, options, event));
       }
     });
   };
