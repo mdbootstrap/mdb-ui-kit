@@ -283,7 +283,7 @@
       } else {
        // Immediate and static creation
        $((selector) ? selector : this.options.withRipples).ripples();
-      };
+      }
     },
     "autofill": function () {
       // This part of code will detect autofill when the page is loading (username and password inputs for example)
