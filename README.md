@@ -1,6 +1,7 @@
 [![banner](demo/imgs/banner.jpg)](#)
 
 [![build status](https://travis-ci.org/FezVrasta/bootstrap-material-design.svg?branch=master)](https://travis-ci.org/FezVrasta/bootstrap-material-design)
+[![CDNJS](https://img.shields.io/cdnjs/v/bootstrap-material-design.svg)](https://cdnjs.com/libraries/bootstrap-material-design)
 [![gratipay](https://img.shields.io/gratipay/FezVrasta.svg)](https://gratipay.com/FezVrasta)
 [![Bower version](https://badge.fury.io/bo/bootstrap-material-design.svg)](https://github.com/FezVrasta/bootstrap-material-design)
 
