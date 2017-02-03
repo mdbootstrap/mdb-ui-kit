@@ -9,6 +9,9 @@ _site
 docs/.jekyll-metadata
 docs/dist
 
+# IDE specific
+.idea
+
 *.log
 .sass-cache
 Thumbs.db
