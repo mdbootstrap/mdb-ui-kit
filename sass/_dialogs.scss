@@ -38,7 +38,8 @@
         padding-left: 5px;
         padding-right: 5px;
         position: relative;
-        left: -5px;
+        //left: -5px;
+        @include left(-5px);
       }
     }
     button+button {

@@ -33,7 +33,8 @@
   }
 
   label {
-    text-align: right;
+    //text-align: right;
+    @include text-align(right);
   }
 
   label.control-label {

@@ -2,7 +2,7 @@
 
 // specification: https://www.google.com/design/spec/components/buttons.html
 
-@mixin typo-button($colorContrast: false){
+@mixin typo-button($colorContrast: false) {
   font-size: $mdb-btn-font-size-base;
   font-weight: 500;
   text-transform: uppercase;
@@ -141,14 +141,16 @@
 
       &.material-icons {
         top: ($mdb-btn-icon-size-mini - $mdb-btn-fab-font-size) / 2;
-        left: ($mdb-btn-icon-size-mini - $mdb-btn-fab-font-size) / 2;
+        //left: ($mdb-btn-icon-size-mini - $mdb-btn-fab-font-size) / 2;
+        @include left(($mdb-btn-icon-size-mini - $mdb-btn-fab-font-size) / 2);
       }
     }
 
     i.material-icons {
       position: absolute;
       top: 50%;
-      left: 50%;
+      //left: 50%;
+      @include left(50%);
       transform: translate(-($mdb-btn-fab-font-size / 2), -($mdb-btn-fab-font-size / 2));
       line-height: $mdb-btn-fab-font-size;
       width: $mdb-btn-fab-font-size;

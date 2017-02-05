@@ -43,7 +43,8 @@
     box-sizing: border-box;
     width: 12px;
     height: 12px;
-    left: -10px;
+    //left: -10px;
+    @include left(-10px);
     top: -5px;
     cursor: ew-resize;
     border-radius: 100%;
@@ -51,14 +52,16 @@
     border: 1px solid;
 }
 .noUi-vertical .noUi-handle {
-    margin-left: 5px;
+    //margin-left: 5px;
+    @include margin-left(5px);
     cursor: ns-resize;
 }
 .noUi-horizontal.noUi-extended {
     padding: 0 15px;
 }
 .noUi-horizontal.noUi-extended .noUi-origin  {
-    right: -15px;
+    //right: -15px;
+    @include right(-15px);
 }
 .noUi-background {
     height: 2px;

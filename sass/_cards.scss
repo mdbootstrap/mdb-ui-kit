@@ -41,7 +41,8 @@
         .card-image-headline {
             position: absolute;
             bottom: 16px;
-            left: 18px;
+            //left: 18px;
+            @include left(18px);
             color: $mdb-card-image-headline;
             font-size: 2em;
         }
@@ -61,7 +62,8 @@
             bottom: 25px;
             width: auto;
             &:first-child {
-                left: -15px;
+                //left: -15px;
+                @include left(-15px);
             }
         }
     }

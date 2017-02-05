@@ -5,9 +5,14 @@
 .checkbox label,
 label.checkbox-inline {
   cursor: pointer;
-  padding-left: 0; // Reset for Bootstrap rule
+  //padding-left: 0; // Reset for Bootstrap rule
+  @include padding-left(6px);
   color: $mdb-checkbox-label-color;
   @include mdb-label-color-toggle-focus();
+}
+.checkbox label {
+  @include padding-left(45px);
+  position: relative;
 }
 
 .checkbox,
@@ -21,19 +26,23 @@ label.checkbox-inline {
     width: 0;
     height: 0;
     overflow: hidden;
-    left: 0;
+    //left: 0;
+    @include left(0);
     pointer-events: none;
   }
 
   .checkbox-material {
     vertical-align: middle;
-    position: relative;
     top: 3px;
+    position: absolute;
+    //right: 0;
+    @include left(0);
     &:before { // FIXME: document why this is necessary (doesn't seem to be on chrome)
       display: block;
       position: absolute;
-      top:-5px;
-      left: 0;
+      top: -5px;
+      //left: 0;
+      @include left(0);
       content: "";
       background-color: rgba(0, 0, 0, .84);
       height: $mdb-checkbox-size;
@@ -46,6 +55,7 @@ label.checkbox-inline {
     }
 
     .check {
+      direction: ltr;
       position: relative;
       display: inline-block;
       width: $mdb-checkbox-size;
@@ -56,6 +66,8 @@ label.checkbox-inline {
       z-index: 1;
     }
     .check:before {
+      top: 0;
+      left: 0;
       position: absolute;
       content: "";
       transform: rotate(45deg);
@@ -64,14 +76,13 @@ label.checkbox-inline {
       margin-left: 6px;
       width: 0;
       height: 0;
-      box-shadow:
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0 inset;
+      box-shadow: 0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0,
+      0 0 0 0 inset;
     }
   }
 
@@ -80,10 +91,10 @@ label.checkbox-inline {
     &:focus + .checkbox-material .check:after {
       opacity: 0.2;
     }
- 
-    &:focus{
-      
-      &:checked{
+
+    &:focus {
+
+      &:checked {
         & + .checkbox-material:before {
           animation: rippleOn 500ms;
         }
@@ -94,7 +105,7 @@ label.checkbox-inline {
           animation: rippleOn $mdb-checkbox-animation-ripple forwards; // Ripple effect on check
         }
       }
-      
+
       &:not(:checked) {
         & + .checkbox-material:before {
           animation: rippleOff 500ms;
@@ -106,10 +117,9 @@ label.checkbox-inline {
           animation: rippleOff $mdb-checkbox-animation-ripple forwards; // Ripple effect on uncheck
         }
       }
-      
+
     }
-    
-    
+
     &:checked {
 
       // FIXME: once working - combine further to reduce code
@@ -120,13 +130,12 @@ label.checkbox-inline {
 
       & + .checkbox-material .check:before {
         color: $mdb-checkbox-checked-color;
-        box-shadow:
-          0 0 0 10px,
-          10px -10px 0 10px,
-          32px 0 0 20px,
-          0px 32px 0 20px,
-          -5px 5px 0 10px,
-          20px -12px 0 11px;
+        box-shadow: 0 0 0 10px,
+        10px -10px 0 10px,
+        32px 0 0 20px,
+        0px 32px 0 20px,
+        -5px 5px 0 10px,
+        20px -12px 0 11px;
       }
 
       & + .checkbox-material .check:after {
@@ -151,99 +160,94 @@ label.checkbox-inline {
 
 @keyframes checkbox-on {
   0% {
-    box-shadow:
-      0 0 0 10px,
-      10px -10px 0 10px,
-      32px 0 0 20px,
-      0px 32px 0 20px,
-      -5px 5px 0 10px,
-      15px 2px 0 11px;
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0px 32px 0 20px,
+    -5px 5px 0 10px,
+    15px 2px 0 11px;
   }
   50% {
-    box-shadow:
-      0 0 0 10px,
-      10px -10px 0 10px,
-      32px 0 0 20px,
-      0px 32px 0 20px,
-      -5px 5px 0 10px,
-      20px 2px 0 11px;
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0px 32px 0 20px,
+    -5px 5px 0 10px,
+    20px 2px 0 11px;
   }
   100% {
-    box-shadow:
-      0 0 0 10px,
-      10px -10px 0 10px,
-      32px 0 0 20px,
-      0px 32px 0 20px,
-      -5px 5px 0 10px,
-      20px -12px 0 11px;
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0px 32px 0 20px,
+    -5px 5px 0 10px,
+    20px -12px 0 11px;
   }
 }
 
 @keyframes checkbox-off {
   0% {
-    box-shadow:
-      0 0 0 10px,
-      10px -10px 0 10px,
-      32px 0 0 20px,
-      0px 32px 0 20px,
-      -5px 5px 0 10px,
-      20px -12px 0 11px,
-      0 0 0 0 inset;
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0px 32px 0 20px,
+    -5px 5px 0 10px,
+    20px -12px 0 11px,
+    0 0 0 0 inset;
   }
   25% {
-    box-shadow:
-      0 0 0 10px,
-      10px -10px 0 10px,
-      32px 0 0 20px,
-      0px 32px 0 20px,
-      -5px 5px 0 10px,
-      20px -12px 0 11px,
-      0 0 0 0 inset;
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0px 32px 0 20px,
+    -5px 5px 0 10px,
+    20px -12px 0 11px,
+    0 0 0 0 inset;
   }
   50% {
     transform: rotate(45deg);
     margin-top: -4px;
-    margin-left: 6px;
+    //margin-left: 6px;
+    @include margin-left(6px);
     width: 0;
     height: 0;
-    box-shadow:
-      0 0 0 10px,
-      10px -10px 0 10px,
-      32px 0 0 20px,
-      0px 32px 0 20px,
-      -5px 5px 0 10px,
-      15px 2px 0 11px,
-      0 0 0 0 inset;
+    box-shadow: 0 0 0 10px,
+    10px -10px 0 10px,
+    32px 0 0 20px,
+    0px 32px 0 20px,
+    -5px 5px 0 10px,
+    15px 2px 0 11px,
+    0 0 0 0 inset;
   }
   51% {
     transform: rotate(0deg);
     margin-top: -2px;
-    margin-left: -2px;
+    //margin-left: -2px;
+    @include margin-left(-2px);
     width: 20px;
     height: 20px;
-    box-shadow:
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0px 0 0 10px inset;
+    box-shadow: 0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0px 0 0 10px inset;
   }
   100% {
     transform: rotate(0deg);
     margin-top: -2px;
-    margin-left: -2px;
+    //margin-left: -2px;
+    @include margin-left(-2px);
     width: 20px;
     height: 20px;
-    box-shadow:
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0 0 0 0,
-      0px 0 0 0 inset;
+    box-shadow: 0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0 0 0 0,
+    0px 0 0 0 inset;
   }
 }
 

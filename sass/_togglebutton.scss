@@ -29,7 +29,8 @@
       height: 15px;
       background-color: rgba(80, 80, 80, 0.7);
       border-radius: 15px;
-      margin-right: 15px;
+      //margin-right: 15px;
+      @include margin-right(15px);
       transition: background 0.3s ease;
       vertical-align: middle;
     }
@@ -43,7 +44,8 @@
       border-radius: 20px;
       position: relative;
       box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
-      left: -5px;
+      //left: -5px;
+      @include left(-5px);
       top: -2px;
       transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
     }
@@ -63,7 +65,8 @@
 
       // Ripple off and disabled
       &:checked + .toggle:after {
-        left: 15px;
+        //left: 15px;
+        @include left(15px);
       }
     }
 
