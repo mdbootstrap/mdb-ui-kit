@@ -1,0 +1,83 @@
+.togglebutton {
+  vertical-align: middle;
+  &, label, input, .toggle {
+    user-select: none;
+  }
+  label {
+    cursor: pointer;
+    color: @mdb-toggle-label-color;
+    .mdb-label-color-toggle-focus();
+
+    // Hide original checkbox
+    input[type=checkbox] {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle {
+      text-align: left; // Issue #737 horizontal form
+    }
+    // Switch bg off and disabled
+    .toggle,
+    input[type=checkbox][disabled] + .toggle {
+      content: "";
+      display: inline-block;
+      width: 30px;
+      height: 15px;
+      background-color: rgba(80, 80, 80, 0.7);
+      border-radius: 15px;
+      margin-right: 15px;
+      transition: background 0.3s ease;
+      vertical-align: middle;
+    }
+    // Handle off
+    .toggle:after {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #F1F1F1;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+      left: -5px;
+      top: -2px;
+      transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
+    }
+    input[type=checkbox] {
+      // Handle disabled
+      &[disabled] {
+        & + .toggle:after,
+        &:checked + .toggle:after {
+          background-color: #BDBDBD;
+        }
+      }
+
+      & + .toggle:active:after,
+      &[disabled] + .toggle:active:after {
+        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
+      }
+
+      // Ripple off and disabled
+      &:checked + .toggle:after {
+        left: 15px;
+      }
+    }
+
+    // set bg when checked
+    input[type=checkbox]:checked {
+      + .toggle {
+        background-color: fade(@brand-primary, 50%); // Switch bg on
+      }
+
+      + .toggle:after {
+        background-color: @brand-primary; // Handle on
+      }
+
+      + .toggle:active:after {
+        box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px fade(@brand-primary, 10%); // Ripple on
+      }
+    }
+  }
+}

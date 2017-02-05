@@ -1,0 +1,45 @@
+{
+  "name": "bootstrap-material-design",
+  "homepage": "http://fezvrasta.github.io/bootstrap-material-design",
+  "authors": [
+    "Federico Zivolo <info@mywebexpression.com>"
+  ],
+  "description": "Material Design theme for Bootstrap 3",
+  "main": [
+    "dist/css/bootstrap-material-design.css",
+    "dist/js/material.js",
+    "dist/css/ripples.css",
+    "dist/js/ripples.js"
+  ],
+  "ignore": [
+    "test",
+    "screenshots",
+    "demo",
+    ".editorconfig",
+    ".gitignore",
+    ".jshintrc",
+    ".travis.yml",
+    "CONTRIBUTING.md",
+    "Gruntfile.json",
+    "index.html",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "keywords": [
+    "material",
+    "design",
+    "bootstrap",
+    "theme",
+    "google",
+    "android"
+  ],
+  "license": "https://github.com/FezVrasta/bootstrap-material-design/blob/master/LICENSE.md",
+  "dependencies": {
+    "jquery": "^2.2",
+    "bootstrap": "~3.3.6",
+    "bootstrap-sass": "~3.3.6"
+  }
+}

@@ -1,0 +1,246 @@
+// specification: https://www.google.com/design/spec/components/buttons.html
+
+.typo-button(@colorContrast: false) {
+  font-size: @mdb-btn-font-size-base;
+  font-weight: 500;
+  text-transform: uppercase;
+  //line-height: 1;
+  letter-spacing: 0;
+
+  & when (@colorContrast) {
+    opacity: 0.87;
+  }
+}
+
+// mdb default buttons are flat by default
+// synchronized with mdl 11/23/15
+.btn,
+.input-group-btn .btn {
+  border: none;
+  border-radius: @border-radius-base;
+  position: relative;
+  padding: 8px 30px;
+  margin: 10px 1px;
+  .typo-button();
+  will-change: box-shadow, transform;
+  transition: box-shadow 0.2s @mdb-animation-curve-fast-out-linear-in,
+  background-color 0.2s @mdb-animation-curve-default,
+  color 0.2s @mdb-animation-curve-default;
+  outline: 0;
+  cursor: pointer;
+  text-decoration: none;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  //---
+  // btn-flat
+  background: transparent;
+  &:not(.btn-raised) {
+    .variations(~".btn", ~"", color, @mdb-text-color-primary);
+    box-shadow: none;
+
+    &:not(.btn-link) {
+      &:hover,
+      &:focus {
+        // spec: flat/light bg Hover: 20% #999999
+        background-color: fade(#999999, 20%);
+
+        .theme-dark & {
+          // spec: dark bg Hover: 15% #CCCCCC
+          background-color: fade(#CCCCCC, 15%);
+        }
+      }
+    }
+  }
+
+  //--
+  // color variations
+  &.btn-raised,
+  &.btn-fab,
+  .btn-group-raised & {
+    .background-variations(~".btn", ~"", @mdb-btn-background-color);
+  }
+
+  //---
+  // btn-raised
+  &.btn-raised,
+  .btn-group-raised & {
+    &:not(.btn-link) {
+      .shadow-2dp();
+
+      // colors on hover, focus, active
+      &:hover,
+      &:focus,
+      &.active,
+      &:active {
+
+        outline: 0;
+
+        // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
+        // SASS conversion note: please mirror any content change in _mixins-shared.scss button-variations-content
+        .generic-variations(~".btn", ~"", @mdb-btn-background-color, {
+          background-color: contrast(@variation-color, darken(@variation-color, 4%), lighten(@variation-color, 4%), @contrast-factor);
+        });
+
+        // Spec:
+        //  - Raised Light/Light theme no hover.
+        //  - Raised Dark/Dark theme Hover color: 600
+        .theme-dark & {
+        }
+      }
+
+      // shadow on active
+      &.active,
+      &:active {
+        &,
+        &:hover {
+          .shadow-4dp();
+        }
+      }
+
+      // shadow on focus
+      //   Focus should take precedence over active, so specificity is needed
+      &:focus {
+        &,
+        &.active,
+        &:active {
+          &,
+          &:hover {
+            .focus-shadow();
+          }
+        }
+      }
+    }
+  }
+
+  &.btn-fab {
+    // see above for color variations
+    border-radius: 50%;
+    font-size: @mdb-btn-fab-font-size;
+    height: @mdb-btn-fab-size;
+    margin: auto;
+    min-width: @mdb-btn-fab-size;
+    width: @mdb-btn-fab-size;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+    position: relative;
+    line-height: normal;
+
+    .ripple-container {
+      border-radius: 50%;
+    }
+
+    &.btn-fab-mini,
+    .btn-group-sm & {
+      height: @mdb-btn-fab-size-mini;
+      min-width: @mdb-btn-fab-size-mini;
+      width: @mdb-btn-fab-size-mini;
+
+      &.material-icons {
+        top: (@mdb-btn-icon-size-mini - @mdb-btn-fab-font-size) / 2;
+        left: (@mdb-btn-icon-size-mini - @mdb-btn-fab-font-size) / 2;
+      }
+    }
+
+    i.material-icons {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-(@mdb-btn-fab-font-size / 2), -(@mdb-btn-fab-font-size / 2));
+      line-height: @mdb-btn-fab-font-size;
+      width: @mdb-btn-fab-font-size;
+    }
+  }
+
+  // Align icons inside buttons with text
+  i.material-icons {
+    vertical-align: middle;
+  }
+
+  // Size variations
+  &.btn-lg,
+  .btn-group-lg & {
+    font-size: @mdb-btn-font-size-lg;
+  }
+  &.btn-sm,
+  .btn-group-sm & {
+    padding: 5px 20px;
+    font-size: @mdb-btn-font-size-sm;
+  }
+  &.btn-xs,
+  .btn-group-xs & {
+    padding: 4px 15px;
+    font-size: @mdb-btn-font-size-xs;
+  }
+}
+
+// Disabled buttons and button groups
+.btn,
+.input-group-btn .btn,
+.btn-group,
+.btn-group-vertical {
+  // have to ratchet up the specificity to kill drop shadows on disabled raised buttons
+  fieldset[disabled][disabled] &,
+  &.disabled,
+  &:disabled,
+  &[disabled][disabled] {
+    // spec: light theme: Disabled text: 26% #000000
+    color: fade(#000000, 26%);
+    .theme-dark & {
+      // spec: dark theme: Disabled text: 30% #FFFFFF
+      color: fade(#FFFFFF, 30%);
+    }
+
+    // flat buttons lose transparency
+    background: transparent;
+
+    // no box-shadow on raised - need specificity
+    &.btn-raised,
+    &.btn-group-raised {
+      &,
+      &.active,
+      &:active,
+      &:focus:not(:active) {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// btn-group variations
+.btn-group,
+.btn-group-vertical {
+
+  position: relative;
+  //border-radius: 2px;
+  margin: 10px 1px;
+
+  // spec: https://www.google.com/design/spec/components/buttons.html#buttons-toggle-buttons
+  &.open {
+    .dropdown-toggle {
+      //box-shadow: none;
+    }
+
+    & > .dropdown-toggle.btn {
+      .variations(~".btn", ~"", background-color, @mdb-btn-background-color);
+    }
+  }
+
+  .dropdown-menu {
+    border-radius: 0 0 @border-radius-base @border-radius-base;
+  }
+
+  &.btn-group-raised {
+    .shadow-2dp();
+  }
+
+  & .btn + .btn,
+  .btn,
+  .btn:active,
+  .btn-group {
+    margin: 0;
+  }
+}

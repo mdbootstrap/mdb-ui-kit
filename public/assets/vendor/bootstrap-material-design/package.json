@@ -1,0 +1,73 @@
+{
+  "name": "bootstrap-material-design",
+  "version": "0.5.10",
+  "description": "Material Design for Bootstrap 3",
+  "main": "scripts/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FezVrasta/bootstrap-material-design.git"
+  },
+  "author": "Federico Zivolo",
+  "bugs": {
+    "url": "https://github.com/FezVrasta/bootstrap-material-design/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "material",
+    "design",
+    "bootstrap",
+    "theme",
+    "google",
+    "android",
+    "browser",
+    "framework"
+  ],
+  "homepage": "https://github.com/FezVrasta/bootstrap-material-design",
+  "dependencies": {
+    "bootstrap": ">=3.0",
+    "jquery": ">=1.9.1"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "~3.0.3",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-compress": "~0.14.0",
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-connect": "~0.11.2",
+    "grunt-contrib-copy": "~0.8.0",
+    "grunt-contrib-csslint": "~0.5.0",
+    "grunt-contrib-cssmin": "~0.14.0",
+    "grunt-contrib-jshint": "~0.11.2",
+    "grunt-contrib-htmlmin": "~0.6.0",
+    "grunt-contrib-less": "~1.1.0",
+    "grunt-contrib-uglify": "~0.9.2",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-exec": "~0.4.6",
+    "grunt-html": "~5.0.1",
+    "grunt-jekyll": "~0.4.2",
+    "grunt-jscs": "~2.3.0",
+    "grunt-bootlint": "latest",
+    "grunt-contrib-jasmine": "^0.8.0",
+    "grunt-dependency-installer": "^0.2.0",
+    "grunt-less-to-sass": "latest",
+    "grunt-newer": "^0.7.0",
+    "grunt-contrib-sass": "^0.8.1",
+    "jshint-stylish": "^1.0.0",
+    "load-grunt-tasks": "~3.3.0",
+    "spacejam": "^1.1.1"
+  },
+  "_bootstraps_dependencies_we_dont_use_yet": {
+    "grunt-contrib-jade": "~0.15.0",
+    "grunt-csscomb": "~3.1.0",
+    "grunt-saucelabs": "~8.6.1",
+    "grunt-sed": "twbs/grunt-sed#v0.2.0",
+    "markdown-it": "^5.0.0",
+    "npm-shrinkwrap": "^200.4.0",
+    "time-grunt": "^1.2.1"
+  }
+}
+
+

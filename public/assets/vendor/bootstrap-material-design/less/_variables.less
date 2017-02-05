@@ -1,0 +1,172 @@
+@import "_colors.less";
+
+// Typography elements
+@mdb-font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+@mdb-text-color-light:  ~"rgba(@{rgb-white}, 0.84)";
+@mdb-text-color-light-hex: @white; // for contrast function in inverse
+@mdb-text-color-primary: ~"rgba(@{rgb-black}, 0.87)";
+@mdb-text-color-primary-hex: @black; // for contrast function in inverse
+@icon-color: rgba(0,0,0,0.5);
+
+
+@mdb-label-color: ~"rgba(@{rgb-black}, 0.26)";
+@mdb-label-color-toggle-focus: ~"rgba(@{rgb-black}, .54)";
+
+
+// import bs variables for less, last declared wins.
+@import "_import-bs-less.less";
+
+//---
+// Converted bs variables
+
+// Bootstrap brand color customization
+@brand-primary: @teal;
+@brand-success: @green;
+@brand-danger: @red;
+@brand-warning: @deep-orange;
+@brand-info: @light-blue;
+
+@border-radius-base: 2px;
+@border-radius-small: 1px;
+
+// Typography
+@font-family-sans-serif: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+@headings-font-weight: 300;
+
+@body-bg: #EEEEEE;
+//---
+
+// import bs variables for sass, first declared wins.
+@import "_import-bs-sass.less";
+
+// Bootstrap Material Design variables start with mdb-
+@mdb-brand-inverse: @indigo;
+
+
+/* ANIMATION */
+@mdb-animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1);
+@mdb-animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1);
+@mdb-animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1);
+@mdb-animation-curve-default: @mdb-animation-curve-fast-out-slow-in;
+
+
+//---
+// FIXME: Similar but not quite the same as Bootstrap variables
+// FIXME: these need to either a) be converted to @mdb- or b) converted to bs variables
+@contrast-factor: 40%;
+//---
+
+
+
+
+// --------------------
+// inputs
+@mdb-input-placeholder-color: #BDBDBD;
+@mdb-input-underline-color: #D2D2D2;
+@mdb-label-static-size-ratio: 75 / 100;
+@mdb-help-block-size-ratio: 75 / 100;
+
+@mdb-input-font-size-base: 16px;
+@mdb-input-font-size-large: ceil((@font-size-base * 1.25)); // ~20px
+@mdb-input-font-size-small: ceil((@font-size-base * 0.75)); // ~12px
+
+// FIXME: with #733 customization of bootstrap, consider how these could be based on the original bs customized variables
+//** Unit-less `line-height` for use in components like buttons.
+@mdb-input-line-height-base:        @line-height-base; //1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@mdb-input-line-height-computed:    floor((@mdb-input-font-size-base * @mdb-input-line-height-base)); // ~20px
+@mdb-input-line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
+@mdb-input-line-height-small:         1.5;
+
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+@mdb-input-padding-base-vertical:     8px - 1px; // was 6.
+@mdb-input-padding-base-horizontal:   0; // was 12.
+@mdb-label-as-placeholder-shim-base:  0; // manual adjustment of label top when positioned as placeholder
+@mdb-label-top-margin-base:           16px;
+
+@mdb-input-padding-large-vertical:    10px - 1px; // 10
+@mdb-input-padding-large-horizontal:  0;  // 16
+@mdb-label-as-placeholder-shim-large: -4px; // manual adjustment of label top when positioned as placeholder
+@mdb-label-top-margin-large:          16px;
+
+@mdb-input-padding-small-vertical:    4px - 1px; // 5
+@mdb-input-padding-small-horizontal:  0; // 10
+@mdb-label-as-placeholder-shim-small: 8px; // manual adjustment of label top when positioned as placeholder
+@mdb-label-top-margin-small:          12px;
+
+@mdb-input-padding-xs-vertical:       2px; // 1
+@mdb-input-padding-xs-horizontal:     0; // 5
+
+@mdb-input-border-radius-base:        0;
+@mdb-input-border-radius-large:       0;
+@mdb-input-border-radius-small:       0;
+
+
+//** Default `.form-control` height
+@mdb-input-height-base:              (@mdb-input-line-height-computed + (@mdb-input-padding-base-vertical * 2) + 2);
+//** Large `.form-control` height
+@mdb-input-height-large:             (ceil(@mdb-input-font-size-large * @mdb-input-line-height-large) + (@mdb-input-padding-large-vertical * 2) + 2);
+//** Small `.form-control` height
+@mdb-input-height-small:             (floor(@mdb-input-font-size-small * @mdb-input-line-height-small) + (@mdb-input-padding-small-vertical * 2) + 2);
+
+
+
+
+// Card
+@mdb-card-body-text: @mdb-text-color-primary;
+@mdb-card-body-background: #fff;
+@mdb-card-image-headline: #fff;
+
+@text-disabled: #a8a8a8;
+@background-disabled: #eaeaea;
+
+// Checkboxes
+@mdb-checkbox-size: 20px;
+@mdb-checkbox-animation-ripple: 500ms;
+@mdb-checkbox-animation-check: 0.3s;
+@mdb-checkbox-checked-color: @brand-primary;
+
+@mdb-checkbox-border-size: 2px;
+@mdb-checkbox-label-color: @mdb-label-color;
+@mdb-checkbox-border-color: @mdb-label-color-toggle-focus;
+
+// Popovers and Popups
+@mdb-popover-background: rgba(101, 101, 101, 0.9);
+@mdb-popover-color: #ececec;
+
+// Dropdown Menu
+@mdb-dropdown-font-size: 16px;
+
+// Toggle
+@mdb-toggle-label-color: @mdb-label-color;
+
+// Radio:
+@mdb-radio-label-color: @mdb-label-color;
+@mdb-radio-color-off: @mdb-label-color-toggle-focus;
+@mdb-radio-color-on: @brand-primary;
+
+// Buttons:
+@mdb-btn-font-size-base: 14px;
+@mdb-btn-font-size-lg: 16px;
+@mdb-btn-font-size-sm: 12px;
+@mdb-btn-font-size-xs: 10px;
+
+
+@mdb-btn-background-color: @body-bg; //transparent;
+@mdb-btn-background-color-text: @mdb-text-color-primary;
+
+
+@mdl-btn-border-radus: 2px;
+//@mdb-btn-primary-color: ~"rgba(@{rgb-grey-500}, 0.20)";
+
+@mdb-btn-fab-size: 56px;
+@mdb-btn-fab-size-mini: 40px;
+@mdb-btn-fab-font-size: 24px;
+
+@mdb-btn-icon-size: 32px;
+@mdb-btn-icon-size-mini: 24px;
+
+/* SHADOWS */
+@mdb-shadow-key-umbra-opacity: 0.2;
+@mdb-shadow-key-penumbra-opacity: 0.14;
+@mdb-shadow-ambient-shadow-opacity: 0.12;

@@ -40,7 +40,7 @@ label.checkbox-inline {
     &:before { // FIXME: document why this is necessary (doesn't seem to be on chrome)
       display: block;
       position: absolute;
-      top: 0px;
+      top: -5px;
       //left: 0;
       @include left(0);
       content: "";

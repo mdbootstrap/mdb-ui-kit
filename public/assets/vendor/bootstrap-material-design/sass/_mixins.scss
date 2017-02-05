@@ -1,0 +1,242 @@
+// This file is NOT automatically converted and must be manually merged
+@import "mixins-utilities";
+
+// Placeholder text
+@mixin material-placeholder() {
+  &::-moz-placeholder {@content; } // Firefox
+  &:-ms-input-placeholder {@content; } // Internet Explorer 10+
+  &::-webkit-input-placeholder  {@content; } // Safari and Chrome
+}
+
+
+// variations(unquote(""), background-color, #FFF);
+@mixin variations($component, $selector-suffix, $mdb-param-1, $color-default) {
+  @include generic-variations($component, $selector-suffix, $color-default, "variations-content", $mdb-param-1);
+}
+
+@mixin variations-content($args) {
+  //@debug "#{map-get($args, mixin-name)}{ #{map-get($args, material-param-1)}: #{map-get($args, variation-color)}; }";
+  //@debug "#{inspect($args)}";
+  //@error "break here";
+  #{map-get($args, material-param-1)}: map-get($args, variation-color);
+}
+
+@mixin background-variations($component, $selector-suffix, $color-default) {
+  @include generic-variations($component, $selector-suffix, $color-default, "background-variations-content", null);
+}
+
+@mixin background-variations-content($args) {
+  background-color: map-get($args, variation-color);
+  @if (map-get($args, variation-color) == $mdb-btn-background-color) {
+    color: $mdb-text-color-primary;
+  } @else {
+    color: map-get($args, variation-color-text);
+  }
+}
+
+//@mixin text-variations($component, $selector-suffix, $color-default) {
+//  @include generic-variations($component, $selector-suffix, $color-default, "text-variations-content", null);
+//}
+//
+//@mixin text-variations-content($args) {
+//  color: map-get($args, variation-color);
+//}
+
+@mixin button-variations($component, $selector-suffix, $color-default) {
+  @include generic-variations($component, $selector-suffix, $color-default, "button-variations-content", 4%);
+}
+
+@mixin button-variations-content($args) {
+  //@debug "#{inspect($args)}";
+  $variation-color: map-get($args, variation-color);
+  $mdb-param-1: map-get($args, material-param-1);
+  background-color: contrast-color($variation-color,
+          darken($variation-color, $mdb-param-1),
+          lighten($variation-color, $mdb-param-1));
+}
+
+//@mixin bg-color-variations($component, $selector-suffix, $color-default, $mdb-param-1) {
+//  @include generic-variations($component, $selector-suffix, $color-default, "bg-color-variations-content", $mdb-param-1);
+//}
+//
+//@mixin bg-color-variations-content($args) {
+//  background-color: rgba(map-get($args, variation-color), map-get($args, material-param-1));
+//}
+//
+//// bg-box-shadow-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
+//@mixin bg-box-shadow-variations($component, $selector-suffix, $color-default) {
+//  @include generic-variations($component, $selector-suffix, $color-default, "bg-box-shadow-variations-content", null);
+//}
+//
+//@mixin bg-box-shadow-variations-content($args){
+//  $variation-color: map-get($args, variation-color);
+//  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.4), 0 0 0 15px rgba($variation-color, (10/100));
+//}
+//
+//// bg-img-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
+//@mixin bg-img-variations($component, $selector-suffix, $color-default) {
+//  @include generic-variations($component, $selector-suffix, $color-default, "bg-img-variations-content", null);
+//}
+//
+//@mixin bg-img-variations-content($args){
+//  $variation-color: map-get($args, variation-color);
+//  //@debug "bg-img-variations-content called for #{map-get($args, extra)} #{map-get($args, default)} #{map-get($args, variation-color-name)} #{map-get($args, variation-color)}"; //#{inspect($args)}";
+//  background-image: linear-gradient($variation-color, $variation-color), linear-gradient($mdb-input-underline-color, $mdb-input-underline-color);
+//}
+
+// navbar-variations(" label input[type=checkbox]:checked + .toggle:active:after", $brand-primary
+@mixin navbar-variations($component, $selector-suffix, $color-default) {
+  @include generic-variations($component, $selector-suffix, $color-default, "navbar-variations-content", null);
+}
+
+@mixin navbar-variations-content($args){
+  $variation-color: map-get($args, variation-color);
+  $variation-color-text: map-get($args, variation-color-text);
+
+  background-color: $variation-color;
+  color: $variation-color-text;
+  // deeply defined to override welljumbo class without !impotant need
+  .navbar-form .form-group input.form-control,
+  .navbar-form input.form-control {
+    @include material-placeholder {
+      color: $variation-color-text;
+    }
+  }
+  .dropdown-menu {
+    border-radius: $border-radius-base;
+    li > a {
+      font-size: $mdb-dropdown-font-size;
+      padding: 13px 16px;
+      &:hover,
+      &:focus {
+        color: $variation-color;
+        background-color: $grey-200;
+      }
+    }
+    .active > a {
+      &:hover,
+      &:focus {
+        color: $variation-color-text;
+      }
+      background-color: $variation-color;
+      color: $variation-color-text;
+    }
+  }
+}
+
+// alert-variations("", $brand-primary)
+@mixin alert-variations($component, $selector-suffix, $color-default) {
+  @include generic-variations($component, $selector-suffix, $color-default, "alert-variations-content", null);
+}
+
+@mixin alert-variations-content($args){
+  $variation-color: map-get($args, variation-color);
+  $variation-color-text: map-get($args, variation-color-text);
+
+  background-color: $variation-color;
+  color: $variation-color-text;
+
+  a, .alert-link {
+    color: $variation-color-text;
+  }
+}
+
+// interpolation of mixin-name is not allowed evidently, so we statically include based on the mixin-name given
+@mixin call-variations-content-mixin($args) {
+  $mixin-name: map-get($args, mixin-name);
+  @if $mixin-name == variations-content {
+    @include variations-content($args);
+  } @else if $mixin-name == background-variations-content {
+    @include background-variations-content($args);
+  } @else if $mixin-name == text-variations-content {
+    @include text-variations-content($args);
+  } @else if $mixin-name == button-variations-content {
+    @include button-variations-content($args);
+  } @else if $mixin-name == bg-color-variations-content {
+    @include bg-color-variations-content($args);
+  } @else if $mixin-name == bg-box-shadow-variations-content {
+    @include bg-box-shadow-variations-content($args);
+  } @else if $mixin-name == bg-img-variations-content {
+    @include bg-img-variations-content($args);
+  } @else if $mixin-name == navbar-variations-content {
+    @include navbar-variations-content($args);
+  }@else if $mixin-name == alert-variations-content {
+    @include alert-variations-content($args);
+  } @else {
+    @error "Unknown mixin: #{$mixin-name}"
+  }
+}
+
+//
+// To use this mixin you should pass a function as final parameter to define
+// the style. In that definition you can use the following variables to define it.
+//
+// $variation-color-name ---> "red", "green", "indigo" ...
+// $variation-color-full-name ---> "red", "green-50", "indigo-400" ...
+// $variation-color ---> #f44336, #e8f5e9, #5c6bc0 ...
+// $variation-color-text ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
+//
+
+@mixin generic-variations($component, $selector-suffix, $color-default, $mixin-name, $mdb-param-1) {
+
+  //setup map to pass parameters (instead of the incredibly long-error-prone list for each and every @include)
+  $args: (
+          //extra: $selector-suffix,
+          //default: $color-default,
+          mixin-name: $mixin-name,
+          material-param-1: $mdb-param-1
+  );
+
+  // bootstrap styles
+  &#{$selector-suffix},
+  &#{$component}-default#{$selector-suffix} {
+
+    $args-extra: map-merge($args, (
+            variation-color: $color-default,
+            variation-color-text: $mdb-text-color-light
+    ));
+    @include call-variations-content-mixin($args-extra);
+  }
+  &#{$component}-inverse#{$selector-suffix} {
+    $args-inverse: map-merge($args, (
+            variation-color: $mdb-brand-inverse,
+            variation-color-text: contrast-color($mdb-brand-inverse, $mdb-text-color-primary-hex, $mdb-text-color-light-hex)
+    ));
+    @include call-variations-content-mixin($args-inverse);
+  }
+  &#{$component}-primary#{$selector-suffix} {
+    $args-primary: map-merge($args, (
+            variation-color: $brand-primary,
+            variation-color-text: $mdb-text-color-light
+    ));
+    @include call-variations-content-mixin($args-primary);
+  }
+  &#{$component}-success#{$selector-suffix} {
+    $args-success: map-merge($args, (
+            variation-color: $brand-success,
+            variation-color-text: $mdb-text-color-light
+    ));
+    @include call-variations-content-mixin($args-success);
+  }
+  &#{$component}-info#{$selector-suffix} {
+    $args-info: map-merge($args, (
+            variation-color: $brand-info,
+            variation-color-text: $mdb-text-color-light
+    ));
+    @include call-variations-content-mixin($args-info);
+  }
+  &#{$component}-warning#{$selector-suffix} {
+    $args-warning: map-merge($args, (
+            variation-color: $brand-warning,
+            variation-color-text: $mdb-text-color-light
+    ));
+    @include call-variations-content-mixin($args-warning);
+  }
+  &#{$component}-danger#{$selector-suffix} {
+    $args-danger: map-merge($args, (
+            variation-color: $brand-danger,
+            variation-color-text: $mdb-text-color-light
+    ));
+    @include call-variations-content-mixin($args-danger);
+  }
+}

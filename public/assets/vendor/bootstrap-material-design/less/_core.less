@@ -1,0 +1,93 @@
+body {
+  background-color: @body-bg;
+  &.inverse {
+    background: #333333;
+    &, .form-control {
+      color: @mdb-text-color-light;
+    }
+    .modal,
+    .panel-default,
+    .card {
+      &,
+      .form-control {
+        background-color: initial;
+        color: initial;
+      }
+    }
+
+  }
+}
+
+
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  font-family: @font-family-sans-serif;
+  font-weight: 300;
+}
+
+h5, h6{
+  font-weight: 400;
+}
+
+a, a:hover, a:focus {
+  color: @link-color;
+
+  & .material-icons {
+    vertical-align: middle;
+  }
+}
+
+@import "_form.less";
+@import "_welljumbo.less";
+@import "_buttons.less";
+@import "_checkboxes.less";
+@import "_togglebutton.less";
+@import "_radios.less";
+@import "_inputs.less";
+
+legend {
+  border-bottom: 0;
+}
+
+@import "_lists.less";
+@import "_navbar.less";
+
+.dropdown-menu {
+  border: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  .divider {
+    background-color: rgba(0, 0, 0, .12);
+  }
+  li {
+    overflow: hidden;
+    position: relative;
+    a:hover {
+      background-color: transparent;
+      color: @brand-primary;
+    }
+  }
+}
+
+@import "_alerts.less";
+@import "_progress.less";
+@import "_typography.less";
+@import "_tabs.less";
+@import "_popups.less";
+@import "_cards.less";
+@import "_dialogs.less";
+@import "_panels.less";
+@import "_dividers.less";
+
+// Prevent highlight on mobile
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-tap-highlight-color: transparent;
+  &:focus {
+    outline: 0;
+  }
+}
+
+
+@import "_themes.less";
+
+// External plugins
+@import "_plugins.less";

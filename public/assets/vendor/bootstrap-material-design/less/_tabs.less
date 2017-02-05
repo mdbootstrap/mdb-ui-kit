@@ -1,0 +1,24 @@
+.nav-tabs {
+    background: @brand-primary;
+    > li {
+        > a {
+            color: #FFFFFF;
+            border: 0;
+            margin: 0;
+            &:hover {
+                background-color: transparent;
+                border: 0;
+            }
+        }
+        & > a, & > a:hover, & > a:focus {
+            background-color: transparent !important;
+            border: 0 !important;
+            color: #FFFFFF !important;
+            font-weight: 500;
+        }
+        &.disabled > a, &.disabled > a:hover {
+            color: rgba(255,255,255,0.5);
+        }
+    }
+
+}

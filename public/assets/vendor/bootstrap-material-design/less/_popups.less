@@ -1,0 +1,18 @@
+.popover, .tooltip-inner {
+  color: @mdb-popover-color;
+  line-height: 1em;
+  background: @mdb-popover-background;
+  border: none;
+  border-radius: @border-radius-base;
+  .shadow-z-1();
+}
+
+.tooltip, .tooltip.in {
+  opacity: 1;
+}
+
+.popover, .tooltip {
+  .arrow, .tooltip-arrow {
+    display: none;
+  }
+}

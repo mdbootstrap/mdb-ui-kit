@@ -1,0 +1,40 @@
+.mdb-label-color-toggle-focus() {
+  // override bootstrap focus and keep all the standard color (could be multiple radios in the form group)
+  .form-group.is-focused & {
+    color: @mdb-label-color;
+
+    // on focus just darken the specific labels, do not turn them to the brand-primary
+    &:hover,
+    &:focus {
+      color: @mdb-label-color-toggle-focus;
+    }
+
+    // correct the above focus color for disabled items
+    fieldset[disabled] & {
+      color: @mdb-label-color;
+    }
+  }
+}
+
+.form-horizontal {
+
+  // Consistent vertical alignment of radios and checkboxes
+  .radio,
+  .checkbox,
+  .radio-inline,
+  .checkbox-inline {
+    padding-top: 0;
+  }
+
+  .radio {
+    margin-bottom: 10px;
+  }
+
+  label {
+    text-align: right;
+  }
+
+  label.control-label {
+    margin: 0;
+  }
+}

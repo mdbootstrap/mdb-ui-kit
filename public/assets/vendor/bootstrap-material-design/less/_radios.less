@@ -1,0 +1,115 @@
+.radio-color(@color, @opacity){
+  & ~ .check,
+  & ~ .circle {
+    opacity: @opacity;
+  }
+
+  & ~ .check {
+    background-color: @color;
+  }
+
+  & ~ .circle {
+    border-color: @color;
+  }
+}
+
+.radio label, label.radio-inline {
+    cursor: pointer;
+    padding-left: 45px;
+    position: relative;
+    color: @mdb-radio-label-color;
+    .mdb-label-color-toggle-focus();
+}
+
+.radio, label.radio-inline {
+  span {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 2px;
+    transition-duration: 0.2s;
+  }
+  .circle {
+    border: 2px solid @mdb-radio-color-off;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+  }
+  .check {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: @mdb-radio-color-on;
+    transform: scale3d(0, 0, 0);
+  }
+  .check:after {
+    display: block;
+    position: absolute;
+    content: "";
+    background-color: @mdb-text-color-primary;
+    left: -18px;
+    top: -18px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    z-index: 1;
+    opacity: 0;
+    margin: 0;
+    transform: scale3d(1.5, 1.5, 1);
+  }
+  
+  input[type=radio]:focus:not(:checked) ~ .check:after {
+    animation: rippleOff 500ms;
+  }
+  input[type=radio]:focus:checked ~ .check:after {
+    animation: rippleOn 500ms;
+  }
+
+  input[type=radio] {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+
+    &:checked {
+      .radio-color(@mdb-radio-color-on, 1);
+    }
+    &:checked ~ .check {
+      transform: scale3d(0.55, 0.55, 1);
+    }
+  }
+
+  input[type=radio][disabled] {
+
+    // light theme spec: Disabled: #000000, Opacity  26%
+    .radio-color(@black, 0.26);
+
+    // dark theme spec: Disabled: #FFFFFF, Opacity  30%
+    .theme-dark & {
+      .radio-color(@white, 0.30);
+    }
+  }
+}
+
+@keyframes rippleOn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes rippleOff {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}

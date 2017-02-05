@@ -1,0 +1,239 @@
+.navbar {
+  background-color: @brand-primary;
+  border: 0;
+  border-radius: 0;
+
+  .navbar-brand {
+    position: relative;
+    height: 60px;
+    line-height: 30px;
+    color: inherit;
+    &:hover,
+    &:focus {
+      color: inherit;
+      background-color: transparent;
+    }
+  }
+
+  .navbar-text {
+    color: inherit;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .navbar-nav {
+    > li > a {
+      color: inherit;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: transparent;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: inherit;
+        background-color: transparent;
+        opacity: 0.9;
+      }
+    }
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border: 0;
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+    .icon-bar {
+      background-color: inherit;
+      border: 1px solid;
+    }
+  }
+
+  .navbar-default .navbar-toggle,
+  .navbar-inverse .navbar-toggle {
+    border-color: transparent;
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: rgba(0,0,0,0.1);
+  }
+
+  // Dropdowns
+  .navbar-nav {
+    > .open > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+
+    @media (max-width: @grid-float-breakpoint-max) {
+      .navbar-text {
+        color: inherit;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
+      // Dropdowns get custom display
+      .open .dropdown-menu {
+        > .dropdown-header {
+          border: 0;
+          color: inherit;
+        }
+        .divider {
+          border-bottom: 1px solid;
+          opacity: 0.08;
+        }
+        > li > a {
+          color: inherit;
+          &:hover,
+          &:focus {
+            color: inherit;
+            background-color: transparent;
+          }
+        }
+        > .active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: inherit;
+            background-color: transparent;
+          }
+        }
+        > .disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: inherit;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-link {
+    color: inherit;
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  .btn-link {
+    color: inherit;
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+    &[disabled],
+    fieldset[disabled] & {
+      &:hover,
+      &:focus {
+        color: inherit;
+      }
+    }
+  }
+
+  .navbar-form {
+    margin-top: 16px;
+    .form-group {
+      margin: 0;
+      padding: 0;
+
+      .material-input:before,
+      &.is-focused .material-input:after {
+        background-color: inherit;
+      }
+    }
+
+    .form-group .form-control,
+    .form-control {
+      border-color: inherit;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+
+      // re-normalize inputs in a navbar the size of standard bootstrap since our normal inputs are larger by spec than bootstrap
+      //---
+      //height: @mdb-input-height-base;
+      @bs-line-height-base: 1.428571429;
+      @bs-line-height-computed:    floor((@font-size-base * @bs-line-height-base)); // ~20px
+      height: (@bs-line-height-computed + 8px);
+      font-size: @font-size-base;
+      line-height: @bs-line-height-base;
+      //---
+    }
+  }
+
+  // SASS conversion note: please mirror any content change in _mixins-shared.scss navbar-variations-content
+  .generic-variations(~".navbar", ~"", @brand-primary, {
+    background-color: @variation-color;
+    color: @variation-color-text;
+    // deeply defined to override welljumbo class without !impotant need
+    .navbar-form .form-group input.form-control,
+    .navbar-form input.form-control {
+      .material-placeholder({
+        color: @variation-color-text;
+      });
+    }
+    .dropdown-menu {
+      border-radius: @border-radius-base;
+      li > a {
+        font-size: @mdb-dropdown-font-size;
+        padding: 13px 16px;
+        &:hover,
+        &:focus {
+          color: @variation-color;
+          background-color: @grey-200;
+        }
+      }
+      .active > a {
+        &:hover,
+        &:focus {
+          color: @variation-color-text;
+        }
+        background-color: @variation-color;
+        color: @variation-color-text;
+      }
+    }
+  });
+
+  &-inverse {
+    background-color: @indigo;
+  }
+
+  @media (max-width: @screen-md-max) {
+
+    .navbar-brand {
+      height: 50px;
+      padding: 10px 15px;
+    }
+    .navbar-form {
+      margin-top: 10px;
+    }
+
+    .navbar-nav > li > a {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+  }
+}
