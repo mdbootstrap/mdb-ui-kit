@@ -1,3 +1,5 @@
+This isn't a support forum, if you find a bug, feel free to report it following the indications provided below. Create a Pull Request that fixes the bug if you want to see it fixed, I haven't so much time to fix all the bugs that get reported and I can't promise that they will get fixed anytime soon. I have my own priorities.
+
 **All** bug reports must contain a test case using one of **our** Codepen templates;  Bug reports without one will be summarily closed:
 - `v3` Codepen template - http://codepen.io/rosskevin/pen/VvRgrN 
 - `v4` Codepen template - http://codepen.io/rosskevin/pen/eJMMVB
