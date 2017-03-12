@@ -77,6 +77,7 @@
       "validate": true,
       "input": true,
       "ripples": true,
+      "ripplesDelegate": true,
       "checkbox": true,
       "togglebutton": true,
       "radio": true,
@@ -256,7 +257,17 @@
         });
     },
     "ripples": function (selector) {
-      $((selector) ? selector : this.options.withRipples).ripples();
+      if (this.options.ripplesDelegate) {
+       // Delegate mode, lazy creation
+       $(document).on('mousedown touchstart', selector || this.options.withRipples, function(event) {
+        if(!$.data($(this), "plugin_ripples")) {
+         $(this).ripples({}, event);
+        }
+       });
+      } else {
+       // Immediate and static creation
+       $((selector) ? selector : this.options.withRipples).ripples();
+      };
     },
     "autofill": function () {
       // This part of code will detect autofill when the page is loading (username and password inputs for example)

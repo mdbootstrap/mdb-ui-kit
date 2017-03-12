@@ -302,6 +302,8 @@ $.material.options = {
 }
 ```    
 
+For the ripples, a delegate is created using the given selector. This avoids manual call to `$.fn.ripples` when new inputs are created. If you want to apply statically ripples, set option `"ripplesDelegate": false`.
+
 ### Arrive.js support
 
 If you need to dynamically add elements to your DOM then you may need to include [`Arrive.js`](https://github.com/uzairfarooq/arrive) before `Material.js`. This will automatically apply `material.js` to every new element added via JavaScript.
