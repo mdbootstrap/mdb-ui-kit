@@ -20,7 +20,6 @@
     ".jshintrc",
     ".travis.yml",
     "CONTRIBUTING.md",
-    "Gruntfile.json",
     "index.html",
     "**/.*",
     "node_modules",
