@@ -1,7 +1,7 @@
-<header class="navbar navbar-light navbar-static-top bd-navbar" role="banner">
+<header class="navbar navbar-light navbar-toggleable-md bd-navbar">
   <div class="container">
     {% comment %}
-    <nav class="nav navbar-nav pull-xs-right">
+    <nav class="nav navbar-nav float-right">
       <div class="nav-item dropdown">
         <a class="nav-item nav-link dropdown-toggle" href="#" id="bd-versions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           v{{ site.data.version }}
@@ -25,39 +25,40 @@
     </nav>
     {% endcomment %}
 
-    <nav>
-      <div class="clearfix">
-        <button class="navbar-toggler pull-xs-right hidden-sm-up" type="button" data-toggle="collapse" data-target="#bd-main-nav" aria-controls="bd-main-nav" aria-expanded="false" aria-label="Toggle navigation">
-          &#9776;
-        </button>
-        <a class="navbar-brand hidden-sm-up" href="{{ site.baseurl }}/">
-          Bootstrap Material Design
-        </a>
-      </div>
-      <div class="collapse navbar-toggleable-xs" id="bd-main-nav">
-        <ul class="nav navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-item nav-link {% if page.layout == "home" %}active{% endif %}" href="{{ site.baseurl }}/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap Material Design');">Bootstrap Material Design</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-item nav-link {% if page.layout == "docs" %}active{% endif %}" href="{{ site.baseurl }}/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Documentation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-item nav-link {% if page.title == "Examples" %}active{% endif %}" href="{{ site.baseurl }}/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Examples</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-item nav-link" href="{{ site.mkp }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Material Kit Pro');">Material Kit Pro</a>
-          </li>
-          <!--
-          <li class="nav-item">
-            <a class="nav-item nav-link" href="{{ site.expo }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');">Expo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-item nav-link" href="{{ site.blog }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Blog</a>
-          </li>
-          -->
-        </ul>
-      </div>
-    </nav>
+    <div class="d-flex justify-content-between d-lg-none">
+      <a class="navbar-brand" href="{{ site.baseurl }}/">
+        Bootstrap Material Design
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bd-main-nav" aria-controls="bd-main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-toggleable-xs" id="bd-main-nav">
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-item nav-link {% if page.layout == "home" %}active{% endif %}" href="{{ site.baseurl }}/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap Material Design');">Bootstrap Material Design</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link {% if page.layout == "docs" %}active{% endif %}" href="{{ site.baseurl }}/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Documentation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link {% if page.title == "Examples" %}active{% endif %}" href="{{ site.baseurl }}/examples/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Examples</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link" href="{{ site.mkp }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Material Kit Pro');">Material Kit Pro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link" href="{{ site.mdp }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Material Kit Pro');">Material Dashboard Pro</a>
+        </li>
+        <!--
+        <li class="nav-item">
+          <a class="nav-item nav-link" href="{{ site.expo }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');">Expo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link" href="{{ site.blog }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Blog</a>
+        </li>
+        -->
+      </ul>
+    </div>
   </div>
 </header>

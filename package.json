@@ -18,6 +18,7 @@
   "homepage": "https://github.com/FezVrasta/bootstrap-material-design",
   "author": "Federico Zivolo",
   "scripts": {
+    "gulp": "gulp",
     "test": "grunt test"
   },
   "style": "dist/css/bootstrap-material-design.css",
@@ -39,6 +40,7 @@
     "babel-core": "^6.11.4",
     "babel-eslint": ">=6.1.2",
     "babel-preset-es2015": "6.9.0",
+    "babel-register": "^6.24.0",
     "bootstrap": "twbs/bootstrap#v4-dev",
     "extend": "^3.0.0",
     "gulp": "github:gulpjs/gulp#4.0",

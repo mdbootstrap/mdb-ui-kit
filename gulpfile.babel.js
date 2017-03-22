@@ -61,7 +61,7 @@ const rollupConfig = {
 const preset = Preset.baseline()
 
 const copyJsToDocs = new Copy(gulp, preset, {
-  task: {name: 'dist:js->docs'},
+  task: {name: 'dist:js-docs'},
   source: {
     options: {cwd: 'dist'},
     glob: ['*.iife*.js']
@@ -70,7 +70,7 @@ const copyJsToDocs = new Copy(gulp, preset, {
 })
 
 const copyCssToDocs = new Copy(gulp, preset, {
-  task: {name: 'dist:css->docs'},
+  task: {name: 'dist:css-docs'},
   source: {
     options: {cwd: 'dist'},
     glob: ['*.css']
@@ -159,4 +159,3 @@ new Aggregate(gulp, 'publish',
     })
   )
 )
-

@@ -25,7 +25,7 @@
 
 
 // Reset and dependencies
-@import "bootstrap/scss/normalize";
+@import "bootstrap/scss/reboot";
 @import "bootstrap/scss/print";
 
 // Core CSS
@@ -39,7 +39,6 @@
 @import "bootstrap/scss/buttons";
 
 // Components
-@import "bootstrap/scss/animation";
 @import "bootstrap/scss/dropdown";
 @import "bootstrap/scss/button-group";
 @import "bootstrap/scss/input-group";
@@ -49,7 +48,6 @@
 @import "bootstrap/scss/card";
 @import "bootstrap/scss/breadcrumb";
 @import "bootstrap/scss/pagination";
-@import "bootstrap/scss/tags";
 @import "bootstrap/scss/jumbotron";
 @import "bootstrap/scss/alert";
 @import "bootstrap/scss/progress";
