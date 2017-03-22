@@ -4,7 +4,7 @@ title: Customization options
 group: getting-started
 ---
 
-Bootstrap Material Design 4 is designed to be customized via Sass variables. You may customize any Bootstrap or BMD variable. 
+Material Design for Bootstrap 4 is designed to be customized via Sass variables. You may customize any Bootstrap or BMD variable. 
 
 {% callout info %}
 The following assumes you have [setup your build tools and are building successfully](../building).

@@ -1,8 +1,8 @@
-<h1 align=center>Bootstrap Material Design</h1>
+<h1 align=center>Material Design for Bootstrap</h1>
 
-Bootstrap Material Design is the best way to use [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html)
+Material Design for Bootstrap is the best way to use [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html)
 in your Bootstrap 4 based application.
-Since this is a fully customizable version of Bootstrap, just include Bootstrap Material Design CSS instead of Bootstrap CSS, and include the JavaScript at
+Since this is a fully customizable version of Bootstrap, just include Material Design for Bootstrap CSS instead of Bootstrap CSS, and include the JavaScript at
 the end of your document (just before the `</body>` tag), and everything will be converted to Material Design.
 
 
@@ -18,7 +18,7 @@ the end of your document (just before the `</body>` tag), and everything will be
 ## Support
 
 The things to do are a lot and the time is little, if you are a passionate developer
-with experience with Bootstrap and Bootstrap Material Design and you have some spare
+with experience with Bootstrap and Material Design for Bootstrap and you have some spare
 time, please consider becoming a contributor of this project!  
 If you are interested contact @FezVrasta or just adopt one of our [issues](https://github.com/FezVrasta/bootstrap-material-design/issues).
 

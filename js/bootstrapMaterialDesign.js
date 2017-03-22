@@ -1,6 +1,6 @@
 /**
  * $.bootstrapMaterialDesign(config) is a macro class to configure the components generally
- *  used in Bootstrap Material Design.  You may pass overrides to the configurations
+ *  used in Material Design for Bootstrap.  You may pass overrides to the configurations
  *  which will be passed into each component, or you may omit use of this class and
  *  configure each component separately.
  */

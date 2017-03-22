@@ -4,6 +4,6 @@ title: Extensions
 group: material-design
 ---
 
-Bootstrap Material Design provides seamlessly integration with some extensions.
+Material Design for Bootstrap provides seamlessly integration with some extensions.
 
 - [SnackbarJS]({{ site.baseurl }}/material-design/snackbars)

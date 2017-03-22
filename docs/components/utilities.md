@@ -9,7 +9,7 @@ group: components
 {% callout info %}
 **Bootstrap Reference Documentation**
 This is a part of the reference documentation from <a href="http://getbootstrap.com">Bootstrap</a>.
-It is included here to demonstrate rendering with Bootstrap Material Design default styling.
+It is included here to demonstrate rendering with Material Design for Bootstrap default styling.
 See the <a href="/material-design/buttons">Material Design</a> section for more elements and customization options.
 {% endcallout %}
 
@@ -75,16 +75,16 @@ Here are some representative examples of these classes:
 {% endhighlight %}
 
 ### Horizontal centering
-Additionally, Bootstrap also includes an `.m-x-auto` class for horizontally centering fixed-width block level content by setting the horizontal margins to `auto`.
+Additionally, Bootstrap also includes an `.mx-auto` class for horizontally centering fixed-width block level content by setting the horizontal margins to `auto`.
 
 <div class="bd-example">
-  <div class="m-x-auto" style="width: 200px; background-color: rgba(86,61,124,.15);">
+  <div class="mx-auto" style="width: 200px; background-color: rgba(86,61,124,.15);">
     Centered element
   </div>
 </div>
 
 {% highlight html %}
-<div class="m-x-auto" style="width: 200px;">
+<div class="mx-auto" style="width: 200px;">
   Centered element
 </div>
 {% endhighlight %}

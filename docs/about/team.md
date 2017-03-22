@@ -4,7 +4,7 @@ title: Team
 group: about
 ---
 
-Bootstrap Material Design is maintained by a small group of invaluable core contributors, 
+Material Design for Bootstrap is maintained by a small group of invaluable core contributors, 
 with the support and involvement of our community.
 
 <div class="list-group bd-team">

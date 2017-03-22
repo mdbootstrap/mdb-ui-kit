@@ -5,9 +5,9 @@
 [![gratipay](https://img.shields.io/gratipay/FezVrasta.svg)](https://gratipay.com/FezVrasta)
 
 
-Bootstrap Material Design is the best way to use [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) 
+Material Design for Bootstrap is the best way to use [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html) 
 in your Bootstrap 4 based application.  Since this is a fully customizable version of Bootstrap,
-just include Bootstrap Material Design CSS instead of Bootstrap CSS, and include the JavaScript at 
+just include Material Design for Bootstrap CSS instead of Bootstrap CSS, and include the JavaScript at 
 the end of your document (just before the `</body>` tag), and everything will be converted to Material Design.
 
 ## Documentation 

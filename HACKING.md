@@ -1,4 +1,4 @@
-# Hacking Bootstrap Material Design
+# Hacking Material Design for Bootstrap
 
 This project makes use of Gulp to build all our source codes.
 

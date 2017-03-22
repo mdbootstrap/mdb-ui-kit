@@ -4,7 +4,7 @@ title: Release process
 group: getting-started
 ---
 
-Bootstrap Material Design has a well defined release process that is automated by [Gulp](http://gulpjs.com).  See the [Build Tools](../build-tools) section for setup.
+Material Design for Bootstrap has a well defined release process that is automated by [Gulp](http://gulpjs.com).  See the [Build Tools](../build-tools) section for setup.
 
 ## Creating a release
 

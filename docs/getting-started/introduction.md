@@ -5,10 +5,10 @@ group: getting-started
 redirect_from: "/getting-started/"
 ---
 
-This is Bootstrap Material Design, the world's most popular framework for building responsive, mobile-first Material Design sites and applications.
+This is Material Design for Bootstrap, the world's most popular framework for building responsive, mobile-first Material Design sites and applications.
 Inside you'll find high quality HTML, CSS, and JavaScript to make starting any project easier than ever.
 
-Here's how to quickly get started with the Bootstrap Material Design CDN and a template starter page.
+Here's how to quickly get started with the Material Design for Bootstrap CDN and a template starter page.
 
 ## Contents
 
@@ -17,7 +17,7 @@ Here's how to quickly get started with the Bootstrap Material Design CDN and a t
 
 ## Quick start
 
-Looking to quickly add Bootstrap Material Design to your project? Use the Bootstrap Material Design CDN,
+Looking to quickly add Material Design for Bootstrap to your project? Use the Material Design for Bootstrap CDN,
 provided for free by the folks at MaxCDN. Using a package manager or need to download the source files?
 [Head to the downloads page.]({{ site.baseurl }}/getting-started/download)
 
@@ -32,7 +32,7 @@ Copy-paste the font and stylesheet `<link>` into your `<head>` before all other 
 <link rel="stylesheet" href="{{ site.data.cdn.font_roboto }}">
 <link rel="stylesheet" href="{{ site.data.cdn.font_icons }}">
 
-<!-- Bootstrap Material Design -->
+<!-- Material Design for Bootstrap -->
 <link rel="stylesheet" href="{{ site.data.cdn.css }}">
 {% endhighlight %}
 
@@ -74,13 +74,13 @@ Put it all together and your pages should look like this:
     <link rel="stylesheet" href="{{ site.data.cdn.font_roboto }}">
     <link rel="stylesheet" href="{{ site.data.cdn.font_icons }}">
 
-    <!-- Bootstrap Material Design -->
+    <!-- Material Design for Bootstrap -->
     <link rel="stylesheet" href="{{ site.data.cdn.css }}">
   </head>
   <body>
     <h1>Hello, world!</h1>
 
-    <!-- jQuery first, then tether, then Bootstrap Material Design JS. -->
+    <!-- jQuery first, then tether, then Material Design for Bootstrap JS. -->
     <script src="{{ site.data.cdn.jquery }}"></script>
     <script src="{{ site.data.cdn.tether }}"></script>
     <script src="{{ site.data.cdn.js }}"></script>
@@ -97,11 +97,11 @@ That's all you need for overall page requirements. Visit the [Layout docs]({{ si
 
 ## Important globals
 
-Bootstrap Material Design employs a handful of important global styles and settings that you'll need to be aware of when using it, all of which are almost exclusively geared towards the *normalization* of cross browser styles. Let's dive in.
+Material Design for Bootstrap employs a handful of important global styles and settings that you'll need to be aware of when using it, all of which are almost exclusively geared towards the *normalization* of cross browser styles. Let's dive in.
 
 ### HTML5 doctype
 
-Bootstrap Material Design requires the use of the HTML5 doctype. Without it, you'll see some funky incomplete styling, but including it shouldn't cause any considerable hiccups.
+Material Design for Bootstrap requires the use of the HTML5 doctype. Without it, you'll see some funky incomplete styling, but including it shouldn't cause any considerable hiccups.
 
 {% highlight html %}
 <!DOCTYPE html>
@@ -112,7 +112,7 @@ Bootstrap Material Design requires the use of the HTML5 doctype. Without it, you
 
 ### Responsive meta tag
 
-Bootstrap Material Design is developed *mobile first*, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, **add the responsive viewport meta tag** to your `<head>`.
+Material Design for Bootstrap is developed *mobile first*, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, **add the responsive viewport meta tag** to your `<head>`.
 
 {% highlight html %}
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -123,7 +123,7 @@ You can see an example of this in action in the [starter template](#starter-temp
 
 ## Community
 
-Stay up to date on the development of Bootstrap Material Design and reach out to the community with these helpful resources.
+Stay up to date on the development of Material Design for Bootstrap and reach out to the community with these helpful resources.
 
 - Implementation help may be found at Stack Overflow (tagged [`bootstrap-material-design`](https://stackoverflow.com/questions/tagged/bootstrap-material-design)).
 

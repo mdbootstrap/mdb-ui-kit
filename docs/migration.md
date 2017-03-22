@@ -4,7 +4,7 @@ title: Migrating to v4
 group: migration
 ---
 
-Bootstrap Material Design 4 is a major rewrite of almost the entire project. 
+Material Design for Bootstrap 4 is a major rewrite of almost the entire project. 
 The most notable changes are summarized immediately below, followed by more specific class and behavioral changes to relevant components.
 
 {% callout info %}
@@ -43,7 +43,7 @@ Here are the big ticket items you'll want to be aware of when moving from BMD v3
 - Refactored nearly all components to use more unnested classes instead of children selectors.
 
 ### Misc
-- Non-responsive usage of Bootstrap Material Design is no longer supported.
+- Non-responsive usage of Material Design for Bootstrap is no longer supported.
 
 
 ## By component

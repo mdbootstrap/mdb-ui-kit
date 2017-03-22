@@ -10,7 +10,7 @@ redirect_from: "/content/"
 {% callout info %}
 **Bootstrap Reference Documentation**
 This is a part of the reference documentation from <a href="http://getbootstrap.com">Bootstrap</a>.
-It is included here to demonstrate rendering with Bootstrap Material Design default styling.
+It is included here to demonstrate rendering with Material Design for Bootstrap default styling.
 See the <a href="/material-design/buttons">Material Design</a> section for more elements and customization options.
 {% endcallout %}
 
