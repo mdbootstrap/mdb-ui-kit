@@ -30,9 +30,9 @@ $bmd-btn-icon-font-size-sm: (.75 * $bmd-btn-fab-font-size) !default;
 // Buttons
 //
 // For each of Bootstrap's buttons, define text, background and border color.
-$btn-padding-x:                  1rem !default; // 1rem
-$btn-padding-y:                  .46875rem !default; // .5rem achieve a 36dp height
-//$btn-line-height:                1 !default; //1.25
+$input-btn-padding-x:                  1rem !default; // 1rem
+$input-btn-padding-y:                  .46875rem !default; // .5rem achieve a 36dp height
+//$input-btn-line-height:                1 !default; //1.25
 $btn-font-weight:                500 !default; // normal
 $btn-box-shadow:                 none !default;
 $btn-active-box-shadow:          none !default; // inset 0 3px 5px rgba(0,0,0,.125)
@@ -40,35 +40,35 @@ $btn-active-box-shadow:          none !default; // inset 0 3px 5px rgba(0,0,0,.1
 //
 //$btn-primary-color:              #fff !default;
 //$btn-primary-bg:                 $brand-primary !default;
-//$btn-primary-border:             $btn-primary-bg !default;
+//$btn-primary-border-color:             $btn-primary-bg !default;
 //
 $btn-secondary-color:            $gray-dark !default;
 $btn-secondary-bg:               $body-bg !default; // #fff
-//$btn-secondary-border:           #ccc !default;
+//$btn-secondary-border-color:           #ccc !default;
 //
 //$btn-info-color:                 #fff !default;
 //$btn-info-bg:                    $brand-info !default;
-//$btn-info-border:                $btn-info-bg !default;
+//$btn-info-border-color:                $btn-info-bg !default;
 //
 //$btn-success-color:              #fff !default;
 //$btn-success-bg:                 $brand-success !default;
-//$btn-success-border:             $btn-success-bg !default;
+//$btn-success-border-color:             $btn-success-bg !default;
 //
 //$btn-warning-color:              #fff !default;
 //$btn-warning-bg:                 $brand-warning !default;
-//$btn-warning-border:             $btn-warning-bg !default;
+//$btn-warning-border-color:             $btn-warning-bg !default;
 //
 //$btn-danger-color:               #fff !default;
 //$btn-danger-bg:                  $brand-danger !default;
-//$btn-danger-border:              $btn-danger-bg !default;
+//$btn-danger-border-color:              $btn-danger-bg !default;
 //
 //$btn-link-disabled-color:        $gray-light !default;
 //
-//$btn-padding-x-sm:               .5rem !default;
-$btn-padding-y-sm:               .40625rem !default; // achieve a 32dp height was .25rem
+//$input-btn-padding-x-sm:               .5rem !default;
+$input-btn-padding-y-sm:               .40625rem !default; // achieve a 32dp height was .25rem
 //
-//$btn-padding-x-lg:               1.5rem !default;
-//$btn-padding-y-lg:               .75rem !default;
+//$input-btn-padding-x-lg:               1.5rem !default;
+//$input-btn-padding-y-lg:               .75rem !default;
 //
 //// Allows for customizing button radius independently from global border radius
 //$btn-border-radius:              $border-radius !default;

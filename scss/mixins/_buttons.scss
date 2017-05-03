@@ -185,22 +185,22 @@
 @mixin bmd-raised-button-color() {
 
   &.btn-primary {
-    @include bmd-raised-button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    @include bmd-raised-button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border-color);
   }
   &.btn-secondary {
-    @include bmd-raised-button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+    @include bmd-raised-button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border-color);
   }
   &.btn-info {
-    @include bmd-raised-button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+    @include bmd-raised-button-variant($btn-info-color, $btn-info-bg, $btn-info-border-color);
   }
   &.btn-success {
-    @include bmd-raised-button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+    @include bmd-raised-button-variant($btn-success-color, $btn-success-bg, $btn-success-border-color);
   }
   &.btn-warning {
-    @include bmd-raised-button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+    @include bmd-raised-button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border-color);
   }
   &.btn-danger {
-    @include bmd-raised-button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+    @include bmd-raised-button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border-color);
   }
 }
 
