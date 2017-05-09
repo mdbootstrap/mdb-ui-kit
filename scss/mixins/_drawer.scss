@@ -2,7 +2,7 @@
 
 @mixin bmd-drawer-x-out($size) {
   @each $side, $abbrev in (left: l, right: r) {
-    &.bmd-drawer-f-#{$abbrev} {
+    @at-root #{if(not &, '.bmd-drawer-f-#{$abbrev}', selector-append(&, '.bmd-drawer-f-#{$abbrev}'))} {
       > .bmd-layout-drawer {
         // position
         top: 0;
@@ -28,7 +28,7 @@
 
 @mixin bmd-drawer-y-out($size) {
   @each $side, $abbrev in (top: t, bottom: b) {
-    &.bmd-drawer-f-#{$abbrev} {
+    @at-root #{if(not &, '.bmd-drawer-f-#{$abbrev}', selector-append(&, '.bmd-drawer-f-#{$abbrev}'))} {
       > .bmd-layout-drawer {
         // position
         #{$side}: 0;
@@ -62,7 +62,7 @@
 
 @mixin bmd-drawer-x-in($size) {
   @each $side, $abbrev in (left: l, right: r) {
-    &.bmd-drawer-f-#{$abbrev} {
+    @at-root #{if(not &, '.bmd-drawer-f-#{$abbrev}', selector-append(&, '.bmd-drawer-f-#{$abbrev}'))} {
       // Push - drawer will push the header and content (default behavior)
       > .bmd-layout-header {
         width: calc(100% - #{$size});
@@ -82,8 +82,7 @@
 
 @mixin bmd-drawer-y-in($size) {
   @each $side, $abbrev in (top: t, bottom: b) {
-    &.bmd-drawer-f-#{$abbrev} {
-
+    @at-root #{if(not &, '.bmd-drawer-f-#{$abbrev}', selector-append(&, '.bmd-drawer-f-#{$abbrev}'))} {
       // 1. Push - drawer will push the header or content
       > .bmd-layout-header {
         @if $side == top { // only add margin-top on a header when the drawer is at the top

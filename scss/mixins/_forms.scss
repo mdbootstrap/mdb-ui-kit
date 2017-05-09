@@ -72,8 +72,8 @@
   .form-control {
 
     // underline animation color on focus
-    $underline-background-image:          linear-gradient(to top, $label-color-focus 2px, fade-out($label-color-focus, 1) 2px), linear-gradient(to top, $input-border-color 1px, fade-out($input-border-color, 1) 1px);
-    $underline-background-image-invalid:  linear-gradient(to top, $bmd-invalid-underline 2px, fade-out($bmd-invalid-underline, 1) 2px), linear-gradient(to top, $input-border-color 1px, fade-out($input-border-color, 1) 1px);
+    $underline-background-image: linear-gradient(to top, $label-color-focus 2px, fade-out($label-color-focus, 1) 2px), linear-gradient(to top, $input-border-color 1px, fade-out($input-border-color, 1) 1px);
+    $underline-background-image-invalid: linear-gradient(to top, $bmd-invalid-underline 2px, fade-out($bmd-invalid-underline, 1) 2px), linear-gradient(to top, $input-border-color 1px, fade-out($input-border-color, 1) 1px);
     $underline-background-image-readonly: linear-gradient(to top, $bmd-readonly-underline 1px, fade-out($bmd-readonly-underline, 1) 1px), linear-gradient(to top, $input-border-color 1px, fade-out($input-border-color, 1) 1px);
     $underline-background-image-disabled: linear-gradient(to right, $input-border-color 0%, $input-border-color 30%, transparent 30%, transparent 100%);
 
@@ -118,10 +118,9 @@
     }
   }
 
-  .is-focused, // may or may not be a form-group or bmd-form-group
-  &.is-focused {
+  // may or may not be a form-group or bmd-form-group
+  @at-root #{if(not &, 'is-focused', selector-append(&, 'is-focused'))} {
     // on focus set borders and labels to the validation color
-
     // Use the BS provided mixin for the bulk of the color
     @include form-control-validation($label-color);
 
@@ -143,7 +142,6 @@
     //.input-group-addon {
     //  border-color: $border-color;
     //}
-
     .bmd-help {
       color: $bmd-label-color-inner-focus;
     }
@@ -233,12 +231,11 @@
   }
 
   // floating focused/filled will look like static
-  &.is-focused,
-  .is-focused,
-  &.is-filled,
-  .is-filled {
-    .bmd-label-floating {
-      @include bmd-label-static($label-static-top, $static-font-size);
+  @each $sel in '.is-focused', 'is-filled' {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+      .bmd-label-floating {
+        @include bmd-label-static($label-static-top, $static-font-size);
+      }
     }
   }
 
