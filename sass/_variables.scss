@@ -38,9 +38,6 @@ $headings-font-weight: 300 !default;
 $body-bg: #EEEEEE !default;
 //---
 
-// import bs variables for sass, first declared wins.
-@import '_import-bs-sass';
-
 // Bootstrap Material Design variables start with mdb-
 $mdb-brand-inverse: $indigo !default;
 
