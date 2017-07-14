@@ -63,7 +63,7 @@
   },
   "eyeglass": {
     "exports": false,
-    "needs": "^1.2.1",
+    "needs": "*",
     "sassDir": "sass"
   },
   "_bootstraps_dependencies_we_dont_use_yet": {
