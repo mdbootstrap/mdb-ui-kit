@@ -53,7 +53,7 @@ Pull in Bootstrap's **source files** into nearly any project with some of the mo
 Install Bootstrap in your Node powered apps with [the npm package](https://www.npmjs.com/package/bootstrap):
 
 {% highlight bash %}
-npm install bootstrap@{{ site.current_version }}
+npm install bootstrap-material-design@{{ site.current_version }}
 {% endhighlight %}
 
 `require('bootstrap')` will load all of Bootstrap's jQuery plugins onto the jQuery object. The `bootstrap` module itself does not export anything. You can manually load Bootstrap's jQuery plugins individually by loading the `/js/*.js` files under the package's top-level directory.
@@ -68,13 +68,13 @@ Bootstrap's `package.json` contains some additional metadata under the following
 Install Bootstrap in your Ruby apps using [Bundler](https://bundler.io/) (**recommended**) and [RubyGems](https://rubygems.org/) by adding the following line to your [`Gemfile`](https://bundler.io/gemfile.html):
 
 {% highlight ruby %}
-gem 'bootstrap', '~> 4.0.0.beta'
+gem 'bootstrap-material-design', '~> 4.0.0.beta'
 {% endhighlight %}
 
 Alternatively, if you're not using Bundler, you can install the gem by running this command:
 
 {% highlight bash %}
-gem install bootstrap -v 4.0.0.beta
+gem install bootstrap-material-design -v 4.0.0.beta
 {% endhighlight %}
 
 [See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details.
@@ -92,7 +92,7 @@ composer require twbs/bootstrap:{{ site.current_version }}
 Install and manage Bootstrap's Sass and JavaScript using [Bower](https://bower.io).
 
 {% highlight bash %}
-bower install bootstrap#v{{ site.current_version }}
+bower install bootstrap-material-design#v{{ site.current_version }}
 {% endhighlight %}
 
 ### NuGet
@@ -100,11 +100,11 @@ bower install bootstrap#v{{ site.current_version }}
 If you develop in .NET, you can also install and manage Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/bootstrap.sass/) and JavaScript using [NuGet](https://www.nuget.org):
 
 {% highlight powershell %}
-Install-Package bootstrap -Pre
+Install-Package bootstrap-material-design -Pre
 {% endhighlight %}
 
 {% highlight powershell %}
-Install-Package bootstrap.sass -Pre
+Install-Package bootstrap-material-design.sass -Pre
 {% endhighlight %}
 
 The `-Pre` is required until Bootstrap v4 has a stable release.

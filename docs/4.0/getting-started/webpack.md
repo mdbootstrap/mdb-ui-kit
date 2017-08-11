@@ -93,7 +93,7 @@ For Bootstrap to compile, make sure you install and use the required loaders: [s
 Alternatively, you may use Bootstrap's ready-to-use css by simply adding this line to your project's entry point:
 
 {% highlight js %}
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap-material-design.min.css';
 {% endhighlight %}
 
 In this case you may use your existing rule for `css` without any special modifications to webpack config.
