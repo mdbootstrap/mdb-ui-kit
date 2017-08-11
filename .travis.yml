@@ -1,29 +1,5 @@
-sudo: false
-git:
-  depth: 10
-
-# remove the dist branch and dist tags from travis builds
-branches:
-  except:
-    - dist
-    - /^v(\d+\.)?(\d+\.)?(\*|\d+)$/
-
 language: node_js
 node_js:
-  - "5" # "node" (v6.x) yielded v8::ObjectTemplate::Set() with non-primitive values is deprecated
+  - "8"
 
-# enable this once we have reliable builds
-cache:
-  directories:
-    - node_modules
-    - vendor/bundle
-
-before_install:
-  - rvm install 2.2
-  - rvm use 2.2 --fuzzy
-  - gem install scss-lint
-
-before_script:
-  - npm install -g gulp-cli
-
-script: gulp all
+script: yarn build
