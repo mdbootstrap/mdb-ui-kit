@@ -34,15 +34,10 @@ label.checkbox-inline {
         // we need a solid color here to avoid glitches in the animation
         // it will not look great on non white backgrounds, but this is the
         // most common case and it's better support it
-        color: lighten(rgba($gray, 1), (1 - $gray-alpha) * 100);
+        color: lighten(rgba($gray, 1),  (1 - $gray-alpha) * 100);
         content: "";
-        box-shadow: 0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0,
-        0 0 0 0 inset;
+        box-shadow: 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0,
+          0 0 0 0 inset;
         transform: rotate(45deg);
         animation: checkbox-off;
 
@@ -79,12 +74,8 @@ label.checkbox-inline {
 
       + .checkbox-decorator .check::before {
         color: $bmd-checkbox-checked-color;
-        box-shadow: 0 0 0 10px,
-        10px -10px 0 10px,
-        32px 0 0 20px,
-        032px 0 20px,
-        -5px 5px 0 10px,
-        20px -12px 0 11px;
+        box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 032px 0 20px,
+          -5px 5px 0 10px, 20px -12px 0 11px;
         animation: checkbox-on $bmd-checkbox-animation-check forwards;
       }
     }
@@ -110,62 +101,35 @@ label.checkbox-inline {
 
 @keyframes checkbox-on {
   0% {
-    box-shadow: 0 0 0 10px,
-    10px -10px 0 10px,
-    32px 0 0 20px,
-    0 32px 0 20px,
-    -5px 5px 0 10px,
-    15px 2px 0 11px;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px,
+      -5px 5px 0 10px, 15px 2px 0 11px;
   }
   50% {
-    box-shadow: 0 0 0 10px,
-    10px -10px 0 10px,
-    32px 0 0 20px,
-    0 32px 0 20px,
-    -5px 5px 0 10px,
-    20px 2px 0 11px;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px,
+      -5px 5px 0 10px, 20px 2px 0 11px;
   }
   100% {
-    box-shadow: 0 0 0 10px,
-    10px -10px 0 10px,
-    32px 0 0 20px,
-    0 32px 0 20px,
-    -5px 5px 0 10px,
-    20px -12px 0 11px;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px,
+      -5px 5px 0 10px, 20px -12px 0 11px;
   }
 }
 
 @keyframes checkbox-off {
   0% {
-    box-shadow: 0 0 0 10px,
-    10px -10px 0 10px,
-    32px 0 0 20px,
-    0 32px 0 20px,
-    -5px 5px 0 10px,
-    20px -12px 0 11px,
-    0 0 0 0 inset;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px,
+      -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
   }
   25% {
-    box-shadow: 0 0 0 10px,
-    10px -10px 0 10px,
-    32px 0 0 20px,
-    0 32px 0 20px,
-    -5px 5px 0 10px,
-    20px -12px 0 11px,
-    0 0 0 0 inset;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px,
+      -5px 5px 0 10px, 20px -12px 0 11px, 0 0 0 0 inset;
   }
   50% {
     width: 0;
     height: 0;
     margin-top: -4px;
     margin-left: 6px;
-    box-shadow: 0 0 0 10px,
-    10px -10px 0 10px,
-    32px 0 0 20px,
-    0 32px 0 20px,
-    -5px 5px 0 10px,
-    15px 2px 0 11px,
-    0 0 0 0 inset;
+    box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0 0 20px, 0 32px 0 20px,
+      -5px 5px 0 10px, 15px 2px 0 11px, 0 0 0 0 inset;
     transform: rotate(45deg);
   }
   51% {
@@ -173,13 +137,8 @@ label.checkbox-inline {
     height: 20px;
     margin-top: -2px;
     margin-left: -2px;
-    box-shadow: 0 0 0 0,
-    0 0 0 0,
-    0 0 0 0,
-    0 0 0 0,
-    0 0 0 0,
-    0 0 0 0,
-    0 0 0 10px inset;
+    box-shadow: 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0,
+      0 0 0 10px inset;
     transform: rotate(0deg);
   }
   100% {
@@ -187,13 +146,8 @@ label.checkbox-inline {
     height: 20px;
     margin-top: -2px;
     margin-left: -2px;
-    box-shadow: 0 0 0 0,
-    0 0 0 0,
-    0 0 0 0,
-    0 0 0 0,
-    0 0 0 0,
-    0 0 0 0,
-    0 0 0 0 inset;
+    box-shadow: 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0, 0 0 0 0,
+      0 0 0 0 inset;
     transform: rotate(0deg);
   }
 }

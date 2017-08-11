@@ -37,8 +37,11 @@
     }
   }
 
-  .bmd-card-actions, // needed?  if you have actions in the middle of the card (see spec), it may be necessary
-  .card-footer { // assume footer is the set of actions?
+  .bmd-card-actions,
+  // needed?  if you have actions in the middle of the card (see spec),
+  it may be necessary
+  .card-footer {
+    // assume footer is the set of actions?
     padding: .5rem;
   }
 
@@ -54,5 +57,3 @@
     }
   }
 }
-
-

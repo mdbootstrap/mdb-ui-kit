@@ -31,7 +31,8 @@
   padding: .25rem 0;
   border: 0;
   opacity: 0;
-  transition: transform $bmd-menu-expand-duration $bmd-animation-curve-default, opacity $bmd-menu-fade-duration $bmd-animation-curve-default;
+  transition: transform $bmd-menu-expand-duration $bmd-animation-curve-default,
+    opacity $bmd-menu-fade-duration $bmd-animation-curve-default;
   transform: scale(0);
   transform-origin: 0 0;
   will-change: transform;
@@ -82,14 +83,14 @@
     max-width: $bmd-menu-item-max-width;
     min-height: $bmd-menu-item-min-height;
 
-    padding: $bmd-menu-item-padding-top $bmd-menu-item-padding-right $bmd-menu-item-padding-bottom $bmd-menu-item-padding-left;
+    padding: $bmd-menu-item-padding-top $bmd-menu-item-padding-right
+      $bmd-menu-item-padding-bottom $bmd-menu-item-padding-left;
 
     // FIXME: multi-line menu word wrapping doesn't work - see the maximum width example in menus.md
     overflow: hidden;
     line-height: $bmd-menu-line-height;
     text-overflow: ellipsis;
     word-wrap: break-word;
-
 
     // Simple menus always maintain a 16dp margin (phone) or 24dp margin (tablet) to the left and right edges of the screen.
     @include media-breakpoint-up(md) {
@@ -98,7 +99,6 @@
     }
   }
 }
-
 
 // this could be in a .btn-group or .dropdown
 .dropdown-toggle {

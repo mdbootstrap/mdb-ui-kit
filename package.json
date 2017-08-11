@@ -18,8 +18,14 @@
   "homepage": "https://github.com/FezVrasta/bootstrap-material-design",
   "author": "Federico Zivolo",
   "scripts": {
-    "gulp": "gulp",
-    "test": "grunt test"
+    "docs-compile": "bundle exec jekyll build",
+    "docs-serve": "bundle exec jekyll serve",
+    "prepare": "npm run build",
+    "build": "npm run build:js && npm run build:css",
+    "build:js": "rollup js/index.js --output=dist/js/bootstrap-material-design.js -m --config=rollup.config.js && npm run build:js-min",
+    "build:js-min": "babili dist/js/bootstrap-material-design.js -d dist/js/bootstrap-material-design.min.js",
+    "build:css": "node-sass --include-path node_modules scss/bootstrap-material-design.scss > dist/css/bootstrap-material-design.css && npm run build:css-min",
+    "build:css-min": "cssnano dist/css/bootstrap-material-design.css dist/css/bootstrap-material-design.min.css"
   },
   "style": "dist/css/bootstrap-material-design.css",
   "sass": "scss/_core.scss",
@@ -33,25 +39,22 @@
     "url": "https://github.com/FezVrasta/bootstrap-material-design/issues"
   },
   "license": "MIT",
-  "dependencies": {
-    "babel-polyfill": "^6.9.1"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.11.4",
-    "babel-eslint": ">=6.1.2",
-    "babel-preset-es2015": "6.9.0",
-    "babel-register": "^6.24.0",
-    "bootstrap": "twbs/bootstrap#v4-dev",
-    "extend": "^3.0.0",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-pipeline": "^4.0.43",
-    "jquery": "^3.1",
-    "moment": "^2.14.1",
-    "tether": "^1.3.3"
-  },
-  "engines": {
-    "node": "<6",
-    "npm": "^3.0.0"
+    "babel-core": "^6.25.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-module-alias": "^1.6.0",
+    "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babili": "^0.1.4",
+    "bootstrap": "4.0.0-beta",
+    "cssnano-cli": "^1.0.5",
+    "jquery": ">=3.0.0",
+    "node-sass": "^4.5.3",
+    "popper.js": "^1.11.0",
+    "prettier": "^1.5.3",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^3.0.1"
   },
   "files": [
     "dist",

@@ -1,19 +1,18 @@
-import Base from './base'
-import Util from './util'
+import Base from "./base";
+import Util from "./util";
 
-const BaseLayout = (($) => {
-
+const BaseLayout = ($ => {
   const ClassName = {
-    CANVAS: 'bmd-layout-canvas',
-    CONTAINER: 'bmd-layout-container',
+    CANVAS: "bmd-layout-canvas",
+    CONTAINER: "bmd-layout-container",
     BACKDROP: `bmd-layout-backdrop`
-  }
+  };
 
   const Selector = {
     CANVAS: `.${ClassName.CANVAS}`,
     CONTAINER: `.${ClassName.CONTAINER}`,
     BACKDROP: `.${ClassName.BACKDROP}`
-  }
+  };
 
   const Default = {
     canvas: {
@@ -26,7 +25,7 @@ const BaseLayout = (($) => {
       required: true,
       template: `<div class="${ClassName.BACKDROP}"></div>`
     }
-  }
+  };
 
   /**
    * ------------------------------------------------------------------------
@@ -34,19 +33,18 @@ const BaseLayout = (($) => {
    * ------------------------------------------------------------------------
    */
   class BaseLayout extends Base {
-
     constructor($element, config, properties = {}) {
-      super($element, $.extend(true, {}, Default, config), properties)
+      super($element, $.extend(true, {}, Default, config), properties);
 
-      this.$container = this.findContainer(true)
-      this.$backdrop = this.resolveBackdrop()
+      this.$container = this.findContainer(true);
+      this.$backdrop = this.resolveBackdrop();
       this.resolveCanvas();
     }
 
     dispose(dataKey) {
-      super.dispose(dataKey)
-      this.$container = null
-      this.$backdrop = null
+      super.dispose(dataKey);
+      this.$container = null;
+      this.$backdrop = null;
     }
 
     // ------------------------------------------------------------------------
@@ -54,57 +52,63 @@ const BaseLayout = (($) => {
 
     // Will wrap container in bmd-layout-canvas if necessary
     resolveCanvas() {
-      let bd = this.findCanvas(false)
+      let bd = this.findCanvas(false);
       if (bd === undefined || bd.length === 0) {
         if (this.config.canvas.create) {
-          this.$container.wrap(this.config.canvas.template)
+          this.$container.wrap(this.config.canvas.template);
         }
 
-        bd = this.findCanvas(this.config.canvas.required)
+        bd = this.findCanvas(this.config.canvas.required);
       }
 
-      return bd
+      return bd;
     }
 
     // Find closest bmd-layout-container based on the given context
     findCanvas(raiseError = true, context = this.$container) {
-      let canvas = context.closest(Selector.CANVAS)
+      let canvas = context.closest(Selector.CANVAS);
       if (canvas.length === 0 && raiseError) {
-        $.error(`Failed to find ${Selector.CANVAS} for ${Util.describe(context)}`)
+        $.error(
+          `Failed to find ${Selector.CANVAS} for ${Util.describe(context)}`
+        );
       }
-      return canvas
+      return canvas;
     }
 
     // Will add bmd-layout-backdrop to bmd-layout-container if necessary
     resolveBackdrop() {
-      let bd = this.findBackdrop(false)
+      let bd = this.findBackdrop(false);
       if (bd === undefined || bd.length === 0) {
         if (this.config.backdrop.create) {
-          this.$container.append(this.config.backdrop.template)
+          this.$container.append(this.config.backdrop.template);
         }
 
-        bd = this.findBackdrop(this.config.backdrop.required)
+        bd = this.findBackdrop(this.config.backdrop.required);
       }
 
-      return bd
+      return bd;
     }
 
     // Find closest bmd-layout-container based on the given context
     findBackdrop(raiseError = true, context = this.$container) {
-      let backdrop = context.find(`> ${Selector.BACKDROP}`)
+      let backdrop = context.find(`> ${Selector.BACKDROP}`);
       if (backdrop.length === 0 && raiseError) {
-        $.error(`Failed to find ${Selector.BACKDROP} for ${Util.describe(context)}`)
+        $.error(
+          `Failed to find ${Selector.BACKDROP} for ${Util.describe(context)}`
+        );
       }
-      return backdrop
+      return backdrop;
     }
 
     // Find closest bmd-layout-container based on the given context
     findContainer(raiseError = true, context = this.$element) {
-      let container = context.closest(Selector.CONTAINER)
+      let container = context.closest(Selector.CONTAINER);
       if (container.length === 0 && raiseError) {
-        $.error(`Failed to find ${Selector.CONTAINER} for ${Util.describe(context)}`)
+        $.error(
+          `Failed to find ${Selector.CONTAINER} for ${Util.describe(context)}`
+        );
       }
-      return container
+      return container;
     }
 
     // ------------------------------------------------------------------------
@@ -112,11 +116,9 @@ const BaseLayout = (($) => {
 
     // ------------------------------------------------------------------------
     // static
-
   }
 
-  return BaseLayout
+  return BaseLayout;
+})(jQuery);
 
-})(jQuery)
-
-export default BaseLayout
+export default BaseLayout;

@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 group :development, :test do
-  gem 'jekyll', '~> 3.1.1'
-  gem 'jekyll-redirect-from', '~> 0.9.1'
-  gem 'jekyll-seo-tag', '~> 0.1.3'
-  gem 'jekyll-sitemap', '~> 0.10.0'
-  gem 'scss_lint', '~> 0.43'
+  gem 'jekyll', '~> 3.5.1'
+  gem 'jekyll-redirect-from', '~> 0.12.1'
+  gem 'jekyll-sitemap', '~> 1.1.1'
+  gem 'jekyll-toc', '~> 0.3.0.pre1'
+  gem 'scss_lint', '~> 0.54.0'
 end

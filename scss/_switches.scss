@@ -13,11 +13,11 @@
       height: $bmd-switch-height;
       cursor: pointer;
       background-image: linear-gradient(
-          to right,
-          $bmd-switch-unchecked-bg 0%,
-          $bmd-switch-unchecked-bg 50%,
-          $bmd-switch-checked-bg 50%,
-          $bmd-switch-checked-bg 100%
+        to right,
+        $bmd-switch-unchecked-bg 0%,
+        $bmd-switch-unchecked-bg 50%,
+        $bmd-switch-checked-bg 50%,
+        $bmd-switch-checked-bg 100%
       );
       background-position: 0%;
       background-size: $bmd-switch-width * 2 $bmd-switch-height;
@@ -36,7 +36,8 @@
         background: $bmd-switch-handle-unchecked-bg;
         border-radius: 100%;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-        transition: left 0.2s ease-in, background-color 0.2s ease-in, transform 0.3s ease;
+        transition: left 0.2s ease-in, background-color 0.2s ease-in,
+          transform 0.3s ease;
         transform: translateY(-50%);
       }
 
@@ -58,7 +59,9 @@
         + .bmd-switch-track {
           background-position: -100%;
           &::after {
-            left: unquote("calc(100% - #{$bmd-switch-handle-size})"); //calc(100% - $bmd-switch-handle-size);
+            left: unquote(
+              "calc(100% - #{$bmd-switch-handle-size})"
+            ); //calc(100% - $bmd-switch-handle-size);
             background-color: $bmd-switch-handle-checked-bg;
           }
         }

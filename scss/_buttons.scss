@@ -12,7 +12,9 @@
   background-color: transparent;
   border: 0;
   outline: 0;
-  transition: box-shadow 0.2s $bmd-animation-curve-fast-out-linear-in, background-color 0.2s $bmd-animation-curve-default, color 0.2s $bmd-animation-curve-default;
+  transition: box-shadow 0.2s $bmd-animation-curve-fast-out-linear-in,
+    background-color 0.2s $bmd-animation-curve-default,
+    color 0.2s $bmd-animation-curve-default;
   will-change: box-shadow, transform;
 
   @include undo-bs-tab-focus();
@@ -53,7 +55,6 @@
   // btn-raised
   &.btn-raised,
   .btn-group-raised & {
-
     // baseline shadow
     @include box-shadow($bmd-shadow-2dp);
 
@@ -94,7 +95,10 @@
       left: 50%;
       width: $bmd-btn-fab-font-size;
       line-height: $bmd-btn-fab-font-size;
-      transform: translate(-($bmd-btn-fab-font-size / 2), -($bmd-btn-fab-font-size / 2));
+      transform: translate(
+        -($bmd-btn-fab-font-size / 2),
+        -($bmd-btn-fab-font-size / 2)
+      );
     }
   }
 
@@ -146,7 +150,10 @@
         font-size: $bmd-btn-icon-font-size-sm;
         line-height: 1;
         vertical-align: middle;
-        transform: translate(-($bmd-btn-icon-font-size-sm / 2), -($bmd-btn-icon-font-size-sm / 2));
+        transform: translate(
+          -($bmd-btn-icon-font-size-sm / 2),
+          -($bmd-btn-icon-font-size-sm / 2)
+        );
       }
     }
   }
@@ -198,7 +205,6 @@
 // btn-group variations
 .btn-group,
 .btn-group-vertical {
-
   position: relative;
   margin: 10px 1px;
 

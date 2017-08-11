@@ -21,7 +21,8 @@
   @include input-group-button-variation($input-padding-y-lg);
 }
 
-.input-group { // may be in or outside of form-group
+.input-group {
+  // may be in or outside of form-group
 
   .input-group-addon {
     display: flex;

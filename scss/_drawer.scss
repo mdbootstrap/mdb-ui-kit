@@ -87,9 +87,9 @@
 
 //
 // Drawer open positioning, and style options (push is default, overlay is optional)
-:not(.bmd-drawer-out) { // first eliminate positioning or sizing rules if the drawer is already forced closed
+:not(.bmd-drawer-out) {
+  // first eliminate positioning or sizing rules if the drawer is already forced closed
   @each $breakpoint in map-keys($grid-breakpoints) {
-
     @include bmd-drawer-x-in-up($bmd-drawer-x-size, $breakpoint);
     @include bmd-drawer-y-in-up($bmd-drawer-y-size, $breakpoint);
 
@@ -119,4 +119,3 @@
 //  @include bmd-drawer-x-in($custom-size); // triggered with bmd-drawer-in
 //  @include bmd-drawer-x-overlay(); // overlay by default, no other classes necessary
 //}
-

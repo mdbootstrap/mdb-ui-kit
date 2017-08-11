@@ -12,9 +12,13 @@
         height: 100%;
 
         @if $side == left {
-          transform: translateX(-$size - 10px); // initial position of drawer (closed), way off screen
+          transform: translateX(
+            -$size - 10px
+          ); // initial position of drawer (closed), way off screen
         } @else {
-          transform: translateX($size + 10px); // initial position of drawer (closed), way off screen
+          transform: translateX(
+            $size + 10px
+          ); // initial position of drawer (closed), way off screen
         }
       }
 
@@ -38,9 +42,13 @@
         height: $size;
 
         @if $side == top {
-          transform: translateY(-$size - 10px); // initial position of drawer (closed), way off screen
+          transform: translateY(
+            -$size - 10px
+          ); // initial position of drawer (closed), way off screen
         } @else {
-          transform: translateY($size + 10px); // initial position of drawer (closed), way off screen
+          transform: translateY(
+            $size + 10px
+          ); // initial position of drawer (closed), way off screen
         }
       }
 
@@ -83,10 +91,10 @@
 @mixin bmd-drawer-y-in($size) {
   @each $side, $abbrev in (top: t, bottom: b) {
     &.bmd-drawer-f-#{$abbrev} {
-
       // 1. Push - drawer will push the header or content
       > .bmd-layout-header {
-        @if $side == top { // only add margin-top on a header when the drawer is at the top
+        @if $side == top {
+          // only add margin-top on a header when the drawer is at the top
           margin-#{$side}: $size;
         }
       }
@@ -96,7 +104,8 @@
       }
 
       > .bmd-layout-content {
-        @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
+        @if $side == bottom {
+          // only add margin-bottom on content when the drawer is at the bottom
           margin-#{$side}: $size;
         }
       }
@@ -110,13 +119,13 @@
   $name: bmd-drawer-breakpoint-name($breakpoint, "-up");
 
   &.bmd-drawer-in {
-    #{unquote($name)} { // bmd-drawer-in, bmd-drawer-in-sm, bmd-drawer-in-md, bmd-drawer-in-lg
+    #{unquote($name)} {
+      // bmd-drawer-in, bmd-drawer-in-sm, bmd-drawer-in-md, bmd-drawer-in-lg
 
       @if $breakpoint == xs {
         // bmd-drawer-in marker class (non-responsive)
         @include bmd-drawer-x-in($size);
       } @else {
-
         // responsive class
         @include media-breakpoint-up($breakpoint) {
           // bmd-drawer-f-(left and right) styles
@@ -133,13 +142,13 @@
   $name: bmd-drawer-breakpoint-name($breakpoint, "-up");
 
   &.bmd-drawer-in {
-    #{unquote($name)} { // bmd-drawer-in, bmd-drawer-in-sm, bmd-drawer-in-md, bmd-drawer-in-lg
+    #{unquote($name)} {
+      // bmd-drawer-in, bmd-drawer-in-sm, bmd-drawer-in-md, bmd-drawer-in-lg
 
       @if $breakpoint == xs {
         // bmd-drawer-in marker class (non-responsive)
         @include bmd-drawer-y-in($size);
       } @else {
-
         // responsive class
         @include media-breakpoint-up($breakpoint) {
           // bmd-drawer-f-(left and right) styles
@@ -170,13 +179,15 @@
   @each $side, $abbrev in (top: t, bottom: b) {
     &.bmd-drawer-f-#{$abbrev} {
       > .bmd-layout-header {
-        @if $side == top { // only add margin-top on a header when the drawer is at the top
+        @if $side == top {
+          // only add margin-top on a header when the drawer is at the top
           margin-#{$side}: 0;
         }
       }
 
       > .bmd-layout-content {
-        @if $side == bottom { // only add margin-bottom on content when the drawer is at the bottom
+        @if $side == bottom {
+          // only add margin-bottom on content when the drawer is at the bottom
           margin-#{$side}: 0;
         }
       }
@@ -190,11 +201,13 @@
   $name: bmd-drawer-breakpoint-name($breakpoint, "-down");
 
   &.bmd-drawer-overlay {
-    #{unquote($name)} { // bmd-drawer-overlay, bmd-drawer-overlay-sm, bmd-drawer-overlay-md, bmd-drawer-overlay-lg
+    #{unquote($name)} {
+      // bmd-drawer-overlay, bmd-drawer-overlay-sm, bmd-drawer-overlay-md, bmd-drawer-overlay-lg
 
       // x - left/right
 
-      @if $breakpoint == xs { // overlay marker class (non-responsive)
+      @if $breakpoint == xs {
+        // overlay marker class (non-responsive)
 
         // Must double up on the .bmd-drawer-overlay class to increase specificity otherwise the
         //  responsive bmd-drawer-in-* media queries above win (and overlay is ignored)
@@ -202,7 +215,8 @@
           @include bmd-drawer-x-overlay();
         }
       } @else {
-        @include media-breakpoint-down($breakpoint) { // overlay responsive class
+        @include media-breakpoint-down($breakpoint) {
+          // overlay responsive class
           @include bmd-drawer-x-overlay();
         }
       }
@@ -216,10 +230,12 @@
   $name: bmd-drawer-breakpoint-name($breakpoint, "-down");
 
   &.bmd-drawer-overlay {
-    #{unquote($name)} { // bmd-drawer-overlay, bmd-drawer-overlay-sm, bmd-drawer-overlay-md, bmd-drawer-overlay-lg
+    #{unquote($name)} {
+      // bmd-drawer-overlay, bmd-drawer-overlay-sm, bmd-drawer-overlay-md, bmd-drawer-overlay-lg
       //// y - top/bottom
 
-      @if $breakpoint == xs { // overlay marker class (non-responsive)
+      @if $breakpoint == xs {
+        // overlay marker class (non-responsive)
 
         // Must double up on the .bmd-drawer-overlay class to increase specificity otherwise the
         //  responsive bmd-drawer-in-* media queries above win (and overlay is ignored)
@@ -227,11 +243,11 @@
           @include bmd-drawer-y-overlay();
         }
       } @else {
-        @include media-breakpoint-down($breakpoint) { // overlay responsive class
+        @include media-breakpoint-down($breakpoint) {
+          // overlay responsive class
           @include bmd-drawer-y-overlay();
         }
       }
     }
   }
 }
-

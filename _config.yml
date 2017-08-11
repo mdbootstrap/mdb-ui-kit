@@ -1,9 +1,3 @@
-include:
-  - .nojekyll
-
-sass:
-    sass_dir: sass
-
 # Dependencies
 markdown:         kramdown
 highlighter:      rouge
@@ -15,57 +9,50 @@ kramdown:
 permalink:        pretty
 
 # Server
-source:           docs
-destination:      _gh_pages
-host:             0.0.0.0
-port:             9000
+source:           .
+destination:      ./_gh_pages
+port:             9001
+baseurl:          ""
+url:              https://getbootstrap.com
 encoding:         UTF-8
-exclude:          [assets/scss/]
+exclude:          [.git, .github, assets/scss/, build, js, node_modules, nuget, scss, vendor, bower.json, composer.json, Gemfile, Gemfile.lock, Gruntfile.js, package.js, package.json, package-lock.json, sache.json]
 
-gems:
+plugins:
   - jekyll-redirect-from
-  - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-toc
 
-# Site vars
-#url:    "http://fezvrasta.github.io"
-repo:   https://github.com/FezVrasta/bootstrap-material-design
-#baseurl: "/bootstrap-material-design"
-url: "http://rosskevin.github.io"
+# Social
+title: Bootstrap Material Design
+description: The most popular HTML, CSS, and JS Material Design library in the world.
+twitter: getbootstrap
+authors: Mark Otto, Jacob Thornton, and Bootstrap contributors
+social_logo_path: /assets/brand/bootstrap-social-logo.png
+social_image_path: /assets/brand/bootstrap-social.png
 
-# other variables generated in
+# Custom vars
+current_version:  4.0.0-beta
+docs_version:     4.0
+repo:             https://github.com/twbs/bootstrap
+slack:            https://bootstrap-slack.herokuapp.com
 
-mkp:               http://www.creative-tim.com/product/material-kit-pro?affiliate_id=87385
-mdp:               http://www.creative-tim.com/product/material-dashboard-pro?affiliate_id=87385
-#blog:             http://blog.getbootstrap.com
-#expo:             http://expo.getbootstrap.com
-#themes:           http://themes.getbootstrap.com
+download:
+  source:         https://github.com/twbs/bootstrap/archive/v4.0.0-beta.zip
+  dist:           https://github.com/twbs/bootstrap/releases/download/v4.0.0-beta/bootstrap-4.0.0-beta-dist.zip
 
-#
+blog:             https://blog.getbootstrap.com
+expo:             https://expo.getbootstrap.com
+themes:           https://themes.getbootstrap.com
+jobs:             https://jobs.getbootstrap.com
+
 cdn:
-#  # See https://www.srihash.org for info on how to generate the hashes
-  css:            https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css
-#  css_hash:       "sha384-XXXXXXXX"
-  js:             https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.iife.min.js
-#  js_hash:        "sha384-XXXXXXXX"
-
-  # fonts
-  font_roboto:    https://fonts.googleapis.com/css?family=Roboto:300,400,500,700
-  font_icons:     https://fonts.googleapis.com/icon?family=Material+Icons
-
-  # VERSION is substituted in variables.rb and these are made available as site.data.cdn.*
-  jquery:         https://code.jquery.com/jquery-VERSION.min.js
-  bootstrap:      https://cdn.rawgit.com/twbs/bootstrap/VERSION/dist/js/bootstrap.min.js
-  tether:         https://cdn.rawgit.com/HubSpot/tether/vVERSION/dist/js/tether.min.js
+  # See https://www.srihash.org for info on how to generate the hashes
+  css:            https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css
+  css_hash:       "sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+  js:             https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js
+  js_hash:        "sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+  jquery:         https://code.jquery.com/jquery-3.2.1.slim.min.js
+  jquery_hash:    "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  popper:         https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js
+  popper_hash:    "sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
   snackbar:       https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js
-
-  'ie10-viewport-bug-workaround': https://maxcdn.bootstrapcdn.com/js/ie10-viewport-bug-workaround.js
-
-
-#twitter:
-#  username: getbootstrap
-#
-#social:
-#  type: organization
-#  name: twbs
-#  links: ["https://www.facebook.com/getbootstrap/", "https://twitter.com/getbootstrap"]

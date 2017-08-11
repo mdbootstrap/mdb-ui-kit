@@ -1,8 +1,7 @@
-import BaseInput from './baseInput'
-import Util from './util'
+import BaseInput from "./baseInput";
+import Util from "./util";
 
-const BaseSelection = (($) => {
-
+const BaseSelection = ($ => {
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -23,11 +22,11 @@ const BaseSelection = (($) => {
       //  `> label` // usual case for text inputs
       //]
     }
-  }
+  };
 
   const Selector = {
-    LABEL: 'label'
-  }
+    LABEL: "label"
+  };
 
   /**
    * ------------------------------------------------------------------------
@@ -35,14 +34,13 @@ const BaseSelection = (($) => {
    * ------------------------------------------------------------------------
    */
   class BaseSelection extends BaseInput {
-
     constructor($element, config, properties) {
       // properties = {inputType: checkbox, outerClass: checkbox-inline}
       // '.checkbox|switch|radio > label > input[type=checkbox|radio]'
       // '.${this.outerClass} > label > input[type=${this.inputType}]'
 
-      super($element, $.extend(true, {}, Default, config), properties)
-      this.decorateMarkup()
+      super($element, $.extend(true, {}, Default, config), properties);
+      this.decorateMarkup();
     }
 
     // ------------------------------------------------------------------------
@@ -50,11 +48,11 @@ const BaseSelection = (($) => {
 
     decorateMarkup() {
       const $decorator = $(this.config.template);
-      this.$element.after($decorator)
+      this.$element.after($decorator);
 
       // initialize ripples after decorator has been inserted into DOM
       if (this.config.ripples !== false) {
-        $decorator.bmdRipples()
+        $decorator.bmdRipples();
       }
     }
 
@@ -63,37 +61,51 @@ const BaseSelection = (($) => {
       // .checkbox|switch|radio > label > input[type=checkbox|radio]
       // label.checkbox-inline > input[type=checkbox|radio]
       // .${this.outerClass} > label > input[type=${this.inputType}]
-      return this.$element.parent().closest(`.${this.outerClass}`)
+      return this.$element.parent().closest(`.${this.outerClass}`);
     }
 
     rejectWithoutRequiredStructure() {
       // '.checkbox|switch|radio > label > input[type=checkbox|radio]'
       // '.${this.outerClass} > label > input[type=${this.inputType}]'
-      Util.assert(this.$element, !this.$element.parent().prop('tagName') === 'label', `${this.constructor.name}'s ${Util.describe(this.$element)} parent element should be <label>.`)
-      Util.assert(this.$element, !this.outerElement().hasClass(this.outerClass), `${this.constructor.name}'s ${Util.describe(this.$element)} outer element should have class ${this.outerClass}.`)
+      Util.assert(
+        this.$element,
+        !this.$element.parent().prop("tagName") === "label",
+        `${this.constructor.name}'s ${Util.describe(
+          this.$element
+        )} parent element should be <label>.`
+      );
+      Util.assert(
+        this.$element,
+        !this.outerElement().hasClass(this.outerClass),
+        `${this.constructor.name}'s ${Util.describe(
+          this.$element
+        )} outer element should have class ${this.outerClass}.`
+      );
     }
 
     addFocusListener() {
       // checkboxes didn't appear to bubble to the document, so we'll bind these directly
-      this.$element.closest(Selector.LABEL).hover(() => {
-        this.addFormGroupFocus()
-      }, () => {
-        this.removeFormGroupFocus()
-      })
+      this.$element.closest(Selector.LABEL).hover(
+        () => {
+          this.addFormGroupFocus();
+        },
+        () => {
+          this.removeFormGroupFocus();
+        }
+      );
     }
 
     addChangeListener() {
       this.$element.change(() => {
-        this.$element.blur()
-      })
+        this.$element.blur();
+      });
     }
 
     // ------------------------------------------------------------------------
     // private
   }
 
-  return BaseSelection
+  return BaseSelection;
+})(jQuery);
 
-})(jQuery)
-
-export default BaseSelection
+export default BaseSelection;

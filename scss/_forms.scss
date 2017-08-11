@@ -137,7 +137,8 @@ form {
     }
 
     .collapsing,
-    .width:not(.collapse), // collapsing is removed and momentarily only width is present
+    .width:not(.collapse),
+    // collapsing is removed and momentarily only width is present
     .collapse.in {
       display: inline-block;
     }

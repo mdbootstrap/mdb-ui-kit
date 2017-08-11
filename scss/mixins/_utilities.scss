@@ -2,9 +2,6 @@
   @return (($line-height-base * $font-size) - $component-height) / 2; // vertical center of line-height
 }
 
-
-
-
 // Emulate the less #contrast function
 // TODO: this may be useful for the inverse theme, but if not, remove (it is unused after the removal of fullpalette)
 // contrast-color and brightness borrowed from compass
