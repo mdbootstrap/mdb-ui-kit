@@ -41,7 +41,8 @@
     padding: .5rem 0;
   }
 
-  .open > & {
+  .open > &,
+  &.show {
     //z-index: 999;
     opacity: 1;
     transform: scale(1);

@@ -94,11 +94,6 @@
   margin-right: -15px;
   margin-left: -15px;
   border-bottom: 1px solid rgba(0,0,0,.05);
-
-  .form-control:focus {
-    border-color: $bd-purple-bright;
-    box-shadow: 0 0 0 3px rgba($bd-purple-bright, .25);
-  }
 }
 
 .bd-search-docs-toggle {

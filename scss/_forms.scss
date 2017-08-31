@@ -27,6 +27,8 @@ form {
   background-size: $bmd-form-control-bg-size;
   border: 0;
   transition: background 0s ease-out;
+  padding-left: 0;
+  padding-right: 0;
 
   // The border bottom should be static in all states, the decorator will be animated over this.
   &:focus,
