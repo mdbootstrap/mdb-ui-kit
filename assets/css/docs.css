@@ -345,9 +345,6 @@
   margin-right: -15px;
   margin-left: -15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
-  .bd-search .form-control:focus {
-    border-color: #6e7dd3;
-    box-shadow: 0 0 0 3px rgba(110, 125, 211, 0.25); }
 
 .bd-search-docs-toggle {
   line-height: 1;
