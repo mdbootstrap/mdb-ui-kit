@@ -8,11 +8,11 @@ the end of your document (just before the `</body>` tag), and everything will be
 
 ## Documentation
 
-- [Getting Started](http://fezvrasta.github.io/bootstrap-material-design/getting-started/introduction/)
-- [Building](http://fezvrasta.github.io/bootstrap-material-design/getting-started/building/)
-- [Material Design components](http://fezvrasta.github.io/bootstrap-material-design/material-design/list-groups/)
-- [Bootstrap default rendering reference documentation](http://fezvrasta.github.io/bootstrap-material-design/components/buttons/)
-- [Migration](http://fezvrasta.github.io/bootstrap-material-design/migration/)
+- [Getting Started](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/getting-started/introduction/)
+- [Building](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/getting-started/build-tools/)
+- [Material Design components](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/material-design/buttons/)
+- [Bootstrap default rendering reference documentation](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/components/alerts/)
+- [Migration](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/migration/)
 
 
 ## Support
