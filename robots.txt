@@ -1,1 +1,1 @@
-Sitemap: https://getbootstrap.com/sitemap.xml
+Sitemap: https://getbootstrap.com/bootstrap-material-design/sitemap.xml
