@@ -3,7 +3,7 @@
 // Control the default styling of most Bootstrap elements by modifying these
 // variables. Mostly focused on spacing.
 
-$spacer: .5rem !default; // 1rem !default;    // $form-group-margin-bottom uses $spacer-y.  Decided to try this globally and see how it works out.
+$spacer:  1rem !default;    // $form-group-margin-bottom uses $spacer-y.  Decided to try this globally and see how it works out.
 //$spacer-x:                   $spacer !default;
 //$spacer-y:                   $spacer !default;
 //$spacers: (
