@@ -1,1 +1,1 @@
-Sitemap: http://localhost:9001/bootstrap-material-design/sitemap.xml
+Sitemap: https://fezvrasta.github.io/bootstrap-material-design/sitemap.xml
