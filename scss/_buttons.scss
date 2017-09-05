@@ -80,13 +80,14 @@
   &.bmd-btn-icon {
     overflow: hidden;
     font-size: $bmd-btn-fab-font-size;
-    line-height: normal;
+    line-height: 0;
 
     .btn-group-lg &,
     .btn-group-sm &,
     & {
       padding: 0; // need specificity
       border-radius: 50%;
+      line-height: 0;
     }
 
     .material-icons {
