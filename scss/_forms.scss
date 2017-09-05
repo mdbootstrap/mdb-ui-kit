@@ -125,24 +125,29 @@ form {
   //    `width` class must also be on the element FIXME: do this with JS, it is a marker class and should be implicit because after all, we are an bmd-collapse-inline
   //    FIXME: js needs to do the focus on shown.bs.collapse event http://v4-alpha.getbootstrap.com/components/collapse/#events
   &.bmd-collapse-inline {
+    display: flex;
+    align-items: center;
     padding: 0; // get rid of any padding as this is a width transition
+    min-height: 2.1em;
 
     // Expandable Holder.
     .collapse {
-      &.in {
+      flex: 1;
+      display: none;
+      &.show {
         // This is an unfortunate hack. Animating between widths in percent (%)
         // in many browsers (Chrome, Firefox) only animates the inner visual style
         // of the input - the outer bounding box still 'jumps'.
         // Thus assume a sensible maximum, and animate to/from that value.
-        max-width: 600px;
+        max-width: 1200px;
       }
     }
 
     .collapsing,
     .width:not(.collapse),
     // collapsing is removed and momentarily only width is present
-    .collapse.in {
-      display: inline-block;
+    .collapse.show {
+      display: block;
     }
 
     .collapsing {
