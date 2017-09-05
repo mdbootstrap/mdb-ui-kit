@@ -7660,14 +7660,15 @@ button:focus {
   .btn.bmd-btn-fab, .bmd-btn-fab.custom-file-control::before, .btn.bmd-btn-icon, .bmd-btn-icon.custom-file-control::before {
     overflow: hidden;
     font-size: 1.5rem;
-    line-height: normal; }
+    line-height: 0; }
     .btn-group-lg .btn.bmd-btn-fab, .btn-group-lg .bmd-btn-fab.custom-file-control::before,
     .btn-group-sm .btn.bmd-btn-fab,
     .btn-group-sm .bmd-btn-fab.custom-file-control::before, .btn.bmd-btn-fab, .bmd-btn-fab.custom-file-control::before, .btn-group-lg .btn.bmd-btn-icon, .btn-group-lg .bmd-btn-icon.custom-file-control::before,
     .btn-group-sm .btn.bmd-btn-icon,
     .btn-group-sm .bmd-btn-icon.custom-file-control::before, .btn.bmd-btn-icon, .bmd-btn-icon.custom-file-control::before {
       padding: 0;
-      border-radius: 50%; }
+      border-radius: 50%;
+      line-height: 0; }
     .btn.bmd-btn-fab .material-icons, .bmd-btn-fab.custom-file-control::before .material-icons, .btn.bmd-btn-icon .material-icons, .bmd-btn-icon.custom-file-control::before .material-icons {
       position: absolute;
       top: 50%;
