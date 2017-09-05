@@ -9016,13 +9016,19 @@ fieldset[disabled][disabled] .has-danger .form-control, fieldset[disabled][disab
   .bmd-form-group.is-filled .bmd-label-placeholder {
     display: none; }
   .bmd-form-group.bmd-collapse-inline {
-    padding: 0; }
-    .bmd-form-group.bmd-collapse-inline .collapse.in {
-      max-width: 600px; }
+    display: flex;
+    align-items: center;
+    padding: 0;
+    min-height: 2.1em; }
+    .bmd-form-group.bmd-collapse-inline .collapse {
+      flex: 1;
+      display: none; }
+      .bmd-form-group.bmd-collapse-inline .collapse.show {
+        max-width: 1200px; }
     .bmd-form-group.bmd-collapse-inline .collapsing,
     .bmd-form-group.bmd-collapse-inline .width:not(.collapse),
-    .bmd-form-group.bmd-collapse-inline .collapse.in {
-      display: inline-block; }
+    .bmd-form-group.bmd-collapse-inline .collapse.show {
+      display: block; }
     .bmd-form-group.bmd-collapse-inline .collapsing {
       transition-duration: 0.2s;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
