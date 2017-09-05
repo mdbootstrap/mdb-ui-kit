@@ -2,7 +2,7 @@
 
 All bug reports must contain a test case using our Codepen template;
 Bug reports without it will be summarily closed:
-- Codepen template - http://codepen.io/rosskevin/pen/eJMMVB
+- Codepen template - https://codepen.io/FezVrasta/pen/JyVWMo
 
 Make sure to search for existing issues before opening a new one.
 
@@ -14,13 +14,14 @@ More info at https://github.com/FezVrasta/bootstrap-material-design/issues/1004
 -->
 
 #### Test Case
-_(Codepen URL here)_
+<!-- Codepen URL here -->
 
 #### Summary
-_A summary of the issue and the browser/OS environment in which it occurs. If suitable, include the steps required to reproduce the bug._
+<!-- A summary of the issue and the browser/OS environment in which it occurs. If suitable, include the steps required to reproduce the bug. -->
 
 #### Expected result
-_Description of expectation, mockup, etc._
+<!-- Description of expectation, mockup, etc. -->
 
 #### Additional Information
-_Any other information you want to share that is relevant to the issue being reported. This might include the lines of code that you have identified as causing the bug, and potential solutions (and your opinions on their merits)._
+
+<!-- Any other information you want to share that is relevant to the issue being reported. This might include the lines of code that you have identified as causing the bug, and potential solutions (and your opinions on their merits). -->
