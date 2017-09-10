@@ -9,22 +9,6 @@
     position: relative;
   }
 
-  // #853 start - https://github.com/twbs/bootstrap/pull/18976/files
-  @if $enable-flex {
-    display: flex;
-    flex-flow: row nowrap;
-    flex-shrink: 0;
-    align-items: center;
-    align-self: stretch;
-
-    > * {
-      flex-shrink: 0;
-    }
-  } @else {
-    @include clearfix;
-  }
-  // #853 end - https://github.com/twbs/bootstrap/pull/18976/files
-
   > .container {
     flex: 1;
   }
