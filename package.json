@@ -27,7 +27,8 @@
     "build:js": "rollup js/index.js --output=dist/js/bootstrap-material-design.js -m --config=rollup.config.js && npm run build:js-min",
     "build:js-min": "minify dist/js/bootstrap-material-design.js --out-file dist/js/bootstrap-material-design.min.js",
     "build:css": "mkdir -p dist/css && node-sass --importer=node_modules/node-sass-tilde-importer scss/bootstrap-material-design.scss > dist/css/bootstrap-material-design.css && npm run build:css-min",
-    "build:css-min": "cssnano dist/css/bootstrap-material-design.css dist/css/bootstrap-material-design.min.css"
+    "build:css-min": "cssnano dist/css/bootstrap-material-design.css dist/css/bootstrap-material-design.min.css",
+    "postpublish": "GIT_DEPLOY_DIR=dist GIT_DEPLOY_BRANCH=dist ./deploy.sh"
   },
   "style": "dist/css/bootstrap-material-design.css",
   "sass": "scss/_core.scss",
