@@ -1181,6 +1181,7 @@
 <li class="toc-entry toc-h2"><a href="#using-npm-scripts">Using NPM scripts</a></li>
 <li class="toc-entry toc-h2"><a href="#autoprefixer">Autoprefixer</a></li>
 <li class="toc-entry toc-h2"><a href="#local-documentation">Local documentation</a></li>
+<li class="toc-entry toc-h2"><a href="#sass">Sass</a></li>
 <li class="toc-entry toc-h2"><a href="#troubleshooting">Troubleshooting</a></li>
 </ul>
           </div>
@@ -1193,13 +1194,13 @@
 
           <h2 id="tooling-setup">Tooling setup</h2>
 
-<p>Bootstrap uses <a href="https://docs.npmjs.com/misc/scripts">NPM scripts</a> for its build system. Our <a href="https://github.com/twbs/bootstrap/blob/v4-dev/package.json">package.json</a> includes convenient methods for working with the framework, including compiling code, running tests, and more.</p>
+<p>Bootstrap uses <a href="https://docs.npmjs.com/misc/scripts">NPM scripts</a> for its build system. Our <a href="https://github.com/FezVrasta/bootstrap-material-design/blob/v4/package.json">package.json</a> includes convenient methods for working with the framework, including compiling code, running tests, and more.</p>
 
 <p>To use our build system and run our documentation locally, you’ll need a copy of Bootstrap’s source files and Node. Follow these steps and you should be ready to rock:</p>
 
 <ol>
   <li><a href="https://nodejs.org/download/">Download and install Node</a>, which we use to manage our dependencies.</li>
-  <li>Navigate to the root <code class="highlighter-rouge">/bootstrap</code> directory and run <code class="highlighter-rouge">npm install</code> to install our local dependencies listed in <a href="https://github.com/twbs/bootstrap/blob/master/package.json">package.json</a>.</li>
+  <li>Navigate to the root <code class="highlighter-rouge">/bootstrap</code> directory and run <code class="highlighter-rouge">npm install</code> to install our local dependencies listed in <a href="https://github.com/FezVrasta/bootstrap-material-design/blob/v4/package.json">package.json</a>.</li>
   <li><a href="https://www.ruby-lang.org/en/documentation/installation/">Install Ruby</a>, install <a href="https://bundler.io/">Bundler</a> with <code class="highlighter-rouge">gem install bundler</code>, and finally run <code class="highlighter-rouge">bundle install</code>. This will install all Ruby dependencies, such as Jekyll and plugins.
     <ul>
       <li><strong>Windows users:</strong> Read <a href="http://jekyll-windows.juthilo.com/">this unofficial guide</a> to get Jekyll up and running without problems.</li>
@@ -1211,7 +1212,7 @@
 
 <h2 id="using-npm-scripts">Using NPM scripts</h2>
 
-<p>Our <a href="https://github.com/twbs/bootstrap/blob/master/package.json">package.json</a> includes the following commands and tasks:</p>
+<p>Our <a href="https://github.com/FezVrasta/bootstrap-material-design/blob/v4/package.json">package.json</a> includes the following commands and tasks:</p>
 
 <table>
   <thead>
@@ -1231,7 +1232,7 @@
     </tr>
     <tr>
       <td><code class="highlighter-rouge">npm run docs</code></td>
-      <td>Builds and tests CSS, JavaScript, and other assets which are used when running the documentation locally via <code class="highlighter-rouge">npm run docs-serve</code>.</td>
+      <td>Builds and tests CSS, JavaScript, and other assets which are used when running the documentation locally via <code class="highlighter-rouge">npm run docs:serve</code>.</td>
     </tr>
   </tbody>
 </table>
@@ -1253,6 +1254,13 @@
 </ol>
 
 <p>Learn more about using Jekyll by reading its <a href="https://jekyllrb.com/docs/home/">documentation</a>.</p>
+
+<h2 id="sass">Sass</h2>
+
+<p>We use Sass to write our CSS stylesheets, unfortunately, due to discrepancies between versions, we decided to support only the implementation provided by <a href="http://sass-lang.com/libsass">LibSass</a>.<br />
+This means that you won’t be able to compile the stylesheets using <code class="highlighter-rouge">ruby-sass</code>.</p>
+
+<p>To learn more about the differences please read <a href="http://sassbreak.com/ruby-sass-libsass-differences/">this article</a>.</p>
 
 <h2 id="troubleshooting">Troubleshooting</h2>
 
