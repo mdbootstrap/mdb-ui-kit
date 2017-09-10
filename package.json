@@ -20,7 +20,7 @@
   "scripts": {
     "docs:compile": "bundle exec jekyll build",
     "docs:serve": "bundle exec jekyll serve",
-    "docs:assets": "node-sass --include-path node_modules assets/scss/docs.scss > assets/css/docs.css && cssnano assets/css/docs.css assets/css/docs.min.css",
+    "docs:assets": "node-sass assets/scss/docs.scss > assets/css/docs.css && cssnano assets/css/docs.css assets/css/docs.min.css",
     "docs:deploy": "./deploy.sh",
     "prepare": "npm run build",
     "build": "npm run build:js && npm run build:css",
