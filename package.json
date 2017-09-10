@@ -40,9 +40,6 @@
     "url": "https://github.com/FezVrasta/bootstrap-material-design/issues"
   },
   "license": "MIT",
-  "dependencies": {
-    "node-sass-tilde-importer": "^1.0.0"
-  },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-minify": "^0.2.0",
@@ -54,6 +51,7 @@
     "cssnano-cli": "^1.0.5",
     "jquery": ">=3.0.0",
     "node-sass": "^4.5.3",
+    "node-sass-tilde-importer": "^1.0.0",
     "popper.js": "^1.11.0",
     "prettier": "^1.5.3",
     "rollup": "^0.45.2",
