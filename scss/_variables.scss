@@ -42,8 +42,8 @@ $bmd-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted 
 // import their vars after customization for use below
 $enable-flex: true; // fully adopt flexbox layouts
 $enable-shadows: true; // enable shadows, set to false to turn off shadows
-@import "bootstrap/scss/functions"; // from bootstrap node_module
-@import "bootstrap/scss/variables"; // from bootstrap node_module
+@import "~bootstrap/scss/functions"; // from bootstrap node_module
+@import "~bootstrap/scss/variables"; // from bootstrap node_module
 
 //
 @import "variables/layout";

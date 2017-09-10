@@ -8,12 +8,12 @@ toc: true
 
 ## Tooling setup
 
-Bootstrap uses [NPM scripts](https://docs.npmjs.com/misc/scripts) for its build system. Our [package.json](https://github.com/twbs/bootstrap/blob/v4-dev/package.json) includes convenient methods for working with the framework, including compiling code, running tests, and more.
+Bootstrap uses [NPM scripts](https://docs.npmjs.com/misc/scripts) for its build system. Our [package.json](https://github.com/FezVrasta/bootstrap-material-design/blob/v4/package.json) includes convenient methods for working with the framework, including compiling code, running tests, and more.
 
 To use our build system and run our documentation locally, you'll need a copy of Bootstrap's source files and Node. Follow these steps and you should be ready to rock:
 
 1. [Download and install Node](https://nodejs.org/download/), which we use to manage our dependencies.
-2. Navigate to the root `/bootstrap` directory and run `npm install` to install our local dependencies listed in [package.json](https://github.com/twbs/bootstrap/blob/master/package.json).
+2. Navigate to the root `/bootstrap` directory and run `npm install` to install our local dependencies listed in [package.json](https://github.com/FezVrasta/bootstrap-material-design/blob/v4/package.json).
 4. [Install Ruby][install-ruby], install [Bundler][gembundler] with `gem install bundler`, and finally run `bundle install`. This will install all Ruby dependencies, such as Jekyll and plugins.
   - **Windows users:** Read [this unofficial guide](http://jekyll-windows.juthilo.com/) to get Jekyll up and running without problems.
 
@@ -24,13 +24,13 @@ When completed, you'll be able to run the various commands provided from the com
 
 ## Using NPM scripts
 
-Our [package.json](https://github.com/twbs/bootstrap/blob/master/package.json) includes the following commands and tasks:
+Our [package.json](https://github.com/FezVrasta/bootstrap-material-design/blob/v4/package.json) includes the following commands and tasks:
 
 | Task | Description |
 | --- | --- |
 | `npm test` | Run `npm test` to run tests locally and compile the CSS and JavaScript into `/dist`. **Uses [Sass](http://sass-lang.com/), [Autoprefixer][autoprefixer], and [UglifyJS](http://lisperator.net/uglifyjs/).** |
 | `npm run dist` | `npm run dist` creates the `/dist` directory with compiled files. **Uses [Sass](http://sass-lang.com/), [Autoprefixer][autoprefixer], and [UglifyJS](http://lisperator.net/uglifyjs/).** |
-| `npm run docs` | Builds and tests CSS, JavaScript, and other assets which are used when running the documentation locally via `npm run docs-serve`. |
+| `npm run docs` | Builds and tests CSS, JavaScript, and other assets which are used when running the documentation locally via `npm run docs:serve`. |
 
 ## Autoprefixer
 
@@ -47,6 +47,13 @@ Running our documentation locally requires the use of Jekyll, a decently flexibl
 3. Open <http://localhost:9001> in your browser, and voilà.
 
 Learn more about using Jekyll by reading its [documentation](https://jekyllrb.com/docs/home/).
+
+## Sass
+
+We use Sass to write our CSS stylesheets, unfortunately, due to discrepancies between versions, we decided to support only the implementation provided by [LibSass](http://sass-lang.com/libsass).  
+This means that you won't be able to compile the stylesheets using `ruby-sass`.
+
+To learn more about the differences please read [this article](http://sassbreak.com/ruby-sass-libsass-differences/).
 
 ## Troubleshooting
 
