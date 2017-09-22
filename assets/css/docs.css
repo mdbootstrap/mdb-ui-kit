@@ -142,6 +142,9 @@
   display: block;
   color: #777 !important; }
 
+.partner.mdbootstrap {
+  display: none; }
+
 .bd-content {
   order: 1; }
   .bd-content > h2[id],
