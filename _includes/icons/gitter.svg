@@ -1,0 +1,6 @@
+<svg{% if include.class %} class="{{ include.class }}"{% endif %} xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512"{% if include.width %} width="{{ include.width }}"{% endif %}{% if include.height %} height="{{ include.height }}"{% endif %} focusable="false"><title>Gitter</title>
+<rect x="115.9" y="26.2" width="40" height="297.6" fill="currentColor"/>
+<rect x="358.9" y="94.5" width="40" height="229.3" fill="currentColor"/>
+<rect x="196.4" y="94.5" width="40" height="391.3" fill="currentColor"/>
+<rect x="277.9" y="94.5" width="40" height="391.3" fill="currentColor"/>
+</svg>
