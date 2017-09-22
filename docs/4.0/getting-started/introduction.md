@@ -27,6 +27,7 @@ Add our optional JavaScript plugins, jQuery, and [Popper.js](https://github.com/
 <script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin="anonymous"></script>
 <script src="{{ site.cdn.popper }}" integrity="{{ site.cdn.popper_hash }}" crossorigin="anonymous"></script>
 <script src="{{ site.cdn.js }}" integrity="{{ site.cdn.js_hash }}" crossorigin="anonymous"></script>
+<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 {% endhighlight %}
 
 And that's it—you're on your way to a fully Bootstrapped site. If you're at all unsure about the general page structure, keep reading for an example page template.
@@ -57,6 +58,7 @@ Be sure to have your pages set up with the latest design and development standar
     <script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin="anonymous"></script>
     <script src="{{ site.cdn.popper }}" integrity="{{ site.cdn.popper_hash }}" crossorigin="anonymous"></script>
     <script src="{{ site.cdn.js }}" integrity="{{ site.cdn.js_hash }}" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
   </body>
 </html>
 {% endhighlight %}
