@@ -23,6 +23,7 @@
         $('.partner.creativetim').hide();
       }
       $('.partner.' + this.slice.name).show();
+      ga('send', 'event', 'Partner', this.slice.name);
     });
 
     // Indeterminate checkbox example
