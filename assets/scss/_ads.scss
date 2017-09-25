@@ -37,19 +37,13 @@
   color: #777 !important;
 }
 
-body.creativetim {
+body.creativetim, body.nopartner {
   .partner.mdbootstrap {
     display: none;
-  }
-  .partner.creativetim {
-    display: initial;
   }
 }
 body.mdbootstrap {
   .partner.creativetim {
     display: none;
-  }
-  .partner.mdbootstrap {
-    display: initial;
   }
 }
