@@ -49,6 +49,13 @@
       @include box-shadow($bmd-shadow-focus);
       //border: 1px solid $green;
     }
+
+    // :focus - Avoid outline/boxShadow on buttons after mouseup
+    &.focus,
+    &:focus {
+      box-shadow: none; // disable box-shadow
+      outline: 0; // disable outline
+    }
   }
 
   //---
