@@ -18,14 +18,6 @@
   $(function() {
     $('body').bootstrapMaterialDesign();
 
-    ab('partner', 0.5).slices('creativetim', 'mdbootstrap').run(function() {
-      if (this.slice.name !== 'creativetim' && this.slice.name !== 'control') {
-        $('.partner.creativetim').hide();
-      }
-      $('.partner.' + this.slice.name).show();
-      ga('send', 'event', 'Partner', this.slice.name);
-    });
-
     // Indeterminate checkbox example
     $('.bd-example-indeterminate [type="checkbox"]').prop(
       'indeterminate',
