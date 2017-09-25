@@ -142,17 +142,11 @@
   display: block;
   color: #777 !important; }
 
-body.creativetim .partner.mdbootstrap {
+body.creativetim .partner.mdbootstrap, body.nopartner .partner.mdbootstrap {
   display: none; }
-
-body.creativetim .partner.creativetim {
-  display: initial; }
 
 body.mdbootstrap .partner.creativetim {
   display: none; }
-
-body.mdbootstrap .partner.mdbootstrap {
-  display: initial; }
 
 .bd-content {
   order: 1; }
