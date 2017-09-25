@@ -14,7 +14,7 @@
   font-size: 13px;
   line-height: 1.4;
   text-align: left;
-  background-color: rgba(0,0,0,.05);
+  background-color: rgba(0, 0, 0, .05);
 
   a {
     color: #333;
@@ -37,6 +37,19 @@
   color: #777 !important;
 }
 
-.partner.mdbootstrap {
-  display: none;
+body.creativetim {
+  .partner.mdbootstrap {
+    display: none;
+  }
+  .partner.creativetim {
+    display: initial;
+  }
+}
+body.mdbootstrap {
+  .partner.creativetim {
+    display: none;
+  }
+  .partner.mdbootstrap {
+    display: initial;
+  }
 }
