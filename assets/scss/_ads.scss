@@ -37,7 +37,7 @@
   color: #777 !important;
 }
 
-body.creativetim, body.nopartner {
+body.creativetim, body:not(.creativetim):not(.mdbootstrap) {
   .partner.mdbootstrap {
     display: none;
   }
