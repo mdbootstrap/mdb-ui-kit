@@ -23,10 +23,13 @@
     "docs:assets": "node-sass --importer=node_modules/node-sass-tilde-importer assets/scss/docs.scss > assets/css/docs.css && cssnano assets/css/docs.css assets/css/docs.min.css",
     "docs:deploy": "./deploy.sh",
     "prepare": "npm run build",
-    "build": "npm run build:js && npm run build:css",
-    "build:js": "rollup js/index.js --output=dist/js/bootstrap-material-design.js -m --config=rollup.config.js && npm run build:js-min",
+    "build": "npm run build:js && npm run build:js-min && npm run build:css && npm run build:css-min",
+    "build:js": "rollup js/index.js --output.file=dist/js/bootstrap-material-design.js -m --config=rollup.config.js",
+    "watch": "concurrently --kill-others --names \"js,css\" \"npm run watch:js\" \"npm run watch:css\"",
+    "watch:js": "npm run build:js -- --watch",
+    "watch:css": "npm run build:css && npm run build:css -- --watch",
     "build:js-min": "minify dist/js/bootstrap-material-design.js --out-file dist/js/bootstrap-material-design.min.js",
-    "build:css": "mkdir -p dist/css && node-sass --importer=node_modules/node-sass-tilde-importer scss/bootstrap-material-design.scss > dist/css/bootstrap-material-design.css && npm run build:css-min",
+    "build:css": "node-sass --importer=node_modules/node-sass-tilde-importer scss/bootstrap-material-design.scss  dist/css/bootstrap-material-design.css",
     "build:css-min": "cssnano dist/css/bootstrap-material-design.css dist/css/bootstrap-material-design.min.css",
     "postpublish": "GIT_DEPLOY_DIR=dist GIT_DEPLOY_BRANCH=dist ./deploy.sh"
   },
@@ -55,7 +58,7 @@
     "node-sass-tilde-importer": "^1.0.0",
     "popper.js": "^1.11.0",
     "prettier": "^1.5.3",
-    "rollup": "^0.45.2",
+    "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.1"
   },
   "files": [
