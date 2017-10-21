@@ -4,7 +4,9 @@ import babel from 'rollup-plugin-babel';
 const babelOptions = JSON.parse(fs.readFileSync('./.babelrc'));
 
 export default {
-  format: 'iife',
+  output: {
+    format: 'iife',
+  },
   plugins: [
     babel(Object.assign(babelOptions, { babelrc: false })),
   ],
