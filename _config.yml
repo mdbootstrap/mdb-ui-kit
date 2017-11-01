@@ -48,12 +48,12 @@ mdbootstrap:      https://mdbootstrap.com/product/material-design-for-bootstrap-
 
 cdn:
   # See https://www.srihash.org for info on how to generate the hashes
-  css:            https://unpkg.com/bootstrap-material-design@4.0.0-beta.3/dist/css/bootstrap-material-design.min.css
-  css_hash:       "sha384-k5bjxeyx3S5yJJNRD1eKUMdgxuvfisWKku5dwHQq9Q/Lz6H8CyL89KF52ICpX4cL"
-  js:             https://unpkg.com/bootstrap-material-design@4.0.0-beta.3/dist/js/bootstrap-material-design.js
-  js_hash:        "sha384-hC7RwS0Uz+TOt6rNG8GX0xYCJ2EydZt1HeElNwQqW+3udRol4XwyBfISrNDgQcGA"
+  css:            https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/css/bootstrap-material-design.min.css
+  css_hash:       "sha384-R80DC0KVBO4GSTw+wZ5x2zn2pu4POSErBkf8/fSFhPXHxvHJydT0CSgAP2Yo2r4I"
+  js:             https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/js/bootstrap-material-design.js
+  js_hash:        "sha384-3xciOSDAlaXneEmyOo0ME/2grfpqzhhTcM4cE32Ce9+8DW/04AGoTACzQpphYGYe"
   jquery:         https://code.jquery.com/jquery-3.2.1.slim.min.js
   jquery_hash:    "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-  popper:         https://unpkg.com/popper.js@1.12.5/dist/umd/popper.js
-  popper_hash:    "sha384-KlVcf2tswD0JOTQnzU4uwqXcbAy57PvV48YUiLjqpk/MJ2wExQhg9tuozn5A1iVw"
+  popper:         https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js
+  popper_hash:    "sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
   snackbar:       https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js
