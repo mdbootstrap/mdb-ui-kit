@@ -31,7 +31,7 @@ Major differences:
 
 You may install this theme using NPM or Bower:
 
-- NPM : `npm install bootstrap-material-design`
+- NPM : `npm install bootstrap-material-design@0.5.10`
 - Bower : `bower install bootstrap-material-design`
 
 If you prefer, you can include this framework in your project using our official CDN:
