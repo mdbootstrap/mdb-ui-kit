@@ -34,7 +34,7 @@ social_image_path: /assets/brand/bootstrap-social.png
 current_version:  4.0.0-beta.4
 docs_version:     4.0
 repo:             https://github.com/FezVrasta/bootstrap-material-design
-gitter:           https://gitter.im/FezVrasta/bootstrap-material-design
+spectrum:         https://spectrum.chat/bootstrap-md
 
 download:
   source:         https://github.com/FezVrasta/bootstrap-material-design/releases
