@@ -30,8 +30,8 @@ Navigation available in Bootstrap share general markup and styles, from the base
   </li>
 </ul>
 
-<!-- inverse -->
-<ul class="nav nav-tabs bg-inverse">
+<!-- dark -->
+<ul class="nav nav-tabs bg-dark">
   <li class="nav-item">
     <a class="nav-link active" href="#">Active</a>
   </li>
