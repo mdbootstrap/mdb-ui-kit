@@ -1,6 +1,7 @@
 // http://www.google.com/design/spec/components/selection-controls.html#selection-controls-checkbox
 .checkbox label,
 label.checkbox-inline {
+  position: relative;
   padding-left: $bmd-checkbox-size + $bmd-checkbox-label-padding; // absolutely positioned so add the radio size
 
   .checkbox-decorator {
