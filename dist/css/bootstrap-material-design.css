@@ -7971,6 +7971,7 @@ fieldset[disabled][disabled] .btn, fieldset[disabled][disabled] .custom-file-con
 
 .checkbox label,
 label.checkbox-inline {
+  position: relative;
   padding-left: 1.5625rem; }
   .checkbox label .checkbox-decorator,
   label.checkbox-inline .checkbox-decorator {
@@ -9476,6 +9477,12 @@ thead.thead-inverse th,
     font-size: 0.875rem;
     font-weight: 500;
     border: 0; }
+  .nav-tabs .nav-link.active,
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-pills .nav-link.active,
+  .nav-pills .nav-item.show .nav-link {
+    background-color: transparent;
+    color: inherit; }
 
 .nav-tabs .nav-link {
   border-bottom: 0.214rem solid transparent; }
@@ -9504,16 +9511,16 @@ thead.thead-inverse th,
     .nav-tabs.bg-primary .nav-link.disabled, .nav-tabs.bg-primary .nav-link.disabled:focus, .nav-tabs.bg-primary .nav-link.disabled:hover {
       color: rgba(255, 255, 255, 0.84); }
 
-.nav-tabs.bg-inverse .nav-link {
+.nav-tabs.bg-dark .nav-link {
   color: white; }
-  .nav-tabs.bg-inverse .nav-link.active {
+  .nav-tabs.bg-dark .nav-link.active {
     color: #fff;
     border-color: #fff; }
-    .nav-tabs.bg-inverse .nav-link.active:focus, .nav-tabs.bg-inverse .nav-link.active:hover {
+    .nav-tabs.bg-dark .nav-link.active:focus, .nav-tabs.bg-dark .nav-link.active:hover {
       border-color: #fff; }
-  .nav-tabs.bg-inverse .nav-link.disabled {
+  .nav-tabs.bg-dark .nav-link.disabled {
     color: rgba(255, 255, 255, 0.84); }
-    .nav-tabs.bg-inverse .nav-link.disabled, .nav-tabs.bg-inverse .nav-link.disabled:focus, .nav-tabs.bg-inverse .nav-link.disabled:hover {
+    .nav-tabs.bg-dark .nav-link.disabled, .nav-tabs.bg-dark .nav-link.disabled:focus, .nav-tabs.bg-dark .nav-link.disabled:hover {
       color: rgba(255, 255, 255, 0.84); }
 
 .nav .nav-item {
@@ -9675,9 +9682,9 @@ h6 {
     display: block;
     opacity: 0;
     transform: scale(0); }
-  .dropdown-menu[x-placement="bottom-start"] {
+  .dropdown-menu[x-placement="bottom-start"], .dropdown-menu.dropdown-menu-left {
     transform-origin: 0 0; }
-  .dropdown-menu[x-placement="bottom-end"] {
+  .dropdown-menu[x-placement="bottom-end"], .dropdown-menu.dropdown-menu-right {
     transform-origin: 100% 0; }
   .dropdown-menu[x-placement="top-start"] {
     transform-origin: 0 100%; }
