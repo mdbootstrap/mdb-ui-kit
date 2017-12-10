@@ -16,12 +16,13 @@ Snackbars and toasts can be created using the [SnackbarJS](https://github.com/Fe
 In order to make snackbars work, make sure to include `snackbar.min.js` before `bootstrap-material-design.min.js`.
 
 {% highlight html %}
-<script src="{{ site.data.cdn.jquery }}"></script>
-<script src="{{ site.data.cdn.popper }}"></script>
-<script src="{{ site.data.cdn.snackbar }}"></script>
-<script src="{{ site.data.cdn.js }}"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="{{ site.data.cdn['ie10-viewport-bug-workaround'] }}"></script>
+<script src="{{ site.cdn.jquery }}" integrity="{{ site.cdn.jquery_hash }}" crossorigin="anonymous"></script>
+<script src="{{ site.cdn.popper }}" integrity="{{ site.cdn.popper_hash }}" crossorigin="anonymous"></script>
+
+<!-- SnackbarJS plugin -->
+<script src="{{ site.cdn.snackbar }}"></script>
+
+<script src="{{ site.cdn.js }}" integrity="{{ site.cdn.js_hash }}" crossorigin="anonymous"></script>
 <script>
   $('body').bootstrapMaterialDesign();
 </script>
