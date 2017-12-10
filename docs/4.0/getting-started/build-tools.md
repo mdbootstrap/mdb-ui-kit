@@ -55,6 +55,9 @@ This means that you won't be able to compile the stylesheets using `ruby-sass`.
 
 To learn more about the differences please read [this article](http://sassbreak.com/ruby-sass-libsass-differences/).
 
+Additionally, to maximize compatibility with webpack, we set [`node-sass-tilde-importer`](https://www.npmjs.com/package/node-sass-tilde-importer)
+as `importer` option of Sass.
+
 ## Troubleshooting
 
 Should you encounter problems with installing dependencies, uninstall all previous dependency versions (global and local). Then, rerun `npm install`.
