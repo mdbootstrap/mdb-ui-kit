@@ -13,3 +13,11 @@
     flex: 1;
   }
 }
+
+// Needed to properly style inputs on dark background
+.navbar-dark .form-control {
+  color: $white;
+  &::placeholder {
+    color: $navbar-dark-color;
+  }
+}
