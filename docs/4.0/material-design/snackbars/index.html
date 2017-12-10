@@ -1195,12 +1195,13 @@
 
 <p>In order to make snackbars work, make sure to include <code class="highlighter-rouge">snackbar.min.js</code> before <code class="highlighter-rouge">bootstrap-material-design.min.js</code>.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">""</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">""</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">""</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">""</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="c">&lt;!-- IE10 viewport hack for Surface/desktop Windows 8 bug --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">""</span><span class="nt">&gt;&lt;/script&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-3.2.1.slim.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"</span> <span class="na">integrity=</span><span class="s">"sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- SnackbarJS plugin --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/js/bootstrap-material-design.js"</span> <span class="na">integrity=</span><span class="s">"sha384-3xciOSDAlaXneEmyOo0ME/2grfpqzhhTcM4cE32Ce9+8DW/04AGoTACzQpphYGYe"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;script&gt;</span>
   <span class="nx">$</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">bootstrapMaterialDesign</span><span class="p">();</span>
 <span class="nt">&lt;/script&gt;</span></code></pre></figure>
@@ -1266,6 +1267,7 @@
 <script>window.jQuery || document.write('<script src="/bootstrap-material-design/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 
 <script src="/bootstrap-material-design/assets/js/vendor/popper.min.js"></script>
+<script src="https://cdn.rawgit.com/FezVrasta/snackbarjs/1.1.0/dist/snackbar.min.js" crossorigin="anonymous"></script>
 
   <script src="/bootstrap-material-design/dist/js/bootstrap-material-design.js"></script>
 
