@@ -314,15 +314,6 @@ const BaseInput = ($ => {
         } else if (this.$element.hasClass(requiredClass)) {
           found = true;
         }
-
-        // error if not found
-        if (!found) {
-          $.error(
-            `${this.constructor.name} element: ${Util.describe(
-              this.$element
-            )} requires class: ${requiredClass}`
-          );
-        }
       }
     }
 
