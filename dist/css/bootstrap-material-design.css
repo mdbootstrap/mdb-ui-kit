@@ -9529,6 +9529,11 @@ thead.thead-inverse th,
   .navbar > .container {
     flex: 1; }
 
+.navbar-dark .form-control, .navbar-dark .custom-file-control {
+  color: #fff; }
+  .navbar-dark .form-control::placeholder, .navbar-dark .custom-file-control::placeholder {
+    color: rgba(255, 255, 255, 0.5); }
+
 .alert {
   border: 0;
   border-radius: 0; }
