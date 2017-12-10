@@ -1176,7 +1176,19 @@
           <p class="bd-lead">Guidance and suggestions for using external icon libraries with Bootstrap.</p>
           <script async type="text/javascript" src="https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=fezvrastagithubiobootstrapmateri" id="_carbonads_js"></script>
 
-          <p>Bootstrap doesn’t include an icon library by default, but we have a handful of recommendations for you to choose from. While most icon sets include multiple file formats, we prefer SVG implementations for their improved accessibility and vector support.</p>
+          <p>Bootstrap Material Design is designed to work with the <a href="https://material.io/icons/">Google Material icons</a>
+library, despite not including it by default.<br />
+In our <a href="/bootstrap-material-design/docs/4.0/getting-started/introduction">Introduction docs</a>
+all our starter templates include by default this icon set.</p>
+
+<p>The code to include in your <code class="highlighter-rouge">&lt;head&gt;</code> tag is:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- Material Design for Bootstrap fonts and icons --&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"</span><span class="nt">&gt;</span>
+</code></pre>
+</div>
+
+<p>Additionally, we have a handful of recommendations for you to choose from. While most icon sets include multiple file formats, we prefer SVG implementations for their improved accessibility and vector support.</p>
 
 <h2 id="preferred">Preferred</h2>
 <p>We’ve tested and used these icon sets ourselves.</p>
@@ -1192,7 +1204,6 @@
 
 <ul>
   <li><a href="https://github.com/danklammer/bytesize-icons">Bytesize</a></li>
-  <li><a href="https://material.io/icons/">Google Material icons</a></li>
   <li><a href="http://ionicons.com/">Ionicons</a></li>
   <li><a href="https://feathericons.com/">Feather</a></li>
   <li><a href="http://demo.amitjakhu.com/dripicons/">Dripicons</a></li>
