@@ -36,11 +36,13 @@
     transform: scale(0);
   }
 
-  &[x-placement="bottom-start"] {
+  &[x-placement="bottom-start"],
+  &.dropdown-menu-left {
     transform-origin: 0 0;
   }
 
-  &[x-placement="bottom-end"] {
+  &[x-placement="bottom-end"],
+  &.dropdown-menu-right {
     transform-origin: 100% 0;
   }
 
