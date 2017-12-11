@@ -6,8 +6,8 @@
 
 // First element
 .bmd-layout-canvas {
-  // added by js?
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
 }
@@ -15,13 +15,12 @@
 // Primary layout container, belongs inside a bmd-layout-canvas.
 .bmd-layout-container {
   position: relative;
+  flex: 1;
   display: flex;
   flex-direction: column; // allows for sticky header and footer
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch; // mobile webkit smooth scrolling
+  overflow: hidden;
 }
 
 // Header layout (fixed top), belongs in a bmd-layout-container
