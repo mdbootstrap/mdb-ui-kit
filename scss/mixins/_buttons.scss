@@ -203,17 +203,3 @@
     @include bmd-raised-button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border-color);
   }
 }
-
-@mixin undo-bs-tab-focus() {
-  // clear out the tab-focus() from BS
-  &,
-  &:active,
-  &.active {
-    &:focus,
-    &.focus {
-      //@include tab-focus();
-      outline: 0;
-      box-shadow: none;
-    }
-  }
-}

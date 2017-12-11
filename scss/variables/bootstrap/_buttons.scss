@@ -17,6 +17,8 @@ $bmd-inverse-btn-focus-bg: rgba(#ccc, .15) !default; // spec: dark bg Hover: 15%
 $bmd-inverse-btn-active-bg: rgba(#ccc, .25) !default; // spec: dark Pressed: 25% #CCCCCC
 $bmd-inverse-btn-disabled: rgba($white, .30) !default; // spec: dark theme: Disabled text: 30% $white
 
+$btn-focus-box-shadow: none;
+
 $bmd-btn-fab-size: 3.5rem !default; // 56px
 $bmd-btn-fab-size-sm: 2.5rem !default; // 40px
 $bmd-btn-fab-font-size: 1.5rem !default; // 24px

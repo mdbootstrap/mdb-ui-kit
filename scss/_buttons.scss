@@ -17,8 +17,6 @@
     color 0.2s $bmd-animation-curve-default;
   will-change: box-shadow, transform;
 
-  @include undo-bs-tab-focus();
-
   //--
   // Colors
 
@@ -53,7 +51,6 @@
     // :focus - Avoid outline/boxShadow on buttons after mouseup
     &.focus,
     &:focus {
-      box-shadow: none; // disable box-shadow
       outline: 0; // disable outline
     }
   }
