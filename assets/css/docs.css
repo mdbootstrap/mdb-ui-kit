@@ -1350,8 +1350,4 @@ body.mdbootstrap .partner.creativetim {
     background-color: rgba(208, 189, 236, 0.15) !important; }
 
 [data-example-id*="drawer"] .bmd-layout-canvas {
-  min-height: 150px;
-  display: flex;
-  flex-direction: column; }
-  [data-example-id*="drawer"] .bmd-layout-canvas .bmd-layout-container {
-    flex: 1; }
+  min-height: 150px; }
