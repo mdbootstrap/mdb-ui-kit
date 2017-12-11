@@ -70,7 +70,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 ### Default button
 {% example html %}
-<div class="btn-group open">
+<div class="btn-group">
   <button class="btn dropdown-toggle" type="button" id="buttonMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Dropdown
   </button>
@@ -87,7 +87,7 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 ### Lower left side
 {% example html %}
-<div class="btn-group open">
+<div class="btn-group">
   <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="ll1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
@@ -103,30 +103,12 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 
 ### Lower right side
 
-`dropdown` usage misaligned - see [upstream Bootstrap issue #18552](https://github.com/twbs/bootstrap/issues/18852#issuecomment-202524375).  Use `btn-group` instead until issue is resolved (next example).
 {% example html %}
-<div class="dropdown open pull-xs-right">
+<div class="dropdown pull-xs-right">
   <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="lr1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="lr1">
-    <button class="dropdown-item" type="button">Action</button>
-    <button class="dropdown-item" type="button">Another action</button>
-    <button class="dropdown-item disabled" type="button">Disabled action</button>
-    <div class="dropdown-divider"> </div>
-    <a class="dropdown-item" href="#">Separated link</a>
-  </div>
-</div>
-{% endexample %}
-
-
-`btn-group` usage works fine in this alignment.
-{% example html %}
-<div class="btn-group open pull-xs-right">
-  <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="lr2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="material-icons">more_vert</i>
-  </button>
-  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="lr2">
     <button class="dropdown-item" type="button">Action</button>
     <button class="dropdown-item" type="button">Another action</button>
     <button class="dropdown-item disabled" type="button">Disabled action</button>
@@ -141,11 +123,11 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 ### Minimum width
 
 {% example html %}
-<div class="btn-group open pull-xs-right">
+<div class="btn-group pull-xs-right">
   <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="mw1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
-  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mw1">
+  <div class="dropdown-menu" aria-labelledby="mw1">
     <button class="dropdown-item" type="button">A</button>
     <button class="dropdown-item" type="button">B</button>
   </div>
@@ -156,11 +138,11 @@ Bootstrap users know these as [dropdowns]({{ site.baseurl }}/components/dropdown
 ### Maximum width
 
 {% example html %}
-<div class="btn-group open pull-xs-right">
+<div class="btn-group pull-xs-right">
   <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="mw2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="material-icons">more_vert</i>
   </button>
-  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="mw2">
+  <div class="dropdown-menu" aria-labelledby="mw2">
     <button class="dropdown-item" type="button">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut malesuada elit. Proin tristique, lorem eu vehicula congue, lectus ipsum porta quam, eget rutrum sapien turpis et libero.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut malesuada elit. Proin tristique, lorem eu vehicula congue, lectus ipsum porta quam, eget rutrum sapien turpis et libero.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut malesuada elit. Proin tristique, lorem eu vehicula congue, lectus ipsum porta quam, eget rutrum sapien turpis et libero.</button>
     <button class="dropdown-item" type="button">Another action</button>
   </div>
