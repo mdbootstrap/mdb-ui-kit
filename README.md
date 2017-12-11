@@ -22,7 +22,7 @@ with experience with Bootstrap and Material Design for Bootstrap and you have so
 time, please consider becoming a contributor of this project!  
 If you are interested contact @FezVrasta or just adopt one of our [issues](https://github.com/FezVrasta/bootstrap-material-design/issues).
 
-If you like this project you may support it by [donating](http://fezvrasta.github.io/bootstrap-material-design), starring this repository or reporting issues.  
+If you like this project you may support it by [donating](https://www.paypal.me/fezvrasta), starring this repository or reporting issues.  
 All issues filed should be reduced to a [CodePen](http://codepen.io/rosskevin/pen/eJMMVB) test case where possible.
 
 
