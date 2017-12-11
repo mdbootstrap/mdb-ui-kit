@@ -1363,7 +1363,7 @@ pre {
     background-color: transparent;
     border-color: #9acffa;
     outline: none;
-    box-shadow: none, 0 0 0 3px rgba(33, 150, 243, 0.25); }
+    box-shadow: none, none; }
   .form-control::placeholder, .custom-file-control::placeholder {
     color: #868e96;
     opacity: 1; }
@@ -1655,13 +1655,13 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     text-decoration: none; }
   .btn:focus, .custom-file-control:focus::before, .btn.focus, .focus.custom-file-control::before {
     outline: 0;
-    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.25); }
+    box-shadow: none; }
   .btn.disabled, .disabled.custom-file-control::before, .btn:disabled, .custom-file-control:disabled::before {
     opacity: .65;
     box-shadow: none; }
   .btn:active, .custom-file-control:active::before, .btn.active, .active.custom-file-control::before {
     background-image: none;
-    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.25), none; }
+    box-shadow: none, none; }
 
 a.btn.disabled, a.disabled.custom-file-control::before,
 fieldset[disabled] a.btn,
@@ -5983,8 +5983,6 @@ button:focus {
   color: rgba(0, 0, 0, 0.87);
   background-color: transparent;
   border-color: #ccc; }
-  .btn:focus, .custom-file-control:focus::before, .btn.focus, .focus.custom-file-control::before, .btn:active:focus, .custom-file-control:active:focus::before, .btn:active.focus, .custom-file-control:active.focus::before, .btn.active:focus, .active.custom-file-control:focus::before, .btn.active.focus, .active.focus.custom-file-control::before {
-    outline: 0; }
   .btn:hover, .custom-file-control:hover::before {
     color: rgba(0, 0, 0, 0.87);
     background-color: rgba(153, 153, 153, 0.2);
@@ -7178,7 +7176,6 @@ button:focus {
   .btn-group-raised .focus.custom-file-control::before,
   .btn-group-raised .btn:focus,
   .btn-group-raised .custom-file-control:focus::before {
-    box-shadow: none;
     outline: 0; }
   .btn.btn-raised, .btn-raised.custom-file-control::before,
   .btn-group-raised .btn,
