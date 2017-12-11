@@ -5906,19 +5906,19 @@ button:focus {
   outline: none; }
 
 .bmd-layout-canvas {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%; }
 
 .bmd-layout-container {
   position: relative;
+  flex: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch; }
+  overflow: hidden; }
 
 .bmd-layout-header {
   z-index: 3;
@@ -9739,6 +9739,7 @@ h6 {
   overflow: visible;
   overflow-y: auto;
   font-size: .875rem;
+  background: #fff;
   transition: transform;
   will-change: transform;
   transform-style: preserve-3d;
