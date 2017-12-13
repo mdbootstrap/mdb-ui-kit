@@ -1487,8 +1487,8 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
 <script type="text/javascript">
   var docsearch = docsearch({
-    apiKey: '48cb48b22351bc71ea5f12f4d1ede198',
-    indexName: 'bootstrap-v4',
+    apiKey: 'b5c13bef25101d81f781cc15f4485a52',
+    indexName: 'fezvrasta_bootstrap_material_design',
     inputSelector: '#search-input',
     handleSelected: function (input, event, suggestion) {
       var url = suggestion.url;
@@ -1498,7 +1498,8 @@
     },
     transformData: function (hits) {
       return hits.map(function (hit) {
-        hit.url = hit.url.replace('https://v4-alpha.getbootstrap.com', '/docs/4.0');
+        console.log(hit.url);
+        hit.url = hit.url.replace('https://fezvrasta.github.io/', '/');
         return hit;
       });
     },
