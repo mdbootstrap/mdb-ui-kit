@@ -76,6 +76,12 @@
     text-overflow: ellipsis;
     word-wrap: break-word;
 
+    &.active,
+    &:active {
+      background-color: inherit;
+      color: inherit;
+    }
+
     // Simple menus always maintain a 16dp margin (phone) or 24dp margin (tablet) to the left and right edges of the screen.
     @include media-breakpoint-up(md) {
       padding-right: $bmd-menu-item-padding-right-md;
@@ -114,6 +120,17 @@
     ~ .dropdown-menu {
       // collapse some spacing
       margin: 0;
+    }
+  }
+
+  .show &.btn {
+    &,
+    &-secondary,
+    &-success,
+    &-info,
+    &-warning,
+    &-danger {
+      background-color: transparent;
     }
   }
 }
