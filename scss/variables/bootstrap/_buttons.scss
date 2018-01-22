@@ -40,7 +40,7 @@ $btn-active-box-shadow:          none !default; // inset 0 3px 5px rgba(0,0,0,.1
 
 //
 $btn-primary-color:              #fff !default;
-$btn-primary-bg:                 map-get($theme-colors, primary) !default;
+$btn-primary-bg:                 theme-color(primary) !default;
 $btn-primary-border-color:             $btn-primary-bg !default;
 //
 $btn-secondary-color:            $gray-dark !default;
@@ -48,19 +48,19 @@ $btn-secondary-bg:               $body-bg !default; // #fff
 $btn-secondary-border-color:           #ccc !default;
 //
 $btn-info-color:                 #fff !default;
-$btn-info-bg:                    map-get($theme-colors, info) !default;
+$btn-info-bg:                    theme-color(info) !default;
 $btn-info-border-color:                $btn-info-bg !default;
 //
 $btn-success-color:              #fff !default;
-$btn-success-bg:                 map-get($theme-colors, success) !default;
+$btn-success-bg:                 theme-color(success) !default;
 $btn-success-border-color:             $btn-success-bg !default;
 //
 $btn-warning-color:              #fff !default;
-$btn-warning-bg:                 map-get($theme-colors, warning) !default;
+$btn-warning-bg:                 theme-color(warning) !default;
 $btn-warning-border-color:             $btn-warning-bg !default;
 //
 $btn-danger-color:               #fff !default;
-$btn-danger-bg:                  map-get($theme-colors, danger) !default;
+$btn-danger-bg:                  theme-color(danger) !default;
 $btn-danger-border-color:              $btn-danger-bg !default;
 //
 $btn-link-disabled-color:        $gray-light !default;
