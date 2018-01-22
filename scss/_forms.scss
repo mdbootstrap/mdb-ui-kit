@@ -75,19 +75,19 @@ form {
 @include bmd-form-color($bmd-label-color, $bmd-label-color-focus, $input-border-color);
 
 .has-success {
-  @include bmd-form-color($brand-success, $brand-success, $brand-success);
+  @include bmd-form-color(map-get($theme-colors, success), map-get($theme-colors, success), map-get($theme-colors, success));
 }
 
 .has-info {
-  @include bmd-form-color($brand-info, $brand-info, $brand-info);
+  @include bmd-form-color(map-get($theme-colors, info), map-get($theme-colors, info), map-get($theme-colors, info));
 }
 
 .has-warning {
-  @include bmd-form-color($brand-warning, $brand-warning, $brand-warning);
+  @include bmd-form-color(map-get($theme-colors, warning), map-get($theme-colors, warning), map-get($theme-colors, warning));
 }
 
 .has-danger {
-  @include bmd-form-color($brand-danger, $brand-danger, $brand-danger);
+  @include bmd-form-color(map-get($theme-colors, danger), map-get($theme-colors, danger), map-get($theme-colors, danger));
 }
 
 // Reference http://www.google.com/design/spec/components/text-fields.html
