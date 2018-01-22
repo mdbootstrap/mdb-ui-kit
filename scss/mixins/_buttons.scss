@@ -103,69 +103,39 @@
   @include bmd-flat-button-variant($bmd-btn-color);
 
   // flat bg with text color variations
-  &.btn-primary {
-    @include bmd-flat-button-variant($btn-primary-bg);
-  }
-  &.btn-secondary {
-    @include bmd-flat-button-variant($btn-secondary-color);
-  }
-  &.btn-info {
-    @include bmd-flat-button-variant($btn-info-bg);
-  }
-  &.btn-success {
-    @include bmd-flat-button-variant($btn-success-bg);
-  }
-  &.btn-warning {
-    @include bmd-flat-button-variant($btn-warning-bg);
-  }
-  &.btn-danger {
-    @include bmd-flat-button-variant($btn-danger-bg);
+  @each $color, $value in $theme-colors {
+    &.btn-#{$color} {
+      @include bmd-flat-button-variant($value);
+    }
   }
 }
 
+@mixin bmd-outline-border() {
+  border-color: currentColor;
+  border-style: solid;
+  border-width: 1px;
+}
+
 @mixin bmd-outline-button-color() {
-  &.btn-outline,
-  &.btn-outline-primary,
-  &.btn-outline-secondary,
-  &.btn-outline-info,
-  &.btn-outline-success,
-  &.btn-outline-warning,
-  &.btn-outline-danger {
-    border-color: currentColor;
-    border-style: solid;
-    border-width: 1px;
+  &.btn-outline {
+    @include bmd-outline-border();
   }
 
   // flat bg with text and border color variations
-  &.btn-outline {
-    @include bmd-flat-button-variant($bmd-btn-color, $bmd-btn-color, $bmd-btn-color, $bmd-btn-color);
-  }
-  &.btn-outline-primary {
-    @include bmd-flat-button-variant($btn-primary-bg, $btn-primary-bg, $btn-primary-bg, $btn-primary-bg);
-  }
-  &.btn-outline-secondary {
-    @include bmd-flat-button-variant($btn-secondary-color, $btn-secondary-color, $btn-secondary-color, $btn-secondary-color);
-  }
-  &.btn-outline-info {
-    @include bmd-flat-button-variant($btn-info-bg, $btn-info-bg, $btn-info-bg, $btn-info-bg);
-  }
-  &.btn-outline-success {
-    @include bmd-flat-button-variant($btn-success-bg, $btn-success-bg, $btn-success-bg, $btn-success-bg);
-  }
-  &.btn-outline-warning {
-    @include bmd-flat-button-variant($btn-warning-bg, $btn-warning-bg, $btn-warning-bg, $btn-warning-bg);
-  }
-  &.btn-outline-danger {
-    @include bmd-flat-button-variant($btn-danger-bg, $btn-danger-bg, $btn-danger-bg, $btn-danger-bg);
+  @each $color, $value in $theme-colors {
+    &.btn-outline-#{$color} {
+      @include bmd-outline-border();
+      @include bmd-flat-button-variant($value, $value, $value, $value);
+    }
   }
 }
 
 @mixin bmd-raised-button-variant($color, $background, $border) {
   // FIXME: SPEC - this should be the 600 color, how can we get that programmatically if at all? Or are we limited to the color palette only?
   $focus-background: contrast-color(
-    $background,
-    darken($background, 4%),
-    lighten($background, 4%)
+      $background,
+      darken($background, 4%),
+      lighten($background, 4%)
   );
   //$focus-background: darken($background, 10%);  // default bootstrap
   $focus-border: darken($border, 12%);
@@ -184,22 +154,22 @@
 }
 
 @mixin bmd-raised-button-color() {
-  &.btn-primary {
-    @include bmd-raised-button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border-color);
+  @each $color, $value in $theme-colors {
+    &.btn-#{$color} {
+      @include bmd-raised-button-variant(#fff, $value, $value);
+    }
   }
-  &.btn-secondary {
-    @include bmd-raised-button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border-color);
-  }
-  &.btn-info {
-    @include bmd-raised-button-variant($btn-info-color, $btn-info-bg, $btn-info-border-color);
-  }
-  &.btn-success {
-    @include bmd-raised-button-variant($btn-success-color, $btn-success-bg, $btn-success-border-color);
-  }
-  &.btn-warning {
-    @include bmd-raised-button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border-color);
-  }
-  &.btn-danger {
-    @include bmd-raised-button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border-color);
+}
+
+@mixin undo-bs-tab-focus() {
+  // clear out the tab-focus() from BS
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      //@include tab-focus();
+      outline: 0;
+    }
   }
 }
