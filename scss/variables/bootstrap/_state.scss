@@ -2,13 +2,13 @@
 //
 // Define colors for form feedback states and, by default, alerts.
 $state-success-text: $bmd-inverse !default;
-$state-success-bg: $brand-success !default;
+$state-success-bg: map-get($theme-colors, success) !default;
 
 $state-info-text: $bmd-inverse !default;
-$state-info-bg: $brand-info !default;
+$state-info-bg: map-get($theme-colors, info) !default;
 
 $state-warning-text: $bmd-inverse !default;
-$state-warning-bg: $brand-warning !default;
+$state-warning-bg: map-get($theme-colors, warning) !default;
 
 $state-danger-text: $bmd-inverse !default;
-$state-danger-bg: $brand-danger !default;
+$state-danger-bg: map-get($theme-colors, danger) !default;
