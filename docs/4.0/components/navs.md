@@ -295,7 +295,7 @@ Add dropdown menus with a little extra HTML and the [dropdowns JavaScript plugin
 
 ## JavaScript behavior
 
-Use the tab JavaScript plugin—include it individually or through the compiled `bootstrap.js` file—to extend our navigational tabs and pills to create tabbable panes of local content, even via dropdown menus.
+Use the tab JavaScript plugin—include it individually or through the compiled `bootstrap-material-design.js` file—to extend our navigational tabs and pills to create tabbable panes of local content, even via dropdown menus.
 
 If you're building our JavaScript from source, it [requires `util.js`]({{ site.baseurl }}/docs/{{ site.docs_version }}/getting-started/javascript/#util).
 

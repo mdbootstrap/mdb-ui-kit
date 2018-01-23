@@ -177,7 +177,7 @@ Add nearly any HTML within, even for linked list groups like the one below, with
 
 ## JavaScript behavior
 
-Use the tab JavaScript plugin—include it individually or through the compiled `bootstrap.js` file—to extend our list group to create tabbable panes of local content.
+Use the tab JavaScript plugin—include it individually or through the compiled `bootstrap-material-design.js` file—to extend our list group to create tabbable panes of local content.
 
 <div class="bd-example" role="tabpanel">
   <div class="row">
