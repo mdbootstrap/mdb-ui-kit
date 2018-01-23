@@ -23,14 +23,11 @@
 //
 // Happy Bootstrapping!
 
-// Load Bootstrap variables and mixins
-@import "../../scss/functions";
-@import "../../scss/variables";
-@import "~bootstrap/scss/mixins";
-@import "../../scss/mixins";
+// Load custom Bootstrap variables and core
+@import "variables";
+@import "../../scss/core";
 
 // Load docs components
-@import "variables";
 @import "nav";
 @import "masthead";
 @import "featured-sites";
