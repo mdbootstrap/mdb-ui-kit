@@ -17,7 +17,7 @@ npm manifest:
   {
     "name": "bootstrap-material-design",
     "description": "Material Design for Bootstrap 4",
-    "version": "4.0.0",
+    "version": "4.1.0",
     "keywords": [
       "material",
       "design",
@@ -3195,14 +3195,14 @@ Lockfile:
       yargs-parser "^5.0.0"
 
 Trace: 
-  Error: https://registry.yarnpkg.com/bootstrap-material-design: You cannot publish over the previously published version 4.0.0.
-      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:62098:18)
-      at Request.self.callback (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:123085:22)
+  Error: canceled
+      at Interface.<anonymous> (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:121045:13)
+      at emitNone (events.js:106:13)
+      at Interface.emit (events.js:208:7)
+      at Interface._ttyWrite (readline.js:775:16)
+      at ReadStream.onkeypress (readline.js:160:10)
       at emitTwo (events.js:126:13)
-      at Request.emit (events.js:214:7)
-      at Request.<anonymous> (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:124068:10)
-      at emitOne (events.js:116:13)
-      at Request.emit (events.js:211:7)
-      at Gunzip.<anonymous> (/usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:123988:12)
-      at Object.onceWrapper (events.js:313:30)
-      at emitNone (events.js:111:20)
+      at ReadStream.emit (events.js:214:7)
+      at emitKeys (internal/readline.js:420:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1011:36)

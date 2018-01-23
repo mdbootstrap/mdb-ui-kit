@@ -1,5 +1,7 @@
 import fs from 'fs';
 import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve';
+import cjs from 'rollup-plugin-commonjs';
 
 const babelOptions = JSON.parse(fs.readFileSync('./.babelrc'));
 
@@ -9,17 +11,27 @@ export default {
   },
   globals: {
     jquery: 'jQuery',
-    'popper.js': 'Popper'
+    'popper.js': 'Popper',
   },
+  external: ['jquery', 'popper.js'],
   plugins: [
     babel({
-      exclude: 'node_modules/**', // Only transpile our source code
-      externalHelpersWhitelist: [ // Include only required helpers
+      externalHelpersWhitelist: [
+        // Include only required helpers
         'defineProperties',
         'createClass',
         'inheritsLoose',
-        'extends'
-      ]
-    })
+        'extends',
+      ],
+    }),
+    resolve({
+      module: true,
+    }),
+    cjs({
+      include: ['node_modules/bootstrap/**', 'node_modules/jquery/**'],
+      namedExports: {
+        'node_modules/jquery/dist/jquery.js': 'jquery',
+      },
+    }),
   ],
 };
