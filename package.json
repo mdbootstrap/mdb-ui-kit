@@ -1,7 +1,7 @@
 {
   "name": "bootstrap-material-design",
   "description": "Material Design for Bootstrap 4",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "keywords": [
     "material",
     "design",
@@ -60,7 +60,9 @@
     "popper.js": "^1.11.0",
     "prettier": "^1.5.3",
     "rollup": "^0.50.0",
-    "rollup-plugin-babel": "^4.0.0-beta.0"
+    "rollup-plugin-babel": "^4.0.0-beta.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.2"
   },
   "files": [
     "dist",
