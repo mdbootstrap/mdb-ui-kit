@@ -19,12 +19,23 @@ $bmd-inverse-lighter: rgba($white, 0.54) !default;
 $bmd-label-color: $gray-light !default;
 $bmd-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted not a control-label which is primary
 
+// Bootstrap Material Design default colors (these can be override by user)
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  primary: $teal,
+  success: $green,
+  info: $light-blue,
+  warning: $deep-orange,
+  danger: $red,
+  light: $grey-100,
+  dark: $grey-800
+), $theme-colors);
+
 // Customized BS variables
 @import "variables/bootstrap/components";
 @import "variables/bootstrap/custom-forms";
 @import "variables/bootstrap/spacing";
 @import "variables/bootstrap/body";
-@import "variables/bootstrap/brand";
 @import "variables/bootstrap/buttons";
 @import "variables/bootstrap/card";
 @import "variables/bootstrap/code";
@@ -51,7 +62,7 @@ $enable-shadows: true; // enable shadows, set to false to turn off shadows
 @import "variables/drawer";
 @import "variables/snackbar";
 
-$bmd-label-color-focus: $brand-primary !default;
+$bmd-label-color-focus: theme-color(primary) !default;
 $bmd-invalid-underline: $red-a700 !default;
 $bmd-readonly-underline: $input-border-color !default;
 
@@ -100,7 +111,7 @@ $background-disabled: #eaeaea !default;
 $bmd-checkbox-size: 1.25rem !default;
 $bmd-checkbox-animation-ripple: 500ms !default;
 $bmd-checkbox-animation-check: 0.3s !default;
-$bmd-checkbox-checked-color: $brand-primary !default;
+$bmd-checkbox-checked-color: theme-color(primary) !default;
 $bmd-checkbox-label-padding: .3125rem !default; // 5px
 
 $bmd-checkbox-border-size: .125rem !default;
@@ -113,7 +124,7 @@ $bmd-switch-width: 2.125rem !default; // 34px
 $bmd-switch-height: .875rem !default; // 14px
 $bmd-switch-handle-size: 1.25rem !default; // 20px (was 18px)
 
-$bmd-switch-handle-checked-bg: $brand-primary !default;
+$bmd-switch-handle-checked-bg: theme-color(primary) !default;
 $bmd-switch-handle-unchecked-bg: #f1f1f1 !default;
 $bmd-switch-handle-disabled-bg: #bdbdbd !default;
 $bmd-switch-unchecked-bg: $gray-light !default;
@@ -134,7 +145,7 @@ $bmd-radio-ripple-offset: 1em !default;
 $bmd-radio-label-padding: .3125rem !default; // 5px
 
 $bmd-radio-color-off: $bmd-label-color-inner-focus !default; // FIXME seems inconsistent, check spec
-$bmd-radio-color-on: $brand-primary !default;
+$bmd-radio-color-on: theme-color(primary) !default;
 $bmd-radio-color-disabled: $gray-light; // light theme spec: Disabled: #000000, Opacity  26%
 $bmd-radio-color-disabled-inverse: rgba(
   $white,

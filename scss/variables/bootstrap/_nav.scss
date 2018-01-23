@@ -17,7 +17,7 @@ $bmd-nav-tabs-border-size: .214rem !default; // 3px
 
 $bmd-nav-tabs-color: $gray !default;
 $bmd-nav-tabs-active-color: $gray-dark !default;
-$bmd-nav-tabs-active-border-color: $brand-primary !default;
+$bmd-nav-tabs-active-border-color: theme-color(primary) !default;
 $bmd-nav-tabs-disabled-link-color: $nav-disabled-link-color !default;
 $bmd-nav-tabs-disabled-link-color-hover: $nav-disabled-link-hover-color !default;
 
