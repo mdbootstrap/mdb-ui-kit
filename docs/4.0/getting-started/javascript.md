@@ -130,3 +130,13 @@ Bootstrap's plugins don't fall back particularly gracefully when JavaScript is d
 All Bootstrap's JavaScript files depend on `util.js` and it has to be included alongside the other JavaScript files. If you're using the compiled (or minified) `bootstrap.js`, there is no need to include this—it's already there.
 
 `util.js` includes utility functions and a basic helper for `transitionEnd` events as well as a CSS transition emulator. It's used by the other plugins to check for CSS transition support and to catch hanging transitions.
+
+## Dynamically generated elements
+ 
+If you use Material Design for Bootstrap on a project handled by Angular, React or other frameworks
+that dynamically generate and append new elements to the document, you'll need to manually
+call the Material Design for Bootstrap javascript functions to initialize new elements such
+as inputs.
+ 
+Alternatively, you can include [arrive.js](https://github.com/uzairfarooq/arrive) before the MDB
+javascript to automatically initialize any dynamically generated element.
