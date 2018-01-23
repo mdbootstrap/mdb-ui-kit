@@ -1284,6 +1284,7 @@
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#util">Util</a></li>
+<li class="toc-entry toc-h2"><a href="#dynamically-generated-elements">Dynamically generated elements</a></li>
 </ul>
           </div>
         
@@ -1397,6 +1398,16 @@
 <p>All Bootstrap’s JavaScript files depend on <code class="highlighter-rouge">util.js</code> and it has to be included alongside the other JavaScript files. If you’re using the compiled (or minified) <code class="highlighter-rouge">bootstrap.js</code>, there is no need to include this—it’s already there.</p>
 
 <p><code class="highlighter-rouge">util.js</code> includes utility functions and a basic helper for <code class="highlighter-rouge">transitionEnd</code> events as well as a CSS transition emulator. It’s used by the other plugins to check for CSS transition support and to catch hanging transitions.</p>
+
+<h2 id="dynamically-generated-elements">Dynamically generated elements</h2>
+
+<p>If you use Material Design for Bootstrap on a project handled by Angular, React or other frameworks
+that dynamically generate and append new elements to the document, you’ll need to manually
+call the Material Design for Bootstrap javascript functions to initialize new elements such
+as inputs.</p>
+
+<p>Alternatively, you can include <a href="https://github.com/uzairfarooq/arrive">arrive.js</a> before the MDB
+javascript to automatically initialize any dynamically generated element.</p>
 
         </main>
       </div>
