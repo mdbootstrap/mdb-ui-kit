@@ -5,7 +5,7 @@
     - title: Contents
     - title: Browsers & devices
     - title: JavaScript
-    - title: Options
+    - title: Theming
     - title: Build tools
     # - title: Best practices # TODO: Write this content
     - title: Webpack
@@ -27,7 +27,21 @@
     - title: Tables
     - title: Figures
 
-- title: Components
+- title: Material Design
+  pages:
+    - title: Buttons
+    - title: Collapse inline
+    - title: Drawers
+    - title: Extensions
+    - title: Forms
+    - title: Labels
+    - title: List groups
+    - title: Menus
+    - title: Navs
+    - title: Selections
+    - title: Snackbars
+
+- title: Bootstrap Components
   pages:
     - title: Alerts
     - title: Badge
@@ -51,20 +65,6 @@
     - title: Scrollspy
     - title: Tooltips
 
-- title: Material Design
-  pages:
-    - title: Buttons
-    - title: Collapse inline
-    - title: Drawers
-    - title: Extensions
-    - title: Forms
-    - title: Labels
-    - title: List groups
-    - title: Menus
-    - title: Navs
-    - title: Selections
-    - title: Snackbars
-
 - title: Utilities
   pages:
     - title: Borders
@@ -86,15 +86,14 @@
 
 - title: Extend
   pages:
-    # - title: Approach
+    - title: Approach
     - title: Icons
 
-# - title: About
-#   pages:
-#     - title: History
-#     - title: Team
-#     - title: Brand
-#     - title: License
-#     - title: Translations
-
 - title: Migration
+
+- title: About
+  pages:
+    - title: Overview
+    - title: Brand
+    - title: License
+    - title: Translations

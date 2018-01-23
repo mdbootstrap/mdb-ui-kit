@@ -213,22 +213,43 @@ Responsive variations also exist for `align-self`.
 - `.align-self{{ bp.abbr }}-baseline`
 - `.align-self{{ bp.abbr }}-stretch`{% endfor %}
 
-## Auto margins
+## Fill
 
-Flexbox can do some pretty awesome things when you mix flex alignments with auto margins.
-
-### With justify-content
-
-Easily move all flex items to one side, but keep another on the opposite end by mixing `justify-content` with `margin-right: auto` or `margin-left: auto`.
+Use the `.flex-fill` class on a series of sibling elements to force them into equal widths while taking up all available horizontal space. [Especially useful for equal-width, or justified, navigation.]({{ site.baseurl }}/docs/{{ site.docs_version }}/components/navs/#working-with-flex-utilities)
 
 {% example html %}
-<div class="d-flex justify-content-end bd-highlight mb-3">
+<div class="d-flex bd-highlight">
+  <div class="p-2 flex-fill bd-highlight">Flex item</div>
+  <div class="p-2 flex-fill bd-highlight">Flex item</div>
+  <div class="p-2 flex-fill bd-highlight">Flex item</div>
+</div>
+{% endexample %}
+
+Responsive variations also exist for `flex-fill`.
+
+{% for bp in site.data.breakpoints %}
+- `.flex{{ bp.abbr }}-fill`{% endfor %}
+
+## Auto margins
+
+Flexbox can do some pretty awesome things when you mix flex alignments with auto margins. Shown below are three examples of controlling flex items via auto margins: default (no auto margin), pushing two items to the right (`.mr-auto`), and pushing two items to the left (`.ml-auto`).
+
+**Unfortunately, IE10 and IE11 do not properly support auto margins on flex items whose parent has a non-default `justify-content` value.** [See this StackOverflow answer](https://stackoverflow.com/a/37535548) for more details.
+
+{% example html %}
+<div class="d-flex bd-highlight mb-3">
+  <div class="p-2 bd-highlight">Flex item</div>
+  <div class="p-2 bd-highlight">Flex item</div>
+  <div class="p-2 bd-highlight">Flex item</div>
+</div>
+
+<div class="d-flex bd-highlight mb-3">
   <div class="mr-auto p-2 bd-highlight">Flex item</div>
   <div class="p-2 bd-highlight">Flex item</div>
   <div class="p-2 bd-highlight">Flex item</div>
 </div>
 
-<div class="d-flex justify-content-start bd-highlight">
+<div class="d-flex bd-highlight mb-3">
   <div class="p-2 bd-highlight">Flex item</div>
   <div class="p-2 bd-highlight">Flex item</div>
   <div class="ml-auto p-2 bd-highlight">Flex item</div>
@@ -237,7 +258,7 @@ Easily move all flex items to one side, but keep another on the opposite end by 
 
 ### With align-items
 
-Similarly, move one flex item to the top or bottom of a container by mixing `align-items`, `flex-direction: column`, and `margin-top: auto` or `margin-bottom: auto`.
+Vertically move one flex item to the top or bottom of a container by mixing `align-items`, `flex-direction: column`, and `margin-top: auto` or `margin-bottom: auto`.
 
 {% example html %}
 <div class="d-flex align-items-start flex-column bd-highlight mb-3" style="height: 200px;">
@@ -258,17 +279,7 @@ Similarly, move one flex item to the top or bottom of a container by mixing `ali
 Change how flex items wrap in a flex container. Choose from no wrapping at all (the browser default) with `.flex-nowrap`, wrapping with `.flex-wrap`, or reverse wrapping with `.flex-wrap-reverse`.
 
 <div class="bd-example">
-  <div class="d-flex flex-nowrap bd-highlight">
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
-    <div class="p-2 bd-highlight">Flex item</div>
+  <div class="d-flex flex-nowrap bd-highlight" style="width: 8rem;">
     <div class="p-2 bd-highlight">Flex item</div>
     <div class="p-2 bd-highlight">Flex item</div>
     <div class="p-2 bd-highlight">Flex item</div>
@@ -276,6 +287,7 @@ Change how flex items wrap in a flex container. Choose from no wrapping at all (
     <div class="p-2 bd-highlight">Flex item</div>
   </div>
 </div>
+
 {% highlight html %}
 <div class="d-flex flex-nowrap">
   ...
@@ -301,6 +313,7 @@ Change how flex items wrap in a flex container. Choose from no wrapping at all (
     <div class="p-2 bd-highlight">Flex item</div>
   </div>
 </div>
+
 {% highlight html %}
 <div class="d-flex flex-wrap">
   ...
@@ -326,15 +339,13 @@ Change how flex items wrap in a flex container. Choose from no wrapping at all (
     <div class="p-2 bd-highlight">Flex item</div>
   </div>
 </div>
+
 {% highlight html %}
 <div class="d-flex flex-wrap-reverse">
   ...
 </div>
 {% endhighlight %}
 
-
-{% example html %}
-{% endexample %}
 
 Responsive variations also exist for `flex-wrap`.
 
@@ -357,7 +368,7 @@ Change the _visual_ order of specific flex items with a handful of `order` utili
 
 Responsive variations also exist for `order`.
 
-{% for bp in site.data.breakpoints %}{% for i in (1..12) %}
+{% for bp in site.data.breakpoints %}{% for i in (0..12) %}
 - `.order{{ bp.abbr }}-{{ i }}`{% endfor %}{% endfor %}
 
 ## Align content
@@ -385,6 +396,7 @@ Use `align-content` utilities on flexbox containers to align flex items *togethe
     <div class="p-2 bd-highlight">Flex item</div>
   </div>
 </div>
+
 {% highlight html %}
 <div class="d-flex align-content-start flex-wrap">
   ...
@@ -410,6 +422,7 @@ Use `align-content` utilities on flexbox containers to align flex items *togethe
     <div class="p-2 bd-highlight">Flex item</div>
   </div>
 </div>
+
 {% highlight html %}
 <div class="d-flex align-content-end flex-wrap">...</div>
 {% endhighlight %}
@@ -433,6 +446,7 @@ Use `align-content` utilities on flexbox containers to align flex items *togethe
     <div class="p-2 bd-highlight">Flex item</div>
   </div>
 </div>
+
 {% highlight html %}
 <div class="d-flex align-content-center flex-wrap">...</div>
 {% endhighlight %}
@@ -456,6 +470,7 @@ Use `align-content` utilities on flexbox containers to align flex items *togethe
     <div class="p-2 bd-highlight">Flex item</div>
   </div>
 </div>
+
 {% highlight html %}
 <div class="d-flex align-content-between flex-wrap">...</div>
 {% endhighlight %}
@@ -479,6 +494,7 @@ Use `align-content` utilities on flexbox containers to align flex items *togethe
     <div class="p-2 bd-highlight">Flex item</div>
   </div>
 </div>
+
 {% highlight html %}
 <div class="d-flex align-content-around flex-wrap">...</div>
 {% endhighlight %}
@@ -502,6 +518,7 @@ Use `align-content` utilities on flexbox containers to align flex items *togethe
     <div class="p-2 bd-highlight">Flex item</div>
   </div>
 </div>
+
 {% highlight html %}
 <div class="d-flex align-content-stretch flex-wrap">...</div>
 {% endhighlight %}
