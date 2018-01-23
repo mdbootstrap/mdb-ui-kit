@@ -31,14 +31,14 @@ social_logo_path: /assets/brand/bootstrap-social-logo.png
 social_image_path: /assets/brand/bootstrap-social.png
 
 # Custom vars
-current_version:  4.0.0-beta.4
+current_version:  4.0.0
 docs_version:     4.0
 repo:             https://github.com/FezVrasta/bootstrap-material-design
 spectrum:         https://spectrum.chat/bootstrap-md
 
 download:
   source:         https://github.com/FezVrasta/bootstrap-material-design/releases
-  dist:           https://github.com/FezVrasta/bootstrap-material-design/archive/v4.0.0-beta.4.zip
+  dist:           https://github.com/FezVrasta/bootstrap-material-design/archive/v4.0.0.zip
 
 blog:             https://blog.getbootstrap.com
 expo:             https://expo.getbootstrap.com
@@ -48,9 +48,9 @@ mdbootstrap:      https://mdbootstrap.com/product/material-design-for-bootstrap-
 
 cdn:
   # See https://www.srihash.org for info on how to generate the hashes
-  css:            https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/css/bootstrap-material-design.min.css
+  css:            https://unpkg.com/bootstrap-material-design@4.0.0/dist/css/bootstrap-material-design.min.css
   css_hash:       "sha384-R80DC0KVBO4GSTw+wZ5x2zn2pu4POSErBkf8/fSFhPXHxvHJydT0CSgAP2Yo2r4I"
-  js:             https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/js/bootstrap-material-design.js
+  js:             https://unpkg.com/bootstrap-material-design@4.0.0/dist/js/bootstrap-material-design.js
   js_hash:        "sha384-3xciOSDAlaXneEmyOo0ME/2grfpqzhhTcM4cE32Ce9+8DW/04AGoTACzQpphYGYe"
   jquery:         https://code.jquery.com/jquery-3.2.1.slim.min.js
   jquery_hash:    "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
