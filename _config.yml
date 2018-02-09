@@ -49,9 +49,9 @@ mdbootstrap:      https://mdbootstrap.com/product/material-design-for-bootstrap-
 cdn:
   # See https://www.srihash.org for info on how to generate the hashes
   css:            https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css
-  css_hash:       "sha384-R80DC0KVBO4GSTw+wZ5x2zn2pu4POSErBkf8/fSFhPXHxvHJydT0CSgAP2Yo2r4I"
+  css_hash:       "sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX"
   js:             https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js
-  js_hash:        "sha384-3xciOSDAlaXneEmyOo0ME/2grfpqzhhTcM4cE32Ce9+8DW/04AGoTACzQpphYGYe"
+  js_hash:        "sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
   jquery:         https://code.jquery.com/jquery-3.2.1.slim.min.js
   jquery_hash:    "sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
   popper:         https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js
