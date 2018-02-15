@@ -38,7 +38,7 @@ spectrum:         https://spectrum.chat/bootstrap-md
 
 download:
   source:         https://github.com/FezVrasta/bootstrap-material-design/releases
-  dist:           https://github.com/FezVrasta/bootstrap-material-design/archive/v4.1.1.zip
+  dist:           https://github.com/FezVrasta/bootstrap-material-design/archive/dist.zip
 
 blog:             https://blog.getbootstrap.com
 expo:             https://expo.getbootstrap.com
