@@ -1,5 +1,5 @@
 /* globals Popper */
-Popper.Defaults.modifiers.computeStyle.gpuAcceleration = false
+Popper.default.Defaults.modifiers.computeStyle.gpuAcceleration = false
 
 /**
  * $.bootstrapMaterialDesign(config) is a macro class to configure the components generally
