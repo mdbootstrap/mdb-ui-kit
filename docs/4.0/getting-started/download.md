@@ -63,42 +63,39 @@ Bootstrap Material Design's `package.json` contains some additional metadata und
 - `sass` - path to Bootstrap Material Design's main [Sass](http://sass-lang.com/) source file
 - `style` - path to Bootstrap Material Design's non-minified CSS that's been precompiled using the default settings (no customization)
 
----
-### RubyGems
 
-Install Bootstrap in your Ruby apps using [Bundler](https://bundler.io/) (**recommended**) and [RubyGems](https://rubygems.org/) by adding the following line to your [`Gemfile`](https://bundler.io/gemfile.html):
+<!--- ### RubyGems --->
 
-{% highlight ruby %}
-gem 'bootstrap', '~> {{ site.current_ruby_version }}'
-{% endhighlight %}
+<!--- Install Bootstrap in your Ruby apps using [Bundler](https://bundler.io/) (**recommended**) and [RubyGems](https://rubygems.org/) by adding the following line to your [`Gemfile`](https://bundler.io/gemfile.html): --->
 
-Alternatively, if you're not using Bundler, you can install the gem by running this command:
+<!--- {% highlight ruby %} --->
+<!--- gem 'bootstrap', '~> {{ site.current_ruby_version }}' --->
+<!--- {% endhighlight %} --->
 
-{% highlight sh %}
-gem install bootstrap -v {{ site.current_version }}
-{% endhighlight %}
+<!--- Alternatively, if you're not using Bundler, you can install the gem by running this command: --->
 
-[See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details.
----
----
-### Composer
+<!--- {% highlight sh %} --->
+<!--- gem install bootstrap -v {{ site.current_version }} --->
+<!--- {% endhighlight %} --->
 
-You can also install and manage Bootstrap's Sass and JavaScript using [Composer](https://getcomposer.org/):
+<!--- [See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details. --->
 
-{% highlight sh %}
-composer require twbs/bootstrap:{{ site.current_version }}
-{% endhighlight %}
----
----
-### NuGet
+<!--- ### Composer --->
 
-If you develop in .NET, you can also install and manage Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/bootstrap.sass/) and JavaScript using [NuGet](https://www.nuget.org/):
+<!--- You can also install and manage Bootstrap's Sass and JavaScript using [Composer](https://getcomposer.org/): --->
 
-{% highlight powershell %}
-Install-Package bootstrap
-{% endhighlight %}
+<!--- {% highlight sh %} --->
+<!--- composer require twbs/bootstrap:{{ site.current_version }} --->
+<!--- {% endhighlight %} --->
 
-{% highlight powershell %}
-Install-Package bootstrap.sass
-{% endhighlight %}
----
+<!--- ### NuGet --->
+
+<!--- If you develop in .NET, you can also install and manage Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/bootstrap.sass/) and JavaScript using [NuGet](https://www.nuget.org/): --->
+
+<!--- {% highlight powershell %} --->
+<!--- Install-Package bootstrap --->
+<!--- {% endhighlight %} --->
+
+<!--- {% highlight powershell %} --->
+<!--- Install-Package bootstrap.sass --->
+<!--- {% endhighlight %} --->
