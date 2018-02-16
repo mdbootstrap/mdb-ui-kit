@@ -50,7 +50,7 @@ Pull in Bootstrap's **source files** into nearly any project with some of the mo
 
 ### npm
 
-Install Bootstrap in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/bootstrap-material-design):
+Install Bootstrap Material Design in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/bootstrap-material-design):
 
 {% highlight sh %}
 npm install bootstrap-material-design@{{ site.current_version }}
