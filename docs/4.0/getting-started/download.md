@@ -50,51 +50,52 @@ Pull in Bootstrap's **source files** into nearly any project with some of the mo
 
 ### npm
 
-Install Bootstrap in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/bootstrap):
+Install Bootstrap Material Design in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/bootstrap-material-design):
 
 {% highlight sh %}
-npm install bootstrap
+npm install bootstrap-material-design@{{ site.current_version }}
 {% endhighlight %}
 
-`require('bootstrap')` will load all of Bootstrap's jQuery plugins onto the jQuery object. The `bootstrap` module itself does not export anything. You can manually load Bootstrap's jQuery plugins individually by loading the `/js/*.js` files under the package's top-level directory.
+`require('bootstrap-material-design')` will load all of Bootstrap Material Design's jQuery plugins onto the jQuery object. The `bootstrap-material-design` module itself does not export anything. You can manually load Bootstrap's jQuery plugins individually by loading the `/js/*.js` files under the package's top-level directory.
 
-Bootstrap's `package.json` contains some additional metadata under the following keys:
+Bootstrap Material Design's `package.json` contains some additional metadata under the following keys:
 
-- `sass` - path to Bootstrap's main [Sass](http://sass-lang.com/) source file
-- `style` - path to Bootstrap's non-minified CSS that's been precompiled using the default settings (no customization)
+- `sass` - path to Bootstrap Material Design's main [Sass](http://sass-lang.com/) source file
+- `style` - path to Bootstrap Material Design's non-minified CSS that's been precompiled using the default settings (no customization)
 
-### RubyGems
 
-Install Bootstrap in your Ruby apps using [Bundler](https://bundler.io/) (**recommended**) and [RubyGems](https://rubygems.org/) by adding the following line to your [`Gemfile`](https://bundler.io/gemfile.html):
+<!--- ### RubyGems --->
 
-{% highlight ruby %}
-gem 'bootstrap', '~> {{ site.current_ruby_version }}'
-{% endhighlight %}
+<!--- Install Bootstrap in your Ruby apps using [Bundler](https://bundler.io/) (**recommended**) and [RubyGems](https://rubygems.org/) by adding the following line to your [`Gemfile`](https://bundler.io/gemfile.html): --->
 
-Alternatively, if you're not using Bundler, you can install the gem by running this command:
+<!--- {% highlight ruby %} --->
+<!--- gem 'bootstrap', '~> {{ site.current_ruby_version }}' --->
+<!--- {% endhighlight %} --->
 
-{% highlight sh %}
-gem install bootstrap -v {{ site.current_ruby_version }}
-{% endhighlight %}
+<!--- Alternatively, if you're not using Bundler, you can install the gem by running this command: --->
 
-[See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details.
+<!--- {% highlight sh %} --->
+<!--- gem install bootstrap -v {{ site.current_version }} --->
+<!--- {% endhighlight %} --->
 
-### Composer
+<!--- [See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details. --->
 
-You can also install and manage Bootstrap's Sass and JavaScript using [Composer](https://getcomposer.org/):
+<!--- ### Composer --->
 
-{% highlight sh %}
-composer require twbs/bootstrap:{{ site.current_version }}
-{% endhighlight %}
+<!--- You can also install and manage Bootstrap's Sass and JavaScript using [Composer](https://getcomposer.org/): --->
 
-### NuGet
+<!--- {% highlight sh %} --->
+<!--- composer require twbs/bootstrap:{{ site.current_version }} --->
+<!--- {% endhighlight %} --->
 
-If you develop in .NET, you can also install and manage Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/bootstrap.sass/) and JavaScript using [NuGet](https://www.nuget.org/):
+<!--- ### NuGet --->
 
-{% highlight powershell %}
-Install-Package bootstrap
-{% endhighlight %}
+<!--- If you develop in .NET, you can also install and manage Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/bootstrap.sass/) and JavaScript using [NuGet](https://www.nuget.org/): --->
 
-{% highlight powershell %}
-Install-Package bootstrap.sass
-{% endhighlight %}
+<!--- {% highlight powershell %} --->
+<!--- Install-Package bootstrap --->
+<!--- {% endhighlight %} --->
+
+<!--- {% highlight powershell %} --->
+<!--- Install-Package bootstrap.sass --->
+<!--- {% endhighlight %} --->
