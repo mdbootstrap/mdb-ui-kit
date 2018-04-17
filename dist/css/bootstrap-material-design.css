@@ -10143,6 +10143,11 @@ fieldset[disabled][disabled] .has-danger .form-control, fieldset[disabled][disab
   .bmd-form-group label,
   .bmd-form-group input::placeholder {
     line-height: 1; }
+  .bmd-form-group input.form-control, .bmd-form-group input.custom-file-control,
+  .bmd-form-group input.form-control::placeholder,
+  .bmd-form-group input.custom-file-control::placeholder {
+    padding: 0.28125rem 0;
+    line-height: 1.5; }
   .bmd-form-group .radio label,
   .bmd-form-group label.radio-inline,
   .bmd-form-group .checkbox label,
@@ -10197,6 +10202,11 @@ fieldset[disabled][disabled] .has-danger .form-control, fieldset[disabled][disab
     .bmd-form-group.bmd-form-group-sm label,
     .bmd-form-group.bmd-form-group-sm input::placeholder {
       line-height: 1; }
+    .bmd-form-group.bmd-form-group-sm input.form-control, .bmd-form-group.bmd-form-group-sm input.custom-file-control,
+    .bmd-form-group.bmd-form-group-sm input.form-control::placeholder,
+    .bmd-form-group.bmd-form-group-sm input.custom-file-control::placeholder {
+      padding: 0.28125rem 0;
+      line-height: 1.5; }
     .bmd-form-group.bmd-form-group-sm .radio label,
     .bmd-form-group.bmd-form-group-sm label.radio-inline,
     .bmd-form-group.bmd-form-group-sm .checkbox label,
@@ -10251,6 +10261,11 @@ fieldset[disabled][disabled] .has-danger .form-control, fieldset[disabled][disab
     .bmd-form-group.bmd-form-group-lg label,
     .bmd-form-group.bmd-form-group-lg input::placeholder {
       line-height: 1; }
+    .bmd-form-group.bmd-form-group-lg input.form-control, .bmd-form-group.bmd-form-group-lg input.custom-file-control,
+    .bmd-form-group.bmd-form-group-lg input.form-control::placeholder,
+    .bmd-form-group.bmd-form-group-lg input.custom-file-control::placeholder {
+      padding: 0.28125rem 0;
+      line-height: 1.5; }
     .bmd-form-group.bmd-form-group-lg .radio label,
     .bmd-form-group.bmd-form-group-lg label.radio-inline,
     .bmd-form-group.bmd-form-group-lg .checkbox label,
@@ -10304,6 +10319,12 @@ fieldset[disabled][disabled] .has-danger .form-control, fieldset[disabled][disab
 label,
 input::placeholder {
   line-height: 1; }
+
+input.form-control, input.custom-file-control,
+input.form-control::placeholder,
+input.custom-file-control::placeholder {
+  padding: 0.28125rem 0;
+  line-height: 1.5; }
 
 .radio label,
 label.radio-inline,
