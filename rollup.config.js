@@ -15,15 +15,16 @@ export default {
   },
   external: ['jquery', 'popper.js'],
   plugins: [
-    babel({
+    babel(Object.assign(babelOptions, {
       externalHelpersWhitelist: [
         // Include only required helpers
         'defineProperties',
         'createClass',
         'inheritsLoose',
         'extends',
+        'objectSpread',
       ],
-    }),
+    }) ),
     resolve({
       module: true,
     }),
