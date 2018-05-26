@@ -23,6 +23,7 @@ export default {
         'inheritsLoose',
         'extends',
         'objectSpread',
+        'defineProperty',
       ],
     }) ),
     resolve({
