@@ -61,7 +61,7 @@ const Autofill = ($ => {
           let $inputs = $(event.currentTarget)
             .closest("form")
             .find("input")
-            .not("[type=file]");
+            .not("[type=file], [type=date]");
           focused = setInterval(() => {
             $inputs.each((index, element) => {
               let $element = $(element);
