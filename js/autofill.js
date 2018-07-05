@@ -45,7 +45,13 @@ const Autofill = ($ => {
       setInterval(() => {
         $("input[type!=checkbox]").each((index, element) => {
           let $element = $(element);
-          if ($element.val() && $element.val() !== $element.attr("value")) {
+
+          let initialValue = $element.attr("value");
+          if (initialValue === undefined) {
+            initialValue = "";
+          }
+
+          if ($element.val() && $element.val() !== initialValue) {
             $element.trigger("change");
           }
         });
@@ -65,7 +71,13 @@ const Autofill = ($ => {
           focused = setInterval(() => {
             $inputs.each((index, element) => {
               let $element = $(element);
-              if ($element.val() !== $element.attr("value")) {
+
+              let initialValue = $element.attr("value");
+              if (initialValue === undefined) {
+                initialValue = "";
+              }
+
+              if ($element.val() !== initialValue) {
                 $element.trigger("change");
               }
             });
