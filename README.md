@@ -1,6 +1,6 @@
 <h1 align=center>Material Design for Bootstrap</h1>
 
-Material Design for Bootstrap is the best way to use [Material Design guidelines by Google](http://www.google.com/design/spec/material-design/introduction.html)
+Material Design for Bootstrap is the best way to use [Material Design guidelines by Google](https://material.io/design/introduction/)
 in your Bootstrap 4 based application.
 Since this is a fully customizable version of Bootstrap, just include Material Design for Bootstrap CSS instead of Bootstrap CSS, and include the JavaScript at
 the end of your document (just before the `</body>` tag), and everything will be converted to Material Design.
@@ -23,7 +23,7 @@ time, please consider becoming a contributor of this project!
 If you are interested contact @FezVrasta or just adopt one of our [issues](https://github.com/FezVrasta/bootstrap-material-design/issues).
 
 If you like this project you may support it by [donating](https://www.paypal.me/fezvrasta), starring this repository or reporting issues.  
-All issues filed should be reduced to a [CodePen](http://codepen.io/rosskevin/pen/eJMMVB) test case where possible.
+All issues filed should be reduced to a [CodePen](https://codepen.io/rosskevin/pen/eJMMVB) test case where possible.
 
 
 ## Contributing
@@ -39,13 +39,13 @@ Please read through our [contributing guidelines](CONTRIBUTING.md). Included are
 
 Moreover, if your pull request contains JavaScript patches or features, you must include relevant unit tests. All HTML and CSS should conform to the [Code Guide](http://codeguide.co/), maintained by [Mark Otto](https://github.com/mdo), one of Bootstrap's founders.
 
-Editor preferences are available in the [editor config](https://github.com/FezVrasta/bootstrap-material-design/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
+Editor preferences are available in the [editor config](https://github.com/FezVrasta/bootstrap-material-design/blob/master/.editorconfig) for easy use in common text editors. Read more and download plugins at <https://editorconfig.org>.
 
 
 ## Versioning
 
 For transparency into our release cycle and in striving to maintain backward compatibility, this project is maintained under
-[the Semantic Versioning guidelines](http://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
+[the Semantic Versioning guidelines](https://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
 
 See [the Releases section of our GitHub project](https://github.com/fezvrasta/bootstrap-material-design/releases) for changelogs
 of each release version.
