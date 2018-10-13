@@ -9,8 +9,8 @@
   text-transform: uppercase;
   letter-spacing: 0;
   cursor: pointer;
-  background-color: transparent;
-  border: 0;
+  background-color: #ffdde1;
+  border: 2px;
   outline: 0;
   transition: box-shadow 0.2s $bmd-animation-curve-fast-out-linear-in,
     background-color 0.2s $bmd-animation-curve-default,
@@ -89,13 +89,13 @@
     .btn-group-lg &,
     .btn-group-sm &,
     & {
-      padding: 0; // need specificity
+      padding: 3px; // need specificity
       border-radius: 50%;
       line-height: 0;
     }
 
     .material-icons {
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
       width: $bmd-btn-fab-font-size;
