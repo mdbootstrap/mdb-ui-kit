@@ -44,7 +44,7 @@ Form controls flavored by Material Design for Bootstrap customizations such as `
     </select>
   </div>
   <div class="form-group">
-    <label for="exampleFormControlDateType1">Example date</label>
+    <label for="exampleFormControlDateType1" class="bmd-label-floating">Example date</label>
     <input type="date" class="form-control" id="exampleFormControlDateType1">
   </div>
   <div class="form-group">
