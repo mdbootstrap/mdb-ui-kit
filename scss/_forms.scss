@@ -227,3 +227,18 @@ select {
     }
   }
 }
+
+// Fix input type data
+// Type text overwriting label-floating, making it's layout incorrect
+input[type="date"]::-webkit-datetime-edit {
+  color: transparent;
+}
+input[type="date"]:focus::-webkit-datetime-edit {
+  color: black !important;
+}
+.is-filled {
+  input[type="date"]::-webkit-datetime-edit {
+    color: black !important;
+  }
+}
+//-------------------------------------------------------------------
