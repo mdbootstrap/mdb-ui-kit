@@ -90,8 +90,8 @@ const Drawer = ($ => {
       }
 
 
-        $(".bmd-layout-drawer").hide();
-        this.$element.show();
+      $(".bmd-layout-drawer").hide();
+      this.$element.show();
       this.$toggles.attr("aria-expanded", true);
       this.$element.attr("aria-expanded", true);
       this.$element.attr("aria-hidden", false);
@@ -112,9 +112,6 @@ const Drawer = ($ => {
         return;
       }
 
-
-      $(".bmd-layout-drawer").hide();
-      this.$element.show();
       this.$toggles.attr("aria-expanded", false);
       this.$element.attr("aria-expanded", false);
       this.$element.attr("aria-hidden", true);
