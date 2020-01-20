@@ -10,6 +10,7 @@ const Autofill = ($ => {
   const DATA_KEY = `bmd.${NAME}`;
   const JQUERY_NAME = `bmd${NAME.charAt(0).toUpperCase() + NAME.slice(1)}`;
   const JQUERY_NO_CONFLICT = $.fn[JQUERY_NAME];
+  const LAST_VALUE_DATA_KEY = "bmd.last_value";
 
   const Default = {};
 
@@ -45,9 +46,21 @@ const Autofill = ($ => {
       setInterval(() => {
         $("input[type!=checkbox]").each((index, element) => {
           let $element = $(element);
-          if ($element.val() && $element.val() !== $element.attr("value")) {
+
+          let previousValue = $element.data(LAST_VALUE_DATA_KEY);
+          if (previousValue === undefined) {
+            previousValue = $element.attr("value");
+          }
+          if (previousValue === undefined) {
+            previousValue = "";
+          }
+
+          let currentValue = $element.val();
+          if (currentValue !== previousValue) {
             $element.trigger("change");
           }
+
+          $element.data(LAST_VALUE_DATA_KEY, currentValue);
         });
       }, 100);
     }
@@ -61,13 +74,25 @@ const Autofill = ($ => {
           let $inputs = $(event.currentTarget)
             .closest("form")
             .find("input")
-            .not("[type=file]");
+            .not("[type=file], [type=date]");
           focused = setInterval(() => {
             $inputs.each((index, element) => {
               let $element = $(element);
-              if ($element.val() !== $element.attr("value")) {
+
+              let previousValue = $element.data(LAST_VALUE_DATA_KEY);
+              if (previousValue === undefined) {
+                previousValue = $element.attr("value");
+              }
+              if (previousValue === undefined) {
+                previousValue = "";
+              }
+
+              let currentValue = $element.val();
+              if (currentValue !== previousValue) {
                 $element.trigger("change");
               }
+
+              $element.data(LAST_VALUE_DATA_KEY, currentValue);
             });
           }, 100);
         })

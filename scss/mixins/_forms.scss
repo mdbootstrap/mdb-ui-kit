@@ -1,4 +1,5 @@
 @mixin bmd-disabled() {
+
   fieldset[disabled][disabled] &,
   &.disabled,
   &:disabled,
@@ -8,6 +9,7 @@
 }
 
 @mixin bmd-selection-color() {
+
   .radio label,
   .radio-inline,
   .checkbox label,
@@ -34,6 +36,7 @@
       label:has(input[type=checkbox][disabled]),
       // css 4
       fieldset[disabled] & {
+
         &,
         &:hover,
         &:focus {
@@ -57,12 +60,14 @@
   &::after {
     border-color: $color;
   }
+
   &::before {
     background-color: $color;
   }
 }
 
 @mixin bmd-form-color($label-color, $label-color-focus, $border-color) {
+
   [class^='bmd-label'],
   [class*=' bmd-label'] {
     color: $label-color;
@@ -71,43 +76,29 @@
   // override BS and keep the border-color normal/grey so that overlaid focus animation draws attention
   .form-control {
     // underline animation color on focus
-    $underline-background-image: linear-gradient(
-        to top,
+    $underline-background-image: linear-gradient(to top,
         $label-color-focus 2px,
-        fade-out($label-color-focus, 1) 2px
-      ),
-      linear-gradient(
-        to top,
+        fade-out($label-color-focus, 1) 2px),
+      linear-gradient(to top,
         $input-border-color 1px,
-        fade-out($input-border-color, 1) 1px
-      );
-    $underline-background-image-invalid: linear-gradient(
-        to top,
+        fade-out($input-border-color, 1) 1px);
+    $underline-background-image-invalid: linear-gradient(to top,
         $bmd-invalid-underline 2px,
-        fade-out($bmd-invalid-underline, 1) 2px
-      ),
-      linear-gradient(
-        to top,
+        fade-out($bmd-invalid-underline, 1) 2px),
+      linear-gradient(to top,
         $input-border-color 1px,
-        fade-out($input-border-color, 1) 1px
-      );
-    $underline-background-image-readonly: linear-gradient(
-        to top,
+        fade-out($input-border-color, 1) 1px);
+    $underline-background-image-readonly: linear-gradient(to top,
         $bmd-readonly-underline 1px,
-        fade-out($bmd-readonly-underline, 1) 1px
-      ),
-      linear-gradient(
-        to top,
+        fade-out($bmd-readonly-underline, 1) 1px),
+      linear-gradient(to top,
         $input-border-color 1px,
-        fade-out($input-border-color, 1) 1px
-      );
-    $underline-background-image-disabled: linear-gradient(
-      to right,
-      $input-border-color 0%,
-      $input-border-color 30%,
-      transparent 30%,
-      transparent 100%
-    );
+        fade-out($input-border-color, 1) 1px);
+    $underline-background-image-disabled: linear-gradient(to right,
+        $input-border-color 0%,
+        $input-border-color 30%,
+        transparent 30%,
+        transparent 100%);
 
     // bg image is always there, we just need to reveal it
     &,
@@ -131,18 +122,23 @@
 
     // allow underline focus image and validation images to coexist
     &.form-control-success {
+
       &,
       .is-focused & {
         background-image: $underline-background-image, $form-icon-success;
       }
     }
+
     &.form-control-warning {
+
       &,
       .is-focused & {
         background-image: $underline-background-image, $form-icon-warning;
       }
     }
+
     &.form-control-danger {
+
       &,
       .is-focused & {
         background-image: $underline-background-image, $form-icon-danger;
@@ -152,11 +148,11 @@
 
   .is-focused,
   // may or may not be a form-group or bmd-form-group
-  &.is-focused {
+  #{if(&, "&", "*")}.is-focused {
     // on focus set borders and labels to the validation color
 
     // Use the BS provided mixin for the bulk of the color
-    @include form-validation-state("valid", $label-color);
+    @include form-validation-state("valid", $label-color, "none");
 
     [class^='bmd-label'],
     [class*=' bmd-label'] {
@@ -192,15 +188,12 @@
 }
 
 @mixin bmd-form-size-variant($font-size, $label-top-margin, $variant-padding-y, $variant-line-height, $form-group-context: null) {
-  $variant-input-height: (
-    ($font-size * $variant-line-height) + ($variant-padding-y * 2)
-  );
+  $variant-input-height: (($font-size * $variant-line-height) + ($variant-padding-y * 2));
   $static-font-size: ($bmd-bmd-label-static-size-ratio * $font-size);
   $help-font-size: ($bmd-help-size-ratio * $font-size);
 
   $label-static-top: $label-top-margin;
-  $label-placeholder-top: $label-top-margin + $static-font-size +
-    $variant-padding-y;
+  $label-placeholder-top: $label-top-margin + $static-font-size + $variant-padding-y;
 
   //@debug "font-size: #{$font-size} static-font-size: #{$static-font-size} help-font-size: #{$help-font-size} form-group-context: #{$form-group-context} ";
 
@@ -246,8 +239,8 @@
   // across browsers
   input.form-control,
   input.form-control::placeholder {
-    padding:0.28125rem 0;
-    line-height:1.5;
+    padding: 0.28125rem 0;
+    line-height: 1.5;
   }
 
   .radio label,
@@ -278,9 +271,9 @@
   }
 
   // floating focused/filled will look like static
-  &.is-focused,
+  #{if(&, "&", "*")}.is-focused,
   .is-focused,
-  &.is-filled,
+  #{if(&, "&", "*")}.is-filled,
   .is-filled {
     .bmd-label-floating {
       @include bmd-label-static($label-static-top, $static-font-size);
@@ -291,6 +284,7 @@
   .bmd-label-static {
     @include bmd-label-static($label-static-top, $static-font-size);
   }
+
   // #559 Fix for webkit/chrome autofill - rule must be separate because it breaks firefox otherwise #731
   //input:-webkit-autofill ~ .bmd-label-floating {  FIXME: confirm that the autofill js generation of change event makes this unnecessary
   //  @include bmd-label-static($label-top, $static-font-size, $static-line-height);
@@ -303,6 +297,7 @@
 
   // validation icon placement
   .form-control {
+
     &.form-control-success,
     &.form-control-warning,
     &.form-control-danger {
