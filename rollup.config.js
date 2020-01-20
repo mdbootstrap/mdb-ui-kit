@@ -15,7 +15,7 @@ export default {
   },
   external: ['jquery', 'popper.js'],
   plugins: [
-    babel({
+    babel(Object.assign(babelOptions, {
       exclude: 'node_modules/**', // only transpile our source code
       externalHelpersWhitelist: [
         // Include only required helpers
@@ -23,8 +23,10 @@ export default {
         'createClass',
         'inheritsLoose',
         'extends',
+        'objectSpread',
+        'defineProperty',
       ],
-    }),
+    }) ),
     resolve({
       mainFields: ['module', 'main'], // Default: ['module', 'main']
     }),
