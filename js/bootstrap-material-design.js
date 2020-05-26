@@ -2,7 +2,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(require('jquery'), require('popper.js')) :
   typeof define === 'function' && define.amd ? define(['jquery', 'popper.js'], factory) :
   (global = global || self, factory(global.jQuery, global.Popper));
-}(this, function ($, Popper$1) { 'use strict';
+}(this, (function ($, Popper$1) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
   Popper$1 = Popper$1 && Popper$1.hasOwnProperty('default') ? Popper$1['default'] : Popper$1;
@@ -868,7 +868,6 @@
           event.preventDefault();
           this.next();
           break
-        default:
       }
     }
 
@@ -5549,13 +5548,12 @@
       placement: 'string',
       offset: '(number|string)',
       flip: 'boolean'
-      /**
-       * ------------------------------------------------------------------------
-       * Class Definition
-       * ------------------------------------------------------------------------
-       */
-
     };
+    /**
+     * ------------------------------------------------------------------------
+     * Class Definition
+     * ------------------------------------------------------------------------
+     */
 
     var Dropdown =
     /*#__PURE__*/
@@ -5716,9 +5714,8 @@
             flip: {
               enabled: this._config.flip
             }
-          } // Disable Popper.js for Dropdown in Navbar
-
-        };
+          }
+        }; // Disable Popper.js for Dropdown in Navbar
 
         if (this._inNavbar) {
           popperConfig.modifiers.applyStyle = {
@@ -6171,6 +6168,8 @@
           return;
         }
 
+        $(".bmd-layout-drawer").hide();
+        this.$element.show();
         this.$toggles.attr("aria-expanded", true);
         this.$element.attr("aria-expanded", true);
         this.$element.attr("aria-hidden", false); // focus on the first focusable item
@@ -6927,13 +6926,5 @@
     return BootstrapMaterialDesign;
   }(jQuery);
 
-  /*
-   * This is the main entry point.
-   *
-   * You can import other modules here, including external packages. When bundling using rollup you can mark those modules as external and have them excluded or, if they have a jsnext:main entry in their package.json (like this package does), let rollup bundle them into your dist file.
-   *
-   * at your application entry point.  This is necessary for browsers that do not yet support some ES2015 runtime necessities such as Symbol.  We do this in `index-iife.js` for our iife rollup bundle.
-   */
-
-}));
+})));
 //# sourceMappingURL=bootstrap-material-design.js.map
