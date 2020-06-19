@@ -29,7 +29,7 @@ $theme-colors: map-merge((
   danger: $red,
   light: $grey-100,
   dark: $grey-800
-), $theme-colors) !default;
+), $theme-colors);
 
 // Customized BS variables
 @import "variables/bootstrap/components";
