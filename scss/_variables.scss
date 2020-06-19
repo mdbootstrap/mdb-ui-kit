@@ -22,14 +22,23 @@ $bmd-label-color-inner-focus: $gray !default; // e.g. radio label or text-muted 
 // Bootstrap Material Design default colors (these can be override by user)
 $theme-colors: () !default;
 $theme-colors: map-merge((
-  primary: $teal,
-  success: $green,
-  info: $light-blue,
-  warning: $deep-orange,
-  danger: $red,
-  light: $grey-100,
-  dark: $grey-800
+    "primary":    $teal,
+    "secondary":  $deep-purple-300,
+    "success":    $green,
+    "info":       $light-blue,
+    "warning":    $deep-orange,
+    "danger":     $red,
+    "light":      $grey-100,
+    "dark":       $grey-800
 ), $theme-colors);
+
+$theme-colors: map-merge(
+  (
+
+  ),
+  $theme-colors
+);
+
 
 // Customized BS variables
 @import "variables/bootstrap/components";
