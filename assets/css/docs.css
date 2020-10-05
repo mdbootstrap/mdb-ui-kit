@@ -12320,12 +12320,6 @@ h6 {
   display: block;
   color: #777 !important; }
 
-body.creativetim .partner.mdbootstrap, body:not(.creativetim):not(.mdbootstrap) .partner.mdbootstrap {
-  display: none; }
-
-body.mdbootstrap .partner.creativetim {
-  display: none; }
-
 .bd-content {
   order: 1; }
   .bd-content > h2[id],
