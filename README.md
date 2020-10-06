@@ -8,11 +8,11 @@ the end of your document (just before the `</body>` tag), and everything will be
 
 ## Documentation
 
-- [Getting Started](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/getting-started/introduction/)
-- [Building](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/getting-started/build-tools/)
-- [Material Design components](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/material-design/buttons/)
-- [Bootstrap default rendering reference documentation](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/components/alerts/)
-- [Migration](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/migration/)
+- [Getting Started](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/getting-started/introduction/)
+- [Building](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/getting-started/build-tools/)
+- [Material Design components](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/material-design/buttons/)
+- [Bootstrap default rendering reference documentation](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/components/alerts/)
+- [Migration](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/migration/)
 
 
 ## Support
@@ -20,7 +20,7 @@ the end of your document (just before the `</body>` tag), and everything will be
 The things to do are a lot and the time is little, if you are a passionate developer
 with experience with Bootstrap and Material Design for Bootstrap and you have some spare
 time, please consider becoming a contributor of this project!  
-If you are interested contact @FezVrasta or just adopt one of our [issues](https://github.com/mdbootstrap/bootstrap-material-design/issues).
+If you are interested contact @MDBootstrap or just adopt one of our [issues](https://github.com/mdbootstrap/bootstrap-material-design/issues).
 
 If you like this project you may support it by [donating](https://www.paypal.me/fezvrasta), starring this repository or reporting issues.  
 All issues filed should be reduced to a [CodePen](https://codepen.io/rosskevin/pen/eJMMVB) test case where possible.
