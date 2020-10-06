@@ -10,7 +10,7 @@ Following these guidelines helps to communicate that you **respect the time of t
 
 
 ## Using the issue tracker
-The [issue tracker](https://github.com/FezVrasta/bootstrap-material-design/issues) is the preferred channel for [bug reports](#bug-reports), [features requests](#feature-requests) and [submitting pull requests](#pull-requests), but please respect the following restrictions:
+The [issue tracker](https://github.com/mdbootstrap/bootstrap-material-design/issues) is the preferred channel for [bug reports](#bug-reports), [features requests](#feature-requests) and [submitting pull requests](#pull-requests), but please respect the following restrictions:
 
 * Please **do not** use the issue tracker for personal support requests. [Stack Overflow `bootstrap-material-design`](https://stackoverflow.com/questions/tagged/bootstrap-material-design) tag) is the best place to get help.
 
@@ -80,7 +80,7 @@ Adhering to the following process is the best way to get your work included in t
    # Navigate to the newly cloned directory
    cd bootstrap-material-design
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/FezVrasta/bootstrap-material-design.git
+   git remote add upstream https://github.com/mdbootstrap/bootstrap-material-design.git
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:

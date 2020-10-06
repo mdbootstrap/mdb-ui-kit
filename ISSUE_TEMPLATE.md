@@ -9,7 +9,7 @@ Make sure to search for existing issues before opening a new one.
 If you are experiencing an issue with the version 3 of this theme, you must know
 that we are no longer maintaining the old version and we are only accepting PR to
 fix existing issues. New issues without an associated PR will be closed.
-More info at https://github.com/FezVrasta/bootstrap-material-design/issues/1004
+More info at https://github.com/mdbootstrap/bootstrap-material-design/issues/1004
 
 -->
 
