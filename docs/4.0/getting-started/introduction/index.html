@@ -1261,24 +1261,21 @@
           <h1 class="bd-title" id="content">Introduction</h1>
           <p class="bd-lead">Get started with Bootstrap, the world's most popular framework for building responsive, mobile-first sites, with BootstrapCDN and a template starter page.</p>
                   <div class="row">
-          <div class="col-md-6 text-center">
-            <div class="alert alert-danger" role="alert">
-              This UI Kit is dedicated to Bootstrap 4 &amp; Material Design.
+          <div class="col-12 text-center">
+            <div class="alert alert-dark" role="alert">
+              90% OFF for BLACK WEEK
               <hr>
-              <strong>Discover the latest Kit for Bootstrap 5 &amp; Material Design 2.0!
-                <a type="button" href="https://mdbootstrap.com/docs/standard/?utm_ref_id=28683"
-                  class="btn btn-outline-danger mt-3">DOWNLOAD BOOTSTRAP 5 FREE KIT</a>
+              <p>UI KIT's, Templates, Plugins, Premium components for Bootstrap, Angular React &amp; Vue - including the latest 🔥 Bootstrap 5 version!</p>
+              <strong>Hurry up! All offers are LIMITED</strong>
+
+                <span class="font-weight-bold text-poppy-red" id="time-counter"></span>
+                <strong>
+
+                <a type="button" href="https://mdbootstrap.com/sale/"
+                  class="btn btn-outline-danger mt-3">CLAIM OFFER NOW</a>
               </strong></div>
           </div>
-          <div class="col-md-6 text-center">
-            <div class="alert alert-primary" role="alert">
-              Get Material KIT PRO 20% OFF
-              <hr>
-              <strong>Use code <code>5V9QGF</code> on the checkout to get the discount.
-                <a type="button" href="https://mdbootstrap.com/docs/standard/pro/?utm_ref_id=28683"
-                  class="btn btn-outline-primary mt-3">GET MATERIAL KIT PRO</a>
-              </strong></div>
-          </div>
+         
           
         </div>
 
@@ -1486,6 +1483,46 @@ Holder.addTheme('gray', {
   font: 'Helvetica',
   fontweight: 'normal'
 })
+</script>
+<script>
+  // Ad counter
+    // Set the date we're counting down to
+    var countDownDate = new Date(Date.UTC(2020, 11, 12, 12, 00, 00));
+    var counterElement = document.getElementById("time-counter");
+
+    // Update the count down every 1 second
+    function startCounter(){
+
+    //wrapped in an if to prevent console errors if the element isn't found on the page
+    if(counterElement==null){
+        return
+    }else {
+    var x = setInterval(
+      
+      function () {     
+        
+          // Get todays date and time
+          var now = new Date().getTime();
+
+          // Find the distance between now an the count down date
+          var distance = countDownDate - now;
+
+          // Time calculations for days, hours, minutes and seconds
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          // Display the result in the element with id="demo"
+          counterElement.innerHTML = hours + "h " +
+            minutes + "m " + seconds + "s";
+          // If the count down is finished, write some text
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("time-counter").innerHTML =
+              '<p class="h3 grey-text">Sale ended :(</p>';
+              }  
+    }, 1000);
+    }}
+    startCounter();
 </script>
 
   </body>
