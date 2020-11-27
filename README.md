@@ -1,3 +1,8 @@
+<p align=center>
+<a href="https://mdbootstrap.com/docs/standard/">
+  <img src="https://mdbootstrap.com/img/Marketing/general/logo/medium/mdb-r.png">
+</a>
+</p>
 <h1 align=center>Material Design for Bootstrap</h1>
 
 Material Design for Bootstrap is the best way to use [Material Design guidelines by Google](https://material.io/design/introduction/)
@@ -5,6 +10,9 @@ in your Bootstrap 4 based application.
 Since this is a fully customizable version of Bootstrap, just include Material Design for Bootstrap CSS instead of Bootstrap CSS, and include the JavaScript at
 the end of your document (just before the `</body>` tag), and everything will be converted to Material Design.
 
+<h2 align=center>The latest Bootstrap 5 & Material Design 2.0 </h2>
+
+<a href="https://mdbootstrap.com/docs/standard/"><img src="https://mdbootstrap.com/wp-content/uploads/2020/11/BanerFree.png"></a>
 
 ## Documentation
 
@@ -14,16 +22,14 @@ the end of your document (just before the `</body>` tag), and everything will be
 - [Bootstrap default rendering reference documentation](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/components/alerts/)
 - [Migration](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/migration/)
 
-
 ## Support
 
 The things to do are a lot and the time is little, if you are a passionate developer
 with experience with Bootstrap and Material Design for Bootstrap and you have some spare
 time, please consider becoming a contributor of this project!  
-If you are interested contact @FezVrasta or just adopt one of our [issues](https://github.com/FezVrasta/bootstrap-material-design/issues).
 
 If you like this project you may support it by, starring this repository or reporting issues.  
-All issues filed should be reduced to a [CodePen](https://codepen.io/rosskevin/pen/eJMMVB) test case where possible.
+All issues filed should be reduced to a [Snippets](https://mdbootstrap.com/snippets/) test case where possible.
 
 
 ### Development
@@ -42,7 +48,7 @@ Moreover, if your pull request contains JavaScript patches or features, you must
 For transparency into our release cycle and in striving to maintain backward compatibility, this project is maintained under
 [the Semantic Versioning guidelines](https://semver.org/). Sometimes we screw up, but we'll adhere to those rules whenever possible.
 
-See [the Releases section of our GitHub project](https://github.com/fezvrasta/bootstrap-material-design/releases) for changelogs
+See [the Releases section of our GitHub project](https://github.com/mdbootstrap/bootstrap-material-design/releases) for changelogs
 of each release version.
 
 
