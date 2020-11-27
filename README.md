@@ -20,7 +20,11 @@ the end of your document (just before the `</body>` tag), and everything will be
 - [Building](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/getting-started/build-tools/)
 - [Material Design components](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/material-design/buttons/)
 - [Bootstrap default rendering reference documentation](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/components/alerts/)
-- [Migration](https://fezvrasta.github.io/bootstrap-material-design/docs/4.0/migration/)
+- [Migration](https://mdbootstrap.github.io/bootstrap-material-design/docs/4.0/migration/)
+
+## Education
+
+Tutorials for those with insatiable appetite for knowledge made by us & our users can be found in our [education section](https://mdbootstrap.com/docs/standard/getting-started/) & in [miscellaneous](https://mdbootstrap.com/articles/)
 
 ## Support
 
@@ -50,6 +54,11 @@ For transparency into our release cycle and in striving to maintain backward com
 
 See [the Releases section of our GitHub project](https://github.com/mdbootstrap/bootstrap-material-design/releases) for changelogs
 of each release version.
+
+
+## Useful resources
+
+Here you'll find more useful resources, like [Getting Started](https://mdbootstrap.com/docs/standard/getting-started/quick-start/), [CLI Hosting](https://mdbootstrap.com/docs/standard/cli/), [Premium Templates](https://mdbootstrap.com/docs/standard/templates/trending/) & [Snippet Editor](https://mdbootstrap.com/snippets/)
 
 
 ## License
