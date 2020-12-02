@@ -1321,44 +1321,14 @@
           </div>
 
           <script>
-            // Ad counter
-              // Set the date we're counting down to
-              var countDownDate = new Date(Date.UTC(2020, 11, 12, 12, 00, 00));
-              var counterElement = document.getElementById("time-counter");
-          
-              // Update the count down every 1 second
-              function startCounter(){
-          
-              //wrapped in an if to prevent console errors if the element isn't found on the page
-              if(counterElement==null){
-                  return
-              }else {
-              var x = setInterval(
-                
-                function () {     
-                  
-                    // Get todays date and time
-                    var now = new Date().getTime();
-          
-                    // Find the distance between now an the count down date
-                    var distance = countDownDate - now;
-          
-                    // Time calculations for days, hours, minutes and seconds
-                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                    // Display the result in the element with id="demo"
-                    counterElement.innerHTML = hours + "h " +
-                      minutes + "m " + seconds + "s";
-                    // If the count down is finished, write some text
-                    if (distance < 0) {
-                      clearInterval(x);
-                      document.getElementById("time-counter").innerHTML =
-                        '<p class="h3 grey-text">Sale ended :(</p>';
-                        }  
-              }, 1000);
-              }}
-              startCounter();
+            
+const btn = document.getElementById('myBtn');
+
+btn.addEventListener('click', () => {
+  setTimeout(() => {
+    window.location.href = 'https://mdbootstrap.com/docs/standard/?utm_ref_id=28683';
+  }, 500);
+});
           </script>
          
           
