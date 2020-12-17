@@ -1,0 +1,26 @@
+// Card
+
+.card {
+  border: 0;
+  box-shadow: $card-box-shadow;
+
+  .bg-image {
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
+  }
+}
+
+.card-header {
+  background-color: $card-header-background-color;
+}
+
+.card-body {
+  &[class*='bg-'] {
+    border-bottom-left-radius: $card-border-radius;
+    border-bottom-right-radius: $card-border-radius;
+  }
+}
+
+.card-footer {
+  background-color: $card-footer-background-color;
+}

@@ -1,0 +1,80 @@
+.form-file {
+  height: $form-file-height;
+}
+
+.form-file-input {
+  height: $form-file-height;
+
+  &:focus-within ~ .form-file-label {
+    border: none;
+    border-color: $form-file-label-focus-border-color;
+    box-shadow: 0px 0px 0px 1px $primary;
+  }
+
+  &:focus-within ~ .form-file-label .form-file-text,
+  &:focus-within ~ .form-file-label .form-file-button {
+    transition: $form-file-label-focus-transition;
+  }
+  &[disabled] ~ .form-file-label .form-file-text,
+  &:disabled ~ .form-file-label .form-file-text,
+  &[disabled] ~ .form-file-label .form-file-button,
+  &:disabled ~ .form-file-label .form-file-button {
+    background-color: $form-file-label-disabled-background-color;
+  }
+}
+
+.form-file-label {
+  height: $form-file-label-height;
+  border-color: $form-file-label-border-color;
+  border-radius: $form-file-label-border-radius;
+}
+
+.form-file-text {
+  padding-top: $form-file-text-padding-y;
+  padding-bottom: $form-file-text-padding-y;
+}
+
+.form-file-button {
+  line-height: $form-file-button-line-height;
+  background-color: $form-file-button-background-color;
+}
+
+.form-file-sm {
+  height: $form-file-sm-height;
+  font-size: $form-file-sm-font-size;
+
+  .form-file-input {
+    height: $form-file-sm-height;
+  }
+
+  .form-file-label {
+    height: $form-file-sm-height;
+  }
+
+  .form-file-text,
+  .form-file-button {
+    line-height: $form-file-sm-line-height;
+    padding-top: $form-file-sm-padding-y;
+    padding-bottom: $form-file-sm-padding-y;
+  }
+}
+
+.form-file-lg {
+  height: $form-file-lg-height;
+  font-size: $form-file-lg-font-size;
+
+  .form-file-input {
+    height: $form-file-lg-height;
+  }
+
+  .form-file-label {
+    height: $form-file-lg-height;
+  }
+
+  .form-file-text,
+  .form-file-button {
+    line-height: $form-file-lg-line-height;
+    padding-top: $form-file-lg-padding-y;
+    padding-bottom: $form-file-lg-padding-y;
+  }
+}

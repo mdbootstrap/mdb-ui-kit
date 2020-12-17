@@ -1,0 +1,28 @@
+@mixin ripple-variant($color_value) {
+  $gradient: rgba(
+        $color: $color_value,
+        $alpha: 0.2,
+      )
+      0,
+    rgba(
+        $color: $color_value,
+        $alpha: 0.3,
+      )
+      40%,
+    rgba(
+        $color: $color_value,
+        $alpha: 0.4,
+      )
+      50%,
+    rgba(
+        $color: $color_value,
+        $alpha: 0.5,
+      )
+      60%,
+    rgba(
+        $color: $color_value,
+        $alpha: 0,
+      )
+      70%;
+  background-image: radial-gradient(circle, $gradient);
+}

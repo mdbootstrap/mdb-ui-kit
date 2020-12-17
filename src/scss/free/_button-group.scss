@@ -1,0 +1,52 @@
+//
+// Button group styles
+//
+
+.btn-group,
+.btn-group-vertical {
+  box-shadow: $btn-box-shadow;
+  border-radius: $btn-group-border-radius;
+  transition: $btn-group-transition;
+
+  &:hover {
+    box-shadow: $btn-hover-box-shadow;
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: $btn-focus-box-shadow;
+  }
+
+  &:active,
+  &.active {
+    box-shadow: $btn-hover-box-shadow;
+
+    &:focus {
+      box-shadow: $btn-hover-box-shadow;
+    }
+  }
+
+  &:disabled,
+  &.disabled,
+  fieldset:disabled & {
+    box-shadow: $btn-box-shadow;
+    border: 0;
+  }
+
+  > .btn {
+    box-shadow: none;
+  }
+  > .btn-group {
+    box-shadow: none;
+  }
+  > .btn-link {
+    &:first-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:last-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}

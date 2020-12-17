@@ -1,0 +1,40 @@
+.ripple-surface {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.ripple-surface-unbound {
+  overflow: visible;
+}
+
+.ripple-wave {
+  @include ripple-variant(black);
+  $cubicBezier: cubic-bezier(0, 0, 0.15, 1);
+  border-radius: 50%;
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  touch-action: none;
+  transform: scale(0);
+  transition-property: transform, opacity;
+  transition-timing-function: $cubicBezier, $cubicBezier;
+  z-index: 999;
+  &.active {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.btn .ripple-wave {
+  @include ripple-variant(white);
+}
+
+@each $color, $value in $theme-colors {
+  .ripple-surface-#{$color} {
+    .ripple-wave {
+      @include ripple-variant($value);
+    }
+  }
+}

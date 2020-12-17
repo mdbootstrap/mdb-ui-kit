@@ -1,0 +1,24 @@
+// Breadcrumb
+
+.navbar {
+  .breadcrumb {
+    background-color: transparent;
+    margin-bottom: 0;
+
+    .breadcrumb-item {
+      a {
+        color: $breadcrumb-item-color;
+        transition: $breadcrumb-item-transition;
+        &:hover,
+        &:focus {
+          color: $breadcrumb-item-hover-color;
+        }
+      }
+      + .breadcrumb-item {
+        &:before {
+          color: $breadcrumb-item-before-color;
+        }
+      }
+    }
+  }
+}

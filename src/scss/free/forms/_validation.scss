@@ -1,0 +1,426 @@
+//
+// Material styles for form validation
+//
+
+.was-validated {
+  :valid {
+    ~ .valid-feedback,
+    ~ .valid-tooltip {
+      position: absolute;
+    }
+    &.form-check-input {
+      &:focus {
+        box-shadow: none;
+        &:before {
+          box-shadow: 0px 0px 0px 13px $success;
+        }
+      }
+      &:checked {
+        &:focus {
+          &:before {
+            box-shadow: 0px 0px 0px 13px $success;
+          }
+        }
+      }
+      &[type='checkbox'] {
+        &:checked {
+          &:focus {
+            background-color: $success;
+            border-color: $success;
+          }
+        }
+      }
+      &[type='radio'] {
+        &:checked {
+          border-color: $success;
+          background-color: $white;
+          &:focus {
+            &:before {
+              box-shadow: 0px 0px 0px 13px $success;
+            }
+          }
+          &:after {
+            border-color: $success;
+            background-color: $success;
+          }
+        }
+      }
+      ~ .form-check-label {
+        margin-bottom: 1rem;
+      }
+    }
+    &.form-file-input {
+      &:focus {
+        ~ .form-file-label {
+          box-shadow: none;
+        }
+      }
+      &:focus-within {
+        ~ .form-file-label {
+          .form-file-text,
+          .form-file-button {
+            border-color: $success;
+          }
+        }
+      }
+    }
+  }
+  :invalid {
+    ~ .invalid-feedback,
+    ~ .invalid-tooltip {
+      position: absolute;
+    }
+    &.form-check-input {
+      &:focus {
+        box-shadow: none;
+        &:before {
+          box-shadow: 0px 0px 0px 13px $danger;
+        }
+      }
+      &:checked {
+        &:focus {
+          &:before {
+            box-shadow: 0px 0px 0px 13px $danger;
+          }
+        }
+      }
+      &[type='checkbox'] {
+        &:checked {
+          &:focus {
+            background-color: $danger;
+            border-color: $danger;
+          }
+        }
+      }
+      &[type='radio'] {
+        &:checked {
+          border-color: $danger;
+          background-color: $white;
+          &:focus {
+            &:before {
+              box-shadow: 0px 0px 0px 13px $danger;
+            }
+          }
+          &:after {
+            border-color: $danger;
+            background-color: $danger;
+          }
+        }
+      }
+      ~ .form-check-label {
+        margin-bottom: 1rem;
+      }
+    }
+    &.form-file-input {
+      &:focus {
+        ~ .form-file-label {
+          box-shadow: none;
+        }
+      }
+      &:focus-within {
+        ~ .form-file-label {
+          .form-file-text,
+          .form-file-button {
+            border-color: $danger;
+          }
+        }
+      }
+    }
+  }
+  .form-control {
+    &:valid,
+    &:invalid {
+      margin-bottom: 1rem;
+      background-image: none;
+    }
+  }
+  .form-outline {
+    .form-control {
+      &:valid {
+        ~ .form-label {
+          color: $success;
+        }
+        ~ .form-notch .form-notch-leading,
+        ~ .form-notch .form-notch-middle,
+        ~ .form-notch .form-notch-trailing {
+          border-color: $success;
+        }
+      }
+
+      &:invalid {
+        ~ .form-label {
+          color: $danger;
+        }
+        ~ .form-notch .form-notch-leading,
+        ~ .form-notch .form-notch-middle,
+        ~ .form-notch .form-notch-trailing {
+          border-color: $danger;
+        }
+      }
+    }
+  }
+  .input-group {
+    .form-control {
+      &:valid,
+      &:invalid {
+        margin-bottom: 0;
+      }
+    }
+    .valid-feedback,
+    .invalid-feedback {
+      margin-top: 2.5rem;
+    }
+    .valid-tooltip,
+    .invalid-tooltip {
+      border-radius: 0.25rem !important;
+    }
+  }
+  .form-file {
+    margin-bottom: 2.5rem;
+    .form-file-input {
+      &:focus-within {
+        ~ .form-file-label {
+          border: none;
+          box-shadow: none;
+        }
+      }
+      &:valid {
+        ~ .form-file-label {
+          .form-file-text,
+          .form-file-button {
+            border-color: $success;
+          }
+        }
+      }
+      &:invalid {
+        ~ .form-file-label {
+          .form-file-text,
+          .form-file-button {
+            border-color: $danger;
+          }
+        }
+      }
+    }
+  }
+}
+
+.is-valid {
+  ~ .valid-feedback,
+  ~ .valid-tooltip {
+    position: absolute;
+  }
+  &.form-control {
+    margin-bottom: 1rem;
+    background-image: none;
+  }
+  &.form-select {
+    background-image: none;
+  }
+  &.form-check-input {
+    &:focus {
+      box-shadow: none;
+      &:before {
+        box-shadow: 0px 0px 0px 13px $success;
+      }
+    }
+    &:checked {
+      &:focus {
+        &:before {
+          box-shadow: 0px 0px 0px 13px $success;
+        }
+      }
+    }
+    &[type='checkbox'] {
+      border-color: $success;
+      &:before {
+        border-color: $white;
+      }
+      &:checked {
+        background-color: $success;
+        border-color: $success;
+        &:before {
+          border-color: $white;
+        }
+        &:focus {
+          background-color: $success;
+          border-color: $success;
+        }
+      }
+    }
+    &[type='radio'] {
+      &:checked {
+        border-color: $success;
+        background-color: $white;
+        &:focus {
+          &:before {
+            box-shadow: 0px 0px 0px 13px $success;
+          }
+        }
+        &:after {
+          border-color: $success;
+          background-color: $success;
+        }
+      }
+    }
+    ~ .form-check-label {
+      margin-bottom: 1rem;
+    }
+  }
+  &.form-file-input {
+    &:focus {
+      ~ .form-file-label {
+        box-shadow: none;
+      }
+    }
+    &:focus-within {
+      ~ .form-file-label {
+        .form-file-text,
+        .form-file-button {
+          border-color: $success;
+        }
+      }
+    }
+  }
+}
+
+.is-invalid {
+  ~ .invalid-feedback,
+  ~ .invalid-tooltip {
+    position: absolute;
+  }
+  &.form-control {
+    margin-bottom: 1rem;
+    background-image: none;
+  }
+  &.form-select {
+    background-image: none;
+  }
+  &.form-check-input {
+    &:focus {
+      box-shadow: none;
+      &:before {
+        box-shadow: 0px 0px 0px 13px $danger;
+      }
+    }
+    &:checked {
+      &:focus {
+        &:before {
+          box-shadow: 0px 0px 0px 13px $danger;
+        }
+      }
+    }
+    &[type='checkbox'] {
+      border-color: $danger;
+      &:before {
+        border-color: $white;
+      }
+      &:checked {
+        background-color: $danger;
+        border-color: $danger;
+        &:before {
+          border-color: $white;
+        }
+        &:focus {
+          background-color: $danger;
+          border-color: $danger;
+        }
+      }
+    }
+    &[type='radio'] {
+      &:checked {
+        border-color: $danger;
+        background-color: $white;
+        &:focus {
+          &:before {
+            box-shadow: 0px 0px 0px 13px $danger;
+          }
+        }
+        &:after {
+          border-color: $danger;
+          background-color: $danger;
+        }
+      }
+    }
+    ~ .form-check-label {
+      margin-bottom: 1rem;
+    }
+  }
+  &.form-file-input {
+    &:focus {
+      ~ .form-file-label {
+        box-shadow: none;
+      }
+    }
+    &:focus-within {
+      ~ .form-file-label {
+        .form-file-text,
+        .form-file-button {
+          border-color: $danger;
+        }
+      }
+    }
+  }
+}
+
+.valid-feedback,
+.invalid-feedback {
+  margin-top: -0.75rem;
+}
+
+.form-outline {
+  .form-control {
+    &.is-valid {
+      ~ .form-label {
+        color: $success;
+      }
+      ~ .form-notch .form-notch-leading,
+      ~ .form-notch .form-notch-middle,
+      ~ .form-notch .form-notch-trailing {
+        border-color: $success;
+      }
+    }
+
+    &.is-invalid {
+      ~ .form-label {
+        color: $danger;
+      }
+      ~ .form-notch .form-notch-leading,
+      ~ .form-notch .form-notch-middle,
+      ~ .form-notch .form-notch-trailing {
+        border-color: $danger;
+      }
+    }
+  }
+}
+
+.input-group {
+  .form-control {
+    &.is-valid,
+    &.is-invalid {
+      margin-bottom: 0;
+    }
+  }
+  .valid-feedback,
+  .invalid-feedback {
+    margin-top: 2.5rem;
+  }
+  .valid-tooltip,
+  .invalid-tooltip {
+    border-radius: 0.25rem !important;
+  }
+}
+
+.form-file {
+  .valid-feedback,
+  .invalid-feedback {
+    margin-top: 0.25rem;
+  }
+}
+
+.valid-tooltip {
+  color: $form-feedback-valid-tooltip-color;
+}
+
+.invalid-feedback {
+  width: auto;
+}

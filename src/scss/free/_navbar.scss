@@ -1,0 +1,43 @@
+// Navbar
+
+.navbar {
+  box-shadow: $navbar-box-shadow;
+  padding-top: $navbar-padding-top;
+}
+
+.navbar-toggler {
+  border: 0;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.navbar-dark .navbar-toggler,
+.navbar-light .navbar-toggler {
+  border: 0;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: $navbar-brand-img-margin-right;
+  }
+}
+
+.navbar-nav .dropdown-menu {
+  position: absolute;
+}
+
+.navbar-light {
+  .navbar-toggler-icon {
+    background-image: none;
+  }
+}
+
+.navbar-dark {
+  .navbar-toggler-icon {
+    background-image: none;
+  }
+}

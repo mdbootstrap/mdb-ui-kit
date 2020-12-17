@@ -1,0 +1,29 @@
+// Scrollspy
+
+.nav-pills {
+  &.menu-sidebar {
+    .nav-link {
+      font-size: $scrollspy-menu-sidebar-font-size;
+      background-color: transparent;
+      color: $scrollspy-menu-sidebar-color;
+      line-height: $scrollspy-menu-sidebar-line-height;
+      padding: 0 $scrollspy-menu-sidebar-padding-x;
+      font-weight: $scrollspy-menu-sidebar-font-weight;
+      transition: $scrollspy-menu-sidebar-transition;
+      text-transform: initial;
+      margin-top: $scrollspy-menu-sidebar-margin-y;
+      margin-bottom: $scrollspy-menu-sidebar-margin-y;
+    }
+
+    .nav-link.active,
+    .show > .nav-link {
+      background-color: transparent;
+      box-shadow: none;
+      color: $scrollspy-menu-sidebar-active-color;
+      font-weight: $scrollspy-menu-sidebar-active-font-weight;
+      border-left: $scrollspy-menu-sidebar-active-border-width solid
+        $scrollspy-menu-sidebar-active-border-color;
+      border-radius: 0;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+// Badge
+.badge-dot {
+  position: absolute;
+  border-radius: $badge-dot-border-radius;
+  height: $badge-dot-height;
+  min-width: 0;
+  padding: 0;
+  width: $badge-dot-width;
+  margin-left: $badge-dot-margin-left;
+  &:empty {
+    display: inline-block;
+  }
+}
+
+.badge-notification {
+  position: absolute;
+  font-size: $badge-notification-font-size;
+  margin-top: $badge-notification-margin-top;
+  margin-left: $badge-notification-margin-left;
+  padding: $badge-notification-padding-y $badge-notification-padding-x;
+}

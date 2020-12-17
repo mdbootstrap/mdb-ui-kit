@@ -1,0 +1,116 @@
+.dropdown-menu {
+  color: $dropdown-color;
+  margin: $dropdown-margin-top 0 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 0;
+  box-shadow: $dropdown-box-shadow;
+  font-size: $dropdown-font-size;
+
+  > li {
+    border-radius: 0;
+    &:first-child {
+      border-top-left-radius: $dropdown-item-border-radius;
+      border-top-right-radius: $dropdown-item-border-radius;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      .dropdown-item {
+        border-top-left-radius: $dropdown-item-border-radius;
+        border-top-right-radius: $dropdown-item-border-radius;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &:not(:first-child):not(:last-child) {
+      .dropdown-item {
+        border-radius: 0;
+      }
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: $dropdown-item-border-radius;
+      border-bottom-right-radius: $dropdown-item-border-radius;
+      .dropdown-item {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: $dropdown-item-border-radius;
+        border-bottom-right-radius: $dropdown-item-border-radius;
+      }
+    }
+  }
+
+  &.animation {
+    display: block;
+    /* Speed up animations */
+    animation-duration: $dropdown-menu-animated-animation-duration;
+    animation-timing-function: $dropdown-menu-animated-animation-timing-function;
+  }
+}
+
+.dropdown-item {
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+  color: $dropdown-color;
+  border-radius: 0;
+
+  &:hover,
+  &:focus {
+    color: $dropdown-state-color;
+    background-color: $dropdown-state-background-color;
+  }
+
+  &.active,
+  &:active {
+    color: $dropdown-state-color;
+    background-color: $dropdown-state-background-color;
+  }
+}
+
+.hidden-arrow {
+  &.dropdown-toggle:after {
+    display: none;
+  }
+}
+
+.animation {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  padding: auto;
+}
+
+@media (prefers-reduced-motion) {
+  .animation {
+    transition: none !important;
+    animation: unset !important;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation-name: fade-out;
+}

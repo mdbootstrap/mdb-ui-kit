@@ -1,0 +1,12 @@
+// Shadows
+@each $shadow, $value in $shadows-light {
+  .shadow-#{$shadow} {
+    box-shadow: $value !important;
+  }
+}
+
+@each $shadow, $value in $shadows-strong {
+  .shadow-#{$shadow}-strong {
+    box-shadow: $value !important;
+  }
+}

@@ -1,0 +1,14 @@
+// Popover
+
+.popover {
+  border: 0;
+  box-shadow: $popover-box-shadow;
+
+  .popover-arrow {
+    display: none;
+  }
+}
+
+.popover-header {
+  background-color: $popover-background-color;
+}

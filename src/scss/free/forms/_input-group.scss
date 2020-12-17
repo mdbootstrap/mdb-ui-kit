@@ -1,0 +1,71 @@
+//
+// Base styles
+//
+
+.input-group {
+  > .form-control {
+    min-height: $input-group-min-height;
+    height: $input-group-height;
+    padding-top: $input-group-padding-y;
+    padding-bottom: $input-group-padding-y;
+    transition: $input-group-transition;
+
+    &:focus {
+      transition: $input-group-focus-transition;
+      border-color: $input-group-focus-border-color;
+      outline: 0;
+      box-shadow: $input-group-focus-box-shadow;
+    }
+  }
+}
+
+.input-group-text {
+  background-color: transparent;
+  padding-top: $input-group-text-padding-y;
+  padding-bottom: $input-group-text-padding-y;
+}
+
+.input-group-lg {
+  > .form-control {
+    height: $input-group-lg-height;
+    font-size: $input-group-lg-font-size;
+    padding-top: $input-group-lg-padding-y;
+    padding-bottom: $input-group-lg-padding-y;
+  }
+
+  .input-group-text {
+    font-size: $input-group-lg-text-font-size;
+  }
+}
+
+.input-group-sm {
+  > .form-control {
+    min-height: $input-group-sm-min-height;
+    height: $input-group-sm-height;
+    font-size: $input-group-sm-font-size;
+    padding-top: $input-group-sm-padding-y;
+    padding-bottom: $input-group-sm-padding-y;
+  }
+
+  .input-group-text {
+    font-size: $input-group-sm-text-font-size;
+    line-height: $input-group-sm-text-line-height;
+  }
+}
+
+.input-group {
+  &.form-outline {
+    .input-group-text {
+      border-left: 0;
+    }
+    input + .input-group-text {
+      border: 0;
+      border-left: $input-group-form-outline-border-left-width solid
+        $input-group-form-outline-border-left-color;
+    }
+  }
+}
+
+.input-group > [class*='btn-outline-'] + [class*='btn-outline-'] {
+  border-left: 0;
+}
