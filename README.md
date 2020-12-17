@@ -26,14 +26,6 @@ the end of your document (just before the `</body>` tag), and everything will be
 
 Tutorials for those with insatiable appetite for knowledge made by us & our users can be found in our [education section](https://mdbootstrap.com/docs/standard/getting-started/) & in [miscellaneous](https://mdbootstrap.com/articles/)
 
-## Support
-
-The things to do are a lot and the time is little, if you are a passionate developer
-with experience with Bootstrap and Material Design for Bootstrap and you have some spare
-time, please consider becoming a contributor of this project!  
-
-If you like this project you may support it by, starring this repository or reporting issues.  
-All issues filed should be reduced to a [Snippets](https://mdbootstrap.com/snippets/) test case where possible.
 
 
 ### Development
