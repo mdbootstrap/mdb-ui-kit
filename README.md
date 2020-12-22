@@ -72,23 +72,30 @@ ___
 
 **[>> Click here for a 3-step installation guide](https://mdbootstrap.com/docs/standard/getting-started/installation/)**
 
-**Or click below to watch 2 minute installation tutorial**
-
-<a href="https://www.youtube.com/watch?v=biwC8jK7YYY" alt="Bootstrap 5" rel="dofollow"><img src="https://mcusercontent.com/461480655ccce528d909d3f42/images/c872f264-a491-4a86-8756-933cac5f72a0.png"></a>
-
-
-___
-
-
 
 ### Learn Bootstrap 5 -  crash course for beginners in 1.5H (June 2020)
 ###### Tutorial for the latest Bootstrap v.5 Alpha. In this video we'll learn about the changes implemented into v.5.
 
 **[>> Click here for a written tutorial](https://mdbootstrap.com/docs/standard/getting-started/quick-start/)**
 
-**Or click below to watch the full 1.5H Bootstrap 5 tutorial**
+**Or click below to watch Bootstrap 5 tutorials**
 
-<a href="https://www.youtube.com/watch?v=c9B4TPnak1A" alt="Bootstrap 5" rel="dofollow"><img src="https://mcusercontent.com/461480655ccce528d909d3f42/images/35c32804-eeae-40a0-a37f-c248c71d9439.png"></a>
+<table>
+  <tbody>
+    <tr>
+      <td>
+          <a href="https://mdbootstrap.com/docs/standard/getting-started/" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/tutorial-4-github.png">
+          </a>
+      </td>
+      <td>
+          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/tut-4-gh.png">
+          </a>
+      </td>
+    </tr>
+   </tbody>
+</table>
 
 ___
 
