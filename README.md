@@ -73,27 +73,40 @@ ___
 **[>> Click here for a 3-step installation guide](https://mdbootstrap.com/docs/standard/getting-started/installation/)**
 
 
-### Learn Bootstrap 5 -  crash course for beginners in 1.5H (June 2020)
 ###### Tutorial for the latest Bootstrap v.5 Alpha. In this video we'll learn about the changes implemented into v.5.
 
 **[>> Click here for a written tutorial](https://mdbootstrap.com/docs/standard/getting-started/quick-start/)**
 
-**Or click below to watch Bootstrap 5 tutorials**
+**Click below to watch more Bootstrap 5 tutorials**
 
 <table>
   <tbody>
     <tr>
-      <td>
+      <td align="center">
           <a href="https://mdbootstrap.com/docs/standard/getting-started/" alt="Bootstrap 5" rel="dofollow">
-          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/tutorial-4-github.png">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/learnmore-1.png">
           </a>
       </td>
       <td>
-          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/" alt="Bootstrap 5" rel="dofollow">
-          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/tut-4-gh.png">
+          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/cover-bootstrap-5-1.png">
           </a>
       </td>
     </tr>
+     <tr>
+        <td align="center">
+          <p align="center"><b>Start to Code</b></p>
+          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/Screenshot_26.png">
+          </a>
+         </td>
+        <td align="center">
+          <p align="center"><b>Learn Bootstrap 5 | Crash Course for Beginners in 1.5H</b></p>
+          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/Screenshot_26.png">
+          </a>
+         </td>
+      </tr>
    </tbody>
 </table>
 
