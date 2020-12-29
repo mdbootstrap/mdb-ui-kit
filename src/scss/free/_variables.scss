@@ -1,5 +1,7 @@
 // Variables
 
+$enable-negative-margins: true;
+
 // Grays
 $white: #fff;
 $gray-50: #fbfbfb;
@@ -650,7 +652,8 @@ $form-file-label-focus-text-border-width: 2px 1px 2px 2px;
 $form-file-label-focus-button-border-width: 2px 2px 2px 1px;
 $form-file-label-disabled-background-color: #e9ecef;
 $form-file-label-height: $form-file-height;
-$form-file-label-border-color: rgba(0, 0, 0, 0.38);
+$form-file-label-border-color: #bdbdbd;
+$form-file-label-border-radius: 0.2rem;
 
 $form-file-text-padding-y: 0.33rem;
 $form-file-text-border-color: #bdbdbd;
@@ -659,9 +662,9 @@ $form-file-button-line-height: 1.5;
 $form-file-button-background-color: #fff;
 $form-file-button-border-color: $form-file-text-border-color;
 
-$form-file-sm-height: calc(1.7rem + 0.33rem + 2px);
+$form-file-sm-height: calc(1.2rem + 0.33rem + 2px);
 $form-file-sm-font-size: 0.775rem;
-$form-file-sm-line-height: $form-file-button-line-height;
+$form-file-sm-line-height: 1.3;
 $form-file-sm-padding-y: $form-file-text-padding-y;
 
 $form-file-lg-height: calc(2.315rem + 0.33rem + 2px);
@@ -712,6 +715,13 @@ $form-validation-states-mdb: (
   ),
 );
 // scss-docs-end form-validation-states
+
+// scss-docs-start zindex-stack
+$zindex-toast: 1060;
+$zindex-alert: 1070;
+$zindex-popover: 1080;
+$zindex-tooltip: 1090;
+// scss-docs-end zindex-stack
 
 // Navs
 

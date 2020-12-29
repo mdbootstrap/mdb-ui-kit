@@ -2,6 +2,18 @@
 // Material styles for form control - form outline
 //
 
+// .form-outline .form-control:placeholder-shown ~ .form-label {
+//   opacity: 0;
+// }
+
+// input:not(:placeholder-shown) {
+//   opacity: 0;
+// }
+
+// input:placeholder-shown {
+//   opacity: 1;
+// }
+
 .form-outline {
   position: relative;
   .form-control {
@@ -62,6 +74,15 @@
         border-radius: 0 $form-notch-trailing-border-radius $form-notch-trailing-border-radius 0;
       }
     }
+    &::placeholder {
+      opacity: 0;
+    }
+    // &:not(:focus)::placeholder ~ label {
+    //   opacity: 0;
+    // }
+    // &::placeholder {
+    //   opacity: 0;
+    // }
     &:focus,
     &.active {
       &::placeholder {
@@ -114,9 +135,6 @@
     &.disabled,
     &[readonly] {
       background-color: $input-disabled-background-color;
-    }
-    &::placeholder {
-      opacity: 0;
     }
     &.form-control-lg {
       font-size: $input-font-size-lg;
