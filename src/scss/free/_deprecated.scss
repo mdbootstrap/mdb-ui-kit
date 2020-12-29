@@ -1121,3 +1121,75 @@ i.flag.zimbabwe:before {
 /*******************************
          Site Overrides
 *******************************/
+
+// 14.12.2020 --------------------------------
+$utilities-old: () !default;
+
+$utilities-old: map-merge(
+  (
+    // Text
+    'font-weight':
+      (
+        property: font-weight,
+        values: (
+          light: $font-weight-light,
+          lighter: $font-weight-lighter,
+          normal: $font-weight-normal,
+          bold: $font-weight-bold,
+          bolder: $font-weight-bolder,
+        ),
+      ),
+    'font-style': (
+      property: font-style,
+      class: font,
+      values: italic normal,
+    )
+  ),
+  $utilities-old
+);
+
+// Loop over each breakpoint
+@each $breakpoint in map-keys($grid-breakpoints) {
+  // Generate media query if needed
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    // Loop over each utility property
+    @each $key, $utility in $utilities-old {
+      // The utility can be disabled with `false`, thus check if the utility is a map first
+      // Only proceed if responsive media queries are enabled or if it's the base media query
+      @if type-of($utility) == 'map' and (map-get($utility, responsive) or $infix == '') {
+        @include generate-utility($utility, $infix);
+      }
+    }
+  }
+}
+
+// RFS rescaling
+@media (min-width: $rfs-mq-value) {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @if (map-get($grid-breakpoints, $breakpoint) < $rfs-breakpoint) {
+      // Loop over each utility property
+      @each $key, $utility in $utilities-old {
+        // The utility can be disabled with `false`, thus check if the utility is a map first
+        // Only proceed if responsive media queries are enabled or if it's the base media query
+        @if type-of($utility) == 'map' and map-get($utility, rfs) {
+          @include generate-utility($utility, $infix, true);
+        }
+      }
+    }
+  }
+}
+
+// Print utilities-old
+@media print {
+  @each $key, $utility in $utilities-old {
+    // The utility can be disabled with `false`, thus check if the utility is a map first
+    // Then check if the utility needs print styles
+    @if type-of($utility) == 'map' and map-get($utility, print) == true {
+      @include generate-utility($utility, '-print');
+    }
+  }
+}

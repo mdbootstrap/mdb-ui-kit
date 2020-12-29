@@ -1,6 +1,6 @@
-import { element, getjQuery, typeCheckConfig } from '../mdb/util/index';
+import { element, getjQuery, typeCheckConfig, onDOMContentLoaded } from '../mdb/util/index';
 import Data from '../mdb/dom/data';
-import EventHandler from '../bootstrap/src/dom/event-handler';
+import EventHandler from '../mdb/dom/event-handler';
 import Manipulator from '../mdb/dom/manipulator';
 import SelectorEngine from '../mdb/dom/selector-engine';
 
@@ -353,16 +353,18 @@ SELECTOR_COMPONENT.forEach((selector) => {
  * add .ripple to jQuery only if jQuery is present
  */
 
-const $ = getjQuery();
+onDOMContentLoaded(() => {
+  const $ = getjQuery();
 
-if ($) {
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  $.fn[NAME] = Ripple.jQueryInterface;
-  $.fn[NAME].Constructor = Ripple;
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Ripple.jQueryInterface;
-  };
-}
+  if ($) {
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = Ripple.jQueryInterface;
+    $.fn[NAME].Constructor = Ripple;
+    $.fn[NAME].noConflict = () => {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return Ripple.jQueryInterface;
+    };
+  }
+});
 
 export default Ripple;

@@ -1,5 +1,5 @@
 /*!
- * Bootstrap tab.js v5.0.0-alpha2 (https://getbootstrap.com/)
+ * Bootstrap tab.js v5.0.0-beta1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -11,7 +11,7 @@
         require('./dom/selector-engine.js')
       ))
     : typeof define === 'function' && define.amd
-    ? define(['./dom/data.js', './dom/event-handler.js', './dom/selector-engine.js'], factory)
+    ? define(['./dom/data', './dom/event-handler', './dom/selector-engine'], factory)
     : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
       (global.Tab = factory(global.Data, global.EventHandler, global.SelectorEngine)));
 })(this, function (Data, EventHandler, SelectorEngine) {
@@ -27,7 +27,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-alpha2): util/index.js
+   * Bootstrap (v5.0.0-beta1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -35,7 +35,7 @@
   var TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
   var getSelector = function getSelector(element) {
-    var selector = element.getAttribute('data-target');
+    var selector = element.getAttribute('data-bs-target');
 
     if (!selector || selector === '#') {
       var hrefAttr = element.getAttribute('href');
@@ -59,8 +59,8 @@
       transitionDuration = _window$getComputedSt.transitionDuration,
       transitionDelay = _window$getComputedSt.transitionDelay;
 
-    var floatTransitionDuration = parseFloat(transitionDuration);
-    var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
+    var floatTransitionDuration = Number.parseFloat(transitionDuration);
+    var floatTransitionDelay = Number.parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
 
     if (!floatTransitionDuration && !floatTransitionDelay) {
       return 0;
@@ -68,7 +68,10 @@
 
     transitionDuration = transitionDuration.split(',')[0];
     transitionDelay = transitionDelay.split(',')[0];
-    return (parseFloat(transitionDuration) + parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
+    return (
+      (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) *
+      MILLISECONDS_MULTIPLIER
+    );
   };
 
   var triggerTransitionEnd = function triggerTransitionEnd(element) {
@@ -101,12 +104,22 @@
     var _window = window,
       jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
       return jQuery;
     }
 
     return null;
   };
+
+  var onDOMContentLoaded = function onDOMContentLoaded(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback);
+    } else {
+      callback();
+    }
+  };
+
+  var isRTL = document.documentElement.dir === 'rtl';
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -129,8 +142,70 @@
    * ------------------------------------------------------------------------
    */
 
+  var VERSION = '5.0.0-beta1';
+
+  var BaseComponent = /*#__PURE__*/ (function () {
+    function BaseComponent(element) {
+      if (!element) {
+        return;
+      }
+
+      this._element = element;
+      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
+    }
+
+    var _proto = BaseComponent.prototype;
+
+    _proto.dispose = function dispose() {
+      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
+      this._element = null;
+    };
+    /** Static */
+
+    BaseComponent.getInstance = function getInstance(element) {
+      return Data__default['default'].getData(element, this.DATA_KEY);
+    };
+
+    _createClass(BaseComponent, null, [
+      {
+        key: 'VERSION',
+        get: function get() {
+          return VERSION;
+        },
+      },
+    ]);
+
+    return BaseComponent;
+  })();
+
+  function _defineProperties$1(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ('value' in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass$1(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties$1(Constructor, staticProps);
+    return Constructor;
+  }
+
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
   var NAME = 'tab';
-  var VERSION = '5.0.0-alpha2';
   var DATA_KEY = 'bs.tab';
   var EVENT_KEY = '.' + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -148,7 +223,8 @@
   var SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
   var SELECTOR_ACTIVE = '.active';
   var SELECTOR_ACTIVE_UL = ':scope > li > .active';
-  var SELECTOR_DATA_TOGGLE = '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]';
+  var SELECTOR_DATA_TOGGLE =
+    '[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]';
   var SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
   var SELECTOR_DROPDOWN_ACTIVE_CHILD = ':scope > .dropdown-menu .active';
   /**
@@ -157,11 +233,12 @@
    * ------------------------------------------------------------------------
    */
 
-  var Tab = /*#__PURE__*/ (function () {
-    function Tab(element) {
-      this._element = element;
-      Data__default['default'].setData(this._element, DATA_KEY, this);
-    } // Getters
+  var Tab = /*#__PURE__*/ (function (_BaseComponent) {
+    _inheritsLoose(Tab, _BaseComponent);
+
+    function Tab() {
+      return _BaseComponent.apply(this, arguments) || this;
+    }
 
     var _proto = Tab.prototype;
 
@@ -224,11 +301,6 @@
       } else {
         complete();
       }
-    };
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, DATA_KEY);
-      this._element = null;
     }; // Private
 
     _proto._activate = function _activate(element, container, callback) {
@@ -317,21 +389,18 @@
       });
     };
 
-    Tab.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, DATA_KEY);
-    };
-
-    _createClass(Tab, null, [
+    _createClass$1(Tab, null, [
       {
-        key: 'VERSION',
+        key: 'DATA_KEY',
+        // Getters
         get: function get() {
-          return VERSION;
+          return DATA_KEY;
         },
       },
     ]);
 
     return Tab;
-  })();
+  })(BaseComponent);
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
@@ -348,26 +417,28 @@
       data.show();
     }
   );
-  var $ = getjQuery();
   /**
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
-   * add .tab to jQuery only if jQuery is present
+   * add .Tab to jQuery only if jQuery is present
    */
 
-  /* istanbul ignore if */
+  onDOMContentLoaded(function () {
+    var $ = getjQuery();
+    /* istanbul ignore if */
 
-  if ($) {
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Tab.jQueryInterface;
-    $.fn[NAME].Constructor = Tab;
+    if ($) {
+      var JQUERY_NO_CONFLICT = $.fn[NAME];
+      $.fn[NAME] = Tab.jQueryInterface;
+      $.fn[NAME].Constructor = Tab;
 
-    $.fn[NAME].noConflict = function () {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Tab.jQueryInterface;
-    };
-  }
+      $.fn[NAME].noConflict = function () {
+        $.fn[NAME] = JQUERY_NO_CONFLICT;
+        return Tab.jQueryInterface;
+      };
+    }
+  });
 
   return Tab;
 });

@@ -1,11 +1,10 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-alpha1): dom/event-handler.js
+ * Bootstrap (v5.0.0-beta1): dom/event-handler.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { defaultPreventedPreservedOnDispatch } from './polyfill';
 import { getjQuery } from '../util/index';
 
 /**
@@ -94,6 +93,8 @@ function getEvent(element) {
 
 function bootstrapHandler(element, fn) {
   return function handler(event) {
+    event.delegateTarget = element;
+
     if (handler.oneOff) {
       EventHandler.off(element, event.type, fn);
     }
@@ -109,6 +110,8 @@ function bootstrapDelegationHandler(element, selector, fn) {
     for (let { target } = event; target && target !== this; target = target.parentNode) {
       for (let i = domElements.length; i--; '') {
         if (domElements[i] === target) {
+          event.delegateTarget = target;
+
           if (handler.oneOff) {
             EventHandler.off(element, event.type, fn);
           }
@@ -318,12 +321,6 @@ const EventHandler = {
 
     if (defaultPrevented) {
       evt.preventDefault();
-
-      if (!defaultPreventedPreservedOnDispatch) {
-        Object.defineProperty(evt, 'defaultPrevented', {
-          get: () => true,
-        });
-      }
     }
 
     if (nativeDispatch) {

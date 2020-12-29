@@ -5,12 +5,12 @@
 .form-check {
   display: block;
   min-height: $form-check-min-height;
-  padding-left: $form-check-padding-left;
+  padding-left: $form-check-padding-start;
   margin-bottom: $form-check-margin-bottom;
 
   .form-check-input {
     float: left;
-    margin-left: $form-check-padding-left * -1;
+    margin-left: $form-check-padding-start * -1;
   }
 }
 
@@ -53,7 +53,8 @@
 
     &[type='checkbox'] {
       @if $enable-gradients {
-        background-image: escape-svg($form-check-input-checked-bg-image), var(--bs-gradient);
+        background-image: escape-svg($form-check-input-checked-bg-image),
+          var(--#{$variable-prefix}gradient);
       } @else {
         background-image: escape-svg($form-check-input-checked-bg-image);
       }
@@ -61,7 +62,8 @@
 
     &[type='radio'] {
       @if $enable-gradients {
-        background-image: escape-svg($form-check-radio-checked-bg-image), var(--bs-gradient);
+        background-image: escape-svg($form-check-radio-checked-bg-image),
+          var(--#{$variable-prefix}gradient);
       } @else {
         background-image: escape-svg($form-check-radio-checked-bg-image);
       }
@@ -73,7 +75,8 @@
     border-color: $form-check-input-indeterminate-border-color;
 
     @if $enable-gradients {
-      background-image: escape-svg($form-check-input-indeterminate-bg-image), var(--bs-gradient);
+      background-image: escape-svg($form-check-input-indeterminate-bg-image),
+        var(--#{$variable-prefix}gradient);
     } @else {
       background-image: escape-svg($form-check-input-indeterminate-bg-image);
     }
@@ -82,7 +85,7 @@
   &:disabled {
     pointer-events: none;
     filter: none;
-    opacity: 0.5;
+    opacity: $form-check-input-disabled-opacity;
   }
 
   // Use disabled attribute in addition of :disabled pseudo-class
@@ -90,7 +93,7 @@
   &[disabled],
   &:disabled {
     ~ .form-check-label {
-      opacity: 0.5;
+      opacity: $form-check-label-disabled-opacity;
     }
   }
 }
@@ -105,11 +108,11 @@
 //
 
 .form-switch {
-  padding-left: $form-switch-padding-left;
+  padding-left: $form-switch-padding-start;
 
   .form-check-input {
     width: $form-switch-width;
-    margin-left: $form-switch-padding-left * -1;
+    margin-left: $form-switch-padding-start * -1;
     background-image: escape-svg($form-switch-bg-image);
     background-position: left center;
     @include border-radius($form-switch-border-radius);
@@ -122,7 +125,8 @@
       background-position: $form-switch-checked-bg-position;
 
       @if $enable-gradients {
-        background-image: escape-svg($form-switch-checked-bg-image), var(--bs-gradient);
+        background-image: escape-svg($form-switch-checked-bg-image),
+          var(--#{$variable-prefix}gradient);
       } @else {
         background-image: escape-svg($form-switch-checked-bg-image);
       }
@@ -132,11 +136,20 @@
 
 .form-check-inline {
   display: inline-block;
-  margin-right: $form-check-inline-margin-right;
+  margin-right: $form-check-inline-margin-end;
 }
 
 .btn-check {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
+
+  &[disabled],
+  &:disabled {
+    + .btn {
+      pointer-events: none;
+      filter: none;
+      opacity: $form-check-btn-check-disabled-opacity;
+    }
+  }
 }

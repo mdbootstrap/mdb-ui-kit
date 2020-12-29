@@ -1,5 +1,5 @@
 /*!
- * Bootstrap manipulator.js v5.0.0-alpha2 (https://getbootstrap.com/)
+ * Bootstrap manipulator.js v5.0.0-beta1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -13,26 +13,9 @@
 })(this, function () {
   'use strict';
 
-  function _extends() {
-    _extends =
-      Object.assign ||
-      function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-    return _extends.apply(this, arguments);
-  }
-
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-alpha2): dom/manipulator.js
+   * Bootstrap (v5.0.0-beta1): dom/manipulator.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -64,25 +47,30 @@
 
   var Manipulator = {
     setDataAttribute: function setDataAttribute(element, key, value) {
-      element.setAttribute('data-' + normalizeDataKey(key), value);
+      element.setAttribute('data-bs-' + normalizeDataKey(key), value);
     },
     removeDataAttribute: function removeDataAttribute(element, key) {
-      element.removeAttribute('data-' + normalizeDataKey(key));
+      element.removeAttribute('data-bs-' + normalizeDataKey(key));
     },
     getDataAttributes: function getDataAttributes(element) {
       if (!element) {
         return {};
       }
 
-      var attributes = _extends({}, element.dataset);
-
-      Object.keys(attributes).forEach(function (key) {
-        attributes[key] = normalizeData(attributes[key]);
-      });
+      var attributes = {};
+      Object.keys(element.dataset)
+        .filter(function (key) {
+          return key.startsWith('bs');
+        })
+        .forEach(function (key) {
+          var pureKey = key.replace(/^bs/, '');
+          pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
+          attributes[pureKey] = normalizeData(element.dataset[key]);
+        });
       return attributes;
     },
     getDataAttribute: function getDataAttribute(element, key) {
-      return normalizeData(element.getAttribute('data-' + normalizeDataKey(key)));
+      return normalizeData(element.getAttribute('data-bs-' + normalizeDataKey(key)));
     },
     offset: function offset(element) {
       var rect = element.getBoundingClientRect();
@@ -96,17 +84,6 @@
         top: element.offsetTop,
         left: element.offsetLeft,
       };
-    },
-    toggleClass: function toggleClass(element, className) {
-      if (!element) {
-        return;
-      }
-
-      if (element.classList.contains(className)) {
-        element.classList.remove(className);
-      } else {
-        element.classList.add(className);
-      }
     },
   };
 

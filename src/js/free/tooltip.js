@@ -1,6 +1,6 @@
-import { getjQuery } from '../mdb/util/index';
-import EventHandler from '../bootstrap/src/dom/event-handler';
-import BSTooltip from '../bootstrap/src/tooltip';
+import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
+import EventHandler from '../mdb/dom/event-handler';
+import BSTooltip from '../bootstrap/mdb-prefix/tooltip';
 import SelectorEngine from '../mdb/dom/selector-engine';
 
 /**
@@ -25,7 +25,7 @@ const EVENT_SHOW = `show${EVENT_KEY}`;
 const EVENT_SHOWN = `shown${EVENT_KEY}`;
 const EVENT_INSERTED = `inserted${EVENT_KEY}`;
 
-const SELECTOR_DATA_TOGGLE = '[data-toggle="tooltip"]';
+const SELECTOR_DATA_TOGGLE = '[data-mdb-toggle="tooltip"]';
 
 class Tooltip extends BSTooltip {
   constructor(element, data) {
@@ -109,16 +109,18 @@ SelectorEngine.find(SELECTOR_DATA_TOGGLE).forEach((el) => {
  * add .rating to jQuery only if jQuery is present
  */
 
-const $ = getjQuery();
+onDOMContentLoaded(() => {
+  const $ = getjQuery();
 
-if ($) {
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  $.fn[NAME] = Tooltip.jQueryInterface;
-  $.fn[NAME].Constructor = Tooltip;
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Tooltip.jQueryInterface;
-  };
-}
+  if ($) {
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = Tooltip.jQueryInterface;
+    $.fn[NAME].Constructor = Tooltip;
+    $.fn[NAME].noConflict = () => {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return Tooltip.jQueryInterface;
+    };
+  }
+});
 
 export default Tooltip;

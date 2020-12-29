@@ -1,7 +1,7 @@
-import { getjQuery } from '../mdb/util/index';
+import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
 import SelectorEngine from '../mdb/dom/selector-engine';
-import BSPopover from '../bootstrap/src/popover';
+import BSPopover from '../bootstrap/mdb-prefix/popover';
 
 /**
  * ------------------------------------------------------------------------
@@ -25,7 +25,7 @@ const EVENT_HIDE = `hide${EVENT_KEY}`;
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
 const EVENT_INSERTED = `inserted${EVENT_KEY}`;
 
-const SELECTOR_DATA_TOGGLE = '[data-toggle="popover"]';
+const SELECTOR_DATA_TOGGLE = '[data-mdb-toggle="popover"]';
 
 class Popover extends BSPopover {
   constructor(element, data) {
@@ -109,16 +109,18 @@ SelectorEngine.find(SELECTOR_DATA_TOGGLE).forEach((el) => {
  * add .rating to jQuery only if jQuery is present
  */
 
-const $ = getjQuery();
+onDOMContentLoaded(() => {
+  const $ = getjQuery();
 
-if ($) {
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  $.fn[NAME] = Popover.jQueryInterface;
-  $.fn[NAME].Constructor = Popover;
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Popover.jQueryInterface;
-  };
-}
+  if ($) {
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = Popover.jQueryInterface;
+    $.fn[NAME].Constructor = Popover;
+    $.fn[NAME].noConflict = () => {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return Popover.jQueryInterface;
+    };
+  }
+});
 
 export default Popover;
