@@ -30,12 +30,13 @@
             height="150px"
             width="150px"
           />
-          <h5 class="mb-3">Release suprise! 50% OFF MDB 5 PRO</h5>
+          <h5 class="mb-3">Release surprise! 50% OFF MDB 5 PRO</h5>
 
           <p>
             Use this coupon code before the next release to claim the reward.<br />Hurry up & don't
             loose your chance.
           </p>
+
           <p>
             <code class="text-uppercase h1 px-2 rounded bg-dark text-white">MB8XW23V</code>
           </p>
@@ -44,8 +45,10 @@
             onclick="copy('MB8XW23V');toastr.info('Coupon code copied! Use it on the checkout.');"
             target="_blank"
             role="button"
+            id="code-button"
             >CLAIM DISCOUNT</a
           >
+
           <a
             class="btn btn-outline-primary btn-lg"
             href="https://mdbootstrap.com/docs/standard/getting-started/"
@@ -53,6 +56,10 @@
             role="button"
             >START TUTORIAL</a
           >
+          <div class="my-2 alert alert-success" id="code-success" style="display: none;">
+            Copied
+          </div>
+          <p>See <a href="https://mdbootstrap.com/docs/standard/pro/">prices</a></p>
           <h5 class="h1-responsive text-uppercase mt-3">
             the code <span class="font-weight-bold"></span> expires in:<br />
             <span class="font-weight-bold" id="time-counter"></span>
@@ -67,6 +74,16 @@
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
   <script type="text/javascript">
+    var button = document.getElementById('code-button');
+    button.onclick = function () {
+      var div = document.getElementById('code-success');
+      if (div.style.display !== 'none') {
+        div.style.display = 'none';
+      } else {
+        div.style.display = 'block';
+      }
+    };
+
     function copy(text) {
       var textarea = document.createElement('textarea');
       textarea.value = text;
@@ -78,7 +95,7 @@
 
     // Ad counter
     // Set the date we're counting down to
-    var countDownDate = new Date(Date.UTC(2020, 09, 30, 10, 00, 00));
+    var countDownDate = new Date(Date.UTC(2020, 10, 17, 10, 00, 00));
     var counterElement = document.getElementById('time-counter');
 
     // Update the count down every 1 second

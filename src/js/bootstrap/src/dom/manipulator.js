@@ -60,10 +60,9 @@ const Manipulator = {
 
   offset(element) {
     const rect = element.getBoundingClientRect();
-
     return {
-      top: rect.top + document.body.scrollTop,
-      left: rect.left + document.body.scrollLeft,
+      top: rect.top + (document.body.scrollTop || document.documentElement.scrollTop),
+      left: rect.left + (document.body.scrollLeft || document.documentElement.scrollLeft),
     };
   },
 
