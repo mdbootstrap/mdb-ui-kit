@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-alpha1): util/sanitizer.js
+ * Bootstrap (v5.0.0-alpha2): util/sanitizer.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -57,7 +57,7 @@ const allowedAttribute = (attr, allowedAttributeList) => {
   return false;
 };
 
-export const DefaultWhitelist = {
+export const DefaultAllowlist = {
   // Global attributes allowed on any supplied element below.
   '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
   a: ['target', 'href', 'title', 'rel'],
@@ -91,7 +91,7 @@ export const DefaultWhitelist = {
   ul: [],
 };
 
-export function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
+export function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
   if (!unsafeHtml.length) {
     return unsafeHtml;
   }
@@ -102,24 +102,24 @@ export function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
 
   const domParser = new window.DOMParser();
   const createdDocument = domParser.parseFromString(unsafeHtml, 'text/html');
-  const whitelistKeys = Object.keys(whiteList);
+  const allowlistKeys = Object.keys(allowList);
   const elements = [].concat(...createdDocument.body.querySelectorAll('*'));
 
   for (let i = 0, len = elements.length; i < len; i++) {
     const el = elements[i];
     const elName = el.nodeName.toLowerCase();
 
-    if (whitelistKeys.indexOf(elName) === -1) {
+    if (allowlistKeys.indexOf(elName) === -1) {
       el.parentNode.removeChild(el);
 
       continue;
     }
 
     const attributeList = [].concat(...el.attributes);
-    const whitelistedAttributes = [].concat(whiteList['*'] || [], whiteList[elName] || []);
+    const allowedAttributes = [].concat(allowList['*'] || [], allowList[elName] || []);
 
     attributeList.forEach((attr) => {
-      if (!allowedAttribute(attr, whitelistedAttributes)) {
+      if (!allowedAttribute(attr, allowedAttributes)) {
         el.removeAttribute(attr.nodeName);
       }
     });

@@ -24,20 +24,39 @@
     <div class="container">
       <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="text-center">
+          <!-- <i class="fas fa-ticket-alt fa-10x"></i> -->
           <img
-            class="mb-4"
-            src="https://mdbootstrap.com/img/logo/mdb-transparent-250px.png"
-            style="width: 250px; height: 90px;"
+            src="https://mdbootstrap.com/img/Marketing/other/mdb50off.png"
+            height="150px"
+            width="150px"
           />
-          <h5 class="mb-3">Thank you for using our product. We're glad you're with us.</h5>
-          <p class="mb-3">MDB Team</p>
+          <h5 class="mb-3">Release suprise! 50% OFF MDB 5 PRO</h5>
+
+          <p>
+            Use this coupon code before the next release to claim the reward.<br />Hurry up & don't
+            loose your chance.
+          </p>
+          <p>
+            <code class="text-uppercase h1 px-2 rounded bg-dark text-white">MB8XW23V</code>
+          </p>
           <a
             class="btn btn-primary btn-lg"
+            onclick="copy('MB8XW23V');toastr.info('Coupon code copied! Use it on the checkout.');"
+            target="_blank"
+            role="button"
+            >CLAIM DISCOUNT</a
+          >
+          <a
+            class="btn btn-outline-primary btn-lg"
             href="https://mdbootstrap.com/docs/standard/getting-started/"
             target="_blank"
             role="button"
-            >Start MDB tutorial</a
+            >START TUTORIAL</a
           >
+          <h5 class="h1-responsive text-uppercase mt-3">
+            the code <span class="font-weight-bold"></span> expires in:<br />
+            <span class="font-weight-bold" id="time-counter"></span>
+          </h5>
         </div>
       </div>
     </div>
@@ -47,5 +66,52 @@
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
-  <script type="text/javascript"></script>
+  <script type="text/javascript">
+    function copy(text) {
+      var textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+
+    // Ad counter
+    // Set the date we're counting down to
+    var countDownDate = new Date(Date.UTC(2020, 09, 30, 10, 00, 00));
+    var counterElement = document.getElementById('time-counter');
+
+    // Update the count down every 1 second
+    function startCounter() {
+      //wrapped in an if to prevent console errors if the element isn't found on the page
+      if (counterElement == null) {
+        return;
+      } else {
+        var x = setInterval(function () {
+          // Get todays date and time
+          var now = new Date().getTime();
+
+          // Find the distance between now an the count down date
+          var distance = countDownDate - now;
+
+          // Time calculations for days, hours, minutes and seconds
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          // Display the result in the element with id="demo"
+          counterElement.innerHTML = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
+
+          // If the count down is finished, write some text
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById('time-counter').innerHTML =
+              '<p class="h3 grey-text">Sale ended :(</p>';
+          }
+        }, 1000);
+      }
+    }
+    startCounter();
+  </script>
 </html>

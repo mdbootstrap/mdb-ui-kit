@@ -5,6 +5,7 @@
 .input-group {
   > .form-control {
     min-height: $input-group-min-height;
+    height: $input-group-height;
     padding-top: $input-group-padding-y;
     padding-bottom: $input-group-padding-y;
     transition: $input-group-transition;
@@ -39,7 +40,8 @@
 
 .input-group-sm {
   > .form-control {
-    height: $input-group-sm-height-height;
+    min-height: $input-group-sm-min-height;
+    height: $input-group-sm-height;
     font-size: $input-group-sm-font-size;
     padding-top: $input-group-sm-padding-y;
     padding-bottom: $input-group-sm-padding-y;
