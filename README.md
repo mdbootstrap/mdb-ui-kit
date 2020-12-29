@@ -2,7 +2,7 @@
 ![MDB Logo](https://mdbootstrap.com/img/Marketing/general/logo/medium/mdb-r.png)
 
 
-# MDB  5 Beta
+# MDB 5
 
 ### Bootstrap 5 & Material Design 2.0 UI KIT
 
