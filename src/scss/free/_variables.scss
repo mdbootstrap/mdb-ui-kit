@@ -5,7 +5,7 @@
 // Grays
 
 $white: #fff;
-$gray-50: #eff0f4;
+$gray-50: #fbfbfb;
 $gray-100: #f5f5f5;
 $gray-200: #eeeeee;
 $gray-300: #e0e0e0;
@@ -289,7 +289,7 @@ $success: #00b74a;
 $info: #39c0ed;
 $warning: #ffa900;
 $danger: #f93154;
-$light: $gray-100;
+$light: $gray-50;
 $dark: $gray-900;
 
 $theme-colors: (
@@ -301,6 +301,8 @@ $theme-colors: (
   'danger': $danger,
   'light': $light,
   'dark': $dark,
+  'white': $white,
+  'black': $black,
 );
 
 $note: () !default;
@@ -342,13 +344,6 @@ $body-color: $gray-800;
 
 // Components
 
-// $box-shadow-0: none;
-// $box-shadow-1: 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 2px 10px 0 rgba(0, 0, 0, 0.05);
-// $box-shadow-2: 0 4px 10px 0 rgba(0, 0, 0, 0.05), 0 4px 20px 0 rgba(0, 0, 0, 0.05);
-// $box-shadow-3: 0 6px 15px 2px rgba(0, 0, 0, 0.05), 0 6px 30px 2px rgba(0, 0, 0, 0.05);
-// $box-shadow-4: 0 8px 20px 4px rgba(0, 0, 0, 0.05), 0 8px 40px 4px rgba(0, 0, 0, 0.05);
-// $box-shadow-5: 0 10px 25px 6px rgba(0, 0, 0, 0.05), 0 10px 50px 6px rgba(0, 0, 0, 0.05);
-
 $box-shadow-0: none;
 $box-shadow-1: 0 2px 10px 0 rgba(0, 0, 0, 0.05);
 $box-shadow-2: 0 5px 15px 0 rgba(0, 0, 0, 0.05);
@@ -356,11 +351,11 @@ $box-shadow-3: 0 10px 20px 0 rgba(0, 0, 0, 0.05);
 $box-shadow-4: 0 15px 30px 0 rgba(0, 0, 0, 0.05);
 $box-shadow-5: 0 20px 40px 0 rgba(0, 0, 0, 0.05);
 
-$box-shadow-1-strong: 0 2px 5px 0 rgba(0, 0, 0, 0.25), 0 2px 10px 0 rgba(0, 0, 0, 0.25);
-$box-shadow-2-strong: 0 4px 10px 0 rgba(0, 0, 0, 0.25), 0 4px 20px 0 rgba(0, 0, 0, 0.25);
-$box-shadow-3-strong: 0 6px 15px 2px rgba(0, 0, 0, 0.25), 0 6px 30px 2px rgba(0, 0, 0, 0.25);
-$box-shadow-4-strong: 0 8px 20px 4px rgba(0, 0, 0, 0.25), 0 8px 40px 4px rgba(0, 0, 0, 0.25);
-$box-shadow-5-strong: 0 10px 25px 6px rgba(0, 0, 0, 0.25), 0 10px 50px 6px rgba(0, 0, 0, 0.25);
+$box-shadow-1-strong: 0px 2px 5px 0px rgba(0, 0, 0, 0.25), 0px 3px 10px 0px rgba(0, 0, 0, 0.2);
+$box-shadow-2-strong: 0px 4px 8px 0px rgba(0, 0, 0, 0.25), 0px 5px 15px 2px rgba(0, 0, 0, 0.2);
+$box-shadow-3-strong: 0px 6px 11px 0px rgba(0, 0, 0, 0.25), 0px 7px 20px 3px rgba(0, 0, 0, 0.2);
+$box-shadow-4-strong: 0px 6px 14px 0px rgba(0, 0, 0, 0.25), 0px 10px 30px 4px rgba(0, 0, 0, 0.2);
+$box-shadow-5-strong: 0px 6px 20px 0px rgba(0, 0, 0, 0.25), 0px 12px 40px 5px rgba(0, 0, 0, 0.2);
 
 $shadows-light: (
   '0': $box-shadow-0,
@@ -386,12 +381,64 @@ $font-family-base: var(--mdb-font-roboto);
 
 $line-height-base: 1.6;
 
+// Badge
+
+$badge-dot-border-radius: 4.5px;
+$badge-dot-height: 9px;
+$badge-dot-width: 9px;
+$badge-dot-ml: -3px;
+$badge-notification-mt: -5px;
+$badge-notification-ml: -5px;
+
 // Buttons
 
-$btn-line-height: 1.6;
+$btn-line-height: 1.5;
+$btn-padding-top: 10px;
+$btn-padding-bottom: 8px;
+$btn-font-size: 12px;
+$btn-padding-left: 24px;
+$btn-padding-right: 24px;
+$btn-font-weight: 500;
 $btn-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 $btn-hover-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.1);
 $btn-focus-box-shadow: $btn-hover-box-shadow;
 $btn-active-box-shadow: $btn-hover-box-shadow;
+$btn-border-width: 2px;
 
-$btn-padding-top: 0.4375rem;
+$btn-outline-padding-top: 8px;
+$btn-outline-padding-bottom: 6px;
+$btn-outline-padding-left: 22px;
+$btn-outline-padding-right: 22px;
+
+$btn-outline-padding-top-sm: 4px;
+$btn-outline-padding-bottom-sm: 3px;
+$btn-outline-padding-right-sm: 14px;
+$btn-outline-padding-left-sm: 14px;
+
+$btn-outline-padding-top-lg: 10px;
+$btn-outline-padding-bottom-lg: 9px;
+$btn-outline-padding-right-lg: 25px;
+$btn-outline-padding-left-lg: 25px;
+
+$btn-line-height-lg: 1.6;
+$btn-font-size-lg: 14px;
+$btn-padding-top-lg: 12px;
+$btn-padding-bottom-lg: 11px;
+$btn-padding-right-lg: 27px;
+$btn-padding-left-lg: 27px;
+
+$btn-line-height-sm: $btn-line-height;
+$btn-font-size-sm: 12px;
+$btn-padding-top-sm: 6px;
+$btn-padding-bottom-sm: 5px;
+$btn-padding-right-sm: 16px;
+$btn-padding-left-sm: 16px;
+
+$btn-link-bgc: #f5f5f5;
+$btn-rounded-border-radius: 10rem;
+
+// Button group
+
+$btn-group-border-radius: calc(0.25rem - 1px);
+$btn-group-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;

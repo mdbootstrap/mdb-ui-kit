@@ -2,9 +2,8 @@
 
 .btn-group {
   box-shadow: $btn-box-shadow;
-  border-radius: calc(0.25rem - 1px);
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  border-radius: $btn-group-border-radius;
+  transition: $btn-group-transition;
 
   &:hover {
     box-shadow: $btn-hover-box-shadow;

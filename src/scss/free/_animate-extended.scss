@@ -1,6 +1,6 @@
 // animations
 
-@keyframes dropIn {
+@keyframes drop-in {
   0% {
     opacity: 0;
     transform: scale(0);
@@ -11,13 +11,13 @@
   }
 }
 
-.dropIn {
+.drop-in {
   transform-origin: top center;
   animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
-  animation-name: dropIn;
+  animation-name: drop-in;
 }
 
-@keyframes dropOut {
+@keyframes drop-out {
   0% {
     opacity: 1;
     transform: scale(1);
@@ -28,13 +28,13 @@
   }
 }
 
-.dropOut {
+.drop-out {
   transform-origin: top center;
   animation-timing-function: cubic-bezier(0.34, 1.61, 0.7, 1);
-  animation-name: dropOut;
+  animation-name: drop-out;
 }
 
-@keyframes flyIn {
+@keyframes fly-in {
   0% {
     opacity: 0;
     transform: scale3d(0.3, 0.3, 0.3);
@@ -58,12 +58,12 @@
   }
 }
 
-.flyIn {
-  animation-name: flyIn;
+.fly-in {
+  animation-name: fly-in;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes flyInUp {
+@keyframes fly-in-up {
   0% {
     opacity: 0;
     transform: translate3d(0, 1500px, 0);
@@ -83,12 +83,12 @@
   }
 }
 
-.flyInUp {
-  animation-name: flyInUp;
+.fly-in-up {
+  animation-name: fly-in-up;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes flyInDown {
+@keyframes fly-in-down {
   0% {
     opacity: 0;
     transform: translate3d(0, -1500px, 0);
@@ -108,12 +108,12 @@
   }
 }
 
-.flyInDown {
-  animation-name: flyInDown;
+.fly-in-down {
+  animation-name: fly-in-down;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes flyInLeft {
+@keyframes fly-in-left {
   0% {
     opacity: 0;
     transform: translate3d(1500px, 0, 0);
@@ -133,12 +133,12 @@
   }
 }
 
-.flyInLeft {
-  animation-name: flyInLeft;
+.fly-in-left {
+  animation-name: fly-in-left;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes flyInRight {
+@keyframes fly-in-right {
   0% {
     opacity: 0;
     transform: translate3d(-1500px, 0, 0);
@@ -158,12 +158,12 @@
   }
 }
 
-.flyInRight {
-  animation-name: flyInRight;
+.fly-in-right {
+  animation-name: fly-in-right;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes flyOut {
+@keyframes fly-out {
   20% {
     transform: scale3d(0.9, 0.9, 0.9);
   }
@@ -178,12 +178,12 @@
   }
 }
 
-.flyOut {
-  animation-name: flyOut;
+.fly-out {
+  animation-name: fly-out;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes flyOutUp {
+@keyframes fly-out-up {
   20% {
     transform: translate3d(0, 10px, 0);
   }
@@ -198,12 +198,12 @@
   }
 }
 
-.flyOutUp {
-  animation-name: flyOutUp;
+.fly-out-up {
+  animation-name: fly-out-up;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes flyOutDown {
+@keyframes fly-out-down {
   20% {
     transform: translate3d(0, -10px, 0);
   }
@@ -218,12 +218,12 @@
   }
 }
 
-.flyOutDown {
-  animation-name: flyOutDown;
+.fly-out-down {
+  animation-name: fly-out-down;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes flyOutLeft {
+@keyframes fly-out-left {
   20% {
     opacity: 1;
     transform: translate3d(-20px, 0, 0);
@@ -234,12 +234,12 @@
   }
 }
 
-.flyOutLeft {
-  animation-name: flyOutLeft;
+.fly-out-left {
+  animation-name: fly-out-left;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes flyOutRight {
+@keyframes fly-out-right {
   20% {
     opacity: 1;
     transform: translate3d(20px, 0, 0);
@@ -250,12 +250,12 @@
   }
 }
 
-.flyOutRight {
-  animation-name: flyOutRight;
+.fly-out-right {
+  animation-name: fly-out-right;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-@keyframes browseIn {
+@keyframes browse-in {
   0% {
     transform: scale(0.8) translateZ(0px);
     z-index: -1;
@@ -276,11 +276,11 @@
   }
 }
 
-.browseIn {
-  animation-name: browseIn;
+.browse-in {
+  animation-name: browse-in;
 }
 
-@keyframes browseOutLeft {
+@keyframes browse-out-left {
   0% {
     z-index: 999;
     transform: translateX(0%) rotateY(0deg) rotateX(0deg);
@@ -299,12 +299,12 @@
   }
 }
 
-.browseOut,
-.browseOutLeft {
-  animation-name: browseOutLeft;
+.browse-out,
+.browse-out-left {
+  animation-name: browse-out-left;
 }
 
-@keyframes browseOutRight {
+@keyframes browse-out-right {
   0% {
     z-index: 999;
     transform: translateX(0%) rotateY(0deg) rotateX(0deg);
@@ -323,8 +323,8 @@
   }
 }
 
-.browseOutRight {
-  animation-name: browseOutRight;
+.browse-out-right {
+  animation-name: browse-out-right;
 }
 
 @keyframes jiggle {

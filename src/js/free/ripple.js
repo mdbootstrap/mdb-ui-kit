@@ -36,19 +36,19 @@ const BOOTSTRAP_COLORS = [
 const TRANSITION_BREAK_OPACITY = 0.5;
 
 const Default = {
-  centered: false,
-  color: '',
-  duration: '500ms',
-  radius: 0,
-  unbound: false,
+  rippleCentered: false,
+  rippleColor: '',
+  rippleDuration: '500ms',
+  rippleRadius: 0,
+  rippleUnbound: false,
 };
 
 const DefaultType = {
-  centered: 'boolean',
-  color: 'string',
-  duration: 'string',
-  radius: 'number',
-  unbound: 'boolean',
+  rippleCentered: 'boolean',
+  rippleColor: 'string',
+  rippleDuration: 'string',
+  rippleRadius: 'number',
+  rippleUnbound: 'boolean',
 };
 
 /**
@@ -83,9 +83,9 @@ class Ripple {
 
   dispose() {
     Data.removeData(this._element, DATA_KEY);
+    EventHandler.off(this._element, 'click', '');
     this._element = null;
     this._options = null;
-    EventHandler.off(this._element, 'click', '');
   }
 
   // Private
@@ -109,18 +109,20 @@ class Ripple {
   }
 
   _createRipple(event) {
-    const { offsetX, offsetY } = event;
+    const { layerX, layerY } = event;
+    const offsetX = layerX;
+    const offsetY = layerY;
     const height = this._element.offsetHeight;
     const width = this._element.offsetWidth;
-    const duration = this._durationToMsNumber(this._options.duration);
+    const duration = this._durationToMsNumber(this._options.rippleDuration);
     const diameterOptions = {
-      offsetX: this._options.centered ? height / 2 : offsetX,
-      offsetY: this._options.centered ? width / 2 : offsetY,
+      offsetX: this._options.rippleCentered ? height / 2 : offsetX,
+      offsetY: this._options.rippleCentered ? width / 2 : offsetY,
       height,
       width,
     };
     const diameter = this._getDiameter(diameterOptions);
-    const radiusValue = this._options.radius || diameter / 2;
+    const radiusValue = this._options.rippleRadius || diameter / 2;
 
     const opacity = {
       delay: duration * TRANSITION_BREAK_OPACITY,
@@ -128,10 +130,14 @@ class Ripple {
     };
 
     const styles = {
-      left: this._options.centered ? `${width / 2 - radiusValue}px` : `${offsetX - radiusValue}px`,
-      top: this._options.centered ? `${height / 2 - radiusValue}px` : `${offsetY - radiusValue}px`,
-      height: `${this._options.radius * 2 || diameter}px`,
-      width: `${this._options.radius * 2 || diameter}px`,
+      left: this._options.rippleCentered
+        ? `${width / 2 - radiusValue}px`
+        : `${offsetX - radiusValue}px`,
+      top: this._options.rippleCentered
+        ? `${height / 2 - radiusValue}px`
+        : `${offsetY - radiusValue}px`,
+      height: `${this._options.rippleRadius * 2 || diameter}px`,
+      width: `${this._options.rippleRadius * 2 || diameter}px`,
       transitionDelay: `0s, ${opacity.delay}ms`,
       transitionDuration: `${duration}ms, ${opacity.duration}ms`,
     };
@@ -139,13 +145,13 @@ class Ripple {
     const rippleHTML = element('div');
 
     this._createHTMLRipple({ wrapper: this._element, ripple: rippleHTML, styles });
-    this._removeHTMLRipple({ wrapper: this._element, ripple: rippleHTML, duration });
+    this._removeHTMLRipple({ ripple: rippleHTML, duration });
   }
 
   _createHTMLRipple({ wrapper, ripple, styles }) {
     Object.keys(styles).forEach((property) => (ripple.style[property] = styles[property]));
     ripple.classList.add(CLASSNAME_RIPPLE_WAVE);
-    if (this._options.color !== '') {
+    if (this._options.rippleColor !== '') {
       this._removeOldColorClasses(wrapper);
       this._addColor(ripple, wrapper);
     }
@@ -154,9 +160,11 @@ class Ripple {
     this._appendRipple(ripple, wrapper);
   }
 
-  _removeHTMLRipple({ wrapper, ripple, duration }) {
+  _removeHTMLRipple({ ripple, duration }) {
     setTimeout(() => {
-      wrapper.removeChild(ripple);
+      if (ripple) {
+        ripple.remove();
+      }
     }, duration);
   }
 
@@ -213,7 +221,7 @@ class Ripple {
   }
 
   _appendRipple(target, parent) {
-    const FIX_ADD_RIPPLE_EFFECT = 50; // We need delay for active animations
+    const FIX_ADD_RIPPLE_EFFECT = 50; // delay for active animations
     parent.appendChild(target);
     setTimeout(() => {
       Manipulator.addClass(target, 'active');
@@ -221,7 +229,7 @@ class Ripple {
   }
 
   _toggleUnbound(target) {
-    if (this._options.unbound === true) {
+    if (this._options.rippleUnbound === true) {
       Manipulator.addClass(target, CLASSNAME_UNBOUND);
     } else {
       target.classList.remove(CLASSNAME_UNBOUND);
@@ -230,13 +238,16 @@ class Ripple {
 
   _addColor(target, parent) {
     const IS_BOOTSTRAP_COLOR = BOOTSTRAP_COLORS.find(
-      (color) => color === this._options.color.toLowerCase()
+      (color) => color === this._options.rippleColor.toLowerCase()
     );
 
     if (IS_BOOTSTRAP_COLOR) {
-      Manipulator.addClass(parent, `${CLASSNAME_RIPPLE}-${this._options.color.toLowerCase()}`);
+      Manipulator.addClass(
+        parent,
+        `${CLASSNAME_RIPPLE}-${this._options.rippleColor.toLowerCase()}`
+      );
     } else {
-      const rgbValue = this._colorToRGB(this._options.color).join(',');
+      const rgbValue = this._colorToRGB(this._options.rippleColor).join(',');
       const gradientImage = GRADIENT.split('{{color}}').join(`${rgbValue}`);
       target.style.backgroundImage = `radial-gradient(circle, ${gradientImage})`;
     }
