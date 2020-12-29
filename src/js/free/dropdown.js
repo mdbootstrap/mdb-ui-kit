@@ -11,6 +11,9 @@ import Manipulator from '../bootstrap/src/dom/manipulator';
  */
 
 const NAME = 'dropdown';
+const DATA_KEY = `mdb.${NAME}`;
+const EVENT_KEY = `.${DATA_KEY}`;
+
 const SELECTOR_EXPAND = '[data-toggle="dropdown"]';
 
 const Default = {
@@ -36,6 +39,12 @@ const DefaultType = {
 const EVENT_HIDE = 'hide.bs.dropdown';
 const EVENT_HIDDEN = 'hidden.bs.dropdown';
 const EVENT_SHOW = 'show.bs.dropdown';
+const EVENT_SHOWN = 'shown.bs.dropdown';
+
+const EVENT_HIDE_MDB = `hide${EVENT_KEY}`;
+const EVENT_HIDDEN_MDB = `hidden${EVENT_KEY}`;
+const EVENT_SHOW_MDB = `show${EVENT_KEY}`;
+const EVENT_SHOWN_MDB = `shown${EVENT_KEY}`;
 
 const ANIMATION_CLASS = 'animation';
 const ANIMATION_SHOW_CLASS = 'fade-in';
@@ -59,6 +68,7 @@ class Dropdown extends BSDropdown {
 
   dispose() {
     EventHandler.off(this._element, EVENT_SHOW);
+    EventHandler.off(this._parent, EVENT_SHOWN);
     EventHandler.off(this._parent, EVENT_HIDE);
     EventHandler.off(this._parent, EVENT_HIDDEN);
     super.dispose();
@@ -72,6 +82,7 @@ class Dropdown extends BSDropdown {
   // Private
   _init() {
     this._bindShowEvent();
+    this._bindShownEvent();
     this._bindHideEvent();
     this._bindHiddenEvent();
   }
@@ -87,20 +98,32 @@ class Dropdown extends BSDropdown {
   }
 
   _bindShowEvent() {
-    EventHandler.on(this._element, EVENT_SHOW, () => {
+    EventHandler.on(this._element, EVENT_SHOW, (e) => {
+      EventHandler.trigger(this._element, EVENT_SHOW_MDB, { relatedTarget: e.relatedTarget });
+
       this._dropdownAnimationStart('show');
     });
   }
 
+  _bindShownEvent() {
+    EventHandler.on(this._parent, EVENT_SHOWN, (e) => {
+      EventHandler.trigger(this._parent, EVENT_SHOWN_MDB, { relatedTarget: e.relatedTarget });
+    });
+  }
+
   _bindHideEvent() {
-    EventHandler.on(this._parent, EVENT_HIDE, () => {
+    EventHandler.on(this._parent, EVENT_HIDE, (e) => {
+      EventHandler.trigger(this._parent, EVENT_HIDE_MDB, { relatedTarget: e.relatedTarget });
+
       this._menuStyle = this._menu.style.cssText;
       this._xPlacement = this._menu.getAttribute('x-placement');
     });
   }
 
   _bindHiddenEvent() {
-    EventHandler.on(this._parent, EVENT_HIDDEN, () => {
+    EventHandler.on(this._parent, EVENT_HIDDEN, (e) => {
+      EventHandler.trigger(this._parent, EVENT_HIDDEN_MDB, { relatedTarget: e.relatedTarget });
+
       this._menu.style.cssText = this._menuStyle;
       this._menu.setAttribute('x-placement', this._xPlacement);
 

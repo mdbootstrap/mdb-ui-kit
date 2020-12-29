@@ -1,24 +1,20 @@
 // BOOTSTRAP CORE COMPONENTS
-import Alert from './bootstrap/src/alert';
-import Button from './bootstrap/src/button';
-import Carousel from './bootstrap/src/carousel';
 import Collapse from './bootstrap/src/collapse';
-import Modal from './bootstrap/src/modal';
-import Popover from './bootstrap/src/popover';
-import ScrollSpy from './bootstrap/src/scrollspy';
-import Tab from './bootstrap/src/tab';
-import Tooltip from './bootstrap/src/tooltip';
-import Toast from './bootstrap/src/toast';
+import Alert from './free/alert';
+import Button from './bootstrap/src/button';
+import Carousel from './free/carousel';
+import Modal from './free/modal';
+import Popover from './free/popover';
+import ScrollSpy from './free/scrollspy';
+import Tab from './free/tab';
+import Tooltip from './free/tooltip';
+import Toast from './free/toast';
 
 // MDB FREE COMPONENTS
 import Input from './free/input';
 import Dropdown from './free/dropdown';
 import Ripple from './free/ripple';
-
-// AUTO INIT
-[...document.querySelectorAll('[data-toggle="tooltip"]')].map((tooltip) => new Tooltip(tooltip));
-[...document.querySelectorAll('[data-toggle="popover"]')].map((popover) => new Popover(popover));
-[...document.querySelectorAll('.toast')].map((toast) => new Toast(toast));
+import Range from './free/range';
 
 export {
   Alert,
@@ -34,4 +30,5 @@ export {
   Tab,
   Toast,
   Tooltip,
+  Range,
 };
