@@ -6,7 +6,7 @@
   min-width: 0;
   padding: 0;
   width: $badge-dot-width;
-  margin-left: $badge-dot-ml;
+  margin-left: -5px;
   &:empty {
     display: inline-block;
   }
@@ -14,6 +14,8 @@
 
 .badge-notification {
   position: absolute;
-  margin-top: $badge-notification-mt;
-  margin-left: $badge-notification-ml;
+  font-size: 0.6rem;
+  margin-top: -0.1rem;
+  margin-left: -0.5rem;
+  padding: 0.2em 0.45em;
 }

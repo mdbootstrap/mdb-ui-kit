@@ -77,8 +77,6 @@ class Input {
     this._label = SelectorEngine.findOne('label', this._element);
     if (this._label === null) return;
     this._getLabelWidth();
-
-    if (!this._element.classList.contains('input-group')) return;
     this._getLabelPositionInInputGroup();
   }
 
@@ -92,12 +90,18 @@ class Input {
   }
 
   _getLabelPositionInInputGroup() {
+    this._labelMarginLeft = 0;
+
+    if (!this._element.classList.contains('input-group')) return;
     const input =
       SelectorEngine.findOne('input', this._element) ||
       SelectorEngine.findOne('textarea', this._element);
     const prefix = SelectorEngine.prev(input, '.input-group-text')[0];
-    if (prefix === undefined) return;
-    this._labelMarginLeft = prefix.offsetWidth - 1;
+    if (prefix === undefined) {
+      this._labelMarginLeft = 0;
+    } else {
+      this._labelMarginLeft = prefix.offsetWidth - 1;
+    }
   }
 
   _applyDivs() {
@@ -130,24 +134,33 @@ class Input {
   }
 
   _activate(event) {
-    if (event) this._label = SelectorEngine.findOne('label', event.target.parentNode);
+    this._getElements(event);
+
+    const input = event
+      ? event.target
+      : SelectorEngine.findOne('input', this._element) ||
+        SelectorEngine.findOne('textarea', this._element);
+
+    if (input.value !== '') {
+      Manipulator.addClass(input, 'active');
+    }
+  }
+
+  _getElements(event) {
+    if (event) {
+      this._element = event.target.parentNode;
+      this._label = SelectorEngine.findOne('label', this._element);
+    }
+
     if (event && this._label) {
       const prevLabelWidth = this._labelWidth;
-      this._getLabelWidth();
+      this._getLabelData();
 
       if (prevLabelWidth !== this._labelWidth) {
         this._notchMiddle = SelectorEngine.findOne('.form-notch-middle', event.target.parentNode);
         this._notchLeading = SelectorEngine.findOne('.form-notch-leading', event.target.parentNode);
         this._applyNotch();
       }
-    }
-
-    const input = event
-      ? event.target
-      : SelectorEngine.findOne('input', this._element) ||
-        SelectorEngine.findOne('textarea', this._element);
-    if (input.value !== '') {
-      Manipulator.addClass(input, 'active');
     }
   }
 
@@ -186,8 +199,46 @@ EventHandler.on(document, 'focus', OUTLINE_TEXTAREA, Input.activate(new Input())
 EventHandler.on(document, 'input', OUTLINE_TEXTAREA, Input.activate(new Input()));
 EventHandler.on(document, 'blur', OUTLINE_TEXTAREA, Input.deactivate(new Input()));
 
-EventHandler.on(window, 'shown.bs.modal', Input.activate(new Input()));
-EventHandler.on(window, 'shown.bs.dropdown', Input.activate(new Input()));
+EventHandler.on(window, 'shown.bs.modal', (e) => {
+  SelectorEngine.find(OUTLINE_INPUT, e.target).forEach((element) => {
+    const instance = Input.getInstance(element.parentNode);
+    if (!instance) return;
+    instance.update();
+  });
+  SelectorEngine.find(OUTLINE_TEXTAREA, e.target).forEach((element) => {
+    const instance = Input.getInstance(element.parentNode);
+    if (!instance) return;
+    instance.update();
+  });
+});
+
+EventHandler.on(window, 'shown.bs.dropdown', (e) => {
+  SelectorEngine.find(OUTLINE_INPUT, e.target).forEach((element) => {
+    const instance = Input.getInstance(element.parentNode);
+    if (!instance) return;
+    instance.update();
+  });
+  SelectorEngine.find(OUTLINE_TEXTAREA, e.target).forEach((element) => {
+    const instance = Input.getInstance(element.parentNode);
+    if (!instance) return;
+    instance.update();
+  });
+});
+
+EventHandler.on(window, 'shown.bs.tab', (e) => {
+  const targetId = e.target.href.split('#')[1];
+  const target = SelectorEngine.findOne(`#${targetId}`);
+  SelectorEngine.find(OUTLINE_INPUT, target).forEach((element) => {
+    const instance = Input.getInstance(element.parentNode);
+    if (!instance) return;
+    instance.update();
+  });
+  SelectorEngine.find(OUTLINE_TEXTAREA, target).forEach((element) => {
+    const instance = Input.getInstance(element.parentNode);
+    if (!instance) return;
+    instance.update();
+  });
+});
 
 // auto-init
 SelectorEngine.find(`.${CLASSNAME_WRAPPER}`).forEach((element) => {
