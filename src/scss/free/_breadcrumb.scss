@@ -7,16 +7,16 @@
 
     .breadcrumb-item {
       a {
-        color: rgba(0, 0, 0, 0.55);
-        transition: color 0.15s ease-in-out;
+        color: $breadcrumb-item-color;
+        transition: $breadcrumb-item-transition;
         &:hover,
         &:focus {
-          color: rgba(0, 0, 0, 0.7);
+          color: $breadcrumb-item-hover-color;
         }
       }
       + .breadcrumb-item {
         &:before {
-          color: rgba(0, 0, 0, 0.55);
+          color: $breadcrumb-item-before-color;
         }
       }
     }

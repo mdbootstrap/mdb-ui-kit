@@ -338,4 +338,21 @@ const EventHandler = {
   },
 };
 
+export const EventHandlerMulti = {
+  on(element, eventsName, handler, delegationFn) {
+    const events = eventsName.split(' ');
+
+    for (let i = 0; i < events.length; i++) {
+      EventHandler.on(element, events[i], handler, delegationFn);
+    }
+  },
+  off(element, originalTypeEvent, handler, delegationFn) {
+    const events = originalTypeEvent.split(' ');
+
+    for (let i = 0; i < events.length; i++) {
+      EventHandler.off(element, events[i], handler, delegationFn);
+    }
+  },
+};
+
 export default EventHandler;

@@ -1,11 +1,11 @@
 // Toasts
 
 .toast {
-  background-color: #fff;
+  background-color: $toast-background-color;
   border: 0;
-  box-shadow: $box-shadow-2;
+  box-shadow: $toast-box-shadow;
 }
 
 .toast-header {
-  background-color: #fff;
+  background-color: $toast-header-background-color;
 }

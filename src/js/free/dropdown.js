@@ -1,7 +1,9 @@
-import { getjQuery } from '../mdb/util/index';
+import { getjQuery, typeCheckConfig } from '../mdb/util/index';
 import EventHandler from '../bootstrap/src/dom/event-handler';
 import SelectorEngine from '../mdb/dom/selector-engine';
 import BSDropdown from '../bootstrap/src/dropdown';
+import Manipulator from '../bootstrap/src/dom/manipulator';
+
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -10,6 +12,26 @@ import BSDropdown from '../bootstrap/src/dropdown';
 
 const NAME = 'dropdown';
 const SELECTOR_EXPAND = '[data-toggle="dropdown"]';
+
+const Default = {
+  offset: 0,
+  flip: true,
+  boundary: 'scrollParent',
+  reference: 'toggle',
+  display: 'dynamic',
+  popperConfig: null,
+  dropdownAnimation: 'on',
+};
+
+const DefaultType = {
+  offset: '(number|string|function)',
+  flip: 'boolean',
+  boundary: '(string|element)',
+  reference: '(string|element)',
+  display: 'string',
+  popperConfig: '(null|object)',
+  dropdownAnimation: 'string',
+};
 
 const EVENT_HIDE = 'hide.bs.dropdown';
 const EVENT_HIDDEN = 'hidden.bs.dropdown';
@@ -22,11 +44,14 @@ const ANIMATION_HIDE_CLASS = 'fade-out';
 class Dropdown extends BSDropdown {
   constructor(element, data) {
     super(element, data);
-    this._options = this._getConfig(data);
+    this._config = this._getConfig(data);
     this._parent = Dropdown.getParentFromElement(this._element);
     this._menuStyle = '';
     this._xPlacement = '';
-    this._init();
+
+    if (this._config.dropdownAnimation === 'on') {
+      this._init();
+    }
   }
 
   dispose() {
@@ -46,6 +71,16 @@ class Dropdown extends BSDropdown {
     this._bindShowEvent();
     this._bindHideEvent();
     this._bindHiddenEvent();
+  }
+
+  _getConfig(options) {
+    const config = {
+      ...Default,
+      ...Manipulator.getDataAttributes(this._element),
+      ...options,
+    };
+    typeCheckConfig(NAME, config, DefaultType);
+    return config;
   }
 
   _bindShowEvent() {

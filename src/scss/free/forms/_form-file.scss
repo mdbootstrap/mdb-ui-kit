@@ -1,9 +1,9 @@
 .form-file {
-  height: calc(1.8em + 0.33rem + 2px);
+  height: $form-file-height;
 }
 
 .form-file-input {
-  height: calc(1.8em + 0.33rem + 2px);
+  height: $form-file-height;
 
   &:focus-within ~ .form-file-label {
     border: none;
@@ -13,83 +13,79 @@
   &:focus-within ~ .form-file-label .form-file-text,
   &:focus-within ~ .form-file-label .form-file-button {
     border-style: solid;
-    border-color: $primary;
-    transition: all 0.2s linear;
+    border-color: $form-file-label-focus-border-color;
+    transition: $form-file-label-focus-transition;
   }
 
   &:focus-within ~ .form-file-label .form-file-text {
-    border-width: 2px 1px 2px 2px;
+    border-width: $form-file-label-focus-text-border-width;
   }
 
   &:focus-within ~ .form-file-label .form-file-button {
-    border-width: 2px 2px 2px 1px;
+    border-width: $form-file-label-focus-button-border-width;
   }
 
   &[disabled] ~ .form-file-label .form-file-text,
   &:disabled ~ .form-file-label .form-file-text,
   &[disabled] ~ .form-file-label .form-file-button,
   &:disabled ~ .form-file-label .form-file-button {
-    background-color: #e9ecef;
+    background-color: $form-file-label-disabled-background-color;
   }
 }
 
 .form-file-label {
-  height: calc(1.8em + 0.33rem + 2px);
-  border-color: rgba(0, 0, 0, 0.38);
+  height: $form-file-label-height;
+  border-color: $form-file-label-border-color;
 }
 
 .form-file-text {
-  padding-top: 0.33rem;
-  padding-bottom: 0.33rem;
-  border-color: #bdbdbd;
+  padding-top: $form-file-text-padding-y;
+  padding-bottom: $form-file-text-padding-y;
+  border-color: $form-file-text-border-color;
 }
 
 .form-file-button {
-  line-height: 1.5;
-  background-color: #fff;
-  border-color: #bdbdbd;
+  line-height: $form-file-button-line-height;
+  background-color: $form-file-button-background-color;
+  border-color: $form-file-button-border-color;
 }
 
 .form-file-sm {
-  height: calc(1.7em + 0.33rem + 2px);
-  font-size: 0.775rem;
+  height: $form-file-sm-height;
+  font-size: $form-file-sm-font-size;
 
   .form-file-input {
-    height: calc(1.7em + 0.33rem + 2px);
+    height: $form-file-sm-height;
   }
 
   .form-file-label {
-    height: calc(1.7em + 0.33rem + 2px);
+    height: $form-file-sm-height;
   }
 
   .form-file-text,
   .form-file-button {
-    line-height: 1.5;
-    padding-top: 0.33rem;
-    padding-bottom: 0.33rem;
+    line-height: $form-file-sm-line-height;
+    padding-top: $form-file-sm-padding-y;
+    padding-bottom: $form-file-sm-padding-y;
   }
 }
 
 .form-file-lg {
-  height: calc(2.315em + 0.33rem + 2px);
-  font-size: 1rem;
+  height: $form-file-lg-height;
+  font-size: $form-file-lg-font-size;
 
   .form-file-input {
-    height: calc(2.315em + 0.33rem + 2px);
+    height: $form-file-lg-height;
   }
 
   .form-file-label {
-    height: calc(2.315em + 0.33rem + 2px);
+    height: $form-file-lg-height;
   }
 
   .form-file-text,
   .form-file-button {
-    line-height: 2.15;
-    padding-top: 0.33rem;
-    padding-bottom: 0.33rem;
+    line-height: $form-file-lg-line-height;
+    padding-top: $form-file-lg-padding-y;
+    padding-bottom: $form-file-lg-padding-y;
   }
-}
-
-.form-file.test .form-file-input:focus-within ~ .form-file-label .form-file-text {
-  border-width: 2px;
 }

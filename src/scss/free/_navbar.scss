@@ -1,8 +1,8 @@
 // Navbar
 
 .navbar {
-  box-shadow: $box-shadow-3;
-  padding-top: 0.5625rem;
+  box-shadow: $navbar-box-shadow;
+  padding-top: $navbar-padding-top;
 }
 
 .navbar-toggler {
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   img {
-    margin-right: 0.25rem;
+    margin-right: $navbar-brand-img-margin-right;
   }
 }
 

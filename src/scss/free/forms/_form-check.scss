@@ -4,10 +4,10 @@
 
 .form-check {
   .form-check-input {
-    margin-left: 1.79rem * -1;
+    margin-left: $form-check-input-margin-left * -1;
 
     &[type='radio'] {
-      margin-left: 1.85rem * -1;
+      margin-left: $form-check-input-radio-margin-left * -1;
     }
   }
 
@@ -16,51 +16,51 @@
 }
 
 .form-check-input {
-  width: 18px;
-  height: 18px;
-  background-color: #fff;
-  border: 2px solid rgb(117, 117, 117);
+  width: $form-check-input-width;
+  height: $form-check-input-height;
+  background-color: $form-check-input-background-color;
+  border: $form-check-input-border-width solid $form-check-input-border-color;
 
   &:before {
     content: '';
     position: absolute;
-    box-shadow: 0px 0px 0px 13px transparent;
-    border-radius: 50%;
-    width: 14px;
-    height: 14px;
+    box-shadow: $form-check-input-before-box-shadow;
+    border-radius: $form-check-input-before-border-radius;
+    width: $form-check-input-before-width;
+    height: $form-check-input-before-height;
     background-color: transparent;
     opacity: 0;
     pointer-events: none;
-    transform: scale(0);
+    transform: $form-check-input-before-transform;
   }
 
   &:hover {
     cursor: pointer;
 
     &:before {
-      opacity: 0.04;
-      box-shadow: 0px 0px 0px 13px rgba(0, 0, 0, 0.6);
+      opacity: $form-check-input-hover-before-opacity;
+      box-shadow: $form-check-input-hover-before-box-shadow;
     }
   }
 
   &:focus {
     box-shadow: none;
-    border-color: rgb(117, 117, 117);
-    transition: border-color 0.2s;
+    border-color: $form-check-input-focus-border-color;
+    transition: $form-check-input-focus-transition;
 
     &:before {
-      opacity: 0.12;
-      box-shadow: 0px 0px 0px 13px rgba(0, 0, 0, 0.6);
-      transform: scale(1);
-      transition: box-shadow 0.2s, transform 0.2s;
+      opacity: $form-check-input-focus-before-opacity;
+      box-shadow: $form-check-input-focus-before-box-shadow;
+      transform: $form-check-input-focus-before-transform;
+      transition: $form-check-input-focus-before-transition;
     }
   }
 
   &:checked {
-    border-color: $primary;
+    border-color: $form-check-input-checked-border-color;
 
     &:before {
-      opacity: 0.16;
+      opacity: $form-check-input-checked-before-opacity;
     }
 
     &:after {
@@ -69,12 +69,12 @@
     }
 
     &:focus {
-      border-color: $primary;
+      border-color: $form-check-input-checked-focus-border-color;
 
       &:before {
-        box-shadow: 0px 0px 0px 13px $primary;
-        transform: scale(1);
-        transition: box-shadow 0.2s, transform 0.2s;
+        box-shadow: $form-check-input-checked-focus-before-box-shadow;
+        transform: $form-check-input-checked-focus-before-transform;
+        transition: $form-check-input-checked-focus-before-transition;
       }
     }
   }
@@ -82,115 +82,114 @@
   &:indeterminate {
     &:focus {
       &:before {
-        box-shadow: 0px 0px 0px 13px $primary;
+        box-shadow: $form-check-input-indeterminate-focus-before-box-shadow;
       }
     }
   }
 
   &[type='checkbox'] {
-    border-radius: 2px;
+    border-radius: $form-check-input-checkbox-border-radius;
 
     &:focus {
       &:after {
         content: '';
         position: absolute;
-        width: 14px;
-        height: 14px;
+        width: $form-check-input-checkbox-focus-after-width;
+        height: $form-check-input-checkbox-focus-after-height;
         z-index: 1;
         display: block;
         border-radius: 0;
-        background-color: #fff;
+        background-color: $form-check-input-checkbox-focus-after-background-color;
       }
     }
 
     &:checked {
       background-image: none;
-      background-color: $primary;
+      background-color: $form-check-input-checkbox-checked-background-color;
 
       &:after {
         display: block;
-        transform: rotate(45deg);
-        border-width: 2px;
-        border-color: #fff;
-        width: 6px;
-        height: 13px;
+        transform: $form-check-input-checkbox-checked-after-transform;
+        border-width: $form-check-input-checkbox-checked-after-border-width;
+        border-color: $form-check-input-checkbox-checked-after-border-color;
+        width: $form-check-input-checkbox-checked-after-width;
+        height: $form-check-input-checkbox-checked-after-height;
         border-style: solid;
         border-top: 0;
         border-left: 0;
-        margin-left: 4px;
-        margin-top: -1px;
+        margin-left: $form-check-input-checkbox-checked-after-margin-left;
+        margin-top: $form-check-input-checkbox-checked-after-margin-top;
         background-color: transparent;
       }
 
       &:focus {
-        background-color: $primary;
+        background-color: $form-check-input-checkbox-checked-focus-background-color;
       }
     }
 
     &:checked:indeterminate,
     &:indeterminate {
       background-image: none;
-      background-color: $primary;
+      background-color: $form-check-input-indeterminate-checked-background-color;
 
       &:after {
         display: block;
-        transform: rotate(90deg);
-        border-width: 2px;
-        border-color: #fff;
-        border-width: 2px;
-        width: 2px;
-        height: 14px;
+        transform: $form-check-input-indeterminate-checked-after-transform;
+        border-width: $form-check-input-indeterminate-checked-after-border-width;
+        border-color: $form-check-input-indeterminate-checked-after-border-color;
+        width: $form-check-input-indeterminate-checked-after-width;
+        height: $form-check-input-indeterminate-checked-after-height;
         border-style: solid;
         border-top: 0;
         border-left: 0;
-        margin-left: 6px;
+        margin-left: $form-check-input-indeterminate-checked-after-margin-left;
         margin-top: 0;
       }
 
       &:focus {
-        background-color: $primary;
+        background-color: $form-check-input-indeterminate-focus-background-color;
       }
     }
   }
 
   &[type='radio'] {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
+    border-radius: $form-check-input-radio-border-radius;
+    width: $form-check-input-radio-width;
+    height: $form-check-input-radio-height;
 
     &:before {
-      width: 16px;
-      height: 16px;
+      width: $form-check-input-radio-before-width;
+      height: $form-check-input-radio-before-height;
     }
 
     &:after {
       content: '';
       position: absolute;
-      width: 16px;
-      height: 16px;
+      width: $form-check-input-radio-after-width;
+      height: $form-check-input-radio-after-height;
       z-index: 1;
       display: block;
-      border-radius: 50%;
-      background-color: #fff;
+      border-radius: $form-check-input-radio-after-border-radius;
+      background-color: $form-check-input-radio-after-background-color;
     }
 
     &:checked {
       background-image: none;
-      background-color: #fff;
+      background-color: $form-check-input-radio-checked-background-color;
 
       &:after {
-        border-radius: 50%;
-        width: 10px;
-        height: 10px;
-        border-color: $primary;
-        background-color: $primary;
-        margin-top: 3px;
-        margin-left: 3px;
-        transition: border-color;
+        border-radius: $form-check-input-radio-checked-after-border-radius;
+        width: $form-check-input-radio-checked-after-width;
+        height: $form-check-input-radio-checked-after-height;
+        border-color: $form-check-input-radio-checked-after-border-color;
+        background-color: $form-check-input-radio-checked-after-background-color;
+        margin-top: $form-check-input-radio-checked-after-margin-top;
+        margin-left: $form-check-input-radio-checked-after-margin-left;
+        transition: $form-check-input-radio-checked-after-transition;
       }
 
       &:focus {
-        background-color: #fff;
+        background-color: $form-check-input-radio-checked-focus-background-color;
       }
     }
   }
@@ -202,40 +201,50 @@
   }
 }
 
+//
+// Switch
+//
+
 .form-switch {
-  padding-left: 1.85rem;
+  padding-left: $form-switch-padding-left;
+
   .form-check-input {
     background-image: none;
-    border-width: 0px;
-    border-radius: 7px;
-    width: 36px;
-    height: 14px;
-    background-color: rgba(0, 0, 0, 0.38);
-    margin-top: 0.35rem;
-    margin-right: 0.7rem;
+    border-width: 0;
+    border-radius: $form-switch-form-check-input-border-radius;
+    width: $form-switch-form-check-input-width;
+    height: $form-switch-form-check-input-height;
+    background-color: $form-switch-form-check-input-background-color;
+    margin-top: $form-switch-form-check-input-margin-top;
+    margin-right: $form-switch-form-check-input-margin-right;
 
     &:after {
       content: '';
       position: absolute;
       border: none;
       z-index: 2;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
-      background-color: #fff;
-      margin-top: -3px;
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-        0 1px 5px 0 rgba(0, 0, 0, 0.12);
-      transition: background-color 0.2s, transform 0.2s;
+      border-radius: $form-switch-form-check-input-after-border-radius;
+      width: $form-switch-form-check-input-after-width;
+      height: $form-switch-form-check-input-after-height;
+      background-color: $form-switch-form-check-input-after-background-color;
+      margin-top: $form-switch-form-check-input-after-margin-top;
+      box-shadow: $form-switch-form-check-input-after-box-shadow;
+      transition: $form-switch-form-check-input-after-transition;
     }
 
     &:focus {
       background-image: none;
 
       &:before {
-        box-shadow: 3px -1px 0px 13px rgba(0, 0, 0, 0.6);
-        transform: scale(1);
-        transition: box-shadow 0.2s, transform 0.2s;
+        box-shadow: $form-switch-form-check-input-focus-before-box-shadow;
+        transform: $form-switch-form-check-input-focus-before-transform;
+        transition: $form-switch-form-check-input-focus-before-transition;
+      }
+
+      &:after {
+        border-radius: $form-switch-form-check-input-focus-after-border-radius;
+        width: $form-switch-form-check-input-focus-after-width;
+        height: $form-switch-form-check-input-focus-after-height;
       }
     }
 
@@ -246,10 +255,10 @@
         background-image: none;
 
         &:before {
-          margin-left: 17px;
-          box-shadow: 3px -1px 0px 13px $primary;
-          transform: scale(1);
-          transition: box-shadow 0.2s, transform 0.2s;
+          margin-left: $form-switch-form-check-input-checked-focus-before-margin-left;
+          box-shadow: $form-switch-form-check-input-checked-focus-before-box-shadow;
+          transform: $form-switch-form-check-input-checked-focus-before-transform;
+          transition: $form-switch-form-check-input-checked-focus-before-transition;
         }
       }
 
@@ -261,15 +270,14 @@
           position: absolute;
           border: none;
           z-index: 2;
-          border-radius: 50%;
-          width: 20px;
-          height: 20px;
-          background-color: $primary;
-          margin-top: -3px;
-          margin-left: 17px;
-          box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
-            0 1px 5px 0 rgba(0, 0, 0, 0.12);
-          transition: background-color 0.2s, transform 0.2s;
+          border-radius: $form-switch-form-check-input-checked-checkbox-after-border-radius;
+          width: $form-switch-form-check-input-checked-checkbox-after-width;
+          height: $form-switch-form-check-input-checked-checkbox-after-height;
+          background-color: $form-switch-form-check-input-checked-checkbox-after-background-color;
+          margin-top: $form-switch-form-check-input-checked-checkbox-after-margin-top;
+          margin-left: $form-switch-form-check-input-checked-checkbox-after-margin-left;
+          box-shadow: $form-switch-form-check-input-checked-checkbox-after-box-shadow;
+          transition: $form-switch-form-check-input-checked-checkbox-after-transition;
         }
       }
     }

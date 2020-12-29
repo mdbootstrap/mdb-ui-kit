@@ -3,25 +3,26 @@
 .nav-pills {
   &.menu-sidebar {
     .nav-link {
-      font-size: 0.8rem;
+      font-size: $scrollspy-menu-sidebar-font-size;
       background-color: transparent;
-      color: #262626;
-      line-height: 1.1rem;
-      padding: 0 5px;
-      font-weight: 400;
-      transition: all 0.2s ease-in-out;
+      color: $scrollspy-menu-sidebar-color;
+      line-height: $scrollspy-menu-sidebar-line-height;
+      padding: 0 $scrollspy-menu-sidebar-padding-x;
+      font-weight: $scrollspy-menu-sidebar-font-weight;
+      transition: $scrollspy-menu-sidebar-transition;
       text-transform: initial;
-      margin-top: 3px;
-      margin-bottom: 3px;
+      margin-top: $scrollspy-menu-sidebar-margin-y;
+      margin-bottom: $scrollspy-menu-sidebar-margin-y;
     }
 
     .nav-link.active,
     .show > .nav-link {
       background-color: transparent;
       box-shadow: none;
-      color: $primary;
-      font-weight: 600;
-      border-left: 0.125rem solid $primary;
+      color: $scrollspy-menu-sidebar-active-color;
+      font-weight: $scrollspy-menu-sidebar-active-font-weight;
+      border-left: $scrollspy-menu-sidebar-active-border-width solid
+        $scrollspy-menu-sidebar-active-border-color;
       border-radius: 0;
     }
   }
