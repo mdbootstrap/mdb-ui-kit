@@ -442,3 +442,8 @@ $btn-rounded-border-radius: 10rem;
 $btn-group-border-radius: calc(0.25rem - 1px);
 $btn-group-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+// Dropdown
+
+$dropdown-menu-animated-animation-duration: 0.55s;
+$dropdown-menu-animated-animation-timing-function: ease;

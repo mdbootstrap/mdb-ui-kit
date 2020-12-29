@@ -22,15 +22,17 @@
   background-attachment: fixed;
 }
 
-.overlay {
-  opacity: 0;
-  transition: all 0.3s ease-in-out;
-  &:hover {
-    opacity: 1;
+.hover-overlay {
+  .mask {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
-.zoom {
+.hover-zoom {
   img,
   video {
     transition: all 0.3s linear;
@@ -43,7 +45,7 @@
   }
 }
 
-.hoverable {
+.hover-shadow {
   box-shadow: none;
   transition: all 0.3s ease-in-out;
   &:hover {

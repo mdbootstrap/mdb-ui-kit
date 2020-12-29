@@ -146,4 +146,32 @@
       }
     }
   }
+
+  &.form-white {
+    .form-control {
+      color: #fff;
+      ~ .form-label {
+        color: #fbfbfb;
+      }
+      ~ .form-notch {
+        div {
+          border-color: #fbfbfb;
+        }
+      }
+      &:focus ~ .form-label {
+        color: #fff;
+      }
+      &:focus ~ .form-notch .form-notch-middle {
+        border-color: #fff;
+      }
+      &:focus ~ .form-notch .form-notch-leading {
+        border-top: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        border-left: 2px solid #fff;
+      }
+      &:focus ~ .form-notch .form-notch-trailing {
+        border-color: #fff;
+      }
+    }
+  }
 }
