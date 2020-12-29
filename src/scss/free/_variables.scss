@@ -486,34 +486,34 @@ $input-padding-top: 0.33em;
 $input-padding-bottom: $input-padding-top;
 $input-transition: all 0.2s linear;
 
-$form-label-left: 0.75em;
-$form-label-padding-top: 0.37em;
+$form-label-left: 0.75rem;
+$form-label-padding-top: 0.37rem;
 $form-label-transition: all 0.2s ease-out;
 $form-label-color: rgba(0, 0, 0, 0.6);
 
-$input-focus-active-label-transform: translateY(-1em) translateY(0.1em) scale(0.8);
+$input-focus-active-label-transform: translateY(-1rem) translateY(0.1rem) scale(0.8);
 $input-focus-label-color: $primary;
-$input-focus-border-width: 0.125em;
+$input-focus-border-width: 0.125rem;
 $input-focus-border-color: $primary;
 $input-disabled-background-color: #e9ecef;
 
-$input-font-size-lg: 1em;
+$input-font-size-lg: 1rem;
 $input-line-height-lg: 2.15;
-$input-focus-active-label-transform-lg: translateY(-1.25em) translateY(0.1em) scale(0.8);
+$input-focus-active-label-transform-lg: translateY(-1.25rem) translateY(0.1rem) scale(0.8);
 
-$input-font-size-sm: 0.775em;
+$input-font-size-sm: 0.775rem;
 $input-line-height-sm: 1.5;
-$input-focus-active-label-transform-sm: translateY(-0.83em) translateY(0.1em) scale(0.8);
+$input-focus-active-label-transform-sm: translateY(-0.83rem) translateY(0.1rem) scale(0.8);
 
 $form-notch-div-border-color: #bdbdbd;
-$form-notch-leading-width: 0.5em;
-$form-notch-leading-border-radius: 0.25em;
-$form-notch-middle-max-width: 1em;
+$form-notch-leading-width: 0.5rem;
+$form-notch-leading-border-radius: 0.25rem;
+$form-notch-middle-max-width: 1rem;
 $form-notch-trailing-border-radius: $form-notch-leading-border-radius;
 
-$form-label-padding-top-lg: 0.7em;
-$form-label-padding-top-sm: 0.33em;
-$form-label-font-size-sm: 0.775em;
+$form-label-padding-top-lg: 0.7rem;
+$form-label-padding-top-sm: 0.33rem;
+$form-label-font-size-sm: 0.775rem;
 
 $form-white-input-color: $white;
 $form-white-label-color: $gray-50;
@@ -521,17 +521,17 @@ $form-white-notch-div-border-color: $gray-50;
 $form-white-input-focus-label-color: $white;
 $form-white-input-focus-border-color: $white;
 
-$form-check-input-margin-left: 1.79em;
-$form-check-input-radio-margin-left: 1.85em;
-$form-check-input-width: 1.125em;
-$form-check-input-height: $form-check-input-width;
+$form-check-input-margin-left: 1.79rem;
+$form-check-input-radio-margin-left: 1.85rem;
+$form-check-input-width-md: 1.125rem;
+$form-check-input-height: $form-check-input-width-md;
 $form-check-input-background-color: $white;
-$form-check-input-border-width: 0.125em;
+$form-check-input-border-width: 0.125rem;
 $form-check-input-border-color: rgb(117, 117, 117);
 
 $form-check-input-before-box-shadow: 0px 0px 0px 13px transparent;
 $form-check-input-before-border-radius: 50%;
-$form-check-input-before-width: 0.875em;
+$form-check-input-before-width: 0.875rem;
 $form-check-input-before-height: $form-check-input-before-width;
 $form-check-input-before-transform: scale(0);
 
@@ -553,36 +553,36 @@ $form-check-input-checked-focus-before-box-shadow: 0px 0px 0px 13px $primary;
 $form-check-input-checked-focus-before-transform: $form-check-input-focus-before-transform;
 $form-check-input-checked-focus-before-transition: $form-check-input-focus-before-transition;
 
-$form-check-input-checkbox-border-radius: 0.125em;
-$form-check-input-checkbox-focus-after-width: 0.875em;
+$form-check-input-checkbox-border-radius: 0.125rem;
+$form-check-input-checkbox-focus-after-width: 0.875rem;
 $form-check-input-checkbox-focus-after-height: $form-check-input-checkbox-focus-after-width;
 $form-check-input-checkbox-focus-after-background-color: $white;
 $form-check-input-checkbox-checked-background-color: $primary;
 $form-check-input-checkbox-checked-focus-background-color: $primary;
 
 $form-check-input-checkbox-checked-after-transform: rotate(45deg);
-$form-check-input-checkbox-checked-after-border-width: 0.125em;
+$form-check-input-checkbox-checked-after-border-width: 0.125rem;
 $form-check-input-checkbox-checked-after-border-color: $white;
-$form-check-input-checkbox-checked-after-width: 0.375em;
-$form-check-input-checkbox-checked-after-height: 0.8125em;
-$form-check-input-checkbox-checked-after-margin-left: 0.25em;
+$form-check-input-checkbox-checked-after-width: 0.375rem;
+$form-check-input-checkbox-checked-after-height: 0.8125rem;
+$form-check-input-checkbox-checked-after-margin-left: 0.25rem;
 $form-check-input-checkbox-checked-after-margin-top: -1px;
 
 $form-check-input-indeterminate-focus-before-box-shadow: 0px 0px 0px 13px $primary;
 $form-check-input-indeterminate-checked-background-color: $primary;
 $form-check-input-indeterminate-checked-after-transform: rotate(90deg);
-$form-check-input-indeterminate-checked-after-border-width: 0.125em;
+$form-check-input-indeterminate-checked-after-border-width: 0.125rem;
 $form-check-input-indeterminate-checked-after-border-color: $white;
-$form-check-input-indeterminate-checked-after-width: 0.125em;
-$form-check-input-indeterminate-checked-after-height: 0.875em;
-$form-check-input-indeterminate-checked-after-margin-left: 0.375em;
+$form-check-input-indeterminate-checked-after-width: 0.125rem;
+$form-check-input-indeterminate-checked-after-height: 0.875rem;
+$form-check-input-indeterminate-checked-after-margin-left: 0.375rem;
 $form-check-input-indeterminate-focus-background-color: $primary;
 
 $form-check-input-radio-border-radius: 50%;
-$form-check-input-radio-width: 1.25em;
+$form-check-input-radio-width: 1.25rem;
 $form-check-input-radio-height: $form-check-input-radio-width;
 
-$form-check-input-radio-before-width: 1em;
+$form-check-input-radio-before-width: 1rem;
 $form-check-input-radio-before-height: $form-check-input-radio-before-width;
 
 $form-check-input-radio-after-width: $form-check-input-radio-before-width;
@@ -592,28 +592,28 @@ $form-check-input-radio-after-background-color: $white;
 
 $form-check-input-radio-checked-background-color: $white;
 $form-check-input-radio-checked-after-border-radius: $form-check-input-radio-border-radius;
-$form-check-input-radio-checked-after-width: 0.625em;
+$form-check-input-radio-checked-after-width: 0.625rem;
 $form-check-input-radio-checked-after-height: $form-check-input-radio-checked-after-width;
 $form-check-input-radio-checked-after-border-color: $primary;
 $form-check-input-radio-checked-after-background-color: $primary;
-$form-check-input-radio-checked-after-margin-top: 0.1875em;
-$form-check-input-radio-checked-after-margin-left: 0.1875em;
+$form-check-input-radio-checked-after-margin-top: 0.1875rem;
+$form-check-input-radio-checked-after-margin-left: 0.1875rem;
 $form-check-input-radio-checked-after-transition: border-color;
 $form-check-input-radio-checked-focus-background-color: $white;
 
-$form-switch-padding-left: 1.85em;
-$form-switch-form-check-input-border-radius: 0.4375em;
-$form-switch-form-check-input-width: 2.25em;
-$form-switch-form-check-input-height: 0.875em;
+$form-switch-padding-left: 1.85rem;
+$form-switch-form-check-input-border-radius: 0.4375rem;
+$form-switch-form-check-input-width: 2.25rem;
+$form-switch-form-check-input-height: 0.875rem;
 $form-switch-form-check-input-background-color: rgba(0, 0, 0, 0.38);
-$form-switch-form-check-input-margin-top: 0.35em;
-$form-switch-form-check-input-margin-right: 0.7em;
+$form-switch-form-check-input-margin-top: 0.35rem;
+$form-switch-form-check-input-margin-right: 0.7rem;
 
 $form-switch-form-check-input-after-border-radius: 50%;
-$form-switch-form-check-input-after-width: 1.25em;
+$form-switch-form-check-input-after-width: 1.25rem;
 $form-switch-form-check-input-after-height: $form-switch-form-check-input-after-width;
 $form-switch-form-check-input-after-background-color: $white;
-$form-switch-form-check-input-after-margin-top: -0.1875em;
+$form-switch-form-check-input-after-margin-top: -0.1875rem;
 $form-switch-form-check-input-after-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
   0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 $form-switch-form-check-input-after-transition: background-color 0.2s, transform 0.2s;
@@ -623,26 +623,26 @@ $form-switch-form-check-input-focus-before-transform: scale(1);
 $form-switch-form-check-input-focus-before-transition: box-shadow 0.2s, transform 0.2s;
 
 $form-switch-form-check-input-focus-after-border-radius: $form-switch-form-check-input-after-border-radius;
-$form-switch-form-check-input-focus-after-width: 1.25em;
+$form-switch-form-check-input-focus-after-width: 1.25rem;
 $form-switch-form-check-input-focus-after-height: $form-switch-form-check-input-focus-after-width;
 
-$form-switch-form-check-input-checked-focus-before-margin-left: 1.0625em;
+$form-switch-form-check-input-checked-focus-before-margin-left: 1.0625rem;
 $form-switch-form-check-input-checked-focus-before-box-shadow: 3px -1px 0px 13px $primary;
 $form-switch-form-check-input-checked-focus-before-transform: scale(1);
 $form-switch-form-check-input-checked-focus-before-transition: box-shadow 0.2s, transform 0.2s;
 
 $form-switch-form-check-input-checked-checkbox-after-border-radius: 50%;
-$form-switch-form-check-input-checked-checkbox-after-width: 1.25em;
-$form-switch-form-check-input-checked-checkbox-after-height: 1.25em;
+$form-switch-form-check-input-checked-checkbox-after-width: 1.25rem;
+$form-switch-form-check-input-checked-checkbox-after-height: 1.25rem;
 $form-switch-form-check-input-checked-checkbox-after-background-color: $primary;
 $form-switch-form-check-input-checked-checkbox-after-margin-top: -3px;
-$form-switch-form-check-input-checked-checkbox-after-margin-left: 1.0625em;
+$form-switch-form-check-input-checked-checkbox-after-margin-left: 1.0625rem;
 $form-switch-form-check-input-checked-checkbox-after-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
   0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 $form-switch-form-check-input-checked-checkbox-after-transition: background-color 0.2s,
   transform 0.2s;
 
-$form-file-height: calc(1.8em + 0.33rem + 2px);
+$form-file-height: calc(1.8rem + 0.33rem + 2px);
 
 $form-file-label-focus-border-color: $primary;
 $form-file-label-focus-transition: all 0.2s linear;
@@ -659,12 +659,12 @@ $form-file-button-line-height: 1.5;
 $form-file-button-background-color: #fff;
 $form-file-button-border-color: $form-file-text-border-color;
 
-$form-file-sm-height: calc(1.7em + 0.33rem + 2px);
+$form-file-sm-height: calc(1.7rem + 0.33rem + 2px);
 $form-file-sm-font-size: 0.775rem;
 $form-file-sm-line-height: $form-file-button-line-height;
 $form-file-sm-padding-y: $form-file-text-padding-y;
 
-$form-file-lg-height: calc(2.315em + 0.33rem + 2px);
+$form-file-lg-height: calc(2.315rem + 0.33rem + 2px);
 $form-file-lg-font-size: 1rem;
 $form-file-lg-line-height: 2.15;
 $form-file-lg-padding-y: $form-file-text-padding-y;
@@ -672,7 +672,7 @@ $form-file-lg-padding-y: $form-file-text-padding-y;
 $form-range-webkit-slider-thumb-margin-top: -6px;
 $form-range-webkit-slider-runnable-track-height: 4px;
 
-$input-group-min-height: calc(1.5em + 0.33rem + 2px);
+$input-group-min-height: calc(1.5rem + 0.33rem + 2px);
 $input-group-padding-y: 0.27rem;
 $input-group-transition: all 0.2s linear;
 
@@ -682,12 +682,12 @@ $input-group-focus-box-shadow: inset 0 0 0 1px $primary;
 
 $input-group-text-padding-y: 0.27rem;
 
-$input-group-lg-height: calc(2.315em + 0.33rem + 2px);
+$input-group-lg-height: calc(2.315rem + 0.33rem + 2px);
 $input-group-lg-font-size: 1rem;
 $input-group-lg-padding-y: 0.33rem;
 $input-group-lg-text-font-size: $input-group-lg-font-size;
 
-$input-group-sm-height-height: calc(1.7em + 0.33rem + 2px);
+$input-group-sm-height-height: calc(1.7rem + 0.33rem + 2px);
 $input-group-sm-font-size: 0.775rem;
 $input-group-sm-padding-y: $input-group-lg-padding-y;
 $input-group-sm-text-font-size: $input-group-sm-font-size;
