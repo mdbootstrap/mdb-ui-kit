@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): dom/data.js
+ * Bootstrap (v5.0.0-alpha1): dom/data.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -16,22 +16,22 @@ const mapData = (() => {
   let id = 1;
   return {
     set(element, key, data) {
-      if (typeof element[key] === 'undefined') {
-        element[key] = {
+      if (typeof element.key === 'undefined') {
+        element.key = {
           key,
           id,
         };
         id++;
       }
 
-      storeData[element[key].id] = data;
+      storeData[element.key.id] = data;
     },
     get(element, key) {
-      if (!element || typeof element[key] === 'undefined') {
+      if (!element || typeof element.key === 'undefined') {
         return null;
       }
 
-      const keyProperties = element[key];
+      const keyProperties = element.key;
       if (keyProperties.key === key) {
         return storeData[keyProperties.id];
       }
@@ -39,14 +39,14 @@ const mapData = (() => {
       return null;
     },
     delete(element, key) {
-      if (typeof element[key] === 'undefined') {
+      if (typeof element.key === 'undefined') {
         return;
       }
 
-      const keyProperties = element[key];
+      const keyProperties = element.key;
       if (keyProperties.key === key) {
         delete storeData[keyProperties.id];
-        delete element[key];
+        delete element.key;
       }
     },
   };

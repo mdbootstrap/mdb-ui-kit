@@ -2,9 +2,8 @@ import SelectorEngine from '../dom/selector-engine';
 import { isVisible } from './index';
 
 class FocusTrap {
-  constructor(element, options = {}, toggler) {
+  constructor(element, options = {}) {
     this._element = element;
-    this._toggler = toggler;
     this._event = options.event || 'blur';
     this._condition = options.condition || (() => true);
     this._selector =
@@ -32,10 +31,6 @@ class FocusTrap {
     this._focusableElements.forEach((element) => {
       element.removeEventListener(this._event, this.handler);
     });
-
-    if (this._toggler) {
-      this._toggler.focus();
-    }
   }
 
   update() {
@@ -45,10 +40,7 @@ class FocusTrap {
 
   _init() {
     const handler = (e) => {
-      if (!this._firstElement || e.key !== 'Tab' || this._focusableElements.includes(e.target)) {
-        return;
-      }
-
+      if (!this._firstElement || e.key !== 'Tab') return;
       e.preventDefault();
       this._firstElement.focus();
 

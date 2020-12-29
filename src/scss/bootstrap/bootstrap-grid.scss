@@ -1,5 +1,5 @@
 /*!
- * Bootstrap Grid v5.0.0-beta1 (https://getbootstrap.com/)
+ * Bootstrap Grid v5.0.0-alpha1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -32,8 +32,7 @@ $utilities: map-get-multiple(
     'flex',
     'flex-direction',
     'flex-grow',
-    'flex-shrink',
-    'flex-wrap',
+    'flex-shrink' 'flex-wrap',
     'justify-content',
     'align-items',
     'align-content',
@@ -42,23 +41,23 @@ $utilities: map-get-multiple(
     'margin-x',
     'margin-y',
     'margin-top',
-    'margin-end',
+    'margin-right',
     'margin-bottom',
-    'margin-start',
+    'margin-left',
     'negative-margin',
     'negative-margin-x',
     'negative-margin-y',
     'negative-margin-top',
-    'negative-margin-end',
+    'negative-margin-right',
     'negative-margin-bottom',
-    'negative-margin-start',
+    'negative-margin-left',
     'padding',
     'padding-x',
     'padding-y',
     'padding-top',
-    'padding-end',
+    'padding-right',
     'padding-bottom',
-    'padding-start'
+    'padding-left'
   )
 );
 

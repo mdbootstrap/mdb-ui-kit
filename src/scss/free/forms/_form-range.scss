@@ -26,13 +26,13 @@
   }
 
   &::-webkit-slider-thumb {
-    margin-top: $form-range-webkit-slider-thumb-margin-top; // Webkit specific
+    margin-top: -6px; // Webkit specific
     box-shadow: none;
     appearance: none;
   }
 
   &::-webkit-slider-runnable-track {
-    height: $form-range-webkit-slider-runnable-track-height;
+    height: 4px;
     border-radius: 0;
   }
 

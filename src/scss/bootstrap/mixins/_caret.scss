@@ -12,14 +12,14 @@
   border-left: $caret-width solid transparent;
 }
 
-@mixin caret-end {
+@mixin caret-right {
   border-top: $caret-width solid transparent;
   border-right: 0;
   border-bottom: $caret-width solid transparent;
   border-left: $caret-width solid;
 }
 
-@mixin caret-start {
+@mixin caret-left {
   border-top: $caret-width solid transparent;
   border-right: $caret-width solid;
   border-bottom: $caret-width solid transparent;
@@ -31,17 +31,17 @@
       display: inline-block;
       margin-left: $caret-spacing;
       vertical-align: $caret-vertical-align;
-      content: '';
+      content: "";
       @if $direction == down {
         @include caret-down();
       } @else if $direction == up {
         @include caret-up();
-      } @else if $direction == end {
-        @include caret-end();
+      } @else if $direction == right {
+        @include caret-right();
       }
     }
 
-    @if $direction == start {
+    @if $direction == left {
       &::after {
         display: none;
       }
@@ -50,8 +50,8 @@
         display: inline-block;
         margin-right: $caret-spacing;
         vertical-align: $caret-vertical-align;
-        content: '';
-        @include caret-start();
+        content: "";
+        @include caret-left();
       }
     }
 

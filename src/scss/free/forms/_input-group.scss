@@ -4,52 +4,48 @@
 
 .input-group {
   > .form-control {
-    min-height: $input-group-min-height;
-    height: $input-group-height;
-    padding-top: $input-group-padding-y;
-    padding-bottom: $input-group-padding-y;
-    transition: $input-group-transition;
+    min-height: calc(1.5em + 0.33rem + 2px);
+    padding-top: 0.27rem;
+    padding-bottom: 0.27rem;
 
     &:focus {
-      transition: $input-group-focus-transition;
-      border-color: $input-group-focus-border-color;
+      border-color: $primary;
       outline: 0;
-      box-shadow: $input-group-focus-box-shadow;
+      box-shadow: inset 0 0 0 1px $primary;
     }
   }
 }
 
 .input-group-text {
   background-color: transparent;
-  padding-top: $input-group-text-padding-y;
-  padding-bottom: $input-group-text-padding-y;
+  padding-top: 0.27rem;
+  padding-bottom: 0.27rem;
 }
 
 .input-group-lg {
   > .form-control {
-    height: $input-group-lg-height;
-    font-size: $input-group-lg-font-size;
-    padding-top: $input-group-lg-padding-y;
-    padding-bottom: $input-group-lg-padding-y;
+    height: calc(2.315em + 0.33rem + 2px);
+    font-size: 1rem;
+    padding-top: 0.33rem;
+    padding-bottom: 0.33rem;
   }
 
   .input-group-text {
-    font-size: $input-group-lg-text-font-size;
+    font-size: 1rem;
   }
 }
 
 .input-group-sm {
   > .form-control {
-    min-height: $input-group-sm-min-height;
-    height: $input-group-sm-height;
-    font-size: $input-group-sm-font-size;
-    padding-top: $input-group-sm-padding-y;
-    padding-bottom: $input-group-sm-padding-y;
+    height: calc(1.7em + 0.33rem + 2px);
+    font-size: 0.775rem;
+    padding-top: 0.33rem;
+    padding-bottom: 0.33rem;
   }
 
   .input-group-text {
-    font-size: $input-group-sm-text-font-size;
-    line-height: $input-group-sm-text-line-height;
+    font-size: 0.775rem;
+    line-height: 1.5;
   }
 }
 
@@ -58,14 +54,5 @@
     .input-group-text {
       border-left: 0;
     }
-    input + .input-group-text {
-      border: 0;
-      border-left: $input-group-form-outline-border-left-width solid
-        $input-group-form-outline-border-left-color;
-    }
   }
-}
-
-.input-group > [class*='btn-outline-'] + [class*='btn-outline-'] {
-  border-left: 0;
 }

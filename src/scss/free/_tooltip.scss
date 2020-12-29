@@ -11,9 +11,9 @@
 }
 
 .tooltip-inner {
-  color: $tooltip-inner-color;
-  padding: $tooltip-inner-padding-y $tooltip-inner-padding-x;
-  font-size: $tooltip-inner-font-size;
-  background-color: $tooltip-inner-background-color;
-  border-radius: $tooltip-inner-border-radius;
+  color: #fff;
+  padding: 6px 16px;
+  font-size: 14px;
+  background-color: #6d6d6d;
+  border-radius: 4px;
 }

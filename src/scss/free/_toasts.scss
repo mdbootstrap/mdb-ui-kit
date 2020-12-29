@@ -1,28 +1,11 @@
 // Toasts
 
 .toast {
-  background-color: $toast-background-color;
+  background-color: #fff;
   border: 0;
-  box-shadow: $toast-box-shadow;
-
-  .btn-close {
-    width: 1.3em;
-  }
+  box-shadow: $box-shadow-2;
 }
 
 .toast-header {
-  background-color: $toast-header-background-color;
-}
-
-.parent-toast-relative {
-  position: relative;
-}
-
-.toast-absolute {
-  position: absolute;
-}
-
-.toast-fixed {
-  position: fixed;
-  z-index: $zindex-toast;
+  background-color: #fff;
 }

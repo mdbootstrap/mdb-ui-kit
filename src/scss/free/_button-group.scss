@@ -1,12 +1,10 @@
-//
-// Button group styles
-//
+// Button group
 
-.btn-group,
-.btn-group-vertical {
+.btn-group {
   box-shadow: $btn-box-shadow;
-  border-radius: $btn-group-border-radius;
-  transition: $btn-group-transition;
+  border-radius: calc(0.25rem - 1px);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   &:hover {
     box-shadow: $btn-hover-box-shadow;

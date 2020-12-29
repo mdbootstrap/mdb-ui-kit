@@ -10,7 +10,8 @@
   width: 100%;
 
   > .form-control,
-  > .form-select {
+  > .form-select,
+  > .form-file {
     position: relative; // For focus state's z-index
     flex: 1 1 auto;
     width: 1%;
@@ -19,8 +20,24 @@
 
   // Bring the "active" form control to the top of surrounding elements
   > .form-control:focus,
-  > .form-select:focus {
+  > .form-select:focus,
+  > .form-file .form-file-input:focus ~ .form-file-label {
     z-index: 3;
+  }
+
+  // Bring the custom file input above the label
+  > .form-file {
+    > .form-file-input:focus {
+      z-index: 4;
+    }
+
+    &:not(:last-child) > .form-file-label {
+      @include border-right-radius(0);
+    }
+
+    &:not(:first-child) > .form-file-label {
+      @include border-left-radius(0);
+    }
   }
 
   // Ensure buttons are always above inputs for more visually pleasing borders.
@@ -36,6 +53,7 @@
   }
 }
 
+
 // Textual addons
 //
 // Serves as a catch-all element for any text or radio/checkbox input you wish
@@ -44,9 +62,9 @@
 .input-group-text {
   display: flex;
   align-items: center;
-  padding: $input-group-addon-padding-y $input-group-addon-padding-x;
+  padding: $input-padding-y $input-padding-x;
   @include font-size($input-font-size); // Match inputs
-  font-weight: $input-group-addon-font-weight;
+  font-weight: $font-weight-normal;
   line-height: $input-line-height;
   color: $input-group-addon-color;
   text-align: center;
@@ -56,10 +74,19 @@
   @include border-radius($input-border-radius);
 }
 
+
 // Sizing
 //
 // Remix the default form control sizing classes into new ones for easier
 // manipulation.
+
+.input-group-lg > .form-control {
+  min-height: $input-height-lg;
+}
+
+.input-group-lg > .form-select {
+  height: $input-height-lg;
+}
 
 .input-group-lg > .form-control,
 .input-group-lg > .form-select,
@@ -68,6 +95,14 @@
   padding: $input-padding-y-lg $input-padding-x-lg;
   @include font-size($input-font-size-lg);
   @include border-radius($input-border-radius-lg);
+}
+
+.input-group-sm > .form-control {
+  min-height: $input-height-sm;
+}
+
+.input-group-sm > .form-select {
+  height: $input-height-sm;
 }
 
 .input-group-sm > .form-control,
@@ -84,6 +119,7 @@
   padding-right: $form-select-padding-x + $form-select-indicator-padding;
 }
 
+
 // Rounded corners
 //
 // These rulesets must come after the sizing ones to properly override sm and lg
@@ -92,33 +128,13 @@
 
 // stylelint-disable-next-line no-duplicate-selectors
 .input-group {
-  &:not(.has-validation) {
-    > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
-    > .dropdown-toggle:nth-last-child(n + 3) {
-      @include border-end-radius(0);
-    }
+  > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu),
+  > .dropdown-toggle:nth-last-child(n + 3) {
+    @include border-right-radius(0);
   }
 
-  &.has-validation {
-    > :nth-last-child(n + 3):not(.dropdown-toggle):not(.dropdown-menu),
-    > .dropdown-toggle:nth-last-child(n + 4) {
-      @include border-end-radius(0);
-    }
-  }
-
-  $validation-messages: '';
-  @each $state in map-keys($form-validation-states) {
-    $validation-messages: $validation-messages +
-      ':not(.' +
-      unquote($state) +
-      '-tooltip)' +
-      ':not(.' +
-      unquote($state) +
-      '-feedback)';
-  }
-
-  > :not(:first-child):not(.dropdown-menu)#{$validation-messages} {
+  > :not(:first-child):not(.dropdown-menu) {
     margin-left: -$input-border-width;
-    @include border-start-radius(0);
+    @include border-left-radius(0);
   }
 }

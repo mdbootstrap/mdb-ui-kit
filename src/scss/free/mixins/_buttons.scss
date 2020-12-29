@@ -1,4 +1,5 @@
 // Button variant
+
 @mixin button-variant-mdb($background) {
   color: set-notification-text-color($background);
   background-color: $background;
@@ -14,17 +15,11 @@
     background-color: darken($background, 7.5%);
   }
 
-  .btn-check:checked + &,
-  .btn-check:active + &,
   &:active,
   &.active,
   .show > &.dropdown-toggle {
     color: set-notification-text-color($background);
-    background-color: darken($background, 20%);
-
-    &:focus {
-      box-shadow: $btn-focus-box-shadow;
-    }
+    background-color: darken($background, 10%);
   }
 
   &:disabled,
@@ -35,6 +30,7 @@
 }
 
 // Button variant outline
+
 @mixin button-outline-variant-mdb($color) {
   color: $color;
   border-color: $color;
@@ -65,23 +61,4 @@
   &.disabled {
     color: $color;
   }
-}
-
-// Button sizes
-@mixin button-size-mdb(
-  $padding-top,
-  $padding-right,
-  $padding-bottom,
-  $padding-left,
-  $font-size,
-  $line-height
-) {
-  padding: $padding-top $padding-right $padding-bottom $padding-left;
-  font-size: $font-size;
-  line-height: $line-height;
-}
-
-// Button size variant outline
-@mixin button-outline-size-mdb($padding-top, $padding-right, $padding-bottom, $padding-left) {
-  padding: $padding-top $padding-right $padding-bottom $padding-left;
 }

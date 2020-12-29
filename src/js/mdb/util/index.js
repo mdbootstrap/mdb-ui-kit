@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): util/index.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * Bootstrap (v5.0.0-alpha1): util/index.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -36,7 +36,7 @@ const getUID = (prefix) => {
 };
 
 const getSelector = (element) => {
-  let selector = element.getAttribute('data-mdb-target');
+  let selector = element.getAttribute('data-target');
 
   if (!selector || selector === '#') {
     const hrefAttr = element.getAttribute('href');
@@ -71,8 +71,8 @@ const getTransitionDurationFromElement = (element) => {
   // Get transition-duration of the element
   let { transitionDuration, transitionDelay } = window.getComputedStyle(element);
 
-  const floatTransitionDuration = Number.parseFloat(transitionDuration);
-  const floatTransitionDelay = Number.parseFloat(transitionDelay);
+  const floatTransitionDuration = parseFloat(transitionDuration);
+  const floatTransitionDelay = parseFloat(transitionDelay);
 
   // Return 0 if element or transition duration is not found
   if (!floatTransitionDuration && !floatTransitionDelay) {
@@ -83,10 +83,7 @@ const getTransitionDurationFromElement = (element) => {
   transitionDuration = transitionDuration.split(',')[0];
   transitionDelay = transitionDelay.split(',')[0];
 
-  return (
-    (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) *
-    MILLISECONDS_MULTIPLIER
-  );
+  return (parseFloat(transitionDuration) + parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
 };
 
 const triggerTransitionEnd = (element) => {
@@ -99,7 +96,6 @@ const emulateTransitionEnd = (element, duration) => {
   let called = false;
   const durationPadding = 5;
   const emulatedDuration = duration + durationPadding;
-
   function listener() {
     called = true;
     element.removeEventListener(TRANSITION_END, listener);
@@ -178,22 +174,12 @@ const reflow = (element) => element.offsetHeight;
 const getjQuery = () => {
   const { jQuery } = window;
 
-  if (jQuery && !document.body.hasAttribute('data-mdb-no-jquery')) {
+  if (jQuery && !document.body.hasAttribute('data-no-jquery')) {
     return jQuery;
   }
 
   return null;
 };
-
-const onDOMContentLoaded = (callback) => {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', callback);
-  } else {
-    callback();
-  }
-};
-
-const isRTL = document.documentElement.dir === 'rtl';
 
 const array = (collection) => {
   return Array.from(collection);
@@ -220,6 +206,4 @@ export {
   reflow,
   array,
   element,
-  onDOMContentLoaded,
-  isRTL,
 };

@@ -1,13 +1,12 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): toast.js
+ * Bootstrap (v5.0.0-alpha1): toast.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 import {
   getjQuery,
-  onDOMContentLoaded,
   TRANSITION_END,
   emulateTransitionEnd,
   getTransitionDurationFromElement,
@@ -17,7 +16,6 @@ import {
 import Data from './dom/data';
 import EventHandler from './dom/event-handler';
 import Manipulator from './dom/manipulator';
-import BaseComponent from './base-component';
 
 /**
  * ------------------------------------------------------------------------
@@ -26,6 +24,7 @@ import BaseComponent from './base-component';
  */
 
 const NAME = 'toast';
+const VERSION = '5.0.0-alpha1';
 const DATA_KEY = 'bs.toast';
 const EVENT_KEY = `.${DATA_KEY}`;
 
@@ -49,10 +48,10 @@ const DefaultType = {
 const Default = {
   animation: true,
   autohide: true,
-  delay: 5000,
+  delay: 500,
 };
 
-const SELECTOR_DATA_DISMISS = '[data-bs-dismiss="toast"]';
+const SELECTOR_DATA_DISMISS = '[data-dismiss="toast"]';
 
 /**
  * ------------------------------------------------------------------------
@@ -60,16 +59,20 @@ const SELECTOR_DATA_DISMISS = '[data-bs-dismiss="toast"]';
  * ------------------------------------------------------------------------
  */
 
-class Toast extends BaseComponent {
+class Toast {
   constructor(element, config) {
-    super(element);
-
+    this._element = element;
     this._config = this._getConfig(config);
     this._timeout = null;
     this._setListeners();
+    Data.setData(element, DATA_KEY, this);
   }
 
   // Getters
+
+  static get VERSION() {
+    return VERSION;
+  }
 
   static get DefaultType() {
     return DefaultType;
@@ -77,10 +80,6 @@ class Toast extends BaseComponent {
 
   static get Default() {
     return Default;
-  }
-
-  static get DATA_KEY() {
-    return DATA_KEY;
   }
 
   // Public
@@ -91,8 +90,6 @@ class Toast extends BaseComponent {
     if (showEvent.defaultPrevented) {
       return;
     }
-
-    this._clearTimeout();
 
     if (this._config.animation) {
       this._element.classList.add(CLASS_NAME_FADE);
@@ -152,15 +149,17 @@ class Toast extends BaseComponent {
   }
 
   dispose() {
-    this._clearTimeout();
+    clearTimeout(this._timeout);
+    this._timeout = null;
 
     if (this._element.classList.contains(CLASS_NAME_SHOW)) {
       this._element.classList.remove(CLASS_NAME_SHOW);
     }
 
     EventHandler.off(this._element, EVENT_CLICK_DISMISS);
+    Data.removeData(this._element, DATA_KEY);
 
-    super.dispose();
+    this._element = null;
     this._config = null;
   }
 
@@ -180,11 +179,6 @@ class Toast extends BaseComponent {
 
   _setListeners() {
     EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, () => this.hide());
-  }
-
-  _clearTimeout() {
-    clearTimeout(this._timeout);
-    this._timeout = null;
   }
 
   // Static
@@ -207,27 +201,29 @@ class Toast extends BaseComponent {
       }
     });
   }
+
+  static getInstance(element) {
+    return Data.getData(element, DATA_KEY);
+  }
 }
+
+const $ = getjQuery();
 
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .Toast to jQuery only if jQuery is present
+ *  add .toast to jQuery only if jQuery is present
  */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-  /* istanbul ignore if */
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Toast.jQueryInterface;
-    $.fn[NAME].Constructor = Toast;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Toast.jQueryInterface;
-    };
-  }
-});
+/* istanbul ignore if */
+if ($) {
+  const JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = Toast.jQueryInterface;
+  $.fn[NAME].Constructor = Toast;
+  $.fn[NAME].noConflict = () => {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Toast.jQueryInterface;
+  };
+}
 
 export default Toast;

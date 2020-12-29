@@ -1,13 +1,13 @@
 // Type
 .note {
-  padding: $note-padding;
-  border-left: $note-border-width solid;
-  border-radius: $note-border-radius;
+  padding: 10px;
+  border-left: 6px solid;
+  border-radius: 5px;
   strong {
-    font-weight: $note-strong-font-weight;
+    font-weight: 600;
   }
   p {
-    font-weight: $note-paragraph-font-weight;
+    font-weight: 500;
   }
 }
 
@@ -15,11 +15,5 @@
   .note-#{$name} {
     background-color: map-get($color, bgc);
     border-color: map-get($color, border-color);
-  }
-}
-
-.w-responsive {
-  @media (min-width: 1199px) {
-    width: 75%;
   }
 }

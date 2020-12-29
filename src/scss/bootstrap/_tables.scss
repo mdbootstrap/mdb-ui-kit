@@ -3,13 +3,14 @@
 //
 
 .table {
-  --#{$variable-prefix}table-bg: #{$table-bg};
-  --#{$variable-prefix}table-striped-color: #{$table-striped-color};
-  --#{$variable-prefix}table-striped-bg: #{$table-striped-bg};
-  --#{$variable-prefix}table-active-color: #{$table-active-color};
-  --#{$variable-prefix}table-active-bg: #{$table-active-bg};
-  --#{$variable-prefix}table-hover-color: #{$table-hover-color};
-  --#{$variable-prefix}table-hover-bg: #{$table-hover-bg};
+  --bs-table-bg: #{$table-bg};
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: #{$table-striped-color};
+  --bs-table-striped-bg: #{$table-striped-bg};
+  --bs-table-active-color: #{$table-active-color};
+  --bs-table-active-bg: #{$table-active-bg};
+  --bs-table-hover-color: #{$table-hover-color};
+  --bs-table-hover-bg: #{$table-hover-bg};
 
   width: 100%;
   margin-bottom: $spacer;
@@ -24,11 +25,8 @@
   // stylelint-disable-next-line selector-max-universal
   > :not(caption) > * > * {
     padding: $table-cell-padding-y $table-cell-padding-x;
-    background-color: var(--#{$variable-prefix}table-bg);
-    background-image: linear-gradient(
-      var(--#{$variable-prefix}table-accent-bg),
-      var(--#{$variable-prefix}table-accent-bg)
-    );
+    background-color: var(--bs-table-bg);
+    background-image: linear-gradient(var(--bs-table-accent-bg), var(--bs-table-accent-bg));
     border-bottom-width: $table-border-width;
   }
 
@@ -42,7 +40,7 @@
 
   // Highlight border color between thead, tbody and tfoot.
   > :not(:last-child) > :last-child > * {
-    border-bottom-color: $table-group-separator-color;
+    border-bottom-color: $table-group-seperator-color;
   }
 }
 
@@ -98,8 +96,8 @@
 
 .table-striped {
   > tbody > tr:nth-of-type(#{$table-striped-order}) {
-    --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-striped-bg);
-    color: var(--#{$variable-prefix}table-striped-color);
+    --bs-table-accent-bg: var(--bs-table-striped-bg);
+    color: var(--bs-table-striped-color);
   }
 }
 
@@ -108,8 +106,8 @@
 // The `.table-active` class can be added to highlight rows or cells
 
 .table-active {
-  --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-active-bg);
-  color: var(--#{$variable-prefix}table-active-color);
+  --bs-table-accent-bg: var(--bs-table-active-bg);
+  color: var(--bs-table-active-color);
 }
 
 // Hover effect
@@ -118,8 +116,8 @@
 
 .table-hover {
   > tbody > tr:hover {
-    --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-hover-bg);
-    color: var(--#{$variable-prefix}table-hover-color);
+    --bs-table-accent-bg: var(--bs-table-hover-bg);
+    color: var(--bs-table-hover-color);
   }
 }
 

@@ -10,7 +10,6 @@
   text-decoration: if($link-decoration == none, null, none);
   background-color: $pagination-bg;
   border: $pagination-border-width solid $pagination-border-color;
-  @include transition($pagination-transition);
 
   &:hover {
     z-index: 2;
@@ -22,8 +21,6 @@
 
   &:focus {
     z-index: 3;
-    color: $pagination-focus-color;
-    background-color: $pagination-focus-bg;
     outline: $pagination-focus-outline;
     box-shadow: $pagination-focus-box-shadow;
   }
@@ -31,7 +28,7 @@
 
 .page-item {
   &:not(:first-child) .page-link {
-    margin-left: $pagination-margin-start;
+    margin-left: $pagination-margin-left;
   }
 
   &.active .page-link {

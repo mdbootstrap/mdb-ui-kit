@@ -1,75 +1,55 @@
 /*!
- * Bootstrap tooltip.js v5.0.0-beta1 (https://getbootstrap.com/)
+ * Bootstrap tooltip.js v5.0.0-alpha1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined'
     ? (module.exports = factory(
-        require('@popperjs/core'),
         require('./dom/data.js'),
         require('./dom/event-handler.js'),
         require('./dom/manipulator.js'),
+        require('popper.js'),
         require('./dom/selector-engine.js')
       ))
     : typeof define === 'function' && define.amd
     ? define([
-        '@popperjs/core',
-        './dom/data',
-        './dom/event-handler',
-        './dom/manipulator',
-        './dom/selector-engine',
+        './dom/data.js',
+        './dom/event-handler.js',
+        './dom/manipulator.js',
+        'popper.js',
+        './dom/selector-engine.js',
       ], factory)
-    : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
+    : ((global = global || self),
       (global.Tooltip = factory(
-        global.Popper,
         global.Data,
         global.EventHandler,
         global.Manipulator,
+        global.Popper,
         global.SelectorEngine
       )));
-})(this, function (Popper, Data, EventHandler, Manipulator, SelectorEngine) {
+})(this, function (Data, EventHandler, Manipulator, Popper, SelectorEngine) {
   'use strict';
 
-  function _interopDefaultLegacy(e) {
-    return e && typeof e === 'object' && 'default' in e ? e : { default: e };
-  }
-
-  function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
-    var n = Object.create(null);
-    if (e) {
-      Object.keys(e).forEach(function (k) {
-        if (k !== 'default') {
-          var d = Object.getOwnPropertyDescriptor(e, k);
-          Object.defineProperty(
-            n,
-            k,
-            d.get
-              ? d
-              : {
-                  enumerable: true,
-                  get: function () {
-                    return e[k];
-                  },
-                }
-          );
-        }
-      });
-    }
-    n['default'] = e;
-    return Object.freeze(n);
-  }
-
-  var Popper__namespace = /*#__PURE__*/ _interopNamespace(Popper);
-  var Data__default = /*#__PURE__*/ _interopDefaultLegacy(Data);
-  var EventHandler__default = /*#__PURE__*/ _interopDefaultLegacy(EventHandler);
-  var Manipulator__default = /*#__PURE__*/ _interopDefaultLegacy(Manipulator);
-  var SelectorEngine__default = /*#__PURE__*/ _interopDefaultLegacy(SelectorEngine);
+  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
+  EventHandler =
+    EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default')
+      ? EventHandler['default']
+      : EventHandler;
+  Manipulator =
+    Manipulator && Object.prototype.hasOwnProperty.call(Manipulator, 'default')
+      ? Manipulator['default']
+      : Manipulator;
+  Popper =
+    Popper && Object.prototype.hasOwnProperty.call(Popper, 'default') ? Popper['default'] : Popper;
+  SelectorEngine =
+    SelectorEngine && Object.prototype.hasOwnProperty.call(SelectorEngine, 'default')
+      ? SelectorEngine['default']
+      : SelectorEngine;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/index.js
+   * Bootstrap (v5.0.0-alpha1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -110,8 +90,8 @@
       transitionDuration = _window$getComputedSt.transitionDuration,
       transitionDelay = _window$getComputedSt.transitionDelay;
 
-    var floatTransitionDuration = Number.parseFloat(transitionDuration);
-    var floatTransitionDelay = Number.parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
+    var floatTransitionDuration = parseFloat(transitionDuration);
+    var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
 
     if (!floatTransitionDuration && !floatTransitionDelay) {
       return 0;
@@ -119,10 +99,7 @@
 
     transitionDuration = transitionDuration.split(',')[0];
     transitionDelay = transitionDelay.split(',')[0];
-    return (
-      (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) *
-      MILLISECONDS_MULTIPLIER
-    );
+    return (parseFloat(transitionDuration) + parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
   };
 
   var triggerTransitionEnd = function triggerTransitionEnd(element) {
@@ -197,30 +174,20 @@
     var _window = window,
       jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-no-jquery')) {
       return jQuery;
     }
 
     return null;
   };
 
-  var onDOMContentLoaded = function onDOMContentLoaded(callback) {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', callback);
-    } else {
-      callback();
-    }
-  };
-
-  var isRTL = document.documentElement.dir === 'rtl';
-
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/sanitizer.js
+   * Bootstrap (v5.0.0-alpha1): util/sanitizer.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
-  var uriAttrs = new Set([
+  var uriAttrs = [
     'background',
     'cite',
     'href',
@@ -229,7 +196,7 @@
     'poster',
     'src',
     'xlink:href',
-  ]);
+  ];
   var ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
   /**
    * A pattern that recognizes a commonly useful subset of URLs that are safe.
@@ -249,8 +216,8 @@
   var allowedAttribute = function allowedAttribute(attr, allowedAttributeList) {
     var attrName = attr.nodeName.toLowerCase();
 
-    if (allowedAttributeList.includes(attrName)) {
-      if (uriAttrs.has(attrName)) {
+    if (allowedAttributeList.indexOf(attrName) !== -1) {
+      if (uriAttrs.indexOf(attrName) !== -1) {
         return Boolean(
           attr.nodeValue.match(SAFE_URL_PATTERN) || attr.nodeValue.match(DATA_URL_PATTERN)
         );
@@ -272,7 +239,7 @@
     return false;
   };
 
-  var DefaultAllowlist = {
+  var DefaultWhitelist = {
     // Global attributes allowed on any supplied element below.
     '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
     a: ['target', 'href', 'title', 'rel'],
@@ -305,7 +272,7 @@
     u: [],
     ul: [],
   };
-  function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
+  function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
     var _ref;
 
     if (!unsafeHtml.length) {
@@ -318,7 +285,7 @@
 
     var domParser = new window.DOMParser();
     var createdDocument = domParser.parseFromString(unsafeHtml, 'text/html');
-    var allowlistKeys = Object.keys(allowList);
+    var whitelistKeys = Object.keys(whiteList);
 
     var elements = (_ref = []).concat.apply(_ref, createdDocument.body.querySelectorAll('*'));
 
@@ -328,16 +295,16 @@
       var el = elements[i];
       var elName = el.nodeName.toLowerCase();
 
-      if (!allowlistKeys.includes(elName)) {
+      if (whitelistKeys.indexOf(elName) === -1) {
         el.parentNode.removeChild(el);
         return 'continue';
       }
 
       var attributeList = (_ref2 = []).concat.apply(_ref2, el.attributes);
 
-      var allowedAttributes = [].concat(allowList['*'] || [], allowList[elName] || []);
+      var whitelistedAttributes = [].concat(whiteList['*'] || [], whiteList[elName] || []);
       attributeList.forEach(function (attr) {
-        if (!allowedAttribute(attr, allowedAttributes)) {
+        if (!allowedAttribute(attr, whitelistedAttributes)) {
           el.removeAttribute(attr.nodeName);
         }
       });
@@ -350,6 +317,51 @@
     }
 
     return createdDocument.body.innerHTML;
+  }
+
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly)
+        symbols = symbols.filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+      keys.push.apply(keys, symbols);
+    }
+    return keys;
+  }
+
+  function _objectSpread(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  }
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true,
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
   }
 
   function _defineProperties(target, props) {
@@ -373,92 +385,13 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
-
-  var BaseComponent = /*#__PURE__*/ (function () {
-    function BaseComponent(element) {
-      if (!element) {
-        return;
-      }
-
-      this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
-    }
-
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
-      this._element = null;
-    };
-    /** Static */
-
-    BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
-    };
-
-    _createClass(BaseComponent, null, [
-      {
-        key: 'VERSION',
-        get: function get() {
-          return VERSION;
-        },
-      },
-    ]);
-
-    return BaseComponent;
-  })();
-
-  function _extends() {
-    _extends =
-      Object.assign ||
-      function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-    return _extends.apply(this, arguments);
-  }
-
-  function _defineProperties$1(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ('value' in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass$1(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties$1(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
-  }
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
   var NAME = 'tooltip';
+  var VERSION = '5.0.0-alpha1';
   var DATA_KEY = 'bs.tooltip';
   var EVENT_KEY = '.' + DATA_KEY;
   var CLASS_PREFIX = 'bs-tooltip';
   var BSCLS_PREFIX_REGEX = new RegExp('(^|\\s)' + CLASS_PREFIX + '\\S+', 'g');
-  var DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
+  var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
   var DefaultType = {
     animation: 'boolean',
     template: 'string',
@@ -468,42 +401,41 @@
     html: 'boolean',
     selector: '(string|boolean)',
     placement: '(string|function)',
+    offset: '(number|string|function)',
     container: '(string|element|boolean)',
-    fallbackPlacements: '(null|array)',
+    fallbackPlacement: '(string|array)',
     boundary: '(string|element)',
-    customClass: '(string|function)',
     sanitize: 'boolean',
     sanitizeFn: '(null|function)',
-    allowList: 'object',
+    whiteList: 'object',
     popperConfig: '(null|object)',
   };
   var AttachmentMap = {
     AUTO: 'auto',
     TOP: 'top',
-    RIGHT: isRTL ? 'left' : 'right',
+    RIGHT: 'right',
     BOTTOM: 'bottom',
-    LEFT: isRTL ? 'right' : 'left',
+    LEFT: 'left',
   };
   var Default = {
     animation: true,
     template:
       '<div class="tooltip" role="tooltip">' +
       '<div class="tooltip-arrow"></div>' +
-      '<div class="tooltip-inner"></div>' +
-      '</div>',
+      '<div class="tooltip-inner"></div></div>',
     trigger: 'hover focus',
     title: '',
     delay: 0,
     html: false,
     selector: false,
     placement: 'top',
+    offset: 0,
     container: false,
-    fallbackPlacements: null,
-    boundary: 'clippingParents',
-    customClass: '',
+    fallbackPlacement: 'flip',
+    boundary: 'scrollParent',
     sanitize: true,
     sanitizeFn: null,
-    allowList: DefaultAllowlist,
+    whiteList: DefaultWhitelist,
     popperConfig: null,
   };
   var Event$1 = {
@@ -534,30 +466,25 @@
    * ------------------------------------------------------------------------
    */
 
-  var Tooltip = /*#__PURE__*/ (function (_BaseComponent) {
-    _inheritsLoose(Tooltip, _BaseComponent);
-
+  var Tooltip = /*#__PURE__*/ (function () {
     function Tooltip(element, config) {
-      var _this;
+      if (typeof Popper === 'undefined') {
+        throw new TypeError("Bootstrap's tooltips require Popper.js (https://popper.js.org)");
+      } // private
 
-      if (typeof Popper__namespace === 'undefined') {
-        throw new TypeError("Bootstrap's tooltips require Popper (https://popper.js.org)");
-      }
+      this._isEnabled = true;
+      this._timeout = 0;
+      this._hoverState = '';
+      this._activeTrigger = {};
+      this._popper = null; // Protected
 
-      _this = _BaseComponent.call(this, element) || this; // private
+      this.element = element;
+      this.config = this._getConfig(config);
+      this.tip = null;
 
-      _this._isEnabled = true;
-      _this._timeout = 0;
-      _this._hoverState = '';
-      _this._activeTrigger = {};
-      _this._popper = null; // Protected
+      this._setListeners();
 
-      _this.config = _this._getConfig(config);
-      _this.tip = null;
-
-      _this._setListeners();
-
-      return _this;
+      Data.setData(element, this.constructor.DATA_KEY, this);
     } // Getters
 
     var _proto = Tooltip.prototype;
@@ -582,11 +509,11 @@
 
       if (event) {
         var dataKey = this.constructor.DATA_KEY;
-        var context = Data__default['default'].getData(event.delegateTarget, dataKey);
+        var context = Data.getData(event.target, dataKey);
 
         if (!context) {
-          context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
-          Data__default['default'].setData(event.delegateTarget, dataKey, context);
+          context = new this.constructor(event.target, this._getDelegateConfig());
+          Data.setData(event.target, dataKey, context);
         }
 
         context._activeTrigger.click = !context._activeTrigger.click;
@@ -609,9 +536,10 @@
 
     _proto.dispose = function dispose() {
       clearTimeout(this._timeout);
-      EventHandler__default['default'].off(this._element, this.constructor.EVENT_KEY);
-      EventHandler__default['default'].off(
-        this._element.closest('.' + CLASS_NAME_MODAL),
+      Data.removeData(this.element, this.constructor.DATA_KEY);
+      EventHandler.off(this.element, this.constructor.EVENT_KEY);
+      EventHandler.off(
+        this.element.closest('.' + CLASS_NAME_MODAL),
         'hide.bs.modal',
         this._hideModalHandler
       );
@@ -630,29 +558,25 @@
       }
 
       this._popper = null;
+      this.element = null;
       this.config = null;
       this.tip = null;
-
-      _BaseComponent.prototype.dispose.call(this);
     };
 
     _proto.show = function show() {
-      var _this2 = this;
+      var _this = this;
 
-      if (this._element.style.display === 'none') {
+      if (this.element.style.display === 'none') {
         throw new Error('Please use show on visible elements');
       }
 
       if (this.isWithContent() && this._isEnabled) {
-        var showEvent = EventHandler__default['default'].trigger(
-          this._element,
-          this.constructor.Event.SHOW
-        );
-        var shadowRoot = findShadowRoot(this._element);
+        var showEvent = EventHandler.trigger(this.element, this.constructor.Event.SHOW);
+        var shadowRoot = findShadowRoot(this.element);
         var isInTheDom =
           shadowRoot === null
-            ? this._element.ownerDocument.documentElement.contains(this._element)
-            : shadowRoot.contains(this._element);
+            ? this.element.ownerDocument.documentElement.contains(this.element)
+            : shadowRoot.contains(this.element);
 
         if (showEvent.defaultPrevented || !isInTheDom) {
           return;
@@ -661,9 +585,7 @@
         var tip = this.getTipElement();
         var tipId = getUID(this.constructor.NAME);
         tip.setAttribute('id', tipId);
-
-        this._element.setAttribute('aria-describedby', tipId);
-
+        this.element.setAttribute('aria-describedby', tipId);
         this.setContent();
 
         if (this.config.animation) {
@@ -672,7 +594,7 @@
 
         var placement =
           typeof this.config.placement === 'function'
-            ? this.config.placement.call(this, tip, this._element)
+            ? this.config.placement.call(this, tip, this.element)
             : this.config.placement;
 
         var attachment = this._getAttachment(placement);
@@ -681,25 +603,15 @@
 
         var container = this._getContainer();
 
-        Data__default['default'].setData(tip, this.constructor.DATA_KEY, this);
+        Data.setData(tip, this.constructor.DATA_KEY, this);
 
-        if (!this._element.ownerDocument.documentElement.contains(this.tip)) {
+        if (!this.element.ownerDocument.documentElement.contains(this.tip)) {
           container.appendChild(tip);
         }
 
-        EventHandler__default['default'].trigger(this._element, this.constructor.Event.INSERTED);
-        this._popper = Popper.createPopper(this._element, tip, this._getPopperConfig(attachment));
-        tip.classList.add(CLASS_NAME_SHOW);
-        var customClass =
-          typeof this.config.customClass === 'function'
-            ? this.config.customClass()
-            : this.config.customClass;
-
-        if (customClass) {
-          var _tip$classList;
-
-          (_tip$classList = tip.classList).add.apply(_tip$classList, customClass.split(' '));
-        } // If this is a touch-enabled device we add extra
+        EventHandler.trigger(this.element, this.constructor.Event.INSERTED);
+        this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment));
+        tip.classList.add(CLASS_NAME_SHOW); // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
         // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
@@ -708,23 +620,27 @@
           var _ref;
 
           (_ref = []).concat.apply(_ref, document.body.children).forEach(function (element) {
-            EventHandler__default['default'].on(element, 'mouseover', noop());
+            EventHandler.on(element, 'mouseover', noop());
           });
         }
 
         var complete = function complete() {
-          var prevHoverState = _this2._hoverState;
-          _this2._hoverState = null;
-          EventHandler__default['default'].trigger(_this2._element, _this2.constructor.Event.SHOWN);
+          if (_this.config.animation) {
+            _this._fixTransition();
+          }
+
+          var prevHoverState = _this._hoverState;
+          _this._hoverState = null;
+          EventHandler.trigger(_this.element, _this.constructor.Event.SHOWN);
 
           if (prevHoverState === HOVER_STATE_OUT) {
-            _this2._leave(null, _this2);
+            _this._leave(null, _this);
           }
         };
 
         if (this.tip.classList.contains(CLASS_NAME_FADE)) {
           var transitionDuration = getTransitionDurationFromElement(this.tip);
-          EventHandler__default['default'].one(this.tip, TRANSITION_END, complete);
+          EventHandler.one(this.tip, TRANSITION_END, complete);
           emulateTransitionEnd(this.tip, transitionDuration);
         } else {
           complete();
@@ -733,36 +649,25 @@
     };
 
     _proto.hide = function hide() {
-      var _this3 = this;
-
-      if (!this._popper) {
-        return;
-      }
+      var _this2 = this;
 
       var tip = this.getTipElement();
 
       var complete = function complete() {
-        if (_this3._hoverState !== HOVER_STATE_SHOW && tip.parentNode) {
+        if (_this2._hoverState !== HOVER_STATE_SHOW && tip.parentNode) {
           tip.parentNode.removeChild(tip);
         }
 
-        _this3._cleanTipClass();
+        _this2._cleanTipClass();
 
-        _this3._element.removeAttribute('aria-describedby');
+        _this2.element.removeAttribute('aria-describedby');
 
-        EventHandler__default['default'].trigger(_this3._element, _this3.constructor.Event.HIDDEN);
+        EventHandler.trigger(_this2.element, _this2.constructor.Event.HIDDEN);
 
-        if (_this3._popper) {
-          _this3._popper.destroy();
-
-          _this3._popper = null;
-        }
+        _this2._popper.destroy();
       };
 
-      var hideEvent = EventHandler__default['default'].trigger(
-        this._element,
-        this.constructor.Event.HIDE
-      );
+      var hideEvent = EventHandler.trigger(this.element, this.constructor.Event.HIDE);
 
       if (hideEvent.defaultPrevented) {
         return;
@@ -775,7 +680,7 @@
         var _ref2;
 
         (_ref2 = []).concat.apply(_ref2, document.body.children).forEach(function (element) {
-          return EventHandler__default['default'].off(element, 'mouseover', noop);
+          return EventHandler.off(element, 'mouseover', noop);
         });
       }
 
@@ -785,7 +690,7 @@
 
       if (this.tip.classList.contains(CLASS_NAME_FADE)) {
         var transitionDuration = getTransitionDurationFromElement(tip);
-        EventHandler__default['default'].one(tip, TRANSITION_END, complete);
+        EventHandler.one(tip, TRANSITION_END, complete);
         emulateTransitionEnd(tip, transitionDuration);
       } else {
         complete();
@@ -796,7 +701,7 @@
 
     _proto.update = function update() {
       if (this._popper !== null) {
-        this._popper.update();
+        this._popper.scheduleUpdate();
       }
     }; // Protected
 
@@ -817,10 +722,7 @@
 
     _proto.setContent = function setContent() {
       var tip = this.getTipElement();
-      this.setElementContent(
-        SelectorEngine__default['default'].findOne(SELECTOR_TOOLTIP_INNER, tip),
-        this.getTitle()
-      );
+      this.setElementContent(SelectorEngine.findOne(SELECTOR_TOOLTIP_INNER, tip), this.getTitle());
       tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW);
     };
 
@@ -848,7 +750,7 @@
 
       if (this.config.html) {
         if (this.config.sanitize) {
-          content = sanitizeHtml(content, this.config.allowList, this.config.sanitizeFn);
+          content = sanitizeHtml(content, this.config.whiteList, this.config.sanitizeFn);
         }
 
         element.innerHTML = content;
@@ -858,80 +760,69 @@
     };
 
     _proto.getTitle = function getTitle() {
-      var title = this._element.getAttribute('data-bs-original-title');
+      var title = this.element.getAttribute('data-original-title');
 
       if (!title) {
         title =
           typeof this.config.title === 'function'
-            ? this.config.title.call(this._element)
+            ? this.config.title.call(this.element)
             : this.config.title;
       }
 
       return title;
-    };
-
-    _proto.updateAttachment = function updateAttachment(attachment) {
-      if (attachment === 'right') {
-        return 'end';
-      }
-
-      if (attachment === 'left') {
-        return 'start';
-      }
-
-      return attachment;
     }; // Private
 
     _proto._getPopperConfig = function _getPopperConfig(attachment) {
-      var _this4 = this;
-
-      var flipModifier = {
-        name: 'flip',
-        options: {
-          altBoundary: true,
-        },
-      };
-
-      if (this.config.fallbackPlacements) {
-        flipModifier.options.fallbackPlacements = this.config.fallbackPlacements;
-      }
+      var _this3 = this;
 
       var defaultBsConfig = {
         placement: attachment,
-        modifiers: [
-          flipModifier,
-          {
-            name: 'preventOverflow',
-            options: {
-              rootBoundary: this.config.boundary,
-            },
+        modifiers: {
+          offset: this._getOffset(),
+          flip: {
+            behavior: this.config.fallbackPlacement,
           },
-          {
-            name: 'arrow',
-            options: {
-              element: '.' + this.constructor.NAME + '-arrow',
-            },
+          arrow: {
+            element: '.' + this.constructor.NAME + '-arrow',
           },
-          {
-            name: 'onChange',
-            enabled: true,
-            phase: 'afterWrite',
-            fn: function fn(data) {
-              return _this4._handlePopperPlacementChange(data);
-            },
+          preventOverflow: {
+            boundariesElement: this.config.boundary,
           },
-        ],
-        onFirstUpdate: function onFirstUpdate(data) {
-          if (data.options.placement !== data.placement) {
-            _this4._handlePopperPlacementChange(data);
+        },
+        onCreate: function onCreate(data) {
+          if (data.originalPlacement !== data.placement) {
+            _this3._handlePopperPlacementChange(data);
           }
         },
+        onUpdate: function onUpdate(data) {
+          return _this3._handlePopperPlacementChange(data);
+        },
       };
-      return _extends({}, defaultBsConfig, this.config.popperConfig);
+      return _objectSpread(_objectSpread({}, defaultBsConfig), this.config.popperConfig);
     };
 
     _proto._addAttachmentClass = function _addAttachmentClass(attachment) {
-      this.getTipElement().classList.add(CLASS_PREFIX + '-' + this.updateAttachment(attachment));
+      this.getTipElement().classList.add(CLASS_PREFIX + '-' + attachment);
+    };
+
+    _proto._getOffset = function _getOffset() {
+      var _this4 = this;
+
+      var offset = {};
+
+      if (typeof this.config.offset === 'function') {
+        offset.fn = function (data) {
+          data.offsets = _objectSpread(
+            _objectSpread({}, data.offsets),
+            _this4.config.offset(data.offsets, _this4.element) || {}
+          );
+          return data;
+        };
+      } else {
+        offset.offset = this.config.offset;
+      }
+
+      return offset;
     };
 
     _proto._getContainer = function _getContainer() {
@@ -943,7 +834,7 @@
         return this.config.container;
       }
 
-      return SelectorEngine__default['default'].findOne(this.config.container);
+      return SelectorEngine.findOne(this.config.container);
     };
 
     _proto._getAttachment = function _getAttachment(placement) {
@@ -956,8 +847,8 @@
       var triggers = this.config.trigger.split(' ');
       triggers.forEach(function (trigger) {
         if (trigger === 'click') {
-          EventHandler__default['default'].on(
-            _this5._element,
+          EventHandler.on(
+            _this5.element,
             _this5.constructor.Event.CLICK,
             _this5.config.selector,
             function (event) {
@@ -973,70 +864,57 @@
             trigger === TRIGGER_HOVER
               ? _this5.constructor.Event.MOUSELEAVE
               : _this5.constructor.Event.FOCUSOUT;
-          EventHandler__default['default'].on(
-            _this5._element,
-            eventIn,
-            _this5.config.selector,
-            function (event) {
-              return _this5._enter(event);
-            }
-          );
-          EventHandler__default['default'].on(
-            _this5._element,
-            eventOut,
-            _this5.config.selector,
-            function (event) {
-              return _this5._leave(event);
-            }
-          );
+          EventHandler.on(_this5.element, eventIn, _this5.config.selector, function (event) {
+            return _this5._enter(event);
+          });
+          EventHandler.on(_this5.element, eventOut, _this5.config.selector, function (event) {
+            return _this5._leave(event);
+          });
         }
       });
 
       this._hideModalHandler = function () {
-        if (_this5._element) {
+        if (_this5.element) {
           _this5.hide();
         }
       };
 
-      EventHandler__default['default'].on(
-        this._element.closest('.' + CLASS_NAME_MODAL),
+      EventHandler.on(
+        this.element.closest('.' + CLASS_NAME_MODAL),
         'hide.bs.modal',
         this._hideModalHandler
       );
 
       if (this.config.selector) {
-        this.config = _extends({}, this.config, {
-          trigger: 'manual',
-          selector: '',
-        });
+        this.config = _objectSpread(
+          _objectSpread({}, this.config),
+          {},
+          {
+            trigger: 'manual',
+            selector: '',
+          }
+        );
       } else {
         this._fixTitle();
       }
     };
 
     _proto._fixTitle = function _fixTitle() {
-      var title = this._element.getAttribute('title');
+      var titleType = typeof this.element.getAttribute('data-original-title');
 
-      var originalTitleType = typeof this._element.getAttribute('data-bs-original-title');
-
-      if (title || originalTitleType !== 'string') {
-        this._element.setAttribute('data-bs-original-title', title || '');
-
-        if (title && !this._element.getAttribute('aria-label') && !this._element.textContent) {
-          this._element.setAttribute('aria-label', title);
-        }
-
-        this._element.setAttribute('title', '');
+      if (this.element.getAttribute('title') || titleType !== 'string') {
+        this.element.setAttribute('data-original-title', this.element.getAttribute('title') || '');
+        this.element.setAttribute('title', '');
       }
     };
 
     _proto._enter = function _enter(event, context) {
       var dataKey = this.constructor.DATA_KEY;
-      context = context || Data__default['default'].getData(event.delegateTarget, dataKey);
+      context = context || Data.getData(event.target, dataKey);
 
       if (!context) {
-        context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
-        Data__default['default'].setData(event.delegateTarget, dataKey, context);
+        context = new this.constructor(event.target, this._getDelegateConfig());
+        Data.setData(event.target, dataKey, context);
       }
 
       if (event) {
@@ -1068,11 +946,11 @@
 
     _proto._leave = function _leave(event, context) {
       var dataKey = this.constructor.DATA_KEY;
-      context = context || Data__default['default'].getData(event.delegateTarget, dataKey);
+      context = context || Data.getData(event.target, dataKey);
 
       if (!context) {
-        context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
-        Data__default['default'].setData(event.delegateTarget, dataKey, context);
+        context = new this.constructor(event.target, this._getDelegateConfig());
+        Data.setData(event.target, dataKey, context);
       }
 
       if (event) {
@@ -1109,9 +987,9 @@
     };
 
     _proto._getConfig = function _getConfig(config) {
-      var dataAttributes = Manipulator__default['default'].getDataAttributes(this._element);
+      var dataAttributes = Manipulator.getDataAttributes(this.element);
       Object.keys(dataAttributes).forEach(function (dataAttr) {
-        if (DISALLOWED_ATTRIBUTES.has(dataAttr)) {
+        if (DISALLOWED_ATTRIBUTES.indexOf(dataAttr) !== -1) {
           delete dataAttributes[dataAttr];
         }
       });
@@ -1120,10 +998,8 @@
         config.container = config.container[0];
       }
 
-      config = _extends(
-        {},
-        this.constructor.Default,
-        dataAttributes,
+      config = _objectSpread(
+        _objectSpread(_objectSpread({}, this.constructor.Default), dataAttributes),
         typeof config === 'object' && config ? config : {}
       );
 
@@ -1145,7 +1021,7 @@
       typeCheckConfig(NAME, config, this.constructor.DefaultType);
 
       if (config.sanitize) {
-        config.template = sanitizeHtml(config.template, config.allowList, config.sanitizeFn);
+        config.template = sanitizeHtml(config.template, config.whiteList, config.sanitizeFn);
       }
 
       return config;
@@ -1181,22 +1057,32 @@
     };
 
     _proto._handlePopperPlacementChange = function _handlePopperPlacementChange(popperData) {
-      var state = popperData.state;
-
-      if (!state) {
-        return;
-      }
-
-      this.tip = state.elements.popper;
+      var popperInstance = popperData.instance;
+      this.tip = popperInstance.popper;
 
       this._cleanTipClass();
 
-      this._addAttachmentClass(this._getAttachment(state.placement));
+      this._addAttachmentClass(this._getAttachment(popperData.placement));
+    };
+
+    _proto._fixTransition = function _fixTransition() {
+      var tip = this.getTipElement();
+      var initConfigAnimation = this.config.animation;
+
+      if (tip.getAttribute('x-placement') !== null) {
+        return;
+      }
+
+      tip.classList.remove(CLASS_NAME_FADE);
+      this.config.animation = false;
+      this.hide();
+      this.show();
+      this.config.animation = initConfigAnimation;
     }; // Static
 
     Tooltip.jQueryInterface = function jQueryInterface(config) {
       return this.each(function () {
-        var data = Data__default['default'].getData(this, DATA_KEY);
+        var data = Data.getData(this, DATA_KEY);
 
         var _config = typeof config === 'object' && config;
 
@@ -1218,7 +1104,17 @@
       });
     };
 
-    _createClass$1(Tooltip, null, [
+    Tooltip.getInstance = function getInstance(element) {
+      return Data.getData(element, DATA_KEY);
+    };
+
+    _createClass(Tooltip, null, [
+      {
+        key: 'VERSION',
+        get: function get() {
+          return VERSION;
+        },
+      },
       {
         key: 'Default',
         get: function get() {
@@ -1258,29 +1154,28 @@
     ]);
 
     return Tooltip;
-  })(BaseComponent);
+  })();
+
+  var $ = getjQuery();
   /**
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
-   * add .Tooltip to jQuery only if jQuery is present
+   * add .tooltip to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
+  /* istanbul ignore if */
 
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME];
-      $.fn[NAME] = Tooltip.jQueryInterface;
-      $.fn[NAME].Constructor = Tooltip;
+  if ($) {
+    var JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = Tooltip.jQueryInterface;
+    $.fn[NAME].Constructor = Tooltip;
 
-      $.fn[NAME].noConflict = function () {
-        $.fn[NAME] = JQUERY_NO_CONFLICT;
-        return Tooltip.jQueryInterface;
-      };
-    }
-  });
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return Tooltip.jQueryInterface;
+    };
+  }
 
   return Tooltip;
 });

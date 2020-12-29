@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): dom/manipulator.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * Bootstrap (v5.0.0-alpha1): dom/manipulator.js
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
@@ -31,11 +31,11 @@ function normalizeDataKey(key) {
 
 const Manipulator = {
   setDataAttribute(element, key, value) {
-    element.setAttribute(`data-mdb-${normalizeDataKey(key)}`, value);
+    element.setAttribute(`data-${normalizeDataKey(key)}`, value);
   },
 
   removeDataAttribute(element, key) {
-    element.removeAttribute(`data-mdb-${normalizeDataKey(key)}`);
+    element.removeAttribute(`data-${normalizeDataKey(key)}`);
   },
 
   getDataAttributes(element) {
@@ -47,19 +47,15 @@ const Manipulator = {
       ...element.dataset,
     };
 
-    Object.keys(attributes)
-      .filter((key) => key.startsWith('mdb'))
-      .forEach((key) => {
-        let pureKey = key.replace(/^mdb/, '');
-        pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
-        attributes[pureKey] = normalizeData(attributes[key]);
-      });
+    Object.keys(attributes).forEach((key) => {
+      attributes[key] = normalizeData(attributes[key]);
+    });
 
     return attributes;
   },
 
   getDataAttribute(element, key) {
-    return normalizeData(element.getAttribute(`data-mdb-${normalizeDataKey(key)}`));
+    return normalizeData(element.getAttribute(`data-${normalizeDataKey(key)}`));
   },
 
   offset(element) {
@@ -103,15 +99,6 @@ const Manipulator = {
     Object.keys(style).forEach((property) => {
       element.style[property] = style[property];
     });
-  },
-
-  removeClass(element, className) {
-    if (!element.classList.contains(className)) return;
-    element.classList.remove(className);
-  },
-
-  hasClass(element, className) {
-    return element.classList.contains(className);
   },
 };
 

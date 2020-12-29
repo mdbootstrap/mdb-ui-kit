@@ -1,13 +1,12 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): scrollspy.js
+ * Bootstrap (v5.0.0-alpha1): scrollspy.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 import {
   getjQuery,
-  onDOMContentLoaded,
   getSelectorFromElement,
   getUID,
   isElement,
@@ -17,7 +16,6 @@ import Data from './dom/data';
 import EventHandler from './dom/event-handler';
 import Manipulator from './dom/manipulator';
 import SelectorEngine from './dom/selector-engine';
-import BaseComponent from './base-component';
 
 /**
  * ------------------------------------------------------------------------
@@ -26,6 +24,7 @@ import BaseComponent from './base-component';
  */
 
 const NAME = 'scrollspy';
+const VERSION = '5.0.0-alpha1';
 const DATA_KEY = 'bs.scrollspy';
 const EVENT_KEY = `.${DATA_KEY}`;
 const DATA_API_KEY = '.data-api';
@@ -49,7 +48,7 @@ const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`;
 const CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
 const CLASS_NAME_ACTIVE = 'active';
 
-const SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
+const SELECTOR_DATA_SPY = '[data-spy="scroll"]';
 const SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
 const SELECTOR_NAV_LINKS = '.nav-link';
 const SELECTOR_NAV_ITEMS = '.nav-item';
@@ -66,12 +65,15 @@ const METHOD_POSITION = 'position';
  * ------------------------------------------------------------------------
  */
 
-class ScrollSpy extends BaseComponent {
+class ScrollSpy {
   constructor(element, config) {
-    super(element);
+    this._element = element;
     this._scrollElement = element.tagName === 'BODY' ? window : element;
     this._config = this._getConfig(config);
-    this._selector = `${this._config.target} ${SELECTOR_NAV_LINKS}, ${this._config.target} ${SELECTOR_LIST_ITEMS}, ${this._config.target} .${CLASS_NAME_DROPDOWN_ITEM}`;
+    this._selector =
+      `${this._config.target} ${SELECTOR_NAV_LINKS},` +
+      `${this._config.target} ${SELECTOR_LIST_ITEMS},` +
+      `${this._config.target} .${CLASS_NAME_DROPDOWN_ITEM}`;
     this._offsets = [];
     this._targets = [];
     this._activeTarget = null;
@@ -81,16 +83,18 @@ class ScrollSpy extends BaseComponent {
 
     this.refresh();
     this._process();
+
+    Data.setData(element, DATA_KEY, this);
   }
 
   // Getters
 
-  static get Default() {
-    return Default;
+  static get VERSION() {
+    return VERSION;
   }
 
-  static get DATA_KEY() {
-    return DATA_KEY;
+  static get Default() {
+    return Default;
   }
 
   // Public
@@ -105,14 +109,19 @@ class ScrollSpy extends BaseComponent {
 
     this._offsets = [];
     this._targets = [];
+
     this._scrollHeight = this._getScrollHeight();
 
     const targets = SelectorEngine.find(this._selector);
 
     targets
       .map((element) => {
+        let target;
         const targetSelector = getSelectorFromElement(element);
-        const target = targetSelector ? SelectorEngine.findOne(targetSelector) : null;
+
+        if (targetSelector) {
+          target = SelectorEngine.findOne(targetSelector);
+        }
 
         if (target) {
           const targetBCR = target.getBoundingClientRect();
@@ -132,9 +141,10 @@ class ScrollSpy extends BaseComponent {
   }
 
   dispose() {
-    super.dispose();
+    Data.removeData(this._element, DATA_KEY);
     EventHandler.off(this._scrollElement, EVENT_KEY);
 
+    this._element = null;
     this._scrollElement = null;
     this._config = null;
     this._selector = null;
@@ -230,7 +240,7 @@ class ScrollSpy extends BaseComponent {
 
     const queries = this._selector
       .split(',')
-      .map((selector) => `${selector}[data-bs-target="${target}"],${selector}[href="${target}"]`);
+      .map((selector) => `${selector}[data-target="${target}"],${selector}[href="${target}"]`);
 
     const link = SelectorEngine.findOne(queries.join(','));
 
@@ -293,6 +303,10 @@ class ScrollSpy extends BaseComponent {
       }
     });
   }
+
+  static getInstance(element) {
+    return Data.getData(element, DATA_KEY);
+  }
 }
 
 /**
@@ -307,25 +321,22 @@ EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
   );
 });
 
+const $ = getjQuery();
+
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .ScrollSpy to jQuery only if jQuery is present
  */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-  /* istanbul ignore if */
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = ScrollSpy.jQueryInterface;
-    $.fn[NAME].Constructor = ScrollSpy;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return ScrollSpy.jQueryInterface;
-    };
-  }
-});
+/* istanbul ignore if */
+if ($) {
+  const JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = ScrollSpy.jQueryInterface;
+  $.fn[NAME].Constructor = ScrollSpy;
+  $.fn[NAME].noConflict = () => {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return ScrollSpy.jQueryInterface;
+  };
+}
 
 export default ScrollSpy;
