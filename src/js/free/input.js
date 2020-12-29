@@ -14,8 +14,18 @@ import 'detect-autofill';
 const NAME = 'input';
 const DATA_KEY = 'mdb.input';
 const CLASSNAME_WRAPPER = 'form-outline';
-const OUTLINE_INPUT = `.${CLASSNAME_WRAPPER} input`;
-const OUTLINE_TEXTAREA = `.${CLASSNAME_WRAPPER} textarea`;
+const CLASSNAME_ACTIVE = 'active';
+const CLASSNAME_NOTCH = 'form-notch';
+const CLASSNAME_NOTCH_LEADING = 'form-notch-leading';
+const CLASSNAME_NOTCH_MIDDLE = 'form-notch-middle';
+const CLASSNAME_NOTCH_TRAILING = 'form-notch-trailing';
+const CLASSNAME_PLACEHOLDER_ACTIVE = 'placeholder-active';
+
+const SELECTOR_OUTLINE_INPUT = `.${CLASSNAME_WRAPPER} input`;
+const SELECTOR_OUTLINE_TEXTAREA = `.${CLASSNAME_WRAPPER} textarea`;
+const SELECTOR_NOTCH = `.${CLASSNAME_NOTCH}`;
+const SELECTOR_NOTCH_LEADING = `.${CLASSNAME_NOTCH_LEADING}`;
+const SELECTOR_NOTCH_MIDDLE = `.${CLASSNAME_NOTCH_MIDDLE}`;
 
 /**
  * ------------------------------------------------------------------------
@@ -32,9 +42,11 @@ class Input {
     this._notchLeading = null;
     this._notchMiddle = null;
     this._notchTrailing = null;
+    this._initiated = false;
 
     if (this._element) {
       Data.setData(element, DATA_KEY, this);
+      this.init();
     }
   }
 
@@ -43,12 +55,24 @@ class Input {
     return NAME;
   }
 
+  get input() {
+    const inputElement =
+      SelectorEngine.findOne('input', this._element) ||
+      SelectorEngine.findOne('textarea', this._element);
+    return inputElement;
+  }
+
   // Public
   init() {
+    if (this._initiated) {
+      return;
+    }
+
     this._getLabelData();
     this._applyDivs();
     this._applyNotch();
     this._activate();
+    this._initiated = true;
   }
 
   update() {
@@ -59,10 +83,7 @@ class Input {
   }
 
   forceActive() {
-    const input =
-      SelectorEngine.findOne('input', this._element) ||
-      SelectorEngine.findOne('textarea', this._element);
-    Manipulator.addClass(input, 'active');
+    Manipulator.addClass(this.input, CLASSNAME_ACTIVE);
   }
 
   dispose() {
@@ -75,14 +96,21 @@ class Input {
   // Private
   _getLabelData() {
     this._label = SelectorEngine.findOne('label', this._element);
-    if (this._label === null) return;
-    this._getLabelWidth();
-    this._getLabelPositionInInputGroup();
+    if (this._label === null) {
+      this._showPlaceholder();
+    } else {
+      this._getLabelWidth();
+      this._getLabelPositionInInputGroup();
+    }
+  }
+
+  _showPlaceholder() {
+    Manipulator.addClass(this.input, CLASSNAME_PLACEHOLDER_ACTIVE);
   }
 
   _getNotchData() {
-    this._notchMiddle = SelectorEngine.findOne('.form-notch-middle', this._element);
-    this._notchLeading = SelectorEngine.findOne('.form-notch-leading', this._element);
+    this._notchMiddle = SelectorEngine.findOne(SELECTOR_NOTCH_MIDDLE, this._element);
+    this._notchLeading = SelectorEngine.findOne(SELECTOR_NOTCH_LEADING, this._element);
   }
 
   _getLabelWidth() {
@@ -93,9 +121,7 @@ class Input {
     this._labelMarginLeft = 0;
 
     if (!this._element.classList.contains('input-group')) return;
-    const input =
-      SelectorEngine.findOne('input', this._element) ||
-      SelectorEngine.findOne('textarea', this._element);
+    const input = this.input;
     const prefix = SelectorEngine.prev(input, '.input-group-text')[0];
     if (prefix === undefined) {
       this._labelMarginLeft = 0;
@@ -106,13 +132,13 @@ class Input {
 
   _applyDivs() {
     const notchWrapper = element('div');
-    Manipulator.addClass(notchWrapper, 'form-notch');
+    Manipulator.addClass(notchWrapper, CLASSNAME_NOTCH);
     this._notchLeading = element('div');
-    Manipulator.addClass(this._notchLeading, 'form-notch-leading');
+    Manipulator.addClass(this._notchLeading, CLASSNAME_NOTCH_LEADING);
     this._notchMiddle = element('div');
-    Manipulator.addClass(this._notchMiddle, 'form-notch-middle');
+    Manipulator.addClass(this._notchMiddle, CLASSNAME_NOTCH_MIDDLE);
     this._notchTrailing = element('div');
-    Manipulator.addClass(this._notchTrailing, 'form-notch-trailing');
+    Manipulator.addClass(this._notchTrailing, CLASSNAME_NOTCH_TRAILING);
 
     notchWrapper.append(this._notchLeading);
     notchWrapper.append(this._notchMiddle);
@@ -129,20 +155,16 @@ class Input {
   }
 
   _removeBorder() {
-    const border = SelectorEngine.findOne('.form-notch', this._element);
+    const border = SelectorEngine.findOne(SELECTOR_NOTCH, this._element);
     if (border) border.remove();
   }
 
   _activate(event) {
     this._getElements(event);
-
-    const input = event
-      ? event.target
-      : SelectorEngine.findOne('input', this._element) ||
-        SelectorEngine.findOne('textarea', this._element);
+    const input = event ? event.target : this.input;
 
     if (input.value !== '') {
-      Manipulator.addClass(input, 'active');
+      Manipulator.addClass(input, CLASSNAME_ACTIVE);
     }
   }
 
@@ -158,19 +180,19 @@ class Input {
 
       if (prevLabelWidth !== this._labelWidth) {
         this._notchMiddle = SelectorEngine.findOne('.form-notch-middle', event.target.parentNode);
-        this._notchLeading = SelectorEngine.findOne('.form-notch-leading', event.target.parentNode);
+        this._notchLeading = SelectorEngine.findOne(
+          SELECTOR_NOTCH_LEADING,
+          event.target.parentNode
+        );
         this._applyNotch();
       }
     }
   }
 
   _deactivate(event) {
-    const input = event
-      ? event.target
-      : SelectorEngine.findOne('input', this._element) ||
-        SelectorEngine.findOne('textarea', this._element);
+    const input = event ? event.target : this.input;
     if (input.value === '') {
-      input.classList.remove('active');
+      input.classList.remove(CLASSNAME_ACTIVE);
     }
   }
 
@@ -191,21 +213,21 @@ class Input {
   }
 }
 
-EventHandler.on(document, 'focus', OUTLINE_INPUT, Input.activate(new Input()));
-EventHandler.on(document, 'input', OUTLINE_INPUT, Input.activate(new Input()));
-EventHandler.on(document, 'blur', OUTLINE_INPUT, Input.deactivate(new Input()));
+EventHandler.on(document, 'focus', SELECTOR_OUTLINE_INPUT, Input.activate(new Input()));
+EventHandler.on(document, 'input', SELECTOR_OUTLINE_INPUT, Input.activate(new Input()));
+EventHandler.on(document, 'blur', SELECTOR_OUTLINE_INPUT, Input.deactivate(new Input()));
 
-EventHandler.on(document, 'focus', OUTLINE_TEXTAREA, Input.activate(new Input()));
-EventHandler.on(document, 'input', OUTLINE_TEXTAREA, Input.activate(new Input()));
-EventHandler.on(document, 'blur', OUTLINE_TEXTAREA, Input.deactivate(new Input()));
+EventHandler.on(document, 'focus', SELECTOR_OUTLINE_TEXTAREA, Input.activate(new Input()));
+EventHandler.on(document, 'input', SELECTOR_OUTLINE_TEXTAREA, Input.activate(new Input()));
+EventHandler.on(document, 'blur', SELECTOR_OUTLINE_TEXTAREA, Input.deactivate(new Input()));
 
 EventHandler.on(window, 'shown.bs.modal', (e) => {
-  SelectorEngine.find(OUTLINE_INPUT, e.target).forEach((element) => {
+  SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
     if (!instance) return;
     instance.update();
   });
-  SelectorEngine.find(OUTLINE_TEXTAREA, e.target).forEach((element) => {
+  SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
     if (!instance) return;
     instance.update();
@@ -213,12 +235,12 @@ EventHandler.on(window, 'shown.bs.modal', (e) => {
 });
 
 EventHandler.on(window, 'shown.bs.dropdown', (e) => {
-  SelectorEngine.find(OUTLINE_INPUT, e.target).forEach((element) => {
+  SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
     if (!instance) return;
     instance.update();
   });
-  SelectorEngine.find(OUTLINE_TEXTAREA, e.target).forEach((element) => {
+  SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
     if (!instance) return;
     instance.update();
@@ -228,12 +250,12 @@ EventHandler.on(window, 'shown.bs.dropdown', (e) => {
 EventHandler.on(window, 'shown.bs.tab', (e) => {
   const targetId = e.target.href.split('#')[1];
   const target = SelectorEngine.findOne(`#${targetId}`);
-  SelectorEngine.find(OUTLINE_INPUT, target).forEach((element) => {
+  SelectorEngine.find(SELECTOR_OUTLINE_INPUT, target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
     if (!instance) return;
     instance.update();
   });
-  SelectorEngine.find(OUTLINE_TEXTAREA, target).forEach((element) => {
+  SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
     if (!instance) return;
     instance.update();
@@ -241,9 +263,7 @@ EventHandler.on(window, 'shown.bs.tab', (e) => {
 });
 
 // auto-init
-SelectorEngine.find(`.${CLASSNAME_WRAPPER}`).forEach((element) => {
-  new Input(element).init();
-});
+SelectorEngine.find(`.${CLASSNAME_WRAPPER}`).map((element) => new Input(element));
 
 // auto-fill
 EventHandler.on(window, 'onautocomplete', (e) => {

@@ -1,0 +1,24 @@
+// Tables
+
+.table {
+  color: #212529;
+  font-size: 0.9rem;
+  > :not(:last-child) > :last-child > * {
+    border-bottom-color: inherit;
+  }
+  > :not(caption) > * > * {
+    padding: 1rem 1.4rem;
+  }
+  th {
+    font-weight: 500;
+  }
+  tbody {
+    font-weight: 300;
+  }
+}
+.table-hover > tbody > tr:hover {
+  color: #212529;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+  color: #212529;
+}
