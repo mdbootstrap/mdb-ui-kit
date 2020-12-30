@@ -54,3 +54,7 @@
     transition: $image-hover-shadow-transition;
   }
 }
+
+.bg-fixed {
+  background-attachment: fixed;
+}

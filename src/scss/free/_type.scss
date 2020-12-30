@@ -17,3 +17,9 @@
     border-color: map-get($color, border-color);
   }
 }
+
+.w-responsive {
+  @media (min-width: 1199px) {
+    width: 75%;
+  }
+}

@@ -23,7 +23,7 @@ ___
     <tr>
       <td>
           <a href="https://mdbootstrap.com/docs/standard/" alt="Bootstrap 5" rel="dofollow">
-          		<img src="https://z9t4u9f6.stackpathcdn.com/wp-content/themes/mdbootstrap4/content/en/_mdb5/standard/about/assets/mdb5-about.jpg">
+          		<img src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/en/_mdb5/standard/about/assets/mdb5-about.jpg">
           </a>
       </td>
       <td>

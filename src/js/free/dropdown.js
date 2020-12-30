@@ -49,7 +49,10 @@ class Dropdown extends BSDropdown {
     this._menuStyle = '';
     this._xPlacement = '';
 
-    if (this._config.dropdownAnimation === 'on') {
+    //* prevents dropdown close issue when system animation is turned off
+    const isPrefersReducedMotionSet = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (this._config.dropdownAnimation === 'on' && !isPrefersReducedMotionSet) {
       this._init();
     }
   }

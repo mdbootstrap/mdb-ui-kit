@@ -74,7 +74,7 @@
         border-radius: 0 $form-notch-trailing-border-radius $form-notch-trailing-border-radius 0;
       }
     }
-    &::placeholder {
+    &:not(.placeholder-active)::placeholder {
       opacity: 0;
     }
     // &:not(:focus)::placeholder ~ label {
