@@ -2,17 +2,17 @@
 
 .btn {
   font-family: $btn-font-family;
-  line-height: 1.5;
+  line-height: $btn-line-height;
   text-transform: uppercase;
   vertical-align: bottom;
-  padding-top: 10px;
-  padding-bottom: 8px;
+  padding-top: $btn-padding-top;
+  padding-bottom: $btn-padding-bottom;
   border: 0;
   box-shadow: $btn-box-shadow;
-  font-size: 12px;
-  padding-left: 24px;
-  padding-right: 24px;
-  font-weight: 500;
+  font-size: $btn-font-size;
+  padding-left: $btn-padding-left;
+  padding-right: $btn-padding-right;
+  font-weight: $btn-font-weight;
 
   &:hover {
     box-shadow: $btn-hover-box-shadow;
@@ -43,13 +43,13 @@
 // Buttons outline
 
 [class*='btn-outline-'] {
-  border-width: 2px;
+  border-width: $btn-border-width;
   border-style: solid;
   box-shadow: none;
-  padding-top: 8px;
-  padding-bottom: 6px;
-  padding-left: 22px;
-  padding-right: 22px;
+  padding-top: $btn-outline-padding-top;
+  padding-bottom: $btn-outline-padding-bottom;
+  padding-left: $btn-outline-padding-left;
+  padding-right: $btn-outline-padding-right;
 
   &:hover {
     box-shadow: none;
@@ -78,17 +78,17 @@
   }
 
   &.btn-sm {
-    padding-top: 4px;
-    padding-bottom: 3px;
-    padding-right: 14px;
-    padding-left: 14px;
+    padding-top: $btn-outline-padding-top-sm;
+    padding-bottom: $btn-outline-padding-bottom-sm;
+    padding-right: $btn-outline-padding-right-sm;
+    padding-left: $btn-outline-padding-left-sm;
   }
 
   &.btn-lg {
-    padding-top: 10px;
-    padding-bottom: 9px;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-top: $btn-outline-padding-top-lg;
+    padding-bottom: $btn-outline-padding-bottom-lg;
+    padding-right: $btn-outline-padding-right-lg;
+    padding-left: $btn-outline-padding-left-lg;
   }
 }
 
@@ -112,23 +112,22 @@
 
 .btn-lg {
   // @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
-
-  line-height: 1.6;
-  padding-top: 12px;
-  padding-bottom: 11px;
-  font-size: 14px;
-  padding-left: 27px;
-  padding-right: 27px;
+  line-height: $btn-line-height-lg;
+  font-size: $btn-font-size-lg;
+  padding-top: $btn-padding-top-lg;
+  padding-bottom: $btn-padding-bottom-lg;
+  padding-right: $btn-padding-right-lg;
+  padding-left: $btn-padding-left-lg;
 }
 
 .btn-sm {
   // @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
-  line-height: 1.5;
-  font-size: 12px;
-  padding-top: 6px;
-  padding-bottom: 5px;
-  padding-right: 16px;
-  padding-left: 16px;
+  line-height: $btn-line-height-sm;
+  font-size: $btn-font-size-sm;
+  padding-top: $btn-padding-top-sm;
+  padding-bottom: $btn-padding-bottom-sm;
+  padding-right: $btn-padding-right-sm;
+  padding-left: $btn-padding-left-sm;
 }
 
 // Link buttons
@@ -142,24 +141,24 @@
   &:hover {
     box-shadow: none;
     text-decoration: none;
-    background-color: #f5f5f5;
+    background-color: $btn-link-bgc;
   }
 
   &:focus,
   &.focus {
     box-shadow: none;
     text-decoration: none;
-    background-color: #f5f5f5;
+    background-color: $btn-link-bgc;
   }
 
   &:active,
   &.active {
     box-shadow: none;
-    background-color: #f5f5f5;
+    background-color: $btn-link-bgc;
 
     &:focus {
       box-shadow: none;
-      background-color: #f5f5f5;
+      background-color: $btn-link-bgc;
     }
   }
 
@@ -171,5 +170,40 @@
 }
 
 .btn-rounded {
-  border-radius: 10rem;
+  border-radius: $btn-rounded-border-radius;
+}
+
+.btn-floating {
+  border-radius: 50%;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+
+  .fas,
+  .far,
+  .fab {
+    line-height: 36px;
+  }
+
+  &.btn-sm {
+    width: 29px;
+    height: 29px;
+
+    .fas,
+    .far,
+    .fab {
+      line-height: 29px;
+    }
+  }
+
+  &.btn-lg {
+    width: 45px;
+    height: 45px;
+
+    .fas,
+    .far,
+    .fab {
+      line-height: 45px;
+    }
+  }
 }

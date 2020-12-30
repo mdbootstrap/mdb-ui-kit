@@ -1,16 +1,103 @@
 //
-// Check/radio
+// Material styles for check / radio / switch
 //
 
+.form-check {
+  .form-check-input {
+    margin-left: 1.79rem * -1;
+
+    &[type='radio'] {
+      margin-left: 1.85rem * -1;
+    }
+  }
+}
+
 .form-check-input {
-  border: solid 2px;
-  border-color: rgba(0, 0, 0, 0.6);
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border: 2px solid rgb(117, 117, 117);
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0px 0px 0px 13px transparent;
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    background-color: transparent;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0);
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &:before {
+      opacity: 0.04;
+      box-shadow: 0px 0px 0px 13px rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+    border-color: rgb(117, 117, 117);
+    transition: border-color 0.2s;
+
+    &:before {
+      opacity: 0.12;
+      box-shadow: 0px 0px 0px 13px rgba(0, 0, 0, 0.6);
+      transform: scale(1);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+  }
+
+  &:checked {
+    border-color: $primary;
+
+    &:before {
+      opacity: 0.16;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+    }
+
+    &:focus {
+      border-color: $primary;
+
+      &:before {
+        box-shadow: 0px 0px 0px 13px $primary;
+        transform: scale(1);
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+    }
+  }
 
   &[type='checkbox'] {
     border-radius: 2px;
 
     &:checked {
+      background-image: none;
       background-color: $primary;
+
+      &:after {
+        display: block;
+        transform: rotate(45deg);
+        border-width: 2px;
+        border-color: #fff;
+        width: 6px;
+        height: 13px;
+        border-style: solid;
+        border-top: 0;
+        border-left: 0;
+        margin-left: 4px;
+        margin-top: -1px;
+      }
+
       &:focus {
         background-color: $primary;
       }
@@ -18,54 +105,19 @@
   }
 
   &[type='radio'] {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+
+    &:before {
+      box-shadow: 1px 1px 0px 13px rgba(0, 0, 0, 0.6);
+    }
+
     &:checked {
+      background-image: none;
       background-color: #fff;
-      &:focus {
-        background-color: #fff;
-      }
-    }
-  }
 
-  &:hover {
-    cursor: pointer;
-  }
-
-  &:focus {
-    border-color: rgba(0, 0, 0, 0.6);
-    box-shadow: none;
-  }
-
-  &:checked {
-    &:focus {
-      border-color: $primary;
-    }
-
-    &[type='checkbox'] {
-      background-image: none;
-
-      &:before {
-        content: '';
-        transform: rotate(45deg);
-        position: absolute;
-        margin-left: 5px;
-        width: 6px;
-        height: 13px;
-        border-width: 2px;
-        border-style: solid;
-        border-top: 0;
-        border-left: 0;
-        border-color: #fff;
-        z-index: 10000;
-        transition: border-color 0.2s, background-color 0.2s;
-      }
-    }
-
-    &[type='radio'] {
-      background-image: none;
-
-      &:before {
-        content: '';
-        position: absolute;
+      &:after {
         border-radius: 50%;
         width: 10px;
         height: 10px;
@@ -74,6 +126,14 @@
         margin-top: 3px;
         margin-left: 3px;
         transition: border-color;
+      }
+
+      &:focus {
+        background-color: #fff;
+
+        &:before {
+          box-shadow: 1px 1px 0px 13px $primary;
+        }
       }
     }
   }
@@ -86,6 +146,7 @@
 }
 
 .form-switch {
+  padding-left: 1.85rem;
   .form-check-input {
     background-image: none;
     border-width: 0px;
@@ -93,8 +154,10 @@
     width: 36px;
     height: 14px;
     background-color: rgba(0, 0, 0, 0.38);
+    margin-top: 0.35rem;
+    margin-right: 0.7rem;
 
-    &:before {
+    &:after {
       content: '';
       position: absolute;
       border: none;
@@ -111,6 +174,12 @@
 
     &:focus {
       background-image: none;
+
+      &:before {
+        box-shadow: 3px -1px 0px 13px rgba(0, 0, 0, 0.6);
+        transform: scale(1);
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
     }
 
     &:checked {
@@ -118,12 +187,19 @@
 
       &:focus {
         background-image: none;
+
+        &:before {
+          margin-left: 17px;
+          box-shadow: 3px -1px 0px 13px $primary;
+          transform: scale(1);
+          transition: box-shadow 0.2s, transform 0.2s;
+        }
       }
 
       &[type='checkbox'] {
         background-image: none;
 
-        &:before {
+        &:after {
           content: '';
           position: absolute;
           border: none;

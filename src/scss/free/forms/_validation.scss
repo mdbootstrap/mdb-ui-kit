@@ -65,24 +65,19 @@
   }
 }
 
-.was-validated
-  .form-check
-  .form-check-input[type='checkbox']:valid:checked
-  + .form-check-label:before,
-.was-validated
-  .form-check
-  .form-check-input[type='checkbox'].is-valid:checked
-  + .form-check-label:before {
+.was-validated .form-check-input.is-valid:checked[type='checkbox']:before {
+  border-color: #fff;
+}
+.was-validated .form-check-input.is-valid:checked[type='checkbox'] {
   background-color: $success;
   border-color: $success;
 }
 
-.was-validated .form-check .form-check-input[type='checkbox']:invalid + .form-check-label:before,
-.was-validated
-  .form-check
-  .form-check-input[type='checkbox'].is-invalid
-  + .form-check-label:before {
-  background-color: $white;
+.was-validated .form-check-input.is-invalid:checked[type='checkbox']:before {
+  border-color: #fff;
+}
+.was-validated .form-check-input.is-invalid:checked[type='checkbox'] {
+  background-color: $danger;
   border-color: $danger;
 }
 
@@ -93,12 +88,38 @@
   margin-bottom: 1rem;
 }
 
-.was-validated .form-check-input:valid:checked,
-.form-check-input.is-valid:checked {
-  background-color: $success;
+.was-validated .form-check-input:invalid:focus,
+.form-check-input.is-invalid:focus {
+  box-shadow: none;
 }
 
-.was-validated .form-check-input:invalid,
-.form-check-input.is-invalid {
-  background-color: $danger;
+.was-validated .form-check-input:valid:focus,
+.form-check-input.valid:focus {
+  box-shadow: none;
+}
+
+.was-validated .form-check-input:valid:checked:focus:before {
+  box-shadow: 0px 0px 0px 13px $success;
+}
+
+.was-validated .form-check-input:invalid:checked:focus:before {
+  box-shadow: 0px 0px 0px 13px $danger;
+}
+
+.was-validated .form-check-input[type='checkbox']:checked:valid:focus,
+.form-check-input[type='checkbox'].valid:checked:focus {
+  background-color: $success;
+  border-color: $success;
+}
+
+.was-validated .input-group .form-control:invalid,
+.was-validated .input-group .form-control.is-invalid,
+.was-validated .input-group .form-control:valid,
+.was-validated .input-group .form-control.is-valid {
+  margin-bottom: 0;
+}
+
+.was-validated .input-group .valid-feedback,
+.was-validated .input-group .invalid-feedback {
+  margin-top: 2.5rem;
 }

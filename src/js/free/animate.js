@@ -16,11 +16,13 @@ const SELECTOR_EXPAND = '[data-toggle="animation"]';
 
 const DefaultType = {
   animation: 'string',
+  start: 'string',
+  showOnLoad: 'boolean',
   onStart: '(null|function)',
   onEnd: '(null|function)',
   onHide: '(null|function)',
   onShow: '(null|function)',
-  animateonscroll: '(boolean|string)',
+  animateOnScroll: '(string)',
   windowHeight: 'number',
   offset: '(number|string)',
   delay: '(number|string)',
@@ -28,15 +30,18 @@ const DefaultType = {
   reverse: 'boolean',
   interval: '(number|string)',
   repeat: '(number|boolean)',
+  reset: 'boolean',
 };
 
 const Default = {
   animation: 'fade',
+  start: 'onClick',
+  showOnLoad: true,
   onStart: null,
   onEnd: null,
   onHide: null,
   onShow: null,
-  animateonscroll: false,
+  animateOnScroll: 'once',
   windowHeight: 0,
   offset: 0,
   delay: 0,
@@ -44,6 +49,7 @@ const Default = {
   reverse: false,
   interval: 0,
   repeat: false,
+  reset: false,
 };
 
 /**
@@ -82,10 +88,22 @@ class Animate {
 
   // Private
   _init() {
-    if (this._options.animateonscroll) {
-      this._bindScrollEvents();
-    } else {
-      this._bindClickEvents();
+    switch (this._options.start) {
+      case 'onHover':
+        this._bindHoverEvents();
+        break;
+      case 'onLoad':
+        this._startAnimation();
+        break;
+      case 'onScroll':
+        this._bindScrollEvents();
+        break;
+      default:
+        this._bindClickEvents();
+        break;
+    }
+    this._bindTriggerOnEndCallback();
+    if (this._options.reset) {
       this._bindResetAnimationAfterFinish();
     }
   }
@@ -128,7 +146,7 @@ class Animate {
         this._hideAnimateElement();
         break;
       case shouldBeVisible && !isElementVisible && this._repeatAnimateOnScroll:
-        if (this._options.animateonscroll !== 'repeat') {
+        if (this._options.animateOnScroll !== 'repeat') {
           this._repeatAnimateOnScroll = false;
         }
         this._callback(this._options.onShow);
@@ -146,12 +164,12 @@ class Animate {
   }
 
   _addAnimatedClass() {
-    Manipulator.addClass(this._animateElement, 'animated');
+    Manipulator.addClass(this._animateElement, 'animation');
     Manipulator.addClass(this._animateElement, this._options.animation);
   }
 
   _clearAnimationClass() {
-    this._animateElement.classList.remove(this._options.animation, 'animated');
+    this._animateElement.classList.remove(this._options.animation, 'animation');
   }
 
   _startAnimation() {
@@ -207,7 +225,6 @@ class Animate {
 
   _setAnimationInterval() {
     EventHandler.on(this._animateElement, 'animationend', () => {
-      this._callback(this._options.onEnd);
       this._clearAnimationClass();
       setTimeout(() => {
         this._addAnimatedClass();
@@ -225,23 +242,41 @@ class Animate {
 
   _bindResetAnimationAfterFinish() {
     EventHandler.on(this._animateElement, 'animationend', () => {
-      this._callback(this._options.onEnd);
       this._clearAnimationClass();
     });
   }
 
+  _bindTriggerOnEndCallback() {
+    EventHandler.on(this._animateElement, 'animationend', () => {
+      this._callback(this._options.onEnd);
+    });
+  }
+
   _bindScrollEvents() {
-    const scrollPositionOnPageLoad = window.scrollY;
+    if (!this._options.showOnLoad) {
+      this._animateOnScroll();
+    }
+
     EventHandler.on(window, 'scroll', () => {
-      if (scrollPositionOnPageLoad !== window.scrollY) {
-        this._animateOnScroll();
-      }
+      this._animateOnScroll();
     });
   }
 
   _bindClickEvents() {
     EventHandler.on(this._element, 'mousedown', () => {
       this._startAnimation();
+    });
+  }
+
+  _bindHoverEvents() {
+    EventHandler.one(this._element, 'mouseenter', () => {
+      this._startAnimation();
+    });
+    EventHandler.one(this._animateElement, 'animationend', () => {
+      // wait after bind hoverEvents to prevent animation looping
+      setTimeout(() => {
+        this._bindHoverEvents();
+      }, 100);
     });
   }
 

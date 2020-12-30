@@ -14,6 +14,7 @@ const NAME = 'input';
 const DATA_KEY = 'mdb.input';
 const CLASSNAME_WRAPPER = 'form-outline';
 const OUTLINE_INPUT = `.${CLASSNAME_WRAPPER} input`;
+const OUTLINE_TEXTAREA = `.${CLASSNAME_WRAPPER} textarea`;
 
 /**
  * ------------------------------------------------------------------------
@@ -24,8 +25,12 @@ const OUTLINE_INPUT = `.${CLASSNAME_WRAPPER} input`;
 class Input {
   constructor(element) {
     this._element = element;
+    this._label = null;
     this._labelWidth = 0;
+    this._labelMarginLeft = 0;
+    this._notchLeading = null;
     this._notchMiddle = null;
+    this._notchTrailing = null;
 
     if (this._element) {
       Data.setData(element, DATA_KEY, this);
@@ -39,9 +44,9 @@ class Input {
 
   // Public
   init() {
-    this._calculateLabelWidth();
+    this._getLabelData();
     this._applyDivs();
-    this._applyNotchWidth();
+    this._applyNotch();
     this._applyActiveClass();
   }
 
@@ -51,40 +56,67 @@ class Input {
   }
 
   // Private
-  _calculateLabelWidth() {
-    const label = SelectorEngine.findOne('label.form-label', this._element);
-    this._labelWidth = label.clientWidth * 0.8 + 8;
+  _getLabelData() {
+    this._label = SelectorEngine.findOne('label', this._element);
+    if (this._label === null) return;
+    this._getLabelWidth();
+
+    if (!this._element.classList.contains('input-group')) return;
+    this._getLabelPositionInInputGroup();
+  }
+
+  _getLabelWidth() {
+    this._labelWidth = this._label.clientWidth * 0.8 + 8;
+  }
+
+  _getLabelPositionInInputGroup() {
+    const input =
+      SelectorEngine.findOne('input', this._element) ||
+      SelectorEngine.findOne('textarea', this._element);
+    const prefix = SelectorEngine.prev(input, '.input-group-text')[0];
+    if (prefix === undefined) return;
+    this._labelMarginLeft = prefix.offsetWidth - 1;
   }
 
   _applyDivs() {
     const notchWrapper = element('div');
     Manipulator.addClass(notchWrapper, 'form-notch');
-    const notchLeading = element('div');
-    Manipulator.addClass(notchLeading, 'form-notch-leading');
+    this._notchLeading = element('div');
+    Manipulator.addClass(this._notchLeading, 'form-notch-leading');
     this._notchMiddle = element('div');
     Manipulator.addClass(this._notchMiddle, 'form-notch-middle');
-    const notchTrailing = element('div');
-    Manipulator.addClass(notchTrailing, 'form-notch-trailing');
+    this._notchTrailing = element('div');
+    Manipulator.addClass(this._notchTrailing, 'form-notch-trailing');
 
-    notchWrapper.append(notchLeading);
+    notchWrapper.append(this._notchLeading);
     notchWrapper.append(this._notchMiddle);
-    notchWrapper.append(notchTrailing);
+    notchWrapper.append(this._notchTrailing);
     this._element.append(notchWrapper);
   }
 
-  _applyNotchWidth() {
+  _applyNotch() {
     this._notchMiddle.style.width = `${this._labelWidth}px`;
+    this._notchLeading.style.width = `${this._labelMarginLeft + 9}px`;
+
+    if (this._label === null) return;
+    this._label.style.marginLeft = `${this._labelMarginLeft}px`;
   }
 
   _applyActiveClass(event) {
-    const input = event ? event.target : SelectorEngine.findOne('input', this._element);
+    const input = event
+      ? event.target
+      : SelectorEngine.findOne('input', this._element) ||
+        SelectorEngine.findOne('textarea', this._element);
     if (input.value !== '') {
       Manipulator.addClass(input, 'active');
     }
   }
 
   _removeActiveClass(event) {
-    const input = event ? event.target : SelectorEngine.findOne('input', this._element);
+    const input = event
+      ? event.target
+      : SelectorEngine.findOne('input', this._element) ||
+        SelectorEngine.findOne('textarea', this._element);
     if (input.value === '') {
       input.classList.remove('active');
     }
@@ -101,15 +133,23 @@ class Input {
       instance._removeActiveClass(event);
     };
   }
+
+  static getInstance(element) {
+    return Data.getData(element, DATA_KEY);
+  }
 }
 
 EventHandler.on(document, 'focus', OUTLINE_INPUT, Input.applyActiveClass(new Input()));
 EventHandler.on(document, 'input', OUTLINE_INPUT, Input.applyActiveClass(new Input()));
 EventHandler.on(document, 'blur', OUTLINE_INPUT, Input.removeActiveClass(new Input()));
 
+EventHandler.on(document, 'focus', OUTLINE_TEXTAREA, Input.applyActiveClass(new Input()));
+EventHandler.on(document, 'input', OUTLINE_TEXTAREA, Input.applyActiveClass(new Input()));
+EventHandler.on(document, 'blur', OUTLINE_TEXTAREA, Input.removeActiveClass(new Input()));
+
 // auto-init
-SelectorEngine.find(`.${CLASSNAME_WRAPPER}`).forEach((input) => {
-  new Input(input).init();
+SelectorEngine.find(`.${CLASSNAME_WRAPPER}`).forEach((element) => {
+  new Input(element).init();
 });
 
 export default Input;

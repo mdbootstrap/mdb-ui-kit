@@ -10,7 +10,7 @@
 
 **[>> Demo](https://mdbootstrap.com/docs/standard/#demo)**
 
-<a href="https://npmcharts.com/compare/mdbootstrap?minimal=true"> <img src="https://img.shields.io/npm/dm/mdbootstrap.svg" alt="Downloads"></a><a href="https://github.com/mdbootstrap/bootstrap-material-design/blob/master/License.pdf"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a> <a href="https://cdnjs.com/libraries/mdbootstrap"> <img src="https://img.shields.io/cdnjs/v/mdbootstrap.svg" alt="cdnjs"></a> <a href="https://badge.fury.io/js/mdbootstrap"><img src="https://badge.fury.io/js/mdbootstrap.svg" alt="npm"></a> <a href="https://twitter.com/intent/tweet/?text=Thanks+@mdbootstrap+for+creating+amazing+and+free+Material+Design+for+Bootstrap+4+UI+KIT%20https://mdbootstrap.com/docs/jquery/&hashtags=javascript,code,webdesign,bootstrap"> <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
+<a href="https://npmcharts.com/compare/mdbootstrap?minimal=true"> <img src="https://img.shields.io/npm/dm/mdbootstrap.svg" alt="Downloads"></a><a href="https://github.com/mdbootstrap/bootstrap-material-design/blob/master/License.pdf"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a> <a href="https://twitter.com/intent/tweet/?text=Thanks+@mdbootstrap+for+creating+amazing+and+free+Material+Design+for+Bootstrap+4+UI+KIT%20https://mdbootstrap.com/docs/jquery/&hashtags=javascript,code,webdesign,bootstrap"> <img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social"></a>
 ___
 
 <table>
@@ -91,7 +91,5 @@ ___
 ###### Simplicity and ease of use are key features of MDB 5 UI Kit. You need only one minute to install and run it.
 
 <a href="https://mdbootstrap.com/docs/standard/" alt="Bootstrap 5" rel="dofollow"><img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-loaders1.gif"></a>
-
-<a href="https://mdbootstrap.com/docs/standard/" alt="Bootstrap 5" rel="dofollow"><img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-loaders2.gif"></a>
 
 <a href="https://mdbootstrap.com/docs/standard/" alt="Bootstrap 5" rel="dofollow"><img src="https://mdbootstrap.com/img/Marketing/campaigns/demo-mdb5.jpg"></a>

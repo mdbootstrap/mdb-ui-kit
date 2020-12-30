@@ -7,8 +7,10 @@
     min-height: calc(1.5em + 0.33rem + 2px);
     padding-top: 0.27rem;
     padding-bottom: 0.27rem;
+    transition: all 0.2s linear;
 
     &:focus {
+      transition: all 0.2s linear;
       border-color: $primary;
       outline: 0;
       box-shadow: inset 0 0 0 1px $primary;
@@ -53,6 +55,10 @@
   &.form-outline {
     .input-group-text {
       border-left: 0;
+    }
+    input + .input-group-text {
+      border: 0;
+      border-left: 1px solid #bdbdbd;
     }
   }
 }
