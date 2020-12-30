@@ -16,6 +16,12 @@ import Dropdown from './free/dropdown';
 import Treeview from './free/treeview';
 import Ripple from './free/ripple';
 
+// AUTO INIT
+const tooltips = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'));
+const popovers = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'));
+if (tooltips.length > 0) tooltips.map((tooltip) => new Tooltip(tooltip));
+if (popovers.length > 0) popovers.map((popover) => new Popover(popover));
+
 export {
   Alert,
   Button,

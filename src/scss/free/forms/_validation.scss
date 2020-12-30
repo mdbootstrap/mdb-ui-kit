@@ -65,6 +65,32 @@
   }
 }
 
+.form-outline {
+  .form-control {
+    &.is-valid {
+      ~ .form-label {
+        color: $success;
+      }
+      ~ .form-notch .form-notch-leading,
+      ~ .form-notch .form-notch-middle,
+      ~ .form-notch .form-notch-trailing {
+        border-color: $success;
+      }
+    }
+
+    &.is-invalid {
+      ~ .form-label {
+        color: $danger;
+      }
+      ~ .form-notch .form-notch-leading,
+      ~ .form-notch .form-notch-middle,
+      ~ .form-notch .form-notch-trailing {
+        border-color: $danger;
+      }
+    }
+  }
+}
+
 .was-validated .form-check-input.is-valid:checked[type='checkbox']:before {
   border-color: #fff;
 }
@@ -78,6 +104,28 @@
 }
 .was-validated .form-check-input.is-invalid:checked[type='checkbox'] {
   background-color: $danger;
+  border-color: $danger;
+}
+
+.form-check-input.is-valid:checked[type='checkbox']:before {
+  border-color: #fff;
+}
+.form-check-input.is-valid:checked[type='checkbox'] {
+  background-color: $success;
+  border-color: $success;
+}
+
+.form-check-input.is-invalid:checked[type='checkbox']:before {
+  border-color: #fff;
+}
+.form-check-input.is-invalid:checked[type='checkbox'] {
+  background-color: $danger;
+  border-color: $danger;
+}
+.form-check-input.is-invalid[type='checkbox']:before {
+  border-color: #fff;
+}
+.form-check-input.is-invalid[type='checkbox'] {
   border-color: $danger;
 }
 
@@ -106,6 +154,22 @@
   box-shadow: 0px 0px 0px 13px $danger;
 }
 
+.was-validated .form-check-input:invalid:focus:before {
+  box-shadow: 0px 0px 0px 13px $danger;
+}
+
+.form-check-input.is-valid:checked:focus:before {
+  box-shadow: 0px 0px 0px 13px $success;
+}
+
+.form-check-input.is-invalid:checked:focus:before {
+  box-shadow: 0px 0px 0px 13px $danger;
+}
+
+.form-check-input.is-invalid:focus:before {
+  box-shadow: 0px 0px 0px 13px $danger;
+}
+
 .was-validated .form-check-input[type='checkbox']:checked:valid:focus,
 .form-check-input[type='checkbox'].valid:checked:focus {
   background-color: $success;
@@ -113,13 +177,142 @@
 }
 
 .was-validated .input-group .form-control:invalid,
-.was-validated .input-group .form-control.is-invalid,
+.input-group .form-control.is-invalid,
 .was-validated .input-group .form-control:valid,
-.was-validated .input-group .form-control.is-valid {
+.input-group .form-control.is-valid {
   margin-bottom: 0;
 }
 
 .was-validated .input-group .valid-feedback,
-.was-validated .input-group .invalid-feedback {
+.was-validated .input-group .invalid-feedback,
+.input-group .valid-feedback,
+.input-group .invalid-feedback {
   margin-top: 2.5rem;
+}
+
+.form-file .valid-feedback,
+.form-file .invalid-feedback {
+  margin-top: 0.25rem;
+}
+
+// Valid radio
+
+.was-validated .form-check-input[type='radio']:valid:checked {
+  border-color: $success;
+}
+
+.was-validated .form-check-input[type='radio']:valid:checked:focus:before {
+  box-shadow: 1px 1px 0px 13px $success;
+}
+
+.was-validated .form-check-input[type='radio']:valid:checked {
+  background-color: #fff;
+}
+
+.was-validated .form-check-input[type='radio']:valid:checked:after {
+  border-color: $success;
+  background-color: $success;
+}
+
+.form-check-input[type='radio'].is-valid:checked {
+  border-color: $success;
+}
+
+.form-check-input[type='radio'].is-valid:checked:focus:before {
+  box-shadow: 1px 1px 0px 13px $success;
+}
+
+.form-check-input[type='radio'].is-valid:checked {
+  background-color: #fff;
+}
+
+.form-check-input[type='radio'].is-valid:checked:after {
+  border-color: $success;
+  background-color: $success;
+}
+
+// Invalid radio
+
+.was-validated .form-check-input[type='radio']:invalid:checked {
+  border-color: $danger;
+}
+
+.was-validated .form-check-input[type='radio']:invalid:checked:focus:before {
+  box-shadow: 1px 1px 0px 13px $danger;
+}
+
+.was-validated .form-check-input[type='radio']:invalid:checked {
+  background-color: #fff;
+}
+
+.was-validated .form-check-input[type='radio']:invalid:checked:after {
+  border-color: $danger;
+  background-color: $danger;
+}
+
+.form-check-input[type='radio'].is-invalid:checked {
+  border-color: $danger;
+}
+
+.form-check-input[type='radio'].is-invalid:checked:focus:before {
+  box-shadow: 1px 1px 0px 13px $danger;
+}
+
+.form-check-input[type='radio'].is-invalid:checked {
+  background-color: #fff;
+}
+
+.form-check-input[type='radio'].is-invalid:checked:after {
+  border-color: $danger;
+  background-color: $danger;
+}
+
+.was-validated .form-file-input:invalid:focus ~ .form-file-label,
+.form-file-input.is-invalid:focus ~ .form-file-label,
+.was-validated .form-file-input:valid:focus ~ .form-file-label,
+.form-file-input.is-valid:focus ~ .form-file-label {
+  box-shadow: none;
+}
+
+.was-validated .form-file-input:focus-within ~ .form-file-label {
+  border: none;
+  box-shadow: none;
+}
+
+.was-validated .form-file-input:invalid:focus-within ~ .form-file-label .form-file-text,
+.was-validated .form-file-input:invalid:focus-within ~ .form-file-label .form-file-button,
+.form-file-input.is-invalid:focus-within ~ .form-file-label .form-file-text,
+.form-file-input.is-invalid:focus-within ~ .form-file-label .form-file-button {
+  border-color: $danger;
+}
+
+.was-validated .form-file-input:valid:focus-within ~ .form-file-label .form-file-text,
+.was-validated .form-file-input:valid:focus-within ~ .form-file-label .form-file-button,
+.form-file-input.is-valid:focus-within ~ .form-file-label .form-file-text,
+.form-file-input.is-valid:focus-within ~ .form-file-label .form-file-button {
+  border-color: $success;
+}
+
+.was-validated :invalid ~ .invalid-tooltip,
+.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip {
+  border-radius: 0.25rem !important;
+}
+
+.valid-tooltip {
+  color: #fff;
+}
+
+.was-validated .form-file .form-file-input:invalid ~ .form-file-label .form-file-text,
+.was-validated .form-file .form-file-input:invalid ~ .form-file-label .form-file-button {
+  border-color: $danger;
+}
+
+.was-validated .form-file .form-file-input:valid ~ .form-file-label .form-file-text,
+.was-validated .form-file .form-file-input:valid ~ .form-file-label .form-file-button {
+  border-color: $success;
+}
+
+.was-validated .form-file {
+  margin-bottom: 2.5rem;
 }

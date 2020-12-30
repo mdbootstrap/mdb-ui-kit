@@ -6,9 +6,11 @@
 
 ### Bootstrap 5 & Material Design 2.0 UI KIT
 
-**[>> Get Started](https://mdbootstrap.com/docs/standard/getting-started/installation/)**
+**[>> Get Started in 3 steps](https://mdbootstrap.com/docs/standard/getting-started/installation/)**
 
-**[>> Demo](https://mdbootstrap.com/docs/standard/#demo)**
+**[>> Get Started with Webpack](https://github.com/mdbootstrap/mdb-webpack-starter)**
+
+**[>> MDB 5 Demo](https://mdbootstrap.com/docs/standard/#demo)**
 
 <a href="https://npmcharts.com/compare/mdbootstrap?minimal=true"> <img src="https://img.shields.io/npm/dm/mdbootstrap.svg?label=MDB%20Downloads" alt="Downloads"></a>
 <a href="https://github.com/mdbootstrap/bootstrap-material-design/blob/master/License.pdf"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>

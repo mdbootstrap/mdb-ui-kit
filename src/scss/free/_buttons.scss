@@ -177,38 +177,65 @@
 [class*='btn-outline-'].btn-floating {
   border-radius: 50%;
   padding: 0;
+  position: relative;
 }
 
 .btn-floating {
-  width: 36px;
-  height: 36px;
-
+  width: 37px;
+  height: 37px;
   .fas,
   .far,
   .fab {
-    line-height: 1;
-    padding-right: 1px;
+    width: 37px;
+    line-height: 37px;
   }
 
   &.btn-sm {
     width: 29px;
     height: 29px;
-
     .fas,
     .far,
     .fab {
-      padding-right: 1px;
+      width: 29px;
+      line-height: 29px;
     }
   }
 
   &.btn-lg {
     width: 45px;
     height: 45px;
-
     .fas,
     .far,
     .fab {
-      padding-right: 0;
+      width: 45px;
+      line-height: 45px;
+    }
+  }
+}
+
+[class*='btn-outline-'].btn-floating {
+  .fas,
+  .far,
+  .fab {
+    width: 33px;
+    line-height: 33px;
+  }
+
+  &.btn-sm {
+    .fas,
+    .far,
+    .fab {
+      width: 25px;
+      line-height: 25px;
+    }
+  }
+
+  &.btn-lg {
+    .fas,
+    .far,
+    .fab {
+      width: 41px;
+      line-height: 41px;
     }
   }
 }
