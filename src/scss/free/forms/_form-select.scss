@@ -2,7 +2,7 @@
 
 .select-input {
   &.form-control {
-    &[readonly] {
+    &[readonly]:not([disabled]) {
       background-color: transparent;
     }
   }

@@ -13,7 +13,6 @@ import Toast from './bootstrap/src/toast';
 // MDB FREE COMPONENTS
 import Input from './free/input';
 import Dropdown from './free/dropdown';
-import Treeview from './free/treeview';
 import Ripple from './free/ripple';
 
 // AUTO INIT
@@ -35,5 +34,4 @@ export {
   Tab,
   Toast,
   Tooltip,
-  Treeview,
 };
