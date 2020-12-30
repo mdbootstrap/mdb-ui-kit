@@ -7,24 +7,14 @@
 
   &:focus-within ~ .form-file-label {
     border: none;
-    box-shadow: none;
+    border-color: $form-file-label-focus-border-color;
+    box-shadow: 0px 0px 0px 1px $primary;
   }
 
   &:focus-within ~ .form-file-label .form-file-text,
   &:focus-within ~ .form-file-label .form-file-button {
-    border-style: solid;
-    border-color: $form-file-label-focus-border-color;
     transition: $form-file-label-focus-transition;
   }
-
-  &:focus-within ~ .form-file-label .form-file-text {
-    border-width: $form-file-label-focus-text-border-width;
-  }
-
-  &:focus-within ~ .form-file-label .form-file-button {
-    border-width: $form-file-label-focus-button-border-width;
-  }
-
   &[disabled] ~ .form-file-label .form-file-text,
   &:disabled ~ .form-file-label .form-file-text,
   &[disabled] ~ .form-file-label .form-file-button,
@@ -36,18 +26,17 @@
 .form-file-label {
   height: $form-file-label-height;
   border-color: $form-file-label-border-color;
+  border-radius: $form-file-label-border-radius;
 }
 
 .form-file-text {
   padding-top: $form-file-text-padding-y;
   padding-bottom: $form-file-text-padding-y;
-  border-color: $form-file-text-border-color;
 }
 
 .form-file-button {
   line-height: $form-file-button-line-height;
   background-color: $form-file-button-background-color;
-  border-color: $form-file-button-border-color;
 }
 
 .form-file-sm {

@@ -1,0 +1,10 @@
+// List group
+
+.list-group-item-action {
+  transition: 0.5s;
+
+  // Hover state
+  &:hover {
+    transition: 0.5s;
+  }
+}

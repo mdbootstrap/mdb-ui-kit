@@ -29,3 +29,15 @@
 .navbar-nav .dropdown-menu {
   position: absolute;
 }
+
+.navbar-light {
+  .navbar-toggler-icon {
+    background-image: none;
+  }
+}
+
+.navbar-dark {
+  .navbar-toggler-icon {
+    background-image: none;
+  }
+}

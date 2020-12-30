@@ -3,3 +3,16 @@
 .alert {
   border: 0;
 }
+
+.alert-absolute {
+  position: absolute;
+}
+
+.alert-fixed {
+  position: fixed;
+  z-index: $zindex-alert;
+}
+
+.parent-alert-relative {
+  position: relative;
+}
