@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-alpha1): scrollspy.js
+ * Bootstrap (v5.0.0-alpha2): scrollspy.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -24,7 +24,7 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 const NAME = 'scrollspy';
-const VERSION = '5.0.0-alpha1';
+const VERSION = '5.0.0-alpha2';
 const DATA_KEY = 'bs.scrollspy';
 const EVENT_KEY = `.${DATA_KEY}`;
 const DATA_API_KEY = '.data-api';
@@ -70,10 +70,7 @@ class ScrollSpy {
     this._element = element;
     this._scrollElement = element.tagName === 'BODY' ? window : element;
     this._config = this._getConfig(config);
-    this._selector =
-      `${this._config.target} ${SELECTOR_NAV_LINKS},` +
-      `${this._config.target} ${SELECTOR_LIST_ITEMS},` +
-      `${this._config.target} .${CLASS_NAME_DROPDOWN_ITEM}`;
+    this._selector = `${this._config.target} ${SELECTOR_NAV_LINKS}, ${this._config.target} ${SELECTOR_LIST_ITEMS}, ${this._config.target} .${CLASS_NAME_DROPDOWN_ITEM}`;
     this._offsets = [];
     this._targets = [];
     this._activeTarget = null;
@@ -109,19 +106,14 @@ class ScrollSpy {
 
     this._offsets = [];
     this._targets = [];
-
     this._scrollHeight = this._getScrollHeight();
 
     const targets = SelectorEngine.find(this._selector);
 
     targets
       .map((element) => {
-        let target;
         const targetSelector = getSelectorFromElement(element);
-
-        if (targetSelector) {
-          target = SelectorEngine.findOne(targetSelector);
-        }
+        const target = targetSelector ? SelectorEngine.findOne(targetSelector) : null;
 
         if (target) {
           const targetBCR = target.getBoundingClientRect();

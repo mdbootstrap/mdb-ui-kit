@@ -1,24 +1,36 @@
-// Tables
+//
+// Basic MDB table
+//
 
 .table {
-  color: #212529;
-  font-size: 0.9rem;
-  > :not(:last-child) > :last-child > * {
-    border-bottom-color: inherit;
-  }
+  font-size: $table-font-size;
+
   > :not(caption) > * > * {
-    padding: 1rem 1.4rem;
+    padding: $table-cell-padding-y $table-cell-padding-x;
+    transition: $table-hover-transition;
+    background-image: none;
+    background-color: var(--bs-table-accent-bg);
   }
+
   th {
     font-weight: 500;
   }
+
   tbody {
     font-weight: 300;
   }
+
+  > :not(:last-child) > :last-child > * {
+    border-bottom-color: $table-group-separator-color;
+  }
 }
-.table-hover > tbody > tr:hover {
-  color: #212529;
+
+.table-sm {
+  > :not(caption) > * > * {
+    padding: $table-cell-padding-y-sm $table-cell-padding-x-sm;
+  }
 }
-.table-striped > tbody > tr:nth-of-type(odd) {
-  color: #212529;
+
+@each $color, $value in $table-variants {
+  @include table-variant-mdb($color, $value);
 }

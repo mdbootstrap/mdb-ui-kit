@@ -1,0 +1,89 @@
+// 12.10.2020 ---------------------------------------------------
+.close {
+  font-size: calc(1.275rem + 0.3vw);
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.5;
+
+  // Override <a>'s hover style
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 0.75;
+  }
+
+  &:disabled,
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+// Additional properties for button version
+// iOS requires the button element instead of an anchor tag.
+// If you want the anchor version, it requires `href="#"`.
+// See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
+
+// stylelint-disable-next-line selector-no-qualifying-type
+button.close {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+}
+
+// Credit: Nicolas Gallagher and SUIT CSS.
+.embed-responsive {
+  position: relative;
+  width: 100%;
+
+  &::before {
+    display: block;
+    content: '';
+  }
+
+  .embed-responsive-item,
+  iframe,
+  embed,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.embed-responsive-21by9:before {
+  padding-top: 42.85714%;
+}
+
+.embed-responsive-16by9:before {
+  padding-top: 56.25%;
+}
+
+.embed-responsive-4by3:before {
+  padding-top: 75%;
+}
+
+.embed-responsive-1by1:before {
+  padding-top: 100%;
+}
+
+.sr-only,
+.sr-only-focusable:not(:focus) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

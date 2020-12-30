@@ -128,10 +128,10 @@
       }
     }
 
-    &:checked:indeterminate,
     &:indeterminate {
       background-image: none;
-      background-color: $form-check-input-indeterminate-checked-background-color;
+      background-color: transparent;
+      border-color: $form-check-input-indeterminate-border-color;
 
       &:after {
         display: block;
@@ -149,6 +149,7 @@
 
       &:focus {
         background-color: $form-check-input-indeterminate-focus-background-color;
+        border-color: $form-check-input-indeterminate-focus-border-color;
       }
     }
   }

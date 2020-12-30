@@ -1,0 +1,7 @@
+// scss-docs-start table-variant
+@mixin table-variant-mdb($state, $background) {
+  .table-#{$state} {
+    background-color: $background;
+  }
+}
+// scss-docs-end table-variant

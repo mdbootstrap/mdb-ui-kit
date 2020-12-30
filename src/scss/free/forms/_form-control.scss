@@ -2,17 +2,26 @@
 // Material styles for form control - form outline
 //
 
-// .form-outline .form-control:placeholder-shown ~ .form-label {
-//   opacity: 0;
-// }
-
-// input:not(:placeholder-shown) {
-//   opacity: 0;
-// }
-
-// input:placeholder-shown {
-//   opacity: 1;
-// }
+.form-control {
+  min-height: auto;
+  padding-top: 5.28px;
+  padding-bottom: 3.28px;
+  transition: all 0.1s linear;
+  &:focus {
+    box-shadow: none;
+    transition: all 0.1s linear;
+    border-color: #1266f1;
+    box-shadow: inset 0px 0px 0px 1px #1266f1;
+  }
+  &.form-control-sm {
+    font-size: 0.775rem;
+    line-height: 1.5;
+  }
+  &.form-control-lg {
+    line-height: 2.15;
+    border-radius: 0.25rem;
+  }
+}
 
 .form-outline {
   position: relative;
@@ -20,6 +29,8 @@
     min-height: auto;
     padding-top: $input-padding-top;
     padding-bottom: $input-padding-bottom;
+    padding-left: $input-padding-left;
+    padding-right: $input-padding-right;
     border: 0;
     background: transparent;
     transition: $input-transition;
@@ -77,12 +88,6 @@
     &:not(.placeholder-active)::placeholder {
       opacity: 0;
     }
-    // &:not(:focus)::placeholder ~ label {
-    //   opacity: 0;
-    // }
-    // &::placeholder {
-    //   opacity: 0;
-    // }
     &:focus,
     &.active {
       &::placeholder {
@@ -139,6 +144,8 @@
     &.form-control-lg {
       font-size: $input-font-size-lg;
       line-height: $input-line-height-lg;
+      padding-left: $input-padding-left-lg;
+      padding-right: $input-padding-right-lg;
       ~ .form-label {
         padding-top: $form-label-padding-top-lg;
       }
@@ -148,6 +155,10 @@
       }
     }
     &.form-control-sm {
+      padding-left: $input-padding-left-sm;
+      padding-right: $input-padding-right-sm;
+      padding-top: $input-padding-top-sm;
+      padding-bottom: $input-padding-bottom-sm;
       font-size: $input-font-size-sm;
       line-height: $input-line-height-sm;
       ~ .form-label {

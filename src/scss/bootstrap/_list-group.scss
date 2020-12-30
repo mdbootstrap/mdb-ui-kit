@@ -12,7 +12,6 @@
   @include border-radius($list-group-border-radius);
 }
 
-
 // Interactive list items
 //
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
@@ -37,7 +36,6 @@
     background-color: $list-group-action-active-bg;
   }
 }
-
 
 // Individual list items
 //
@@ -85,7 +83,6 @@
   }
 }
 
-
 // Horizontal
 //
 // Change the layout of list group items from vertical (default) to horizontal.
@@ -112,7 +109,7 @@
           margin-top: 0;
         }
 
-        & + .list-group-item {
+        + .list-group-item {
           border-top-width: $list-group-border-width;
           border-left-width: 0;
 
@@ -125,7 +122,6 @@
     }
   }
 }
-
 
 // Flush list items
 //
@@ -144,7 +140,6 @@
   }
 }
 
-
 // scss-docs-start list-group-modifiers
 // List group contextual variants
 //
@@ -152,6 +147,10 @@
 // Organizationally, this must come after the `:hover` states.
 
 @each $color, $value in $theme-colors {
-  @include list-group-item-variant($color, color-level($value, $list-group-item-bg-level), color-level($value, $list-group-item-color-level));
+  @include list-group-item-variant(
+    $color,
+    color-level($value, $list-group-item-bg-level),
+    color-level($value, $list-group-item-color-level)
+  );
 }
 // scss-docs-end list-group-modifiers

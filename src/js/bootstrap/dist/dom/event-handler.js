@@ -1,5 +1,5 @@
 /*!
- * Bootstrap event-handler.js v5.0.0-alpha1 (https://getbootstrap.com/)
+ * Bootstrap event-handler.js v5.0.0-alpha2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -8,13 +8,14 @@
     ? (module.exports = factory(require('./polyfill.js')))
     : typeof define === 'function' && define.amd
     ? define(['./polyfill.js'], factory)
-    : ((global = global || self), (global.EventHandler = factory(global.Polyfill)));
+    : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
+      (global.EventHandler = factory(global.Polyfill)));
 })(this, function (polyfill_js) {
   'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-alpha1): util/index.js
+   * Bootstrap (v5.0.0-alpha2): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -32,7 +33,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-alpha1): dom/event-handler.js
+   * Bootstrap (v5.0.0-alpha2): dom/event-handler.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -120,6 +121,8 @@
 
   function bootstrapHandler(element, fn) {
     return function handler(event) {
+      event.delegateTarget = element;
+
       if (handler.oneOff) {
         EventHandler.off(element, event.type, fn);
       }
@@ -135,6 +138,8 @@
       for (var target = event.target; target && target !== this; target = target.parentNode) {
         for (var i = domElements.length; i--; ) {
           if (domElements[i] === target) {
+            event.delegateTarget = target;
+
             if (handler.oneOff) {
               EventHandler.off(element, event.type, fn);
             }
@@ -326,7 +331,7 @@
           bubbles: bubbles,
           cancelable: true,
         });
-      } // merge custom informations in our event
+      } // merge custom information in our event
 
       if (typeof args !== 'undefined') {
         Object.keys(args).forEach(function (key) {

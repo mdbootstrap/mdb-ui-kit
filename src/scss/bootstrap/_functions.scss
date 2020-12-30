@@ -80,6 +80,9 @@
 }
 
 // See https://codepen.io/kevinweber/pen/dXWoRw
+//
+// Requires the use of quotes around data URIs.
+
 @function escape-svg($string) {
   @if str-index($string, 'data:image/svg+xml') {
     @each $char, $encoded in $escaped-characters {
@@ -140,7 +143,7 @@ $_luminance-list: 0.0008 0.001 0.0011 0.0013 0.0015 0.0017 0.002 0.0022 0.0025 0
     }
   }
 
-  @warn "Found no color leading to #{$min-contrast-ratio}:1 contrast ratio against #{$background}…";
+  @warn "Found no color leading to #{$min-contrast-ratio}:1 contrast ratio against #{$background}...";
 
   @return $max-ratio-color;
 }

@@ -4,6 +4,10 @@
   background-color: $toast-background-color;
   border: 0;
   box-shadow: $toast-box-shadow;
+
+  .btn-close {
+    width: 1.3em;
+  }
 }
 
 .toast-header {

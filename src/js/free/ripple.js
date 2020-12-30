@@ -314,16 +314,9 @@ class Ripple {
   }
 
   // Static
-
   static autoInitial(instance) {
     return function (event) {
       instance._autoInit(event);
-    };
-  }
-
-  static staticMethod(instance) {
-    return function (event) {
-      instance._method(event);
     };
   }
 

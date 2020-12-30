@@ -53,7 +53,6 @@
   }
 }
 
-
 // Textual addons
 //
 // Serves as a catch-all element for any text or radio/checkbox input you wish
@@ -62,9 +61,9 @@
 .input-group-text {
   display: flex;
   align-items: center;
-  padding: $input-padding-y $input-padding-x;
+  padding: $input-group-addon-padding-y $input-group-addon-padding-x;
   @include font-size($input-font-size); // Match inputs
-  font-weight: $font-weight-normal;
+  font-weight: $input-group-addon-font-weight;
   line-height: $input-line-height;
   color: $input-group-addon-color;
   text-align: center;
@@ -73,7 +72,6 @@
   border: $input-border-width solid $input-group-addon-border-color;
   @include border-radius($input-border-radius);
 }
-
 
 // Sizing
 //
@@ -118,7 +116,6 @@
 .input-group-sm > .form-select {
   padding-right: $form-select-padding-x + $form-select-indicator-padding;
 }
-
 
 // Rounded corners
 //
