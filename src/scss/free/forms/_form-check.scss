@@ -10,6 +10,9 @@
       margin-left: 1.85rem * -1;
     }
   }
+
+  margin-bottom: 0;
+  min-height: auto;
 }
 
 .form-check-input {
@@ -161,7 +164,7 @@
       content: '';
       position: absolute;
       border: none;
-      z-index: 10000;
+      z-index: 2;
       border-radius: 50%;
       width: 20px;
       height: 20px;
@@ -203,7 +206,7 @@
           content: '';
           position: absolute;
           border: none;
-          z-index: 10000;
+          z-index: 2;
           border-radius: 50%;
           width: 20px;
           height: 20px;

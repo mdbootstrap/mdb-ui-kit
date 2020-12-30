@@ -3,6 +3,7 @@ import Data from '../mdb/dom/data';
 import EventHandler from '../bootstrap/src/dom/event-handler';
 import Manipulator from '../mdb/dom/manipulator';
 import SelectorEngine from '../mdb/dom/selector-engine';
+import 'detect-autofill';
 
 /**
  * ------------------------------------------------------------------------
@@ -47,10 +48,26 @@ class Input {
     this._getLabelData();
     this._applyDivs();
     this._applyNotch();
-    this._applyActiveClass();
+    this._activate();
+  }
+
+  update() {
+    this._getLabelData();
+    this._getNotchData();
+    this._applyNotch();
+    this._activate();
+  }
+
+  forceActive() {
+    const input =
+      SelectorEngine.findOne('input', this._element) ||
+      SelectorEngine.findOne('textarea', this._element);
+    Manipulator.addClass(input, 'active');
   }
 
   dispose() {
+    this._removeBorder();
+
     Data.removeData(this._element, DATA_KEY);
     this._element = null;
   }
@@ -63,6 +80,11 @@ class Input {
 
     if (!this._element.classList.contains('input-group')) return;
     this._getLabelPositionInInputGroup();
+  }
+
+  _getNotchData() {
+    this._notchMiddle = SelectorEngine.findOne('.form-notch-middle', this._element);
+    this._notchLeading = SelectorEngine.findOne('.form-notch-leading', this._element);
   }
 
   _getLabelWidth() {
@@ -102,7 +124,24 @@ class Input {
     this._label.style.marginLeft = `${this._labelMarginLeft}px`;
   }
 
-  _applyActiveClass(event) {
+  _removeBorder() {
+    const border = SelectorEngine.findOne('.form-notch', this._element);
+    if (border) border.remove();
+  }
+
+  _activate(event) {
+    if (event) this._label = SelectorEngine.findOne('label', event.target.parentNode);
+    if (event && this._label) {
+      const prevLabelWidth = this._labelWidth;
+      this._getLabelWidth();
+
+      if (prevLabelWidth !== this._labelWidth) {
+        this._notchMiddle = SelectorEngine.findOne('.form-notch-middle', event.target.parentNode);
+        this._notchLeading = SelectorEngine.findOne('.form-notch-leading', event.target.parentNode);
+        this._applyNotch();
+      }
+    }
+
     const input = event
       ? event.target
       : SelectorEngine.findOne('input', this._element) ||
@@ -112,7 +151,7 @@ class Input {
     }
   }
 
-  _removeActiveClass(event) {
+  _deactivate(event) {
     const input = event
       ? event.target
       : SelectorEngine.findOne('input', this._element) ||
@@ -122,15 +161,15 @@ class Input {
     }
   }
 
-  static applyActiveClass(instance) {
+  static activate(instance) {
     return function (event) {
-      instance._applyActiveClass(event);
+      instance._activate(event);
     };
   }
 
-  static removeActiveClass(instance) {
+  static deactivate(instance) {
     return function (event) {
-      instance._removeActiveClass(event);
+      instance._deactivate(event);
     };
   }
 
@@ -139,17 +178,27 @@ class Input {
   }
 }
 
-EventHandler.on(document, 'focus', OUTLINE_INPUT, Input.applyActiveClass(new Input()));
-EventHandler.on(document, 'input', OUTLINE_INPUT, Input.applyActiveClass(new Input()));
-EventHandler.on(document, 'blur', OUTLINE_INPUT, Input.removeActiveClass(new Input()));
+EventHandler.on(document, 'focus', OUTLINE_INPUT, Input.activate(new Input()));
+EventHandler.on(document, 'input', OUTLINE_INPUT, Input.activate(new Input()));
+EventHandler.on(document, 'blur', OUTLINE_INPUT, Input.deactivate(new Input()));
 
-EventHandler.on(document, 'focus', OUTLINE_TEXTAREA, Input.applyActiveClass(new Input()));
-EventHandler.on(document, 'input', OUTLINE_TEXTAREA, Input.applyActiveClass(new Input()));
-EventHandler.on(document, 'blur', OUTLINE_TEXTAREA, Input.removeActiveClass(new Input()));
+EventHandler.on(document, 'focus', OUTLINE_TEXTAREA, Input.activate(new Input()));
+EventHandler.on(document, 'input', OUTLINE_TEXTAREA, Input.activate(new Input()));
+EventHandler.on(document, 'blur', OUTLINE_TEXTAREA, Input.deactivate(new Input()));
+
+EventHandler.on(window, 'shown.bs.modal', Input.activate(new Input()));
+EventHandler.on(window, 'shown.bs.dropdown', Input.activate(new Input()));
 
 // auto-init
 SelectorEngine.find(`.${CLASSNAME_WRAPPER}`).forEach((element) => {
   new Input(element).init();
+});
+
+// auto-fill
+EventHandler.on(window, 'onautocomplete', (e) => {
+  const instance = Input.getInstance(e.target.parentNode);
+  if (!instance) return;
+  instance.forceActive();
 });
 
 export default Input;

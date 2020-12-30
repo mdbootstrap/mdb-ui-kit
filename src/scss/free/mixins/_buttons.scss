@@ -19,7 +19,7 @@
   &.active,
   .show > &.dropdown-toggle {
     color: set-notification-text-color($background);
-    background-color: darken($background, 10%);
+    background-color: darken($background, 20%);
   }
 
   &:disabled,

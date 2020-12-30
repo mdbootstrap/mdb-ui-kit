@@ -173,16 +173,21 @@
   border-radius: $btn-rounded-border-radius;
 }
 
-.btn-floating {
+.btn-floating,
+[class*='btn-outline-'].btn-floating {
   border-radius: 50%;
   padding: 0;
+}
+
+.btn-floating {
   width: 36px;
   height: 36px;
 
   .fas,
   .far,
   .fab {
-    line-height: 36px;
+    line-height: 1;
+    padding-right: 1px;
   }
 
   &.btn-sm {
@@ -192,7 +197,7 @@
     .fas,
     .far,
     .fab {
-      line-height: 29px;
+      padding-right: 1px;
     }
   }
 
@@ -203,7 +208,7 @@
     .fas,
     .far,
     .fab {
-      line-height: 45px;
+      padding-right: 0;
     }
   }
 }
