@@ -1,4 +1,4 @@
-import { getjQuery, element } from '../mdb/util/index';
+import { getjQuery, element, onDOMContentLoaded } from '../mdb/util/index';
 import Data from '../mdb/dom/data';
 import EventHandler from '../mdb/dom/event-handler';
 import Manipulator from '../mdb/dom/manipulator';
@@ -142,16 +142,18 @@ class Range {
 SelectorEngine.find(SELECTOR_WRAPPER).map((element) => new Range(element));
 
 // jQuery init
-const $ = getjQuery();
+onDOMContentLoaded(() => {
+  const $ = getjQuery();
 
-if ($) {
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  $.fn[NAME] = Range.jQueryInterface;
-  $.fn[NAME].Constructor = Range;
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Range.jQueryInterface;
-  };
-}
+  if ($) {
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = Range.jQueryInterface;
+    $.fn[NAME].Constructor = Range;
+    $.fn[NAME].noConflict = () => {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return Range.jQueryInterface;
+    };
+  }
+});
 
 export default Range;

@@ -1,8 +1,8 @@
-import { getjQuery, typeCheckConfig } from '../mdb/util/index';
-import EventHandler from '../bootstrap/src/dom/event-handler';
+import { getjQuery, typeCheckConfig, onDOMContentLoaded } from '../mdb/util/index';
+import EventHandler from '../mdb/dom/event-handler';
 import SelectorEngine from '../mdb/dom/selector-engine';
-import BSDropdown from '../bootstrap/src/dropdown';
-import Manipulator from '../bootstrap/src/dom/manipulator';
+import Manipulator from '../mdb/dom/manipulator';
+import BSDropdown from '../bootstrap/mdb-prefix/dropdown';
 
 /**
  * ------------------------------------------------------------------------
@@ -14,7 +14,7 @@ const NAME = 'dropdown';
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
 
-const SELECTOR_EXPAND = '[data-toggle="dropdown"]';
+const SELECTOR_EXPAND = '[data-mdb-toggle="dropdown"]';
 
 const Default = {
   offset: 0,
@@ -56,7 +56,7 @@ class Dropdown extends BSDropdown {
     this._config = this._getConfig(data);
     this._parent = Dropdown.getParentFromElement(this._element);
     this._menuStyle = '';
-    this._xPlacement = '';
+    this._popperPlacement = '';
 
     //* prevents dropdown close issue when system animation is turned off
     const isPrefersReducedMotionSet = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -97,6 +97,56 @@ class Dropdown extends BSDropdown {
     return config;
   }
 
+  _getOffset() {
+    const offset = [];
+
+    if (Manipulator.getDataAttribute(this._element, 'offset')) {
+      Manipulator.getDataAttribute(this._element, 'offset')
+        .split(',')
+        .forEach((value) => {
+          offset.push(parseInt(value, 10));
+        });
+    }
+
+    return offset;
+  }
+
+  _getPopperConfig() {
+    const popperConfig = {
+      placement: this._getPlacement(),
+      modifiers: [
+        {
+          name: 'preventOverflow',
+          options: {
+            altBoundary: this._config.flip,
+            rootBoundary: this._config.boundary,
+          },
+        },
+        {
+          name: 'offset',
+          options: {
+            offset: this._getOffset(),
+          },
+        },
+      ],
+    };
+
+    // Disable Popper if we have a static display
+    if (this._config.display === 'static') {
+      popperConfig.modifiers = [
+        {
+          name: 'applyStyles',
+          enabled: false,
+        },
+      ];
+    }
+
+    return {
+      ...popperConfig,
+      ...this._config.popperConfig,
+    };
+  }
+
   _bindShowEvent() {
     EventHandler.on(this._element, EVENT_SHOW, (e) => {
       EventHandler.trigger(this._element, EVENT_SHOW_MDB, { relatedTarget: e.relatedTarget });
@@ -116,7 +166,7 @@ class Dropdown extends BSDropdown {
       EventHandler.trigger(this._parent, EVENT_HIDE_MDB, { relatedTarget: e.relatedTarget });
 
       this._menuStyle = this._menu.style.cssText;
-      this._xPlacement = this._menu.getAttribute('x-placement');
+      this._popperPlacement = this._menu.getAttribute('data-popper-placement');
     });
   }
 
@@ -124,8 +174,11 @@ class Dropdown extends BSDropdown {
     EventHandler.on(this._parent, EVENT_HIDDEN, (e) => {
       EventHandler.trigger(this._parent, EVENT_HIDDEN_MDB, { relatedTarget: e.relatedTarget });
 
-      this._menu.style.cssText = this._menuStyle;
-      this._menu.setAttribute('x-placement', this._xPlacement);
+      if (this._config.display !== 'static' && this._menuStyle !== '') {
+        this._menu.style.cssText = this._menuStyle;
+      }
+
+      this._menu.setAttribute('data-popper-placement', this._popperPlacement);
 
       this._dropdownAnimationStart('hide');
     });
@@ -174,16 +227,18 @@ SelectorEngine.find(SELECTOR_EXPAND).forEach((el) => {
  * add .rating to jQuery only if jQuery is present
  */
 
-const $ = getjQuery();
+onDOMContentLoaded(() => {
+  const $ = getjQuery();
 
-if ($) {
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  $.fn[NAME] = Dropdown.jQueryInterface;
-  $.fn[NAME].Constructor = Dropdown;
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Dropdown.jQueryInterface;
-  };
-}
+  if ($) {
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = Dropdown.jQueryInterface;
+    $.fn[NAME].Constructor = Dropdown;
+    $.fn[NAME].noConflict = () => {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return Dropdown.jQueryInterface;
+    };
+  }
+});
 
 export default Dropdown;

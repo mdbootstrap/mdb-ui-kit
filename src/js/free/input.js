@@ -1,6 +1,6 @@
-import { element, getjQuery } from '../mdb/util/index';
+import { element, getjQuery, onDOMContentLoaded } from '../mdb/util/index';
 import Data from '../mdb/dom/data';
-import EventHandler from '../bootstrap/src/dom/event-handler';
+import EventHandler from '../mdb/dom/event-handler';
 import Manipulator from '../mdb/dom/manipulator';
 import SelectorEngine from '../mdb/dom/selector-engine';
 import 'detect-autofill';
@@ -327,16 +327,18 @@ EventHandler.on(window, 'onautocomplete', (e) => {
   instance.forceActive();
 });
 
-const $ = getjQuery();
+onDOMContentLoaded(() => {
+  const $ = getjQuery();
 
-if ($) {
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  $.fn[NAME] = Input.jQueryInterface;
-  $.fn[NAME].Constructor = Input;
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return Input.jQueryInterface;
-  };
-}
+  if ($) {
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = Input.jQueryInterface;
+    $.fn[NAME].Constructor = Input;
+    $.fn[NAME].noConflict = () => {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return Input.jQueryInterface;
+    };
+  }
+});
 
 export default Input;

@@ -1,0 +1,5 @@
+.accordion-button::after {
+  font-weight: $font-weight-bold;
+  font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free';
+  content: '\f077';
+}

@@ -1,5 +1,5 @@
 /*!
- * Bootstrap scrollspy.js v5.0.0-alpha2 (https://getbootstrap.com/)
+ * Bootstrap scrollspy.js v5.0.0-beta1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -13,10 +13,10 @@
       ))
     : typeof define === 'function' && define.amd
     ? define([
-        './dom/data.js',
-        './dom/event-handler.js',
-        './dom/manipulator.js',
-        './dom/selector-engine.js',
+        './dom/data',
+        './dom/event-handler',
+        './dom/manipulator',
+        './dom/selector-engine',
       ], factory)
     : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
       (global.ScrollSpy = factory(
@@ -39,7 +39,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-alpha2): util/index.js
+   * Bootstrap (v5.0.0-beta1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -70,7 +70,7 @@
   };
 
   var getSelector = function getSelector(element) {
-    var selector = element.getAttribute('data-target');
+    var selector = element.getAttribute('data-bs-target');
 
     if (!selector || selector === '#') {
       var hrefAttr = element.getAttribute('href');
@@ -115,29 +115,22 @@
     var _window = window,
       jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
       return jQuery;
     }
 
     return null;
   };
 
-  function _extends() {
-    _extends =
-      Object.assign ||
-      function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-    return _extends.apply(this, arguments);
-  }
+  var onDOMContentLoaded = function onDOMContentLoaded(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback);
+    } else {
+      callback();
+    }
+  };
+
+  var isRTL = document.documentElement.dir === 'rtl';
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -160,8 +153,87 @@
    * ------------------------------------------------------------------------
    */
 
+  var VERSION = '5.0.0-beta1';
+
+  var BaseComponent = /*#__PURE__*/ (function () {
+    function BaseComponent(element) {
+      if (!element) {
+        return;
+      }
+
+      this._element = element;
+      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
+    }
+
+    var _proto = BaseComponent.prototype;
+
+    _proto.dispose = function dispose() {
+      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
+      this._element = null;
+    };
+    /** Static */
+
+    BaseComponent.getInstance = function getInstance(element) {
+      return Data__default['default'].getData(element, this.DATA_KEY);
+    };
+
+    _createClass(BaseComponent, null, [
+      {
+        key: 'VERSION',
+        get: function get() {
+          return VERSION;
+        },
+      },
+    ]);
+
+    return BaseComponent;
+  })();
+
+  function _extends() {
+    _extends =
+      Object.assign ||
+      function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      };
+    return _extends.apply(this, arguments);
+  }
+
+  function _defineProperties$1(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ('value' in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass$1(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties$1(Constructor, staticProps);
+    return Constructor;
+  }
+
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
+  /**
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
+   */
+
   var NAME = 'scrollspy';
-  var VERSION = '5.0.0-alpha2';
   var DATA_KEY = 'bs.scrollspy';
   var EVENT_KEY = '.' + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -180,7 +252,7 @@
   var EVENT_LOAD_DATA_API = 'load' + EVENT_KEY + DATA_API_KEY;
   var CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
   var CLASS_NAME_ACTIVE = 'active';
-  var SELECTOR_DATA_SPY = '[data-spy="scroll"]';
+  var SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
   var SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
   var SELECTOR_NAV_LINKS = '.nav-link';
   var SELECTOR_NAV_ITEMS = '.nav-item';
@@ -195,37 +267,40 @@
    * ------------------------------------------------------------------------
    */
 
-  var ScrollSpy = /*#__PURE__*/ (function () {
-    function ScrollSpy(element, config) {
-      var _this = this;
+  var ScrollSpy = /*#__PURE__*/ (function (_BaseComponent) {
+    _inheritsLoose(ScrollSpy, _BaseComponent);
 
-      this._element = element;
-      this._scrollElement = element.tagName === 'BODY' ? window : element;
-      this._config = this._getConfig(config);
-      this._selector =
-        this._config.target +
+    function ScrollSpy(element, config) {
+      var _this;
+
+      _this = _BaseComponent.call(this, element) || this;
+      _this._scrollElement = element.tagName === 'BODY' ? window : element;
+      _this._config = _this._getConfig(config);
+      _this._selector =
+        _this._config.target +
         ' ' +
         SELECTOR_NAV_LINKS +
         ', ' +
-        this._config.target +
+        _this._config.target +
         ' ' +
         SELECTOR_LIST_ITEMS +
         ', ' +
-        this._config.target +
+        _this._config.target +
         ' .' +
         CLASS_NAME_DROPDOWN_ITEM;
-      this._offsets = [];
-      this._targets = [];
-      this._activeTarget = null;
-      this._scrollHeight = 0;
-      EventHandler__default['default'].on(this._scrollElement, EVENT_SCROLL, function (event) {
+      _this._offsets = [];
+      _this._targets = [];
+      _this._activeTarget = null;
+      _this._scrollHeight = 0;
+      EventHandler__default['default'].on(_this._scrollElement, EVENT_SCROLL, function (event) {
         return _this._process(event);
       });
-      this.refresh();
 
-      this._process();
+      _this.refresh();
 
-      Data__default['default'].setData(element, DATA_KEY, this);
+      _this._process();
+
+      return _this;
     } // Getters
 
     var _proto = ScrollSpy.prototype;
@@ -276,9 +351,9 @@
     };
 
     _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, DATA_KEY);
+      _BaseComponent.prototype.dispose.call(this);
+
       EventHandler__default['default'].off(this._scrollElement, EVENT_KEY);
-      this._element = null;
       this._scrollElement = null;
       this._config = null;
       this._selector = null;
@@ -372,7 +447,9 @@
       this._clear();
 
       var queries = this._selector.split(',').map(function (selector) {
-        return selector + '[data-target="' + target + '"],' + selector + '[href="' + target + '"]';
+        return (
+          selector + '[data-bs-target="' + target + '"],' + selector + '[href="' + target + '"]'
+        );
       });
 
       var link = SelectorEngine__default['default'].findOne(queries.join(','));
@@ -444,27 +521,23 @@
       });
     };
 
-    ScrollSpy.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, DATA_KEY);
-    };
-
-    _createClass(ScrollSpy, null, [
-      {
-        key: 'VERSION',
-        get: function get() {
-          return VERSION;
-        },
-      },
+    _createClass$1(ScrollSpy, null, [
       {
         key: 'Default',
         get: function get() {
           return Default;
         },
       },
+      {
+        key: 'DATA_KEY',
+        get: function get() {
+          return DATA_KEY;
+        },
+      },
     ]);
 
     return ScrollSpy;
-  })();
+  })(BaseComponent);
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
@@ -476,25 +549,28 @@
       return new ScrollSpy(spy, Manipulator__default['default'].getDataAttributes(spy));
     });
   });
-  var $ = getjQuery();
   /**
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
+   * add .ScrollSpy to jQuery only if jQuery is present
    */
 
-  /* istanbul ignore if */
+  onDOMContentLoaded(function () {
+    var $ = getjQuery();
+    /* istanbul ignore if */
 
-  if ($) {
-    var JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = ScrollSpy.jQueryInterface;
-    $.fn[NAME].Constructor = ScrollSpy;
+    if ($) {
+      var JQUERY_NO_CONFLICT = $.fn[NAME];
+      $.fn[NAME] = ScrollSpy.jQueryInterface;
+      $.fn[NAME].Constructor = ScrollSpy;
 
-    $.fn[NAME].noConflict = function () {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return ScrollSpy.jQueryInterface;
-    };
-  }
+      $.fn[NAME].noConflict = function () {
+        $.fn[NAME] = JQUERY_NO_CONFLICT;
+        return ScrollSpy.jQueryInterface;
+      };
+    }
+  });
 
   return ScrollSpy;
 });

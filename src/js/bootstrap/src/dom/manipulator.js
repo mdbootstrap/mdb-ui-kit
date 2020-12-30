@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-alpha2): dom/manipulator.js
+ * Bootstrap (v5.0.0-beta1): dom/manipulator.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -31,11 +31,11 @@ function normalizeDataKey(key) {
 
 const Manipulator = {
   setDataAttribute(element, key, value) {
-    element.setAttribute(`data-${normalizeDataKey(key)}`, value);
+    element.setAttribute(`data-bs-${normalizeDataKey(key)}`, value);
   },
 
   removeDataAttribute(element, key) {
-    element.removeAttribute(`data-${normalizeDataKey(key)}`);
+    element.removeAttribute(`data-bs-${normalizeDataKey(key)}`);
   },
 
   getDataAttributes(element) {
@@ -43,26 +43,29 @@ const Manipulator = {
       return {};
     }
 
-    const attributes = {
-      ...element.dataset,
-    };
+    const attributes = {};
 
-    Object.keys(attributes).forEach((key) => {
-      attributes[key] = normalizeData(attributes[key]);
-    });
+    Object.keys(element.dataset)
+      .filter((key) => key.startsWith('bs'))
+      .forEach((key) => {
+        let pureKey = key.replace(/^bs/, '');
+        pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
+        attributes[pureKey] = normalizeData(element.dataset[key]);
+      });
 
     return attributes;
   },
 
   getDataAttribute(element, key) {
-    return normalizeData(element.getAttribute(`data-${normalizeDataKey(key)}`));
+    return normalizeData(element.getAttribute(`data-bs-${normalizeDataKey(key)}`));
   },
 
   offset(element) {
     const rect = element.getBoundingClientRect();
+
     return {
-      top: rect.top + (document.body.scrollTop || document.documentElement.scrollTop),
-      left: rect.left + (document.body.scrollLeft || document.documentElement.scrollLeft),
+      top: rect.top + document.body.scrollTop,
+      left: rect.left + document.body.scrollLeft,
     };
   },
 
@@ -71,18 +74,6 @@ const Manipulator = {
       top: element.offsetTop,
       left: element.offsetLeft,
     };
-  },
-
-  toggleClass(element, className) {
-    if (!element) {
-      return;
-    }
-
-    if (element.classList.contains(className)) {
-      element.classList.remove(className);
-    } else {
-      element.classList.add(className);
-    }
   },
 };
 

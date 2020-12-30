@@ -1,0 +1,16 @@
+.carousel-control-prev-icon {
+  &::after {
+    content: '\f053';
+    font-weight: $font-weight-bold;
+    font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free';
+    font-size: 1.7rem;
+  }
+}
+.carousel-control-next-icon {
+  &::after {
+    content: '\f054';
+    font-weight: $font-weight-bold;
+    font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free';
+    font-size: 1.7rem;
+  }
+}

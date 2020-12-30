@@ -474,6 +474,7 @@ $btn-outline-floating-icon-line-height-sm: 1.5625rem !default;
 
 $btn-floating-border-radius: 50% !default;
 
+$btn-block-spacing-y: 0.5rem !default;
 // Button group
 //
 // Material styling for group of buttons
@@ -810,6 +811,10 @@ $card-header-background-color: rgba(255, 255, 255, 0) !default;
 $card-footer-background-color: rgba(255, 255, 255, 0) !default;
 $card-border-radius: 0.25rem !default;
 
+// Accordion
+$accordion-button-icon: none !default;
+$accordion-button-active-icon: none !default;
+
 // Tooltips
 
 $tooltip-inner-color: #fff !default;
@@ -857,6 +862,11 @@ $breadcrumb-item-color: rgba(0, 0, 0, 0.55) !default;
 $breadcrumb-item-transition: color 0.15s ease-in-out !default;
 $breadcrumb-item-hover-color: rgba(0, 0, 0, 0.7) !default;
 $breadcrumb-item-before-color: $breadcrumb-item-color !default;
+
+// Carousel
+
+$carousel-control-prev-icon-bg: none;
+$carousel-control-next-icon-bg: none;
 
 // Images
 

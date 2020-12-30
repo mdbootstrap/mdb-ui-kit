@@ -1,8 +1,8 @@
-import { getjQuery } from '../mdb/util/index';
+import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
 import SelectorEngine from '../mdb/dom/selector-engine';
 import Manipulator from '../mdb/dom/manipulator';
-import BSScrollSpy from '../bootstrap/src/scrollspy';
+import BSScrollSpy from '../bootstrap/mdb-prefix/scrollspy';
 
 /**
  * ------------------------------------------------------------------------
@@ -13,12 +13,14 @@ import BSScrollSpy from '../bootstrap/src/scrollspy';
 const NAME = 'scrollspy';
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
+const DATA_API_KEY = '.data-api';
 
 const EVENT_ACTIVATE_BS = 'activate.bs.scrollspy';
 
 const EVENT_ACTIVATE = `activate${EVENT_KEY}`;
 
-const SELECTOR_DATA_SPY = '[data-spy="scroll"]';
+const SELECTOR_DATA_SPY = '[data-mdb-spy="scroll"]';
+const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`;
 
 class ScrollSpy extends BSScrollSpy {
   constructor(element, data) {
@@ -61,11 +63,13 @@ class ScrollSpy extends BSScrollSpy {
  * ------------------------------------------------------------------------
  */
 
-SelectorEngine.find(SELECTOR_DATA_SPY).forEach((el) => {
-  let instance = ScrollSpy.getInstance(el);
-  if (!instance) {
-    instance = new ScrollSpy(el, Manipulator.getDataAttributes(el));
-  }
+EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+  SelectorEngine.find(SELECTOR_DATA_SPY).forEach((el) => {
+    let instance = ScrollSpy.getInstance(el);
+    if (!instance) {
+      instance = new ScrollSpy(el, Manipulator.getDataAttributes(el));
+    }
+  });
 });
 
 /**
@@ -75,16 +79,18 @@ SelectorEngine.find(SELECTOR_DATA_SPY).forEach((el) => {
  * add .rating to jQuery only if jQuery is present
  */
 
-const $ = getjQuery();
+onDOMContentLoaded(() => {
+  const $ = getjQuery();
 
-if ($) {
-  const JQUERY_NO_CONFLICT = $.fn[NAME];
-  $.fn[NAME] = ScrollSpy.jQueryInterface;
-  $.fn[NAME].Constructor = ScrollSpy;
-  $.fn[NAME].noConflict = () => {
-    $.fn[NAME] = JQUERY_NO_CONFLICT;
-    return ScrollSpy.jQueryInterface;
-  };
-}
+  if ($) {
+    const JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = ScrollSpy.jQueryInterface;
+    $.fn[NAME].Constructor = ScrollSpy;
+    $.fn[NAME].noConflict = () => {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return ScrollSpy.jQueryInterface;
+    };
+  }
+});
 
 export default ScrollSpy;
