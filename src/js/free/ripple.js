@@ -66,6 +66,8 @@ class Ripple {
       Manipulator.addClass(this._element, CLASSNAME_RIPPLE);
     }
 
+    this._clickHandler = this._createRipple.bind(this);
+
     this.init();
   }
 
@@ -83,7 +85,7 @@ class Ripple {
 
   dispose() {
     Data.removeData(this._element, DATA_KEY);
-    EventHandler.off(this._element, 'click', '');
+    EventHandler.off(this._element, 'click', this._clickHandler);
     this._element = null;
     this._options = null;
   }
@@ -103,9 +105,7 @@ class Ripple {
   }
 
   _addClickEvent(target) {
-    EventHandler.on(target, 'click', '', (event) => {
-      this._createRipple(event);
-    });
+    EventHandler.on(target, 'click', this._clickHandler);
   }
 
   _createRipple(event) {

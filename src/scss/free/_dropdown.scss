@@ -1,22 +1,22 @@
 .dropdown-menu {
-  color: #212529;
-  margin: 0.125rem 0 0;
+  color: $dropdown-color;
+  margin: $dropdown-margin-top 0 0;
   padding-top: 0;
   padding-bottom: 0;
   border: 0;
-  box-shadow: $box-shadow-2;
-  font-size: 0.875rem;
+  box-shadow: $dropdown-box-shadow;
+  font-size: $dropdown-font-size;
 
   > li {
     border-radius: 0;
     &:first-child {
-      border-top-left-radius: 0.25rem;
-      border-top-right-radius: 0.25rem;
+      border-top-left-radius: $dropdown-item-border-radius;
+      border-top-right-radius: $dropdown-item-border-radius;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       .dropdown-item {
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
+        border-top-left-radius: $dropdown-item-border-radius;
+        border-top-right-radius: $dropdown-item-border-radius;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
       }
@@ -31,48 +31,46 @@
     &:last-child {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
-      border-bottom-left-radius: 0.25rem;
-      border-bottom-right-radius: 0.25rem;
+      border-bottom-left-radius: $dropdown-item-border-radius;
+      border-bottom-right-radius: $dropdown-item-border-radius;
       .dropdown-item {
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        border-bottom-left-radius: 0.25rem;
-        border-bottom-right-radius: 0.25rem;
+        border-bottom-left-radius: $dropdown-item-border-radius;
+        border-bottom-right-radius: $dropdown-item-border-radius;
       }
     }
+  }
+
+  &.animation {
+    display: block;
+    /* Speed up animations */
+    animation-duration: $dropdown-menu-animated-animation-duration;
+    animation-timing-function: $dropdown-menu-animated-animation-timing-function;
   }
 }
 
 .dropdown-item {
-  padding: 0.5rem 1rem;
-  color: #212529;
+  padding: $dropdown-padding-y $dropdown-padding-x;
+  color: $dropdown-color;
   border-radius: 0;
 
   &:hover,
   &:focus {
-    color: #16181b;
-    background-color: #eee;
+    color: $dropdown-state-color;
+    background-color: $dropdown-state-background-color;
   }
 
   &.active,
   &:active {
-    color: #16181b;
-    background-color: #eee;
+    color: $dropdown-state-color;
+    background-color: $dropdown-state-background-color;
   }
 }
 
 .hidden-arrow {
   &.dropdown-toggle:after {
     display: none;
-  }
-}
-
-.dropdown-menu {
-  &.animation {
-    display: block;
-    /* Speed up animations */
-    animation-duration: $dropdown-menu-animated-animation-duration;
-    animation-timing-function: $dropdown-menu-animated-animation-timing-function;
   }
 }
 

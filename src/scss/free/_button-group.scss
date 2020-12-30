@@ -1,6 +1,9 @@
-// Button group
+//
+// Button group styles
+//
 
-.btn-group {
+.btn-group,
+.btn-group-vertical {
   box-shadow: $btn-box-shadow;
   border-radius: $btn-group-border-radius;
   transition: $btn-group-transition;

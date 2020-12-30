@@ -100,6 +100,15 @@ const Manipulator = {
       element.style[property] = style[property];
     });
   },
+
+  removeClass(element, className) {
+    if (!element.classList.contains(className)) return;
+    element.classList.remove(className);
+  },
+
+  hasClass(element, className) {
+    return element.classList.contains(className);
+  },
 };
 
 export default Manipulator;

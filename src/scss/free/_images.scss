@@ -25,7 +25,7 @@
 .hover-overlay {
   .mask {
     opacity: 0;
-    transition: all 0.3s ease-in-out;
+    transition: $image-hover-overlay-transition;
     &:hover {
       opacity: 1;
     }
@@ -35,21 +35,22 @@
 .hover-zoom {
   img,
   video {
-    transition: all 0.3s linear;
+    transition: $image-hover-zoom-transition;
   }
   &:hover {
     img,
     video {
-      transform: scale(1.1);
+      transform: $image-hover-zoom-transform;
     }
   }
 }
 
-.hover-shadow {
+.hover-shadow,
+.card.hover-shadow {
   box-shadow: none;
-  transition: all 0.3s ease-in-out;
+  transition: $image-hover-shadow-transition;
   &:hover {
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: all 0.3s ease-in-out;
+    box-shadow: $image-hover-shadow-box-shadow;
+    transition: $image-hover-shadow-transition;
   }
 }

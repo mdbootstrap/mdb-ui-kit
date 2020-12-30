@@ -4,50 +4,50 @@
 
 .input-group {
   > .form-control {
-    min-height: calc(1.5em + 0.33rem + 2px);
-    padding-top: 0.27rem;
-    padding-bottom: 0.27rem;
-    transition: all 0.2s linear;
+    min-height: $input-group-min-height;
+    padding-top: $input-group-padding-y;
+    padding-bottom: $input-group-padding-y;
+    transition: $input-group-transition;
 
     &:focus {
-      transition: all 0.2s linear;
-      border-color: $primary;
+      transition: $input-group-focus-transition;
+      border-color: $input-group-focus-border-color;
       outline: 0;
-      box-shadow: inset 0 0 0 1px $primary;
+      box-shadow: $input-group-focus-box-shadow;
     }
   }
 }
 
 .input-group-text {
   background-color: transparent;
-  padding-top: 0.27rem;
-  padding-bottom: 0.27rem;
+  padding-top: $input-group-text-padding-y;
+  padding-bottom: $input-group-text-padding-y;
 }
 
 .input-group-lg {
   > .form-control {
-    height: calc(2.315em + 0.33rem + 2px);
-    font-size: 1rem;
-    padding-top: 0.33rem;
-    padding-bottom: 0.33rem;
+    height: $input-group-lg-height;
+    font-size: $input-group-lg-font-size;
+    padding-top: $input-group-lg-padding-y;
+    padding-bottom: $input-group-lg-padding-y;
   }
 
   .input-group-text {
-    font-size: 1rem;
+    font-size: $input-group-lg-text-font-size;
   }
 }
 
 .input-group-sm {
   > .form-control {
-    height: calc(1.7em + 0.33rem + 2px);
-    font-size: 0.775rem;
-    padding-top: 0.33rem;
-    padding-bottom: 0.33rem;
+    height: $input-group-sm-height-height;
+    font-size: $input-group-sm-font-size;
+    padding-top: $input-group-sm-padding-y;
+    padding-bottom: $input-group-sm-padding-y;
   }
 
   .input-group-text {
-    font-size: 0.775rem;
-    line-height: 1.5;
+    font-size: $input-group-sm-text-font-size;
+    line-height: $input-group-sm-text-line-height;
   }
 }
 
@@ -58,7 +58,8 @@
     }
     input + .input-group-text {
       border: 0;
-      border-left: 1px solid #bdbdbd;
+      border-left: $input-group-form-outline-border-left-width solid
+        $input-group-form-outline-border-left-color;
     }
   }
 }
