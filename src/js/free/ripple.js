@@ -31,7 +31,7 @@ const BOOTSTRAP_COLORS = [
   'dark',
 ];
 
-// Sets walue when run opacity transition
+// Sets value when run opacity transition
 // Hide element after 50% (0.5) time of animation and finish on 100%
 const TRANSITION_BREAK_OPACITY = 0.5;
 
@@ -105,7 +105,7 @@ class Ripple {
   }
 
   _addClickEvent(target) {
-    EventHandler.on(target, 'click', this._clickHandler);
+    EventHandler.on(target, 'mousedown', this._clickHandler);
   }
 
   _createRipple(event) {
@@ -342,8 +342,8 @@ class Ripple {
  * ------------------------------------------------------------------------
  */
 
-SELECTOR_COMPONENT.forEach((slector) => {
-  EventHandler.one(document, 'click', slector, Ripple.autoInitial(new Ripple()));
+SELECTOR_COMPONENT.forEach((selector) => {
+  EventHandler.one(document, 'mousedown', selector, Ripple.autoInitial(new Ripple()));
 });
 
 /**

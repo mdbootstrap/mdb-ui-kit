@@ -17,53 +17,38 @@
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css" />
     <!-- Custom styles -->
-    <style></style>
+    <style>
+      body {
+        background-color: #2e2e2e;
+      }
+    
+      .text-poppy-red {
+        color: #ef5350 !important;
+      }
+    
+      ​ .btn-poppy-red {
+        background-color: #ef5350 !important;
+      }
+    
+      ​ .bg-poppy-red {
+        background-color: #ef5350 !important;
+      }
+    </style>
   </head>
   <body>
     <!-- Start your project here-->
     <div class="container">
       <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="text-center">
-          <!-- <i class="fas fa-ticket-alt fa-10x"></i> -->
-          <img
-            src="https://mdbootstrap.com/img/Marketing/other/mdb50off.png"
-            height="150px"
-            width="150px"
-          />
-          <h5 class="mb-3">Release surprise! 50% OFF MDB 5 PRO</h5>
-
-          <p>
-            Use this coupon code before the next release to claim the reward.<br />Hurry up & don't
+          <h1 class="text-white text-poppy-red">BLACK NOVEMBER SURPRISE!</h1>
+          <i class="fas fa-shopping-basket text-white fa-10x"></i>
+          <p class="mt-2 text-white">
+            Check what we have prepared and start using the richest UI Kit today.<br />Hurry up & don't
             loose your chance.
           </p>
-
           <p>
-            <code class="text-uppercase h1 px-2 rounded bg-dark text-white">MB8XW23V</code>
+            <a type="button" class="btn btn-danger btn-rounded btn-lg text-white bg-poppy-red" href="https://mdbootstrap.com/sale/" ><i class="fas fa-cart-arrow-down"></i> CLAIM OFFER</a>
           </p>
-          <a
-            class="btn btn-primary btn-lg"
-            onclick="copy('MB8XW23V');toastr.info('Coupon code copied! Use it on the checkout.');"
-            target="_blank"
-            role="button"
-            id="code-button"
-            >CLAIM DISCOUNT</a
-          >
-
-          <a
-            class="btn btn-outline-primary btn-lg"
-            href="https://mdbootstrap.com/docs/standard/getting-started/"
-            target="_blank"
-            role="button"
-            >START TUTORIAL</a
-          >
-          <div class="my-2 alert alert-success" id="code-success" style="display: none;">
-            Copied
-          </div>
-          <p>See <a href="https://mdbootstrap.com/docs/standard/pro/">prices</a></p>
-          <h5 class="h1-responsive text-uppercase mt-3">
-            the code <span class="font-weight-bold"></span> expires in:<br />
-            <span class="font-weight-bold" id="time-counter"></span>
-          </h5>
         </div>
       </div>
     </div>
@@ -73,62 +58,5 @@
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
-  <script type="text/javascript">
-    var button = document.getElementById('code-button');
-    button.onclick = function () {
-      var div = document.getElementById('code-success');
-      if (div.style.display !== 'none') {
-        div.style.display = 'none';
-      } else {
-        div.style.display = 'block';
-      }
-    };
-
-    function copy(text) {
-      var textarea = document.createElement('textarea');
-      textarea.value = text;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
-    }
-
-    // Ad counter
-    // Set the date we're counting down to
-    var countDownDate = new Date(Date.UTC(2020, 10, 17, 10, 00, 00));
-    var counterElement = document.getElementById('time-counter');
-
-    // Update the count down every 1 second
-    function startCounter() {
-      //wrapped in an if to prevent console errors if the element isn't found on the page
-      if (counterElement == null) {
-        return;
-      } else {
-        var x = setInterval(function () {
-          // Get todays date and time
-          var now = new Date().getTime();
-
-          // Find the distance between now an the count down date
-          var distance = countDownDate - now;
-
-          // Time calculations for days, hours, minutes and seconds
-          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-          // Display the result in the element with id="demo"
-          counterElement.innerHTML = days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's';
-
-          // If the count down is finished, write some text
-          if (distance < 0) {
-            clearInterval(x);
-            document.getElementById('time-counter').innerHTML =
-              '<p class="h3 grey-text">Sale ended :(</p>';
-          }
-        }, 1000);
-      }
-    }
-    startCounter();
-  </script>
+  <script type="text/javascript"></script>
 </html>

@@ -3,6 +3,7 @@
 @import './free/functions';
 
 // CORE VARIABLES
+@import './custom/variables';
 @import './free/variables';
 @import './bootstrap/variables';
 
@@ -92,3 +93,4 @@
 @import './free/popover';
 @import './free/scrollspy';
 @import './free/ripple';
+@import './free/range';

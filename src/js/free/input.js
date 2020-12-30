@@ -1,4 +1,4 @@
-import { element } from '../mdb/util/index';
+import { element, getjQuery } from '../mdb/util/index';
 import Data from '../mdb/dom/data';
 import EventHandler from '../bootstrap/src/dom/event-handler';
 import Manipulator from '../mdb/dom/manipulator';
@@ -84,6 +84,10 @@ class Input {
 
   forceActive() {
     Manipulator.addClass(this.input, CLASSNAME_ACTIVE);
+  }
+
+  forceInactive() {
+    Manipulator.removeClass(this.input, CLASSNAME_ACTIVE);
   }
 
   dispose() {
@@ -208,6 +212,25 @@ class Input {
     };
   }
 
+  static jQueryInterface(config, options) {
+    return this.each(function () {
+      let data = Data.getData(this, DATA_KEY);
+      const _config = typeof config === 'object' && config;
+      if (!data && /dispose/.test(config)) {
+        return;
+      }
+      if (!data) {
+        data = new Input(this, _config);
+      }
+      if (typeof config === 'string') {
+        if (typeof data[config] === 'undefined') {
+          throw new TypeError(`No method named "${config}"`);
+        }
+        data[config](options);
+      }
+    });
+  }
+
   static getInstance(element) {
     return Data.getData(element, DATA_KEY);
   }
@@ -224,12 +247,16 @@ EventHandler.on(document, 'blur', SELECTOR_OUTLINE_TEXTAREA, Input.deactivate(ne
 EventHandler.on(window, 'shown.bs.modal', (e) => {
   SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
-    if (!instance) return;
+    if (!instance) {
+      return;
+    }
     instance.update();
   });
   SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
-    if (!instance) return;
+    if (!instance) {
+      return;
+    }
     instance.update();
   });
 });
@@ -237,12 +264,16 @@ EventHandler.on(window, 'shown.bs.modal', (e) => {
 EventHandler.on(window, 'shown.bs.dropdown', (e) => {
   SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
-    if (!instance) return;
+    if (!instance) {
+      return;
+    }
     instance.update();
   });
   SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
-    if (!instance) return;
+    if (!instance) {
+      return;
+    }
     instance.update();
   });
 });
@@ -252,12 +283,16 @@ EventHandler.on(window, 'shown.bs.tab', (e) => {
   const target = SelectorEngine.findOne(`#${targetId}`);
   SelectorEngine.find(SELECTOR_OUTLINE_INPUT, target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
-    if (!instance) return;
+    if (!instance) {
+      return;
+    }
     instance.update();
   });
   SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
-    if (!instance) return;
+    if (!instance) {
+      return;
+    }
     instance.update();
   });
 });
@@ -265,11 +300,43 @@ EventHandler.on(window, 'shown.bs.tab', (e) => {
 // auto-init
 SelectorEngine.find(`.${CLASSNAME_WRAPPER}`).map((element) => new Input(element));
 
+// form reset handler
+EventHandler.on(window, 'reset', (e) => {
+  SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
+    const instance = Input.getInstance(element.parentNode);
+    if (!instance) {
+      return;
+    }
+    instance.forceInactive();
+  });
+  SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
+    const instance = Input.getInstance(element.parentNode);
+    if (!instance) {
+      return;
+    }
+    instance.forceInactive();
+  });
+});
+
 // auto-fill
 EventHandler.on(window, 'onautocomplete', (e) => {
   const instance = Input.getInstance(e.target.parentNode);
-  if (!instance) return;
+  if (!instance || !e.cancelable) {
+    return;
+  }
   instance.forceActive();
 });
+
+const $ = getjQuery();
+
+if ($) {
+  const JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = Input.jQueryInterface;
+  $.fn[NAME].Constructor = Input;
+  $.fn[NAME].noConflict = () => {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Input.jQueryInterface;
+  };
+}
 
 export default Input;
