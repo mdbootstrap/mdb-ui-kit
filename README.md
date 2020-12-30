@@ -66,15 +66,44 @@ Trusted by <b>2 000 000+</b> developers & designers. Used by companies like
 ___
 
 
-### Super simple, 1 min installation
-###### Simplicity and ease of use are key features of MDB 5 UI Kit. You need only one minute to install and run it.
-
-
 **[>> Click here for a 3-step installation guide](https://mdbootstrap.com/docs/standard/getting-started/installation/)**
 
-**Or click below to watch 2 minute installation tutorial**
 
-<a href="https://www.youtube.com/watch?v=biwC8jK7YYY" alt="Bootstrap 5" rel="dofollow"><img src="https://mcusercontent.com/461480655ccce528d909d3f42/images/c872f264-a491-4a86-8756-933cac5f72a0.png"></a>
+###### Tutorial for the latest Bootstrap v.5 Alpha. In this video we'll learn about the changes implemented into v.5.
+
+**[>> Click here for a written tutorial](https://mdbootstrap.com/docs/standard/getting-started/quick-start/)**
+
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/learnmore-1.png">
+          </a>
+      </td>
+      <td>
+          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/cover-bootstrap-5-1.png">
+          </a>
+      </td>
+    </tr>
+     <tr>
+        <td align="center">
+          <p align="center"><b>Start to Code</b></p>
+          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/Screenshot_26.png">
+          </a>
+         </td>
+        <td align="center">
+          <p align="center"><b>Learn Bootstrap 5 | Crash Course for Beginners in 1.5H</b></p>
+          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/Screenshot_26.png">
+          </a>
+         </td>
+      </tr>
+   </tbody>
+</table>
+
 
 
 ___
