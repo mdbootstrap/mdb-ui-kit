@@ -1,27 +1,23 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): dropdown.js
+ * Bootstrap (v5.0.0-alpha1): dropdown.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import * as Popper from '@popperjs/core';
-
 import {
   getjQuery,
-  onDOMContentLoaded,
   getElementFromSelector,
   isElement,
   isVisible,
-  isRTL,
   noop,
   typeCheckConfig,
 } from './util/index';
 import Data from './dom/data';
 import EventHandler from './dom/event-handler';
 import Manipulator from './dom/manipulator';
+import Popper from 'popper.js';
 import SelectorEngine from './dom/selector-engine';
-import BaseComponent from './base-component';
 
 /**
  * ------------------------------------------------------------------------
@@ -30,6 +26,7 @@ import BaseComponent from './base-component';
  */
 
 const NAME = 'dropdown';
+const VERSION = '5.0.0-alpha1';
 const DATA_KEY = 'bs.dropdown';
 const EVENT_KEY = `.${DATA_KEY}`;
 const DATA_API_KEY = '.data-api';
@@ -55,27 +52,29 @@ const EVENT_KEYUP_DATA_API = `keyup${EVENT_KEY}${DATA_API_KEY}`;
 const CLASS_NAME_DISABLED = 'disabled';
 const CLASS_NAME_SHOW = 'show';
 const CLASS_NAME_DROPUP = 'dropup';
-const CLASS_NAME_DROPEND = 'dropend';
-const CLASS_NAME_DROPSTART = 'dropstart';
+const CLASS_NAME_DROPRIGHT = 'dropright';
+const CLASS_NAME_DROPLEFT = 'dropleft';
+const CLASS_NAME_MENURIGHT = 'dropdown-menu-right';
 const CLASS_NAME_NAVBAR = 'navbar';
+const CLASS_NAME_POSITION_STATIC = 'position-static';
 
-const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="dropdown"]';
+const SELECTOR_DATA_TOGGLE = '[data-toggle="dropdown"]';
 const SELECTOR_FORM_CHILD = '.dropdown form';
 const SELECTOR_MENU = '.dropdown-menu';
 const SELECTOR_NAVBAR_NAV = '.navbar-nav';
 const SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)';
 
-const PLACEMENT_TOP = isRTL ? 'top-end' : 'top-start';
-const PLACEMENT_TOPEND = isRTL ? 'top-start' : 'top-end';
-const PLACEMENT_BOTTOM = isRTL ? 'bottom-end' : 'bottom-start';
-const PLACEMENT_BOTTOMEND = isRTL ? 'bottom-start' : 'bottom-end';
-const PLACEMENT_RIGHT = isRTL ? 'left-start' : 'right-start';
-const PLACEMENT_LEFT = isRTL ? 'right-start' : 'left-start';
+const PLACEMENT_TOP = 'top-start';
+const PLACEMENT_TOPEND = 'top-end';
+const PLACEMENT_BOTTOM = 'bottom-start';
+const PLACEMENT_BOTTOMEND = 'bottom-end';
+const PLACEMENT_RIGHT = 'right-start';
+const PLACEMENT_LEFT = 'left-start';
 
 const Default = {
   offset: 0,
   flip: true,
-  boundary: 'clippingParents',
+  boundary: 'scrollParent',
   reference: 'toggle',
   display: 'dynamic',
   popperConfig: null,
@@ -96,19 +95,23 @@ const DefaultType = {
  * ------------------------------------------------------------------------
  */
 
-class Dropdown extends BaseComponent {
+class Dropdown {
   constructor(element, config) {
-    super(element);
-
+    this._element = element;
     this._popper = null;
     this._config = this._getConfig(config);
     this._menu = this._getMenuElement();
     this._inNavbar = this._detectNavbar();
 
     this._addEventListeners();
+    Data.setData(element, DATA_KEY, this);
   }
 
   // Getters
+
+  static get VERSION() {
+    return VERSION;
+  }
 
   static get Default() {
     return Default;
@@ -116,10 +119,6 @@ class Dropdown extends BaseComponent {
 
   static get DefaultType() {
     return DefaultType;
-  }
-
-  static get DATA_KEY() {
-    return DATA_KEY;
   }
 
   // Public
@@ -160,10 +159,10 @@ class Dropdown extends BaseComponent {
       return;
     }
 
-    // Totally disable Popper for Dropdowns in Navbar
+    // Disable totally Popper.js for Dropdown in Navbar
     if (!this._inNavbar) {
       if (typeof Popper === 'undefined') {
-        throw new TypeError("Bootstrap's dropdowns require Popper (https://popper.js.org)");
+        throw new TypeError("Bootstrap's dropdowns require Popper.js (https://popper.js.org)");
       }
 
       let referenceElement = this._element;
@@ -179,7 +178,14 @@ class Dropdown extends BaseComponent {
         }
       }
 
-      this._popper = Popper.createPopper(referenceElement, this._menu, this._getPopperConfig());
+      // If boundary is not `scrollParent`, then set position to `static`
+      // to allow the menu to "escape" the scroll parent's boundaries
+      // https://github.com/twbs/bootstrap/issues/24251
+      if (this._config.boundary !== 'scrollParent') {
+        parent.classList.add(CLASS_NAME_POSITION_STATIC);
+      }
+
+      this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig());
     }
 
     // If this is a touch-enabled device we add extra
@@ -195,8 +201,8 @@ class Dropdown extends BaseComponent {
     this._element.focus();
     this._element.setAttribute('aria-expanded', true);
 
-    this._menu.classList.toggle(CLASS_NAME_SHOW);
-    this._element.classList.toggle(CLASS_NAME_SHOW);
+    Manipulator.toggleClass(this._menu, CLASS_NAME_SHOW);
+    Manipulator.toggleClass(this._element, CLASS_NAME_SHOW);
     EventHandler.trigger(parent, EVENT_SHOWN, relatedTarget);
   }
 
@@ -224,16 +230,16 @@ class Dropdown extends BaseComponent {
       this._popper.destroy();
     }
 
-    this._menu.classList.toggle(CLASS_NAME_SHOW);
-    this._element.classList.toggle(CLASS_NAME_SHOW);
+    Manipulator.toggleClass(this._menu, CLASS_NAME_SHOW);
+    Manipulator.toggleClass(this._element, CLASS_NAME_SHOW);
     EventHandler.trigger(parent, EVENT_HIDDEN, relatedTarget);
   }
 
   dispose() {
-    super.dispose();
+    Data.removeData(this._element, DATA_KEY);
     EventHandler.off(this._element, EVENT_KEY);
+    this._element = null;
     this._menu = null;
-
     if (this._popper) {
       this._popper.destroy();
       this._popper = null;
@@ -243,7 +249,7 @@ class Dropdown extends BaseComponent {
   update() {
     this._inNavbar = this._detectNavbar();
     if (this._popper) {
-      this._popper.update();
+      this._popper.scheduleUpdate();
     }
   }
 
@@ -275,51 +281,67 @@ class Dropdown extends BaseComponent {
 
   _getPlacement() {
     const parentDropdown = this._element.parentNode;
+    let placement = PLACEMENT_BOTTOM;
 
-    if (parentDropdown.classList.contains(CLASS_NAME_DROPEND)) {
-      return PLACEMENT_RIGHT;
-    }
-
-    if (parentDropdown.classList.contains(CLASS_NAME_DROPSTART)) {
-      return PLACEMENT_LEFT;
-    }
-
-    // We need to trim the value because custom properties can also include spaces
-    const isEnd = getComputedStyle(this._menu).getPropertyValue('--bs-position').trim() === 'end';
-
+    // Handle dropup
     if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
-      return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP;
+      placement = PLACEMENT_TOP;
+      if (this._menu.classList.contains(CLASS_NAME_MENURIGHT)) {
+        placement = PLACEMENT_TOPEND;
+      }
+    } else if (parentDropdown.classList.contains(CLASS_NAME_DROPRIGHT)) {
+      placement = PLACEMENT_RIGHT;
+    } else if (parentDropdown.classList.contains(CLASS_NAME_DROPLEFT)) {
+      placement = PLACEMENT_LEFT;
+    } else if (this._menu.classList.contains(CLASS_NAME_MENURIGHT)) {
+      placement = PLACEMENT_BOTTOMEND;
     }
 
-    return isEnd ? PLACEMENT_BOTTOMEND : PLACEMENT_BOTTOM;
+    return placement;
   }
 
   _detectNavbar() {
-    return this._element.closest(`.${CLASS_NAME_NAVBAR}`) !== null;
+    return Boolean(this._element.closest(`.${CLASS_NAME_NAVBAR}`));
+  }
+
+  _getOffset() {
+    const offset = {};
+
+    if (typeof this._config.offset === 'function') {
+      offset.fn = (data) => {
+        data.offsets = {
+          ...data.offsets,
+          ...(this._config.offset(data.offsets, this._element) || {}),
+        };
+
+        return data;
+      };
+    } else {
+      offset.offset = this._config.offset;
+    }
+
+    return offset;
   }
 
   _getPopperConfig() {
     const popperConfig = {
       placement: this._getPlacement(),
-      modifiers: [
-        {
-          name: 'preventOverflow',
-          options: {
-            altBoundary: this._config.flip,
-            rootBoundary: this._config.boundary,
-          },
+      modifiers: {
+        offset: this._getOffset(),
+        flip: {
+          enabled: this._config.flip,
         },
-      ],
+        preventOverflow: {
+          boundariesElement: this._config.boundary,
+        },
+      },
     };
 
-    // Disable Popper if we have a static display
+    // Disable Popper.js if we have a static display
     if (this._config.display === 'static') {
-      popperConfig.modifiers = [
-        {
-          name: 'applyStyles',
-          enabled: false,
-        },
-      ];
+      popperConfig.modifiers.applyStyle = {
+        enabled: false,
+      };
     }
 
     return {
@@ -472,13 +494,13 @@ class Dropdown extends BaseComponent {
 
     let index = items.indexOf(event.target);
 
-    // Up
     if (event.key === ARROW_UP_KEY && index > 0) {
+      // Up
       index--;
     }
 
-    // Down
     if (event.key === ARROW_DOWN_KEY && index < items.length - 1) {
+      // Down
       index++;
     }
 
@@ -486,6 +508,10 @@ class Dropdown extends BaseComponent {
     index = index === -1 ? 0 : index;
 
     items[index].focus();
+  }
+
+  static getInstance(element) {
+    return Data.getData(element, DATA_KEY);
   }
 }
 
@@ -511,25 +537,23 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
 });
 EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_FORM_CHILD, (e) => e.stopPropagation());
 
+const $ = getjQuery();
+
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .Dropdown to jQuery only if jQuery is present
+ * add .dropdown to jQuery only if jQuery is present
  */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-  /* istanbul ignore if */
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Dropdown.jQueryInterface;
-    $.fn[NAME].Constructor = Dropdown;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Dropdown.jQueryInterface;
-    };
-  }
-});
+/* istanbul ignore if */
+if ($) {
+  const JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = Dropdown.jQueryInterface;
+  $.fn[NAME].Constructor = Dropdown;
+  $.fn[NAME].noConflict = () => {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Dropdown.jQueryInterface;
+  };
+}
 
 export default Dropdown;

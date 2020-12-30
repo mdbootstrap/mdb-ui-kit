@@ -1,9 +1,11 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): dom/selector-engine.js
+ * Bootstrap (v5.0.0-alpha1): dom/selector-engine.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
+
+import { find as findFn, findOne } from './polyfill';
 
 /**
  * ------------------------------------------------------------------------
@@ -23,11 +25,11 @@ const SelectorEngine = {
   },
 
   find(selector, element = document.documentElement) {
-    return [].concat(...Element.prototype.querySelectorAll.call(element, selector));
+    return [].concat(...findFn.call(element, selector));
   },
 
   findOne(selector, element = document.documentElement) {
-    return Element.prototype.querySelector.call(element, selector);
+    return findOne.call(element, selector);
   },
 
   children(element, selector) {

@@ -2,15 +2,17 @@
   @if $enable-shadows {
     $result: ();
 
-    @each $value in $shadow {
-      @if $value != null {
-        $result: append($result, $value, 'comma');
-      }
-      @if $value == none and length($shadow) > 1 {
-        @warn "The keyword 'none' must be used as a single argument.";
+    @if (length($shadow) == 1) {
+      // We can pass `@include box-shadow(none);`
+      $result: $shadow;
+    } @else {
+      // Filter to avoid invalid properties for example `box-shadow: none, 1px 1px black;`
+      @for $i from 1 through length($shadow) {
+        @if nth($shadow, $i) != "none" {
+          $result: append($result, nth($shadow, $i), "comma");
+        }
       }
     }
-
     @if (length($result) > 0) {
       box-shadow: $result;
     }

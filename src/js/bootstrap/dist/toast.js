@@ -1,5 +1,5 @@
 /*!
- * Bootstrap toast.js v5.0.0-beta1 (https://getbootstrap.com/)
+ * Bootstrap toast.js v5.0.0-alpha1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -11,23 +11,25 @@
         require('./dom/manipulator.js')
       ))
     : typeof define === 'function' && define.amd
-    ? define(['./dom/data', './dom/event-handler', './dom/manipulator'], factory)
-    : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
+    ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js'], factory)
+    : ((global = global || self),
       (global.Toast = factory(global.Data, global.EventHandler, global.Manipulator)));
 })(this, function (Data, EventHandler, Manipulator) {
   'use strict';
 
-  function _interopDefaultLegacy(e) {
-    return e && typeof e === 'object' && 'default' in e ? e : { default: e };
-  }
-
-  var Data__default = /*#__PURE__*/ _interopDefaultLegacy(Data);
-  var EventHandler__default = /*#__PURE__*/ _interopDefaultLegacy(EventHandler);
-  var Manipulator__default = /*#__PURE__*/ _interopDefaultLegacy(Manipulator);
+  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
+  EventHandler =
+    EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default')
+      ? EventHandler['default']
+      : EventHandler;
+  Manipulator =
+    Manipulator && Object.prototype.hasOwnProperty.call(Manipulator, 'default')
+      ? Manipulator['default']
+      : Manipulator;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/index.js
+   * Bootstrap (v5.0.0-alpha1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -54,8 +56,8 @@
       transitionDuration = _window$getComputedSt.transitionDuration,
       transitionDelay = _window$getComputedSt.transitionDelay;
 
-    var floatTransitionDuration = Number.parseFloat(transitionDuration);
-    var floatTransitionDelay = Number.parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
+    var floatTransitionDuration = parseFloat(transitionDuration);
+    var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
 
     if (!floatTransitionDuration && !floatTransitionDelay) {
       return 0;
@@ -63,10 +65,7 @@
 
     transitionDuration = transitionDuration.split(',')[0];
     transitionDelay = transitionDelay.split(',')[0];
-    return (
-      (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) *
-      MILLISECONDS_MULTIPLIER
-    );
+    return (parseFloat(transitionDuration) + parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
   };
 
   var triggerTransitionEnd = function triggerTransitionEnd(element) {
@@ -120,22 +119,57 @@
     var _window = window,
       jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-no-jquery')) {
       return jQuery;
     }
 
     return null;
   };
 
-  var onDOMContentLoaded = function onDOMContentLoaded(callback) {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', callback);
-    } else {
-      callback();
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly)
+        symbols = symbols.filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+      keys.push.apply(keys, symbols);
     }
-  };
+    return keys;
+  }
 
-  var isRTL = document.documentElement.dir === 'rtl';
+  function _objectSpread(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  }
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true,
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  }
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -158,87 +192,8 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
-
-  var BaseComponent = /*#__PURE__*/ (function () {
-    function BaseComponent(element) {
-      if (!element) {
-        return;
-      }
-
-      this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
-    }
-
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
-      this._element = null;
-    };
-    /** Static */
-
-    BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
-    };
-
-    _createClass(BaseComponent, null, [
-      {
-        key: 'VERSION',
-        get: function get() {
-          return VERSION;
-        },
-      },
-    ]);
-
-    return BaseComponent;
-  })();
-
-  function _extends() {
-    _extends =
-      Object.assign ||
-      function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-    return _extends.apply(this, arguments);
-  }
-
-  function _defineProperties$1(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ('value' in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass$1(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties$1(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
-  }
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
   var NAME = 'toast';
+  var VERSION = '5.0.0-alpha1';
   var DATA_KEY = 'bs.toast';
   var EVENT_KEY = '.' + DATA_KEY;
   var EVENT_CLICK_DISMISS = 'click.dismiss' + EVENT_KEY;
@@ -258,59 +213,53 @@
   var Default = {
     animation: true,
     autohide: true,
-    delay: 5000,
+    delay: 500,
   };
-  var SELECTOR_DATA_DISMISS = '[data-bs-dismiss="toast"]';
+  var SELECTOR_DATA_DISMISS = '[data-dismiss="toast"]';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
 
-  var Toast = /*#__PURE__*/ (function (_BaseComponent) {
-    _inheritsLoose(Toast, _BaseComponent);
-
+  var Toast = /*#__PURE__*/ (function () {
     function Toast(element, config) {
-      var _this;
+      this._element = element;
+      this._config = this._getConfig(config);
+      this._timeout = null;
 
-      _this = _BaseComponent.call(this, element) || this;
-      _this._config = _this._getConfig(config);
-      _this._timeout = null;
+      this._setListeners();
 
-      _this._setListeners();
-
-      return _this;
+      Data.setData(element, DATA_KEY, this);
     } // Getters
 
     var _proto = Toast.prototype;
 
     // Public
     _proto.show = function show() {
-      var _this2 = this;
+      var _this = this;
 
-      var showEvent = EventHandler__default['default'].trigger(this._element, EVENT_SHOW);
+      var showEvent = EventHandler.trigger(this._element, EVENT_SHOW);
 
       if (showEvent.defaultPrevented) {
         return;
       }
-
-      this._clearTimeout();
 
       if (this._config.animation) {
         this._element.classList.add(CLASS_NAME_FADE);
       }
 
       var complete = function complete() {
-        _this2._element.classList.remove(CLASS_NAME_SHOWING);
+        _this._element.classList.remove(CLASS_NAME_SHOWING);
 
-        _this2._element.classList.add(CLASS_NAME_SHOW);
+        _this._element.classList.add(CLASS_NAME_SHOW);
 
-        EventHandler__default['default'].trigger(_this2._element, EVENT_SHOWN);
+        EventHandler.trigger(_this._element, EVENT_SHOWN);
 
-        if (_this2._config.autohide) {
-          _this2._timeout = setTimeout(function () {
-            _this2.hide();
-          }, _this2._config.delay);
+        if (_this._config.autohide) {
+          _this._timeout = setTimeout(function () {
+            _this.hide();
+          }, _this._config.delay);
         }
       };
 
@@ -322,7 +271,7 @@
 
       if (this._config.animation) {
         var transitionDuration = getTransitionDurationFromElement(this._element);
-        EventHandler__default['default'].one(this._element, TRANSITION_END, complete);
+        EventHandler.one(this._element, TRANSITION_END, complete);
         emulateTransitionEnd(this._element, transitionDuration);
       } else {
         complete();
@@ -330,29 +279,29 @@
     };
 
     _proto.hide = function hide() {
-      var _this3 = this;
+      var _this2 = this;
 
       if (!this._element.classList.contains(CLASS_NAME_SHOW)) {
         return;
       }
 
-      var hideEvent = EventHandler__default['default'].trigger(this._element, EVENT_HIDE);
+      var hideEvent = EventHandler.trigger(this._element, EVENT_HIDE);
 
       if (hideEvent.defaultPrevented) {
         return;
       }
 
       var complete = function complete() {
-        _this3._element.classList.add(CLASS_NAME_HIDE);
+        _this2._element.classList.add(CLASS_NAME_HIDE);
 
-        EventHandler__default['default'].trigger(_this3._element, EVENT_HIDDEN);
+        EventHandler.trigger(_this2._element, EVENT_HIDDEN);
       };
 
       this._element.classList.remove(CLASS_NAME_SHOW);
 
       if (this._config.animation) {
         var transitionDuration = getTransitionDurationFromElement(this._element);
-        EventHandler__default['default'].one(this._element, TRANSITION_END, complete);
+        EventHandler.one(this._element, TRANSITION_END, complete);
         emulateTransitionEnd(this._element, transitionDuration);
       } else {
         complete();
@@ -360,24 +309,22 @@
     };
 
     _proto.dispose = function dispose() {
-      this._clearTimeout();
+      clearTimeout(this._timeout);
+      this._timeout = null;
 
       if (this._element.classList.contains(CLASS_NAME_SHOW)) {
         this._element.classList.remove(CLASS_NAME_SHOW);
       }
 
-      EventHandler__default['default'].off(this._element, EVENT_CLICK_DISMISS);
-
-      _BaseComponent.prototype.dispose.call(this);
-
+      EventHandler.off(this._element, EVENT_CLICK_DISMISS);
+      Data.removeData(this._element, DATA_KEY);
+      this._element = null;
       this._config = null;
     }; // Private
 
     _proto._getConfig = function _getConfig(config) {
-      config = _extends(
-        {},
-        Default,
-        Manipulator__default['default'].getDataAttributes(this._element),
+      config = _objectSpread(
+        _objectSpread(_objectSpread({}, Default), Manipulator.getDataAttributes(this._element)),
         typeof config === 'object' && config ? config : {}
       );
       typeCheckConfig(NAME, config, this.constructor.DefaultType);
@@ -385,26 +332,16 @@
     };
 
     _proto._setListeners = function _setListeners() {
-      var _this4 = this;
+      var _this3 = this;
 
-      EventHandler__default['default'].on(
-        this._element,
-        EVENT_CLICK_DISMISS,
-        SELECTOR_DATA_DISMISS,
-        function () {
-          return _this4.hide();
-        }
-      );
-    };
-
-    _proto._clearTimeout = function _clearTimeout() {
-      clearTimeout(this._timeout);
-      this._timeout = null;
+      EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, function () {
+        return _this3.hide();
+      });
     }; // Static
 
     Toast.jQueryInterface = function jQueryInterface(config) {
       return this.each(function () {
-        var data = Data__default['default'].getData(this, DATA_KEY);
+        var data = Data.getData(this, DATA_KEY);
 
         var _config = typeof config === 'object' && config;
 
@@ -422,7 +359,17 @@
       });
     };
 
-    _createClass$1(Toast, null, [
+    Toast.getInstance = function getInstance(element) {
+      return Data.getData(element, DATA_KEY);
+    };
+
+    _createClass(Toast, null, [
+      {
+        key: 'VERSION',
+        get: function get() {
+          return VERSION;
+        },
+      },
       {
         key: 'DefaultType',
         get: function get() {
@@ -435,38 +382,31 @@
           return Default;
         },
       },
-      {
-        key: 'DATA_KEY',
-        get: function get() {
-          return DATA_KEY;
-        },
-      },
     ]);
 
     return Toast;
-  })(BaseComponent);
+  })();
+
+  var $ = getjQuery();
   /**
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
-   * add .Toast to jQuery only if jQuery is present
+   *  add .toast to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
+  /* istanbul ignore if */
 
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME];
-      $.fn[NAME] = Toast.jQueryInterface;
-      $.fn[NAME].Constructor = Toast;
+  if ($) {
+    var JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = Toast.jQueryInterface;
+    $.fn[NAME].Constructor = Toast;
 
-      $.fn[NAME].noConflict = function () {
-        $.fn[NAME] = JQUERY_NO_CONFLICT;
-        return Toast.jQueryInterface;
-      };
-    }
-  });
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return Toast.jQueryInterface;
+    };
+  }
 
   return Toast;
 });

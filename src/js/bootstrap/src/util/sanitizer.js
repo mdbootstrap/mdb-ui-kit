@@ -1,11 +1,11 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): util/sanitizer.js
+ * Bootstrap (v5.0.0-alpha1): util/sanitizer.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-const uriAttrs = new Set([
+const uriAttrs = [
   'background',
   'cite',
   'href',
@@ -14,7 +14,7 @@ const uriAttrs = new Set([
   'poster',
   'src',
   'xlink:href',
-]);
+];
 
 const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
 
@@ -35,8 +35,8 @@ const DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|vid
 const allowedAttribute = (attr, allowedAttributeList) => {
   const attrName = attr.nodeName.toLowerCase();
 
-  if (allowedAttributeList.includes(attrName)) {
-    if (uriAttrs.has(attrName)) {
+  if (allowedAttributeList.indexOf(attrName) !== -1) {
+    if (uriAttrs.indexOf(attrName) !== -1) {
       return Boolean(
         attr.nodeValue.match(SAFE_URL_PATTERN) || attr.nodeValue.match(DATA_URL_PATTERN)
       );
@@ -57,7 +57,7 @@ const allowedAttribute = (attr, allowedAttributeList) => {
   return false;
 };
 
-export const DefaultAllowlist = {
+export const DefaultWhitelist = {
   // Global attributes allowed on any supplied element below.
   '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
   a: ['target', 'href', 'title', 'rel'],
@@ -91,7 +91,7 @@ export const DefaultAllowlist = {
   ul: [],
 };
 
-export function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
+export function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
   if (!unsafeHtml.length) {
     return unsafeHtml;
   }
@@ -102,24 +102,24 @@ export function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
 
   const domParser = new window.DOMParser();
   const createdDocument = domParser.parseFromString(unsafeHtml, 'text/html');
-  const allowlistKeys = Object.keys(allowList);
+  const whitelistKeys = Object.keys(whiteList);
   const elements = [].concat(...createdDocument.body.querySelectorAll('*'));
 
   for (let i = 0, len = elements.length; i < len; i++) {
     const el = elements[i];
     const elName = el.nodeName.toLowerCase();
 
-    if (!allowlistKeys.includes(elName)) {
+    if (whitelistKeys.indexOf(elName) === -1) {
       el.parentNode.removeChild(el);
 
       continue;
     }
 
     const attributeList = [].concat(...el.attributes);
-    const allowedAttributes = [].concat(allowList['*'] || [], allowList[elName] || []);
+    const whitelistedAttributes = [].concat(whiteList['*'] || [], whiteList[elName] || []);
 
     attributeList.forEach((attr) => {
-      if (!allowedAttribute(attr, allowedAttributes)) {
+      if (!allowedAttribute(attr, whitelistedAttributes)) {
         el.removeAttribute(attr.nodeName);
       }
     });

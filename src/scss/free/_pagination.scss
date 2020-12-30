@@ -2,16 +2,16 @@
 
 .page-link {
   border: 0;
-  font-size: $pagination-font-size;
-  color: $pagination-color;
+  font-size: 0.9rem;
+  color: #212529;
   background-color: transparent;
   border: 0;
   outline: 0;
-  transition: $pagination-transition;
-  border-radius: $pagination-border-radius;
+  transition: all 0.3s linear;
+  border-radius: 0.125rem;
 
   &:hover {
-    color: $pagination-hover-color;
+    color: #212529;
   }
 
   &:focus {
@@ -23,21 +23,21 @@
   &.active .page-link {
     background-color: $pagination-active-bg;
     border: 0;
-    box-shadow: $pagination-active-box-shadow;
-    transition: $pagination-active-transition;
+    box-shadow: $btn-box-shadow;
+    transition: all 0.2s linear;
   }
 
   &:first-child {
     .page-link {
-      border-top-left-radius: $pagination-border-radius;
-      border-bottom-left-radius: $pagination-border-radius;
+      border-top-left-radius: 0.125rem;
+      border-bottom-left-radius: 0.125rem;
     }
   }
 
   &:last-child {
     .page-link {
-      border-top-right-radius: $pagination-border-radius;
-      border-bottom-right-radius: $pagination-border-radius;
+      border-top-right-radius: 0.125rem;
+      border-bottom-right-radius: 0.125rem;
     }
   }
   &:not(:first-child) {
@@ -51,12 +51,12 @@
 .pagination-sm {
   .page-item {
     &:first-child .page-link {
-      border-top-left-radius: $pagination-border-radius;
-      border-bottom-left-radius: $pagination-border-radius;
+      border-top-left-radius: 0.125rem;
+      border-bottom-left-radius: 0.125rem;
     }
     &:last-child .page-link {
-      border-top-right-radius: $pagination-border-radius;
-      border-bottom-right-radius: $pagination-border-radius;
+      border-top-right-radius: 0.125rem;
+      border-bottom-right-radius: 0.125rem;
     }
   }
 }
@@ -65,32 +65,32 @@
   .page-item {
     &:first-child {
       .page-link {
-        border-radius: $pagination-circle-border-radius;
+        border-radius: 50%;
       }
     }
 
     &:last-child {
       .page-link {
-        border-radius: $pagination-circle-border-radius;
+        border-radius: 50%;
       }
     }
   }
   .page-link {
-    border-radius: $pagination-circle-border-radius;
-    padding-left: $pagination-circle-padding-x;
-    padding-right: $pagination-circle-padding-x;
+    border-radius: 50%;
+    padding-left: 0.841rem;
+    padding-right: 0.841rem;
   }
 
   &.pagination-lg {
     .page-link {
-      padding-left: $pagination-circle-lg-padding-left;
-      padding-right: $pagination-circle-lg-padding-right;
+      padding-left: 1.399414rem;
+      padding-right: 1.399415rem;
     }
   }
   &.pagination-sm {
     .page-link {
-      padding-left: $pagination-circle-sm-padding-left;
-      padding-right: $pagination-circle-sm-padding-right;
+      padding-left: 0.696rem;
+      padding-right: 0.688rem;
     }
   }
 }

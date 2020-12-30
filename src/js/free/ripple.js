@@ -1,6 +1,6 @@
-import { element, getjQuery, typeCheckConfig, onDOMContentLoaded } from '../mdb/util/index';
+import { element, getjQuery, typeCheckConfig } from '../mdb/util/index';
 import Data from '../mdb/dom/data';
-import EventHandler from '../mdb/dom/event-handler';
+import EventHandler from '../bootstrap/src/dom/event-handler';
 import Manipulator from '../mdb/dom/manipulator';
 import SelectorEngine from '../mdb/dom/selector-engine';
 
@@ -31,24 +31,24 @@ const BOOTSTRAP_COLORS = [
   'dark',
 ];
 
-// Sets value when run opacity transition
+// Sets walue when run opacity transition
 // Hide element after 50% (0.5) time of animation and finish on 100%
 const TRANSITION_BREAK_OPACITY = 0.5;
 
 const Default = {
-  rippleCentered: false,
-  rippleColor: '',
-  rippleDuration: '500ms',
-  rippleRadius: 0,
-  rippleUnbound: false,
+  centered: false,
+  color: '',
+  duration: '500ms',
+  radius: 0,
+  unbound: false,
 };
 
 const DefaultType = {
-  rippleCentered: 'boolean',
-  rippleColor: 'string',
-  rippleDuration: 'string',
-  rippleRadius: 'number',
-  rippleUnbound: 'boolean',
+  centered: 'boolean',
+  color: 'string',
+  duration: 'string',
+  radius: 'number',
+  unbound: 'boolean',
 };
 
 /**
@@ -65,8 +65,6 @@ class Ripple {
       Data.setData(element, DATA_KEY, this);
       Manipulator.addClass(this._element, CLASSNAME_RIPPLE);
     }
-
-    this._clickHandler = this._createRipple.bind(this);
 
     this.init();
   }
@@ -85,9 +83,9 @@ class Ripple {
 
   dispose() {
     Data.removeData(this._element, DATA_KEY);
-    EventHandler.off(this._element, 'click', this._clickHandler);
     this._element = null;
     this._options = null;
+    EventHandler.off(this._element, 'click', '');
   }
 
   // Private
@@ -105,24 +103,24 @@ class Ripple {
   }
 
   _addClickEvent(target) {
-    EventHandler.on(target, 'mousedown', this._clickHandler);
+    EventHandler.on(target, 'click', '', (event) => {
+      this._createRipple(event);
+    });
   }
 
   _createRipple(event) {
-    const { layerX, layerY } = event;
-    const offsetX = layerX;
-    const offsetY = layerY;
+    const { offsetX, offsetY } = event;
     const height = this._element.offsetHeight;
     const width = this._element.offsetWidth;
-    const duration = this._durationToMsNumber(this._options.rippleDuration);
+    const duration = this._durationToMsNumber(this._options.duration);
     const diameterOptions = {
-      offsetX: this._options.rippleCentered ? height / 2 : offsetX,
-      offsetY: this._options.rippleCentered ? width / 2 : offsetY,
+      offsetX: this._options.centered ? height / 2 : offsetX,
+      offsetY: this._options.centered ? width / 2 : offsetY,
       height,
       width,
     };
     const diameter = this._getDiameter(diameterOptions);
-    const radiusValue = this._options.rippleRadius || diameter / 2;
+    const radiusValue = this._options.radius || diameter / 2;
 
     const opacity = {
       delay: duration * TRANSITION_BREAK_OPACITY,
@@ -130,14 +128,10 @@ class Ripple {
     };
 
     const styles = {
-      left: this._options.rippleCentered
-        ? `${width / 2 - radiusValue}px`
-        : `${offsetX - radiusValue}px`,
-      top: this._options.rippleCentered
-        ? `${height / 2 - radiusValue}px`
-        : `${offsetY - radiusValue}px`,
-      height: `${this._options.rippleRadius * 2 || diameter}px`,
-      width: `${this._options.rippleRadius * 2 || diameter}px`,
+      left: this._options.centered ? `${width / 2 - radiusValue}px` : `${offsetX - radiusValue}px`,
+      top: this._options.centered ? `${height / 2 - radiusValue}px` : `${offsetY - radiusValue}px`,
+      height: `${this._options.radius * 2 || diameter}px`,
+      width: `${this._options.radius * 2 || diameter}px`,
       transitionDelay: `0s, ${opacity.delay}ms`,
       transitionDuration: `${duration}ms, ${opacity.duration}ms`,
     };
@@ -145,13 +139,13 @@ class Ripple {
     const rippleHTML = element('div');
 
     this._createHTMLRipple({ wrapper: this._element, ripple: rippleHTML, styles });
-    this._removeHTMLRipple({ ripple: rippleHTML, duration });
+    this._removeHTMLRipple({ wrapper: this._element, ripple: rippleHTML, duration });
   }
 
   _createHTMLRipple({ wrapper, ripple, styles }) {
     Object.keys(styles).forEach((property) => (ripple.style[property] = styles[property]));
     ripple.classList.add(CLASSNAME_RIPPLE_WAVE);
-    if (this._options.rippleColor !== '') {
+    if (this._options.color !== '') {
       this._removeOldColorClasses(wrapper);
       this._addColor(ripple, wrapper);
     }
@@ -160,11 +154,9 @@ class Ripple {
     this._appendRipple(ripple, wrapper);
   }
 
-  _removeHTMLRipple({ ripple, duration }) {
+  _removeHTMLRipple({ wrapper, ripple, duration }) {
     setTimeout(() => {
-      if (ripple) {
-        ripple.remove();
-      }
+      wrapper.removeChild(ripple);
     }, duration);
   }
 
@@ -221,7 +213,7 @@ class Ripple {
   }
 
   _appendRipple(target, parent) {
-    const FIX_ADD_RIPPLE_EFFECT = 50; // delay for active animations
+    const FIX_ADD_RIPPLE_EFFECT = 50; // We need delay for active animations
     parent.appendChild(target);
     setTimeout(() => {
       Manipulator.addClass(target, 'active');
@@ -229,7 +221,7 @@ class Ripple {
   }
 
   _toggleUnbound(target) {
-    if (this._options.rippleUnbound === true) {
+    if (this._options.unbound === true) {
       Manipulator.addClass(target, CLASSNAME_UNBOUND);
     } else {
       target.classList.remove(CLASSNAME_UNBOUND);
@@ -238,16 +230,13 @@ class Ripple {
 
   _addColor(target, parent) {
     const IS_BOOTSTRAP_COLOR = BOOTSTRAP_COLORS.find(
-      (color) => color === this._options.rippleColor.toLowerCase()
+      (color) => color === this._options.color.toLowerCase()
     );
 
     if (IS_BOOTSTRAP_COLOR) {
-      Manipulator.addClass(
-        parent,
-        `${CLASSNAME_RIPPLE}-${this._options.rippleColor.toLowerCase()}`
-      );
+      Manipulator.addClass(parent, `${CLASSNAME_RIPPLE}-${this._options.color.toLowerCase()}`);
     } else {
-      const rgbValue = this._colorToRGB(this._options.rippleColor).join(',');
+      const rgbValue = this._colorToRGB(this._options.color).join(',');
       const gradientImage = GRADIENT.split('{{color}}').join(`${rgbValue}`);
       target.style.backgroundImage = `radial-gradient(circle, ${gradientImage})`;
     }
@@ -314,9 +303,16 @@ class Ripple {
   }
 
   // Static
+
   static autoInitial(instance) {
     return function (event) {
       instance._autoInit(event);
+    };
+  }
+
+  static staticMethod(instance) {
+    return function (event) {
+      instance._method(event);
     };
   }
 
@@ -342,8 +338,8 @@ class Ripple {
  * ------------------------------------------------------------------------
  */
 
-SELECTOR_COMPONENT.forEach((selector) => {
-  EventHandler.one(document, 'mousedown', selector, Ripple.autoInitial(new Ripple()));
+SELECTOR_COMPONENT.forEach((slector) => {
+  EventHandler.one(document, 'click', slector, Ripple.autoInitial(new Ripple()));
 });
 
 /**
@@ -353,18 +349,16 @@ SELECTOR_COMPONENT.forEach((selector) => {
  * add .ripple to jQuery only if jQuery is present
  */
 
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
+const $ = getjQuery();
 
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Ripple.jQueryInterface;
-    $.fn[NAME].Constructor = Ripple;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Ripple.jQueryInterface;
-    };
-  }
-});
+if ($) {
+  const JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = Ripple.jQueryInterface;
+  $.fn[NAME].Constructor = Ripple;
+  $.fn[NAME].noConflict = () => {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Ripple.jQueryInterface;
+  };
+}
 
 export default Ripple;

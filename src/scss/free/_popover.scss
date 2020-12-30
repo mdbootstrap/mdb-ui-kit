@@ -2,7 +2,7 @@
 
 .popover {
   border: 0;
-  box-shadow: $popover-box-shadow;
+  box-shadow: $box-shadow-2;
 
   .popover-arrow {
     display: none;
@@ -10,5 +10,5 @@
 }
 
 .popover-header {
-  background-color: $popover-background-color;
+  background-color: #fff;
 }

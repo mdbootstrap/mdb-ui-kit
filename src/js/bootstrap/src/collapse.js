@@ -1,13 +1,12 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): collapse.js
+ * Bootstrap (v5.0.0-alpha1): collapse.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 import {
   getjQuery,
-  onDOMContentLoaded,
   TRANSITION_END,
   emulateTransitionEnd,
   getSelectorFromElement,
@@ -21,7 +20,6 @@ import Data from './dom/data';
 import EventHandler from './dom/event-handler';
 import Manipulator from './dom/manipulator';
 import SelectorEngine from './dom/selector-engine';
-import BaseComponent from './base-component';
 
 /**
  * ------------------------------------------------------------------------
@@ -30,6 +28,7 @@ import BaseComponent from './base-component';
  */
 
 const NAME = 'collapse';
+const VERSION = '5.0.0-alpha1';
 const DATA_KEY = 'bs.collapse';
 const EVENT_KEY = `.${DATA_KEY}`;
 const DATA_API_KEY = '.data-api';
@@ -59,7 +58,7 @@ const WIDTH = 'width';
 const HEIGHT = 'height';
 
 const SELECTOR_ACTIVES = '.show, .collapsing';
-const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="collapse"]';
+const SELECTOR_DATA_TOGGLE = '[data-toggle="collapse"]';
 
 /**
  * ------------------------------------------------------------------------
@@ -67,15 +66,14 @@ const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="collapse"]';
  * ------------------------------------------------------------------------
  */
 
-class Collapse extends BaseComponent {
+class Collapse {
   constructor(element, config) {
-    super(element);
-
     this._isTransitioning = false;
+    this._element = element;
     this._config = this._getConfig(config);
     this._triggerArray = SelectorEngine.find(
       `${SELECTOR_DATA_TOGGLE}[href="#${element.id}"],` +
-        `${SELECTOR_DATA_TOGGLE}[data-bs-target="#${element.id}"]`
+        `${SELECTOR_DATA_TOGGLE}[data-target="#${element.id}"]`
     );
 
     const toggleList = SelectorEngine.find(SELECTOR_DATA_TOGGLE);
@@ -102,16 +100,18 @@ class Collapse extends BaseComponent {
     if (this._config.toggle) {
       this.toggle();
     }
+
+    Data.setData(element, DATA_KEY, this);
   }
 
   // Getters
 
-  static get Default() {
-    return Default;
+  static get VERSION() {
+    return VERSION;
   }
 
-  static get DATA_KEY() {
-    return DATA_KEY;
+  static get Default() {
+    return Default;
   }
 
   // Public
@@ -135,7 +135,7 @@ class Collapse extends BaseComponent {
     if (this._parent) {
       actives = SelectorEngine.find(SELECTOR_ACTIVES, this._parent).filter((elem) => {
         if (typeof this._config.parent === 'string') {
-          return elem.getAttribute('data-bs-parent') === this._config.parent;
+          return elem.getAttribute('data-parent') === this._config.parent;
         }
 
         return elem.classList.contains(CLASS_NAME_COLLAPSE);
@@ -148,8 +148,8 @@ class Collapse extends BaseComponent {
 
     const container = SelectorEngine.findOne(this._selector);
     if (actives) {
-      const tempActiveData = actives.find((elem) => container !== elem);
-      activesData = tempActiveData ? Data.getData(tempActiveData, DATA_KEY) : null;
+      const tempActiveData = actives.filter((elem) => container !== elem);
+      activesData = tempActiveData[0] ? Data.getData(tempActiveData[0], DATA_KEY) : null;
 
       if (activesData && activesData._isTransitioning) {
         return;
@@ -263,9 +263,11 @@ class Collapse extends BaseComponent {
   }
 
   dispose() {
-    super.dispose();
+    Data.removeData(this._element, DATA_KEY);
+
     this._config = null;
     this._parent = null;
+    this._element = null;
     this._triggerArray = null;
     this._isTransitioning = null;
   }
@@ -283,7 +285,8 @@ class Collapse extends BaseComponent {
   }
 
   _getDimension() {
-    return this._element.classList.contains(WIDTH) ? WIDTH : HEIGHT;
+    const hasWidth = this._element.classList.contains(WIDTH);
+    return hasWidth ? WIDTH : HEIGHT;
   }
 
   _getParent() {
@@ -298,7 +301,7 @@ class Collapse extends BaseComponent {
       parent = SelectorEngine.findOne(parent);
     }
 
-    const selector = `${SELECTOR_DATA_TOGGLE}[data-bs-parent="${parent}"]`;
+    const selector = `${SELECTOR_DATA_TOGGLE}[data-parent="${parent}"]`;
 
     SelectorEngine.find(selector, parent).forEach((element) => {
       const selected = getElementFromSelector(element);
@@ -310,21 +313,21 @@ class Collapse extends BaseComponent {
   }
 
   _addAriaAndCollapsedClass(element, triggerArray) {
-    if (!element || !triggerArray.length) {
-      return;
-    }
+    if (element) {
+      const isOpen = element.classList.contains(CLASS_NAME_SHOW);
 
-    const isOpen = element.classList.contains(CLASS_NAME_SHOW);
+      if (triggerArray.length) {
+        triggerArray.forEach((elem) => {
+          if (isOpen) {
+            elem.classList.remove(CLASS_NAME_COLLAPSED);
+          } else {
+            elem.classList.add(CLASS_NAME_COLLAPSED);
+          }
 
-    triggerArray.forEach((elem) => {
-      if (isOpen) {
-        elem.classList.remove(CLASS_NAME_COLLAPSED);
-      } else {
-        elem.classList.add(CLASS_NAME_COLLAPSED);
+          elem.setAttribute('aria-expanded', isOpen);
+        });
       }
-
-      elem.setAttribute('aria-expanded', isOpen);
-    });
+    }
   }
 
   // Static
@@ -358,6 +361,10 @@ class Collapse extends BaseComponent {
     return this.each(function () {
       Collapse.collapseInterface(this, config);
     });
+  }
+
+  static getInstance(element) {
+    return Data.getData(element, DATA_KEY);
   }
 }
 
@@ -396,25 +403,23 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
   });
 });
 
+const $ = getjQuery();
+
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .Collapse to jQuery only if jQuery is present
+ * add .collapse to jQuery only if jQuery is present
  */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-  /* istanbul ignore if */
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Collapse.jQueryInterface;
-    $.fn[NAME].Constructor = Collapse;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Collapse.jQueryInterface;
-    };
-  }
-});
+/* istanbul ignore if */
+if ($) {
+  const JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = Collapse.jQueryInterface;
+  $.fn[NAME].Constructor = Collapse;
+  $.fn[NAME].noConflict = () => {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Collapse.jQueryInterface;
+  };
+}
 
 export default Collapse;

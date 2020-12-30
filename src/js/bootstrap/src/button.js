@@ -1,14 +1,13 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): button.js
+ * Bootstrap (v5.0.0-alpha1): button.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { getjQuery, onDOMContentLoaded } from './util/index';
+import { getjQuery } from './util/index';
 import Data from './dom/data';
 import EventHandler from './dom/event-handler';
-import BaseComponent from './base-component';
 
 /**
  * ------------------------------------------------------------------------
@@ -17,13 +16,14 @@ import BaseComponent from './base-component';
  */
 
 const NAME = 'button';
+const VERSION = '5.0.0-alpha1';
 const DATA_KEY = 'bs.button';
 const EVENT_KEY = `.${DATA_KEY}`;
 const DATA_API_KEY = '.data-api';
 
 const CLASS_NAME_ACTIVE = 'active';
 
-const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="button"]';
+const SELECTOR_DATA_TOGGLE = '[data-toggle="button"]';
 
 const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
 
@@ -33,11 +33,16 @@ const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
  * ------------------------------------------------------------------------
  */
 
-class Button extends BaseComponent {
+class Button {
+  constructor(element) {
+    this._element = element;
+    Data.setData(element, DATA_KEY, this);
+  }
+
   // Getters
 
-  static get DATA_KEY() {
-    return DATA_KEY;
+  static get VERSION() {
+    return VERSION;
   }
 
   // Public
@@ -45,6 +50,11 @@ class Button extends BaseComponent {
   toggle() {
     // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
     this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE));
+  }
+
+  dispose() {
+    Data.removeData(this._element, DATA_KEY);
+    this._element = null;
   }
 
   // Static
@@ -61,6 +71,10 @@ class Button extends BaseComponent {
         data[config]();
       }
     });
+  }
+
+  static getInstance(element) {
+    return Data.getData(element, DATA_KEY);
   }
 }
 
@@ -83,26 +97,24 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, (event) =>
   data.toggle();
 });
 
+const $ = getjQuery();
+
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .Button to jQuery only if jQuery is present
+ * add .button to jQuery only if jQuery is present
  */
+/* istanbul ignore if */
+if ($) {
+  const JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = Button.jQueryInterface;
+  $.fn[NAME].Constructor = Button;
 
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-  /* istanbul ignore if */
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Button.jQueryInterface;
-    $.fn[NAME].Constructor = Button;
-
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Button.jQueryInterface;
-    };
-  }
-});
+  $.fn[NAME].noConflict = () => {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Button.jQueryInterface;
+  };
+}
 
 export default Button;

@@ -1,5 +1,5 @@
 /*!
- * Bootstrap scrollspy.js v5.0.0-beta1 (https://getbootstrap.com/)
+ * Bootstrap scrollspy.js v5.0.0-alpha1 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -13,12 +13,12 @@
       ))
     : typeof define === 'function' && define.amd
     ? define([
-        './dom/data',
-        './dom/event-handler',
-        './dom/manipulator',
-        './dom/selector-engine',
+        './dom/data.js',
+        './dom/event-handler.js',
+        './dom/manipulator.js',
+        './dom/selector-engine.js',
       ], factory)
-    : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
+    : ((global = global || self),
       (global.ScrollSpy = factory(
         global.Data,
         global.EventHandler,
@@ -28,18 +28,23 @@
 })(this, function (Data, EventHandler, Manipulator, SelectorEngine) {
   'use strict';
 
-  function _interopDefaultLegacy(e) {
-    return e && typeof e === 'object' && 'default' in e ? e : { default: e };
-  }
-
-  var Data__default = /*#__PURE__*/ _interopDefaultLegacy(Data);
-  var EventHandler__default = /*#__PURE__*/ _interopDefaultLegacy(EventHandler);
-  var Manipulator__default = /*#__PURE__*/ _interopDefaultLegacy(Manipulator);
-  var SelectorEngine__default = /*#__PURE__*/ _interopDefaultLegacy(SelectorEngine);
+  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
+  EventHandler =
+    EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default')
+      ? EventHandler['default']
+      : EventHandler;
+  Manipulator =
+    Manipulator && Object.prototype.hasOwnProperty.call(Manipulator, 'default')
+      ? Manipulator['default']
+      : Manipulator;
+  SelectorEngine =
+    SelectorEngine && Object.prototype.hasOwnProperty.call(SelectorEngine, 'default')
+      ? SelectorEngine['default']
+      : SelectorEngine;
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/index.js
+   * Bootstrap (v5.0.0-alpha1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -70,7 +75,7 @@
   };
 
   var getSelector = function getSelector(element) {
-    var selector = element.getAttribute('data-bs-target');
+    var selector = element.getAttribute('data-target');
 
     if (!selector || selector === '#') {
       var hrefAttr = element.getAttribute('href');
@@ -115,22 +120,57 @@
     var _window = window,
       jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-no-jquery')) {
       return jQuery;
     }
 
     return null;
   };
 
-  var onDOMContentLoaded = function onDOMContentLoaded(callback) {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', callback);
-    } else {
-      callback();
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly)
+        symbols = symbols.filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+        });
+      keys.push.apply(keys, symbols);
     }
-  };
+    return keys;
+  }
 
-  var isRTL = document.documentElement.dir === 'rtl';
+  function _objectSpread(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i] != null ? arguments[i] : {};
+      if (i % 2) {
+        ownKeys(Object(source), true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(Object(source)).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
+      }
+    }
+    return target;
+  }
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true,
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  }
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -153,87 +193,8 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
-
-  var BaseComponent = /*#__PURE__*/ (function () {
-    function BaseComponent(element) {
-      if (!element) {
-        return;
-      }
-
-      this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
-    }
-
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
-      this._element = null;
-    };
-    /** Static */
-
-    BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
-    };
-
-    _createClass(BaseComponent, null, [
-      {
-        key: 'VERSION',
-        get: function get() {
-          return VERSION;
-        },
-      },
-    ]);
-
-    return BaseComponent;
-  })();
-
-  function _extends() {
-    _extends =
-      Object.assign ||
-      function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-    return _extends.apply(this, arguments);
-  }
-
-  function _defineProperties$1(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ('value' in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass$1(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties$1(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
-  }
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
   var NAME = 'scrollspy';
+  var VERSION = '5.0.0-alpha1';
   var DATA_KEY = 'bs.scrollspy';
   var EVENT_KEY = '.' + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -252,7 +213,7 @@
   var EVENT_LOAD_DATA_API = 'load' + EVENT_KEY + DATA_API_KEY;
   var CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
   var CLASS_NAME_ACTIVE = 'active';
-  var SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
+  var SELECTOR_DATA_SPY = '[data-spy="scroll"]';
   var SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
   var SELECTOR_NAV_LINKS = '.nav-link';
   var SELECTOR_NAV_ITEMS = '.nav-item';
@@ -267,40 +228,32 @@
    * ------------------------------------------------------------------------
    */
 
-  var ScrollSpy = /*#__PURE__*/ (function (_BaseComponent) {
-    _inheritsLoose(ScrollSpy, _BaseComponent);
-
+  var ScrollSpy = /*#__PURE__*/ (function () {
     function ScrollSpy(element, config) {
-      var _this;
+      var _this = this;
 
-      _this = _BaseComponent.call(this, element) || this;
-      _this._scrollElement = element.tagName === 'BODY' ? window : element;
-      _this._config = _this._getConfig(config);
-      _this._selector =
-        _this._config.target +
+      this._element = element;
+      this._scrollElement = element.tagName === 'BODY' ? window : element;
+      this._config = this._getConfig(config);
+      this._selector =
+        this._config.target +
         ' ' +
         SELECTOR_NAV_LINKS +
-        ', ' +
-        _this._config.target +
-        ' ' +
-        SELECTOR_LIST_ITEMS +
-        ', ' +
-        _this._config.target +
-        ' .' +
-        CLASS_NAME_DROPDOWN_ITEM;
-      _this._offsets = [];
-      _this._targets = [];
-      _this._activeTarget = null;
-      _this._scrollHeight = 0;
-      EventHandler__default['default'].on(_this._scrollElement, EVENT_SCROLL, function (event) {
+        ',' +
+        (this._config.target + ' ' + SELECTOR_LIST_ITEMS + ',') +
+        (this._config.target + ' .' + CLASS_NAME_DROPDOWN_ITEM);
+      this._offsets = [];
+      this._targets = [];
+      this._activeTarget = null;
+      this._scrollHeight = 0;
+      EventHandler.on(this._scrollElement, EVENT_SCROLL, function (event) {
         return _this._process(event);
       });
+      this.refresh();
 
-      _this.refresh();
+      this._process();
 
-      _this._process();
-
-      return _this;
+      Data.setData(element, DATA_KEY, this);
     } // Getters
 
     var _proto = ScrollSpy.prototype;
@@ -316,22 +269,21 @@
       this._offsets = [];
       this._targets = [];
       this._scrollHeight = this._getScrollHeight();
-      var targets = SelectorEngine__default['default'].find(this._selector);
+      var targets = SelectorEngine.find(this._selector);
       targets
         .map(function (element) {
+          var target;
           var targetSelector = getSelectorFromElement(element);
-          var target = targetSelector
-            ? SelectorEngine__default['default'].findOne(targetSelector)
-            : null;
+
+          if (targetSelector) {
+            target = SelectorEngine.findOne(targetSelector);
+          }
 
           if (target) {
             var targetBCR = target.getBoundingClientRect();
 
             if (targetBCR.width || targetBCR.height) {
-              return [
-                Manipulator__default['default'][offsetMethod](target).top + offsetBase,
-                targetSelector,
-              ];
+              return [Manipulator[offsetMethod](target).top + offsetBase, targetSelector];
             }
           }
 
@@ -351,9 +303,9 @@
     };
 
     _proto.dispose = function dispose() {
-      _BaseComponent.prototype.dispose.call(this);
-
-      EventHandler__default['default'].off(this._scrollElement, EVENT_KEY);
+      Data.removeData(this._element, DATA_KEY);
+      EventHandler.off(this._scrollElement, EVENT_KEY);
+      this._element = null;
       this._scrollElement = null;
       this._config = null;
       this._selector = null;
@@ -364,7 +316,10 @@
     }; // Private
 
     _proto._getConfig = function _getConfig(config) {
-      config = _extends({}, Default, typeof config === 'object' && config ? config : {});
+      config = _objectSpread(
+        _objectSpread({}, Default),
+        typeof config === 'object' && config ? config : {}
+      );
 
       if (typeof config.target !== 'string' && isElement(config.target)) {
         var id = config.target.id;
@@ -447,52 +402,44 @@
       this._clear();
 
       var queries = this._selector.split(',').map(function (selector) {
-        return (
-          selector + '[data-bs-target="' + target + '"],' + selector + '[href="' + target + '"]'
-        );
+        return selector + '[data-target="' + target + '"],' + selector + '[href="' + target + '"]';
       });
 
-      var link = SelectorEngine__default['default'].findOne(queries.join(','));
+      var link = SelectorEngine.findOne(queries.join(','));
 
       if (link.classList.contains(CLASS_NAME_DROPDOWN_ITEM)) {
-        SelectorEngine__default['default']
-          .findOne(SELECTOR_DROPDOWN_TOGGLE, link.closest(SELECTOR_DROPDOWN))
-          .classList.add(CLASS_NAME_ACTIVE);
+        SelectorEngine.findOne(
+          SELECTOR_DROPDOWN_TOGGLE,
+          link.closest(SELECTOR_DROPDOWN)
+        ).classList.add(CLASS_NAME_ACTIVE);
         link.classList.add(CLASS_NAME_ACTIVE);
       } else {
         // Set triggered link as active
         link.classList.add(CLASS_NAME_ACTIVE);
-        SelectorEngine__default['default']
-          .parents(link, SELECTOR_NAV_LIST_GROUP)
-          .forEach(function (listGroup) {
-            // Set triggered links parents as active
-            // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
-            SelectorEngine__default['default']
-              .prev(listGroup, SELECTOR_NAV_LINKS + ', ' + SELECTOR_LIST_ITEMS)
-              .forEach(function (item) {
-                return item.classList.add(CLASS_NAME_ACTIVE);
-              }); // Handle special case when .nav-link is inside .nav-item
+        SelectorEngine.parents(link, SELECTOR_NAV_LIST_GROUP).forEach(function (listGroup) {
+          // Set triggered links parents as active
+          // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
+          SelectorEngine.prev(listGroup, SELECTOR_NAV_LINKS + ', ' + SELECTOR_LIST_ITEMS).forEach(
+            function (item) {
+              return item.classList.add(CLASS_NAME_ACTIVE);
+            }
+          ); // Handle special case when .nav-link is inside .nav-item
 
-            SelectorEngine__default['default']
-              .prev(listGroup, SELECTOR_NAV_ITEMS)
-              .forEach(function (navItem) {
-                SelectorEngine__default['default']
-                  .children(navItem, SELECTOR_NAV_LINKS)
-                  .forEach(function (item) {
-                    return item.classList.add(CLASS_NAME_ACTIVE);
-                  });
-              });
+          SelectorEngine.prev(listGroup, SELECTOR_NAV_ITEMS).forEach(function (navItem) {
+            SelectorEngine.children(navItem, SELECTOR_NAV_LINKS).forEach(function (item) {
+              return item.classList.add(CLASS_NAME_ACTIVE);
+            });
           });
+        });
       }
 
-      EventHandler__default['default'].trigger(this._scrollElement, EVENT_ACTIVATE, {
+      EventHandler.trigger(this._scrollElement, EVENT_ACTIVATE, {
         relatedTarget: target,
       });
     };
 
     _proto._clear = function _clear() {
-      SelectorEngine__default['default']
-        .find(this._selector)
+      SelectorEngine.find(this._selector)
         .filter(function (node) {
           return node.classList.contains(CLASS_NAME_ACTIVE);
         })
@@ -503,7 +450,7 @@
 
     ScrollSpy.jQueryInterface = function jQueryInterface(config) {
       return this.each(function () {
-        var data = Data__default['default'].getData(this, DATA_KEY);
+        var data = Data.getData(this, DATA_KEY);
 
         var _config = typeof config === 'object' && config;
 
@@ -521,56 +468,57 @@
       });
     };
 
-    _createClass$1(ScrollSpy, null, [
+    ScrollSpy.getInstance = function getInstance(element) {
+      return Data.getData(element, DATA_KEY);
+    };
+
+    _createClass(ScrollSpy, null, [
+      {
+        key: 'VERSION',
+        get: function get() {
+          return VERSION;
+        },
+      },
       {
         key: 'Default',
         get: function get() {
           return Default;
         },
       },
-      {
-        key: 'DATA_KEY',
-        get: function get() {
-          return DATA_KEY;
-        },
-      },
     ]);
 
     return ScrollSpy;
-  })(BaseComponent);
+  })();
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
 
-  EventHandler__default['default'].on(window, EVENT_LOAD_DATA_API, function () {
-    SelectorEngine__default['default'].find(SELECTOR_DATA_SPY).forEach(function (spy) {
-      return new ScrollSpy(spy, Manipulator__default['default'].getDataAttributes(spy));
+  EventHandler.on(window, EVENT_LOAD_DATA_API, function () {
+    SelectorEngine.find(SELECTOR_DATA_SPY).forEach(function (spy) {
+      return new ScrollSpy(spy, Manipulator.getDataAttributes(spy));
     });
   });
+  var $ = getjQuery();
   /**
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
-   * add .ScrollSpy to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
+  /* istanbul ignore if */
 
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME];
-      $.fn[NAME] = ScrollSpy.jQueryInterface;
-      $.fn[NAME].Constructor = ScrollSpy;
+  if ($) {
+    var JQUERY_NO_CONFLICT = $.fn[NAME];
+    $.fn[NAME] = ScrollSpy.jQueryInterface;
+    $.fn[NAME].Constructor = ScrollSpy;
 
-      $.fn[NAME].noConflict = function () {
-        $.fn[NAME] = JQUERY_NO_CONFLICT;
-        return ScrollSpy.jQueryInterface;
-      };
-    }
-  });
+    $.fn[NAME].noConflict = function () {
+      $.fn[NAME] = JQUERY_NO_CONFLICT;
+      return ScrollSpy.jQueryInterface;
+    };
+  }
 
   return ScrollSpy;
 });

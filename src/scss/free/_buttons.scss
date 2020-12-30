@@ -1,22 +1,18 @@
-//
-// Base styles
-//
+// Buttons base styles
 
 .btn {
   font-family: $btn-font-family;
+  line-height: 1.5;
   text-transform: uppercase;
   vertical-align: bottom;
+  padding-top: 10px;
+  padding-bottom: 8px;
   border: 0;
   box-shadow: $btn-box-shadow;
-  font-weight: $btn-font-weight;
-  @include button-size-mdb(
-    $btn-padding-top,
-    $btn-padding-right,
-    $btn-padding-bottom,
-    $btn-padding-left,
-    $btn-font-size,
-    $btn-line-height
-  );
+  font-size: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-weight: 500;
 
   &:hover {
     box-shadow: $btn-hover-box-shadow;
@@ -42,42 +38,18 @@
     box-shadow: $btn-box-shadow;
     border: 0;
   }
-
-  .btn-check:focus + &,
-  &:focus {
-    outline: 0;
-    box-shadow: $btn-focus-box-shadow;
-  }
 }
 
-//
-// Button block
-//
-
-.btn-block {
-  display: block;
-  width: 100%;
-
-  // Vertically space out multiple block buttons
-  + .btn-block {
-    margin-top: $btn-block-spacing-y;
-  }
-}
-
-//
-// Outline option
-//
+// Buttons outline
 
 [class*='btn-outline-'] {
-  border-width: $btn-border-width;
+  border-width: 2px;
   border-style: solid;
   box-shadow: none;
-  @include button-outline-size-mdb(
-    $btn-outline-padding-top,
-    $btn-outline-padding-right,
-    $btn-outline-padding-bottom,
-    $btn-outline-padding-left
-  );
+  padding-top: 8px;
+  padding-bottom: 6px;
+  padding-left: 22px;
+  padding-right: 22px;
 
   &:hover {
     box-shadow: none;
@@ -105,28 +77,22 @@
     box-shadow: none;
   }
 
-  &.btn-lg {
-    @include button-outline-size-mdb(
-      $btn-outline-padding-top-lg,
-      $btn-outline-padding-right-lg,
-      $btn-outline-padding-bottom-lg,
-      $btn-outline-padding-left-lg
-    );
+  &.btn-sm {
+    padding-top: 4px;
+    padding-bottom: 3px;
+    padding-right: 14px;
+    padding-left: 14px;
   }
 
-  &.btn-sm {
-    @include button-outline-size-mdb(
-      $btn-outline-padding-top-sm,
-      $btn-outline-padding-right-sm,
-      $btn-outline-padding-bottom-sm,
-      $btn-outline-padding-left-sm
-    );
+  &.btn-lg {
+    padding-top: 10px;
+    padding-bottom: 9px;
+    padding-right: 25px;
+    padding-left: 25px;
   }
 }
 
-//
 // Alternate buttons
-//
 
 @each $color, $value in $theme-colors {
   .btn-#{$color} {
@@ -134,9 +100,7 @@
   }
 }
 
-//
 // Alternate buttons outline
-//
 
 @each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
@@ -144,34 +108,31 @@
   }
 }
 
-//
 // Button Sizes
-//
 
 .btn-lg {
-  @include button-size-mdb(
-    $btn-padding-top-lg,
-    $btn-padding-right-lg,
-    $btn-padding-bottom-lg,
-    $btn-padding-left-lg,
-    $btn-font-size-lg,
-    $btn-line-height-lg
-  );
+  // @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
+
+  line-height: 1.6;
+  padding-top: 12px;
+  padding-bottom: 11px;
+  font-size: 14px;
+  padding-left: 27px;
+  padding-right: 27px;
 }
 
 .btn-sm {
-  @include button-size-mdb(
-    $btn-padding-top-sm,
-    $btn-padding-right-sm,
-    $btn-padding-bottom-sm,
-    $btn-padding-left-sm,
-    $btn-font-size-sm,
-    $btn-line-height-sm
-  );
+  // @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+  line-height: 1.5;
+  font-size: 12px;
+  padding-top: 6px;
+  padding-bottom: 5px;
+  padding-right: 16px;
+  padding-left: 16px;
 }
 
 // Link buttons
-//
+
 // Make a button look and behave like a link
 
 .btn-link {
@@ -181,24 +142,24 @@
   &:hover {
     box-shadow: none;
     text-decoration: none;
-    background-color: $btn-link-bgc;
+    background-color: #f5f5f5;
   }
 
   &:focus,
   &.focus {
     box-shadow: none;
     text-decoration: none;
-    background-color: $btn-link-bgc;
+    background-color: #f5f5f5;
   }
 
   &:active,
   &.active {
     box-shadow: none;
-    background-color: $btn-link-bgc;
+    background-color: #f5f5f5;
 
     &:focus {
       box-shadow: none;
-      background-color: $btn-link-bgc;
+      background-color: #f5f5f5;
     }
   }
 
@@ -209,84 +170,6 @@
   }
 }
 
-//
-// Rounded option
-//
-
 .btn-rounded {
-  border-radius: $btn-rounded-border-radius;
-}
-
-//
-// Floating option
-//
-
-.btn-floating,
-[class*='btn-outline-'].btn-floating {
-  border-radius: $btn-floating-border-radius;
-  padding: 0;
-  position: relative;
-}
-
-.btn-floating {
-  width: $btn-floating-width;
-  height: $btn-floating-height;
-
-  .fas,
-  .far,
-  .fab {
-    width: $btn-floating-icon-width;
-    line-height: $btn-floating-icon-line-height;
-  }
-
-  &.btn-lg {
-    width: $btn-floating-width-lg;
-    height: $btn-floating-height-lg;
-
-    .fas,
-    .far,
-    .fab {
-      width: $btn-floating-icon-width-lg;
-      line-height: $btn-floating-icon-line-height-lg;
-    }
-  }
-
-  &.btn-sm {
-    width: $btn-floating-width-sm;
-    height: $btn-floating-height-sm;
-
-    .fas,
-    .far,
-    .fab {
-      width: $btn-floating-icon-width-sm;
-      line-height: $btn-floating-icon-line-height-sm;
-    }
-  }
-}
-
-[class*='btn-outline-'].btn-floating {
-  .fas,
-  .far,
-  .fab {
-    width: $btn-outline-floating-icon-width;
-    line-height: $btn-outline-floating-icon-line-height;
-  }
-
-  &.btn-lg {
-    .fas,
-    .far,
-    .fab {
-      width: $btn-outline-floating-icon-width-lg;
-      line-height: $btn-outline-floating-icon-line-height-lg;
-    }
-  }
-
-  &.btn-sm {
-    .fas,
-    .far,
-    .fab {
-      width: $btn-outline-floating-icon-width-sm;
-      line-height: $btn-outline-floating-icon-line-height-sm;
-    }
-  }
+  border-radius: 10rem;
 }
