@@ -365,6 +365,8 @@ $box-shadow-3-strong: 0px 6px 11px 0px rgba(0, 0, 0, 0.25), 0px 7px 20px 3px rgb
 $box-shadow-4-strong: 0px 6px 14px 0px rgba(0, 0, 0, 0.25), 0px 10px 30px 4px rgba(0, 0, 0, 0.2);
 $box-shadow-5-strong: 0px 6px 20px 0px rgba(0, 0, 0, 0.25), 0px 12px 40px 5px rgba(0, 0, 0, 0.2);
 
+$box-shadow-3-top: 0 -10px 20px 0 rgba(0, 0, 0, 0.05);
+
 // scss-docs-start light-shadows-values
 $shadows-light: (
   '0': $box-shadow-0,
