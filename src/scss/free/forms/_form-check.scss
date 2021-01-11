@@ -110,14 +110,14 @@
 
       &:after {
         display: block;
-        transform: $form-check-input-checkbox-checked-after-transform #{'/* rtl:ignore */'};
+        transform: $form-check-input-checkbox-checked-after-transform #{'/*!rtl:ignore*/'};
         border-width: $form-check-input-checkbox-checked-after-border-width;
         border-color: $form-check-input-checkbox-checked-after-border-color;
         width: $form-check-input-checkbox-checked-after-width;
         height: $form-check-input-checkbox-checked-after-height;
         border-style: solid;
         border-top: 0;
-        border-left: 0 #{'/* rtl:ignore */'};
+        border-left: 0 #{'/*!rtl:ignore*/'};
         margin-left: $form-check-input-checkbox-checked-after-margin-left;
         margin-top: $form-check-input-checkbox-checked-after-margin-top;
         background-color: transparent;
@@ -135,14 +135,14 @@
 
       &:after {
         display: block;
-        transform: $form-check-input-indeterminate-checked-after-transform #{'/* rtl:ignore */'};
+        transform: $form-check-input-indeterminate-checked-after-transform #{'/*!rtl:ignore*/'};
         border-width: $form-check-input-indeterminate-checked-after-border-width;
         border-color: $form-check-input-indeterminate-checked-after-border-color;
         width: $form-check-input-indeterminate-checked-after-width;
         height: $form-check-input-indeterminate-checked-after-height;
         border-style: solid;
         border-top: 0;
-        border-left: 0 #{'/* rtl:ignore */'};
+        border-left: 0 #{'/*!rtl:ignore*/'};
         margin-left: $form-check-input-indeterminate-checked-after-margin-left;
         margin-top: 0;
       }

@@ -67,7 +67,6 @@ class Input {
     if (this._initiated) {
       return;
     }
-
     this._getLabelData();
     this._applyDivs();
     this._applyNotch();
@@ -164,12 +163,14 @@ class Input {
   }
 
   _activate(event) {
-    this._getElements(event);
-    const input = event ? event.target : this.input;
+    onDOMContentLoaded(() => {
+      this._getElements(event);
+      const input = event ? event.target : this.input;
 
-    if (input.value !== '') {
-      Manipulator.addClass(input, CLASSNAME_ACTIVE);
-    }
+      if (input.value !== '') {
+        Manipulator.addClass(input, CLASSNAME_ACTIVE);
+      }
+    });
   }
 
   _getElements(event) {

@@ -1,55 +1,55 @@
 // CORE FUNCTIONS
-@import './bootstrap/functions';
+@import './bootstrap-rtl-fix/functions';
 @import './free/functions';
 
 // CORE VARIABLES
 @import './custom/variables';
 @import './free/variables';
-@import './bootstrap/variables';
+@import './bootstrap-rtl-fix/variables';
 
 // BOOTSTRAP CORE
-@import './bootstrap/mixins';
-@import './bootstrap/utilities';
+@import './bootstrap-rtl-fix/mixins';
+@import './bootstrap-rtl-fix/utilities';
 
 // BOOTSTRAP CORE COMPONENTS
-@import './bootstrap/root';
-@import './bootstrap/reboot';
-@import './bootstrap/type';
-@import './bootstrap/images';
-@import './bootstrap/containers';
-@import './bootstrap/grid';
+@import './bootstrap-rtl-fix/root';
+@import './bootstrap-rtl-fix/reboot';
+@import './bootstrap-rtl-fix/type';
+@import './bootstrap-rtl-fix/images';
+@import './bootstrap-rtl-fix/containers';
+@import './bootstrap-rtl-fix/grid';
 
 // BOOTSTRAP COMPONENTS
-@import './bootstrap/tables';
-@import './bootstrap/forms';
-@import './bootstrap/buttons';
-@import './bootstrap/transitions';
-@import './bootstrap/dropdown';
-@import './bootstrap/button-group';
-@import './bootstrap/nav';
-@import './bootstrap/navbar';
-@import './bootstrap/card';
-@import './bootstrap/breadcrumb';
-@import './bootstrap/pagination';
-@import './bootstrap/badge';
-@import './bootstrap/alert';
-@import './bootstrap/accordion';
-@import './bootstrap/progress';
-@import './bootstrap/list-group';
-@import './bootstrap/close';
-@import './bootstrap/toasts';
-@import './bootstrap/modal';
-@import './bootstrap/tooltip';
-@import './bootstrap/popover';
-@import './bootstrap/carousel';
-@import './bootstrap/spinners';
-@import './bootstrap/tooltip';
+@import './bootstrap-rtl-fix/tables';
+@import './bootstrap-rtl-fix/forms';
+@import './bootstrap-rtl-fix/buttons';
+@import './bootstrap-rtl-fix/transitions';
+@import './bootstrap-rtl-fix/dropdown';
+@import './bootstrap-rtl-fix/button-group';
+@import './bootstrap-rtl-fix/nav';
+@import './bootstrap-rtl-fix/navbar';
+@import './bootstrap-rtl-fix/card';
+@import './bootstrap-rtl-fix/breadcrumb';
+@import './bootstrap-rtl-fix/pagination';
+@import './bootstrap-rtl-fix/badge';
+@import './bootstrap-rtl-fix/alert';
+@import './bootstrap-rtl-fix/accordion';
+@import './bootstrap-rtl-fix/progress';
+@import './bootstrap-rtl-fix/list-group';
+@import './bootstrap-rtl-fix/close';
+@import './bootstrap-rtl-fix/toasts';
+@import './bootstrap-rtl-fix/modal';
+@import './bootstrap-rtl-fix/tooltip';
+@import './bootstrap-rtl-fix/popover';
+@import './bootstrap-rtl-fix/carousel';
+@import './bootstrap-rtl-fix/spinners';
+@import './bootstrap-rtl-fix/tooltip';
 
 // Helpers
-@import './bootstrap/helpers';
+@import './bootstrap-rtl-fix/helpers';
 
 // Utilities
-@import './bootstrap/utilities/api';
+@import './bootstrap-rtl-fix/utilities/api';
 
 // MDB CORE
 @import './free/mixins';

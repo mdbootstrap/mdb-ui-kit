@@ -131,10 +131,9 @@
       transition: $input-transition;
     }
     &:focus ~ .form-notch .form-notch-trailing {
-      border-top: $input-focus-border-width solid;
-      border-bottom: $input-focus-border-width solid;
-      border-right: $input-focus-border-width solid;
-      border-color: $input-focus-border-color;
+      border-top: $input-focus-border-width solid $input-focus-border-color;
+      border-bottom: $input-focus-border-width solid $input-focus-border-color;
+      border-right: $input-focus-border-width solid $input-focus-border-color;
     }
     &:disabled,
     &.disabled,
