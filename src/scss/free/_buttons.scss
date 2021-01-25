@@ -290,3 +290,65 @@
     }
   }
 }
+
+//
+// Fixed option
+//
+
+.fixed-action-btn {
+  position: fixed;
+  right: $fixed-action-btn-right;
+  bottom: $fixed-action-btn-bottom;
+  z-index: $zindex-fixed-action-button;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+  align-items: center;
+  padding: $fixed-action-btn-padding-top 20px 20px 20px;
+  margin-bottom: 0;
+  height: auto;
+  overflow: hidden;
+
+  & > .btn-floating {
+    position: relative;
+    transform: scale(1.2);
+    z-index: 10;
+  }
+
+  ul {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0;
+    text-align: center;
+    opacity: 0;
+    transition: transform 0.4s, opacity 0.4s;
+    z-index: -1;
+    li {
+      z-index: 0;
+      display: flex;
+      margin-right: auto;
+      margin-bottom: $fixed-action-btn-li-margin-bottom;
+      margin-left: auto;
+      &:first-of-type {
+        margin-top: $fixed-action-btn-li-margin-bottom / 2;
+      }
+    }
+    a {
+      &.btn {
+        opacity: 0;
+        transition: opacity 0.4s ease-in;
+        &.shown {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &.active ul {
+    opacity: 1;
+  }
+}

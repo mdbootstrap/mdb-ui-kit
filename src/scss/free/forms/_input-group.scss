@@ -64,6 +64,16 @@
         $input-group-form-outline-border-left-color;
     }
   }
+  .form-outline:not(:first-child),
+  .form-outline:not(:first-child) .form-notch-leading {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }
+  .form-outline:not(:last-child),
+  .form-outline:not(:last-child) .form-notch-trailing {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
 }
 
 .input-group > [class*='btn-outline-'] + [class*='btn-outline-'] {

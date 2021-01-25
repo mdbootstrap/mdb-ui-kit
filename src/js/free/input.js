@@ -20,12 +20,15 @@ const CLASSNAME_NOTCH_LEADING = 'form-notch-leading';
 const CLASSNAME_NOTCH_MIDDLE = 'form-notch-middle';
 const CLASSNAME_NOTCH_TRAILING = 'form-notch-trailing';
 const CLASSNAME_PLACEHOLDER_ACTIVE = 'placeholder-active';
+const CLASSNAME_HELPER = 'form-helper';
+const CLASSNAME_COUNTER = 'form-counter';
 
 const SELECTOR_OUTLINE_INPUT = `.${CLASSNAME_WRAPPER} input`;
 const SELECTOR_OUTLINE_TEXTAREA = `.${CLASSNAME_WRAPPER} textarea`;
 const SELECTOR_NOTCH = `.${CLASSNAME_NOTCH}`;
 const SELECTOR_NOTCH_LEADING = `.${CLASSNAME_NOTCH_LEADING}`;
 const SELECTOR_NOTCH_MIDDLE = `.${CLASSNAME_NOTCH_MIDDLE}`;
+const SELECTOR_HELPER = `.${CLASSNAME_HELPER}`;
 
 /**
  * ------------------------------------------------------------------------
@@ -43,7 +46,11 @@ class Input {
     this._notchMiddle = null;
     this._notchTrailing = null;
     this._initiated = false;
-
+    this._helper = null;
+    this._counter = false;
+    this._counterElement = null;
+    this._maxLength = 0;
+    this._leadingIcon = null;
     if (this._element) {
       Data.setData(element, DATA_KEY, this);
       this.init();
@@ -71,6 +78,8 @@ class Input {
     this._applyDivs();
     this._applyNotch();
     this._activate();
+    this._getHelper();
+    this._getCounter();
     this._initiated = true;
   }
 
@@ -79,6 +88,8 @@ class Input {
     this._getNotchData();
     this._applyNotch();
     this._activate();
+    this._getHelper();
+    this._getCounter();
   }
 
   forceActive() {
@@ -97,6 +108,22 @@ class Input {
   }
 
   // Private
+
+  /*
+  _getIcons() {
+    this._leadingIcon = SelectorEngine.findOne('i.leading', this._element);
+
+    if (this._leadingIcon !== null) {
+      this._applyLeadingIcon();
+    }
+  }
+
+  _applyLeadingIcon() {
+    this._label.innerHTML = ` ${this._label.innerHTML}`;
+    this._label.insertBefore(this._leadingIcon, this._label.firstChild);
+  }
+  */
+
   _getLabelData() {
     this._label = SelectorEngine.findOne('label', this._element);
     if (this._label === null) {
@@ -105,6 +132,34 @@ class Input {
       this._getLabelWidth();
       this._getLabelPositionInInputGroup();
     }
+  }
+
+  _getHelper() {
+    this._helper = SelectorEngine.findOne(SELECTOR_HELPER, this._element);
+  }
+
+  _getCounter() {
+    this._counter = Manipulator.getDataAttribute(this.input, 'showcounter');
+    if (this._counter) {
+      this._maxLength = this.input.maxLength;
+      this._showCounter();
+    }
+  }
+
+  _showCounter() {
+    this._counterElement = document.createElement('div');
+    Manipulator.addClass(this._counterElement, CLASSNAME_COUNTER);
+    const actualLength = this.input.value.length;
+    this._counterElement.innerHTML = `${actualLength} / ${this._maxLength}`;
+    this._helper.appendChild(this._counterElement);
+    this._bindCounter();
+  }
+
+  _bindCounter() {
+    EventHandler.on(this.input, 'input', () => {
+      const actualLength = this.input.value.length;
+      this._counterElement.innerHTML = `${actualLength} / ${this._maxLength}`;
+    });
   }
 
   _showPlaceholder() {

@@ -4,9 +4,10 @@
 
 .form-control {
   min-height: auto;
-  padding-top: 5.28px;
+  padding-top: 4px;
   padding-bottom: 3.28px;
   transition: all 0.1s linear;
+
   &:focus {
     box-shadow: none;
     transition: all 0.1s linear;
@@ -25,6 +26,30 @@
 
 .form-outline {
   position: relative;
+
+  .form-helper {
+    width: 100%;
+    position: absolute;
+    font-size: 0.875em;
+    color: #757575;
+    .form-counter {
+      text-align: right;
+    }
+  }
+
+  .trailing {
+    position: absolute;
+    right: 10px;
+    left: initial;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .form-icon-trailing {
+    padding-right: 2rem !important;
+  }
+
   .form-control {
     min-height: auto;
     padding-top: $input-padding-top;

@@ -475,6 +475,12 @@ $btn-outline-floating-icon-line-height-sm: 1.5625rem !default;
 $btn-floating-border-radius: 50% !default;
 
 $btn-block-spacing-y: 0.5rem !default;
+
+$fixed-action-btn-right: 2.1875rem !default;
+$fixed-action-btn-bottom: 2.1875rem !default;
+$fixed-action-btn-padding-top: 0.9375rem !default;
+$fixed-action-btn-li-margin-bottom: 1.5rem !default;
+
 // Button group
 //
 // Material styling for group of buttons
@@ -732,6 +738,7 @@ $form-validation-states-mdb: (
 // scss-docs-end form-validation-states
 
 // scss-docs-start zindex-stack
+$zindex-fixed-action-button: 1030 !default;
 $zindex-toast: 1060 !default;
 $zindex-alert: 1070 !default;
 $zindex-popover: 1080 !default;
