@@ -318,20 +318,23 @@ EventHandler.on(window, 'shown.bs.modal', (e) => {
 });
 
 EventHandler.on(window, 'shown.bs.dropdown', (e) => {
-  SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
-    const instance = Input.getInstance(element.parentNode);
-    if (!instance) {
-      return;
-    }
-    instance.update();
-  });
-  SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
-    const instance = Input.getInstance(element.parentNode);
-    if (!instance) {
-      return;
-    }
-    instance.update();
-  });
+  const target = e.target.parentNode.querySelector('.dropdown-menu');
+  if (target) {
+    SelectorEngine.find(SELECTOR_OUTLINE_INPUT, target).forEach((element) => {
+      const instance = Input.getInstance(element.parentNode);
+      if (!instance) {
+        return;
+      }
+      instance.update();
+    });
+    SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, target).forEach((element) => {
+      const instance = Input.getInstance(element.parentNode);
+      if (!instance) {
+        return;
+      }
+      instance.update();
+    });
+  }
 });
 
 EventHandler.on(window, 'shown.bs.tab', (e) => {

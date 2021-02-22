@@ -17,9 +17,9 @@ const EVENT_KEY = `.${DATA_KEY}`;
 const SELECTOR_EXPAND = '[data-mdb-toggle="dropdown"]';
 
 const Default = {
-  offset: 0,
+  offset: [0, 2],
   flip: true,
-  boundary: 'scrollParent',
+  boundary: 'clippingParents',
   reference: 'toggle',
   display: 'dynamic',
   popperConfig: null,
@@ -27,12 +27,12 @@ const Default = {
 };
 
 const DefaultType = {
-  offset: '(number|string|function)',
+  offset: '(array|string|function)',
   flip: 'boolean',
   boundary: '(string|element)',
-  reference: '(string|element)',
+  reference: '(string|element|object)',
   display: 'string',
-  popperConfig: '(null|object)',
+  popperConfig: '(null|object|function)',
   dropdownAnimation: 'string',
 };
 
@@ -57,6 +57,7 @@ class Dropdown extends BSDropdown {
     this._parent = Dropdown.getParentFromElement(this._element);
     this._menuStyle = '';
     this._popperPlacement = '';
+    this._mdbPopperConfig = '';
 
     //* prevents dropdown close issue when system animation is turned off
     const isPrefersReducedMotionSet = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -98,14 +99,14 @@ class Dropdown extends BSDropdown {
   }
 
   _getOffset() {
-    const offset = [];
+    const { offset } = this._config;
 
-    if (Manipulator.getDataAttribute(this._element, 'offset')) {
-      Manipulator.getDataAttribute(this._element, 'offset')
-        .split(',')
-        .forEach((value) => {
-          offset.push(parseInt(value, 10));
-        });
+    if (typeof offset === 'string') {
+      return offset.split(',').map((val) => Number.parseInt(val, 10));
+    }
+
+    if (typeof offset === 'function') {
+      return (popperData) => offset(popperData, this._element);
     }
 
     return offset;
@@ -119,7 +120,7 @@ class Dropdown extends BSDropdown {
           name: 'preventOverflow',
           options: {
             altBoundary: this._config.flip,
-            rootBoundary: this._config.boundary,
+            boundary: this._config.boundary,
           },
         },
         {
@@ -143,7 +144,10 @@ class Dropdown extends BSDropdown {
 
     return {
       ...popperConfig,
-      ...this._config.popperConfig,
+      /* eslint no-extra-parens: "off" */
+      ...(typeof this._config.popperConfig === 'function'
+        ? this._config.popperConfig(popperConfig)
+        : this._config.popperConfig),
     };
   }
 
@@ -167,6 +171,7 @@ class Dropdown extends BSDropdown {
 
       this._menuStyle = this._menu.style.cssText;
       this._popperPlacement = this._menu.getAttribute('data-popper-placement');
+      this._mdbPopperConfig = this._menu.getAttribute('data-mdb-popper');
     });
   }
 
@@ -179,6 +184,7 @@ class Dropdown extends BSDropdown {
       }
 
       this._menu.setAttribute('data-popper-placement', this._popperPlacement);
+      this._menu.setAttribute('data-mdb-popper', this._mdbPopperConfig);
 
       this._dropdownAnimationStart('hide');
     });

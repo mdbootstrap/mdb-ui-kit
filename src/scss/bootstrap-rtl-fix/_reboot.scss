@@ -140,13 +140,13 @@ p {
 
 // Abbreviations
 //
-// 1. Duplicate behavior to the data-bs-* attribute for our tooltip plugin
+// 1. Duplicate behavior to the data-mdb-* attribute for our tooltip plugin
 // 2. Add the correct text decoration in Chrome, Edge, Opera, and Safari.
 // 3. Add explicit cursor to indicate changed behavior.
 // 4. Prevent the text-decoration to be skipped.
 
 abbr[title],
-abbr[data-bs-original-title] {
+abbr[data-mdb-original-title] {
   // 1
   text-decoration: underline; // 2
   text-decoration: underline dotted; // 2
@@ -395,13 +395,13 @@ button {
   border-radius: 0;
 }
 
-// Work around a Firefox bug where the transparent `button` background
-// results in a loss of the default `button` focus styles.
-// Credit https://github.com/suitcss/base/
+// Explicitly remove focus outline in Chromium when it shouldn't be
+// visible (e.g. as result of mouse click or touch tap). It already
+// should be doing this automatically, but seems to currently be
+// confused and applies its very visible two-tone outline anyway.
 
-button:focus {
-  outline: dotted 1px;
-  outline: -webkit-focus-ring-color auto 5px;
+button:focus:not(:focus-visible) {
+  outline: 0;
 }
 
 // 1. Remove the margin in Firefox and Safari

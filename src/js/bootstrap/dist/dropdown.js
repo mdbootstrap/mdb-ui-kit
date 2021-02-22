@@ -1,6 +1,6 @@
 /*!
- * Bootstrap dropdown.js v5.0.0-beta1 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Bootstrap dropdown.js v5.0.0-beta2 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 (function (global, factory) {
@@ -10,7 +10,8 @@
         require('./dom/data.js'),
         require('./dom/event-handler.js'),
         require('./dom/manipulator.js'),
-        require('./dom/selector-engine.js')
+        require('./dom/selector-engine.js'),
+        require('./base-component.js')
       ))
     : typeof define === 'function' && define.amd
     ? define([
@@ -19,6 +20,7 @@
         './dom/event-handler',
         './dom/manipulator',
         './dom/selector-engine',
+        './base-component',
       ], factory)
     : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
       (global.Dropdown = factory(
@@ -26,9 +28,10 @@
         global.Data,
         global.EventHandler,
         global.Manipulator,
-        global.SelectorEngine
+        global.SelectorEngine,
+        global.Base
       )));
-})(this, function (Popper, Data, EventHandler, Manipulator, SelectorEngine) {
+})(this, function (Popper, Data, EventHandler, Manipulator, SelectorEngine, BaseComponent) {
   'use strict';
 
   function _interopDefaultLegacy(e) {
@@ -66,10 +69,65 @@
   var EventHandler__default = /*#__PURE__*/ _interopDefaultLegacy(EventHandler);
   var Manipulator__default = /*#__PURE__*/ _interopDefaultLegacy(Manipulator);
   var SelectorEngine__default = /*#__PURE__*/ _interopDefaultLegacy(SelectorEngine);
+  var BaseComponent__default = /*#__PURE__*/ _interopDefaultLegacy(BaseComponent);
+
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ('value' in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
+
+  function _extends() {
+    _extends =
+      Object.assign ||
+      function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+
+        return target;
+      };
+
+    return _extends.apply(this, arguments);
+  }
+
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+
+    _setPrototypeOf(subClass, superClass);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf =
+      Object.setPrototypeOf ||
+      function _setPrototypeOf(o, p) {
+        o.__proto__ = p;
+        return o;
+      };
+
+    return _setPrototypeOf(o, p);
+  }
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/index.js
+   * Bootstrap (v5.0.0-beta2): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -89,7 +147,19 @@
     var selector = element.getAttribute('data-bs-target');
 
     if (!selector || selector === '#') {
-      var hrefAttr = element.getAttribute('href');
+      var hrefAttr = element.getAttribute('href'); // The only valid content that could double as a selector are IDs or classes,
+      // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
+      // `document.querySelector` will rightfully complain it is invalid.
+      // See https://github.com/twbs/bootstrap/issues/32273
+
+      if (!hrefAttr || (!hrefAttr.includes('#') && !hrefAttr.startsWith('.'))) {
+        return null;
+      } // Just in case some CMS puts out a full URL with the anchor appended
+
+      if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
+        hrefAttr = '#' + hrefAttr.split('#')[1];
+      }
+
       selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
     }
 
@@ -112,7 +182,7 @@
       var valueType = value && isElement(value) ? 'element' : toType(value);
 
       if (!new RegExp(expectedTypes).test(valueType)) {
-        throw new Error(
+        throw new TypeError(
           componentName.toUpperCase() +
             ': ' +
             ('Option "' + property + '" provided type "' + valueType + '" ') +
@@ -165,101 +235,24 @@
 
   var isRTL = document.documentElement.dir === 'rtl';
 
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ('value' in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
+  var defineJQueryPlugin = function defineJQueryPlugin(name, plugin) {
+    onDOMContentLoaded(function () {
+      var $ = getjQuery();
+      /* istanbul ignore if */
 
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+      if ($) {
+        var JQUERY_NO_CONFLICT = $.fn[name];
+        $.fn[name] = plugin.jQueryInterface;
+        $.fn[name].Constructor = plugin;
 
-  var VERSION = '5.0.0-beta1';
-
-  var BaseComponent = /*#__PURE__*/ (function () {
-    function BaseComponent(element) {
-      if (!element) {
-        return;
+        $.fn[name].noConflict = function () {
+          $.fn[name] = JQUERY_NO_CONFLICT;
+          return plugin.jQueryInterface;
+        };
       }
+    });
+  };
 
-      this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
-    }
-
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
-      this._element = null;
-    };
-    /** Static */
-
-    BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
-    };
-
-    _createClass(BaseComponent, null, [
-      {
-        key: 'VERSION',
-        get: function get() {
-          return VERSION;
-        },
-      },
-    ]);
-
-    return BaseComponent;
-  })();
-
-  function _extends() {
-    _extends =
-      Object.assign ||
-      function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-    return _extends.apply(this, arguments);
-  }
-
-  function _defineProperties$1(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ('value' in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass$1(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties$1(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
-  }
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -304,7 +297,7 @@
   var PLACEMENT_RIGHT = isRTL ? 'left-start' : 'right-start';
   var PLACEMENT_LEFT = isRTL ? 'right-start' : 'left-start';
   var Default = {
-    offset: 0,
+    offset: [0, 2],
     flip: true,
     boundary: 'clippingParents',
     reference: 'toggle',
@@ -312,12 +305,12 @@
     popperConfig: null,
   };
   var DefaultType = {
-    offset: '(number|string|function)',
+    offset: '(array|string|function)',
     flip: 'boolean',
     boundary: '(string|element)',
-    reference: '(string|element)',
+    reference: '(string|element|object)',
     display: 'string',
-    popperConfig: '(null|object)',
+    popperConfig: '(null|object|function)',
   };
   /**
    * ------------------------------------------------------------------------
@@ -384,7 +377,9 @@
         return;
       } // Totally disable Popper for Dropdowns in Navbar
 
-      if (!this._inNavbar) {
+      if (this._inNavbar) {
+        Manipulator__default['default'].setDataAttribute(this._menu, 'popper', 'none');
+      } else {
         if (typeof Popper__namespace === 'undefined') {
           throw new TypeError("Bootstrap's dropdowns require Popper (https://popper.js.org)");
         }
@@ -399,9 +394,20 @@
           if (typeof this._config.reference.jquery !== 'undefined') {
             referenceElement = this._config.reference[0];
           }
+        } else if (typeof this._config.reference === 'object') {
+          referenceElement = this._config.reference;
         }
 
-        this._popper = Popper.createPopper(referenceElement, this._menu, this._getPopperConfig());
+        var popperConfig = this._getPopperConfig();
+
+        var isDisplayStatic = popperConfig.modifiers.find(function (modifier) {
+          return modifier.name === 'applyStyles' && modifier.enabled === false;
+        });
+        this._popper = Popper.createPopper(referenceElement, this._menu, popperConfig);
+
+        if (isDisplayStatic) {
+          Manipulator__default['default'].setDataAttribute(this._menu, 'popper', 'static');
+        }
       } // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
@@ -423,7 +429,7 @@
 
       this._element.classList.toggle(CLASS_NAME_SHOW);
 
-      EventHandler__default['default'].trigger(parent, EVENT_SHOWN, relatedTarget);
+      EventHandler__default['default'].trigger(this._element, EVENT_SHOWN, relatedTarget);
     };
 
     _proto.hide = function hide() {
@@ -435,11 +441,14 @@
         return;
       }
 
-      var parent = Dropdown.getParentFromElement(this._element);
       var relatedTarget = {
         relatedTarget: this._element,
       };
-      var hideEvent = EventHandler__default['default'].trigger(parent, EVENT_HIDE, relatedTarget);
+      var hideEvent = EventHandler__default['default'].trigger(
+        this._element,
+        EVENT_HIDE,
+        relatedTarget
+      );
 
       if (hideEvent.defaultPrevented) {
         return;
@@ -453,7 +462,8 @@
 
       this._element.classList.toggle(CLASS_NAME_SHOW);
 
-      EventHandler__default['default'].trigger(parent, EVENT_HIDDEN, relatedTarget);
+      Manipulator__default['default'].removeDataAttribute(this._menu, 'popper');
+      EventHandler__default['default'].trigger(this._element, EVENT_HIDDEN, relatedTarget);
     };
 
     _proto.dispose = function dispose() {
@@ -496,6 +506,19 @@
         config
       );
       typeCheckConfig(NAME, config, this.constructor.DefaultType);
+
+      if (
+        typeof config.reference === 'object' &&
+        !isElement(config.reference) &&
+        typeof config.reference.getBoundingClientRect !== 'function'
+      ) {
+        // Popper virtual elements require a getBoundingClientRect method
+        throw new TypeError(
+          NAME.toUpperCase() +
+            ': Option "reference" provided type "object" without a required "getBoundingClientRect" method.'
+        );
+      }
+
       return config;
     };
 
@@ -527,22 +550,48 @@
       return this._element.closest('.' + CLASS_NAME_NAVBAR) !== null;
     };
 
+    _proto._getOffset = function _getOffset() {
+      var _this3 = this;
+
+      var offset = this._config.offset;
+
+      if (typeof offset === 'string') {
+        return offset.split(',').map(function (val) {
+          return Number.parseInt(val, 10);
+        });
+      }
+
+      if (typeof offset === 'function') {
+        return function (popperData) {
+          return offset(popperData, _this3._element);
+        };
+      }
+
+      return offset;
+    };
+
     _proto._getPopperConfig = function _getPopperConfig() {
-      var popperConfig = {
+      var defaultBsPopperConfig = {
         placement: this._getPlacement(),
         modifiers: [
           {
             name: 'preventOverflow',
             options: {
               altBoundary: this._config.flip,
-              rootBoundary: this._config.boundary,
+              boundary: this._config.boundary,
+            },
+          },
+          {
+            name: 'offset',
+            options: {
+              offset: this._getOffset(),
             },
           },
         ],
       }; // Disable Popper if we have a static display
 
       if (this._config.display === 'static') {
-        popperConfig.modifiers = [
+        defaultBsPopperConfig.modifiers = [
           {
             name: 'applyStyles',
             enabled: false,
@@ -550,7 +599,13 @@
         ];
       }
 
-      return _extends({}, popperConfig, this._config.popperConfig);
+      return _extends(
+        {},
+        defaultBsPopperConfig,
+        typeof this._config.popperConfig === 'function'
+          ? this._config.popperConfig(defaultBsPopperConfig)
+          : this._config.popperConfig
+      );
     }; // Static
 
     Dropdown.dropdownInterface = function dropdownInterface(element, config) {
@@ -588,7 +643,6 @@
       var toggles = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE);
 
       for (var i = 0, len = toggles.length; i < len; i++) {
-        var parent = Dropdown.getParentFromElement(toggles[i]);
         var context = Data__default['default'].getData(toggles[i], DATA_KEY);
         var relatedTarget = {
           relatedTarget: toggles[i],
@@ -617,7 +671,11 @@
           continue;
         }
 
-        var hideEvent = EventHandler__default['default'].trigger(parent, EVENT_HIDE, relatedTarget);
+        var hideEvent = EventHandler__default['default'].trigger(
+          toggles[i],
+          EVENT_HIDE,
+          relatedTarget
+        );
 
         if (hideEvent.defaultPrevented) {
           continue;
@@ -640,7 +698,8 @@
 
         dropdownMenu.classList.remove(CLASS_NAME_SHOW);
         toggles[i].classList.remove(CLASS_NAME_SHOW);
-        EventHandler__default['default'].trigger(parent, EVENT_HIDDEN, relatedTarget);
+        Manipulator__default['default'].removeDataAttribute(dropdownMenu, 'popper');
+        EventHandler__default['default'].trigger(toggles[i], EVENT_HIDDEN, relatedTarget);
       }
     };
 
@@ -686,6 +745,16 @@
         return;
       }
 
+      if (!isActive && (event.key === ARROW_UP_KEY || event.key === ARROW_DOWN_KEY)) {
+        var _button = this.matches(SELECTOR_DATA_TOGGLE)
+          ? this
+          : SelectorEngine__default['default'].prev(this, SELECTOR_DATA_TOGGLE)[0];
+
+        _button.click();
+
+        return;
+      }
+
       if (!isActive || event.key === SPACE_KEY) {
         Dropdown.clearMenus();
         return;
@@ -713,7 +782,7 @@
       items[index].focus();
     };
 
-    _createClass$1(Dropdown, null, [
+    _createClass(Dropdown, null, [
       {
         key: 'Default',
         get: function get() {
@@ -735,7 +804,7 @@
     ]);
 
     return Dropdown;
-  })(BaseComponent);
+  })(BaseComponent__default['default']);
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
@@ -781,21 +850,7 @@
    * add .Dropdown to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME];
-      $.fn[NAME] = Dropdown.jQueryInterface;
-      $.fn[NAME].Constructor = Dropdown;
-
-      $.fn[NAME].noConflict = function () {
-        $.fn[NAME] = JQUERY_NO_CONFLICT;
-        return Dropdown.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME, Dropdown);
 
   return Dropdown;
 });

@@ -23,7 +23,6 @@
     display: block;
     width: $popover-arrow-width;
     height: $popover-arrow-height;
-    margin: 0 $popover-border-radius;
 
     &::before,
     &::after {
@@ -37,9 +36,6 @@
 }
 
 .bs-popover-top {
-  // Overrule margin set by popper.js
-  margin-bottom: $popover-arrow-height !important; // stylelint-disable-line declaration-no-important
-
   > .popover-arrow {
     bottom: subtract(-$popover-arrow-height, $popover-border-width);
 
@@ -58,14 +54,10 @@
 }
 
 .bs-popover-end {
-  // Overrule margin set by popper.js
-  margin-left: $popover-arrow-height !important; // stylelint-disable-line declaration-no-important
-
   > .popover-arrow {
     left: subtract(-$popover-arrow-height, $popover-border-width);
     width: $popover-arrow-height;
     height: $popover-arrow-width;
-    margin: $popover-border-radius 0; // make sure the arrow does not touch the popover's rounded corners
 
     &::before {
       left: 0;
@@ -82,9 +74,6 @@
 }
 
 .bs-popover-bottom {
-  // Overrule margin set by popper.js
-  margin-top: $popover-arrow-height !important; // stylelint-disable-line declaration-no-important
-
   > .popover-arrow {
     top: subtract(-$popover-arrow-height, $popover-border-width);
 
@@ -115,14 +104,10 @@
 }
 
 .bs-popover-start {
-  // Overrule margin set by popper.js
-  margin-right: $popover-arrow-height !important; // stylelint-disable-line declaration-no-important
-
   > .popover-arrow {
     right: subtract(-$popover-arrow-height, $popover-border-width);
     width: $popover-arrow-height;
     height: $popover-arrow-width;
-    margin: $popover-border-radius 0; // make sure the arrow does not touch the popover's rounded corners
 
     &::before {
       right: 0;

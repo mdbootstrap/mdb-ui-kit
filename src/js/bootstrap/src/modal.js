@@ -1,14 +1,12 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): modal.js
+ * Bootstrap (v5.0.0-beta2): modal.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 import {
-  getjQuery,
-  onDOMContentLoaded,
-  TRANSITION_END,
+  defineJQueryPlugin,
   emulateTransitionEnd,
   getElementFromSelector,
   getTransitionDurationFromElement,
@@ -187,7 +185,7 @@ class Modal extends BaseComponent {
     if (transition) {
       const transitionDuration = getTransitionDurationFromElement(this._element);
 
-      EventHandler.one(this._element, TRANSITION_END, (event) => this._hideModal(event));
+      EventHandler.one(this._element, 'transitionend', (event) => this._hideModal(event));
       emulateTransitionEnd(this._element, transitionDuration);
     } else {
       this._hideModal();
@@ -276,7 +274,7 @@ class Modal extends BaseComponent {
     if (transition) {
       const transitionDuration = getTransitionDurationFromElement(this._dialog);
 
-      EventHandler.one(this._dialog, TRANSITION_END, transitionComplete);
+      EventHandler.one(this._dialog, 'transitionend', transitionComplete);
       emulateTransitionEnd(this._dialog, transitionDuration);
     } else {
       transitionComplete();
@@ -381,7 +379,7 @@ class Modal extends BaseComponent {
 
       const backdropTransitionDuration = getTransitionDurationFromElement(this._backdrop);
 
-      EventHandler.one(this._backdrop, TRANSITION_END, callback);
+      EventHandler.one(this._backdrop, 'transitionend', callback);
       emulateTransitionEnd(this._backdrop, backdropTransitionDuration);
     } else if (!this._isShown && this._backdrop) {
       this._backdrop.classList.remove(CLASS_NAME_SHOW);
@@ -393,7 +391,7 @@ class Modal extends BaseComponent {
 
       if (this._element.classList.contains(CLASS_NAME_FADE)) {
         const backdropTransitionDuration = getTransitionDurationFromElement(this._backdrop);
-        EventHandler.one(this._backdrop, TRANSITION_END, callbackRemove);
+        EventHandler.one(this._backdrop, 'transitionend', callbackRemove);
         emulateTransitionEnd(this._backdrop, backdropTransitionDuration);
       } else {
         callbackRemove();
@@ -417,11 +415,11 @@ class Modal extends BaseComponent {
 
     this._element.classList.add(CLASS_NAME_STATIC);
     const modalTransitionDuration = getTransitionDurationFromElement(this._dialog);
-    EventHandler.off(this._element, TRANSITION_END);
-    EventHandler.one(this._element, TRANSITION_END, () => {
+    EventHandler.off(this._element, 'transitionend');
+    EventHandler.one(this._element, 'transitionend', () => {
       this._element.classList.remove(CLASS_NAME_STATIC);
       if (!isModalOverflowing) {
-        EventHandler.one(this._element, TRANSITION_END, () => {
+        EventHandler.one(this._element, 'transitionend', () => {
           this._element.style.overflowY = '';
         });
         emulateTransitionEnd(this._element, modalTransitionDuration);
@@ -466,69 +464,51 @@ class Modal extends BaseComponent {
 
   _setScrollbar() {
     if (this._isBodyOverflowing) {
-      // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
-      //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
-
-      // Adjust fixed content padding
-      SelectorEngine.find(SELECTOR_FIXED_CONTENT).forEach((element) => {
-        const actualPadding = element.style.paddingRight;
-        const calculatedPadding = window.getComputedStyle(element)['padding-right'];
-        Manipulator.setDataAttribute(element, 'padding-right', actualPadding);
-        element.style.paddingRight = `${
-          Number.parseFloat(calculatedPadding) + this._scrollbarWidth
-        }px`;
-      });
-
-      // Adjust sticky content margin
-      SelectorEngine.find(SELECTOR_STICKY_CONTENT).forEach((element) => {
-        const actualMargin = element.style.marginRight;
-        const calculatedMargin = window.getComputedStyle(element)['margin-right'];
-        Manipulator.setDataAttribute(element, 'margin-right', actualMargin);
-        element.style.marginRight = `${
-          Number.parseFloat(calculatedMargin) - this._scrollbarWidth
-        }px`;
-      });
-
-      // Adjust body padding
-      const actualPadding = document.body.style.paddingRight;
-      const calculatedPadding = window.getComputedStyle(document.body)['padding-right'];
-
-      Manipulator.setDataAttribute(document.body, 'padding-right', actualPadding);
-      document.body.style.paddingRight = `${
-        Number.parseFloat(calculatedPadding) + this._scrollbarWidth
-      }px`;
+      this._setElementAttributes(
+        SELECTOR_FIXED_CONTENT,
+        'paddingRight',
+        (calculatedValue) => calculatedValue + this._scrollbarWidth
+      );
+      this._setElementAttributes(
+        SELECTOR_STICKY_CONTENT,
+        'marginRight',
+        (calculatedValue) => calculatedValue - this._scrollbarWidth
+      );
+      this._setElementAttributes(
+        'body',
+        'paddingRight',
+        (calculatedValue) => calculatedValue + this._scrollbarWidth
+      );
     }
 
     document.body.classList.add(CLASS_NAME_OPEN);
   }
 
+  _setElementAttributes(selector, styleProp, callback) {
+    SelectorEngine.find(selector).forEach((element) => {
+      const actualValue = element.style[styleProp];
+      const calculatedValue = window.getComputedStyle(element)[styleProp];
+      Manipulator.setDataAttribute(element, styleProp, actualValue);
+      element.style[styleProp] = callback(Number.parseFloat(calculatedValue)) + 'px';
+    });
+  }
+
   _resetScrollbar() {
-    // Restore fixed content padding
-    SelectorEngine.find(SELECTOR_FIXED_CONTENT).forEach((element) => {
-      const padding = Manipulator.getDataAttribute(element, 'padding-right');
-      if (typeof padding !== 'undefined') {
-        Manipulator.removeDataAttribute(element, 'padding-right');
-        element.style.paddingRight = padding;
+    this._resetElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight');
+    this._resetElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight');
+    this._resetElementAttributes('body', 'paddingRight');
+  }
+
+  _resetElementAttributes(selector, styleProp) {
+    SelectorEngine.find(selector).forEach((element) => {
+      const value = Manipulator.getDataAttribute(element, styleProp);
+      if (typeof value === 'undefined' && element === document.body) {
+        element.style[styleProp] = '';
+      } else {
+        Manipulator.removeDataAttribute(element, styleProp);
+        element.style[styleProp] = value;
       }
     });
-
-    // Restore sticky content and navbar-toggler margin
-    SelectorEngine.find(`${SELECTOR_STICKY_CONTENT}`).forEach((element) => {
-      const margin = Manipulator.getDataAttribute(element, 'margin-right');
-      if (typeof margin !== 'undefined') {
-        Manipulator.removeDataAttribute(element, 'margin-right');
-        element.style.marginRight = margin;
-      }
-    });
-
-    // Restore body padding
-    const padding = Manipulator.getDataAttribute(document.body, 'padding-right');
-    if (typeof padding === 'undefined') {
-      document.body.style.paddingRight = '';
-    } else {
-      Manipulator.removeDataAttribute(document.body, 'padding-right');
-      document.body.style.paddingRight = padding;
-    }
   }
 
   _getScrollbarWidth() {
@@ -603,7 +583,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
     data = new Modal(target, config);
   }
 
-  data.show(this);
+  data.toggle(this);
 });
 
 /**
@@ -613,18 +593,6 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
  * add .Modal to jQuery only if jQuery is present
  */
 
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-  /* istanbul ignore if */
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Modal.jQueryInterface;
-    $.fn[NAME].Constructor = Modal;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Modal.jQueryInterface;
-    };
-  }
-});
+defineJQueryPlugin(NAME, Modal);
 
 export default Modal;

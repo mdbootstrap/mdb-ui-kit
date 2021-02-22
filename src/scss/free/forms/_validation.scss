@@ -2,425 +2,211 @@
 // Material styles for form validation
 //
 
-.was-validated {
-  :valid {
-    ~ .valid-feedback,
-    ~ .valid-tooltip {
-      position: absolute;
+@mixin form-validation-state-selector($state) {
+  @if ($state == 'valid' or $state == 'invalid') {
+    .was-validated #{if(&, "&", "")}:#{$state},
+    #{if(&, "&", "")}.is-#{$state} {
+      @content;
     }
-    &.form-check-input {
-      &:focus {
-        box-shadow: none;
-        &:before {
-          box-shadow: 0px 0px 0px 13px $success;
-        }
-      }
-      &:checked {
-        &:focus {
-          &:before {
-            box-shadow: 0px 0px 0px 13px $success;
-          }
-        }
-      }
-      &[type='checkbox'] {
-        &:checked {
-          &:focus {
-            background-color: $success;
-            border-color: $success;
-          }
-        }
-      }
-      &[type='radio'] {
-        &:checked {
-          border-color: $success;
-          background-color: $white;
-          &:focus {
-            &:before {
-              box-shadow: 0px 0px 0px 13px $success;
-            }
-          }
-          &:after {
-            border-color: $success;
-            background-color: $success;
-          }
-        }
-      }
-      ~ .form-check-label {
-        margin-bottom: 1rem;
-      }
-    }
-    &.form-file-input {
-      &:focus {
-        ~ .form-file-label {
-          box-shadow: none;
-        }
-      }
-      &:focus-within {
-        ~ .form-file-label {
-          .form-file-text,
-          .form-file-button {
-            border-color: $success;
-          }
-        }
-      }
+  } @else {
+    #{if(&, "&", "")}.is-#{$state} {
+      @content;
     }
   }
-  :invalid {
-    ~ .invalid-feedback,
-    ~ .invalid-tooltip {
-      position: absolute;
-    }
-    &.form-check-input {
-      &:focus {
-        box-shadow: none;
-        &:before {
-          box-shadow: 0px 0px 0px 13px $danger;
-        }
-      }
-      &:checked {
-        &:focus {
-          &:before {
-            box-shadow: 0px 0px 0px 13px $danger;
-          }
-        }
-      }
-      &[type='checkbox'] {
-        &:checked {
-          &:focus {
-            background-color: $danger;
-            border-color: $danger;
-          }
-        }
-      }
-      &[type='radio'] {
-        &:checked {
-          border-color: $danger;
-          background-color: $white;
-          &:focus {
-            &:before {
-              box-shadow: 0px 0px 0px 13px $danger;
-            }
-          }
-          &:after {
-            border-color: $danger;
-            background-color: $danger;
-          }
-        }
-      }
-      ~ .form-check-label {
-        margin-bottom: 1rem;
-      }
-    }
-    &.form-file-input {
-      &:focus {
-        ~ .form-file-label {
-          box-shadow: none;
-        }
-      }
-      &:focus-within {
-        ~ .form-file-label {
-          .form-file-text,
-          .form-file-button {
-            border-color: $danger;
-          }
-        }
-      }
+}
+
+@mixin form-validation-state-mdb(
+  $state,
+  $color,
+  $tooltip-color: color-contrast($color),
+  $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
+  $focus-box-shadow: 0 0 0 $input-focus-width rgba($color, $input-btn-focus-color-opacity)
+) {
+  .#{$state}-feedback {
+    position: absolute;
+    display: none;
+    width: auto;
+    margin-top: $form-feedback-margin-top;
+    font-size: 0.875rem;
+    font-style: $form-feedback-font-style;
+    color: $color;
+    margin-top: -0.75rem;
+  }
+
+  .#{$state}-tooltip {
+    position: absolute;
+    top: 100%;
+    z-index: 5;
+    display: none;
+    max-width: 100%; // Contain to parent when possible
+    padding: $form-feedback-tooltip-padding-y $form-feedback-tooltip-padding-x;
+    margin-top: 0.1rem;
+    font-size: 0.875rem;
+    line-height: $form-feedback-tooltip-line-height;
+    background-color: $tooltip-bg-color;
+    border-radius: 0.25rem !important;
+    color: $form-feedback-valid-tooltip-color;
+  }
+
+  @include form-validation-state-selector($state) {
+    ~ .#{$state}-feedback,
+    ~ .#{$state}-tooltip {
+      display: block;
     }
   }
+
   .form-control {
-    &:valid,
-    &:invalid {
+    @include form-validation-state-selector($state) {
       margin-bottom: 1rem;
       background-image: none;
+      border-color: $color;
+
+      &:focus {
+        border-color: $color;
+        box-shadow: $focus-box-shadow;
+      }
     }
   }
+
   .form-outline {
     .form-control {
-      &:valid {
+      @include form-validation-state-selector($state) {
         ~ .form-label {
-          color: $success;
+          color: $color;
         }
-        ~ .form-notch .form-notch-leading,
-        ~ .form-notch .form-notch-middle,
-        ~ .form-notch .form-notch-trailing {
-          border-color: $success;
-        }
-      }
 
-      &:invalid {
-        ~ .form-label {
-          color: $danger;
-        }
         ~ .form-notch .form-notch-leading,
         ~ .form-notch .form-notch-middle,
         ~ .form-notch .form-notch-trailing {
-          border-color: $danger;
+          border-color: $color;
         }
       }
     }
   }
+
+  .form-select {
+    @include form-validation-state-selector($state) {
+      border-color: $color;
+
+      &:focus {
+        border-color: $color;
+        box-shadow: $focus-box-shadow;
+      }
+
+      ~ .#{$state}-feedback {
+        margin-top: 0;
+      }
+    }
+  }
+
   .input-group {
     .form-control {
-      &:valid,
-      &:invalid {
+      @include form-validation-state-selector($state) {
         margin-bottom: 0;
       }
     }
-    .valid-feedback,
-    .invalid-feedback {
-      margin-top: 2.5rem;
-    }
-    .valid-tooltip,
-    .invalid-tooltip {
-      border-radius: 0.25rem !important;
-    }
   }
-  .form-file {
-    margin-bottom: 2.5rem;
-    .form-file-input {
-      &:focus-within {
+
+  input[type='file'].form-control {
+    @include form-validation-state-selector($state) {
+      .#{$state}-feedback {
+        margin-top: 0;
+      }
+
+      &:focus {
+        box-shadow: inset 0 0 0 1px $color;
+        border-color: $color;
+
         ~ .form-file-label {
-          border: none;
           box-shadow: none;
         }
       }
-      &:valid {
+
+      &:focus-within {
         ~ .form-file-label {
           .form-file-text,
           .form-file-button {
-            border-color: $success;
-          }
-        }
-      }
-      &:invalid {
-        ~ .form-file-label {
-          .form-file-text,
-          .form-file-button {
-            border-color: $danger;
+            border-color: $color;
           }
         }
       }
     }
   }
-}
 
-.is-valid {
-  ~ .valid-feedback,
-  ~ .valid-tooltip {
-    position: absolute;
-  }
-  &.form-control {
-    margin-bottom: 1rem;
-    background-image: none;
-  }
-  &.form-select {
-    background-image: none;
-  }
-  &.form-check-input {
-    &:focus {
-      box-shadow: none;
-      &:before {
-        box-shadow: 0px 0px 0px 13px $success;
-      }
-    }
-    &:checked {
-      &:focus {
-        &:before {
-          box-shadow: 0px 0px 0px 13px $success;
-        }
-      }
-    }
-    &[type='checkbox'] {
-      border-color: $success;
-      &:before {
-        border-color: $white;
-      }
+  .form-check-input {
+    @include form-validation-state-selector($state) {
+      border-color: $color;
+
       &:checked {
-        background-color: $success;
-        border-color: $success;
-        &:before {
-          border-color: $white;
-        }
-        &:focus {
-          background-color: $success;
-          border-color: $success;
-        }
+        background-color: $color;
       }
-    }
-    &[type='radio'] {
+
       &:checked {
-        border-color: $success;
-        background-color: $white;
         &:focus {
           &:before {
-            box-shadow: 0px 0px 0px 13px $success;
+            box-shadow: 0px 0px 0px 13px $color;
           }
         }
-        &:after {
-          border-color: $success;
-          background-color: $success;
-        }
       }
-    }
-    ~ .form-check-label {
-      margin-bottom: 1rem;
-    }
-  }
-  &.form-file-input {
-    &:focus {
-      ~ .form-file-label {
-        box-shadow: none;
-      }
-    }
-    &:focus-within {
-      ~ .form-file-label {
-        .form-file-text,
-        .form-file-button {
-          border-color: $success;
-        }
-      }
-    }
-  }
-}
 
-.is-invalid {
-  ~ .invalid-feedback,
-  ~ .invalid-tooltip {
-    position: absolute;
-  }
-  &.form-control {
-    margin-bottom: 1rem;
-    background-image: none;
-  }
-  &.form-select {
-    background-image: none;
-  }
-  &.form-check-input {
-    &:focus {
-      box-shadow: none;
-      &:before {
-        box-shadow: 0px 0px 0px 13px $danger;
-      }
-    }
-    &:checked {
       &:focus {
+        box-shadow: none;
+
         &:before {
-          box-shadow: 0px 0px 0px 13px $danger;
+          box-shadow: 0px 0px 0px 13px $color;
         }
       }
-    }
-    &[type='checkbox'] {
-      border-color: $danger;
-      &:before {
-        border-color: $white;
+
+      ~ .form-check-label {
+        color: $color;
+        margin-bottom: 1rem;
       }
-      &:checked {
-        background-color: $danger;
-        border-color: $danger;
-        &:before {
-          border-color: $white;
-        }
-        &:focus {
-          background-color: $danger;
-          border-color: $danger;
-        }
-      }
-    }
-    &[type='radio'] {
-      &:checked {
-        border-color: $danger;
-        background-color: $white;
-        &:focus {
-          &:before {
-            box-shadow: 0px 0px 0px 13px $danger;
+
+      &[type='checkbox'] {
+        &:checked {
+          &:focus {
+            background-color: $color;
+            border-color: $color;
           }
         }
-        &:after {
-          border-color: $danger;
-          background-color: $danger;
-        }
       }
-    }
-    ~ .form-check-label {
-      margin-bottom: 1rem;
-    }
-  }
-  &.form-file-input {
-    &:focus {
-      ~ .form-file-label {
-        box-shadow: none;
-      }
-    }
-    &:focus-within {
-      ~ .form-file-label {
-        .form-file-text,
-        .form-file-button {
-          border-color: $danger;
+
+      &[type='radio'] {
+        &:checked {
+          border-color: $color;
+          background-color: $white;
+
+          &:focus {
+            &:before {
+              box-shadow: 0px 0px 0px 13px $color;
+            }
+          }
+
+          &:after {
+            border-color: $color;
+            background-color: $color;
+          }
         }
       }
     }
   }
-}
-
-.valid-feedback,
-.invalid-feedback {
-  margin-top: -0.75rem;
-}
-
-.form-outline {
-  .form-control {
-    &.is-valid {
-      ~ .form-label {
-        color: $success;
-      }
-      ~ .form-notch .form-notch-leading,
-      ~ .form-notch .form-notch-middle,
-      ~ .form-notch .form-notch-trailing {
-        border-color: $success;
-      }
-    }
-
-    &.is-invalid {
-      ~ .form-label {
-        color: $danger;
-      }
-      ~ .form-notch .form-notch-leading,
-      ~ .form-notch .form-notch-middle,
-      ~ .form-notch .form-notch-trailing {
-        border-color: $danger;
-      }
+  .form-check-inline .form-check-input {
+    ~ .#{$state}-feedback {
+      margin-left: 0.5em;
     }
   }
 }
 
-.input-group {
-  .form-control {
-    &.is-valid,
-    &.is-invalid {
-      margin-bottom: 0;
-    }
-  }
-  .valid-feedback,
-  .invalid-feedback {
-    margin-top: 2.5rem;
-  }
-  .valid-tooltip,
-  .invalid-tooltip {
-    border-radius: 0.25rem !important;
-  }
+.was-validated .input-group .invalid-feedback,
+.was-validated .input-group .valid-feedback {
+  margin-top: 2.5rem;
 }
 
-.form-file {
-  .valid-feedback,
-  .invalid-feedback {
-    margin-top: 0.25rem;
-  }
+.input-group .invalid-feedback,
+.input-group .valid-feedback {
+  margin-top: 2.5rem;
 }
 
-.valid-tooltip {
-  color: $form-feedback-valid-tooltip-color;
-}
-
-.invalid-feedback {
-  width: auto;
+@each $state, $data in $form-validation-states-mdb {
+  @include form-validation-state-mdb($state, $data...);
 }

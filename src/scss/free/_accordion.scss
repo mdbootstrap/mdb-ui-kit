@@ -3,3 +3,30 @@
   font-family: 'Font Awesome 5 Pro', 'Font Awesome 5 Free';
   content: '\f078';
 }
+
+.accordion-button {
+  border: 0;
+  box-shadow: $box-shadow-1;
+}
+
+.accordion-collapse {
+  border: 0;
+  box-shadow: $box-shadow-1;
+}
+
+.accordion-button:focus {
+  box-shadow: $box-shadow-1;
+}
+
+.accordion-button:not(.collapsed) {
+  color: inherit;
+  background-color: inherit;
+}
+
+.accordion-button:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.accordion-button:not(:hover):focus {
+  background-color: rgba(0, 0, 0, 0.04);
+}

@@ -1193,3 +1193,31 @@ $utilities-old: map-merge(
     }
   }
 }
+
+// 22.02.2021 --------------------------------
+.carousel-indicators {
+  li {
+    box-sizing: content-box;
+    flex: 0 1 auto;
+    width: $carousel-indicator-width;
+    height: $carousel-indicator-height;
+    padding: 0;
+    margin-right: $carousel-indicator-spacer;
+    margin-left: $carousel-indicator-spacer;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: $carousel-indicator-active-bg;
+    background-clip: padding-box;
+    border: 0;
+    // Use transparent borders to increase the hit area by 10px on top and bottom.
+    border-top: $carousel-indicator-hit-area-height solid transparent;
+    border-bottom: $carousel-indicator-hit-area-height solid transparent;
+    opacity: $carousel-indicator-opacity;
+    @include transition($carousel-indicator-transition);
+  }
+}
+.carousel-dark {
+  .carousel-indicators li {
+    background-color: $carousel-dark-indicator-active-bg;
+  }
+}

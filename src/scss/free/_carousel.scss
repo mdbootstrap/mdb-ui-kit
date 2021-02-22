@@ -14,3 +14,8 @@
     font-size: 1.7rem;
   }
 }
+.carousel-indicators {
+  [data-mdb-target] {
+    @extend [data-bs-target] !optional;
+  }
+}

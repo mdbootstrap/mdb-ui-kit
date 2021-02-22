@@ -1,6 +1,6 @@
 /*!
- * Bootstrap collapse.js v5.0.0-beta1 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Bootstrap collapse.js v5.0.0-beta2 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 (function (global, factory) {
@@ -9,7 +9,8 @@
         require('./dom/data.js'),
         require('./dom/event-handler.js'),
         require('./dom/manipulator.js'),
-        require('./dom/selector-engine.js')
+        require('./dom/selector-engine.js'),
+        require('./base-component.js')
       ))
     : typeof define === 'function' && define.amd
     ? define([
@@ -17,15 +18,17 @@
         './dom/event-handler',
         './dom/manipulator',
         './dom/selector-engine',
+        './base-component',
       ], factory)
     : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
       (global.Collapse = factory(
         global.Data,
         global.EventHandler,
         global.Manipulator,
-        global.SelectorEngine
+        global.SelectorEngine,
+        global.Base
       )));
-})(this, function (Data, EventHandler, Manipulator, SelectorEngine) {
+})(this, function (Data, EventHandler, Manipulator, SelectorEngine, BaseComponent) {
   'use strict';
 
   function _interopDefaultLegacy(e) {
@@ -36,10 +39,65 @@
   var EventHandler__default = /*#__PURE__*/ _interopDefaultLegacy(EventHandler);
   var Manipulator__default = /*#__PURE__*/ _interopDefaultLegacy(Manipulator);
   var SelectorEngine__default = /*#__PURE__*/ _interopDefaultLegacy(SelectorEngine);
+  var BaseComponent__default = /*#__PURE__*/ _interopDefaultLegacy(BaseComponent);
+
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ('value' in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
+
+  function _extends() {
+    _extends =
+      Object.assign ||
+      function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+
+        return target;
+      };
+
+    return _extends.apply(this, arguments);
+  }
+
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+
+    _setPrototypeOf(subClass, superClass);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf =
+      Object.setPrototypeOf ||
+      function _setPrototypeOf(o, p) {
+        o.__proto__ = p;
+        return o;
+      };
+
+    return _setPrototypeOf(o, p);
+  }
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/index.js
+   * Bootstrap (v5.0.0-beta2): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -61,7 +119,19 @@
     var selector = element.getAttribute('data-bs-target');
 
     if (!selector || selector === '#') {
-      var hrefAttr = element.getAttribute('href');
+      var hrefAttr = element.getAttribute('href'); // The only valid content that could double as a selector are IDs or classes,
+      // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
+      // `document.querySelector` will rightfully complain it is invalid.
+      // See https://github.com/twbs/bootstrap/issues/32273
+
+      if (!hrefAttr || (!hrefAttr.includes('#') && !hrefAttr.startsWith('.'))) {
+        return null;
+      } // Just in case some CMS puts out a full URL with the anchor appended
+
+      if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
+        hrefAttr = '#' + hrefAttr.split('#')[1];
+      }
+
       selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
     }
 
@@ -140,7 +210,7 @@
       var valueType = value && isElement(value) ? 'element' : toType(value);
 
       if (!new RegExp(expectedTypes).test(valueType)) {
-        throw new Error(
+        throw new TypeError(
           componentName.toUpperCase() +
             ': ' +
             ('Option "' + property + '" provided type "' + valueType + '" ') +
@@ -173,103 +243,26 @@
     }
   };
 
-  var isRTL = document.documentElement.dir === 'rtl';
+  document.documentElement.dir === 'rtl';
 
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ('value' in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
+  var defineJQueryPlugin = function defineJQueryPlugin(name, plugin) {
+    onDOMContentLoaded(function () {
+      var $ = getjQuery();
+      /* istanbul ignore if */
 
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+      if ($) {
+        var JQUERY_NO_CONFLICT = $.fn[name];
+        $.fn[name] = plugin.jQueryInterface;
+        $.fn[name].Constructor = plugin;
 
-  var VERSION = '5.0.0-beta1';
-
-  var BaseComponent = /*#__PURE__*/ (function () {
-    function BaseComponent(element) {
-      if (!element) {
-        return;
+        $.fn[name].noConflict = function () {
+          $.fn[name] = JQUERY_NO_CONFLICT;
+          return plugin.jQueryInterface;
+        };
       }
+    });
+  };
 
-      this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
-    }
-
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
-      this._element = null;
-    };
-    /** Static */
-
-    BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
-    };
-
-    _createClass(BaseComponent, null, [
-      {
-        key: 'VERSION',
-        get: function get() {
-          return VERSION;
-        },
-      },
-    ]);
-
-    return BaseComponent;
-  })();
-
-  function _extends() {
-    _extends =
-      Object.assign ||
-      function (target) {
-        for (var i = 1; i < arguments.length; i++) {
-          var source = arguments[i];
-          for (var key in source) {
-            if (Object.prototype.hasOwnProperty.call(source, key)) {
-              target[key] = source[key];
-            }
-          }
-        }
-        return target;
-      };
-    return _extends.apply(this, arguments);
-  }
-
-  function _defineProperties$1(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ('value' in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass$1(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties$1(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
-  }
   /**
    * ------------------------------------------------------------------------
    * Constants
@@ -456,7 +449,7 @@
       var capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
       var scrollSize = 'scroll' + capitalizedDimension;
       var transitionDuration = getTransitionDurationFromElement(this._element);
-      EventHandler__default['default'].one(this._element, TRANSITION_END, complete);
+      EventHandler__default['default'].one(this._element, 'transitionend', complete);
       emulateTransitionEnd(this._element, transitionDuration);
       this._element.style[dimension] = this._element[scrollSize] + 'px';
     };
@@ -511,7 +504,7 @@
 
       this._element.style[dimension] = '';
       var transitionDuration = getTransitionDurationFromElement(this._element);
-      EventHandler__default['default'].one(this._element, TRANSITION_END, complete);
+      EventHandler__default['default'].one(this._element, 'transitionend', complete);
       emulateTransitionEnd(this._element, transitionDuration);
     };
 
@@ -613,7 +606,7 @@
       });
     };
 
-    _createClass$1(Collapse, null, [
+    _createClass(Collapse, null, [
       {
         key: 'Default',
         get: function get() {
@@ -629,7 +622,7 @@
     ]);
 
     return Collapse;
-  })(BaseComponent);
+  })(BaseComponent__default['default']);
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
@@ -642,7 +635,10 @@
     SELECTOR_DATA_TOGGLE,
     function (event) {
       // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
-      if (event.target.tagName === 'A') {
+      if (
+        event.target.tagName === 'A' ||
+        (event.delegateTarget && event.delegateTarget.tagName === 'A')
+      ) {
         event.preventDefault();
       }
 
@@ -676,21 +672,7 @@
    * add .Collapse to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME];
-      $.fn[NAME] = Collapse.jQueryInterface;
-      $.fn[NAME].Constructor = Collapse;
-
-      $.fn[NAME].noConflict = function () {
-        $.fn[NAME] = JQUERY_NO_CONFLICT;
-        return Collapse.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME, Collapse);
 
   return Collapse;
 });

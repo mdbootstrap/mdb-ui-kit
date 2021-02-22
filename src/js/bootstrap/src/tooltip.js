@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): tooltip.js
+ * Bootstrap (v5.0.0-beta2): tooltip.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -8,9 +8,7 @@
 import * as Popper from '@popperjs/core';
 
 import {
-  getjQuery,
-  onDOMContentLoaded,
-  TRANSITION_END,
+  defineJQueryPlugin,
   emulateTransitionEnd,
   findShadowRoot,
   getTransitionDurationFromElement,
@@ -49,14 +47,15 @@ const DefaultType = {
   html: 'boolean',
   selector: '(string|boolean)',
   placement: '(string|function)',
+  offset: '(array|string|function)',
   container: '(string|element|boolean)',
-  fallbackPlacements: '(null|array)',
+  fallbackPlacements: 'array',
   boundary: '(string|element)',
   customClass: '(string|function)',
   sanitize: 'boolean',
   sanitizeFn: '(null|function)',
   allowList: 'object',
-  popperConfig: '(null|object)',
+  popperConfig: '(null|object|function)',
 };
 
 const AttachmentMap = {
@@ -80,8 +79,9 @@ const Default = {
   html: false,
   selector: false,
   placement: 'top',
+  offset: [0, 0],
   container: false,
-  fallbackPlacements: null,
+  fallbackPlacements: ['top', 'right', 'bottom', 'left'],
   boundary: 'clippingParents',
   customClass: '',
   sanitize: true,
@@ -191,13 +191,7 @@ class Tooltip extends BaseComponent {
     }
 
     if (event) {
-      const dataKey = this.constructor.DATA_KEY;
-      let context = Data.getData(event.delegateTarget, dataKey);
-
-      if (!context) {
-        context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
-        Data.setData(event.delegateTarget, dataKey, context);
-      }
+      const context = this._initializeOnDelegatedTarget(event);
 
       context._activeTrigger.click = !context._activeTrigger.click;
 
@@ -226,7 +220,7 @@ class Tooltip extends BaseComponent {
       this._hideModalHandler
     );
 
-    if (this.tip) {
+    if (this.tip && this.tip.parentNode) {
       this.tip.parentNode.removeChild(this.tip);
     }
 
@@ -249,87 +243,89 @@ class Tooltip extends BaseComponent {
       throw new Error('Please use show on visible elements');
     }
 
-    if (this.isWithContent() && this._isEnabled) {
-      const showEvent = EventHandler.trigger(this._element, this.constructor.Event.SHOW);
-      const shadowRoot = findShadowRoot(this._element);
-      const isInTheDom =
-        shadowRoot === null
-          ? this._element.ownerDocument.documentElement.contains(this._element)
-          : shadowRoot.contains(this._element);
+    if (!(this.isWithContent() && this._isEnabled)) {
+      return;
+    }
 
-      if (showEvent.defaultPrevented || !isInTheDom) {
-        return;
+    const showEvent = EventHandler.trigger(this._element, this.constructor.Event.SHOW);
+    const shadowRoot = findShadowRoot(this._element);
+    const isInTheDom =
+      shadowRoot === null
+        ? this._element.ownerDocument.documentElement.contains(this._element)
+        : shadowRoot.contains(this._element);
+
+    if (showEvent.defaultPrevented || !isInTheDom) {
+      return;
+    }
+
+    const tip = this.getTipElement();
+    const tipId = getUID(this.constructor.NAME);
+
+    tip.setAttribute('id', tipId);
+    this._element.setAttribute('aria-describedby', tipId);
+
+    this.setContent();
+
+    if (this.config.animation) {
+      tip.classList.add(CLASS_NAME_FADE);
+    }
+
+    const placement =
+      typeof this.config.placement === 'function'
+        ? this.config.placement.call(this, tip, this._element)
+        : this.config.placement;
+
+    const attachment = this._getAttachment(placement);
+    this._addAttachmentClass(attachment);
+
+    const container = this._getContainer();
+    Data.setData(tip, this.constructor.DATA_KEY, this);
+
+    if (!this._element.ownerDocument.documentElement.contains(this.tip)) {
+      container.appendChild(tip);
+    }
+
+    EventHandler.trigger(this._element, this.constructor.Event.INSERTED);
+
+    this._popper = Popper.createPopper(this._element, tip, this._getPopperConfig(attachment));
+
+    tip.classList.add(CLASS_NAME_SHOW);
+
+    const customClass =
+      typeof this.config.customClass === 'function'
+        ? this.config.customClass()
+        : this.config.customClass;
+    if (customClass) {
+      tip.classList.add(...customClass.split(' '));
+    }
+
+    // If this is a touch-enabled device we add extra
+    // empty mouseover listeners to the body's immediate children;
+    // only needed because of broken event delegation on iOS
+    // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+    if ('ontouchstart' in document.documentElement) {
+      [].concat(...document.body.children).forEach((element) => {
+        EventHandler.on(element, 'mouseover', noop());
+      });
+    }
+
+    const complete = () => {
+      const prevHoverState = this._hoverState;
+
+      this._hoverState = null;
+      EventHandler.trigger(this._element, this.constructor.Event.SHOWN);
+
+      if (prevHoverState === HOVER_STATE_OUT) {
+        this._leave(null, this);
       }
+    };
 
-      const tip = this.getTipElement();
-      const tipId = getUID(this.constructor.NAME);
-
-      tip.setAttribute('id', tipId);
-      this._element.setAttribute('aria-describedby', tipId);
-
-      this.setContent();
-
-      if (this.config.animation) {
-        tip.classList.add(CLASS_NAME_FADE);
-      }
-
-      const placement =
-        typeof this.config.placement === 'function'
-          ? this.config.placement.call(this, tip, this._element)
-          : this.config.placement;
-
-      const attachment = this._getAttachment(placement);
-      this._addAttachmentClass(attachment);
-
-      const container = this._getContainer();
-      Data.setData(tip, this.constructor.DATA_KEY, this);
-
-      if (!this._element.ownerDocument.documentElement.contains(this.tip)) {
-        container.appendChild(tip);
-      }
-
-      EventHandler.trigger(this._element, this.constructor.Event.INSERTED);
-
-      this._popper = Popper.createPopper(this._element, tip, this._getPopperConfig(attachment));
-
-      tip.classList.add(CLASS_NAME_SHOW);
-
-      const customClass =
-        typeof this.config.customClass === 'function'
-          ? this.config.customClass()
-          : this.config.customClass;
-      if (customClass) {
-        tip.classList.add(...customClass.split(' '));
-      }
-
-      // If this is a touch-enabled device we add extra
-      // empty mouseover listeners to the body's immediate children;
-      // only needed because of broken event delegation on iOS
-      // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
-      if ('ontouchstart' in document.documentElement) {
-        [].concat(...document.body.children).forEach((element) => {
-          EventHandler.on(element, 'mouseover', noop());
-        });
-      }
-
-      const complete = () => {
-        const prevHoverState = this._hoverState;
-
-        this._hoverState = null;
-        EventHandler.trigger(this._element, this.constructor.Event.SHOWN);
-
-        if (prevHoverState === HOVER_STATE_OUT) {
-          this._leave(null, this);
-        }
-      };
-
-      if (this.tip.classList.contains(CLASS_NAME_FADE)) {
-        const transitionDuration = getTransitionDurationFromElement(this.tip);
-        EventHandler.one(this.tip, TRANSITION_END, complete);
-        emulateTransitionEnd(this.tip, transitionDuration);
-      } else {
-        complete();
-      }
+    if (this.tip.classList.contains(CLASS_NAME_FADE)) {
+      const transitionDuration = getTransitionDurationFromElement(this.tip);
+      EventHandler.one(this.tip, 'transitionend', complete);
+      emulateTransitionEnd(this.tip, transitionDuration);
+    } else {
+      complete();
     }
   }
 
@@ -376,7 +372,7 @@ class Tooltip extends BaseComponent {
     if (this.tip.classList.contains(CLASS_NAME_FADE)) {
       const transitionDuration = getTransitionDurationFromElement(tip);
 
-      EventHandler.one(tip, TRANSITION_END, complete);
+      EventHandler.one(tip, 'transitionend', complete);
       emulateTransitionEnd(tip, transitionDuration);
     } else {
       complete();
@@ -476,26 +472,53 @@ class Tooltip extends BaseComponent {
 
   // Private
 
-  _getPopperConfig(attachment) {
-    const flipModifier = {
-      name: 'flip',
-      options: {
-        altBoundary: true,
-      },
-    };
+  _initializeOnDelegatedTarget(event, context) {
+    const dataKey = this.constructor.DATA_KEY;
+    context = context || Data.getData(event.delegateTarget, dataKey);
 
-    if (this.config.fallbackPlacements) {
-      flipModifier.options.fallbackPlacements = this.config.fallbackPlacements;
+    if (!context) {
+      context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
+      Data.setData(event.delegateTarget, dataKey, context);
     }
 
-    const defaultBsConfig = {
+    return context;
+  }
+
+  _getOffset() {
+    const { offset } = this.config;
+
+    if (typeof offset === 'string') {
+      return offset.split(',').map((val) => Number.parseInt(val, 10));
+    }
+
+    if (typeof offset === 'function') {
+      return (popperData) => offset(popperData, this._element);
+    }
+
+    return offset;
+  }
+
+  _getPopperConfig(attachment) {
+    const defaultBsPopperConfig = {
       placement: attachment,
       modifiers: [
-        flipModifier,
+        {
+          name: 'flip',
+          options: {
+            altBoundary: true,
+            fallbackPlacements: this.config.fallbackPlacements,
+          },
+        },
+        {
+          name: 'offset',
+          options: {
+            offset: this._getOffset(),
+          },
+        },
         {
           name: 'preventOverflow',
           options: {
-            rootBoundary: this.config.boundary,
+            boundary: this.config.boundary,
           },
         },
         {
@@ -519,8 +542,10 @@ class Tooltip extends BaseComponent {
     };
 
     return {
-      ...defaultBsConfig,
-      ...this.config.popperConfig,
+      ...defaultBsPopperConfig,
+      ...(typeof this.config.popperConfig === 'function'
+        ? this.config.popperConfig(defaultBsPopperConfig)
+        : this.config.popperConfig),
     };
   }
 
@@ -612,13 +637,7 @@ class Tooltip extends BaseComponent {
   }
 
   _enter(event, context) {
-    const dataKey = this.constructor.DATA_KEY;
-    context = context || Data.getData(event.delegateTarget, dataKey);
-
-    if (!context) {
-      context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
-      Data.setData(event.delegateTarget, dataKey, context);
-    }
+    context = this._initializeOnDelegatedTarget(event, context);
 
     if (event) {
       context._activeTrigger[event.type === 'focusin' ? TRIGGER_FOCUS : TRIGGER_HOVER] = true;
@@ -649,13 +668,7 @@ class Tooltip extends BaseComponent {
   }
 
   _leave(event, context) {
-    const dataKey = this.constructor.DATA_KEY;
-    context = context || Data.getData(event.delegateTarget, dataKey);
-
-    if (!context) {
-      context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
-      Data.setData(event.delegateTarget, dataKey, context);
-    }
+    context = this._initializeOnDelegatedTarget(event, context);
 
     if (event) {
       context._activeTrigger[event.type === 'focusout' ? TRIGGER_FOCUS : TRIGGER_HOVER] = false;
@@ -801,18 +814,6 @@ class Tooltip extends BaseComponent {
  * add .Tooltip to jQuery only if jQuery is present
  */
 
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-  /* istanbul ignore if */
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Tooltip.jQueryInterface;
-    $.fn[NAME].Constructor = Tooltip;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Tooltip.jQueryInterface;
-    };
-  }
-});
+defineJQueryPlugin(NAME, Tooltip);
 
 export default Tooltip;
