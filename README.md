@@ -100,21 +100,6 @@ ___
    </tbody>
 </table>
 
-
-
-___
-
-
-
-### Learn Bootstrap 5 -  crash course for beginners in 1.5H (June 2020)
-###### Tutorial for the latest Bootstrap v.5 Alpha. In this video we'll learn about the changes implemented into v.5.
-
-**[>> Click here for a written tutorial](https://mdbootstrap.com/docs/standard/getting-started/quick-start/)**
-
-**Or click below to watch the full 1.5H Bootstrap 5 tutorial**
-
-<a href="https://www.youtube.com/watch?v=c9B4TPnak1A" alt="Bootstrap 5" rel="dofollow"><img src="https://mcusercontent.com/461480655ccce528d909d3f42/images/35c32804-eeae-40a0-a37f-c248c71d9439.png"></a>
-
 ___
 
 # Demo
