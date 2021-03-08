@@ -1,6 +1,4 @@
-
-![MDB Logo](https://mdbootstrap.com/img/Marketing/general/logo/medium/mdb-r.png)
-
+<a href="https://mdbootstrap.com"><img src="https://mdbootstrap.com/img/Marketing/general/logo/medium/mdb-r.png"></a>
 
 # MDB 5
 
