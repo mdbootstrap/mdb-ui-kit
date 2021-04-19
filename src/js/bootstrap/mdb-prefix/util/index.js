@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta2): util/index.js
+ * Bootstrap (v5.0.0-beta3): util/index.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -39,7 +39,20 @@ const getSelector = (element) => {
   let selector = element.getAttribute('data-mdb-target');
 
   if (!selector || selector === '#') {
-    const hrefAttr = element.getAttribute('href');
+    let hrefAttr = element.getAttribute('href');
+
+    // The only valid content that could double as a selector are IDs or classes,
+    // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
+    // `document.querySelector` will rightfully complain it is invalid.
+    // See https://github.com/twbs/bootstrap/issues/32273
+    if (!hrefAttr || (!hrefAttr.includes('#') && !hrefAttr.startsWith('.'))) {
+      return null;
+    }
+
+    // Just in case some CMS puts out a full URL with the anchor appended
+    if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
+      hrefAttr = '#' + hrefAttr.split('#')[1];
+    }
 
     selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
   }
@@ -120,7 +133,7 @@ const typeCheckConfig = (componentName, config, configTypes) => {
     const valueType = value && isElement(value) ? 'element' : toType(value);
 
     if (!new RegExp(expectedTypes).test(valueType)) {
-      throw new Error(
+      throw new TypeError(
         `${componentName.toUpperCase()}: ` +
           `Option "${property}" provided type "${valueType}" ` +
           `but expected type "${expectedTypes}".`
@@ -146,6 +159,22 @@ const isVisible = (element) => {
   }
 
   return false;
+};
+
+const isDisabled = (element) => {
+  if (!element || element.nodeType !== Node.ELEMENT_NODE) {
+    return true;
+  }
+
+  if (element.classList.contains('disabled')) {
+    return true;
+  }
+
+  if (typeof element.disabled !== 'undefined') {
+    return element.disabled;
+  }
+
+  return element.hasAttribute('disabled') && element.getAttribute('disabled') !== 'false';
 };
 
 const findShadowRoot = (element) => {
@@ -193,7 +222,7 @@ const onDOMContentLoaded = (callback) => {
   }
 };
 
-const isRTL = document.documentElement.dir === 'rtl';
+const isRTL = () => document.documentElement.dir === 'rtl';
 
 const defineJQueryPlugin = (name, plugin) => {
   onDOMContentLoaded(() => {
@@ -212,7 +241,6 @@ const defineJQueryPlugin = (name, plugin) => {
 };
 
 export {
-  TRANSITION_END,
   getUID,
   getSelectorFromElement,
   getElementFromSelector,
@@ -222,6 +250,7 @@ export {
   emulateTransitionEnd,
   typeCheckConfig,
   isVisible,
+  isDisabled,
   findShadowRoot,
   noop,
   reflow,

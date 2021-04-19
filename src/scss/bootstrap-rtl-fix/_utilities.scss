@@ -1,29 +1,40 @@
+// stylelint-disable indentation
+
 // Utilities
 
 $utilities: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $utilities: map-merge(
   (
-    'align': (
-      property: vertical-align,
-      class: align,
-      values: baseline top middle bottom text-bottom text-top,
-    ),
-    'float': (
-      responsive: true,
-      property: float,
-      values: (
-        start: left,
-        end: right,
-        none: none,
+    // scss-docs-start utils-vertical-align
+    'align':
+      (
+        property: vertical-align,
+        class: align,
+        values: baseline top middle bottom text-bottom text-top,
       ),
-    ),
-    'overflow': (
-      property: overflow,
-      values: auto hidden visible scroll,
-    ),
+    // scss-docs-end utils-vertical-align
+    // scss-docs-start utils-float
+    'float':
+      (
+        responsive: true,
+        property: float,
+        values: (
+          start: left,
+          end: right,
+          none: none,
+        ),
+      ),
+    // scss-docs-end utils-float
+    // scss-docs-start utils-overflow
+    'overflow':
+      (
+        property: overflow,
+        values: auto hidden visible scroll,
+      ),
+    // scss-docs-end utils-overflow
     // scss-docs-start utils-display
-      'display':
+    'display':
       (
         responsive: true,
         print: true,
@@ -32,7 +43,8 @@ $utilities: map-merge(
         values: inline inline-block block grid table table-row table-cell flex inline-flex none,
       ),
     // scss-docs-end utils-display
-      'shadow':
+    // scss-docs-start utils-shadow
+    'shadow':
       (
         property: box-shadow,
         class: shadow,
@@ -43,10 +55,13 @@ $utilities: map-merge(
           none: none,
         ),
       ),
-    'position': (
-      property: position,
-      values: static relative absolute fixed sticky,
-    ),
+    // scss-docs-end utils-shadow
+    // scss-docs-start utils-position
+    'position':
+      (
+        property: position,
+        values: static relative absolute fixed sticky,
+      ),
     'top': (
       property: top,
       values: $position-values,
@@ -74,13 +89,16 @@ $utilities: map-merge(
         y: translateY(-50%),
       ),
     ),
-    'border': (
-      property: border,
-      values: (
-        null: $border-width solid $border-color,
-        0: 0,
+    // scss-docs-end utils-position
+    // scss-docs-start utils-borders
+    'border':
+      (
+        property: border,
+        values: (
+          null: $border-width solid $border-color,
+          0: 0,
+        ),
       ),
-    ),
     'border-top': (
       property: border-top,
       values: (
@@ -127,8 +145,10 @@ $utilities: map-merge(
       class: border,
       values: $border-widths,
     ),
+    // scss-docs-end utils-borders
     // Sizing utilities
-      'width':
+    // scss-docs-start utils-sizing
+    'width':
       (
         property: width,
         class: w,
@@ -193,8 +213,10 @@ $utilities: map-merge(
         100: 100vh,
       ),
     ),
+    // scss-docs-end utils-sizing
     // Flex utilities
-      'flex':
+    // scss-docs-start utils-flex
+    'flex':
       (
         responsive: true,
         property: flex,
@@ -299,8 +321,10 @@ $utilities: map-merge(
         last: 6,
       ),
     ),
+    // scss-docs-end utils-flex
     // Margin utilities
-      'margin':
+    // scss-docs-start utils-spacing
+    'margin':
       (
         responsive: true,
         property: margin,
@@ -386,7 +410,7 @@ $utilities: map-merge(
         ),
     ),
     // Negative margin utilities
-      'negative-margin':
+    'negative-margin':
       (
         responsive: true,
         property: margin,
@@ -430,7 +454,7 @@ $utilities: map-merge(
       values: $negative-spacers,
     ),
     // Padding utilities
-      'padding':
+    'padding':
       (
         responsive: true,
         property: padding,
@@ -473,14 +497,23 @@ $utilities: map-merge(
       class: ps,
       values: $spacers,
     ),
+    // scss-docs-end utils-spacing
     // Text
-      'font-size':
+    // scss-docs-start utils-text
+    'font-family':
       (
-        rfs: true,
-        property: font-size,
-        class: fs,
-        values: $font-sizes,
+        property: font-family,
+        class: font,
+        values: (
+          monospace: var(--#{$variable-prefix}font-monospace),
+        ),
       ),
+    'font-size': (
+      rfs: true,
+      property: font-size,
+      class: fs,
+      values: $font-sizes,
+    ),
     'font-style': (
       property: font-style,
       class: fst,
@@ -497,10 +530,15 @@ $utilities: map-merge(
         bolder: $font-weight-bolder,
       ),
     ),
-    'text-transform': (
-      property: text-transform,
-      class: text,
-      values: lowercase uppercase capitalize,
+    'line-height': (
+      property: line-height,
+      class: lh,
+      values: (
+        1: 1,
+        sm: $line-height-sm,
+        base: $line-height-base,
+        lg: $line-height-lg,
+      ),
     ),
     'text-align': (
       responsive: true,
@@ -512,8 +550,34 @@ $utilities: map-merge(
         center: center,
       ),
     ),
+    'text-decoration': (
+      property: text-decoration,
+      values: none underline line-through,
+    ),
+    'text-transform': (
+      property: text-transform,
+      class: text,
+      values: lowercase uppercase capitalize,
+    ),
+    'white-space': (
+      property: white-space,
+      class: text,
+      values: (
+        wrap: normal,
+        nowrap: nowrap,
+      ),
+    ),
+    'word-wrap': (
+      property: word-wrap word-break,
+      class: text,
+      values: (
+        break: break-word,
+      ),
+      rtl: false,
+    ),
+    // scss-docs-end utils-text
     // scss-docs-start utils-color
-      'color':
+    'color':
       (
         property: color,
         class: text,
@@ -531,19 +595,8 @@ $utilities: map-merge(
           ),
       ),
     // scss-docs-end utils-color
-      'line-height':
-      (
-        property: line-height,
-        class: lh,
-        values: (
-          1: 1,
-          sm: $line-height-sm,
-          base: $line-height-base,
-          lg: $line-height-lg,
-        ),
-      ),
     // scss-docs-start utils-bg-color
-      'background-color':
+    'background-color':
       (
         property: background-color,
         class: bg,
@@ -558,7 +611,7 @@ $utilities: map-merge(
           ),
       ),
     // scss-docs-end utils-bg-color
-      'gradient':
+    'gradient':
       (
         property: background-image,
         class: bg,
@@ -566,55 +619,33 @@ $utilities: map-merge(
           gradient: var(--#{$variable-prefix}gradient),
         ),
       ),
-    'white-space': (
-      property: white-space,
-      class: text,
-      values: (
-        wrap: normal,
-        nowrap: nowrap,
+    // scss-docs-start utils-interaction
+    'user-select':
+      (
+        property: user-select,
+        values: all auto none,
       ),
-    ),
-    'text-decoration': (
-      property: text-decoration,
-      values: none underline line-through,
-    ),
-    'word-wrap': (
-      property: word-wrap word-break,
-      class: text,
-      values: (
-        break: break-word,
-      ),
-      rtl: false,
-    ),
-    'font-family': (
-      property: font-family,
-      class: font,
-      values: (
-        monospace: var(--#{$variable-prefix}font-monospace),
-      ),
-    ),
-    'user-select': (
-      property: user-select,
-      values: all auto none,
-    ),
     'pointer-events': (
       property: pointer-events,
       class: pe,
       values: none auto,
     ),
-    'rounded': (
-      property: border-radius,
-      class: rounded,
-      values: (
-        null: $border-radius,
-        0: 0,
-        1: $border-radius-sm,
-        2: $border-radius,
-        3: $border-radius-lg,
-        circle: 50%,
-        pill: $border-radius-pill,
+    // scss-docs-end utils-interaction
+    // scss-docs-start utils-border-radius
+    'rounded':
+      (
+        property: border-radius,
+        class: rounded,
+        values: (
+          null: $border-radius,
+          0: 0,
+          1: $border-radius-sm,
+          2: $border-radius,
+          3: $border-radius-lg,
+          circle: 50%,
+          pill: $border-radius-pill,
+        ),
       ),
-    ),
     'rounded-top': (
       property: border-top-left-radius border-top-right-radius,
       class: rounded-top,
@@ -643,14 +674,18 @@ $utilities: map-merge(
         null: $border-radius,
       ),
     ),
-    'visibility': (
-      property: visibility,
-      class: null,
-      values: (
-        visible: visible,
-        invisible: hidden,
-      ),
-    ),
+    // scss-docs-end utils-border-radius
+    // scss-docs-start utils-visibility
+    'visibility':
+      (
+        property: visibility,
+        class: null,
+        values: (
+          visible: visible,
+          invisible: hidden,
+        ),
+      )
+      // scss-docs-end utils-visibility
   ),
   $utilities
 );

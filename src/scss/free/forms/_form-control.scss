@@ -62,6 +62,10 @@
     ~ .form-label {
       position: absolute;
       top: 0;
+      max-width: 90%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       left: $form-label-left;
       padding-top: $form-label-padding-top;
       pointer-events: none;

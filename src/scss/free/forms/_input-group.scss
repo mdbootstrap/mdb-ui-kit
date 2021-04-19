@@ -23,6 +23,13 @@
   background-color: transparent;
   padding-top: $input-group-text-padding-y;
   padding-bottom: $input-group-text-padding-y;
+  > .form-check-input[type='checkbox'] {
+    margin-left: 1px;
+    margin-right: 1px;
+  }
+  > .form-check-input[type='radio'] {
+    margin-right: 0;
+  }
 }
 
 .input-group-lg {
@@ -78,4 +85,12 @@
 
 .input-group > [class*='btn-outline-'] + [class*='btn-outline-'] {
   border-left: 0;
+}
+
+.input-group > .btn[class*='btn-outline-'] {
+  padding-top: 0.47rem;
+}
+
+.input-group > .btn {
+  padding-top: 0.59rem;
 }

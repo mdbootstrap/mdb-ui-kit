@@ -149,6 +149,7 @@
   overflow-y: auto;
 }
 
+// scss-docs-start navbar-expand-loop
 // Generate series of `.navbar-expand-*` responsive classes for configuring
 // where your navbar collapses.
 .navbar-expand {
@@ -191,6 +192,7 @@
     }
   }
 }
+// scss-docs-end navbar-expand-loop
 
 // Navbar themes
 //

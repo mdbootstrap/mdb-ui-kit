@@ -153,7 +153,14 @@ class Dropdown extends BSDropdown {
 
   _bindShowEvent() {
     EventHandler.on(this._element, EVENT_SHOW, (e) => {
-      EventHandler.trigger(this._element, EVENT_SHOW_MDB, { relatedTarget: e.relatedTarget });
+      const showEvent = EventHandler.trigger(this._element, EVENT_SHOW_MDB, {
+        relatedTarget: e.relatedTarget,
+      });
+
+      if (showEvent.defaultPrevented) {
+        e.preventDefault();
+        return;
+      }
 
       this._dropdownAnimationStart('show');
     });
@@ -161,13 +168,27 @@ class Dropdown extends BSDropdown {
 
   _bindShownEvent() {
     EventHandler.on(this._parent, EVENT_SHOWN, (e) => {
-      EventHandler.trigger(this._parent, EVENT_SHOWN_MDB, { relatedTarget: e.relatedTarget });
+      const shownEvent = EventHandler.trigger(this._parent, EVENT_SHOWN_MDB, {
+        relatedTarget: e.relatedTarget,
+      });
+
+      if (shownEvent.defaultPrevented) {
+        e.preventDefault();
+        return;
+      }
     });
   }
 
   _bindHideEvent() {
     EventHandler.on(this._parent, EVENT_HIDE, (e) => {
-      EventHandler.trigger(this._parent, EVENT_HIDE_MDB, { relatedTarget: e.relatedTarget });
+      const hideEvent = EventHandler.trigger(this._parent, EVENT_HIDE_MDB, {
+        relatedTarget: e.relatedTarget,
+      });
+
+      if (hideEvent.defaultPrevented) {
+        e.preventDefault();
+        return;
+      }
 
       this._menuStyle = this._menu.style.cssText;
       this._popperPlacement = this._menu.getAttribute('data-popper-placement');
@@ -177,7 +198,14 @@ class Dropdown extends BSDropdown {
 
   _bindHiddenEvent() {
     EventHandler.on(this._parent, EVENT_HIDDEN, (e) => {
-      EventHandler.trigger(this._parent, EVENT_HIDDEN_MDB, { relatedTarget: e.relatedTarget });
+      const hiddenEvent = EventHandler.trigger(this._parent, EVENT_HIDDEN_MDB, {
+        relatedTarget: e.relatedTarget,
+      });
+
+      if (hiddenEvent.defaultPrevented) {
+        e.preventDefault();
+        return;
+      }
 
       if (this._config.display !== 'static' && this._menuStyle !== '') {
         this._menu.style.cssText = this._menuStyle;
