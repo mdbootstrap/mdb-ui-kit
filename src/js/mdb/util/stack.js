@@ -54,6 +54,7 @@ class Stack {
       .filter((el) => el !== this._element)
       .filter((el, i) => this._options.filter(el, i))
       .filter((el) => {
+        this._offset = null;
         return this._getBoundryOffset(el.getBoundingClientRect()) > this._offset;
       });
   }

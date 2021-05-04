@@ -342,6 +342,10 @@ $note: map-merge(
 );
 // scss-docs-end note-colors-map
 
+// Prefix for :root CSS variables
+
+$variable-prefix: mdb- !default;
+
 // Body
 //
 // Settings for the `<body>` element.
@@ -818,10 +822,6 @@ $card-header-background-color: rgba(255, 255, 255, 0) !default;
 $card-footer-background-color: rgba(255, 255, 255, 0) !default;
 $card-border-radius: 0.25rem !default;
 
-// Accordion
-$accordion-button-icon: none !default;
-$accordion-button-active-icon: none !default;
-
 // Tooltips
 
 $tooltip-inner-color: #fff !default;
@@ -944,9 +944,10 @@ $note-paragraph-font-weight: 500 !default;
 
 $table-color: #212529 !default;
 $table-font-size: 0.9rem !default;
-$table-hover-transition: background-color 0.2s ease-in !default;
+$table-hover-transition: 0.5s !default;
 $table-group-separator-color: inherit !default;
 $table-cell-padding-y: 1rem !default;
 $table-cell-padding-x: 1.4rem !default;
 $table-cell-padding-y-sm: 0.5rem !default;
 $table-cell-padding-x-sm: $table-cell-padding-x !default;
+$table-hover-bg: rgba(0, 0, 0, 0.075) !default;

@@ -189,6 +189,7 @@ class Input {
   }
 
   _applyDivs() {
+    const allNotchWrappers = SelectorEngine.find(SELECTOR_NOTCH, this._element);
     const notchWrapper = element('div');
     Manipulator.addClass(notchWrapper, CLASSNAME_NOTCH);
     this._notchLeading = element('div');
@@ -197,7 +198,9 @@ class Input {
     Manipulator.addClass(this._notchMiddle, CLASSNAME_NOTCH_MIDDLE);
     this._notchTrailing = element('div');
     Manipulator.addClass(this._notchTrailing, CLASSNAME_NOTCH_TRAILING);
-
+    if (allNotchWrappers.length >= 1) {
+      return;
+    }
     notchWrapper.append(this._notchLeading);
     notchWrapper.append(this._notchMiddle);
     notchWrapper.append(this._notchTrailing);

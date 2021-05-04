@@ -7,9 +7,6 @@
 
   > :not(caption) > * > * {
     padding: $table-cell-padding-y $table-cell-padding-x;
-    transition: $table-hover-transition;
-    background-image: none;
-    background-color: var(--bs-table-accent-bg);
   }
 
   th {
@@ -33,4 +30,15 @@
 
 @each $color, $value in $table-variants {
   @include table-variant-mdb($color, $value);
+}
+
+.table-hover {
+  > tbody > tr {
+    transition: $table-hover-transition;
+  }
+  > tbody > tr:hover {
+    --#{$variable-prefix}table-accent-bg: transparent;
+    color: var(--#{$variable-prefix}table-hover-color);
+    background-color: var(--#{$variable-prefix}table-hover-bg);
+  }
 }

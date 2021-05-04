@@ -64,3 +64,13 @@
     box-shadow: $btn-box-shadow;
   }
 }
+
+// Fix for keeping margins of pills
+.nav-fill,
+.nav-justified {
+  .nav-item {
+    .nav-link {
+      width: auto;
+    }
+  }
+}
