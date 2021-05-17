@@ -1,5 +1,5 @@
 /*!
- * Bootstrap toast.js v5.0.0-beta3 (https://getbootstrap.com/)
+ * Bootstrap toast.js v5.0.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -34,7 +34,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta3): util/index.js
+   * Bootstrap (v5.0.0): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -105,9 +105,7 @@
 
       if (!new RegExp(expectedTypes).test(valueType)) {
         throw new TypeError(
-          `${componentName.toUpperCase()}: ` +
-            `Option "${property}" provided type "${valueType}" ` +
-            `but expected type "${expectedTypes}".`
+          `${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`
         );
       }
     });
@@ -153,7 +151,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta3): toast.js
+   * Bootstrap (v5.0.0): toast.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -290,7 +288,6 @@
         this._element.classList.remove(CLASS_NAME_SHOW);
       }
 
-      EventHandler__default['default'].off(this._element, EVENT_CLICK_DISMISS);
       super.dispose();
       this._config = null;
     } // Private

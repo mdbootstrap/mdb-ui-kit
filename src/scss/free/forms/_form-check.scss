@@ -180,9 +180,11 @@
         height: $form-check-input-radio-checked-after-height;
         border-color: $form-check-input-radio-checked-after-border-color;
         background-color: $form-check-input-radio-checked-after-background-color;
-        margin-top: $form-check-input-radio-checked-after-margin-top;
-        margin-left: $form-check-input-radio-checked-after-margin-left;
         transition: $form-check-input-radio-checked-after-transition;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        left: 50%;
+        top: 50%;
       }
 
       &:focus {

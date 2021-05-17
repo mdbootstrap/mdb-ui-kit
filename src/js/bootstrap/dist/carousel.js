@@ -1,5 +1,5 @@
 /*!
- * Bootstrap carousel.js v5.0.0-beta3 (https://getbootstrap.com/)
+ * Bootstrap carousel.js v5.0.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -43,7 +43,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta3): util/index.js
+   * Bootstrap (v5.0.0): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -75,7 +75,7 @@
       } // Just in case some CMS puts out a full URL with the anchor appended
 
       if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
-        hrefAttr = '#' + hrefAttr.split('#')[1];
+        hrefAttr = `#${hrefAttr.split('#')[1]}`;
       }
 
       selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
@@ -142,9 +142,7 @@
 
       if (!new RegExp(expectedTypes).test(valueType)) {
         throw new TypeError(
-          `${componentName.toUpperCase()}: ` +
-            `Option "${property}" provided type "${valueType}" ` +
-            `but expected type "${expectedTypes}".`
+          `${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`
         );
       }
     });
@@ -210,7 +208,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta3): carousel.js
+   * Bootstrap (v5.0.0): carousel.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -401,7 +399,6 @@
     }
 
     dispose() {
-      EventHandler__default['default'].off(this._element, EVENT_KEY);
       this._items = null;
       this._config = null;
       this._interval = null;
@@ -537,11 +534,11 @@
       if (event.key === ARROW_LEFT_KEY) {
         event.preventDefault();
 
-        this._slide(DIRECTION_LEFT);
+        this._slide(DIRECTION_RIGHT);
       } else if (event.key === ARROW_RIGHT_KEY) {
         event.preventDefault();
 
-        this._slide(DIRECTION_RIGHT);
+        this._slide(DIRECTION_LEFT);
       }
     }
 
@@ -723,10 +720,10 @@
       }
 
       if (isRTL()) {
-        return direction === DIRECTION_RIGHT ? ORDER_PREV : ORDER_NEXT;
+        return direction === DIRECTION_LEFT ? ORDER_PREV : ORDER_NEXT;
       }
 
-      return direction === DIRECTION_RIGHT ? ORDER_NEXT : ORDER_PREV;
+      return direction === DIRECTION_LEFT ? ORDER_NEXT : ORDER_PREV;
     }
 
     _orderToDirection(order) {
@@ -735,10 +732,10 @@
       }
 
       if (isRTL()) {
-        return order === ORDER_NEXT ? DIRECTION_LEFT : DIRECTION_RIGHT;
+        return order === ORDER_PREV ? DIRECTION_LEFT : DIRECTION_RIGHT;
       }
 
-      return order === ORDER_NEXT ? DIRECTION_RIGHT : DIRECTION_LEFT;
+      return order === ORDER_PREV ? DIRECTION_RIGHT : DIRECTION_LEFT;
     } // Static
 
     static carouselInterface(element, config) {

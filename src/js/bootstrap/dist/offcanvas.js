@@ -1,5 +1,5 @@
 /*!
- * Bootstrap offcanvas.js v5.0.0-beta3 (https://getbootstrap.com/)
+ * Bootstrap offcanvas.js v5.0.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -43,11 +43,12 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta3): util/index.js
+   * Bootstrap (v5.0.0): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
   const MILLISECONDS_MULTIPLIER = 1000;
+  const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
   const toType = (obj) => {
     if (obj === null || obj === undefined) {
@@ -74,23 +75,13 @@
       } // Just in case some CMS puts out a full URL with the anchor appended
 
       if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
-        hrefAttr = '#' + hrefAttr.split('#')[1];
+        hrefAttr = `#${hrefAttr.split('#')[1]}`;
       }
 
       selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
     }
 
     return selector;
-  };
-
-  const getSelectorFromElement = (element) => {
-    const selector = getSelector(element);
-
-    if (selector) {
-      return document.querySelector(selector) ? selector : null;
-    }
-
-    return null;
   };
 
   const getElementFromSelector = (element) => {
@@ -119,7 +110,29 @@
     );
   };
 
+  const triggerTransitionEnd = (element) => {
+    element.dispatchEvent(new Event(TRANSITION_END));
+  };
+
   const isElement = (obj) => (obj[0] || obj).nodeType;
+
+  const emulateTransitionEnd = (element, duration) => {
+    let called = false;
+    const durationPadding = 5;
+    const emulatedDuration = duration + durationPadding;
+
+    function listener() {
+      called = true;
+      element.removeEventListener(TRANSITION_END, listener);
+    }
+
+    element.addEventListener(TRANSITION_END, listener);
+    setTimeout(() => {
+      if (!called) {
+        triggerTransitionEnd(element);
+      }
+    }, emulatedDuration);
+  };
 
   const typeCheckConfig = (componentName, config, configTypes) => {
     Object.keys(configTypes).forEach((property) => {
@@ -129,9 +142,7 @@
 
       if (!new RegExp(expectedTypes).test(valueType)) {
         throw new TypeError(
-          `${componentName.toUpperCase()}: ` +
-            `Option "${property}" provided type "${valueType}" ` +
-            `but expected type "${expectedTypes}".`
+          `${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`
         );
       }
     });
@@ -171,6 +182,8 @@
     return element.hasAttribute('disabled') && element.getAttribute('disabled') !== 'false';
   };
 
+  const reflow = (element) => element.offsetHeight;
+
   const getjQuery = () => {
     const { jQuery } = window;
 
@@ -207,13 +220,19 @@
     });
   };
 
+  const execute = (callback) => {
+    if (typeof callback === 'function') {
+      callback();
+    }
+  };
+
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta3): util/scrollBar.js
+   * Bootstrap (v5.0.0): util/scrollBar.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
-  const SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed';
+  const SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
   const SELECTOR_STICKY_CONTENT = '.sticky-top';
 
   const getWidth = () => {
@@ -223,7 +242,9 @@
   };
 
   const hide = (width = getWidth()) => {
-    document.body.style.overflow = 'hidden';
+    _disableOverFlow(); // give padding to element to balances the hidden scrollbar width
+
+    _setElementAttributes('body', 'paddingRight', (calculatedValue) => calculatedValue + width); // trick: We adjust positive paddingRight and negative marginRight to sticky-top elements, to keep shown fullwidth
 
     _setElementAttributes(
       SELECTOR_FIXED_CONTENT,
@@ -236,8 +257,16 @@
       'marginRight',
       (calculatedValue) => calculatedValue - width
     );
+  };
 
-    _setElementAttributes('body', 'paddingRight', (calculatedValue) => calculatedValue + width);
+  const _disableOverFlow = () => {
+    const actualValue = document.body.style.overflow;
+
+    if (actualValue) {
+      Manipulator__default['default'].setDataAttribute(document.body, 'overflow', actualValue);
+    }
+
+    document.body.style.overflow = 'hidden';
   };
 
   const _setElementAttributes = (selector, styleProp, callback) => {
@@ -250,25 +279,25 @@
       const actualValue = element.style[styleProp];
       const calculatedValue = window.getComputedStyle(element)[styleProp];
       Manipulator__default['default'].setDataAttribute(element, styleProp, actualValue);
-      element.style[styleProp] = callback(Number.parseFloat(calculatedValue)) + 'px';
+      element.style[styleProp] = `${callback(Number.parseFloat(calculatedValue))}px`;
     });
   };
 
   const reset = () => {
-    document.body.style.overflow = 'auto';
+    _resetElementAttributes('body', 'overflow');
+
+    _resetElementAttributes('body', 'paddingRight');
 
     _resetElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight');
 
     _resetElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight');
-
-    _resetElementAttributes('body', 'paddingRight');
   };
 
   const _resetElementAttributes = (selector, styleProp) => {
     SelectorEngine__default['default'].find(selector).forEach((element) => {
       const value = Manipulator__default['default'].getDataAttribute(element, styleProp);
 
-      if (typeof value === 'undefined' && element === document.body) {
+      if (typeof value === 'undefined') {
         element.style.removeProperty(styleProp);
       } else {
         Manipulator__default['default'].removeDataAttribute(element, styleProp);
@@ -279,7 +308,133 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta3): offcanvas.js
+   * Bootstrap (v5.0.0): util/backdrop.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+  const Default$1 = {
+    isVisible: true,
+    // if false, we use the backdrop helper without adding any element to the dom
+    isAnimated: false,
+    rootElement: document.body,
+    // give the choice to place backdrop under different elements
+    clickCallback: null,
+  };
+  const DefaultType$1 = {
+    isVisible: 'boolean',
+    isAnimated: 'boolean',
+    rootElement: 'element',
+    clickCallback: '(function|null)',
+  };
+  const NAME$1 = 'backdrop';
+  const CLASS_NAME_BACKDROP = 'modal-backdrop';
+  const CLASS_NAME_FADE = 'fade';
+  const CLASS_NAME_SHOW$1 = 'show';
+  const EVENT_MOUSEDOWN = `mousedown.bs.${NAME$1}`;
+
+  class Backdrop {
+    constructor(config) {
+      this._config = this._getConfig(config);
+      this._isAppended = false;
+      this._element = null;
+    }
+
+    show(callback) {
+      if (!this._config.isVisible) {
+        execute(callback);
+        return;
+      }
+
+      this._append();
+
+      if (this._config.isAnimated) {
+        reflow(this._getElement());
+      }
+
+      this._getElement().classList.add(CLASS_NAME_SHOW$1);
+
+      this._emulateAnimation(() => {
+        execute(callback);
+      });
+    }
+
+    hide(callback) {
+      if (!this._config.isVisible) {
+        execute(callback);
+        return;
+      }
+
+      this._getElement().classList.remove(CLASS_NAME_SHOW$1);
+
+      this._emulateAnimation(() => {
+        this.dispose();
+        execute(callback);
+      });
+    } // Private
+
+    _getElement() {
+      if (!this._element) {
+        const backdrop = document.createElement('div');
+        backdrop.className = CLASS_NAME_BACKDROP;
+
+        if (this._config.isAnimated) {
+          backdrop.classList.add(CLASS_NAME_FADE);
+        }
+
+        this._element = backdrop;
+      }
+
+      return this._element;
+    }
+
+    _getConfig(config) {
+      config = { ...Default$1, ...(typeof config === 'object' ? config : {}) };
+      typeCheckConfig(NAME$1, config, DefaultType$1);
+      return config;
+    }
+
+    _append() {
+      if (this._isAppended) {
+        return;
+      }
+
+      this._config.rootElement.appendChild(this._getElement());
+
+      EventHandler__default['default'].on(this._getElement(), EVENT_MOUSEDOWN, () => {
+        execute(this._config.clickCallback);
+      });
+      this._isAppended = true;
+    }
+
+    dispose() {
+      if (!this._isAppended) {
+        return;
+      }
+
+      EventHandler__default['default'].off(this._element, EVENT_MOUSEDOWN);
+
+      this._getElement().parentNode.removeChild(this._element);
+
+      this._isAppended = false;
+    }
+
+    _emulateAnimation(callback) {
+      if (!this._config.isAnimated) {
+        execute(callback);
+        return;
+      }
+
+      const backdropTransitionDuration = getTransitionDurationFromElement(this._getElement());
+      EventHandler__default['default'].one(this._getElement(), 'transitionend', () =>
+        execute(callback)
+      );
+      emulateTransitionEnd(this._getElement(), backdropTransitionDuration);
+    }
+  }
+
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v5.0.0): offcanvas.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -305,11 +460,8 @@
     keyboard: 'boolean',
     scroll: 'boolean',
   };
-  const CLASS_NAME_BACKDROP_BODY = 'offcanvas-backdrop';
   const CLASS_NAME_SHOW = 'show';
-  const CLASS_NAME_TOGGLING = 'offcanvas-toggling';
   const OPEN_SELECTOR = '.offcanvas.show';
-  const ACTIVE_SELECTOR = `${OPEN_SELECTOR}, .${CLASS_NAME_TOGGLING}`;
   const EVENT_SHOW = `show${EVENT_KEY}`;
   const EVENT_SHOWN = `shown${EVENT_KEY}`;
   const EVENT_HIDE = `hide${EVENT_KEY}`;
@@ -317,6 +469,7 @@
   const EVENT_FOCUSIN = `focusin${EVENT_KEY}`;
   const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
   const EVENT_CLICK_DISMISS = `click.dismiss${EVENT_KEY}`;
+  const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY}`;
   const SELECTOR_DATA_DISMISS = '[data-bs-dismiss="offcanvas"]';
   const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="offcanvas"]';
   /**
@@ -330,6 +483,7 @@
       super(element);
       this._config = this._getConfig(config);
       this._isShown = false;
+      this._backdrop = this._initializeBackDrop();
 
       this._addEventListeners();
     } // Getters
@@ -362,15 +516,13 @@
       this._isShown = true;
       this._element.style.visibility = 'visible';
 
-      if (this._config.backdrop) {
-        document.body.classList.add(CLASS_NAME_BACKDROP_BODY);
-      }
+      this._backdrop.show();
 
       if (!this._config.scroll) {
         hide();
-      }
 
-      this._element.classList.add(CLASS_NAME_TOGGLING);
+        this._enforceFocusOnElement(this._element);
+      }
 
       this._element.removeAttribute('aria-hidden');
 
@@ -381,16 +533,14 @@
       this._element.classList.add(CLASS_NAME_SHOW);
 
       const completeCallBack = () => {
-        this._element.classList.remove(CLASS_NAME_TOGGLING);
-
         EventHandler__default['default'].trigger(this._element, EVENT_SHOWN, {
           relatedTarget,
         });
-
-        this._enforceFocusOnElement(this._element);
       };
 
-      setTimeout(completeCallBack, getTransitionDurationFromElement(this._element));
+      const transitionDuration = getTransitionDurationFromElement(this._element);
+      EventHandler__default['default'].one(this._element, 'transitionend', completeCallBack);
+      emulateTransitionEnd(this._element, transitionDuration);
     }
 
     hide() {
@@ -404,8 +554,6 @@
         return;
       }
 
-      this._element.classList.add(CLASS_NAME_TOGGLING);
-
       EventHandler__default['default'].off(document, EVENT_FOCUSIN);
 
       this._element.blur();
@@ -413,6 +561,8 @@
       this._isShown = false;
 
       this._element.classList.remove(CLASS_NAME_SHOW);
+
+      this._backdrop.hide();
 
       const completeCallback = () => {
         this._element.setAttribute('aria-hidden', true);
@@ -423,20 +573,25 @@
 
         this._element.style.visibility = 'hidden';
 
-        if (this._config.backdrop) {
-          document.body.classList.remove(CLASS_NAME_BACKDROP_BODY);
-        }
-
         if (!this._config.scroll) {
           reset();
         }
 
         EventHandler__default['default'].trigger(this._element, EVENT_HIDDEN);
-
-        this._element.classList.remove(CLASS_NAME_TOGGLING);
       };
 
-      setTimeout(completeCallback, getTransitionDurationFromElement(this._element));
+      const transitionDuration = getTransitionDurationFromElement(this._element);
+      EventHandler__default['default'].one(this._element, 'transitionend', completeCallback);
+      emulateTransitionEnd(this._element, transitionDuration);
+    }
+
+    dispose() {
+      this._backdrop.dispose();
+
+      super.dispose();
+      EventHandler__default['default'].off(document, EVENT_FOCUSIN);
+      this._config = null;
+      this._backdrop = null;
     } // Private
 
     _getConfig(config) {
@@ -447,6 +602,15 @@
       };
       typeCheckConfig(NAME, config, DefaultType);
       return config;
+    }
+
+    _initializeBackDrop() {
+      return new Backdrop({
+        isVisible: this._config.backdrop,
+        isAnimated: true,
+        rootElement: this._element.parentNode,
+        clickCallback: () => this.hide(),
+      });
     }
 
     _enforceFocusOnElement(element) {
@@ -471,17 +635,8 @@
         SELECTOR_DATA_DISMISS,
         () => this.hide()
       );
-      EventHandler__default['default'].on(document, 'keydown', (event) => {
+      EventHandler__default['default'].on(this._element, EVENT_KEYDOWN_DISMISS, (event) => {
         if (this._config.keyboard && event.key === ESCAPE_KEY) {
-          this.hide();
-        }
-      });
-      EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, (event) => {
-        const target = SelectorEngine__default['default'].findOne(
-          getSelectorFromElement(event.target)
-        );
-
-        if (!this._element.contains(event.target) && target !== this._element) {
           this.hide();
         }
       });
@@ -533,10 +688,10 @@
         }
       }); // avoid conflict when clicking a toggler of an offcanvas, while another is open
 
-      const allReadyOpen = SelectorEngine__default['default'].findOne(ACTIVE_SELECTOR);
+      const allReadyOpen = SelectorEngine__default['default'].findOne(OPEN_SELECTOR);
 
       if (allReadyOpen && allReadyOpen !== target) {
-        return;
+        Offcanvas.getInstance(allReadyOpen).hide();
       }
 
       const data = Data__default['default'].get(target, DATA_KEY) || new Offcanvas(target);

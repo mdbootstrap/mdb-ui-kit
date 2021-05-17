@@ -1,0 +1,148 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    'margin-bottom':
+      map-merge(
+        map-get($utilities, 'margin-bottom'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'margin-bottom'), 'values'),
+              (
+                6: 3.5rem,
+                7: 4rem,
+                8: 5rem,
+                9: 6rem,
+                10: 8rem,
+                11: 10rem,
+                12: 12rem,
+                13: 14rem,
+                14: 16rem,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'rounded':
+      map-merge(
+        map-get($utilities, 'rounded'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'rounded'), 'values'),
+              (
+                4: 0.375rem,
+                5: 0.5rem,
+                6: 0.75rem,
+                7: 1rem,
+                8: 1.25rem,
+                9: 1.5rem,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'opacity': (
+      property: opacity,
+      values: (
+        0: 0,
+        5: 0.05,
+        10: 0.1,
+        20: 0.2,
+        30: 0.3,
+        40: 0.4,
+        50: 0.5,
+        60: 0.6,
+        70: 0.7,
+        80: 0.8,
+        90: 0.9,
+        95: 0.95,
+        100: 1,
+      ),
+    ),
+  )
+);
+
+// .me-child-2 > *:not(:last-child) {
+//   margin-right: 30px;
+// }
+
+// .ms-child-2 > *:not(:first-child) {
+//   margin-left: 30px;
+// }
+
+// .mb-child-2 > *:not(:last-child) {
+//   margin-bottom: 30px;
+// }
+
+// .mt-child-2 > *:not(:first-child) {
+//   margin-top: 30px;
+// }
+
+/* Numeric */
+.diagonal-fractions {
+  font-variant-numeric: diagonal-fractions;
+}
+
+/* Letter spacing */
+.ls-tighter {
+  letter-spacing: -0.05em;
+}
+.ls-tight {
+  letter-spacing: -0.025em;
+}
+.ls-normal {
+  letter-spacing: 0em;
+}
+.ls-wide {
+  letter-spacing: 0.025em;
+}
+.ls-wider {
+  letter-spacing: 0.05em;
+}
+.ls-widest {
+  letter-spacing: 0.1em;
+}
+
+/* Background colors */
+.bg-super-light {
+  background-color: #fbfbfb;
+}
+
+/* Background attachment */
+.bg-fixed {
+  background-attachment: fixed;
+}
+.bg-local {
+  background-attachment: local;
+}
+.bg-scroll {
+  background-attachment: scroll;
+}
+
+/* Overflow */
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+
+/* Tables */
+.table-fixed {
+  table-layout: fixed;
+}
+.table-auto {
+  table-layout: auto;
+}

@@ -147,6 +147,10 @@ class Input {
   }
 
   _showCounter() {
+    const counters = SelectorEngine.find('.form-counter', this._element);
+    if (counters.length > 0) {
+      return;
+    }
     this._counterElement = document.createElement('div');
     Manipulator.addClass(this._counterElement, CLASSNAME_COUNTER);
     const actualLength = this.input.value.length;

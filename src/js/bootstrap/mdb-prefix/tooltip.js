@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta3): tooltip.js
+ * Bootstrap (v5.0.0): tooltip.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -213,7 +213,6 @@ class Tooltip extends BaseComponent {
   dispose() {
     clearTimeout(this._timeout);
 
-    EventHandler.off(this._element, this.constructor.EVENT_KEY);
     EventHandler.off(
       this._element.closest(`.${CLASS_NAME_MODAL}`),
       'hide.bs.modal',
@@ -308,7 +307,7 @@ class Tooltip extends BaseComponent {
     // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
     if ('ontouchstart' in document.documentElement) {
       [].concat(...document.body.children).forEach((element) => {
-        EventHandler.on(element, 'mouseover', noop());
+        EventHandler.on(element, 'mouseover', noop);
       });
     }
 
@@ -512,7 +511,6 @@ class Tooltip extends BaseComponent {
         {
           name: 'flip',
           options: {
-            altBoundary: true,
             fallbackPlacements: this.config.fallbackPlacements,
           },
         },
