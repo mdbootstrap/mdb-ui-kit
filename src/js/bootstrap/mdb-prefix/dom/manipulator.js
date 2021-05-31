@@ -46,9 +46,9 @@ const Manipulator = {
     const attributes = {};
 
     Object.keys(element.dataset)
-      .filter((key) => key.startsWith('bs'))
+      .filter((key) => key.startsWith('mdb'))
       .forEach((key) => {
-        let pureKey = key.replace(/^bs/, '');
+        let pureKey = key.replace(/^mdb/, '');
         pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
         attributes[pureKey] = normalizeData(element.dataset[key]);
       });
