@@ -2,7 +2,7 @@
 
 .card {
   border: 0;
-  box-shadow: $card-box-shadow;
+  box-shadow: $box-shadow-4;
 
   .bg-image {
     border-top-left-radius: $card-border-radius;
@@ -23,4 +23,9 @@
 
 .card-footer {
   background-color: $card-footer-background-color;
+}
+
+.card-img-left {
+  border-top-left-radius: $card-border-radius;
+  border-bottom-left-radius: $card-border-radius;
 }

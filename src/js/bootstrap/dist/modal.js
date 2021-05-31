@@ -1,48 +1,42 @@
 /*!
- * Bootstrap modal.js v5.0.0 (https://getbootstrap.com/)
+ * Bootstrap modal.js v5.0.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined'
     ? (module.exports = factory(
+        require('./dom/selector-engine.js'),
         require('./dom/event-handler.js'),
         require('./dom/manipulator.js'),
-        require('./dom/selector-engine.js'),
         require('./base-component.js')
       ))
     : typeof define === 'function' && define.amd
     ? define([
+        './dom/selector-engine',
         './dom/event-handler',
         './dom/manipulator',
-        './dom/selector-engine',
         './base-component',
       ], factory)
     : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
       (global.Modal = factory(
+        global.SelectorEngine,
         global.EventHandler,
         global.Manipulator,
-        global.SelectorEngine,
         global.Base
       )));
-})(this, function (EventHandler, Manipulator, SelectorEngine, BaseComponent) {
+})(this, function (SelectorEngine, EventHandler, Manipulator, BaseComponent) {
   'use strict';
 
   function _interopDefaultLegacy(e) {
     return e && typeof e === 'object' && 'default' in e ? e : { default: e };
   }
 
+  var SelectorEngine__default = /*#__PURE__*/ _interopDefaultLegacy(SelectorEngine);
   var EventHandler__default = /*#__PURE__*/ _interopDefaultLegacy(EventHandler);
   var Manipulator__default = /*#__PURE__*/ _interopDefaultLegacy(Manipulator);
-  var SelectorEngine__default = /*#__PURE__*/ _interopDefaultLegacy(SelectorEngine);
   var BaseComponent__default = /*#__PURE__*/ _interopDefaultLegacy(BaseComponent);
 
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0): util/index.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
   const MILLISECONDS_MULTIPLIER = 1000;
   const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
@@ -110,7 +104,17 @@
     element.dispatchEvent(new Event(TRANSITION_END));
   };
 
-  const isElement = (obj) => (obj[0] || obj).nodeType;
+  const isElement = (obj) => {
+    if (!obj || typeof obj !== 'object') {
+      return false;
+    }
+
+    if (typeof obj.jquery !== 'undefined') {
+      obj = obj[0];
+    }
+
+    return typeof obj.nodeType !== 'undefined';
+  };
 
   const emulateTransitionEnd = (element, duration) => {
     let called = false;
@@ -184,12 +188,13 @@
 
   const isRTL = () => document.documentElement.dir === 'rtl';
 
-  const defineJQueryPlugin = (name, plugin) => {
+  const defineJQueryPlugin = (plugin) => {
     onDOMContentLoaded(() => {
       const $ = getjQuery();
       /* istanbul ignore if */
 
       if ($) {
+        const name = plugin.NAME;
         const JQUERY_NO_CONFLICT = $.fn[name];
         $.fn[name] = plugin.jQueryInterface;
         $.fn[name].Constructor = plugin;
@@ -210,7 +215,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0): util/scrollBar.js
+   * Bootstrap (v5.0.1): util/scrollBar.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -290,7 +295,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0): util/backdrop.js
+   * Bootstrap (v5.0.1): util/backdrop.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -371,6 +376,7 @@
 
     _getConfig(config) {
       config = { ...Default$1, ...(typeof config === 'object' ? config : {}) };
+      config.rootElement = config.rootElement || document.body;
       typeCheckConfig(NAME$1, config, DefaultType$1);
       return config;
     }
@@ -416,7 +422,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0): modal.js
+   * Bootstrap (v5.0.1): modal.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -482,8 +488,8 @@
       return Default;
     }
 
-    static get DATA_KEY() {
-      return DATA_KEY;
+    static get NAME() {
+      return NAME;
     } // Public
 
     toggle(relatedTarget) {
@@ -568,21 +574,16 @@
       EventHandler__default['default'].off(this._element, EVENT_CLICK_DISMISS);
       EventHandler__default['default'].off(this._dialog, EVENT_MOUSEDOWN_DISMISS);
 
-      if (isAnimated) {
-        const transitionDuration = getTransitionDurationFromElement(this._element);
-        EventHandler__default['default'].one(this._element, 'transitionend', (event) =>
-          this._hideModal(event)
-        );
-        emulateTransitionEnd(this._element, transitionDuration);
-      } else {
-        this._hideModal();
-      }
+      this._queueCallback(() => this._hideModal(), this._element, isAnimated);
     }
 
     dispose() {
       [window, this._dialog].forEach((htmlElement) =>
         EventHandler__default['default'].off(htmlElement, EVENT_KEY)
       );
+
+      this._backdrop.dispose();
+
       super.dispose();
       /**
        * `document` has 2 events `EVENT_FOCUSIN` and `EVENT_CLICK_DATA_API`
@@ -591,15 +592,6 @@
        */
 
       EventHandler__default['default'].off(document, EVENT_FOCUSIN);
-      this._config = null;
-      this._dialog = null;
-
-      this._backdrop.dispose();
-
-      this._backdrop = null;
-      this._isShown = null;
-      this._ignoreBackdropClick = null;
-      this._isTransitioning = null;
     }
 
     handleUpdate() {
@@ -672,13 +664,7 @@
         });
       };
 
-      if (isAnimated) {
-        const transitionDuration = getTransitionDurationFromElement(this._dialog);
-        EventHandler__default['default'].one(this._dialog, 'transitionend', transitionComplete);
-        emulateTransitionEnd(this._dialog, transitionDuration);
-      } else {
-        transitionComplete();
-      }
+      this._queueCallback(transitionComplete, this._dialog, isAnimated);
     }
 
     _enforceFocus() {
@@ -883,7 +869,7 @@
    * add .Modal to jQuery only if jQuery is present
    */
 
-  defineJQueryPlugin(NAME, Modal);
+  defineJQueryPlugin(Modal);
 
   return Modal;
 });

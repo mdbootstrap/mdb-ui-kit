@@ -73,45 +73,9 @@ $utilities: map-merge(
   )
 );
 
-// .me-child-2 > *:not(:last-child) {
-//   margin-right: 30px;
-// }
-
-// .ms-child-2 > *:not(:first-child) {
-//   margin-left: 30px;
-// }
-
-// .mb-child-2 > *:not(:last-child) {
-//   margin-bottom: 30px;
-// }
-
-// .mt-child-2 > *:not(:first-child) {
-//   margin-top: 30px;
-// }
-
 /* Numeric */
 .diagonal-fractions {
   font-variant-numeric: diagonal-fractions;
-}
-
-/* Letter spacing */
-.ls-tighter {
-  letter-spacing: -0.05em;
-}
-.ls-tight {
-  letter-spacing: -0.025em;
-}
-.ls-normal {
-  letter-spacing: 0em;
-}
-.ls-wide {
-  letter-spacing: 0.025em;
-}
-.ls-wider {
-  letter-spacing: 0.05em;
-}
-.ls-widest {
-  letter-spacing: 0.1em;
 }
 
 /* Background colors */
@@ -146,3 +110,59 @@ $utilities: map-merge(
 .table-auto {
   table-layout: auto;
 }
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'shadow':
+      map-merge(
+        map-get($utilities, 'shadow'),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, 'shadow'), 'values'),
+              (
+                0: $box-shadow-0,
+                1: $box-shadow-1,
+                2: $box-shadow-2,
+                3: $box-shadow-3,
+                4: $box-shadow-4,
+                5: $box-shadow-5,
+                6: $box-shadow-6,
+                1-soft: $box-shadow-1-soft,
+                2-soft: $box-shadow-2-soft,
+                3-soft: $box-shadow-3-soft,
+                4-soft: $box-shadow-4-soft,
+                5-soft: $box-shadow-5-soft,
+                6-soft: $box-shadow-6-soft,
+                1-strong: $box-shadow-1-strong,
+                2-strong: $box-shadow-2-strong,
+                3-strong: $box-shadow-3-strong,
+                4-strong: $box-shadow-4-strong,
+                5-strong: $box-shadow-5-strong,
+                6-strong: $box-shadow-6-strong,
+                inner: $box-shadow-inner,
+              )
+            ),
+        )
+      ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'letter-spacing': (
+      property: letter-spacing,
+      class: ls,
+      values: (
+        tighter: -0.05em,
+        tight: -0.025em,
+        normal: 0em,
+        wide: 0.025em,
+        wider: 0.05em,
+        widest: 0.1em,
+      ),
+    ),
+  )
+);

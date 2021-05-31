@@ -58,3 +58,13 @@
 .bg-fixed {
   background-attachment: fixed;
 }
+
+.hover-shadow-soft,
+.card.hover-shadow-soft {
+  box-shadow: none;
+  transition: $image-hover-shadow-transition;
+  &:hover {
+    box-shadow: $image-hover-shadow-box-shadow-soft;
+    transition: $image-hover-shadow-transition;
+  }
+}

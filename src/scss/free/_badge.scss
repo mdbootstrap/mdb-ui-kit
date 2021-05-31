@@ -1,4 +1,9 @@
 // Badge
+
+.badge {
+  border-radius: $badge-border-radius;
+}
+
 .badge-dot {
   position: absolute;
   border-radius: $badge-dot-border-radius;
@@ -18,4 +23,15 @@
   margin-top: $badge-notification-margin-top;
   margin-left: $badge-notification-margin-left;
   padding: $badge-notification-padding-y $badge-notification-padding-x;
+}
+
+@each $name, $color in $badges {
+  .badge-#{$name} {
+    background-color: map-get($color, background-color);
+    color: map-get($color, text-color);
+
+    i {
+      color: map-get($color, icon-color);
+    }
+  }
 }
