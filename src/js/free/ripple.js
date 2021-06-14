@@ -99,6 +99,9 @@ class Ripple {
         this._element = SelectorEngine.closest(event.target, selector);
       }
     });
+
+    this._element.style.minWidth = `${this._element.offsetWidth}px`;
+
     Manipulator.addClass(this._element, CLASSNAME_RIPPLE);
     this._options = this._getConfig();
     this._createRipple(event);

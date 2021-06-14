@@ -345,7 +345,14 @@ EventHandler.on(window, 'shown.bs.dropdown', (e) => {
 });
 
 EventHandler.on(window, 'shown.bs.tab', (e) => {
-  const targetId = e.target.href.split('#')[1];
+  let targetId;
+
+  if (e.target.href) {
+    targetId = e.target.href.split('#')[1];
+  } else {
+    targetId = Manipulator.getDataAttribute(e.target, 'target').split('#')[1];
+  }
+
   const target = SelectorEngine.findOne(`#${targetId}`);
   SelectorEngine.find(SELECTOR_OUTLINE_INPUT, target).forEach((element) => {
     const instance = Input.getInstance(element.parentNode);
