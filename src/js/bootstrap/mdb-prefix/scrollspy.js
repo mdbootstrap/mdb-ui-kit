@@ -67,6 +67,11 @@ const METHOD_POSITION = 'position';
 class ScrollSpy extends BaseComponent {
   constructor(element, config) {
     super(element);
+
+    if (!getSelectorFromElement(element)) {
+      return;
+    }
+
     this._scrollElement = this._element.tagName === 'BODY' ? window : this._element;
     this._config = this._getConfig(config);
     this._selector = `${this._config.target} ${SELECTOR_NAV_LINKS}, ${this._config.target} ${SELECTOR_LIST_ITEMS}, ${this._config.target} .${CLASS_NAME_DROPDOWN_ITEM}`;

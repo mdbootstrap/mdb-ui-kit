@@ -1,5 +1,5 @@
 MDB5
-Version: FREE 3.8.0
+Version: FREE 3.8.1
 
 Documentation:
 https://mdbootstrap.com/docs/standard/
