@@ -184,7 +184,6 @@ class Collapse extends BaseComponent {
     }
 
     this.setTransitioning(true);
-
     const complete = () => {
       this._element.classList.remove(CLASS_NAME_COLLAPSING);
       this._element.classList.add(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);

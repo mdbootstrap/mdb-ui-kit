@@ -25,5 +25,10 @@
         $scrollspy-menu-sidebar-active-border-color;
       border-radius: 0;
     }
+
+    .collapsible-scrollspy ~ .nav {
+      transition: height 0.5s ease;
+      flex-wrap: nowrap;
+    }
   }
 }
