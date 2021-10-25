@@ -16,6 +16,12 @@
 <a href="https://www.youtube.com/watch?v=c9B4TPnak1A&t=6s"><img alt="YouTube Video Views" src="https://img.shields.io/youtube/views/c9B4TPnak1A?label=Bootstrap%205%20Tutorial%20Views&style=social"></a>
 ___
 
+ <a href="https://mdbootstrap.com/bf/waiting-list/" alt="BF Waiting List" rel="dofollow">
+          		<img src="https://mdbootstrap.com/img/Marketing/campaigns/bf2021/waiting-listBF.gif">
+          </a>
+          
+---          
+
 <table>
   <tbody>
     <tr>
