@@ -225,6 +225,14 @@
       &:focus ~ .form-notch .form-notch-trailing {
         border-color: $form-white-input-focus-border-color;
       }
+      &::placeholder {
+        color: $form-white-placeholder-color;
+      }
+      &:disabled,
+      &.disabled,
+      &[readonly] {
+        background-color: $form-white-disabled-bgc;
+      }
     }
   }
 }

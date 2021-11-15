@@ -7,3 +7,13 @@
     }
   }
 }
+
+.form-select {
+  transition: $form-select-transition;
+}
+
+.form-select:focus {
+  border-color: $form-select-focus-border-color;
+  outline: 0;
+  box-shadow: $form-select-focus-border-box-shadow;
+}

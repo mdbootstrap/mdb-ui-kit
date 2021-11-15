@@ -9,6 +9,7 @@
     transform: rotate(360deg);
   }
 }
+
 // scss-docs-end spinner-border-keyframes
 
 .spinner-border {
@@ -38,11 +39,13 @@
   0% {
     transform: scale(0);
   }
+
   50% {
     opacity: 1;
     transform: none;
   }
 }
+
 // scss-docs-end spinner-grow-keyframes
 
 .spinner-grow {

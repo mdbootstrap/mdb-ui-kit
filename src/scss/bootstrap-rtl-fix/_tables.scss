@@ -4,7 +4,7 @@
 
 .table {
   --#{$variable-prefix}table-bg: #{$table-bg};
-  --#{$variable-prefix}table-accent-bg: #{$table-bg};
+  --#{$variable-prefix}table-accent-bg: #{$table-accent-bg};
   --#{$variable-prefix}table-striped-color: #{$table-striped-color};
   --#{$variable-prefix}table-striped-bg: #{$table-striped-bg};
   --#{$variable-prefix}table-active-color: #{$table-active-color};
@@ -39,8 +39,8 @@
   }
 
   // Highlight border color between thead, tbody and tfoot.
-  > :not(:last-child) > :last-child > * {
-    border-bottom-color: $table-group-separator-color;
+  > :not(:first-child) {
+    border-top: (2 * $table-border-width) solid $table-group-separator-color;
   }
 }
 
@@ -88,6 +88,10 @@
   > :not(caption) > * > * {
     border-bottom-width: 0;
   }
+
+  > :not(:first-child) {
+    border-top-width: 0;
+  }
 }
 
 // Zebra-striping
@@ -95,7 +99,7 @@
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
 .table-striped {
-  > tbody > tr:nth-of-type(#{$table-striped-order}) {
+  > tbody > tr:nth-of-type(#{$table-striped-order}) > * {
     --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-striped-bg);
     color: var(--#{$variable-prefix}table-striped-color);
   }
@@ -115,7 +119,7 @@
 // Placed here since it has to come after the potential zebra striping
 
 .table-hover {
-  > tbody > tr:hover {
+  > tbody > tr:hover > * {
     --#{$variable-prefix}table-accent-bg: var(--#{$variable-prefix}table-hover-bg);
     color: var(--#{$variable-prefix}table-hover-color);
   }

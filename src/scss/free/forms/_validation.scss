@@ -195,6 +195,31 @@
       margin-left: 0.5em;
     }
   }
+
+  .form-switch {
+    .form-check-input {
+      @include form-validation-state-selector($state) {
+        &:focus {
+          &:before {
+            box-shadow: $form-switch-form-check-input-focus-before-box-shadow;
+          }
+        }
+        &:checked {
+          &[type='checkbox'] {
+            &:after {
+              background-color: $color;
+              box-shadow: $form-switch-form-check-input-checked-checkbox-after-box-shadow;
+            }
+          }
+          &:focus {
+            &:before {
+              box-shadow: 3px -1px 0px 13px $color;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .was-validated .input-group .invalid-feedback,

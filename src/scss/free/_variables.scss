@@ -404,6 +404,11 @@ $body-color: $gray-800 !default;
 $border-radius-xl: 0.5rem !default;
 
 // Components
+
+// Placeholders
+$placeholder-opacity-max: 0.5 !default;
+$placeholder-opacity-min: 0.2 !default;
+//
 //
 // Shadows offset, blur, spread and color
 
@@ -618,6 +623,8 @@ $form-white-label-color: $gray-50 !default;
 $form-white-notch-div-border-color: $gray-50 !default;
 $form-white-input-focus-label-color: $white !default;
 $form-white-input-focus-border-color: $white !default;
+$form-white-placeholder-color: rgba(255, 255, 255, 0.7) !default;
+$form-white-disabled-bgc: rgba(255, 255, 255, 0.45) !default;
 
 $form-check-input-margin-left: 1.79rem !default;
 $form-check-input-radio-margin-left: 1.85rem !default;
@@ -1023,3 +1030,8 @@ $table-cell-padding-x: 1.4rem !default;
 $table-cell-padding-y-sm: 0.5rem !default;
 $table-cell-padding-x-sm: $table-cell-padding-x !default;
 $table-hover-bg: rgba(0, 0, 0, 0.075) !default;
+
+// Select
+$form-select-transition: all 0.2s linear;
+$form-select-focus-border-color: #1266f1;
+$form-select-focus-border-box-shadow: inset 0px 0px 0px 1px #1266f1;

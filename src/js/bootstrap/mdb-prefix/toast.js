@@ -1,15 +1,15 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.1): toast.js
+ * Bootstrap (v5.1.3): toast.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 import { defineJQueryPlugin, reflow, typeCheckConfig } from './util/index';
-import Data from './dom/data';
 import EventHandler from './dom/event-handler';
 import Manipulator from './dom/manipulator';
 import BaseComponent from './base-component';
+import { enableDismissTrigger } from './util/component-functions';
 
 /**
  * ------------------------------------------------------------------------
@@ -21,7 +21,6 @@ const NAME = 'toast';
 const DATA_KEY = 'bs.toast';
 const EVENT_KEY = `.${DATA_KEY}`;
 
-const EVENT_CLICK_DISMISS = `click.dismiss${EVENT_KEY}`;
 const EVENT_MOUSEOVER = `mouseover${EVENT_KEY}`;
 const EVENT_MOUSEOUT = `mouseout${EVENT_KEY}`;
 const EVENT_FOCUSIN = `focusin${EVENT_KEY}`;
@@ -32,7 +31,7 @@ const EVENT_SHOW = `show${EVENT_KEY}`;
 const EVENT_SHOWN = `shown${EVENT_KEY}`;
 
 const CLASS_NAME_FADE = 'fade';
-const CLASS_NAME_HIDE = 'hide';
+const CLASS_NAME_HIDE = 'hide'; // @deprecated - kept here only for backwards compatibility
 const CLASS_NAME_SHOW = 'show';
 const CLASS_NAME_SHOWING = 'showing';
 
@@ -47,8 +46,6 @@ const Default = {
   autohide: true,
   delay: 5000,
 };
-
-const SELECTOR_DATA_DISMISS = '[data-mdb-dismiss="toast"]';
 
 /**
  * ------------------------------------------------------------------------
@@ -98,15 +95,14 @@ class Toast extends BaseComponent {
 
     const complete = () => {
       this._element.classList.remove(CLASS_NAME_SHOWING);
-      this._element.classList.add(CLASS_NAME_SHOW);
-
       EventHandler.trigger(this._element, EVENT_SHOWN);
 
       this._maybeScheduleHide();
     };
 
-    this._element.classList.remove(CLASS_NAME_HIDE);
+    this._element.classList.remove(CLASS_NAME_HIDE); // @deprecated
     reflow(this._element);
+    this._element.classList.add(CLASS_NAME_SHOW);
     this._element.classList.add(CLASS_NAME_SHOWING);
 
     this._queueCallback(complete, this._element, this._config.animation);
@@ -124,11 +120,13 @@ class Toast extends BaseComponent {
     }
 
     const complete = () => {
-      this._element.classList.add(CLASS_NAME_HIDE);
+      this._element.classList.add(CLASS_NAME_HIDE); // @deprecated
+      this._element.classList.remove(CLASS_NAME_SHOWING);
+      this._element.classList.remove(CLASS_NAME_SHOW);
       EventHandler.trigger(this._element, EVENT_HIDDEN);
     };
 
-    this._element.classList.remove(CLASS_NAME_SHOW);
+    this._element.classList.add(CLASS_NAME_SHOWING);
     this._queueCallback(complete, this._element, this._config.animation);
   }
 
@@ -198,7 +196,6 @@ class Toast extends BaseComponent {
   }
 
   _setListeners() {
-    EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, () => this.hide());
     EventHandler.on(this._element, EVENT_MOUSEOVER, (event) => this._onInteraction(event, true));
     EventHandler.on(this._element, EVENT_MOUSEOUT, (event) => this._onInteraction(event, false));
     EventHandler.on(this._element, EVENT_FOCUSIN, (event) => this._onInteraction(event, true));
@@ -214,12 +211,7 @@ class Toast extends BaseComponent {
 
   static jQueryInterface(config) {
     return this.each(function () {
-      let data = Data.get(this, DATA_KEY);
-      const _config = typeof config === 'object' && config;
-
-      if (!data) {
-        data = new Toast(this, _config);
-      }
+      const data = Toast.getOrCreateInstance(this, config);
 
       if (typeof config === 'string') {
         if (typeof data[config] === 'undefined') {
@@ -231,6 +223,8 @@ class Toast extends BaseComponent {
     });
   }
 }
+
+enableDismissTrigger(Toast);
 
 /**
  * ------------------------------------------------------------------------

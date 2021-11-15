@@ -32,6 +32,62 @@
   }
 }
 
+// Colors
+@function to-rgb($value) {
+  @return red($value), green($value), blue($value);
+}
+
+// stylelint-disable scss/dollar-variable-pattern
+@function rgba-css-var($identifier, $target) {
+  @if $identifier == 'body' and $target == 'bg' {
+    @return rgba(
+      var(--#{$variable-prefix}#{$identifier}-bg-rgb),
+      var(--#{$variable-prefix}#{$target}-opacity)
+    );
+  }
+  @if $identifier == 'body' and $target == 'text' {
+    @return rgba(
+      var(--#{$variable-prefix}#{$identifier}-color-rgb),
+      var(--#{$variable-prefix}#{$target}-opacity)
+    );
+  } @else {
+    @return rgba(
+      var(--#{$variable-prefix}#{$identifier}-rgb),
+      var(--#{$variable-prefix}#{$target}-opacity)
+    );
+  }
+}
+
+@function map-loop($map, $func, $args...) {
+  $_map: ();
+
+  @each $key, $value in $map {
+    // allow to pass the $key and $value of the map as an function argument
+    $_args: ();
+    @each $arg in $args {
+      $_args: append($_args, if($arg == '$key', $key, if($arg == '$value', $value, $arg)));
+    }
+
+    $_map: map-merge(
+      $_map,
+      (
+        $key: call(get-function($func), $_args...),
+      )
+    );
+  }
+
+  @return $_map;
+}
+// stylelint-enable scss/dollar-variable-pattern
+
+@function varify($list) {
+  $result: null;
+  @each $entry in $list {
+    $result: append($result, var(--#{$variable-prefix}#{$entry}), space);
+  }
+  @return $result;
+}
+
 // Internal Bootstrap function to turn maps into its negative variant.
 // It prefixes the keys with `n` and makes the value negative.
 @function negativify-map($map) {
@@ -58,6 +114,16 @@
     }
   }
   @return $result;
+}
+
+// Merge multiple maps
+@function map-merge-multiple($maps...) {
+  $merged-maps: ();
+
+  @each $map in $maps {
+    $merged-maps: map-merge($merged-maps, $map);
+  }
+  @return $merged-maps;
 }
 
 // Replace `$search` with `$replace` in `$string`
@@ -101,7 +167,7 @@
 // Color contrast
 // See https://github.com/twbs/bootstrap/pull/30168
 
-// A list of pre-calculated numbers of pow(($value / 255 + .055) / 1.055, 2.4). (from 0 to 255)
+// A list of pre-calculated numbers of pow(divide((divide($value, 255) + .055), 1.055), 2.4). (from 0 to 255)
 // stylelint-disable-next-line scss/dollar-variable-default, scss/dollar-variable-pattern
 $_luminance-list: 0.0008 0.001 0.0011 0.0013 0.0015 0.0017 0.002 0.0022 0.0025 0.0027 0.003 0.0033
   0.0037 0.004 0.0044 0.0048 0.0052 0.0056 0.006 0.0065 0.007 0.0075 0.008 0.0086 0.0091 0.0097
@@ -152,7 +218,7 @@ $_luminance-list: 0.0008 0.001 0.0011 0.0013 0.0015 0.0017 0.002 0.0022 0.0025 0
   $l1: luminance($background);
   $l2: luminance(opaque($background, $foreground));
 
-  @return if($l1 > $l2, ($l1 + 0.05) / ($l2 + 0.05), ($l2 + 0.05) / ($l1 + 0.05));
+  @return if($l1 > $l2, divide($l1 + 0.05, $l2 + 0.05), divide($l2 + 0.05, $l1 + 0.05));
 }
 
 // Return WCAG2.0 relative luminance
@@ -166,7 +232,11 @@ $_luminance-list: 0.0008 0.001 0.0011 0.0013 0.0015 0.0017 0.002 0.0022 0.0025 0
   );
 
   @each $name, $value in $rgb {
-    $value: if($value / 255 < 0.03928, $value / 255 / 12.92, nth($_luminance-list, $value + 1));
+    $value: if(
+      divide($value, 255) < 0.03928,
+      divide(divide($value, 255), 12.92),
+      nth($_luminance-list, $value + 1)
+    );
     $rgb: map-merge(
       $rgb,
       (
@@ -240,9 +310,55 @@ $_luminance-list: 0.0008 0.001 0.0011 0.0013 0.0015 0.0017 0.002 0.0022 0.0025 0
     @return $value1 - $value2;
   }
 
+  @if type-of($value2) != number {
+    $value2: unquote('(') + $value2 + unquote(')');
+  }
+
   @return if(
     $return-calc == true,
     calc(#{$value1} - #{$value2}),
     $value1 + unquote(' - ') + $value2
   );
+}
+
+@function divide($dividend, $divisor, $precision: 10) {
+  $sign: if($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0, 1, -1);
+  $dividend: abs($dividend);
+  $divisor: abs($divisor);
+  @if $dividend == 0 {
+    @return 0;
+  }
+  @if $divisor == 0 {
+    @error "Cannot divide by 0";
+  }
+  $remainder: $dividend;
+  $result: 0;
+  $factor: 10;
+  @while ($remainder > 0 and $precision >= 0) {
+    $quotient: 0;
+    @while ($remainder >= $divisor) {
+      $remainder: $remainder - $divisor;
+      $quotient: $quotient + 1;
+    }
+    $result: $result * 10 + $quotient;
+    $factor: $factor * 0.1;
+    $remainder: $remainder * 10;
+    $precision: $precision - 1;
+    @if ($precision < 0 and $remainder >= $divisor * 5) {
+      $result: $result + 1;
+    }
+  }
+  $result: $result * $factor * $sign;
+  $dividend-unit: unit($dividend);
+  $divisor-unit: unit($divisor);
+  $unit-map: (
+    'px': 1px,
+    'rem': 1rem,
+    'em': 1em,
+    '%': 1%,
+  );
+  @if ($dividend-unit != $divisor-unit and map-has-key($unit-map, $dividend-unit)) {
+    $result: $result * map-get($unit-map, $dividend-unit);
+  }
+  @return $result;
 }

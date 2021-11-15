@@ -141,6 +141,12 @@
 @each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
     @include button-outline-variant-mdb($value);
+
+    .btn-check:checked + &,
+    .btn-check:active + & {
+      color: set-notification-text-color($value);
+      background-color: $value;
+    }
   }
 }
 
@@ -335,7 +341,7 @@
       margin-bottom: $fixed-action-btn-li-margin-bottom;
       margin-left: auto;
       &:first-of-type {
-        margin-top: $fixed-action-btn-li-margin-bottom / 2;
+        margin-top: $fixed-action-btn-li-margin-bottom * 0.5;
       }
     }
     a {

@@ -122,28 +122,7 @@
     }
 
     &:indeterminate {
-      background-image: none;
-      background-color: transparent;
-      border-color: $form-check-input-indeterminate-border-color;
-
-      &:after {
-        display: block;
-        transform: $form-check-input-indeterminate-checked-after-transform #{'/*!rtl:ignore*/'};
-        border-width: $form-check-input-indeterminate-checked-after-border-width;
-        border-color: $form-check-input-indeterminate-checked-after-border-color;
-        width: $form-check-input-indeterminate-checked-after-width;
-        height: $form-check-input-indeterminate-checked-after-height;
-        border-style: solid;
-        border-top: 0;
-        border-left: 0 #{'/*!rtl:ignore*/'};
-        margin-left: $form-check-input-indeterminate-checked-after-margin-left;
-        margin-top: 0;
-      }
-
-      &:focus {
-        background-color: $form-check-input-indeterminate-focus-background-color;
-        border-color: $form-check-input-indeterminate-focus-border-color;
-      }
+      border-color: $form-check-input-indeterminate-focus-border-color;
     }
   }
 

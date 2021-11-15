@@ -2,6 +2,6 @@
 
 @each $color, $value in $theme-colors {
   .bg-#{$color} {
-    background-color: $value !important;
+    background-color: rgba($value, var(--mdb-bg-opacity)) !important;
   }
 }
