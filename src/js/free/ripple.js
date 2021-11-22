@@ -61,12 +61,15 @@ class Ripple {
   constructor(element, options) {
     this._element = element;
     this._options = this._getConfig(options);
+
     if (this._element) {
       Data.setData(element, DATA_KEY, this);
       Manipulator.addClass(this._element, CLASSNAME_RIPPLE);
     }
 
     this._clickHandler = this._createRipple.bind(this);
+    this._rippleTimer = null;
+    this._isMinWidthSet = false;
 
     this.init();
   }
@@ -100,7 +103,10 @@ class Ripple {
       }
     });
 
-    this._element.style.minWidth = `${this._element.offsetWidth}px`;
+    if (!this._element.style.minWidth) {
+      Manipulator.style(this._element, { 'min-width': `${this._element.offsetWidth}px` });
+      this._isMinWidthSet = true;
+    }
 
     Manipulator.addClass(this._element, CLASSNAME_RIPPLE);
     this._options = this._getConfig();
@@ -112,6 +118,10 @@ class Ripple {
   }
 
   _createRipple(event) {
+    if (!Manipulator.hasClass(this._element, CLASSNAME_RIPPLE)) {
+      Manipulator.addClass(this._element, CLASSNAME_RIPPLE);
+    }
+
     const { layerX, layerY } = event;
     const offsetX = layerX;
     const offsetY = layerY;
@@ -164,9 +174,23 @@ class Ripple {
   }
 
   _removeHTMLRipple({ ripple, duration }) {
-    setTimeout(() => {
+    if (this._rippleTimer) {
+      clearTimeout(this._rippleTimer);
+      this._rippleTimer = null;
+    }
+    this._rippleTimer = setTimeout(() => {
       if (ripple) {
         ripple.remove();
+        if (this._element) {
+          SelectorEngine.find(`.${CLASSNAME_RIPPLE_WAVE}`, this._element).forEach((rippleEl) => {
+            rippleEl.remove();
+          });
+          if (this._isMinWidthSet) {
+            Manipulator.style(this._element, { 'min-width': '' });
+            this._isMinWidthSet = false;
+          }
+          Manipulator.removeClass(this._element, CLASSNAME_RIPPLE);
+        }
       }
     }, duration);
   }
