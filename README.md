@@ -4,7 +4,7 @@ MDB is a collection of free Bootstrap templates, themes, design tools & resource
 
 ---
 
-# Installation
+# Get started
 
 ### [>> Get Started in 1 minute](https://mdbootstrap.com/docs/standard/getting-started/installation/)
 Simple installation via .zip, npm or cdnjs.
@@ -19,13 +19,10 @@ This option is useful for experienced developers it enables bundling, unit testi
 ### [>> Install with MDBGO + e-commerce shop integration](https://mdbgo.com/wordpress-shop/)
 One click setup! MDB GO allows you to create a WordPress page with a single click.
 Regardless whether you want to create a Travel Blog or an e-commerce shop to sell your product you can easily do that. You can even combine both into single page.
- 
-### [>> MDB 5 Demo](https://mdbootstrap.com/docs/standard/#demo)
-Preview basic MDB components.
 
----
 
-# Material Design for Bootstrap 5 & Vanilla JavaScript
+## About Material Design for Bootstrap 5 & Vanilla JavaScript
+
 <p>Created by <a href="https://mdbootstrap.com"><img height="30" src="https://mdbootstrap.com/img/Marketing/general/logo/medium/mdb-r.png"></a>  
 <a href="https://npmcharts.com/compare/mdbootstrap?minimal=true"> <img src="https://img.shields.io/npm/dm/mdbootstrap.svg?label=NPM%20Downloads" alt="Downloads"></a>
 <a href="https://github.com/mdbootstrap/bootstrap-material-design/blob/master/License.pdf"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
@@ -84,7 +81,9 @@ ___
 **[>> Learn more about Bootstrap 5](https://mdbootstrap.com/docs/standard/bootstrap-5/)**
 
 
-**[>> Bootstrap Tutorial](https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/)**
+**[>> Bootstrap 5 Tutorial](https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/)**
+
+**[>> Subscribe to our YouTube channel with dozens of Bootstrap tutorials](https://www.youtube.com/c/Mdbootstrap?sub_confirmation=1)**
 
 <table>
   <tbody>
