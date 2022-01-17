@@ -31,14 +31,12 @@ class ScrollSpy extends BSScrollSpy {
   constructor(element, data) {
     super(element, data);
 
-    this._scrollElement = element.tagName === 'BODY' ? window : element;
     this._collapsibles = [];
     this._init();
   }
 
   dispose() {
     EventHandler.off(this._scrollElement, EVENT_ACTIVATE_BS);
-    this._scrollElement = null;
 
     super.dispose();
   }
