@@ -80,6 +80,35 @@
         ~ .form-notch .form-notch-trailing {
           border-color: $color;
         }
+
+        &:focus ~ .form-notch .form-notch-middle,
+        &.active ~ .form-notch .form-notch-middle {
+          border-top: 1px solid transparent;
+        }
+        &:focus ~ .form-notch .form-notch-middle {
+          box-shadow: 0 1px 0 0 $color;
+        }
+        &:focus ~ .form-notch .form-notch-leading {
+          box-shadow: -1px 0 0 0 $color, 0 1px 0 0 $color, 0 -1px 0 0 $color;
+        }
+        &:focus ~ .form-notch .form-notch-trailing {
+          box-shadow: 1px 0 0 0 $color, 0 -1px 0 0 $color, 0 1px 0 0 $color;
+        }
+
+        &.select-input.focused {
+          & ~ .form-notch .form-notch-leading {
+            box-shadow: -1px 0 0 0 $color, 0 1px 0 0 $color, 0 -1px 0 0 $color;
+          }
+
+          & ~ .form-notch .form-notch-middle {
+            box-shadow: 0 1px 0 0 $color;
+            border-top: 1px solid transparent;
+          }
+
+          & ~ .form-notch .form-notch-trailing {
+            box-shadow: 1px 0 0 0 $color, 0 -1px 0 0 $color, 0 1px 0 0 $color;
+          }
+        }
       }
     }
   }

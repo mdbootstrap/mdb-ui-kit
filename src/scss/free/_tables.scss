@@ -38,7 +38,6 @@
   }
   > tbody > tr:hover {
     --#{$variable-prefix}table-accent-bg: transparent;
-    color: var(--#{$variable-prefix}table-hover-color);
     background-color: var(--#{$variable-prefix}table-hover-bg);
   }
 }

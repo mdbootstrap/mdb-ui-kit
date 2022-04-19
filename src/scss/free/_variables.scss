@@ -287,7 +287,7 @@ $success: #00b74a !default;
 $info: #39c0ed !default;
 $warning: #ffa900 !default;
 $danger: #f93154 !default;
-$light: $gray-50 !default;
+$light: #f9f9f9 !default;
 $dark: $gray-900 !default;
 
 // scss-docs-start theme-colors-map
@@ -1029,7 +1029,8 @@ $table-cell-padding-y: 1rem !default;
 $table-cell-padding-x: 1.4rem !default;
 $table-cell-padding-y-sm: 0.5rem !default;
 $table-cell-padding-x-sm: $table-cell-padding-x !default;
-$table-hover-bg: rgba(0, 0, 0, 0.075) !default;
+$table-striped-bg: rgba(0, 0, 0, 0.02) !default;
+$table-hover-bg: rgba(0, 0, 0, 0.025) !default;
 
 // Select
 $form-select-transition: all 0.2s linear;

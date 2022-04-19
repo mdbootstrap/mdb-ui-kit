@@ -421,10 +421,12 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
   });
 
   // avoid conflict when clicking moddal toggler while another one is open
-  const allReadyOpen = SelectorEngine.findOne(OPEN_SELECTOR);
-  if (allReadyOpen) {
-    Modal.getInstance(allReadyOpen).hide();
-  }
+  const allreadyOpenedModals = SelectorEngine.find(OPEN_SELECTOR);
+  allreadyOpenedModals.forEach((modal) => {
+    if (!modal.classList.contains('modal-non-invasive-show')) {
+      Modal.getInstance(modal).hide();
+    }
+  });
 
   const data = Modal.getOrCreateInstance(target);
 

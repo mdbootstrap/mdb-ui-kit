@@ -8,3 +8,36 @@
     transition: 0.5s;
   }
 }
+
+.list-group-light {
+  .list-group-item {
+    padding: 1rem 0;
+    border: 2px solid hsl(0, 0%, 96%);
+  }
+  > .list-group-item {
+    border-width: 0 0 2px;
+    &:last-of-type {
+      border: none;
+    }
+  }
+  .active {
+    border: none;
+    border-radius: 0.5rem;
+    background-color: hsl(217, 88.2%, 90%);
+    color: hsl(217, 88.8%, 35.1%);
+  }
+  .list-group-item-action {
+    &:hover {
+      border-radius: 0.5rem;
+    }
+    &:focus {
+      border-radius: 0.5rem;
+    }
+  }
+}
+
+.list-group-small {
+  .list-group-item {
+    padding: 0.5rem 0;
+  }
+}

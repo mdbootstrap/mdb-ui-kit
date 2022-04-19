@@ -90,6 +90,7 @@
         border-color: $form-notch-div-border-color;
         box-sizing: border-box;
         background: transparent;
+        transition: $input-transition;
       }
       .form-notch-leading {
         left: 0;
@@ -135,34 +136,32 @@
     }
     &:focus ~ .form-notch .form-notch-middle,
     &.active ~ .form-notch .form-notch-middle {
-      border-top: none;
       border-right: none;
       border-left: none;
-      transition: $input-transition;
+      border-top: 1px solid transparent;
     }
     &:focus ~ .form-notch .form-notch-middle {
-      border-bottom: $input-focus-border-width solid;
       border-color: $input-focus-border-color;
+      box-shadow: 0 1px 0 0 $input-focus-border-color;
+      border-top: 1px solid transparent;
     }
     &:focus ~ .form-notch .form-notch-leading,
     &.active ~ .form-notch .form-notch-leading {
       border-right: none;
-      transition: $input-transition;
     }
     &:focus ~ .form-notch .form-notch-leading {
-      border-top: $input-focus-border-width solid $input-focus-border-color;
-      border-bottom: $input-focus-border-width solid $input-focus-border-color;
-      border-left: $input-focus-border-width solid $input-focus-border-color;
+      border-color: $input-focus-border-color;
+      box-shadow: -1px 0 0 0 $input-focus-border-color, 0 1px 0 0 $input-focus-border-color,
+        0 -1px 0 0 $input-focus-border-color;
     }
     &:focus ~ .form-notch .form-notch-trailing,
     &.active ~ .form-notch .form-notch-trailing {
       border-left: none;
-      transition: $input-transition;
     }
     &:focus ~ .form-notch .form-notch-trailing {
-      border-top: $input-focus-border-width solid $input-focus-border-color;
-      border-bottom: $input-focus-border-width solid $input-focus-border-color;
-      border-right: $input-focus-border-width solid $input-focus-border-color;
+      border-color: $input-focus-border-color;
+      box-shadow: 1px 0 0 0 $input-focus-border-color, 0 -1px 0 0 $input-focus-border-color,
+        0 1px 0 0 $input-focus-border-color;
     }
     &:disabled,
     &.disabled,
@@ -216,14 +215,20 @@
       }
       &:focus ~ .form-notch .form-notch-middle {
         border-color: $form-white-input-focus-border-color;
+        box-shadow: 0 1px 0 0 $form-white-input-focus-border-color;
+        border-top: 1px solid transparent;
       }
       &:focus ~ .form-notch .form-notch-leading {
-        border-top: $input-focus-border-width solid $form-white-input-focus-border-color;
-        border-bottom: $input-focus-border-width solid $form-white-input-focus-border-color;
-        border-left: $input-focus-border-width solid $form-white-input-focus-border-color;
+        border-color: $form-white-input-focus-border-color;
+        box-shadow: -1px 0 0 0 $form-white-input-focus-border-color,
+          0 1px 0 0 $form-white-input-focus-border-color,
+          0 -1px 0 0 $form-white-input-focus-border-color;
       }
       &:focus ~ .form-notch .form-notch-trailing {
         border-color: $form-white-input-focus-border-color;
+        box-shadow: 1px 0 0 0 $form-white-input-focus-border-color,
+          0 -1px 0 0 $form-white-input-focus-border-color,
+          0 1px 0 0 $form-white-input-focus-border-color;
       }
       &::placeholder {
         color: $form-white-placeholder-color;
