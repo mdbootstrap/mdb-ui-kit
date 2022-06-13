@@ -350,46 +350,111 @@ $badges: map-merge(
       'background-color': hsl(217, 88.8%, 90%),
       'text-color': hsl(217, 88.8%, 35%),
       'icon-color': hsl(217, 88.8%, 65%),
+      'border-color': hsl(217, 88.8%, 85%),
     ),
     'secondary': (
       'background-color': hsl(277, 98%, 90%),
       'text-color': hsl(277, 98%, 35%),
       'icon-color': hsl(277, 98%, 55%),
+      'border-color': hsl(277, 98%, 85%),
     ),
     'success': (
       'background-color': hsl(144, 70%, 87%),
       'text-color': hsl(144, 70%, 15%),
       'icon-color': hsl(144, 70%, 35%),
+      'border-color': hsl(144, 70%, 77%),
     ),
     'danger': (
       'background-color': hsl(350, 90.3%, 92%),
       'text-color': hsl(350, 90.3%, 25%),
       'icon-color': hsl(350, 90.3%, 55%),
+      'border-color': hsl(350, 90.3%, 87%),
     ),
     'warning': (
       'background-color': hsl(40, 100%, 88%),
       'text-color': hsl(40, 80%, 15%),
       'icon-color': hsl(40, 100%, 40%),
+      'border-color': hsl(40, 100%, 80%),
     ),
     'info': (
       'background-color': hsl(195, 83.3%, 90%),
       'text-color': hsl(195, 83.3%, 18%),
       'icon-color': hsl(195, 83.3%, 45%),
+      'border-color': hsl(195, 83.3%, 85%),
     ),
     'light': (
       'background-color': hsl(0, 0%, 96%),
       'text-color': hsl(0, 0%, 25%),
       'icon-color': hsl(0, 0%, 55%),
+      'border-color': hsl(0, 0%, 88%),
     ),
     'dark': (
       'background-color': hsl(0, 0%, 16%),
       'text-color': hsl(0, 0%, 96%),
       'icon-color': hsl(0, 0%, 85%),
+      'border-color': hsl(0, 0%, 20%),
     ),
   ),
   $badges
 );
 // scss-docs-end badges-colors-map
+
+// scss-docs-start toasts-colors-map
+$toasts: () !default;
+$toasts: map-merge(
+  (
+    'primary': (
+      'background-color': hsl(217, 88.8%, 90%),
+      'text-color': hsl(217, 88.8%, 35%),
+      'icon-color': hsl(217, 88.8%, 65%),
+      'border-color': hsl(217, 88.8%, 87%),
+    ),
+    'secondary': (
+      'background-color': hsl(277, 98%, 90%),
+      'text-color': hsl(277, 98%, 35%),
+      'icon-color': hsl(277, 98%, 55%),
+      'border-color': hsl(277, 98%, 87%),
+    ),
+    'success': (
+      'background-color': hsl(144, 70%, 87%),
+      'text-color': hsl(144, 70%, 15%),
+      'icon-color': hsl(144, 70%, 35%),
+      'border-color': hsl(144, 70%, 81%),
+    ),
+    'danger': (
+      'background-color': hsl(350, 90.3%, 92%),
+      'text-color': hsl(350, 90.3%, 25%),
+      'icon-color': hsl(350, 90.3%, 55%),
+      'border-color': hsl(350, 90.3%, 89%),
+    ),
+    'warning': (
+      'background-color': hsl(40, 100%, 88%),
+      'text-color': hsl(40, 80%, 15%),
+      'icon-color': hsl(40, 100%, 40%),
+      'border-color': hsl(40, 100%, 82%),
+    ),
+    'info': (
+      'background-color': hsl(195, 83.3%, 90%),
+      'text-color': hsl(195, 83.3%, 18%),
+      'icon-color': hsl(195, 83.3%, 45%),
+      'border-color': hsl(195, 83.3%, 85%),
+    ),
+    'light': (
+      'background-color': hsl(0, 0%, 96%),
+      'text-color': hsl(0, 0%, 25%),
+      'icon-color': hsl(0, 0%, 55%),
+      'border-color': hsl(0, 0%, 90%),
+    ),
+    'dark': (
+      'background-color': hsl(0, 0%, 16%),
+      'text-color': hsl(0, 0%, 96%),
+      'icon-color': hsl(0, 0%, 85%),
+      'border-color': hsl(0, 0%, 13%),
+    ),
+  ),
+  $toasts
+);
+// scss-docs-end toasts-colors-map
 
 // Prefix for :root CSS variables
 
@@ -414,12 +479,12 @@ $placeholder-opacity-min: 0.2 !default;
 
 $box-shadow-0: none !default;
 
-$box-shadow-1: 0 1px 2px 0 rgba(0, 0, 0, 0.07) !default;
-$box-shadow-2: 0 1px 3px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.05) !default;
-$box-shadow-3: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.05) !default;
-$box-shadow-4: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !default;
-$box-shadow-5: 0 20px 25px -5px rgba(0, 0, 0, 0.07), 0 10px 10px -5px rgba(0, 0, 0, 0.05) !default;
-$box-shadow-6: 0 25px 50px -12px rgba(0, 0, 0, 0.21) !default;
+$box-shadow-1: 0 0px 2px 0 rgb(0 0 0 / 7%), 0 1px 1px 0 rgb(0 0 0 / 4%) !default;
+$box-shadow-2: 0 0px 3px 0 rgb(0 0 0 / 7%), 0 2px 2px 0 rgb(0 0 0 / 4%) !default;
+$box-shadow-3: 0 2px 6px -1px rgb(0 0 0 / 7%), 0 6px 18px -1px rgb(0 0 0 / 4%) !default;
+$box-shadow-4: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%) !default;
+$box-shadow-5: 0 2px 25px -5px rgb(0 0 0 / 7%), 0 25px 21px -5px rgb(0 0 0 / 4%) !default;
+$box-shadow-6: 0 2px 35px -12px rgb(0 0 0 / 21%), 0 50px 40px -5px rgb(0 0 0 / 4%) !default;
 
 $box-shadow-1-soft: 0 1px 5px 0 rgba(0, 0, 0, 0.05) !default;
 $box-shadow-2-soft: 0 2px 10px 0 rgba(0, 0, 0, 0.05) !default;
@@ -428,12 +493,12 @@ $box-shadow-4-soft: 0 10px 20px 0 rgba(0, 0, 0, 0.05) !default;
 $box-shadow-5-soft: 0 15px 30px 0 rgba(0, 0, 0, 0.05) !default;
 $box-shadow-6-soft: 0 20px 40px 0 rgba(0, 0, 0, 0.05) !default;
 
-$box-shadow-1-strong: 0 1px 5px 0 rgba(0, 0, 0, 0.21) !default;
-$box-shadow-2-strong: 0 2px 10px 0 rgba(0, 0, 0, 0.21) !default;
-$box-shadow-3-strong: 0 5px 15px 0 rgba(0, 0, 0, 0.21) !default;
-$box-shadow-4-strong: 0 10px 20px 0 rgba(0, 0, 0, 0.21) !default;
-$box-shadow-5-strong: 0 15px 30px 0 rgba(0, 0, 0, 0.21) !default;
-$box-shadow-6-strong: 0 20px 40px 0 rgba(0, 0, 0, 0.21) !default;
+$box-shadow-1-strong: 0 0px 2px 0 rgb(0 0 0 / 16%), 0 1px 1px 0 rgb(0 0 0 / 10%) !default;
+$box-shadow-2-strong: 0 0px 3px 0 rgb(0 0 0 / 16%), 0 2px 2px 0 rgb(0 0 0 / 10%) !default;
+$box-shadow-3-strong: 0 2px 6px -1px rgb(0 0 0 / 16%), 0 6px 18px -1px rgb(0 0 0 / 10%) !default;
+$box-shadow-4-strong: 0 2px 15px -3px rgb(0 0 0 / 16%), 0 10px 20px -2px rgb(0 0 0 / 10%) !default;
+$box-shadow-5-strong: 0 2px 25px -5px rgb(0 0 0 / 16%), 0 25px 21px -5px rgb(0 0 0 / 10%) !default;
+$box-shadow-6-strong: 0 2px 35px -12px rgb(0 0 0 / 26%), 0 50px 40px -5px rgb(0 0 0 / 10%) !default;
 
 $box-shadow-3-top: 0 -10px 20px 0 rgba(0, 0, 0, 0.05) !default;
 $box-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06) !default;
@@ -632,7 +697,7 @@ $form-check-input-width-md: 1.125rem !default;
 $form-check-input-height: $form-check-input-width-md !default;
 $form-check-input-background-color: $white !default;
 $form-check-input-border-width: 0.125rem !default;
-$form-check-input-border-color: rgb(117, 117, 117) !default;
+$form-check-input-border-color: rgba(0, 0, 0, 0.25) !default;
 
 $form-check-input-before-box-shadow: 0px 0px 0px 13px transparent !default;
 $form-check-input-before-border-radius: 50% !default;
@@ -658,7 +723,7 @@ $form-check-input-checked-focus-before-box-shadow: 0px 0px 0px 13px $primary !de
 $form-check-input-checked-focus-before-transform: $form-check-input-focus-before-transform !default;
 $form-check-input-checked-focus-before-transition: $form-check-input-focus-before-transition !default;
 
-$form-check-input-checkbox-border-radius: 0.125rem !default;
+$form-check-input-checkbox-border-radius: 0.25rem !default;
 $form-check-input-checkbox-focus-after-width: 0.875rem !default;
 $form-check-input-checkbox-focus-after-height: $form-check-input-checkbox-focus-after-width !default;
 $form-check-input-checkbox-focus-after-background-color: $white !default;
@@ -712,7 +777,7 @@ $form-switch-padding-left: 1.85rem !default;
 $form-switch-form-check-input-border-radius: 0.4375rem !default;
 $form-switch-form-check-input-width: 2rem !default;
 $form-switch-form-check-input-height: 0.875rem !default;
-$form-switch-form-check-input-background-color: rgba(0, 0, 0, 0.38) !default;
+$form-switch-form-check-input-background-color: rgba(0, 0, 0, 0.25) !default;
 $form-switch-form-check-input-margin-top: 0.35rem !default;
 $form-switch-form-check-input-margin-right: 0.7rem !default;
 
@@ -862,7 +927,7 @@ $navbar-brand-img-margin-right: 0.25rem !default;
 //
 // Dropdown menu container and content !default;
 
-$dropdown-color: #212529 !default;
+$dropdown-color: $body-color !default;
 $dropdown-margin-top: 0.125rem !default;
 $dropdown-box-shadow: $box-shadow-4 !default;
 $dropdown-font-size: 0.875rem !default;
@@ -870,6 +935,7 @@ $dropdown-item-border-radius: 0.5rem !default;
 $dropdown-item-padding-y: 0.5rem !default;
 $dropdown-item-padding-x: 1rem !default;
 $dropdown-border-radius: 0.5rem !default;
+$dropdown-divider-bg: hsl(0, 0%, 96%) !default;
 
 $dropdown-state-color: #16181b !default;
 $dropdown-state-background-color: #eee !default;
@@ -880,7 +946,7 @@ $dropdown-menu-animated-animation-timing-function: ease !default;
 // Pagination
 
 $pagination-font-size: 0.9rem !default;
-$pagination-color: #212529 !default;
+$pagination-color: $body-color !default;
 $pagination-transition: all 0.3s linear !default;
 $pagination-border-radius: 0.25rem !default;
 
@@ -904,6 +970,10 @@ $card-spacer-x: 1.5rem !default;
 $card-box-shadow: $box-shadow-4 !default;
 $card-header-background-color: rgba(255, 255, 255, 0) !default;
 $card-footer-background-color: rgba(255, 255, 255, 0) !default;
+$card-header-border-width: 2px !default;
+$card-header-border-color: hsl(0, 0%, 96%) !default;
+$card-footer-border-width: 2px !default;
+$card-footer-border-color: hsl(0, 0%, 96%) !default;
 $card-border-radius: 0.5rem !default;
 $card-img-overlay-padding: 1.5rem !default;
 
@@ -930,6 +1000,8 @@ $tooltip-inner-border-radius: 0.25rem !default;
 $popover-box-shadow: $box-shadow-4 !default;
 $popover-background-color: #fff !default;
 $popover-border-radius: $border-radius-xl !default;
+$popover-border-width: 2px !default;
+$popover-border-color: hsl(0, 0%, 96%) !default;
 
 // Toasts
 
@@ -937,6 +1009,8 @@ $toast-background-color: #fff !default;
 $toast-box-shadow: $box-shadow-4 !default;
 $toast-header-background-color: #fff !default;
 $toast-border-radius: $border-radius-xl !default;
+$toast-padding-x: 1rem !default;
+$toast-padding-y: 0.65rem !default;
 
 // Badges
 
@@ -957,6 +1031,10 @@ $badge-border-radius: 0.27rem !default;
 
 $modal-box-shadow: $box-shadow-4 !default;
 $modal-content-border-radius: $border-radius-xl !default;
+$modal-header-border-color: hsl(0, 0%, 96%) !default;
+$modal-footer-border-color: hsl(0, 0%, 96%) !default;
+$modal-header-border-width: 2px !default;
+$modal-footer-border-width: 2px !default;
 
 // Alerts
 
@@ -972,6 +1050,7 @@ $progress-height: 4px !default;
 
 $list-group-border-radius: $border-radius-xl !default;
 $list-group-item-padding-x: 1.5rem !default;
+$list-group-color: $body-color !default;
 
 // Carousel
 
@@ -1021,7 +1100,7 @@ $note-paragraph-font-weight: 500 !default;
 
 // Table
 
-$table-color: #212529 !default;
+$table-color: $body-color !default;
 $table-font-size: 0.9rem !default;
 $table-hover-transition: 0.5s !default;
 $table-group-separator-color: inherit !default;

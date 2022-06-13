@@ -8,10 +8,20 @@
     border-top-left-radius: $card-border-radius;
     border-top-right-radius: $card-border-radius;
   }
+
+  &[class*='bg-'] {
+    .card-header {
+      border-bottom-color: $card-border-color;
+    }
+    .card-footer {
+      border-top-color: $card-border-color;
+    }
+  }
 }
 
 .card-header {
   background-color: $card-header-background-color;
+  border-bottom: $card-header-border-width solid $card-header-border-color;
 }
 
 .card-body {
@@ -23,6 +33,7 @@
 
 .card-footer {
   background-color: $card-footer-background-color;
+  border-top: $card-header-border-width solid $card-header-border-color;
 }
 
 .card-img-left {

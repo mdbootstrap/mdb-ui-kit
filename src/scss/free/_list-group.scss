@@ -41,28 +41,3 @@
     padding: 0.5rem 0;
   }
 }
-
-.input-group {
-  &.input-group-lg {
-    .input-group-text {
-      height: $input-group-lg-height;
-    }
-  }
-}
-
-.input-group {
-  .input-group-text {
-    height: $input-group-height;
-  }
-  .btn {
-    line-height: 1;
-  }
-}
-
-.input-group {
-  &.input-group-sm {
-    .input-group-text {
-      height: $input-group-sm-height;
-    }
-  }
-}

@@ -82,7 +82,7 @@
   &[type='checkbox'] {
     border-radius: $form-check-input-checkbox-border-radius;
     margin-top: 0.19em;
-    margin-right: 8px;
+    margin-right: 6px;
 
     &:focus {
       &:after {
@@ -131,7 +131,7 @@
     width: $form-check-input-radio-width;
     height: $form-check-input-radio-height;
     margin-top: 0.125em;
-    margin-right: 6px;
+    margin-right: 4px;
 
     &:before {
       width: $form-check-input-radio-before-width;

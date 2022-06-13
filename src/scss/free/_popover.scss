@@ -11,4 +11,5 @@
 
 .popover-header {
   background-color: $popover-background-color;
+  border-bottom: $popover-border-width solid $popover-border-color;
 }

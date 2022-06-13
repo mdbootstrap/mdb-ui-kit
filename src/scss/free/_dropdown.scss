@@ -114,3 +114,8 @@
 .fade-out {
   animation-name: fade-out;
 }
+
+.dropdown-divider {
+  border-top: 2px solid $dropdown-divider-bg;
+  opacity: 1;
+}
