@@ -117,12 +117,18 @@ class Ripple {
     EventHandler.on(target, 'mousedown', this._clickHandler);
   }
 
+  _getEventLayer(event) {
+    const x = Math.round(event.clientX - event.target.getBoundingClientRect().x);
+    const y = Math.round(event.clientY - event.target.getBoundingClientRect().y);
+    return { layerX: x, layerY: y };
+  }
+
   _createRipple(event) {
     if (!Manipulator.hasClass(this._element, CLASSNAME_RIPPLE)) {
       Manipulator.addClass(this._element, CLASSNAME_RIPPLE);
     }
 
-    const { layerX, layerY } = event;
+    const { layerX, layerY } = this._getEventLayer(event);
     const offsetX = layerX;
     const offsetY = layerY;
     const height = this._element.offsetHeight;
