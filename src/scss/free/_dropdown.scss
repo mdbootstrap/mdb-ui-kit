@@ -119,3 +119,11 @@
   border-top: 2px solid $dropdown-divider-bg;
   opacity: 1;
 }
+
+.dropdown-menu {
+  INPUT:not(:-webkit-autofill),
+  SELECT:not(:-webkit-autofill),
+  TEXTAREA:not(:-webkit-autofill) {
+    animation-name: none !important;
+  }
+}

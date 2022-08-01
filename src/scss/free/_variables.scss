@@ -289,6 +289,7 @@ $warning: #ffa900 !default;
 $danger: #f93154 !default;
 $light: #f9f9f9 !default;
 $dark: $gray-900 !default;
+$grayish: #9fa6b2 !default;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
@@ -302,6 +303,7 @@ $theme-colors: (
   'dark': $dark,
   'white': $white,
   'black': $black,
+  'grayish': $grayish,
 ) !default;
 // scss-docs-end theme-colors-map
 

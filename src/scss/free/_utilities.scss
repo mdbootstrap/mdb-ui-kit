@@ -175,33 +175,78 @@ $utilities: map-merge(
   )
 );
 
-hr.divider-horizontal:not([size]) {
-  height: 2px;
+hr:not([size]) {
+  &.hr {
+    height: 2px;
+    background-color: #f5f5f5;
+    opacity: 1;
+
+    &.hr-blurry {
+      background-image: linear-gradient(90deg, transparent, hsl(0, 0%, 40%), transparent);
+      background-color: transparent;
+      height: 1px;
+      opacity: $hr-opacity;
+    }
+  }
+  &.vr {
+    height: auto;
+  }
 }
 
-.divider-horizontal {
-  opacity: 1;
-  background-color: #f5f5f5;
-  height: 2px;
-}
-
-.divider-vertical {
-  opacity: 1;
-  background-color: #f5f5f5;
-  display: inline-block;
+.vr {
   width: 2px;
-  margin: 0 1rem;
+  background-color: #f5f5f5;
+  opacity: 1;
 }
 
-hr.divider-horizontal-blurry {
-  background-image: linear-gradient(90deg, transparent, hsl(0, 0%, 40%), transparent);
-  background-color: transparent;
-}
-
-hr.divider-vertical-blurry {
+.vr-blurry {
   background-image: linear-gradient(180deg, transparent, hsl(0, 0%, 40%), transparent);
   background-color: transparent;
   width: 1px;
-  top: 0;
-  right: 0;
+  opacity: $hr-opacity;
+}
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'object-fit': (
+      property: object-fit,
+      class: object,
+      values: (
+        cover: cover,
+      ),
+    ),
+  )
+);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'object-position': (
+      property: object-position,
+      class: object,
+      values: (
+        top: top,
+        center: center,
+        bottom: bottom,
+      ),
+    ),
+  )
+);
+
+@each $name, $color in $theme-colors {
+  .link-#{$name} {
+    transition: color 0.15s;
+  }
+}
+
+.navbar-light .navbar-nav .nav-link.link-grayish,
+.navbar-dark .navbar-nav .nav-link.link-grayish,
+.link-grayish {
+  color: #9fa6b2;
+
+  &:hover,
+  &:focus {
+    color: #798497;
+  }
 }
