@@ -21,10 +21,12 @@
 
 .page-item {
   &.active .page-link {
-    background-color: $pagination-active-bg;
+    background-color: $page-item-active-link-bgc;
+    color: $page-item-active-link-color;
     border: 0;
-    box-shadow: $pagination-active-box-shadow;
+    box-shadow: $page-item-active-link-box-shadow;
     transition: $pagination-active-transition;
+    font-weight: $page-item-active-link-font-weight;
   }
 
   &:first-child {

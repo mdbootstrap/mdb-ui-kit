@@ -11,10 +11,10 @@
   }
 }
 
-@each $name, $color in $note {
-  .note-#{$name} {
-    background-color: map-get($color, bgc);
-    border-color: map-get($color, border-color);
+@each $color, $value in $note {
+  .note-#{$color} {
+    background-color: map-get($value, background-color);
+    border-color: map-get($value, border-color);
   }
 }
 

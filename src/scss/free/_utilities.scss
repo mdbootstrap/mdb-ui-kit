@@ -239,14 +239,3 @@ $utilities: map-merge(
     transition: color 0.15s;
   }
 }
-
-.navbar-light .navbar-nav .nav-link.link-grayish,
-.navbar-dark .navbar-nav .nav-link.link-grayish,
-.link-grayish {
-  color: #9fa6b2;
-
-  &:hover,
-  &:focus {
-    color: #798497;
-  }
-}

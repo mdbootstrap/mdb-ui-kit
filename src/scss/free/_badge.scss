@@ -25,13 +25,13 @@
   padding: $badge-notification-padding-y $badge-notification-padding-x;
 }
 
-@each $name, $color in $badges {
-  .badge-#{$name} {
-    background-color: map-get($color, background-color);
-    color: map-get($color, text-color);
+@each $color, $value in $badges {
+  .badge-#{$color} {
+    background-color: map-get($value, background-color);
+    color: map-get($value, text-color);
 
     i {
-      color: map-get($color, icon-color);
+      color: map-get($value, icon-color);
     }
   }
 }

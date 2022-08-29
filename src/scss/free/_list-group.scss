@@ -11,33 +11,52 @@
 
 .list-group-light {
   .list-group-item {
-    padding: 1rem 0;
-    border: 2px solid hsl(0, 0%, 96%);
+    padding: $list-group-light-item-py 0;
+    border: $list-group-light-item-border;
   }
   > .list-group-item {
-    border-width: 0 0 2px;
+    border-width: 0 0 $list-group-light-item-border-width;
     &:last-of-type {
       border: none;
     }
   }
   .active {
     border: none;
-    border-radius: 0.5rem;
-    background-color: hsl(217, 88.2%, 90%);
-    color: hsl(217, 88.8%, 35.1%);
+    border-radius: $list-group-light-active-border-radius;
+    background-color: $list-group-light-active-bgc;
+    color: $list-group-light-active-color;
   }
   .list-group-item-action {
     &:hover {
-      border-radius: 0.5rem;
+      border-radius: $list-group-light-active-border-radius;
     }
     &:focus {
-      border-radius: 0.5rem;
+      border-radius: $list-group-light-active-border-radius;
     }
   }
 }
 
 .list-group-small {
   .list-group-item {
-    padding: 0.5rem 0;
+    padding: $list-group-small-item-py 0;
+  }
+}
+
+.list-group-item {
+  &.active {
+    background-color: $list-group-item-active-bgc;
+    color: $list-group-item-active-color;
+    border-color: $list-group-item-active-border-color;
+  }
+}
+
+@each $color, $value in $alerts {
+  .list-group-item-#{$color} {
+    background-color: map-get($value, background-color);
+    color: map-get($value, text-color);
+
+    i {
+      color: map-get($value, icon-color);
+    }
   }
 }

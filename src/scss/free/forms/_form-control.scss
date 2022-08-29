@@ -11,8 +11,8 @@
   &:focus {
     box-shadow: none;
     transition: all 0.1s linear;
-    border-color: #1266f1;
-    box-shadow: inset 0px 0px 0px 1px #1266f1;
+    border-color: $primary;
+    box-shadow: inset 0px 0px 0px 1px $primary;
   }
   &.form-control-sm {
     font-size: 0.775rem;

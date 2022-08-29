@@ -281,63 +281,174 @@ $blue-gray-900: #263238 !default;
 // Material Design Color System - end
 
 // Theme colors
-$primary: #1266f1 !default;
-$secondary: #b23cfd !default;
-$success: #00b74a !default;
-$info: #39c0ed !default;
-$warning: #ffa900 !default;
-$danger: #f93154 !default;
-$light: #f9f9f9 !default;
-$dark: $gray-900 !default;
-$grayish: #9fa6b2 !default;
+$primary: #3b71ca !default;
+$secondary: #9fa6b2 !default;
+$success: #14a44d !default;
+$danger: #dc4c64 !default;
+$warning: #e4a11b !default;
+$info: #54b4d3 !default;
+$light: #fbfbfb !default;
+$dark: #332d2d !default;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
   'primary': $primary,
   'secondary': $secondary,
   'success': $success,
-  'info': $info,
-  'warning': $warning,
   'danger': $danger,
+  'warning': $warning,
+  'info': $info,
   'light': $light,
   'dark': $dark,
-  'white': $white,
-  'black': $black,
-  'grayish': $grayish,
 ) !default;
 // scss-docs-end theme-colors-map
+
+// scss-docs-start ripple-colors-map
+$ripple: (
+  'primary': $primary,
+  'secondary': #e3ebf7,
+  'success': $success,
+  'danger': $danger,
+  'warning': $warning,
+  'info': $info,
+  'light': $light,
+  'dark': $dark,
+) !default;
+// scss-docs-end ripple-colors-map
+
+// scss-docs-start buttons-colors-map
+$buttons: () !default;
+$buttons: map-merge(
+  (
+    'primary': (
+      'background-color': $primary,
+      'text-color': $white,
+      'shadow-color': $primary,
+    ),
+    'secondary': (
+      'background-color': #e3ebf7,
+      'text-color': #285192,
+      'shadow-color': #e3ebf7,
+    ),
+    'success': (
+      'background-color': $success,
+      'text-color': $white,
+      'shadow-color': $success,
+    ),
+    'danger': (
+      'background-color': $danger,
+      'text-color': $white,
+      'shadow-color': $danger,
+    ),
+    'warning': (
+      'background-color': $warning,
+      'text-color': $white,
+      'shadow-color': $warning,
+    ),
+    'info': (
+      'background-color': $info,
+      'text-color': $white,
+      'shadow-color': $info,
+    ),
+    'light': (
+      'background-color': $light,
+      'text-color': #4f4f4f,
+      'shadow-color': $light,
+    ),
+    'dark': (
+      'background-color': $dark,
+      'text-color': $white,
+      'shadow-color': $dark,
+    ),
+  ),
+  $buttons
+);
+// scss-docs-end buttons-colors-map
+
+// scss-docs-start buttons-outline-colors-map
+$buttons-outline: () !default;
+$buttons-outline: map-merge(
+  (
+    'primary': (
+      'text-color': $primary,
+      'border-color': $primary,
+      'background-color': $primary,
+    ),
+    'secondary': (
+      'text-color': #285192,
+      'border-color': #e3ebf7,
+      'background-color': #e3ebf7,
+    ),
+    'success': (
+      'text-color': $success,
+      'border-color': $success,
+      'background-color': $success,
+    ),
+    'danger': (
+      'text-color': $danger,
+      'border-color': $danger,
+      'background-color': $danger,
+    ),
+    'warning': (
+      'text-color': $warning,
+      'border-color': $warning,
+      'background-color': $warning,
+    ),
+    'info': (
+      'text-color': $info,
+      'border-color': $info,
+      'background-color': $info,
+    ),
+    'light': (
+      'text-color': $light,
+      'border-color': $light,
+      'background-color': $light,
+    ),
+    'dark': (
+      'text-color': $dark,
+      'border-color': $dark,
+      'background-color': $dark,
+    ),
+  ),
+  $buttons-outline
+);
+// scss-docs-end buttons-outline-colors-map
 
 // scss-docs-start note-colors-map
 $note: () !default;
 $note: map-merge(
   (
     'primary': (
-      'bgc': lighten($primary, 43%),
-      'border-color': $primary,
+      'background-color': rgb(223, 231, 246),
+      'border-color': rgb(55, 111, 200),
     ),
     'secondary': (
-      'bgc': lighten($secondary, 33%),
-      'border-color': $secondary,
+      'background-color': rgb(235, 237, 239),
+      'border-color': rgb(86, 94, 108),
     ),
     'success': (
-      'bgc': lighten($success, 53%),
-      'border-color': $success,
+      'background-color': rgb(214, 240, 224),
+      'border-color': rgb(19, 150, 71),
     ),
     'danger': (
-      'bgc': lighten($danger, 36%),
-      'border-color': $danger,
+      'background-color': rgb(249, 225, 229),
+      'border-color': rgb(214, 46, 74),
     ),
     'warning': (
-      'bgc': lighten($warning, 42%),
-      'border-color': $warning,
+      'background-color': rgb(251, 240, 218),
+      'border-color': rgb(161, 113, 18),
     ),
     'info': (
-      'bgc': lighten($info, 36%),
-      'border-color': $info,
+      'background-color': rgb(222, 241, 247),
+      'border-color': rgb(38, 134, 166),
     ),
     'light': (
-      'bgc': $light,
-      'border-color': $dark,
+      'background-color': rgb(245, 245, 245),
+      'border-color': rgb(140, 140, 140),
+    ),
+    'dark': (
+      'background-color': rgb(51, 46, 46),
+      'border-color': rgb(232, 232, 232),
     ),
   ),
   $note
@@ -349,109 +460,166 @@ $badges: () !default;
 $badges: map-merge(
   (
     'primary': (
-      'background-color': hsl(217, 88.8%, 90%),
-      'text-color': hsl(217, 88.8%, 35%),
-      'icon-color': hsl(217, 88.8%, 65%),
-      'border-color': hsl(217, 88.8%, 85%),
+      'background-color': rgb(223, 231, 246),
+      'text-color': rgb(44, 88, 160),
+      'icon-color': rgb(55, 111, 200),
+      'border-color': rgb(199, 214, 240),
     ),
     'secondary': (
-      'background-color': hsl(277, 98%, 90%),
-      'text-color': hsl(277, 98%, 35%),
-      'icon-color': hsl(277, 98%, 55%),
-      'border-color': hsl(277, 98%, 85%),
+      'background-color': rgb(235, 237, 239),
+      'text-color': rgb(64, 70, 79),
+      'icon-color': rgb(86, 94, 108),
+      'border-color': rgb(218, 222, 225),
     ),
     'success': (
-      'background-color': hsl(144, 70%, 87%),
-      'text-color': hsl(144, 70%, 15%),
-      'icon-color': hsl(144, 70%, 35%),
-      'border-color': hsl(144, 70%, 77%),
+      'background-color': rgb(214, 240, 224),
+      'text-color': rgb(13, 104, 50),
+      'icon-color': rgb(19, 150, 71),
+      'border-color': rgb(192, 231, 208),
     ),
     'danger': (
-      'background-color': hsl(350, 90.3%, 92%),
-      'text-color': hsl(350, 90.3%, 25%),
-      'icon-color': hsl(350, 90.3%, 55%),
-      'border-color': hsl(350, 90.3%, 87%),
+      'background-color': rgb(249, 225, 229),
+      'text-color': rgb(175, 35, 58),
+      'icon-color': rgb(214, 46, 74),
+      'border-color': rgb(244, 200, 207),
     ),
     'warning': (
-      'background-color': hsl(40, 100%, 88%),
-      'text-color': hsl(40, 80%, 15%),
-      'icon-color': hsl(40, 100%, 40%),
-      'border-color': hsl(40, 100%, 80%),
+      'background-color': rgb(251, 240, 218),
+      'text-color': rgb(115, 81, 13),
+      'icon-color': rgb(161, 113, 18),
+      'border-color': rgb(249, 228, 190),
     ),
     'info': (
-      'background-color': hsl(195, 83.3%, 90%),
-      'text-color': hsl(195, 83.3%, 18%),
-      'icon-color': hsl(195, 83.3%, 45%),
-      'border-color': hsl(195, 83.3%, 85%),
+      'background-color': rgb(222, 241, 247),
+      'text-color': rgb(28, 101, 125),
+      'icon-color': rgb(38, 134, 166),
+      'border-color': rgb(198, 230, 241),
     ),
     'light': (
-      'background-color': hsl(0, 0%, 96%),
-      'text-color': hsl(0, 0%, 25%),
-      'icon-color': hsl(0, 0%, 55%),
-      'border-color': hsl(0, 0%, 88%),
+      'background-color': rgb(245, 245, 245),
+      'text-color': rgb(79, 79, 79),
+      'icon-color': rgb(140, 140, 140),
+      'border-color': rgb(230, 230, 230),
     ),
     'dark': (
-      'background-color': hsl(0, 0%, 16%),
-      'text-color': hsl(0, 0%, 96%),
-      'icon-color': hsl(0, 0%, 85%),
-      'border-color': hsl(0, 0%, 20%),
+      'background-color': rgb(51, 46, 46),
+      'text-color': rgb(245, 245, 245),
+      'icon-color': rgb(232, 232, 232),
+      'border-color': rgb(68, 60, 60),
     ),
   ),
   $badges
 );
 // scss-docs-end badges-colors-map
 
+// scss-docs-start alerts-colors-map
+$alerts: () !default;
+$alerts: map-merge(
+  (
+    'primary': (
+      'background-color': rgb(223, 231, 246),
+      'text-color': rgb(44, 88, 160),
+      'icon-color': rgb(55, 111, 200),
+      'border-color': rgb(199, 214, 240),
+    ),
+    'secondary': (
+      'background-color': rgb(235, 237, 239),
+      'text-color': rgb(64, 70, 79),
+      'icon-color': rgb(86, 94, 108),
+      'border-color': rgb(218, 222, 225),
+    ),
+    'success': (
+      'background-color': rgb(214, 240, 224),
+      'text-color': rgb(13, 104, 50),
+      'icon-color': rgb(19, 150, 71),
+      'border-color': rgb(192, 231, 208),
+    ),
+    'danger': (
+      'background-color': rgb(249, 225, 229),
+      'text-color': rgb(175, 35, 58),
+      'icon-color': rgb(214, 46, 74),
+      'border-color': rgb(244, 200, 207),
+    ),
+    'warning': (
+      'background-color': rgb(251, 240, 218),
+      'text-color': rgb(115, 81, 13),
+      'icon-color': rgb(161, 113, 18),
+      'border-color': rgb(249, 228, 190),
+    ),
+    'info': (
+      'background-color': rgb(222, 241, 247),
+      'text-color': rgb(28, 101, 125),
+      'icon-color': rgb(38, 134, 166),
+      'border-color': rgb(198, 230, 241),
+    ),
+    'light': (
+      'background-color': rgb(245, 245, 245),
+      'text-color': rgb(79, 79, 79),
+      'icon-color': rgb(140, 140, 140),
+      'border-color': rgb(230, 230, 230),
+    ),
+    'dark': (
+      'background-color': rgb(51, 46, 46),
+      'text-color': rgb(245, 245, 245),
+      'icon-color': rgb(232, 232, 232),
+      'border-color': rgb(68, 60, 60),
+    ),
+  ),
+  $alerts
+);
+// scss-docs-end alerts-colors-map
+
 // scss-docs-start toasts-colors-map
 $toasts: () !default;
 $toasts: map-merge(
   (
     'primary': (
-      'background-color': hsl(217, 88.8%, 90%),
-      'text-color': hsl(217, 88.8%, 35%),
-      'icon-color': hsl(217, 88.8%, 65%),
-      'border-color': hsl(217, 88.8%, 87%),
+      'background-color': rgb(223, 231, 246),
+      'text-color': rgb(44, 88, 160),
+      'icon-color': rgb(55, 111, 200),
+      'border-color': rgb(199, 214, 240),
     ),
     'secondary': (
-      'background-color': hsl(277, 98%, 90%),
-      'text-color': hsl(277, 98%, 35%),
-      'icon-color': hsl(277, 98%, 55%),
-      'border-color': hsl(277, 98%, 87%),
+      'background-color': rgb(235, 237, 239),
+      'text-color': rgb(64, 70, 79),
+      'icon-color': rgb(86, 94, 108),
+      'border-color': rgb(218, 222, 225),
     ),
     'success': (
-      'background-color': hsl(144, 70%, 87%),
-      'text-color': hsl(144, 70%, 15%),
-      'icon-color': hsl(144, 70%, 35%),
-      'border-color': hsl(144, 70%, 81%),
+      'background-color': rgb(214, 240, 224),
+      'text-color': rgb(13, 104, 50),
+      'icon-color': rgb(19, 150, 71),
+      'border-color': rgb(192, 231, 208),
     ),
     'danger': (
-      'background-color': hsl(350, 90.3%, 92%),
-      'text-color': hsl(350, 90.3%, 25%),
-      'icon-color': hsl(350, 90.3%, 55%),
-      'border-color': hsl(350, 90.3%, 89%),
+      'background-color': rgb(249, 225, 229),
+      'text-color': rgb(175, 35, 58),
+      'icon-color': rgb(214, 46, 74),
+      'border-color': rgb(244, 200, 207),
     ),
     'warning': (
-      'background-color': hsl(40, 100%, 88%),
-      'text-color': hsl(40, 80%, 15%),
-      'icon-color': hsl(40, 100%, 40%),
-      'border-color': hsl(40, 100%, 82%),
+      'background-color': rgb(251, 240, 218),
+      'text-color': rgb(115, 81, 13),
+      'icon-color': rgb(161, 113, 18),
+      'border-color': rgb(249, 228, 190),
     ),
     'info': (
-      'background-color': hsl(195, 83.3%, 90%),
-      'text-color': hsl(195, 83.3%, 18%),
-      'icon-color': hsl(195, 83.3%, 45%),
-      'border-color': hsl(195, 83.3%, 85%),
+      'background-color': rgb(222, 241, 247),
+      'text-color': rgb(28, 101, 125),
+      'icon-color': rgb(38, 134, 166),
+      'border-color': rgb(198, 230, 241),
     ),
     'light': (
-      'background-color': hsl(0, 0%, 96%),
-      'text-color': hsl(0, 0%, 25%),
-      'icon-color': hsl(0, 0%, 55%),
-      'border-color': hsl(0, 0%, 90%),
+      'background-color': rgb(245, 245, 245),
+      'text-color': rgb(79, 79, 79),
+      'icon-color': rgb(140, 140, 140),
+      'border-color': rgb(230, 230, 230),
     ),
     'dark': (
-      'background-color': hsl(0, 0%, 16%),
-      'text-color': hsl(0, 0%, 96%),
-      'icon-color': hsl(0, 0%, 85%),
-      'border-color': hsl(0, 0%, 13%),
+      'background-color': rgb(51, 46, 46),
+      'text-color': rgb(245, 245, 245),
+      'icon-color': rgb(232, 232, 232),
+      'border-color': rgb(68, 60, 60),
     ),
   ),
   $toasts
@@ -559,8 +727,8 @@ $btn-font-size: 0.75rem !default;
 $btn-padding-left: 1.5rem !default;
 $btn-padding-right: 1.5rem !default;
 $btn-font-weight: 500 !default;
-$btn-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 10px 0 rgba(0, 0, 0, 0.1) !default;
-$btn-hover-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.1) !default;
+$btn-box-shadow: 0 4px 9px -4px rgba(0, 0, 0, 0.35) !default;
+$btn-hover-box-shadow: 0 8px 9px -4px rgba(0, 0, 0, 0.15), 0 4px 18px 0 rgba(0, 0, 0, 0.1) !default;
 $btn-focus-box-shadow: $btn-hover-box-shadow !default;
 $btn-active-box-shadow: $btn-hover-box-shadow !default;
 $btn-border-width: 0.125rem !default;
@@ -594,6 +762,10 @@ $btn-padding-bottom-sm: 0.3125rem !default;
 $btn-padding-right-sm: 1rem !default;
 $btn-padding-left-sm: 1rem !default;
 
+$link-color: $primary !default;
+$link-decoration: underline !default;
+$link-shade-percentage: 20% !default;
+$link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
 $btn-link-bgc: #f5f5f5 !default;
 $btn-rounded-border-radius: 10rem !default;
 
@@ -631,6 +803,12 @@ $fixed-action-btn-right: 2.1875rem !default;
 $fixed-action-btn-bottom: 2.1875rem !default;
 $fixed-action-btn-padding-top: 0.9375rem !default;
 $fixed-action-btn-li-margin-bottom: 1.5rem !default;
+
+$btn-contextual-box-shadow: 0 4px 9px -4px !default;
+$btn-contextual-box-shadow-state-first-part: 0 8px 9px -4px !default;
+$btn-contextual-box-shadow-state-second-part: 0 4px 18px 0 !default;
+$btn-secondary-hover-focus-bgc: shade-color(#e3ebf7, 3%) !default;
+$btn-secondary-active-bgc: shade-color(#e3ebf7, 6%) !default;
 
 // Button group
 //
@@ -902,7 +1080,6 @@ $zindex-tooltip: 1090 !default;
 $nav-tabs-link-border-width: 0 0 2px 0 !default;
 $nav-tabs-link-font-weight: 500 !default;
 $nav-tabs-link-font-size: 12px !default;
-$nav-tabs-link-color: rgba(0, 0, 0, 0.6) !default;
 $nav-tabs-link-padding-top: 17px !default;
 $nav-tabs-link-padding-bottom: 16px !default;
 $nav-tabs-link-padding-x: 29px !default;
@@ -917,7 +1094,14 @@ $nav-pills-link-padding-x: $nav-tabs-link-padding-x !default;
 $nav-pills-link-line-height: 1 !default;
 $nav-pills-link-background-color: $nav-tabs-link-hover-background-color !default;
 $nav-pills-link-font-weight: $nav-tabs-link-font-weight !default;
+
+$nav-tabs-link-color: rgba(0, 0, 0, 0.55) !default;
+$nav-tabs-link-hover-bgc: #f7f7f7 !default;
+
 $nav-pills-link-color: $nav-tabs-link-color !default;
+$nav-pills-link-hover-bgc: $nav-tabs-link-hover-bgc !default;
+$nav-pills-link-active-bgc: #e3ebf7 !default;
+$nav-pills-link-active-color: #285192 !default;
 
 // Navbar
 
@@ -965,6 +1149,11 @@ $pagination-circle-lg-padding-right: 1.399415rem !default;
 $pagination-circle-sm-padding-left: 0.696rem !default;
 $pagination-circle-sm-padding-right: 0.688rem !default;
 
+$page-item-active-link-bgc: #e3ebf7 !default;
+$page-item-active-link-color: #285192 !default;
+$page-item-active-link-box-shadow: 0 4px 9px -4px #e3ebf7 !default;
+$page-item-active-link-font-weight: 500 !default;
+
 // Cards
 
 $card-spacer-y: 1.5rem !default;
@@ -987,6 +1176,11 @@ $accordion-button-active-bg: $white !default;
 $accordion-button-active-color: $primary !default;
 $accordion-button-focus-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125) !default;
 $accordion-border-radius: $border-radius-xl;
+$accordion-flush-button-box-shadow: inset 0 -2px 0 #f5f5f5 !default;
+$accordion-flush-item-border-bottom: 2px solid #f5f5f5 !default;
+$accordion-borderless-button-border-radius: 0.5rem !default;
+$accordion-borderless-button-bgc: rgb(223, 231, 246) !default;
+$accordion-borderless-button-color: rgb(44, 88, 160) !default;
 
 // Tooltips
 
@@ -1054,6 +1248,19 @@ $list-group-border-radius: $border-radius-xl !default;
 $list-group-item-padding-x: 1.5rem !default;
 $list-group-color: $body-color !default;
 
+$list-group-light-item-py: 1rem !default;
+$list-group-light-item-border: 2px solid hsl(0, 0%, 96%) !default;
+$list-group-light-item-border-width: 2px !default;
+$list-group-light-active-border-radius: 0.5rem !default;
+$list-group-light-active-bgc: hsl(217, 88.2%, 90%) !default;
+$list-group-light-active-color: hsl(217, 88.8%, 35.1%) !default;
+
+$list-group-small-item-py: 0.5 !default;
+
+$list-group-item-active-bgc: rgb(223, 231, 246) !default;
+$list-group-item-active-color: rgb(44, 88, 160) !default;
+$list-group-item-active-border-color: $list-group-item-active-bgc !default;
+
 // Carousel
 
 $carousel-control-prev-icon-bg: none;
@@ -1112,8 +1319,22 @@ $table-cell-padding-y-sm: 0.5rem !default;
 $table-cell-padding-x-sm: $table-cell-padding-x !default;
 $table-striped-bg: rgba(0, 0, 0, 0.02) !default;
 $table-hover-bg: rgba(0, 0, 0, 0.025) !default;
+$table-bg-scale: -80% !default;
+
+// scss-docs-start table-loop
+$table-variants: (
+  'primary': shift-color($primary, $table-bg-scale),
+  'secondary': shift-color($secondary, $table-bg-scale),
+  'success': shift-color($success, $table-bg-scale),
+  'info': shift-color($info, $table-bg-scale),
+  'warning': shift-color($warning, $table-bg-scale),
+  'danger': shift-color($danger, $table-bg-scale),
+  'light': $light,
+  'dark': $dark,
+) !default;
+// scss-docs-end table-loop
 
 // Select
-$form-select-transition: all 0.2s linear;
-$form-select-focus-border-color: #1266f1;
-$form-select-focus-border-box-shadow: inset 0px 0px 0px 1px #1266f1;
+$form-select-transition: all 0.2s linear !default;
+$form-select-focus-border-color: $primary !default;
+$form-select-focus-border-box-shadow: inset 0px 0px 0px 1px $primary !default;

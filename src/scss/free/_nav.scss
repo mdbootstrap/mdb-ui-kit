@@ -21,7 +21,7 @@
       $nav-tabs-link-padding-x;
 
     &:hover {
-      background-color: $nav-tabs-link-hover-background-color;
+      background-color: $nav-tabs-link-hover-bgc;
       border-color: transparent;
     }
 
@@ -51,7 +51,7 @@
     padding: $nav-pills-link-padding-top $nav-pills-link-padding-x $nav-pills-link-padding-bottom
       $nav-pills-link-padding-x;
     line-height: $nav-pills-link-line-height;
-    background-color: $nav-pills-link-background-color;
+    background-color: $nav-pills-link-hover-bgc;
     font-weight: $nav-pills-link-font-weight;
     color: $nav-pills-link-color;
     margin: $nav-pills-margin;
@@ -59,9 +59,8 @@
 
   .nav-link.active,
   .show > .nav-link {
+    background-color: $nav-pills-link-active-bgc;
     color: $nav-pills-link-active-color;
-    background-color: $nav-pills-link-active-bg;
-    box-shadow: $btn-box-shadow;
   }
 }
 

@@ -134,7 +134,7 @@ class Ripple {
     }
 
     if (!this._element.style.minWidth) {
-      Manipulator.style(this._element, { 'min-width': `${this._element.offsetWidth}px` });
+      Manipulator.style(this._element, { 'min-width': `${getComputedStyle(this._element).width}` });
       this._isMinWidthSet = true;
     }
 

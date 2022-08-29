@@ -33,10 +33,10 @@
   z-index: $zindex-toast;
 }
 
-@each $name, $color in $toasts {
-  .toast-#{$name} {
-    background-color: map-get($color, background-color);
-    color: map-get($color, text-color);
-    border-color: map-get($color, border-color);
+@each $color, $value in $toasts {
+  .toast-#{$color} {
+    background-color: map-get($value, background-color);
+    color: map-get($value, text-color);
+    border-color: map-get($value, border-color);
   }
 }
