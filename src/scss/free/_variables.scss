@@ -1,8 +1,8 @@
 // Variables
 
-$enable-negative-margins: true !default;
+// Color system
 
-// Grays
+// scss-docs-start gray-color-variables
 $white: #fff !default;
 $gray-50: #fbfbfb !default;
 $gray-100: #f5f5f5 !default;
@@ -15,52 +15,38 @@ $gray-700: #616161 !default;
 $gray-800: #4f4f4f !default;
 $gray-900: #262626 !default;
 $black: #000 !default;
+// scss-docs-end gray-color-variables
 
-// Material Design Color System - start
-$blue-50: #e3f2fd !default;
-$blue-100: #bbdefb !default;
-$blue-200: #90caf9 !default;
-$blue-300: #64b5f6 !default;
-$blue-400: #42a5f5 !default;
-$blue-500: #2196f3 !default;
-$blue-600: #1e88e5 !default;
-$blue-700: #1976d2 !default;
-$blue-800: #1565c0 !default;
-$blue-900: #0d47a1 !default;
-$blue-accent-100: #82b1ff !default;
-$blue-accent-200: #448aff !default;
-$blue-accent-400: #2979ff !default;
-$blue-accent-700: #2962ff !default;
+// scss-docs-start gray-colors-map
+$grays: (
+  '50': $gray-50,
+  '100': $gray-100,
+  '200': $gray-200,
+  '300': $gray-300,
+  '400': $gray-400,
+  '500': $gray-500,
+  '600': $gray-600,
+  '700': $gray-700,
+  '800': $gray-800,
+  '900': $gray-900,
+) !default;
+// scss-docs-end gray-colors-map
 
-$indigo-50: #e8eaf6 !default;
-$indigo-100: #c5cae9 !default;
-$indigo-200: #9fa8da !default;
-$indigo-300: #7986cb !default;
-$indigo-400: #5c6bc0 !default;
-$indigo-500: #3f51b5 !default;
-$indigo-600: #3949ab !default;
-$indigo-700: #303f9f !default;
-$indigo-800: #283593 !default;
-$indigo-900: #1a237e !default;
-$indigo-accent-100: #8c9eff !default;
-$indigo-accent-200: #536dfe !default;
-$indigo-accent-400: #3d5afe !default;
-$indigo-accent-700: #304ffe !default;
-
-$purple-50: #f3e5f5 !default;
-$purple-100: #e1bee7 !default;
-$purple-200: #ce93d8 !default;
-$purple-300: #ba68c8 !default;
-$purple-400: #ab47bc !default;
-$purple-500: #9c27b0 !default;
-$purple-600: #8e24aa !default;
-$purple-700: #7b1fa2 !default;
-$purple-800: #6a1b9a !default;
-$purple-900: #4a148c !default;
-$purple-accent-100: #ea80fc !default;
-$purple-accent-200: #e040fb !default;
-$purple-accent-400: #d500f9 !default;
-$purple-accent-700: #aa00ff !default;
+// scss-docs-start material-design-color-system-variables
+$red-50: #ffebee !default;
+$red-100: #ffcdd2 !default;
+$red-200: #ef9a9a !default;
+$red-300: #e57373 !default;
+$red-400: #ef5350 !default;
+$red-500: #f44336 !default;
+$red-600: #e53935 !default;
+$red-700: #d32f2f !default;
+$red-800: #c62828 !default;
+$red-900: #b71c1c !default;
+$red-accent-100: #ff8a80 !default;
+$red-accent-200: #ff5252 !default;
+$red-accent-400: #ff1744 !default;
+$red-accent-700: #d50000 !default;
 
 $pink-50: #fce4ec !default;
 $pink-100: #f8bbd0 !default;
@@ -77,95 +63,20 @@ $pink-accent-200: #ff4081 !default;
 $pink-accent-400: #f50057 !default;
 $pink-accent-700: #c51162 !default;
 
-$red-50: #ffebee !default;
-$red-100: #ffcdd2 !default;
-$red-200: #ef9a9a !default;
-$red-300: #e57373 !default;
-$red-400: #ef5350 !default;
-$red-500: #f44336 !default;
-$red-600: #e53935 !default;
-$red-700: #d32f2f !default;
-$red-800: #c62828 !default;
-$red-900: #b71c1c !default;
-$red-accent-100: #ff8a80 !default;
-$red-accent-200: #ff5252 !default;
-$red-accent-400: #ff1744 !default;
-$red-accent-700: #d50000 !default;
-
-$orange-50: #fff3e0 !default;
-$orange-100: #ffe0b2 !default;
-$orange-200: #ffcc80 !default;
-$orange-300: #ffb74d !default;
-$orange-400: #ffa726 !default;
-$orange-500: #ff9800 !default;
-$orange-600: #fb8c00 !default;
-$orange-700: #f57c00 !default;
-$orange-800: #ef6c00 !default;
-$orange-900: #e65100 !default;
-$orange-accent-100: #ffd180 !default;
-$orange-accent-200: #ffab40 !default;
-$orange-accent-400: #ff9100 !default;
-$orange-accent-700: #ff6d00 !default;
-
-$yellow-50: #fffde7 !default;
-$yellow-100: #fff9c4 !default;
-$yellow-200: #fff59d !default;
-$yellow-300: #fff176 !default;
-$yellow-400: #ffee58 !default;
-$yellow-500: #ffeb3b !default;
-$yellow-600: #fdd835 !default;
-$yellow-700: #fbc02d !default;
-$yellow-800: #f9a825 !default;
-$yellow-900: #f57f17 !default;
-$yellow-accent-100: #ffff8d !default;
-$yellow-accent-200: #ffff00 !default;
-$yellow-accent-400: #ffea00 !default;
-$yellow-accent-700: #ffd600 !default;
-
-$green-50: #e8f5e9 !default;
-$green-100: #c8e6c9 !default;
-$green-200: #a5d6a7 !default;
-$green-300: #81c784 !default;
-$green-400: #66bb6a !default;
-$green-500: #4caf50 !default;
-$green-600: #43a047 !default;
-$green-700: #388e3c !default;
-$green-800: #2e7d32 !default;
-$green-900: #1b5e20 !default;
-$green-accent-100: #b9f6ca !default;
-$green-accent-200: #69f0ae !default;
-$green-accent-400: #00e676 !default;
-$green-accent-700: #00c853 !default;
-
-$teal-50: #e0f2f1 !default;
-$teal-100: #b2dfdb !default;
-$teal-200: #80cbc4 !default;
-$teal-300: #4db6ac !default;
-$teal-400: #26a69a !default;
-$teal-500: #009688 !default;
-$teal-600: #00897b !default;
-$teal-700: #00796b !default;
-$teal-800: #00695c !default;
-$teal-900: #004d40 !default;
-$teal-accent-100: #a7ffeb !default;
-$teal-accent-200: #64ffda !default;
-$teal-accent-400: #1de9b6 !default;
-$teal-accent-700: #00bfa5 !default;
-
-$cyan-50: #e0f7fa !default;
-$cyan-100: #b2ebf2 !default;
-$cyan-200: #80deea !default;
-$cyan-300: #4dd0e1 !default;
-$cyan-400: #26c6da !default;
-$cyan-500: #00bcd4 !default;
-$cyan-600: #00acc1 !default;
-$cyan-700: #0097a7 !default;
-$cyan-800: #00838f !default;
-$cyan-900: #006064 !default;
-$cyan-accent-100: #84ffff !default;
-$cyan-accent-200: #18ffff !default;
-$cyan-accent-400: #00e5ff !default;
-$cyan-accent-700: #00b8d4 !default;
+$purple-50: #f3e5f5 !default;
+$purple-100: #e1bee7 !default;
+$purple-200: #ce93d8 !default;
+$purple-300: #ba68c8 !default;
+$purple-400: #ab47bc !default;
+$purple-500: #9c27b0 !default;
+$purple-600: #8e24aa !default;
+$purple-700: #7b1fa2 !default;
+$purple-800: #6a1b9a !default;
+$purple-900: #4a148c !default;
+$purple-accent-100: #ea80fc !default;
+$purple-accent-200: #e040fb !default;
+$purple-accent-400: #d500f9 !default;
+$purple-accent-700: #aa00ff !default;
 
 $deep-purple-50: #ede7f6 !default;
 $deep-purple-100: #d1c4e9 !default;
@@ -182,6 +93,36 @@ $deep-purple-accent-200: #7c4dff !default;
 $deep-purple-accent-400: #651fff !default;
 $deep-purple-accent-700: #6200ea !default;
 
+$indigo-50: #e8eaf6 !default;
+$indigo-100: #c5cae9 !default;
+$indigo-200: #9fa8da !default;
+$indigo-300: #7986cb !default;
+$indigo-400: #5c6bc0 !default;
+$indigo-500: #3f51b5 !default;
+$indigo-600: #3949ab !default;
+$indigo-700: #303f9f !default;
+$indigo-800: #283593 !default;
+$indigo-900: #1a237e !default;
+$indigo-accent-100: #8c9eff !default;
+$indigo-accent-200: #536dfe !default;
+$indigo-accent-400: #3d5afe !default;
+$indigo-accent-700: #304ffe !default;
+
+$blue-50: #e3f2fd !default;
+$blue-100: #bbdefb !default;
+$blue-200: #90caf9 !default;
+$blue-300: #64b5f6 !default;
+$blue-400: #42a5f5 !default;
+$blue-500: #2196f3 !default;
+$blue-600: #1e88e5 !default;
+$blue-700: #1976d2 !default;
+$blue-800: #1565c0 !default;
+$blue-900: #0d47a1 !default;
+$blue-accent-100: #82b1ff !default;
+$blue-accent-200: #448aff !default;
+$blue-accent-400: #2979ff !default;
+$blue-accent-700: #2962ff !default;
+
 $light-blue-50: #e1f5fe !default;
 $light-blue-100: #b3e5fc !default;
 $light-blue-200: #81d4fa !default;
@@ -196,6 +137,51 @@ $light-blue-accent-100: #80d8ff !default;
 $light-blue-accent-200: #40c4ff !default;
 $light-blue-accent-400: #00b0ff !default;
 $light-blue-accent-700: #0091ea !default;
+
+$cyan-50: #e0f7fa !default;
+$cyan-100: #b2ebf2 !default;
+$cyan-200: #80deea !default;
+$cyan-300: #4dd0e1 !default;
+$cyan-400: #26c6da !default;
+$cyan-500: #00bcd4 !default;
+$cyan-600: #00acc1 !default;
+$cyan-700: #0097a7 !default;
+$cyan-800: #00838f !default;
+$cyan-900: #006064 !default;
+$cyan-accent-100: #84ffff !default;
+$cyan-accent-200: #18ffff !default;
+$cyan-accent-400: #00e5ff !default;
+$cyan-accent-700: #00b8d4 !default;
+
+$teal-50: #e0f2f1 !default;
+$teal-100: #b2dfdb !default;
+$teal-200: #80cbc4 !default;
+$teal-300: #4db6ac !default;
+$teal-400: #26a69a !default;
+$teal-500: #009688 !default;
+$teal-600: #00897b !default;
+$teal-700: #00796b !default;
+$teal-800: #00695c !default;
+$teal-900: #004d40 !default;
+$teal-accent-100: #a7ffeb !default;
+$teal-accent-200: #64ffda !default;
+$teal-accent-400: #1de9b6 !default;
+$teal-accent-700: #00bfa5 !default;
+
+$green-50: #e8f5e9 !default;
+$green-100: #c8e6c9 !default;
+$green-200: #a5d6a7 !default;
+$green-300: #81c784 !default;
+$green-400: #66bb6a !default;
+$green-500: #4caf50 !default;
+$green-600: #43a047 !default;
+$green-700: #388e3c !default;
+$green-800: #2e7d32 !default;
+$green-900: #1b5e20 !default;
+$green-accent-100: #b9f6ca !default;
+$green-accent-200: #69f0ae !default;
+$green-accent-400: #00e676 !default;
+$green-accent-700: #00c853 !default;
 
 $light-green-50: #f1f8e9 !default;
 $light-green-100: #dcedc8 !default;
@@ -227,6 +213,21 @@ $lime-accent-200: #eeff41 !default;
 $lime-accent-400: #c6ff00 !default;
 $lime-accent-700: #aeea00 !default;
 
+$yellow-50: #fffde7 !default;
+$yellow-100: #fff9c4 !default;
+$yellow-200: #fff59d !default;
+$yellow-300: #fff176 !default;
+$yellow-400: #ffee58 !default;
+$yellow-500: #ffeb3b !default;
+$yellow-600: #fdd835 !default;
+$yellow-700: #fbc02d !default;
+$yellow-800: #f9a825 !default;
+$yellow-900: #f57f17 !default;
+$yellow-accent-100: #ffff8d !default;
+$yellow-accent-200: #ffff00 !default;
+$yellow-accent-400: #ffea00 !default;
+$yellow-accent-700: #ffd600 !default;
+
 $amber-50: #fff8e1 !default;
 $amber-100: #ffecb3 !default;
 $amber-200: #ffe082 !default;
@@ -241,6 +242,21 @@ $amber-accent-100: #ffe57f !default;
 $amber-accent-200: #ffd740 !default;
 $amber-accent-400: #ffc400 !default;
 $amber-accent-700: #ffab00 !default;
+
+$orange-50: #fff3e0 !default;
+$orange-100: #ffe0b2 !default;
+$orange-200: #ffcc80 !default;
+$orange-300: #ffb74d !default;
+$orange-400: #ffa726 !default;
+$orange-500: #ff9800 !default;
+$orange-600: #fb8c00 !default;
+$orange-700: #f57c00 !default;
+$orange-800: #ef6c00 !default;
+$orange-900: #e65100 !default;
+$orange-accent-100: #ffd180 !default;
+$orange-accent-200: #ffab40 !default;
+$orange-accent-400: #ff9100 !default;
+$orange-accent-700: #ff6d00 !default;
 
 $deep-orange-50: #fbe9e7 !default;
 $deep-orange-100: #ffccbc !default;
@@ -278,9 +294,341 @@ $blue-gray-600: #546e7a !default;
 $blue-gray-700: #455a64 !default;
 $blue-gray-800: #37474f !default;
 $blue-gray-900: #263238 !default;
-// Material Design Color System - end
+// scss-docs-end material-design-color-system-variables
 
-// Theme colors
+// scss-docs-start material-design-color-system-map
+$reds: (
+  'red-50': $red-50,
+  'red-100': $red-100,
+  'red-200': $red-200,
+  'red-300': $red-300,
+  'red-400': $red-400,
+  'red-500': $red-500,
+  'red-600': $red-600,
+  'red-700': $red-700,
+  'red-800': $red-800,
+  'red-900': $red-900,
+  'red-accent-100': $red-accent-100,
+  'red-accent-200': $red-accent-200,
+  'red-accent-400': $red-accent-400,
+  'red-accent-700': $red-accent-700,
+) !default;
+
+$pinks: (
+  'pink-50': $pink-50,
+  'pink-100': $pink-100,
+  'pink-200': $pink-200,
+  'pink-300': $pink-300,
+  'pink-400': $pink-400,
+  'pink-500': $pink-500,
+  'pink-600': $pink-600,
+  'pink-700': $pink-700,
+  'pink-800': $pink-800,
+  'pink-900': $pink-900,
+  'pink-accent-100': $pink-accent-100,
+  'pink-accent-200': $pink-accent-200,
+  'pink-accent-400': $pink-accent-400,
+  'pink-accent-700': $pink-accent-700,
+) !default;
+
+$purples: (
+  'purple-50': $purple-50,
+  'purple-100': $purple-100,
+  'purple-200': $purple-200,
+  'purple-300': $purple-300,
+  'purple-400': $purple-400,
+  'purple-500': $purple-500,
+  'purple-600': $purple-600,
+  'purple-700': $purple-700,
+  'purple-800': $purple-800,
+  'purple-900': $purple-900,
+  'purple-accent-100': $purple-accent-100,
+  'purple-accent-200': $purple-accent-200,
+  'purple-accent-400': $purple-accent-400,
+  'purple-accent-700': $purple-accent-700,
+) !default;
+
+$deep-purples: (
+  'deep-purple-50': $deep-purple-50,
+  'deep-purple-100': $deep-purple-100,
+  'deep-purple-200': $deep-purple-200,
+  'deep-purple-300': $deep-purple-300,
+  'deep-purple-400': $deep-purple-400,
+  'deep-purple-500': $deep-purple-500,
+  'deep-purple-600': $deep-purple-600,
+  'deep-purple-700': $deep-purple-700,
+  'deep-purple-800': $deep-purple-800,
+  'deep-purple-900': $deep-purple-900,
+  'deep-purple-accent-100': $deep-purple-accent-100,
+  'deep-purple-accent-200': $deep-purple-accent-200,
+  'deep-purple-accent-400': $deep-purple-accent-400,
+  'deep-purple-accent-700': $deep-purple-accent-700,
+) !default;
+
+$indigos: (
+  'indigo-50': $indigo-50,
+  'indigo-100': $indigo-100,
+  'indigo-200': $indigo-200,
+  'indigo-300': $indigo-300,
+  'indigo-400': $indigo-400,
+  'indigo-500': $indigo-500,
+  'indigo-600': $indigo-600,
+  'indigo-700': $indigo-700,
+  'indigo-800': $indigo-800,
+  'indigo-900': $indigo-900,
+  'indigo-accent-100': $indigo-accent-100,
+  'indigo-accent-200': $indigo-accent-200,
+  'indigo-accent-400': $indigo-accent-400,
+  'indigo-accent-700': $indigo-accent-700,
+) !default;
+
+$blues: (
+  'blue-50': $blue-50,
+  'blue-100': $blue-100,
+  'blue-200': $blue-200,
+  'blue-300': $blue-300,
+  'blue-400': $blue-400,
+  'blue-500': $blue-500,
+  'blue-600': $blue-600,
+  'blue-700': $blue-700,
+  'blue-800': $blue-800,
+  'blue-900': $blue-900,
+  'blue-accent-100': $blue-accent-100,
+  'blue-accent-200': $blue-accent-200,
+  'blue-accent-400': $blue-accent-400,
+  'blue-accent-700': $blue-accent-700,
+) !default;
+
+$light-blues: (
+  'light-blue-50': $light-blue-50,
+  'light-blue-100': $light-blue-100,
+  'light-blue-200': $light-blue-200,
+  'light-blue-300': $light-blue-300,
+  'light-blue-400': $light-blue-400,
+  'light-blue-500': $light-blue-500,
+  'light-blue-600': $light-blue-600,
+  'light-blue-700': $light-blue-700,
+  'light-blue-800': $light-blue-800,
+  'light-blue-900': $light-blue-900,
+  'light-blue-accent-100': $light-blue-accent-100,
+  'light-blue-accent-200': $light-blue-accent-200,
+  'light-blue-accent-400': $light-blue-accent-400,
+  'light-blue-accent-700': $light-blue-accent-700,
+) !default;
+
+$cyans: (
+  'cyan-50': $cyan-50,
+  'cyan-100': $cyan-100,
+  'cyan-200': $cyan-200,
+  'cyan-300': $cyan-300,
+  'cyan-400': $cyan-400,
+  'cyan-500': $cyan-500,
+  'cyan-600': $cyan-600,
+  'cyan-700': $cyan-700,
+  'cyan-800': $cyan-800,
+  'cyan-900': $cyan-900,
+  'cyan-accent-100': $cyan-accent-100,
+  'cyan-accent-200': $cyan-accent-200,
+  'cyan-accent-400': $cyan-accent-400,
+  'cyan-accent-700': $cyan-accent-700,
+) !default;
+
+$teals: (
+  'teal-50': $teal-50,
+  'teal-100': $teal-100,
+  'teal-200': $teal-200,
+  'teal-300': $teal-300,
+  'teal-400': $teal-400,
+  'teal-500': $teal-500,
+  'teal-600': $teal-600,
+  'teal-700': $teal-700,
+  'teal-800': $teal-800,
+  'teal-900': $teal-900,
+  'teal-accent-100': $teal-accent-100,
+  'teal-accent-200': $teal-accent-200,
+  'teal-accent-400': $teal-accent-400,
+  'teal-accent-700': $teal-accent-700,
+) !default;
+
+$greens: (
+  'green-50': $green-50,
+  'green-100': $green-100,
+  'green-200': $green-200,
+  'green-300': $green-300,
+  'green-400': $green-400,
+  'green-500': $green-500,
+  'green-600': $green-600,
+  'green-700': $green-700,
+  'green-800': $green-800,
+  'green-900': $green-900,
+  'green-accent-100': $green-accent-100,
+  'green-accent-200': $green-accent-200,
+  'green-accent-400': $green-accent-400,
+  'green-accent-700': $green-accent-700,
+) !default;
+
+$light-greens: (
+  'light-green-50': $light-green-50,
+  'light-green-100': $light-green-100,
+  'light-green-200': $light-green-200,
+  'light-green-300': $light-green-300,
+  'light-green-400': $light-green-400,
+  'light-green-500': $light-green-500,
+  'light-green-600': $light-green-600,
+  'light-green-700': $light-green-700,
+  'light-green-800': $light-green-800,
+  'light-green-900': $light-green-900,
+  'light-green-accent-100': $light-green-accent-100,
+  'light-green-accent-200': $light-green-accent-200,
+  'light-green-accent-400': $light-green-accent-400,
+  'light-green-accent-700': $light-green-accent-700,
+) !default;
+
+$limes: (
+  'lime-50': $lime-50,
+  'lime-100': $lime-100,
+  'lime-200': $lime-200,
+  'lime-300': $lime-300,
+  'lime-400': $lime-400,
+  'lime-500': $lime-500,
+  'lime-600': $lime-600,
+  'lime-700': $lime-700,
+  'lime-800': $lime-800,
+  'lime-900': $lime-900,
+  'lime-accent-100': $lime-accent-100,
+  'lime-accent-200': $lime-accent-200,
+  'lime-accent-400': $lime-accent-400,
+  'lime-accent-700': $lime-accent-700,
+) !default;
+
+$yellows: (
+  'yellow-50': $yellow-50,
+  'yellow-100': $yellow-100,
+  'yellow-200': $yellow-200,
+  'yellow-300': $yellow-300,
+  'yellow-400': $yellow-400,
+  'yellow-500': $yellow-500,
+  'yellow-600': $yellow-600,
+  'yellow-700': $yellow-700,
+  'yellow-800': $yellow-800,
+  'yellow-900': $yellow-900,
+  'yellow-accent-100': $yellow-accent-100,
+  'yellow-accent-200': $yellow-accent-200,
+  'yellow-accent-400': $yellow-accent-400,
+  'yellow-accent-700': $yellow-accent-700,
+) !default;
+
+$ambers: (
+  'amber-50': $amber-50,
+  'amber-100': $amber-100,
+  'amber-200': $amber-200,
+  'amber-300': $amber-300,
+  'amber-400': $amber-400,
+  'amber-500': $amber-500,
+  'amber-600': $amber-600,
+  'amber-700': $amber-700,
+  'amber-800': $amber-800,
+  'amber-900': $amber-900,
+  'amber-accent-100': $amber-accent-100,
+  'amber-accent-200': $amber-accent-200,
+  'amber-accent-400': $amber-accent-400,
+  'amber-accent-700': $amber-accent-700,
+) !default;
+
+$oranges: (
+  'orange-50': $orange-50,
+  'orange-100': $orange-100,
+  'orange-200': $orange-200,
+  'orange-300': $orange-300,
+  'orange-400': $orange-400,
+  'orange-500': $orange-500,
+  'orange-600': $orange-600,
+  'orange-700': $orange-700,
+  'orange-800': $orange-800,
+  'orange-900': $orange-900,
+  'orange-accent-100': $orange-accent-100,
+  'orange-accent-200': $orange-accent-200,
+  'orange-accent-400': $orange-accent-400,
+  'orange-accent-700': $orange-accent-700,
+) !default;
+
+$deep-oranges: (
+  'deep-orange-50': $deep-orange-50,
+  'deep-orange-100': $deep-orange-100,
+  'deep-orange-200': $deep-orange-200,
+  'deep-orange-300': $deep-orange-300,
+  'deep-orange-400': $deep-orange-400,
+  'deep-orange-500': $deep-orange-500,
+  'deep-orange-600': $deep-orange-600,
+  'deep-orange-700': $deep-orange-700,
+  'deep-orange-800': $deep-orange-800,
+  'deep-orange-900': $deep-orange-900,
+  'deep-orange-accent-100': $deep-orange-accent-100,
+  'deep-orange-accent-200': $deep-orange-accent-200,
+  'deep-orange-accent-400': $deep-orange-accent-400,
+  'deep-orange-accent-700': $deep-orange-accent-700,
+) !default;
+
+$browns: (
+  'brown-50': $brown-50,
+  'brown-100': $brown-100,
+  'brown-200': $brown-200,
+  'brown-300': $brown-300,
+  'brown-400': $brown-400,
+  'brown-500': $brown-500,
+  'brown-600': $brown-600,
+  'brown-700': $brown-700,
+  'brown-800': $brown-800,
+  'brown-900': $brown-900,
+) !default;
+
+$blue-grays: (
+  'blue-gray-50': $blue-gray-50,
+  'blue-gray-100': $blue-gray-100,
+  'blue-gray-200': $blue-gray-200,
+  'blue-gray-300': $blue-gray-300,
+  'blue-gray-400': $blue-gray-400,
+  'blue-gray-500': $blue-gray-500,
+  'blue-gray-600': $blue-gray-600,
+  'blue-gray-700': $blue-gray-700,
+  'blue-gray-800': $blue-gray-800,
+  'blue-gray-900': $blue-gray-900,
+) !default;
+// scss-docs-end material-design-color-system-map
+
+// scss-docs-start color-variables
+$red: $red-500 !default;
+$pink: $pink-500 !default;
+$purple: purple-500 !default;
+$indigo: $indigo-500 !default;
+$blue: $blue-500 !default;
+$cyan: $cyan-500 !default;
+$teal: $teal-500 !default;
+$green: $green-500 !default;
+$yellow: $yellow-500 !default;
+$orange: $orange-500 !default;
+// scss-docs-end color-variables
+
+// scss-docs-start colors-map
+$colors: (
+  'red': $red,
+  'pink': $pink,
+  'purple': $purple,
+  'indigo': $indigo,
+  'blue': $blue,
+  'cyan': $cyan,
+  'teal': $teal,
+  'green': $green,
+  'yellow': $yellow,
+  'orange': $orange,
+  'white': $white,
+  'black': $black,
+  'gray': $gray-600,
+  'gray-dark': $gray-800,
+) !default;
+// scss-docs-end colors-map
+
+// scss-docs-start theme-color-variables
 $primary: #3b71ca !default;
 $secondary: #9fa6b2 !default;
 $success: #14a44d !default;
@@ -289,6 +637,7 @@ $warning: #e4a11b !default;
 $info: #54b4d3 !default;
 $light: #fbfbfb !default;
 $dark: #332d2d !default;
+// scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
@@ -303,18 +652,321 @@ $theme-colors: (
 ) !default;
 // scss-docs-end theme-colors-map
 
-// scss-docs-start ripple-colors-map
-$ripple: (
-  'primary': $primary,
-  'secondary': #e3ebf7,
-  'success': $success,
-  'danger': $danger,
-  'warning': $warning,
-  'info': $info,
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-shadows: true !default;
+$enable-negative-margins: true !default;
+
+// Prefix for :root CSS variables.
+
+$variable-prefix: mdb- !default;
+$prefix: $variable-prefix !default;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-color: $gray-800 !default;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color: $primary !default;
+$link-decoration: none !default;
+$link-shade-percentage: 5% !default;
+$link-shade-focus-percentage: 10% !default;
+$link-shade-active-percentage: 15% !default;
+$link-hover-decoration: none !default;
+$link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
+$link-focus-color: shift-color($link-color, $link-shade-focus-percentage) !default;
+$link-active-color: shift-color($link-color, $link-shade-active-percentage) !default;
+// Components
+//
+// Define common box shadow and border and more.
+
+// scss-docs-start border-variables
+$border-width-alternate: 2px !default;
+$border-style-alternate: solid !default;
+$border-color-alternate: hsl(0, 0%, 96%) !default;
+// scss-docs-end border-variables
+
+// scss-docs-start border-radius-variables
+$border-radius: 0.25rem !default;
+$border-radius-xs: 0.2rem !default;
+$border-radius-md: 0.3rem !default;
+$border-radius-lg: 0.5rem !default;
+// scss-docs-end border-radius-variables
+
+// Shadows
+//
+// Shadows offset, blur, spread and color.
+
+// scss-docs-start box-shadow-variables
+$box-shadow-0: none !default;
+
+$box-shadow-1: 0 0px 2px 0 rgb(0 0 0 / 7%), 0 1px 1px 0 rgb(0 0 0 / 4%) !default;
+$box-shadow-2: 0 0px 3px 0 rgb(0 0 0 / 7%), 0 2px 2px 0 rgb(0 0 0 / 4%) !default;
+$box-shadow-3: 0 2px 6px -1px rgb(0 0 0 / 7%), 0 6px 18px -1px rgb(0 0 0 / 4%) !default;
+$box-shadow-4: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%) !default;
+$box-shadow-5: 0 2px 25px -5px rgb(0 0 0 / 7%), 0 25px 21px -5px rgb(0 0 0 / 4%) !default;
+$box-shadow-6: 0 2px 35px -12px rgb(0 0 0 / 21%), 0 50px 40px -5px rgb(0 0 0 / 4%) !default;
+
+$box-shadow-1-soft: 0 1px 5px 0 rgba(0, 0, 0, 0.05) !default;
+$box-shadow-2-soft: 0 2px 10px 0 rgba(0, 0, 0, 0.05) !default;
+$box-shadow-3-soft: 0 5px 15px 0 rgba(0, 0, 0, 0.05) !default;
+$box-shadow-4-soft: 0 10px 20px 0 rgba(0, 0, 0, 0.05) !default;
+$box-shadow-5-soft: 0 15px 30px 0 rgba(0, 0, 0, 0.05) !default;
+$box-shadow-6-soft: 0 20px 40px 0 rgba(0, 0, 0, 0.05) !default;
+
+$box-shadow-1-strong: 0 0px 2px 0 rgb(0 0 0 / 16%), 0 1px 1px 0 rgb(0 0 0 / 10%) !default;
+$box-shadow-2-strong: 0 0px 3px 0 rgb(0 0 0 / 16%), 0 2px 2px 0 rgb(0 0 0 / 10%) !default;
+$box-shadow-3-strong: 0 2px 6px -1px rgb(0 0 0 / 16%), 0 6px 18px -1px rgb(0 0 0 / 10%) !default;
+$box-shadow-4-strong: 0 2px 15px -3px rgb(0 0 0 / 16%), 0 10px 20px -2px rgb(0 0 0 / 10%) !default;
+$box-shadow-5-strong: 0 2px 25px -5px rgb(0 0 0 / 16%), 0 25px 21px -5px rgb(0 0 0 / 10%) !default;
+$box-shadow-6-strong: 0 2px 35px -12px rgb(0 0 0 / 26%), 0 50px 40px -5px rgb(0 0 0 / 10%) !default;
+
+$box-shadow-3-top: 0 -10px 20px 0 rgba(0, 0, 0, 0.05) !default;
+$box-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06) !default;
+// scss-docs-end box-shadow-variables
+
+// scss-docs-start standard-shadows-map
+$shadows: (
+  '0': $box-shadow-0,
+  '1': $box-shadow-1,
+  '2': $box-shadow-2,
+  '3': $box-shadow-3,
+  '4': $box-shadow-4,
+  '5': $box-shadow-5,
+  '6': $box-shadow-6,
+) !default;
+// scss-docs-end standard-shadows-map
+
+// scss-docs-start soft-shadows-map
+$shadows-soft: (
+  '1': $box-shadow-1-soft,
+  '2': $box-shadow-2-soft,
+  '3': $box-shadow-3-soft,
+  '4': $box-shadow-4-soft,
+  '5': $box-shadow-5-soft,
+  '6': $box-shadow-6-soft,
+) !default;
+// scss-docs-end soft-shadows-map
+
+// scss-docs-start strong-shadows-map
+$shadows-strong: (
+  '1': $box-shadow-1-strong,
+  '2': $box-shadow-2-strong,
+  '3': $box-shadow-3-strong,
+  '4': $box-shadow-4-strong,
+  '5': $box-shadow-5-strong,
+  '6': $box-shadow-6-strong,
+) !default;
+// scss-docs-end strong-shadows-map
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// scss-docs-start font-variables
+// stylelint-disable value-keyword-case
+$font-family-roboto: 'Roboto', sans-serif !default;
+// stylelint-enable value-keyword-case
+$font-family-base: var(--#{$prefix}font-roboto) !default;
+
+// $font-size-base affects the font size of the body text
+$font-size-base: 1rem !default;
+$font-weight-medium: 500 !default;
+$line-height-base: 1.6 !default;
+// scss-docs-end font-variables
+
+// scss-docs-start note-variables
+$note-padding: 10px !default;
+$note-border-width: 6px !default;
+$note-border-radius: 5px !default;
+$note-strong-font-weight: 600 !default;
+// scss-docs-end note-variables
+
+// scss-docs-start note-colors-map
+$note: () !default;
+$note: map-merge(
+  (
+    'primary': (
+      'background-color': rgb(223, 231, 246),
+      'border-color': rgb(55, 111, 200),
+    ),
+    'secondary': (
+      'background-color': rgb(235, 237, 239),
+      'border-color': rgb(86, 94, 108),
+    ),
+    'success': (
+      'background-color': rgb(214, 240, 224),
+      'border-color': rgb(19, 150, 71),
+    ),
+    'danger': (
+      'background-color': rgb(249, 225, 229),
+      'border-color': rgb(214, 46, 74),
+    ),
+    'warning': (
+      'background-color': rgb(251, 240, 218),
+      'border-color': rgb(161, 113, 18),
+    ),
+    'info': (
+      'background-color': rgb(222, 241, 247),
+      'border-color': rgb(38, 134, 166),
+    ),
+    'light': (
+      'background-color': rgb(245, 245, 245),
+      'border-color': rgb(140, 140, 140),
+    ),
+    'dark': (
+      'background-color': rgb(51, 46, 46),
+      'border-color': rgb(232, 232, 232),
+    ),
+  ),
+  $note
+);
+// scss-docs-end note-colors-map
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+// scss-docs-start table-variables
+$table-cell-padding-y: 1rem !default;
+$table-cell-padding-x: 1.4rem !default;
+$table-cell-padding-y-sm: 0.5rem !default;
+$table-cell-padding-x-sm: 0.5rem !default;
+
+$table-color: var(--#{$prefix}body-color) !default;
+$table-font-size: 0.9rem !default;
+$table-striped-bg: rgba(0, 0, 0, 0.02) !default;
+$table-hover-transition: 0.5s !default;
+$table-hover-bg: rgba(0, 0, 0, 0.025) !default;
+$table-group-separator-color: inherit !default;
+$table-divider-color: rgba(0, 0, 0, 0.1) !default;
+$table-bg-scale: -80% !default;
+// scss-docs-end table-variables
+
+// scss-docs-start table-loop
+$table-variants: (
+  'primary': shift-color($primary, $table-bg-scale),
+  'secondary': shift-color($secondary, $table-bg-scale),
+  'success': shift-color($success, $table-bg-scale),
+  'info': shift-color($info, $table-bg-scale),
+  'warning': shift-color($warning, $table-bg-scale),
+  'danger': shift-color($danger, $table-bg-scale),
   'light': $light,
   'dark': $dark,
 ) !default;
-// scss-docs-end ripple-colors-map
+// scss-docs-end table-loop
+
+// Buttons
+//
+// For each of MDB's buttons, define text, background, and border color.
+
+// scss-docs-start btn-variables
+$btn-padding-top: 0.625rem !default;
+$btn-padding-bottom: 0.5rem !default;
+$btn-padding-x: 1.5rem !default;
+$btn-font-size: 0.75rem !default;
+$btn-line-height: 1.5 !default;
+
+$btn-padding-top-lg: 0.75rem !default;
+$btn-padding-bottom-lg: 0.6875rem !default;
+$btn-padding-x-lg: 1.6875rem !default;
+$btn-font-size-lg: 0.875rem !default;
+$btn-line-height-lg: 1.6 !default;
+
+$btn-padding-top-sm: 0.375rem !default;
+$btn-padding-bottom-sm: 0.3125rem !default;
+$btn-padding-x-sm: 1rem !default;
+$btn-font-size-sm: 0.75rem !default;
+$btn-line-height-sm: 1.5 !default;
+
+$btn-border-width: $border-width-alternate !default;
+
+$btn-font-weight: $font-weight-medium !default;
+$btn-box-shadow: 0 4px 9px -4px rgba($black, 0.35) !default;
+$btn-hover-box-shadow: 0 8px 9px -4px rgba($black, 0.15), 0 4px 18px 0 rgba($black, 0.1) !default;
+$btn-focus-box-shadow: $btn-hover-box-shadow !default;
+$btn-active-box-shadow: $btn-focus-box-shadow !default;
+
+$btn-link-color: $link-color !default;
+$btn-link-hover-color: $link-hover-color !default;
+$btn-link-focus-color: $link-focus-color !default;
+$btn-link-active-color: $link-active-color !default;
+$btn-link-disabled-color: $gray-500 !default;
+$btn-link-hover-bg: hsl(0, 0%, 96%) !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius: $border-radius !default;
+
+$btn-hover-bg-shade-amount: 5% !default;
+$btn-focus-bg-shade-amount: 5% !default;
+$btn-active-bg-shade-amount: 10% !default;
+
+$btn-contextual-box-shadow: 0 4px 9px -4px !default;
+$btn-contextual-box-shadow-state-first-part: 0 8px 9px -4px !default;
+$btn-contextual-box-shadow-state-second-part: 0 4px 18px 0 !default;
+
+$btn-outline-padding-top: 0.5rem !default;
+$btn-outline-padding-bottom: 0.375rem !default;
+$btn-outline-padding-x: 1.375rem !default;
+$btn-outline-border-width: $border-width-alternate !default;
+$btn-outline-line-height: 1.5 !default;
+
+$btn-outline-padding-top-lg: 0.625rem !default;
+$btn-outline-padding-bottom-lg: 0.5625rem !default;
+$btn-outline-padding-x-lg: 1.5625rem !default;
+$btn-outline-font-size-lg: 0.875rem !default;
+$btn-outline-line-height-lg: 1.6 !default;
+
+$btn-outline-padding-top-sm: 0.25rem !default;
+$btn-outline-padding-bottom-sm: 0.1875rem !default;
+$btn-outline-padding-x-sm: 0.875rem !default;
+$btn-outline-font-size-sm: 0.75rem !default;
+$btn-outline-line-height-sm: 1.5 !default;
+
+$btn-rounded-border-radius: 10rem !default;
+
+$btn-floating-border-radius: 50% !default;
+
+$btn-floating-width: 2.3125rem !default;
+$btn-floating-height: 2.3125rem !default;
+$btn-floating-icon-width: 2.3125rem !default;
+
+$btn-floating-width-lg: 2.8125rem !default;
+$btn-floating-height-lg: 2.8125rem !default;
+$btn-floating-icon-width-lg: 2.8125rem !default;
+
+$btn-floating-width-sm: 1.8125rem !default;
+$btn-floating-height-sm: 1.8125rem !default;
+$btn-floating-icon-width-sm: 1.8125rem !default;
+
+$btn-outline-floating-icon-width: 2.0625rem !default;
+$btn-outline-floating-icon-width-lg: 2.5625rem !default;
+$btn-outline-floating-icon-width-sm: 1.5625rem !default;
+
+$btn-floating-icon-line-height: 2.3125rem !default;
+$btn-floating-icon-line-height-lg: 2.8125rem !default;
+$btn-floating-icon-line-height-sm: 1.8125rem !default;
+
+$btn-outline-floating-icon-line-height: 2.0625rem !default;
+$btn-outline-floating-icon-line-height-lg: 2.5625rem !default;
+$btn-outline-floating-icon-line-height-sm: 1.5625rem !default;
+
+$fixed-action-btn-right: 2.1875rem !default;
+$fixed-action-btn-bottom: 2.1875rem !default;
+$fixed-action-btn-padding-top: 0.9375rem !default;
+$fixed-action-btn-padding-bottom: 1.25rem !default;
+$fixed-action-btn-padding-x: 1.25rem !default;
+$fixed-action-btn-li-margin-bottom: 1.5rem !default;
+
+$btn-block-margin-top: 0.5rem !default;
+// scss-docs-end btn-variables
 
 // scss-docs-start buttons-colors-map
 $buttons: () !default;
@@ -360,6 +1012,16 @@ $buttons: map-merge(
       'text-color': $white,
       'shadow-color': $dark,
     ),
+    'white': (
+      'background-color': $white,
+      'text-color': $black,
+      'shadow-color': $white,
+    ),
+    'black': (
+      'background-color': $black,
+      'text-color': $white,
+      'shadow-color': $black,
+    ),
   ),
   $buttons
 );
@@ -372,459 +1034,90 @@ $buttons-outline: map-merge(
     'primary': (
       'text-color': $primary,
       'border-color': $primary,
-      'background-color': $primary,
     ),
     'secondary': (
       'text-color': #285192,
       'border-color': #e3ebf7,
-      'background-color': #e3ebf7,
     ),
     'success': (
       'text-color': $success,
       'border-color': $success,
-      'background-color': $success,
     ),
     'danger': (
       'text-color': $danger,
       'border-color': $danger,
-      'background-color': $danger,
     ),
     'warning': (
       'text-color': $warning,
       'border-color': $warning,
-      'background-color': $warning,
     ),
     'info': (
       'text-color': $info,
       'border-color': $info,
-      'background-color': $info,
     ),
     'light': (
       'text-color': $light,
       'border-color': $light,
-      'background-color': $light,
     ),
     'dark': (
       'text-color': $dark,
       'border-color': $dark,
-      'background-color': $dark,
+    ),
+    'white': (
+      'text-color': $white,
+      'border-color': $white,
+    ),
+    'black': (
+      'text-color': $black,
+      'border-color': $black,
     ),
   ),
   $buttons-outline
 );
 // scss-docs-end buttons-outline-colors-map
 
-// scss-docs-start note-colors-map
-$note: () !default;
-$note: map-merge(
-  (
-    'primary': (
-      'background-color': rgb(223, 231, 246),
-      'border-color': rgb(55, 111, 200),
-    ),
-    'secondary': (
-      'background-color': rgb(235, 237, 239),
-      'border-color': rgb(86, 94, 108),
-    ),
-    'success': (
-      'background-color': rgb(214, 240, 224),
-      'border-color': rgb(19, 150, 71),
-    ),
-    'danger': (
-      'background-color': rgb(249, 225, 229),
-      'border-color': rgb(214, 46, 74),
-    ),
-    'warning': (
-      'background-color': rgb(251, 240, 218),
-      'border-color': rgb(161, 113, 18),
-    ),
-    'info': (
-      'background-color': rgb(222, 241, 247),
-      'border-color': rgb(38, 134, 166),
-    ),
-    'light': (
-      'background-color': rgb(245, 245, 245),
-      'border-color': rgb(140, 140, 140),
-    ),
-    'dark': (
-      'background-color': rgb(51, 46, 46),
-      'border-color': rgb(232, 232, 232),
-    ),
-  ),
-  $note
-);
-// scss-docs-end note-colors-map
+// Ripple
 
-// scss-docs-start badges-colors-map
-$badges: () !default;
-$badges: map-merge(
-  (
-    'primary': (
-      'background-color': rgb(223, 231, 246),
-      'text-color': rgb(44, 88, 160),
-      'icon-color': rgb(55, 111, 200),
-      'border-color': rgb(199, 214, 240),
-    ),
-    'secondary': (
-      'background-color': rgb(235, 237, 239),
-      'text-color': rgb(64, 70, 79),
-      'icon-color': rgb(86, 94, 108),
-      'border-color': rgb(218, 222, 225),
-    ),
-    'success': (
-      'background-color': rgb(214, 240, 224),
-      'text-color': rgb(13, 104, 50),
-      'icon-color': rgb(19, 150, 71),
-      'border-color': rgb(192, 231, 208),
-    ),
-    'danger': (
-      'background-color': rgb(249, 225, 229),
-      'text-color': rgb(175, 35, 58),
-      'icon-color': rgb(214, 46, 74),
-      'border-color': rgb(244, 200, 207),
-    ),
-    'warning': (
-      'background-color': rgb(251, 240, 218),
-      'text-color': rgb(115, 81, 13),
-      'icon-color': rgb(161, 113, 18),
-      'border-color': rgb(249, 228, 190),
-    ),
-    'info': (
-      'background-color': rgb(222, 241, 247),
-      'text-color': rgb(28, 101, 125),
-      'icon-color': rgb(38, 134, 166),
-      'border-color': rgb(198, 230, 241),
-    ),
-    'light': (
-      'background-color': rgb(245, 245, 245),
-      'text-color': rgb(79, 79, 79),
-      'icon-color': rgb(140, 140, 140),
-      'border-color': rgb(230, 230, 230),
-    ),
-    'dark': (
-      'background-color': rgb(51, 46, 46),
-      'text-color': rgb(245, 245, 245),
-      'icon-color': rgb(232, 232, 232),
-      'border-color': rgb(68, 60, 60),
-    ),
-  ),
-  $badges
-);
-// scss-docs-end badges-colors-map
+// scss-docs-start ripple-variables
+$ripple-wave-cubicBezier: cubic-bezier(0, 0, 0.15, 1) !default;
+$ripple-wave-border-radius: 50% !default;
+$ripple-wave-opacity: 0.5 !default;
+$ripple-wave-transform: scale(0) !default;
+$ripple-wave-z-index: 999 !default;
+$ripple-wave-active-transform: scale(1) !default;
+// scss-docs-end ripple-variables
 
-// scss-docs-start alerts-colors-map
-$alerts: () !default;
-$alerts: map-merge(
-  (
-    'primary': (
-      'background-color': rgb(223, 231, 246),
-      'text-color': rgb(44, 88, 160),
-      'icon-color': rgb(55, 111, 200),
-      'border-color': rgb(199, 214, 240),
-    ),
-    'secondary': (
-      'background-color': rgb(235, 237, 239),
-      'text-color': rgb(64, 70, 79),
-      'icon-color': rgb(86, 94, 108),
-      'border-color': rgb(218, 222, 225),
-    ),
-    'success': (
-      'background-color': rgb(214, 240, 224),
-      'text-color': rgb(13, 104, 50),
-      'icon-color': rgb(19, 150, 71),
-      'border-color': rgb(192, 231, 208),
-    ),
-    'danger': (
-      'background-color': rgb(249, 225, 229),
-      'text-color': rgb(175, 35, 58),
-      'icon-color': rgb(214, 46, 74),
-      'border-color': rgb(244, 200, 207),
-    ),
-    'warning': (
-      'background-color': rgb(251, 240, 218),
-      'text-color': rgb(115, 81, 13),
-      'icon-color': rgb(161, 113, 18),
-      'border-color': rgb(249, 228, 190),
-    ),
-    'info': (
-      'background-color': rgb(222, 241, 247),
-      'text-color': rgb(28, 101, 125),
-      'icon-color': rgb(38, 134, 166),
-      'border-color': rgb(198, 230, 241),
-    ),
-    'light': (
-      'background-color': rgb(245, 245, 245),
-      'text-color': rgb(79, 79, 79),
-      'icon-color': rgb(140, 140, 140),
-      'border-color': rgb(230, 230, 230),
-    ),
-    'dark': (
-      'background-color': rgb(51, 46, 46),
-      'text-color': rgb(245, 245, 245),
-      'icon-color': rgb(232, 232, 232),
-      'border-color': rgb(68, 60, 60),
-    ),
-  ),
-  $alerts
-);
-// scss-docs-end alerts-colors-map
-
-// scss-docs-start toasts-colors-map
-$toasts: () !default;
-$toasts: map-merge(
-  (
-    'primary': (
-      'background-color': rgb(223, 231, 246),
-      'text-color': rgb(44, 88, 160),
-      'icon-color': rgb(55, 111, 200),
-      'border-color': rgb(199, 214, 240),
-    ),
-    'secondary': (
-      'background-color': rgb(235, 237, 239),
-      'text-color': rgb(64, 70, 79),
-      'icon-color': rgb(86, 94, 108),
-      'border-color': rgb(218, 222, 225),
-    ),
-    'success': (
-      'background-color': rgb(214, 240, 224),
-      'text-color': rgb(13, 104, 50),
-      'icon-color': rgb(19, 150, 71),
-      'border-color': rgb(192, 231, 208),
-    ),
-    'danger': (
-      'background-color': rgb(249, 225, 229),
-      'text-color': rgb(175, 35, 58),
-      'icon-color': rgb(214, 46, 74),
-      'border-color': rgb(244, 200, 207),
-    ),
-    'warning': (
-      'background-color': rgb(251, 240, 218),
-      'text-color': rgb(115, 81, 13),
-      'icon-color': rgb(161, 113, 18),
-      'border-color': rgb(249, 228, 190),
-    ),
-    'info': (
-      'background-color': rgb(222, 241, 247),
-      'text-color': rgb(28, 101, 125),
-      'icon-color': rgb(38, 134, 166),
-      'border-color': rgb(198, 230, 241),
-    ),
-    'light': (
-      'background-color': rgb(245, 245, 245),
-      'text-color': rgb(79, 79, 79),
-      'icon-color': rgb(140, 140, 140),
-      'border-color': rgb(230, 230, 230),
-    ),
-    'dark': (
-      'background-color': rgb(51, 46, 46),
-      'text-color': rgb(245, 245, 245),
-      'icon-color': rgb(232, 232, 232),
-      'border-color': rgb(68, 60, 60),
-    ),
-  ),
-  $toasts
-);
-// scss-docs-end toasts-colors-map
-
-// Prefix for :root CSS variables
-
-$variable-prefix: mdb- !default;
-
-// Body
-//
-// Settings for the `<body>` element.
-
-$body-color: $gray-800 !default;
-
-$border-radius-xl: 0.5rem !default;
-
-// Components
-
-// Placeholders
-$placeholder-opacity-max: 0.5 !default;
-$placeholder-opacity-min: 0.2 !default;
-//
-//
-// Shadows offset, blur, spread and color
-
-$box-shadow-0: none !default;
-
-$box-shadow-1: 0 0px 2px 0 rgb(0 0 0 / 7%), 0 1px 1px 0 rgb(0 0 0 / 4%) !default;
-$box-shadow-2: 0 0px 3px 0 rgb(0 0 0 / 7%), 0 2px 2px 0 rgb(0 0 0 / 4%) !default;
-$box-shadow-3: 0 2px 6px -1px rgb(0 0 0 / 7%), 0 6px 18px -1px rgb(0 0 0 / 4%) !default;
-$box-shadow-4: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%) !default;
-$box-shadow-5: 0 2px 25px -5px rgb(0 0 0 / 7%), 0 25px 21px -5px rgb(0 0 0 / 4%) !default;
-$box-shadow-6: 0 2px 35px -12px rgb(0 0 0 / 21%), 0 50px 40px -5px rgb(0 0 0 / 4%) !default;
-
-$box-shadow-1-soft: 0 1px 5px 0 rgba(0, 0, 0, 0.05) !default;
-$box-shadow-2-soft: 0 2px 10px 0 rgba(0, 0, 0, 0.05) !default;
-$box-shadow-3-soft: 0 5px 15px 0 rgba(0, 0, 0, 0.05) !default;
-$box-shadow-4-soft: 0 10px 20px 0 rgba(0, 0, 0, 0.05) !default;
-$box-shadow-5-soft: 0 15px 30px 0 rgba(0, 0, 0, 0.05) !default;
-$box-shadow-6-soft: 0 20px 40px 0 rgba(0, 0, 0, 0.05) !default;
-
-$box-shadow-1-strong: 0 0px 2px 0 rgb(0 0 0 / 16%), 0 1px 1px 0 rgb(0 0 0 / 10%) !default;
-$box-shadow-2-strong: 0 0px 3px 0 rgb(0 0 0 / 16%), 0 2px 2px 0 rgb(0 0 0 / 10%) !default;
-$box-shadow-3-strong: 0 2px 6px -1px rgb(0 0 0 / 16%), 0 6px 18px -1px rgb(0 0 0 / 10%) !default;
-$box-shadow-4-strong: 0 2px 15px -3px rgb(0 0 0 / 16%), 0 10px 20px -2px rgb(0 0 0 / 10%) !default;
-$box-shadow-5-strong: 0 2px 25px -5px rgb(0 0 0 / 16%), 0 25px 21px -5px rgb(0 0 0 / 10%) !default;
-$box-shadow-6-strong: 0 2px 35px -12px rgb(0 0 0 / 26%), 0 50px 40px -5px rgb(0 0 0 / 10%) !default;
-
-$box-shadow-3-top: 0 -10px 20px 0 rgba(0, 0, 0, 0.05) !default;
-$box-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06) !default;
-
-// scss-docs-start light-shadows-values
-$shadows: (
-  '0': $box-shadow-0,
-  '1': $box-shadow-1,
-  '2': $box-shadow-2,
-  '3': $box-shadow-3,
-  '4': $box-shadow-4,
-  '5': $box-shadow-5,
-  '6': $box-shadow-6,
+// scss-docs-start ripple-colors-map
+$ripple: (
+  'primary': $primary,
+  'secondary': #e3ebf7,
+  'success': $success,
+  'danger': $danger,
+  'warning': $warning,
+  'info': $info,
+  'light': $light,
+  'dark': $dark,
 ) !default;
-// scss-docs-end light-shadows-values
-
-// scss-docs-start light-shadows-values
-$shadows-soft: (
-  '1': $box-shadow-1-soft,
-  '2': $box-shadow-2-soft,
-  '3': $box-shadow-3-soft,
-  '4': $box-shadow-4-soft,
-  '5': $box-shadow-5-soft,
-  '6': $box-shadow-6-soft,
-) !default;
-// scss-docs-end light-shadows-values
-
-// scss-docs-start strong-shadows-values
-$shadows-strong: (
-  '1': $box-shadow-1-strong,
-  '2': $box-shadow-2-strong,
-  '3': $box-shadow-3-strong,
-  '4': $box-shadow-4-strong,
-  '5': $box-shadow-5-strong,
-  '6': $box-shadow-6-strong,
-) !default;
-// scss-docs-end strong-shadows-values
-
-// Typography
-//
-// Font, line-height, and color for body text, headings, and more.
-
-$font-family-roboto: 'Roboto', sans-serif !default;
-$font-family-base: var(--mdb-font-roboto) !default;
-
-$line-height-base: 1.6 !default;
-
-// Buttons
-//
-// For each of MDB's buttons, define text, background, and border color.
-
-$btn-line-height: 1.5 !default;
-$btn-padding-top: 0.625rem !default;
-$btn-padding-bottom: 0.5rem !default;
-$btn-font-size: 0.75rem !default;
-$btn-padding-left: 1.5rem !default;
-$btn-padding-right: 1.5rem !default;
-$btn-font-weight: 500 !default;
-$btn-box-shadow: 0 4px 9px -4px rgba(0, 0, 0, 0.35) !default;
-$btn-hover-box-shadow: 0 8px 9px -4px rgba(0, 0, 0, 0.15), 0 4px 18px 0 rgba(0, 0, 0, 0.1) !default;
-$btn-focus-box-shadow: $btn-hover-box-shadow !default;
-$btn-active-box-shadow: $btn-hover-box-shadow !default;
-$btn-border-width: 0.125rem !default;
-
-$btn-outline-padding-top: 0.5rem !default;
-$btn-outline-padding-bottom: 0.375rem !default;
-$btn-outline-padding-left: 1.375rem !default;
-$btn-outline-padding-right: 1.375rem !default;
-
-$btn-outline-padding-top-sm: 0.25rem !default;
-$btn-outline-padding-bottom-sm: 0.1875rem !default;
-$btn-outline-padding-right-sm: 0.875rem !default;
-$btn-outline-padding-left-sm: 0.875rem !default;
-
-$btn-outline-padding-top-lg: 0.625rem !default;
-$btn-outline-padding-bottom-lg: 0.5625rem !default;
-$btn-outline-padding-right-lg: 1.5625rem !default;
-$btn-outline-padding-left-lg: 1.5625rem !default;
-
-$btn-line-height-lg: 1.6 !default;
-$btn-font-size-lg: 0.875rem !default;
-$btn-padding-top-lg: 0.75rem !default;
-$btn-padding-bottom-lg: 0.6875rem !default;
-$btn-padding-right-lg: 1.6875rem !default;
-$btn-padding-left-lg: 1.6875rem !default;
-
-$btn-line-height-sm: $btn-line-height !default;
-$btn-font-size-sm: 0.75rem !default;
-$btn-padding-top-sm: 0.375rem !default;
-$btn-padding-bottom-sm: 0.3125rem !default;
-$btn-padding-right-sm: 1rem !default;
-$btn-padding-left-sm: 1rem !default;
-
-$link-color: $primary !default;
-$link-decoration: underline !default;
-$link-shade-percentage: 20% !default;
-$link-hover-color: shift-color($link-color, $link-shade-percentage) !default;
-$btn-link-bgc: #f5f5f5 !default;
-$btn-rounded-border-radius: 10rem !default;
-
-$btn-floating-border-radius: 50% !default;
-
-$btn-floating-width: 2.3125rem !default;
-$btn-floating-height: 2.3125rem !default;
-$btn-floating-icon-width: 2.3125rem !default;
-$btn-floating-icon-line-height: 2.3125rem !default;
-
-$btn-floating-width-lg: 2.8125rem !default;
-$btn-floating-height-lg: 2.8125rem !default;
-$btn-floating-icon-width-lg: 2.8125rem !default;
-$btn-floating-icon-line-height-lg: 2.8125rem !default;
-
-$btn-floating-width-sm: 1.8125rem !default;
-$btn-floating-height-sm: 1.8125rem !default;
-$btn-floating-icon-width-sm: 1.8125rem !default;
-$btn-floating-icon-line-height-sm: 1.8125rem !default;
-
-$btn-outline-floating-icon-width: 2.0625rem !default;
-$btn-outline-floating-icon-line-height: 2.0625rem !default;
-
-$btn-outline-floating-icon-width-lg: 2.5625rem !default;
-$btn-outline-floating-icon-line-height-lg: 2.5625rem !default;
-
-$btn-outline-floating-icon-width-sm: 1.5625rem !default;
-$btn-outline-floating-icon-line-height-sm: 1.5625rem !default;
-
-$btn-floating-border-radius: 50% !default;
-
-$btn-block-spacing-y: 0.5rem !default;
-
-$fixed-action-btn-right: 2.1875rem !default;
-$fixed-action-btn-bottom: 2.1875rem !default;
-$fixed-action-btn-padding-top: 0.9375rem !default;
-$fixed-action-btn-li-margin-bottom: 1.5rem !default;
-
-$btn-contextual-box-shadow: 0 4px 9px -4px !default;
-$btn-contextual-box-shadow-state-first-part: 0 8px 9px -4px !default;
-$btn-contextual-box-shadow-state-second-part: 0 4px 18px 0 !default;
-$btn-secondary-hover-focus-bgc: shade-color(#e3ebf7, 3%) !default;
-$btn-secondary-active-bgc: shade-color(#e3ebf7, 6%) !default;
+// scss-docs-end ripple-colors-map
 
 // Button group
 //
 // Material styling for group of buttons
 
+// scss-docs-start btn-group-variables
 $btn-group-border-radius: calc(4px - 1px) !default;
 $btn-group-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
+// scss-docs-end btn-group-variables
 
 // Forms
 //
 // Material styling for outline forms border, label, size
 
-$input-padding-top: 0.33em !default;
+// scss-docs-start input-variables
+$input-padding-top: 0.32rem !default;
 $input-padding-bottom: $input-padding-top !default;
-$input-padding-left: 0.75em !default;
+$input-padding-left: 0.75rem !default;
 $input-padding-right: $input-padding-left !default;
 $input-transition: all 0.2s linear !default;
 
@@ -839,18 +1132,14 @@ $input-focus-border-width: 0.125rem !default;
 $input-focus-border-color: $primary !default;
 $input-disabled-background-color: #e9ecef !default;
 
-$input-padding-left-lg: 0.75em !default;
-$input-padding-right-lg: $input-padding-left-lg !default;
 $input-font-size-lg: 1rem !default;
 $input-line-height-lg: 2.15 !default;
 $input-focus-active-label-transform-lg: translateY(-1.25rem) translateY(0.1rem) scale(0.8) !default;
 
-$input-padding-left-sm: 0.99em !default;
-$input-padding-right-sm: $input-padding-left-sm !default;
-$input-padding-top-sm: 0.43em !default;
-$input-padding-bottom-sm: 0.35em !default;
+$input-padding-top-sm: 0.32rem !default;
+$input-padding-bottom-sm: 0.32rem !default;
 $input-font-size-sm: 0.775rem !default;
-$input-line-height-sm: 1.6 !default;
+$input-line-height-sm: 1.5 !default;
 $input-focus-active-label-transform-sm: translateY(-0.85rem) translateY(0.1rem) scale(0.8) !default;
 
 $form-notch-div-border-color: #bdbdbd !default;
@@ -1021,6 +1310,10 @@ $form-file-lg-font-size: 1rem !default;
 $form-file-lg-line-height: 2.15 !default;
 $form-file-lg-padding-y: $form-file-text-padding-y !default;
 
+$form-select-transition: all 0.2s linear !default;
+$form-select-focus-border-color: $primary !default;
+$form-select-focus-border-box-shadow: inset 0px 0px 0px 1px $primary !default;
+
 $form-range-webkit-slider-thumb-margin-top: -6px !default;
 $form-range-webkit-slider-runnable-track-height: 4px !default;
 
@@ -1049,12 +1342,15 @@ $input-group-sm-text-line-height: 1.5 !default;
 
 $input-group-form-outline-border-left-width: 1px !default;
 $input-group-form-outline-border-left-color: #bdbdbd !default;
+// scss-docs-end input-variables
 
 // Form validation
 
+// scss-docs-start form-feedback-variables
 $form-feedback-valid-tooltip-color: $white !default;
 $form-feedback-valid-color: $success !default;
 $form-feedback-invalid-color: $danger !default;
+// scss-docs-end form-feedback-variables
 
 // scss-docs-start form-validation-states
 $form-validation-states-mdb: (
@@ -1067,23 +1363,31 @@ $form-validation-states-mdb: (
 ) !default;
 // scss-docs-end form-validation-states
 
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
 // scss-docs-start zindex-stack
-$zindex-fixed-action-button: 1030 !default;
+$fixed-action-button-zindex: 1030 !default;
 $zindex-toast: 1060 !default;
-$zindex-alert: 1070 !default;
+$alert-zindex: 1070 !default;
 $zindex-popover: 1080 !default;
 $zindex-tooltip: 1090 !default;
 // scss-docs-end zindex-stack
 
 // Navs
 
-$nav-tabs-link-border-width: 0 0 2px 0 !default;
+// scss-docs-start nav-variables
+$nav-tabs-link-border-bottom-width: 2px !default;
 $nav-tabs-link-font-weight: 500 !default;
 $nav-tabs-link-font-size: 12px !default;
 $nav-tabs-link-padding-top: 17px !default;
 $nav-tabs-link-padding-bottom: 16px !default;
 $nav-tabs-link-padding-x: 29px !default;
-$nav-tabs-link-hover-background-color: #f5f5f5 !default;
+$nav-tabs-link-hover-background-color: hsl(0, 0%, 96%) !default;
+$nav-tabs-link-active-color: $primary !default;
+$nav-tabs-link-active-border-color: $primary !default;
 
 $nav-pills-margin: 0.5rem !default;
 $nav-pills-link-border-radius: 0.25rem !default;
@@ -1099,20 +1403,24 @@ $nav-tabs-link-color: rgba(0, 0, 0, 0.55) !default;
 $nav-tabs-link-hover-bgc: #f7f7f7 !default;
 
 $nav-pills-link-color: $nav-tabs-link-color !default;
-$nav-pills-link-hover-bgc: $nav-tabs-link-hover-bgc !default;
-$nav-pills-link-active-bgc: #e3ebf7 !default;
+$nav-pills-link-hover-bg: $nav-tabs-link-hover-bgc !default;
+$nav-pills-link-active-bg: #e3ebf7 !default;
 $nav-pills-link-active-color: #285192 !default;
+// scss-docs-end nav-variables
 
 // Navbar
 
+// scss-docs-start navbar-variables
 $navbar-box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05) !default;
 $navbar-padding-top: 0.5625rem !default;
 $navbar-brand-img-margin-right: 0.25rem !default;
+// scss-docs-end navbar-variables
 
 // Dropdowns
 //
-// Dropdown menu container and content !default;
+// Dropdown menu container and contents.
 
+// scss-docs-start dropdown-variables
 $dropdown-color: $body-color !default;
 $dropdown-margin-top: 0.125rem !default;
 $dropdown-box-shadow: $box-shadow-4 !default;
@@ -1122,6 +1430,7 @@ $dropdown-item-padding-y: 0.5rem !default;
 $dropdown-item-padding-x: 1rem !default;
 $dropdown-border-radius: 0.5rem !default;
 $dropdown-divider-bg: hsl(0, 0%, 96%) !default;
+$dropdown-divider-border-top-width: 2px;
 
 $dropdown-state-color: #16181b !default;
 $dropdown-state-background-color: #eee !default;
@@ -1129,15 +1438,18 @@ $dropdown-state-background-color: #eee !default;
 $dropdown-menu-animated-animation-duration: 0.55s !default;
 $dropdown-menu-animated-animation-timing-function: ease !default;
 
+$dropdown-animation-duration: 1s !default;
+// scss-docs-end dropdown-variables
+
 // Pagination
 
+// scss-docs-start pagination-variables
 $pagination-font-size: 0.9rem !default;
 $pagination-color: $body-color !default;
 $pagination-transition: all 0.3s linear !default;
 $pagination-border-radius: 0.25rem !default;
 
 $pagination-hover-color: $pagination-color !default;
-$pagination-active-box-shadow: $btn-box-shadow !default;
 $pagination-active-transition: all 0.2s linear !default;
 
 $pagination-circle-border-radius: 50% !default;
@@ -1149,17 +1461,26 @@ $pagination-circle-lg-padding-right: 1.399415rem !default;
 $pagination-circle-sm-padding-left: 0.696rem !default;
 $pagination-circle-sm-padding-right: 0.688rem !default;
 
-$page-item-active-link-bgc: #e3ebf7 !default;
-$page-item-active-link-color: #285192 !default;
-$page-item-active-link-box-shadow: 0 4px 9px -4px #e3ebf7 !default;
-$page-item-active-link-font-weight: 500 !default;
+$pagination-active-bg: #e3ebf7 !default;
+$pagination-active-color: #285192 !default;
+$pagination-active-box-shadow: 0 4px 9px -4px #e3ebf7 !default;
+$pagination-active-font-weight: 500 !default;
+// scss-docs-end pagination-variables
+
+// Placeholders
+
+// scss-docs-start placeholders
+$placeholder-opacity-max: 0.5 !default;
+$placeholder-opacity-min: 0.2 !default;
+// scss-docs-end placeholders
 
 // Cards
 
+// scss-docs-start card-variables
 $card-spacer-y: 1.5rem !default;
 $card-spacer-x: 1.5rem !default;
 $card-box-shadow: $box-shadow-4 !default;
-$card-header-background-color: rgba(255, 255, 255, 0) !default;
+$card-cap-bg: rgba(255, 255, 255, 0) !default;
 $card-footer-background-color: rgba(255, 255, 255, 0) !default;
 $card-header-border-width: 2px !default;
 $card-header-border-color: hsl(0, 0%, 96%) !default;
@@ -1167,48 +1488,122 @@ $card-footer-border-width: 2px !default;
 $card-footer-border-color: hsl(0, 0%, 96%) !default;
 $card-border-radius: 0.5rem !default;
 $card-img-overlay-padding: 1.5rem !default;
+// scss-docs-end card-variables
 
 // Accordion
 
+// scss-docs-start accordion-variables
 $accordion-padding-y: 1.15rem !default;
 $accordion-padding-x: 1.5rem !default;
 $accordion-button-active-bg: $white !default;
 $accordion-button-active-color: $primary !default;
 $accordion-button-focus-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125) !default;
-$accordion-border-radius: $border-radius-xl;
-$accordion-flush-button-box-shadow: inset 0 -2px 0 #f5f5f5 !default;
-$accordion-flush-item-border-bottom: 2px solid #f5f5f5 !default;
+$accordion-border-radius: $border-radius-lg !default;
+$accordion-flush-button-box-shadow: inset 0 -2px 0 hsl(0, 0%, 96%) !default;
+$accordion-flush-item-border-bottom: 2px solid hsl(0, 0%, 96%) !default;
 $accordion-borderless-button-border-radius: 0.5rem !default;
 $accordion-borderless-button-bgc: rgb(223, 231, 246) !default;
 $accordion-borderless-button-color: rgb(44, 88, 160) !default;
+// scss-docs-end accordion-variables
 
 // Tooltips
 
-$tooltip-inner-color: #fff !default;
-$tooltip-inner-padding-y: 6px !default;
-$tooltip-inner-padding-x: 16px !default;
-$tooltip-inner-font-size: 14px !default;
-$tooltip-inner-background-color: #6d6d6d !default;
-$tooltip-inner-border-radius: 0.25rem !default;
+// scss-docs-start tooltip-variables
+$tooltip-color: #fff !default;
+$tooltip-padding-y: 6px !default;
+$tooltip-padding-x: 16px !default;
+$tooltip-font-size: 14px !default;
+$tooltip-bg: #6d6d6d !default;
+$tooltip-border-radius: 0.25rem !default;
+// scss-docs-end tooltip-feedback-variables
 
 // Popovers
 
-$popover-box-shadow: $box-shadow-4 !default;
-$popover-background-color: #fff !default;
-$popover-border-radius: $border-radius-xl !default;
-$popover-border-width: 2px !default;
+// scss-docs-start popover-variables
+$popover-box-shadow: $box-shadow-2 !default;
+$popover-border-radius: $border-radius-lg !default;
+$popover-border-bottom-width: $border-width-alternate !default;
+$popover-border-width: 1px !default;
 $popover-border-color: hsl(0, 0%, 96%) !default;
+$popover-header-bg: $white !default;
+// scss-docs-end popover-variables
 
 // Toasts
 
-$toast-background-color: #fff !default;
+// scss-docs-start toast-variables
 $toast-box-shadow: $box-shadow-4 !default;
-$toast-header-background-color: #fff !default;
-$toast-border-radius: $border-radius-xl !default;
+$toast-border-radius: $border-radius-lg !default;
+$toast-border-bottom-width: $border-width-alternate !default;
+$toast-background-color: $white !default;
 $toast-padding-x: 1rem !default;
 $toast-padding-y: 0.65rem !default;
+$toast-header-background-color: $white !default;
+$toast-btn-close-width: 1.3em !default;
+$toast-btn-close-mr: -0.375rem !default;
+$toast-btn-close-ml: 0.75rem !default;
+// scss-docs-end toast-variables
+
+// scss-docs-start toasts-colors-map
+$toasts: () !default;
+$toasts: map-merge(
+  (
+    'primary': (
+      'background-color': hsl(219, 56.1, 92),
+      'text-color': hsl(217, 56.9, 40),
+      'icon-color': hsl(217, 56.9, 50),
+      'border-color': hsl(218, 57.7, 86.1),
+    ),
+    'secondary': (
+      'background-color': hsl(210, 11.1, 92.9),
+      'text-color': hsl(216, 10.5, 28),
+      'icon-color': hsl(218, 11.3, 38),
+      'border-color': hsl(206, 10.4, 86.9),
+    ),
+    'success': (
+      'background-color': hsl(143, 46.4, 89),
+      'text-color': hsl(144, 77.8, 22.9),
+      'icon-color': hsl(144, 77.5, 33.1),
+      'border-color': hsl(145, 44.8, 82.9),
+    ),
+    'danger': (
+      'background-color': hsl(350, 66.7, 92.9),
+      'text-color': hsl(350, 66.7, 41.2),
+      'icon-color': hsl(350, 67.2, 51),
+      'border-color': hsl(350, 66.7, 87.1),
+    ),
+    'warning': (
+      'background-color': hsl(40, 80.5, 92),
+      'text-color': hsl(40, 79.7, 25.1),
+      'icon-color': hsl(40, 79.9, 35.1),
+      'border-color': hsl(39, 83.1, 86.1),
+    ),
+    'info': (
+      'background-color': hsl(194, 61, 92),
+      'text-color': hsl(195, 63.4, 30),
+      'icon-color': hsl(195, 62.7, 40),
+      'border-color': hsl(195, 60.6, 86.1),
+    ),
+    'light': (
+      'background-color': hsl(0, 0, 96.1),
+      'text-color': hsl(0, 0, 31),
+      'icon-color': hsl(0, 0, 54.9),
+      'border-color': hsl(0, 0, 90.2),
+    ),
+    'dark': (
+      'background-color': hsl(0, 5.2, 19),
+      'text-color': hsl(0, 0, 96.1),
+      'icon-color': hsl(0, 0, 91),
+      'border-color': hsl(0, 6.3, 25.1),
+    ),
+  ),
+  $toasts
+);
+// scss-docs-end toasts-colors-map
 
 // Badges
+
+// scss-docs-start badge-variables
+$badge-border-radius: 0.27rem !default;
 
 $badge-dot-border-radius: 4.5px !default;
 $badge-dot-height: 9px !default;
@@ -1220,61 +1615,193 @@ $badge-notification-margin-top: -0.1rem !default;
 $badge-notification-margin-left: -0.5rem !default;
 $badge-notification-padding-y: 0.2em !default;
 $badge-notification-padding-x: 0.45em !default;
+// scss-docs-end badge-variables
 
-$badge-border-radius: 0.27rem !default;
+// scss-docs-start badges-colors-map
+$badges: () !default;
+$badges: map-merge(
+  (
+    'primary': (
+      'background-color': rgb(223, 231, 246),
+      'text-color': rgb(44, 88, 160),
+      'icon-color': rgb(55, 111, 200),
+      'border-color': rgb(199, 214, 240),
+    ),
+    'secondary': (
+      'background-color': rgb(235, 237, 239),
+      'text-color': rgb(64, 70, 79),
+      'icon-color': rgb(86, 94, 108),
+      'border-color': rgb(218, 222, 225),
+    ),
+    'success': (
+      'background-color': rgb(214, 240, 224),
+      'text-color': rgb(13, 104, 50),
+      'icon-color': rgb(19, 150, 71),
+      'border-color': rgb(192, 231, 208),
+    ),
+    'danger': (
+      'background-color': rgb(249, 225, 229),
+      'text-color': rgb(175, 35, 58),
+      'icon-color': rgb(214, 46, 74),
+      'border-color': rgb(244, 200, 207),
+    ),
+    'warning': (
+      'background-color': rgb(251, 240, 218),
+      'text-color': rgb(115, 81, 13),
+      'icon-color': rgb(161, 113, 18),
+      'border-color': rgb(249, 228, 190),
+    ),
+    'info': (
+      'background-color': rgb(222, 241, 247),
+      'text-color': rgb(28, 101, 125),
+      'icon-color': rgb(38, 134, 166),
+      'border-color': rgb(198, 230, 241),
+    ),
+    'light': (
+      'background-color': rgb(245, 245, 245),
+      'text-color': rgb(79, 79, 79),
+      'icon-color': rgb(140, 140, 140),
+      'border-color': rgb(230, 230, 230),
+    ),
+    'dark': (
+      'background-color': rgb(51, 46, 46),
+      'text-color': rgb(245, 245, 245),
+      'icon-color': rgb(232, 232, 232),
+      'border-color': rgb(68, 60, 60),
+    ),
+  ),
+  $badges
+);
+// scss-docs-end badges-colors-map
 
 // Modals
 
+// scss-docs-start modal-variables
 $modal-box-shadow: $box-shadow-4 !default;
-$modal-content-border-radius: $border-radius-xl !default;
-$modal-header-border-color: hsl(0, 0%, 96%) !default;
-$modal-footer-border-color: hsl(0, 0%, 96%) !default;
-$modal-header-border-width: 2px !default;
-$modal-footer-border-width: 2px !default;
+$modal-content-border-radius: $border-radius-lg !default;
+$modal-header-border-color: $border-color-alternate !default;
+$modal-footer-border-color: $border-color-alternate !default;
+$modal-header-border-width: $border-width-alternate !default;
+$modal-footer-border-width: $border-width-alternate !default;
+// scss-docs-end modal-variables
 
 // Alerts
 
+// scss-docs-start alert-variables
 $alert-padding-y: 1.25rem !default;
 $alert-padding-x: 1.5rem !default;
-$alert-border-radius: $border-radius-xl !default;
+$alert-border-radius: $border-radius-lg !default;
+// scss-docs-end alert-variables
+
+// scss-docs-start alerts-colors-map
+$alerts: () !default;
+$alerts: map-merge(
+  (
+    'primary': (
+      'background-color': rgb(223, 231, 246),
+      'text-color': rgb(44, 88, 160),
+      'icon-color': rgb(55, 111, 200),
+      'border-color': rgb(199, 214, 240),
+    ),
+    'secondary': (
+      'background-color': rgb(235, 237, 239),
+      'text-color': rgb(64, 70, 79),
+      'icon-color': rgb(86, 94, 108),
+      'border-color': rgb(218, 222, 225),
+    ),
+    'success': (
+      'background-color': rgb(214, 240, 224),
+      'text-color': rgb(13, 104, 50),
+      'icon-color': rgb(19, 150, 71),
+      'border-color': rgb(192, 231, 208),
+    ),
+    'danger': (
+      'background-color': rgb(249, 225, 229),
+      'text-color': rgb(175, 35, 58),
+      'icon-color': rgb(214, 46, 74),
+      'border-color': rgb(244, 200, 207),
+    ),
+    'warning': (
+      'background-color': rgb(251, 240, 218),
+      'text-color': rgb(115, 81, 13),
+      'icon-color': rgb(161, 113, 18),
+      'border-color': rgb(249, 228, 190),
+    ),
+    'info': (
+      'background-color': rgb(222, 241, 247),
+      'text-color': rgb(28, 101, 125),
+      'icon-color': rgb(38, 134, 166),
+      'border-color': rgb(198, 230, 241),
+    ),
+    'light': (
+      'background-color': rgb(245, 245, 245),
+      'text-color': rgb(79, 79, 79),
+      'icon-color': rgb(140, 140, 140),
+      'border-color': rgb(230, 230, 230),
+    ),
+    'dark': (
+      'background-color': rgb(51, 46, 46),
+      'text-color': rgb(245, 245, 245),
+      'icon-color': rgb(232, 232, 232),
+      'border-color': rgb(68, 60, 60),
+    ),
+  ),
+  $alerts
+);
+// scss-docs-end alerts-colors-map
 
 // Progress bars
 
+// scss-docs-start progress-variables
 $progress-height: 4px !default;
+// scss-docs-end progress-variables
+
+// Range
+
+// scss-docs-start range-variables
+$range-thumb-height: 30px !default;
+$range-thumb-width: 30px !default;
+$range-thumb-top: -35px !default;
+$range-thumb-background: $primary !default;
+$range-thumb-active-background: tint-color($primary, 70%) !default;
+$range-thumb-margin-left: -15px !default;
+$range-thumb-border-radius: 50% 50% 50% 0 !default;
+$range-thumb-transform: scale(0) !default;
+$range-thumb-transition: transform 0.2s ease-in-out !default;
+$range-thumb-value-font-size: 12px !default;
+$range-thumb-value-line-height: 30px !default;
+$range-thumb-value-color: rgb(255, 255, 255) !default;
+$range-thumb-value-font-weight: 500 !default;
+// override default bootstrap values for form range
+$form-range-thumb-bg: $range-thumb-background !default;
+$form-range-thumb-active-bg: $range-thumb-active-background !default;
+// scss-docs-end range-variables
 
 // List group
 
-$list-group-border-radius: $border-radius-xl !default;
+// scss-docs-start list-group-variables
+$list-group-border-radius: $border-radius-lg !default;
 $list-group-item-padding-x: 1.5rem !default;
+$list-group-item-transition-time: 0.5s !default;
 $list-group-color: $body-color !default;
 
 $list-group-light-item-py: 1rem !default;
 $list-group-light-item-border: 2px solid hsl(0, 0%, 96%) !default;
 $list-group-light-item-border-width: 2px !default;
 $list-group-light-active-border-radius: 0.5rem !default;
-$list-group-light-active-bgc: hsl(217, 88.2%, 90%) !default;
-$list-group-light-active-color: hsl(217, 88.8%, 35.1%) !default;
+$list-group-light-active-bg: rgb(223, 231, 246) !default;
+$list-group-light-active-color: rgb(44, 88, 160) !default;
 
-$list-group-small-item-py: 0.5 !default;
+$list-group-small-item-py: 0.5rem !default;
 
-$list-group-item-active-bgc: rgb(223, 231, 246) !default;
-$list-group-item-active-color: rgb(44, 88, 160) !default;
-$list-group-item-active-border-color: $list-group-item-active-bgc !default;
-
-// Carousel
-
-$carousel-control-prev-icon-bg: none;
-$carousel-control-next-icon-bg: none;
-
-// Breadcrumbs
-
-$breadcrumb-item-color: rgba(0, 0, 0, 0.55) !default;
-$breadcrumb-item-transition: color 0.15s ease-in-out !default;
-$breadcrumb-item-hover-color: rgba(0, 0, 0, 0.7) !default;
-$breadcrumb-item-before-color: $breadcrumb-item-color !default;
+$list-group-active-bg: rgb(223, 231, 246) !default;
+$list-group-active-color: rgb(44, 88, 160) !default;
+$list-group-active-border-color: $list-group-active-bg !default;
+// scss-docs-end list-group-variables
 
 // Images
 
+// scss-docs-start images-variables
 $image-hover-overlay-transition: all 0.3s ease-in-out !default;
 
 $image-hover-zoom-transition: all 0.3s linear !default;
@@ -1283,9 +1810,28 @@ $image-hover-zoom-transform: scale(1.1) !default;
 $image-hover-shadow-transition: $image-hover-overlay-transition !default;
 $image-hover-shadow-box-shadow: $box-shadow-4-strong !default;
 $image-hover-shadow-box-shadow-soft: $box-shadow-5 !default;
+// scss-docs-end images-variables
+
+// Breadcrumbs
+
+// scss-docs-start breadcrumb-variables
+$breadcrumb-item-color: rgba(0, 0, 0, 0.55) !default;
+$breadcrumb-item-transition: color 0.15s ease-in-out !default;
+$breadcrumb-item-hover-color: rgba(0, 0, 0, 0.7) !default;
+$breadcrumb-item-before-color: $breadcrumb-item-color !default;
+// scss-docs-end breadcrumb-variables
+
+// Carousel
+
+// scss-docs-start carousel-variables
+$carousel-control-prev-icon-bg: none;
+$carousel-control-next-icon-bg: none;
+$carousel-control-icon-font-size: 1.7rem;
+// scss-docs-end carousel-variables
 
 // Scrollspy
 
+// scss-docs-start scrollspy-variables
 $scrollspy-menu-sidebar-font-size: 0.8rem !default;
 $scrollspy-menu-sidebar-color: #262626 !default;
 $scrollspy-menu-sidebar-line-height: 1.1rem !default;
@@ -1299,42 +1845,31 @@ $scrollspy-menu-sidebar-active-font-weight: 600 !default;
 $scrollspy-menu-sidebar-active-border-width: 0.125rem !default;
 $scrollspy-menu-sidebar-active-border-color: $primary !default;
 
-// Type
+$scrollspy-collapsible-nav-transition-time: 0.5s !default;
+// scss-docs-end scrollspy-variables
 
-$note-padding: 10px !default;
-$note-border-width: 6px !default;
-$note-border-radius: 5px !default;
-$note-strong-font-weight: 600 !default;
-$note-paragraph-font-weight: 500 !default;
+// Dividers
 
-// Table
+// scss-docs-start divider-variables
+$divider-height: $border-width-alternate !default;
+$divider-width: $border-width-alternate !default;
+$divider-bg: $border-color-alternate !default;
+$divider-opacity: 1 !default;
 
-$table-color: $body-color !default;
-$table-font-size: 0.9rem !default;
-$table-hover-transition: 0.5s !default;
-$table-group-separator-color: inherit !default;
-$table-cell-padding-y: 1rem !default;
-$table-cell-padding-x: 1.4rem !default;
-$table-cell-padding-y-sm: 0.5rem !default;
-$table-cell-padding-x-sm: $table-cell-padding-x !default;
-$table-striped-bg: rgba(0, 0, 0, 0.02) !default;
-$table-hover-bg: rgba(0, 0, 0, 0.025) !default;
-$table-bg-scale: -80% !default;
-
-// scss-docs-start table-loop
-$table-variants: (
-  'primary': shift-color($primary, $table-bg-scale),
-  'secondary': shift-color($secondary, $table-bg-scale),
-  'success': shift-color($success, $table-bg-scale),
-  'info': shift-color($info, $table-bg-scale),
-  'warning': shift-color($warning, $table-bg-scale),
-  'danger': shift-color($danger, $table-bg-scale),
-  'light': $light,
-  'dark': $dark,
+$divider-blurry-bg-image: linear-gradient(
+  90deg,
+  transparent,
+  hsl(0, 0%, 40%),
+  transparent
 ) !default;
-// scss-docs-end table-loop
+$divider-blurry-height: 1px !default;
+$divider-blurry-opacity: 0.25 !default;
 
-// Select
-$form-select-transition: all 0.2s linear !default;
-$form-select-focus-border-color: $primary !default;
-$form-select-focus-border-box-shadow: inset 0px 0px 0px 1px $primary !default;
+$divider-blurry-vr-bg-image: linear-gradient(
+  180deg,
+  transparent,
+  hsl(0, 0%, 40%),
+  transparent
+) !default;
+$divider-blurry-vr-width: 1px !default;
+// scss-docs-end divider-variables

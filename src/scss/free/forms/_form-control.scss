@@ -4,8 +4,7 @@
 
 .form-control {
   min-height: auto;
-  padding-top: 4px;
-  padding-bottom: 3.28px;
+  padding: 4.5px 12px 3.68px 12px;
   transition: all 0.1s linear;
 
   &:focus {
@@ -26,6 +25,7 @@
 
 .form-outline {
   position: relative;
+  width: 100%;
 
   .form-helper {
     width: 100%;
@@ -171,8 +171,8 @@
     &.form-control-lg {
       font-size: $input-font-size-lg;
       line-height: $input-line-height-lg;
-      padding-left: $input-padding-left-lg;
-      padding-right: $input-padding-right-lg;
+      // padding-left: $input-padding-left-lg;
+      // padding-right: $input-padding-right-lg;
       ~ .form-label {
         padding-top: $form-label-padding-top-lg;
       }
@@ -182,8 +182,8 @@
       }
     }
     &.form-control-sm {
-      padding-left: $input-padding-left-sm;
-      padding-right: $input-padding-right-sm;
+      // padding-left: $input-padding-left-sm;
+      // padding-right: $input-padding-right-sm;
       padding-top: $input-padding-top-sm;
       padding-bottom: $input-padding-bottom-sm;
       font-size: $input-font-size-sm;

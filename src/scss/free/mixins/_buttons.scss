@@ -1,87 +1,60 @@
-// Button variant
-@mixin button-variant-mdb($background) {
-  color: set-notification-text-color($background);
-  background-color: $background;
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
 
-  &:hover {
-    color: set-notification-text-color($background);
-    background-color: darken($background, 7.5%);
-  }
-
-  &:focus,
-  &.focus {
-    color: set-notification-text-color($background);
-    background-color: darken($background, 7.5%);
-  }
-
-  .btn-check:checked + &,
-  .btn-check:active + &,
-  &:active,
-  &.active,
-  .show > &.dropdown-toggle {
-    color: set-notification-text-color($background);
-    background-color: darken($background, 20%);
-
-    &:focus {
-      box-shadow: $btn-focus-box-shadow;
-    }
-  }
-
-  &:disabled,
-  &.disabled {
-    color: set-notification-text-color($background);
-    background-color: $background;
-  }
-}
-
-// Button variant outline
-@mixin button-outline-variant-mdb($color) {
-  color: $color;
-  border-color: $color;
-
-  &:hover {
-    color: $color;
-    background-color: rgba(0, 0, 0, 0.02);
-  }
-
-  &:focus,
-  &.focus {
-    color: $color;
-    background-color: transparent;
-  }
-
-  &:active,
-  &.active,
-  &.dropdown-toggle.show {
-    color: $color;
-    background-color: transparent;
-
-    &:focus {
-      box-shadow: none;
-    }
-  }
-
-  &:disabled,
-  &.disabled {
-    color: $color;
-  }
-}
-
-// Button sizes
-@mixin button-size-mdb(
-  $padding-top,
-  $padding-right,
-  $padding-bottom,
-  $padding-left,
-  $font-size,
-  $line-height
+// scss-docs-start btn-variant-mixin
+@mixin button-variant(
+  $background,
+  $color: color-contrast($background),
+  $shadow,
+  $hover-background,
+  $hover-color: color-contrast($hover-background),
+  $focus-background,
+  $focus-color: color-contrast($focus-background),
+  $active-background,
+  $active-color: color-contrast($active-background)
 ) {
-  padding: $padding-top $padding-right $padding-bottom $padding-left;
-  font-size: $font-size;
-  line-height: $line-height;
+  --#{$prefix}btn-bg: #{$background};
+  --#{$prefix}btn-color: #{$color};
+  --#{$prefix}btn-box-shadow: #{$shadow};
+  --#{$prefix}btn-hover-bg: #{$hover-background};
+  --#{$prefix}btn-hover-color: #{$hover-color};
+  --#{$prefix}btn-focus-bg: #{$focus-background};
+  --#{$prefix}btn-focus-color: #{$focus-color};
+  --#{$prefix}btn-active-bg: #{$active-background};
+  --#{$prefix}btn-active-color: #{$active-color};
 }
+// scss-docs-end btn-variant-mixin
+
+// scss-docs-start btn-outline-variant-mixin
+@mixin button-outline-variant($color, $hover-color, $focus-color, $active-color) {
+  --#{$prefix}btn-bg: transparent;
+  --#{$prefix}btn-color: #{$color};
+  --#{$prefix}btn-hover-bg: transparent;
+  --#{$prefix}btn-hover-color: #{$hover-color};
+  --#{$prefix}btn-focus-bg: transparent;
+  --#{$prefix}btn-focus-color: #{$focus-color};
+  --#{$prefix}btn-active-bg: transparent;
+  --#{$prefix}btn-active-color: #{$active-color};
+}
+// scss-docs-end btn-outline-variant-mixin
+
+// scss-docs-start btn-size-mixin
+@mixin button-size($padding-top, $padding-bottom, $padding-x, $font-size, $line-height) {
+  --#{$prefix}btn-padding-top: #{$padding-top};
+  --#{$prefix}btn-padding-bottom: #{$padding-bottom};
+  --#{$prefix}btn-padding-x: #{$padding-x};
+  @include rfs($font-size, --#{$prefix}btn-font-size);
+  --#{$prefix}btn-line-height: #{$line-height};
+}
+// scss-docs-end btn-size-mixin
 
 // Button size variant outline
-@mixin button-outline-size-mdb($padding-top, $padding-right, $padding-bottom, $padding-left) {
-  padding: $padding-top $padding-right $padding-bottom $padding-left;
+@mixin button-outline-size($padding-top, $padding-bottom, $padding-x, $font-size, $line-height) {
+  --#{$prefix}btn-padding-top: #{$padding-top};
+  --#{$prefix}btn-padding-bottom: #{$padding-bottom};
+  --#{$prefix}btn-padding-x: #{$padding-x};
+  @include rfs($font-size, --#{$prefix}btn-font-size);
+  --#{$prefix}btn-line-height: #{$line-height};
 }

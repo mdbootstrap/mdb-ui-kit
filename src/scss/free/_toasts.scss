@@ -1,22 +1,28 @@
-// Toasts
+//
+// Toast styles
+//
 
 .toast {
-  background-color: $toast-background-color;
+  // scss-docs-start toast-css-vars
+  --#{$prefix}toast-border-bottom-width: #{$toast-border-bottom-width};
+  --#{$prefix}toast-btn-close-width: #{$toast-btn-close-width};
+  --#{$prefix}toast-btn-close-mr: #{$toast-btn-close-mr};
+  --#{$prefix}toast-btn-close-ml: #{$toast-btn-close-ml};
+  // scss-docs-end toast-css-vars
+
   border: 0;
-  box-shadow: $toast-box-shadow;
 
   .btn-close {
-    width: 1.3em;
+    width: var(--#{$prefix}toast-btn-close-width);
   }
 }
 
 .toast-header {
-  background-color: $toast-header-background-color;
-  border-bottom-width: 2px;
+  border-bottom-width: var(--#{$prefix}toast-border-bottom-width);
 
   .btn-close {
-    margin-right: -0.375rem;
-    margin-left: 0.75rem;
+    margin-right: var(--#{$prefix}toast-btn-close-mr);
+    margin-left: var(--#{$prefix}toast-btn-close-ml);
   }
 }
 
@@ -30,7 +36,7 @@
 
 .toast-fixed {
   position: fixed;
-  z-index: $zindex-toast;
+  z-index: var(--#{$prefix}toast-zindex);
 }
 
 @each $color, $value in $toasts {
@@ -38,5 +44,9 @@
     background-color: map-get($value, background-color);
     color: map-get($value, text-color);
     border-color: map-get($value, border-color);
+
+    i {
+      color: map-get($value, icon-color);
+    }
   }
 }

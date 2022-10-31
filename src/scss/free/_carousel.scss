@@ -1,17 +1,27 @@
+//
+// Carousel styles
+//
+
 .carousel-control-prev-icon {
   &::after {
     content: '\f053';
-    font-weight: $font-weight-bold;
+    --#{$prefix}carousel-control-icon-font-size: #{$carousel-control-icon-font-size};
+    --#{$prefix}carousel-control-icon-font-weight: #{$font-weight-bold};
+
+    font-weight: var(--#{$prefix}carousel-control-icon-font-weight);
+    font-size: var(--#{$prefix}carousel-control-icon-font-size);
     font-family: 'Font Awesome 6 Pro', 'Font Awesome 6 Free';
-    font-size: 1.7rem;
   }
 }
 .carousel-control-next-icon {
   &::after {
     content: '\f054';
-    font-weight: $font-weight-bold;
+    --#{$prefix}carousel-control-icon-font-size: #{$carousel-control-icon-font-size};
+    --#{$prefix}carousel-control-icon-font-weight: #{$font-weight-bold};
+
+    font-weight: var(--#{$prefix}carousel-control-icon-font-weight);
+    font-size: var(--#{$prefix}carousel-control-icon-font-size);
     font-family: 'Font Awesome 6 Pro', 'Font Awesome 6 Free';
-    font-size: 1.7rem;
   }
 }
 .carousel-indicators {

@@ -1,17 +1,66 @@
-// Reboot
+// stylelint-disable declaration-no-important, selector-no-qualifying-type, property-no-vendor-prefix
 
-body {
-  font-family: $font-family-base;
-  line-height: $line-height-base;
-  color: $body-color;
+// Reboot
+//
+// Normalization of HTML elements, manually forked from Normalize.css to remove
+// styles targeting irrelevant browsers while applying new styles.
+
+// Dividers
+
+hr:not([size]) {
+  &.hr {
+    --#{$prefix}divider-height: #{$divider-height};
+    --#{$prefix}divider-bg: #{$divider-bg};
+    --#{$prefix}divider-opacity: #{$divider-opacity};
+    --#{$prefix}divider-blurry-bg: transparent;
+    --#{$prefix}divider-blurry-bg-image: #{$divider-blurry-bg-image};
+    --#{$prefix}divider-blurry-height: #{$divider-blurry-height};
+    --#{$prefix}divider-blurry-opacity: #{$divider-blurry-opacity};
+
+    height: var(--#{$prefix}divider-height);
+    background-color: var(--#{$prefix}divider-bg);
+    opacity: var(--#{$prefix}divider-opacity);
+
+    &.hr-blurry {
+      background-color: var(--#{$prefix}divider-blurry-bg);
+      background-image: var(--#{$prefix}divider-blurry-bg-image);
+      height: var(--#{$prefix}divider-blurry-height);
+      opacity: var(--#{$prefix}divider-blurry-opacity);
+    }
+  }
+
+  &.vr {
+    height: auto;
+  }
+}
+
+hr.hr,
+hr.vr {
+  border-top: none !important;
+}
+
+.vr {
+  --#{$prefix}divider-width: #{$divider-width};
+  --#{$prefix}divider-bg: #{$divider-bg};
+  --#{$prefix}divider-opacity: #{$divider-opacity};
+
+  width: var(--#{$prefix}divider-width);
+  background-color: var(--#{$prefix}divider-bg);
+  opacity: var(--#{$prefix}divider-opacity);
+}
+
+.vr-blurry {
+  --#{$prefix}divider-blurry-vr-bg-image: #{$divider-blurry-vr-bg-image};
+  --#{$prefix}divider-blurry-vr-width: #{$divider-blurry-vr-width};
+  --#{$prefix}divider-blurry-opacity: #{$divider-blurry-opacity};
+
+  background-image: var(--#{$prefix}divider-blurry-vr-bg-image);
+  width: var(--#{$prefix}divider-blurry-vr-width);
+  opacity: var(--#{$prefix}divider-blurry-opacity);
 }
 
 // Links
 
 a {
   text-decoration: none;
-}
-
-button:focus {
-  outline: 0;
 }

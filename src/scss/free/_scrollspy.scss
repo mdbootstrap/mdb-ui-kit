@@ -3,31 +3,46 @@
 .nav-pills {
   &.menu-sidebar {
     .nav-link {
-      font-size: $scrollspy-menu-sidebar-font-size;
+      --#{$prefix}scrollspy-menu-sidebar-font-size: #{$scrollspy-menu-sidebar-font-size};
+      --#{$prefix}scrollspy-menu-sidebar-color: #{$scrollspy-menu-sidebar-color};
+      --#{$prefix}scrollspy-menu-sidebar-line-height: #{$scrollspy-menu-sidebar-line-height};
+      --#{$prefix}scrollspy-menu-sidebar-padding-x: #{$scrollspy-menu-sidebar-padding-x};
+      --#{$prefix}scrollspy-menu-sidebar-font-weight: #{$scrollspy-menu-sidebar-font-weight};
+      --#{$prefix}scrollspy-menu-sidebar-transition: #{$scrollspy-menu-sidebar-transition};
+      --#{$prefix}scrollspy-menu-sidebar-margin-y: #{$scrollspy-menu-sidebar-margin-y};
+
+      font-size: var(--#{$prefix}scrollspy-menu-sidebar-font-size);
       background-color: transparent;
-      color: $scrollspy-menu-sidebar-color;
-      line-height: $scrollspy-menu-sidebar-line-height;
-      padding: 0 $scrollspy-menu-sidebar-padding-x;
-      font-weight: $scrollspy-menu-sidebar-font-weight;
-      transition: $scrollspy-menu-sidebar-transition;
+      color: var(--#{$prefix}scrollspy-menu-sidebar-color);
+      line-height: var(--#{$prefix}scrollspy-menu-sidebar-line-height);
+      padding: 0 var(--#{$prefix}scrollspy-menu-sidebar-padding-x);
+      font-weight: var(--#{$prefix}scrollspy-menu-sidebar-font-weight);
+      transition: var(--#{$prefix}scrollspy-menu-sidebar-transition);
       text-transform: initial;
-      margin-top: $scrollspy-menu-sidebar-margin-y;
-      margin-bottom: $scrollspy-menu-sidebar-margin-y;
+      margin-top: var(--#{$prefix}scrollspy-menu-sidebar-margin-y);
+      margin-bottom: var(--#{$prefix}scrollspy-menu-sidebar-margin-y);
     }
 
     .nav-link.active,
     .show > .nav-link {
+      --#{$prefix}scrollspy-menu-sidebar-active-color: #{$scrollspy-menu-sidebar-active-color};
+      --#{$prefix}scrollspy-menu-sidebar-active-font-weight: #{$scrollspy-menu-sidebar-active-font-weight};
+      --#{$prefix}scrollspy-menu-sidebar-active-border-width: #{$scrollspy-menu-sidebar-active-border-width};
+      --#{$prefix}scrollspy-menu-sidebar-active-border-color: #{$scrollspy-menu-sidebar-active-border-color};
+
       background-color: transparent;
       box-shadow: none;
-      color: $scrollspy-menu-sidebar-active-color;
-      font-weight: $scrollspy-menu-sidebar-active-font-weight;
-      border-left: $scrollspy-menu-sidebar-active-border-width solid
-        $scrollspy-menu-sidebar-active-border-color;
+      color: var(--#{$prefix}scrollspy-menu-sidebar-active-color);
+      font-weight: var(--#{$prefix}scrollspy-menu-sidebar-active-font-weight);
+      border-left: var(--#{$prefix}scrollspy-menu-sidebar-active-border-width) solid
+        var(--#{$prefix}scrollspy-menu-sidebar-active-border-color);
       border-radius: 0;
     }
 
     .collapsible-scrollspy ~ .nav {
-      transition: height 0.5s ease;
+      --#{$prefix}scrollspy-collapsible-nav-transition-time: #{$scrollspy-collapsible-nav-transition-time};
+
+      transition: height var(--#{$prefix}scrollspy-collapsible-nav-transition-time) ease;
       flex-wrap: nowrap;
     }
   }

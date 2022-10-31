@@ -1,27 +1,38 @@
-// Navs
+//
+// Navs styles
+//
 
 //
-// Tabs
+// Tabs styles
 //
 
 .nav-tabs {
   border-bottom: 0;
 
   .nav-link {
-    border-width: $nav-tabs-link-border-width;
-    border-style: solid;
-    border-color: transparent;
+    --#{$prefix}nav-tabs-link-font-weight: #{$nav-tabs-link-font-weight};
+    --#{$prefix}nav-tabs-link-font-size: #{$nav-tabs-link-font-size};
+    --#{$prefix}nav-tabs-link-color: #{$nav-tabs-link-color};
+    --#{$prefix}nav-tabs-link-padding-top: #{$nav-tabs-link-padding-top};
+    --#{$prefix}nav-tabs-link-padding-bottom: #{$nav-tabs-link-padding-bottom};
+    --#{$prefix}nav-tabs-link-padding-x: #{$nav-tabs-link-padding-x};
+    --#{$prefix}nav-tabs-link-hover-bgc: #{$nav-tabs-link-hover-bgc};
+    --#{$prefix}nav-tabs-link-border-bottom-width: #{$nav-tabs-link-border-bottom-width};
+    --#{$prefix}nav-tabs-link-active-color: #{$nav-tabs-link-active-color};
+    --#{$prefix}nav-tabs-link-active-border-color: #{$nav-tabs-link-active-border-color};
+    border-width: 0;
+    border-bottom: var(--#{$prefix}nav-tabs-link-border-bottom-width) solid transparent;
     border-radius: 0;
     text-transform: uppercase;
     line-height: 1;
-    font-weight: $nav-tabs-link-font-weight;
-    font-size: $nav-tabs-link-font-size;
-    color: $nav-tabs-link-color;
-    padding: $nav-tabs-link-padding-top $nav-tabs-link-padding-x $nav-tabs-link-padding-bottom
-      $nav-tabs-link-padding-x;
+    font-weight: var(--#{$prefix}nav-tabs-link-font-weight);
+    font-size: var(--#{$prefix}nav-tabs-link-font-size);
+    color: var(--#{$prefix}nav-tabs-link-color);
+    padding: var(--#{$prefix}nav-tabs-link-padding-top) var(--#{$prefix}nav-tabs-link-padding-x)
+      var(--#{$prefix}nav-tabs-link-padding-bottom) var(--#{$prefix}nav-tabs-link-padding-x);
 
     &:hover {
-      background-color: $nav-tabs-link-hover-bgc;
+      background-color: var(--#{$prefix}nav-tabs-link-hover-bgc);
       border-color: transparent;
     }
 
@@ -32,35 +43,49 @@
 
   .nav-link.active,
   .nav-item.show .nav-link {
-    color: $primary;
-    border-color: $primary;
+    color: var(--#{$prefix}nav-tabs-link-active-color);
+    border-color: var(--#{$prefix}nav-tabs-link-active-border-color);
   }
 }
 
 //
-// Pills
+// Pills styles
 //
 
 .nav-pills {
   margin-left: -$nav-pills-margin;
 
   .nav-link {
-    border-radius: $nav-pills-link-border-radius;
-    font-size: $nav-pills-link-font-size;
+    --#{$prefix}nav-pills-link-border-radius: #{$nav-pills-link-border-radius};
+    --#{$prefix}nav-pills-link-font-size: #{$nav-pills-link-font-size};
+    --#{$prefix}nav-pills-link-padding-top: #{$nav-pills-link-padding-top};
+    --#{$prefix}nav-pills-link-padding-bottom: #{$nav-pills-link-padding-bottom};
+    --#{$prefix}nav-pills-link-padding-x: #{$nav-pills-link-padding-x};
+    --#{$prefix}nav-pills-link-line-height: #{$nav-pills-link-line-height};
+    --#{$prefix}nav-pills-link-hover-bg: #{$nav-pills-link-hover-bg};
+    --#{$prefix}nav-pills-link-font-weight: #{$nav-pills-link-font-weight};
+    --#{$prefix}nav-pills-link-color: #{$nav-pills-link-color};
+    --#{$prefix}nav-pills-margin: #{$nav-pills-margin};
+
+    border-radius: var(--#{$prefix}nav-pills-link-border-radius);
+    font-size: var(--#{$prefix}nav-pills-link-font-size);
     text-transform: uppercase;
-    padding: $nav-pills-link-padding-top $nav-pills-link-padding-x $nav-pills-link-padding-bottom
-      $nav-pills-link-padding-x;
-    line-height: $nav-pills-link-line-height;
-    background-color: $nav-pills-link-hover-bgc;
-    font-weight: $nav-pills-link-font-weight;
-    color: $nav-pills-link-color;
-    margin: $nav-pills-margin;
+    padding: var(--#{$prefix}nav-pills-link-padding-top) var(--#{$prefix}nav-pills-link-padding-x)
+      var(--#{$prefix}nav-pills-link-padding-bottom) var(--#{$prefix}nav-pills-link-padding-x);
+    line-height: var(--#{$prefix}nav-pills-link-line-height);
+    background-color: var(--#{$prefix}nav-pills-link-hover-bg);
+    font-weight: var(--#{$prefix}nav-pills-link-font-weight);
+    color: var(--#{$prefix}nav-pills-link-color);
+    margin: var(--#{$prefix}nav-pills-margin);
   }
 
   .nav-link.active,
   .show > .nav-link {
-    background-color: $nav-pills-link-active-bgc;
-    color: $nav-pills-link-active-color;
+    --#{$prefix}nav-pills-link-active-bg: #{$nav-pills-link-active-bg};
+    --#{$prefix}nav-pills-link-active-color: #{$nav-pills-link-active-color};
+
+    background-color: var(--#{$prefix}nav-pills-link-active-bg);
+    color: var(--#{$prefix}nav-pills-link-active-color);
   }
 }
 

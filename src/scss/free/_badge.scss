@@ -1,30 +1,44 @@
-// Badge
+//
+// Badge styles
+//
+// Additional badge options tailored to the MDB style
 
-.badge {
-  border-radius: $badge-border-radius;
-}
-
+// A "dot" badge, which is useful, for example, for icons
 .badge-dot {
+  --#{$prefix}badge-border-radius: #{$badge-dot-border-radius};
+  --#{$prefix}badge-height: #{$badge-dot-height};
+  --#{$prefix}badge-width: #{$badge-dot-width};
+  --#{$prefix}badge-margin-left: #{$badge-dot-margin-left};
+
   position: absolute;
-  border-radius: $badge-dot-border-radius;
-  height: $badge-dot-height;
   min-width: 0;
+  width: var(--#{$prefix}badge-width);
+  height: var(--#{$prefix}badge-height);
+  border-radius: var(--#{$prefix}badge-border-radius);
   padding: 0;
-  width: $badge-dot-width;
-  margin-left: $badge-dot-margin-left;
+  margin-left: var(--#{$prefix}badge-margin-left);
+
   &:empty {
     display: inline-block;
   }
 }
 
+// "Notification" badge that shows the number of notifications, e.g. the number of unread messages
 .badge-notification {
+  --#{$prefix}badge-font-size: #{$badge-notification-font-size};
+  --#{$prefix}badge-padding-x: #{$badge-notification-padding-x};
+  --#{$prefix}badge-padding-y: #{$badge-notification-padding-y};
+  --#{$prefix}badge-margin-top: #{$badge-notification-margin-top};
+  --#{$prefix}badge-margin-left: #{$badge-notification-margin-left};
+
   position: absolute;
-  font-size: $badge-notification-font-size;
-  margin-top: $badge-notification-margin-top;
-  margin-left: $badge-notification-margin-left;
-  padding: $badge-notification-padding-y $badge-notification-padding-x;
+  font-size: var(--#{$prefix}badge-font-size);
+  padding: var(--#{$prefix}badge-padding-y) var(--#{$prefix}badge-padding-x);
+  margin-top: var(--#{$prefix}badge-margin-top);
+  margin-left: var(--#{$prefix}badge-margin-left);
 }
 
+// Contextual colors options
 @each $color, $value in $badges {
   .badge-#{$color} {
     background-color: map-get($value, background-color);

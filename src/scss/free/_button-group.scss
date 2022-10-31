@@ -1,50 +1,100 @@
+//
 // Button group styles
+//
 
 .btn-group,
 .btn-group-vertical {
-  box-shadow: $btn-box-shadow;
-  border-radius: $btn-group-border-radius;
-  transition: $btn-group-transition;
+  --#{$prefix}btn-box-shadow: #{$btn-box-shadow};
+  --#{$prefix}btn-hover-box-shadow: #{$btn-hover-box-shadow};
+  --#{$prefix}btn-focus-box-shadow: #{$btn-focus-box-shadow};
+  --#{$prefix}btn-active-box-shadow: #{$btn-active-box-shadow};
+  --#{$prefix}btn-group-transition: #{$btn-group-transition};
+
+  box-shadow: var(--#{$prefix}btn-box-shadow);
+  transition: var(--#{$prefix}btn-group-transition);
 
   &:hover {
-    box-shadow: $btn-hover-box-shadow;
+    box-shadow: var(--#{$prefix}btn-hover-box-shadow);
   }
 
   &:focus,
   &.focus {
-    box-shadow: $btn-focus-box-shadow;
+    box-shadow: var(--#{$prefix}btn-focus-box-shadow);
   }
 
   &:active,
   &.active {
-    box-shadow: $btn-hover-box-shadow;
+    box-shadow: var(--#{$prefix}btn-active-box-shadow);
 
     &:focus {
-      box-shadow: $btn-hover-box-shadow;
+      box-shadow: var(--#{$prefix}btn-focus-box-shadow);
     }
   }
 
   &:disabled,
   &.disabled,
   fieldset:disabled & {
-    box-shadow: $btn-box-shadow;
+    box-shadow: var(--#{$prefix}btn-box-shadow);
     border: 0;
   }
 
   > .btn {
     box-shadow: none;
+
+    :not(.btn-check) + &:hover,
+    &:first-child:hover,
+    &:focus-visible,
+    &:hover {
+      box-shadow: none !important;
+    }
+
+    .btn-check:focus-visible + &,
+    .btn-check:focus + &,
+    &:focus {
+      box-shadow: none;
+    }
+
+    .btn-check:checked + &,
+    .btn-check:active + &,
+    &:active,
+    &.active,
+    &.show {
+      box-shadow: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    &:disabled,
+    &.disabled,
+    fieldset:disabled & {
+      box-shadow: none;
+    }
   }
+
   > .btn-group {
     box-shadow: none;
   }
-  > .btn-link {
+
+  > .btn-link,
+  > .btn-tertiary {
     &:first-child {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
+
     &:last-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
   }
+}
+
+.btn-group,
+.btn-group-lg > .btn,
+.btn-group-sm > .btn {
+  --#{$prefix}btn-border-radius: #{$btn-border-radius};
+
+  border-radius: var(--#{$prefix}btn-border-radius);
 }

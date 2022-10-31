@@ -10,19 +10,26 @@
 }
 
 .ripple-wave {
+  --#{$prefix}ripple-wave-cubicBezier: #{$ripple-wave-cubicBezier};
+  --#{$prefix}ripple-wave-border-radius: #{$ripple-wave-border-radius};
+  --#{$prefix}ripple-wave-opacity: #{$ripple-wave-opacity};
+  --#{$prefix}ripple-wave-transform: #{$ripple-wave-transform};
+  --#{$prefix}ripple-wave-z-index: #{$ripple-wave-z-index};
+  --#{$prefix}ripple-wave-active-transform: #{$ripple-wave-active-transform};
+
   @include ripple-variant(black);
-  $cubicBezier: cubic-bezier(0, 0, 0.15, 1);
-  border-radius: 50%;
-  opacity: 0.5;
+  border-radius: var(--#{$prefix}ripple-wave-border-radius);
+  opacity: var(--#{$prefix}ripple-wave-opacity);
   pointer-events: none;
   position: absolute;
   touch-action: none;
-  transform: scale(0);
+  transform: var(--#{$prefix}ripple-wave-transform);
   transition-property: transform, opacity;
-  transition-timing-function: $cubicBezier, $cubicBezier;
-  z-index: 999;
+  transition-timing-function: var(--#{$prefix}ripple-wave-cubicBezier),
+    var(--#{$prefix}ripple-wave-cubicBezier);
+  z-index: var(--#{$prefix}ripple-wave-z-index);
   &.active {
-    transform: scale(1);
+    transform: var(--#{$prefix}ripple-wave-active-transform);
     opacity: 0;
   }
 }

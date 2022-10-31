@@ -3,34 +3,48 @@
 .accordion-button {
   &:not(.collapsed) {
     &:focus {
-      box-shadow: $accordion-button-focus-box-shadow;
+      box-shadow: var(--#{$prefix}accordion-btn-focus-box-shadow);
     }
   }
 
   &:focus {
-    border-color: $accordion-button-focus-border-color;
+    border-color: var(--#{$prefix}accordion-btn-focus-border-color);
     outline: 0;
     box-shadow: none;
   }
 }
 
 .accordion-flush {
+  --#{$prefix}accordion-flush-btn-box-shadow: #{$accordion-flush-button-box-shadow};
+  --#{$prefix}accordion-flush-border-bottom: #{$accordion-flush-item-border-bottom};
+
   .accordion-button:not(.collapsed) {
-    box-shadow: $accordion-flush-button-box-shadow;
+    box-shadow: var(--#{$prefix}accordion-flush-btn-box-shadow);
   }
   .accordion-item {
-    border-bottom: $accordion-flush-item-border-bottom;
+    border-bottom: var(--#{$prefix}accordion-flush-border-bottom);
   }
 }
 
+.accordion.accordion-borderless,
+.accordion.accordion-flush {
+  --#{$prefix}accordion-bg: transparent;
+
+  background-color: var(--#{$prefix}accordion-bg);
+}
+
 .accordion-borderless {
+  --#{$prefix}accordion-borderless-btn-border-radius: #{$accordion-borderless-button-border-radius};
+  --#{$prefix}accordion-borderless-btn-bg: #{$accordion-borderless-button-bgc};
+  --#{$prefix}accordion-borderless-btn-color: #{$accordion-borderless-button-color};
+
   .accordion-item {
     border: 0;
     .accordion-button {
-      border-radius: $accordion-borderless-button-border-radius;
+      border-radius: var(--#{$prefix}accordion-borderless-btn-border-radius);
       &:not(.collapsed) {
-        background-color: $accordion-borderless-button-bgc;
-        color: $accordion-borderless-button-color;
+        background-color: var(--#{$prefix}accordion-borderless-btn-bg);
+        color: var(--#{$prefix}accordion-borderless-btn-color);
         box-shadow: none;
       }
     }

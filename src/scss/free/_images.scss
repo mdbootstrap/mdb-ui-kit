@@ -1,6 +1,10 @@
 //
-// Images
+// Image styles
 //
+
+.bg-fixed {
+  background-attachment: fixed;
+}
 
 .bg-image {
   position: relative;
@@ -24,8 +28,10 @@
 
 .hover-overlay {
   .mask {
+    --#{$prefix}image-hover-transition: #{$image-hover-overlay-transition};
+
     opacity: 0;
-    transition: $image-hover-overlay-transition;
+    transition: var(--#{$prefix}image-hover-transition);
     &:hover {
       opacity: 1;
     }
@@ -33,38 +39,49 @@
 }
 
 .hover-zoom {
+  --#{$prefix}image-hover-zoom-transition: #{$image-hover-zoom-transition};
+  --#{$prefix}image-hover-zoom-transform: #{$image-hover-zoom-transform};
+
   img,
   video {
-    transition: $image-hover-zoom-transition;
+    transition: var(--#{$prefix}image-hover-zoom-transition);
   }
   &:hover {
     img,
     video {
-      transform: $image-hover-zoom-transform;
+      transform: var(--#{$prefix}image-hover-zoom-transform);
     }
   }
 }
 
 .hover-shadow,
-.card.hover-shadow {
-  box-shadow: none;
-  transition: $image-hover-shadow-transition;
+.card.hover-shadow,
+.hover-shadow-soft,
+.card.hover-shadow-soft {
+  --#{$prefix}image-hover-shadow-transition: #{$image-hover-shadow-transition};
+
+  transition: var(--#{$prefix}image-hover-shadow-transition);
   &:hover {
-    box-shadow: $image-hover-shadow-box-shadow;
-    transition: $image-hover-shadow-transition;
+    transition: var(--#{$prefix}image-hover-shadow-transition);
   }
 }
 
-.bg-fixed {
-  background-attachment: fixed;
+.hover-shadow,
+.card.hover-shadow {
+  --#{$prefix}image-hover-shadow-box-shadow: #{$image-hover-shadow-box-shadow};
+
+  box-shadow: none;
+  &:hover {
+    box-shadow: var(--#{$prefix}image-hover-shadow-box-shadow);
+  }
 }
 
 .hover-shadow-soft,
 .card.hover-shadow-soft {
+  --#{$prefix}image-hover-shadow-box-shadow-soft: #{$image-hover-shadow-box-shadow-soft};
+
   box-shadow: none;
-  transition: $image-hover-shadow-transition;
   &:hover {
-    box-shadow: $image-hover-shadow-box-shadow-soft;
-    transition: $image-hover-shadow-transition;
+    box-shadow: var(--#{$prefix}image-hover-shadow-box-shadow-soft);
   }
 }

@@ -1,3 +1,7 @@
+//
+// Utilities
+//
+
 $utilities: map-merge(
   $utilities,
   (
@@ -88,7 +92,9 @@ $utilities: map-merge(
 
 /* Background colors */
 .bg-super-light {
-  background-color: #fbfbfb;
+  --#{$prefix}bg-super-light: #fbfbfb;
+
+  background-color: var(--#{$prefix}bg-super-light);
 }
 
 /* Background attachment */
@@ -174,37 +180,6 @@ $utilities: map-merge(
     ),
   )
 );
-
-hr:not([size]) {
-  &.hr {
-    height: 2px;
-    background-color: #f5f5f5;
-    opacity: 1;
-
-    &.hr-blurry {
-      background-image: linear-gradient(90deg, transparent, hsl(0, 0%, 40%), transparent);
-      background-color: transparent;
-      height: 1px;
-      opacity: $hr-opacity;
-    }
-  }
-  &.vr {
-    height: auto;
-  }
-}
-
-.vr {
-  width: 2px;
-  background-color: #f5f5f5;
-  opacity: 1;
-}
-
-.vr-blurry {
-  background-image: linear-gradient(180deg, transparent, hsl(0, 0%, 40%), transparent);
-  background-color: transparent;
-  width: 1px;
-  opacity: $hr-opacity;
-}
 
 $utilities: map-merge(
   $utilities,

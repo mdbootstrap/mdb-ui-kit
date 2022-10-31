@@ -54,7 +54,6 @@ class Dropdown extends BSDropdown {
   constructor(element, data) {
     super(element, data);
     this._config = this._getConfig(data);
-    this._parent = Dropdown.getParentFromElement(this._element);
     this._menuStyle = '';
     this._popperPlacement = '';
     this._mdbPopperConfig = '';

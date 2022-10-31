@@ -1,8 +1,11 @@
-// Popover
+//
+// Popover styles
+//
 
 .popover {
-  border: 1px solid #f5f5f5;
-  box-shadow: $box-shadow-2;
+  // scss-docs-start popover-css-vars
+  --#{$prefix}popover-border-bottom-width: #{$popover-border-bottom-width};
+  // scss-docs-end popover-css-vars
 
   .popover-arrow {
     display: none;
@@ -10,6 +13,6 @@
 }
 
 .popover-header {
-  background-color: $popover-background-color;
-  border-bottom: $popover-border-width solid $popover-border-color;
+  border-bottom: var(--#{$prefix}popover-border-bottom-width) solid
+    var(--#{$prefix}popover-border-color);
 }

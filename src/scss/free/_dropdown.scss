@@ -1,22 +1,31 @@
+//
+// Dropdown styles
+//
+
 .dropdown-menu {
-  color: $dropdown-color;
+  --#{$prefix}dropdown-item-border-radius: #{$dropdown-item-border-radius};
+
+  color: var(--#{$prefix}dropdown-color);
   margin: 0;
   padding-top: 0;
   padding-bottom: 0;
   border: 0;
-  box-shadow: $dropdown-box-shadow;
-  font-size: $dropdown-font-size;
+  box-shadow: var(--#{$prefix}dropdown-box-shadow);
+  font-size: var(--#{$prefix}dropdown-font-size);
+  top: 100%;
+  left: 0;
+  margin-top: var(--#{$prefix}dropdown-spacer);
 
   > li {
     border-radius: 0;
     &:first-child {
-      border-top-left-radius: $dropdown-item-border-radius;
-      border-top-right-radius: $dropdown-item-border-radius;
+      border-top-left-radius: var(--#{$prefix}dropdown-item-border-radius);
+      border-top-right-radius: var(--#{$prefix}dropdown-item-border-radius);
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       .dropdown-item {
-        border-top-left-radius: $dropdown-item-border-radius;
-        border-top-right-radius: $dropdown-item-border-radius;
+        border-top-left-radius: var(--#{$prefix}dropdown-item-border-radius);
+        border-top-right-radius: var(--#{$prefix}dropdown-item-border-radius);
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
       }
@@ -31,40 +40,46 @@
     &:last-child {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
-      border-bottom-left-radius: $dropdown-item-border-radius;
-      border-bottom-right-radius: $dropdown-item-border-radius;
+      border-bottom-left-radius: var(--#{$prefix}dropdown-item-border-radius);
+      border-bottom-right-radius: var(--#{$prefix}dropdown-item-border-radius);
       .dropdown-item {
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        border-bottom-left-radius: $dropdown-item-border-radius;
-        border-bottom-right-radius: $dropdown-item-border-radius;
+        border-bottom-left-radius: var(--#{$prefix}dropdown-item-border-radius);
+        border-bottom-right-radius: var(--#{$prefix}dropdown-item-border-radius);
       }
     }
   }
 
   &.animation {
+    --#{$prefix}dropdown-menu-animated-animation-duration: #{$dropdown-menu-animated-animation-duration};
+    --#{$prefix}dropdown-menu-animated-animation-timing-function: #{$dropdown-menu-animated-animation-timing-function};
+
     display: block;
     /* Speed up animations */
-    animation-duration: $dropdown-menu-animated-animation-duration;
-    animation-timing-function: $dropdown-menu-animated-animation-timing-function;
+    animation-duration: var(--#{$prefix}dropdown-menu-animated-animation-duration);
+    animation-timing-function: var(--#{$prefix}dropdown-menu-animated-animation-timing-function);
   }
 }
 
 .dropdown-item {
-  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
-  color: $dropdown-color;
+  --#{$prefix}dropdown-state-color: #{$dropdown-state-color};
+  --#{$prefix}dropdown-state-background-color: #{$dropdown-state-background-color};
+
+  padding: var(--#{$prefix}dropdown-item-padding-y) var(--#{$prefix}dropdown-item-padding-x);
+  color: var(--#{$prefix}dropdown-color);
   border-radius: 0;
 
   &:hover,
   &:focus {
-    color: $dropdown-state-color;
-    background-color: $dropdown-state-background-color;
+    color: var(--#{$prefix}dropdown-state-color);
+    background-color: var(--#{$prefix}dropdown-state-background-color);
   }
 
   &.active,
   &:active {
-    color: $dropdown-state-color;
-    background-color: $dropdown-state-background-color;
+    color: var(--#{$prefix}dropdown-state-color);
+    background-color: var(--#{$prefix}dropdown-state-background-color);
   }
 }
 
@@ -116,7 +131,11 @@
 }
 
 .dropdown-divider {
-  border-top: 2px solid $dropdown-divider-bg;
+  --#{$prefix}dropdown-divider-border-top-width: #{$dropdown-divider-border-top-width};
+  --#{$prefix}dropdown-divider-border-top-bg: #{$dropdown-divider-bg};
+
+  border-top: var(--#{$prefix}dropdown-divider-border-top-width) solid
+    var(--#{$prefix}dropdown-divider-border-top-bg);
   opacity: 1;
 }
 

@@ -34,10 +34,15 @@
   &::-webkit-slider-runnable-track {
     height: $form-range-webkit-slider-runnable-track-height;
     border-radius: 0;
+    box-shadow: none;
   }
 
   &::-moz-range-thumb {
     box-shadow: none;
     appearance: none;
+  }
+
+  &::-moz-range-track {
+    box-shadow: none;
   }
 }

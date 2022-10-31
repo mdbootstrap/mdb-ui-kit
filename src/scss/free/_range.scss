@@ -1,19 +1,32 @@
 // range
 .range {
+  --#{$prefix}range-thumb-height: #{$range-thumb-height};
+  --#{$prefix}range-thumb-width: #{$range-thumb-width};
+  --#{$prefix}range-thumb-top: #{$range-thumb-top};
+  --#{$prefix}range-thumb-margin-left: #{$range-thumb-margin-left};
+  --#{$prefix}range-thumb-border-radius: #{$range-thumb-border-radius};
+  --#{$prefix}range-thumb-transform: #{$range-thumb-transform};
+  --#{$prefix}range-thumb-transition: #{$range-thumb-transition};
+  --#{$prefix}range-thumb-value-font-size: #{$range-thumb-value-font-size};
+  --#{$prefix}range-thumb-value-line-height: #{$range-thumb-value-line-height};
+  --#{$prefix}range-thumb-value-color: #{$range-thumb-value-color};
+  --#{$prefix}range-thumb-value-font-weight: #{$range-thumb-value-font-weight};
+  --#{$prefix}range-thumb-background: #{$range-thumb-background};
+
   position: relative;
 
   .thumb {
     position: absolute;
     display: block;
-    height: 30px;
-    width: 30px;
-    top: -35px;
-    margin-left: -15px;
+    height: var(--#{$prefix}range-thumb-height);
+    width: var(--#{$prefix}range-thumb-width);
+    top: var(--#{$prefix}range-thumb-top);
+    margin-left: var(--#{$prefix}range-thumb-margin-left);
     text-align: center;
-    border-radius: 50% 50% 50% 0;
-    transform: scale(0);
+    border-radius: var(--#{$prefix}range-thumb-border-radius);
+    transform: var(--#{$prefix}range-thumb-transform);
     transform-origin: bottom;
-    transition: transform 0.2s ease-in-out;
+    transition: var(--#{$prefix}range-thumb-transition);
 
     &:after {
       position: absolute;
@@ -23,18 +36,18 @@
       width: 100%;
       height: 100%;
       top: 0;
-      border-radius: 50% 50% 50% 0;
+      border-radius: var(--#{$prefix}range-thumb-border-radius);
       transform: rotate(-45deg);
-      background: $primary;
+      background: var(--#{$prefix}range-thumb-background);
       z-index: -1;
     }
 
     .thumb-value {
       display: block;
-      font-size: 12px;
-      line-height: 30px;
-      color: rgb(255, 255, 255);
-      font-weight: 500;
+      font-size: var(--#{$prefix}range-thumb-value-font-size);
+      line-height: var(--#{$prefix}range-thumb-value-line-height);
+      color: var(--#{$prefix}range-thumb-value-color);
+      font-weight: var(--#{$prefix}range-thumb-value-font-weight);
       z-index: 2;
     }
 

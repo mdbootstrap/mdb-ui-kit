@@ -1,1105 +1,758 @@
 /*!
- * Bootstrap tooltip.js v5.1.3 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Bootstrap tooltip.js v5.2.2 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined'
     ? (module.exports = factory(
         require('@popperjs/core'),
-        require('./dom/data.js'),
-        require('./dom/event-handler.js'),
-        require('./dom/manipulator.js'),
-        require('./dom/selector-engine.js'),
-        require('./base-component.js')
+        require('./util/index'),
+        require('./util/sanitizer'),
+        require('./dom/event-handler'),
+        require('./dom/manipulator'),
+        require('./base-component'),
+        require('./util/template-factory')
       ))
     : typeof define === 'function' && define.amd
     ? define(
         [
           '@popperjs/core',
-          './dom/data',
+          './util/index',
+          './util/sanitizer',
           './dom/event-handler',
           './dom/manipulator',
-          './dom/selector-engine',
           './base-component',
+          './util/template-factory',
         ],
         factory
       )
     : ((global = typeof globalThis !== 'undefined' ? globalThis : global || self),
       (global.Tooltip = factory(
-        global.Popper,
-        global.Data,
+        global['@popperjs/core'],
+        global.Index,
+        global.Sanitizer,
         global.EventHandler,
         global.Manipulator,
-        global.SelectorEngine,
-        global.Base
+        global.BaseComponent,
+        global.TemplateFactory
       )));
-})(this, function (Popper, Data, EventHandler, Manipulator, SelectorEngine, BaseComponent) {
-  'use strict';
+})(
+  this,
+  function (Popper, index, sanitizer, EventHandler, Manipulator, BaseComponent, TemplateFactory) {
+    'use strict';
 
-  const _interopDefaultLegacy = (e) =>
-    e && typeof e === 'object' && 'default' in e ? e : { default: e };
+    const _interopDefaultLegacy = (e) =>
+      e && typeof e === 'object' && 'default' in e ? e : { default: e };
 
-  function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
-    const n = Object.create(null);
-    if (e) {
-      for (const k in e) {
-        if (k !== 'default') {
-          const d = Object.getOwnPropertyDescriptor(e, k);
-          Object.defineProperty(
-            n,
-            k,
-            d.get
-              ? d
-              : {
-                  enumerable: true,
-                  get: () => e[k],
-                }
-          );
+    function _interopNamespace(e) {
+      if (e && e.__esModule) return e;
+      const n = Object.create(null, { [Symbol.toStringTag]: { value: 'Module' } });
+      if (e) {
+        for (const k in e) {
+          if (k !== 'default') {
+            const d = Object.getOwnPropertyDescriptor(e, k);
+            Object.defineProperty(
+              n,
+              k,
+              d.get
+                ? d
+                : {
+                    enumerable: true,
+                    get: () => e[k],
+                  }
+            );
+          }
         }
       }
-    }
-    n.default = e;
-    return Object.freeze(n);
-  }
-
-  const Popper__namespace = /*#__PURE__*/ _interopNamespace(Popper);
-  const Data__default = /*#__PURE__*/ _interopDefaultLegacy(Data);
-  const EventHandler__default = /*#__PURE__*/ _interopDefaultLegacy(EventHandler);
-  const Manipulator__default = /*#__PURE__*/ _interopDefaultLegacy(Manipulator);
-  const SelectorEngine__default = /*#__PURE__*/ _interopDefaultLegacy(SelectorEngine);
-  const BaseComponent__default = /*#__PURE__*/ _interopDefaultLegacy(BaseComponent);
-
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): util/index.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
-  const MAX_UID = 1000000;
-
-  const toType = (obj) => {
-    if (obj === null || obj === undefined) {
-      return `${obj}`;
+      n.default = e;
+      return Object.freeze(n);
     }
 
-    return {}.toString
-      .call(obj)
-      .match(/\s([a-z]+)/i)[1]
-      .toLowerCase();
-  };
-  /**
-   * --------------------------------------------------------------------------
-   * Public Util Api
-   * --------------------------------------------------------------------------
-   */
+    const Popper__namespace = /*#__PURE__*/ _interopNamespace(Popper);
+    const EventHandler__default = /*#__PURE__*/ _interopDefaultLegacy(EventHandler);
+    const Manipulator__default = /*#__PURE__*/ _interopDefaultLegacy(Manipulator);
+    const BaseComponent__default = /*#__PURE__*/ _interopDefaultLegacy(BaseComponent);
+    const TemplateFactory__default = /*#__PURE__*/ _interopDefaultLegacy(TemplateFactory);
 
-  const getUID = (prefix) => {
-    do {
-      prefix += Math.floor(Math.random() * MAX_UID);
-    } while (document.getElementById(prefix));
+    /**
+     * --------------------------------------------------------------------------
+     * Bootstrap (v5.2.2): tooltip.js
+     * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+     * --------------------------------------------------------------------------
+     */
+    /**
+     * Constants
+     */
 
-    return prefix;
-  };
+    const NAME = 'tooltip';
+    const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
+    const CLASS_NAME_FADE = 'fade';
+    const CLASS_NAME_MODAL = 'modal';
+    const CLASS_NAME_SHOW = 'show';
+    const SELECTOR_TOOLTIP_INNER = '.tooltip-inner';
+    const SELECTOR_MODAL = `.${CLASS_NAME_MODAL}`;
+    const EVENT_MODAL_HIDE = 'hide.bs.modal';
+    const TRIGGER_HOVER = 'hover';
+    const TRIGGER_FOCUS = 'focus';
+    const TRIGGER_CLICK = 'click';
+    const TRIGGER_MANUAL = 'manual';
+    const EVENT_HIDE = 'hide';
+    const EVENT_HIDDEN = 'hidden';
+    const EVENT_SHOW = 'show';
+    const EVENT_SHOWN = 'shown';
+    const EVENT_INSERTED = 'inserted';
+    const EVENT_CLICK = 'click';
+    const EVENT_FOCUSIN = 'focusin';
+    const EVENT_FOCUSOUT = 'focusout';
+    const EVENT_MOUSEENTER = 'mouseenter';
+    const EVENT_MOUSELEAVE = 'mouseleave';
+    const AttachmentMap = {
+      AUTO: 'auto',
+      TOP: 'top',
+      RIGHT: index.isRTL() ? 'left' : 'right',
+      BOTTOM: 'bottom',
+      LEFT: index.isRTL() ? 'right' : 'left',
+    };
+    const Default = {
+      allowList: sanitizer.DefaultAllowlist,
+      animation: true,
+      boundary: 'clippingParents',
+      container: false,
+      customClass: '',
+      delay: 0,
+      fallbackPlacements: ['top', 'right', 'bottom', 'left'],
+      html: false,
+      offset: [0, 0],
+      placement: 'top',
+      popperConfig: null,
+      sanitize: true,
+      sanitizeFn: null,
+      selector: false,
+      template:
+        '<div class="tooltip" role="tooltip">' +
+        '<div class="tooltip-arrow"></div>' +
+        '<div class="tooltip-inner"></div>' +
+        '</div>',
+      title: '',
+      trigger: 'hover focus',
+    };
+    const DefaultType = {
+      allowList: 'object',
+      animation: 'boolean',
+      boundary: '(string|element)',
+      container: '(string|element|boolean)',
+      customClass: '(string|function)',
+      delay: '(number|object)',
+      fallbackPlacements: 'array',
+      html: 'boolean',
+      offset: '(array|string|function)',
+      placement: '(string|function)',
+      popperConfig: '(null|object|function)',
+      sanitize: 'boolean',
+      sanitizeFn: '(null|function)',
+      selector: '(string|boolean)',
+      template: 'string',
+      title: '(string|element|function)',
+      trigger: 'string',
+    };
+    /**
+     * Class definition
+     */
 
-  const isElement = (obj) => {
-    if (!obj || typeof obj !== 'object') {
-      return false;
-    }
-
-    if (typeof obj.jquery !== 'undefined') {
-      obj = obj[0];
-    }
-
-    return typeof obj.nodeType !== 'undefined';
-  };
-
-  const getElement = (obj) => {
-    if (isElement(obj)) {
-      // it's a jQuery object or a node element
-      return obj.jquery ? obj[0] : obj;
-    }
-
-    if (typeof obj === 'string' && obj.length > 0) {
-      return document.querySelector(obj);
-    }
-
-    return null;
-  };
-
-  const typeCheckConfig = (componentName, config, configTypes) => {
-    Object.keys(configTypes).forEach((property) => {
-      const expectedTypes = configTypes[property];
-      const value = config[property];
-      const valueType = value && isElement(value) ? 'element' : toType(value);
-
-      if (!new RegExp(expectedTypes).test(valueType)) {
-        throw new TypeError(
-          `${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`
-        );
-      }
-    });
-  };
-
-  const findShadowRoot = (element) => {
-    if (!document.documentElement.attachShadow) {
-      return null;
-    } // Can find the shadow root otherwise it'll return the document
-
-    if (typeof element.getRootNode === 'function') {
-      const root = element.getRootNode();
-      return root instanceof ShadowRoot ? root : null;
-    }
-
-    if (element instanceof ShadowRoot) {
-      return element;
-    } // when we don't find a shadow root
-
-    if (!element.parentNode) {
-      return null;
-    }
-
-    return findShadowRoot(element.parentNode);
-  };
-
-  const noop = () => {};
-
-  const getjQuery = () => {
-    const { jQuery } = window;
-
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
-      return jQuery;
-    }
-
-    return null;
-  };
-
-  const DOMContentLoadedCallbacks = [];
-
-  const onDOMContentLoaded = (callback) => {
-    if (document.readyState === 'loading') {
-      // add listener on the first call when the document is in loading state
-      if (!DOMContentLoadedCallbacks.length) {
-        document.addEventListener('DOMContentLoaded', () => {
-          DOMContentLoadedCallbacks.forEach((callback) => callback());
-        });
-      }
-
-      DOMContentLoadedCallbacks.push(callback);
-    } else {
-      callback();
-    }
-  };
-
-  const isRTL = () => document.documentElement.dir === 'rtl';
-
-  const defineJQueryPlugin = (plugin) => {
-    onDOMContentLoaded(() => {
-      const $ = getjQuery();
-      /* istanbul ignore if */
-
-      if ($) {
-        const name = plugin.NAME;
-        const JQUERY_NO_CONFLICT = $.fn[name];
-        $.fn[name] = plugin.jQueryInterface;
-        $.fn[name].Constructor = plugin;
-
-        $.fn[name].noConflict = () => {
-          $.fn[name] = JQUERY_NO_CONFLICT;
-          return plugin.jQueryInterface;
-        };
-      }
-    });
-  };
-
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): util/sanitizer.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
-  const uriAttributes = new Set([
-    'background',
-    'cite',
-    'href',
-    'itemtype',
-    'longdesc',
-    'poster',
-    'src',
-    'xlink:href',
-  ]);
-  const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
-  /**
-   * A pattern that recognizes a commonly useful subset of URLs that are safe.
-   *
-   * Shoutout to Angular https://github.com/angular/angular/blob/12.2.x/packages/core/src/sanitization/url_sanitizer.ts
-   */
-
-  const SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file|sms):|[^#&/:?]*(?:[#/?]|$))/i;
-  /**
-   * A pattern that matches safe data URLs. Only matches image, video and audio types.
-   *
-   * Shoutout to Angular https://github.com/angular/angular/blob/12.2.x/packages/core/src/sanitization/url_sanitizer.ts
-   */
-
-  const DATA_URL_PATTERN =
-    /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[\d+/a-z]+=*$/i;
-
-  const allowedAttribute = (attribute, allowedAttributeList) => {
-    const attributeName = attribute.nodeName.toLowerCase();
-
-    if (allowedAttributeList.includes(attributeName)) {
-      if (uriAttributes.has(attributeName)) {
-        return Boolean(
-          SAFE_URL_PATTERN.test(attribute.nodeValue) || DATA_URL_PATTERN.test(attribute.nodeValue)
-        );
-      }
-
-      return true;
-    }
-
-    const regExp = allowedAttributeList.filter(
-      (attributeRegex) => attributeRegex instanceof RegExp
-    ); // Check if a regular expression validates the attribute.
-
-    for (let i = 0, len = regExp.length; i < len; i++) {
-      if (regExp[i].test(attributeName)) {
-        return true;
-      }
-    }
-
-    return false;
-  };
-
-  const DefaultAllowlist = {
-    // Global attributes allowed on any supplied element below.
-    '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
-    a: ['target', 'href', 'title', 'rel'],
-    area: [],
-    b: [],
-    br: [],
-    col: [],
-    code: [],
-    div: [],
-    em: [],
-    hr: [],
-    h1: [],
-    h2: [],
-    h3: [],
-    h4: [],
-    h5: [],
-    h6: [],
-    i: [],
-    img: ['src', 'srcset', 'alt', 'title', 'width', 'height'],
-    li: [],
-    ol: [],
-    p: [],
-    pre: [],
-    s: [],
-    small: [],
-    span: [],
-    sub: [],
-    sup: [],
-    strong: [],
-    u: [],
-    ul: [],
-  };
-  function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
-    if (!unsafeHtml.length) {
-      return unsafeHtml;
-    }
-
-    if (sanitizeFn && typeof sanitizeFn === 'function') {
-      return sanitizeFn(unsafeHtml);
-    }
-
-    const domParser = new window.DOMParser();
-    const createdDocument = domParser.parseFromString(unsafeHtml, 'text/html');
-    const elements = [].concat(...createdDocument.body.querySelectorAll('*'));
-
-    for (let i = 0, len = elements.length; i < len; i++) {
-      const element = elements[i];
-      const elementName = element.nodeName.toLowerCase();
-
-      if (!Object.keys(allowList).includes(elementName)) {
-        element.remove();
-        continue;
-      }
-
-      const attributeList = [].concat(...element.attributes);
-      const allowedAttributes = [].concat(allowList['*'] || [], allowList[elementName] || []);
-      attributeList.forEach((attribute) => {
-        if (!allowedAttribute(attribute, allowedAttributes)) {
-          element.removeAttribute(attribute.nodeName);
+    class Tooltip extends BaseComponent__default.default {
+      constructor(element, config) {
+        if (typeof Popper__namespace === 'undefined') {
+          throw new TypeError("Bootstrap's tooltips require Popper (https://popper.js.org)");
         }
-      });
-    }
 
-    return createdDocument.body.innerHTML;
-  }
+        super(element, config); // Private
 
-  /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v5.1.3): tooltip.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
+        this._isEnabled = true;
+        this._timeout = 0;
+        this._isHovered = null;
+        this._activeTrigger = {};
+        this._popper = null;
+        this._templateFactory = null;
+        this._newContent = null; // Protected
 
-  const NAME = 'tooltip';
-  const DATA_KEY = 'bs.tooltip';
-  const EVENT_KEY = `.${DATA_KEY}`;
-  const CLASS_PREFIX = 'bs-tooltip';
-  const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
-  const DefaultType = {
-    animation: 'boolean',
-    template: 'string',
-    title: '(string|element|function)',
-    trigger: 'string',
-    delay: '(number|object)',
-    html: 'boolean',
-    selector: '(string|boolean)',
-    placement: '(string|function)',
-    offset: '(array|string|function)',
-    container: '(string|element|boolean)',
-    fallbackPlacements: 'array',
-    boundary: '(string|element)',
-    customClass: '(string|function)',
-    sanitize: 'boolean',
-    sanitizeFn: '(null|function)',
-    allowList: 'object',
-    popperConfig: '(null|object|function)',
-  };
-  const AttachmentMap = {
-    AUTO: 'auto',
-    TOP: 'top',
-    RIGHT: isRTL() ? 'left' : 'right',
-    BOTTOM: 'bottom',
-    LEFT: isRTL() ? 'right' : 'left',
-  };
-  const Default = {
-    animation: true,
-    template:
-      '<div class="tooltip" role="tooltip">' +
-      '<div class="tooltip-arrow"></div>' +
-      '<div class="tooltip-inner"></div>' +
-      '</div>',
-    trigger: 'hover focus',
-    title: '',
-    delay: 0,
-    html: false,
-    selector: false,
-    placement: 'top',
-    offset: [0, 0],
-    container: false,
-    fallbackPlacements: ['top', 'right', 'bottom', 'left'],
-    boundary: 'clippingParents',
-    customClass: '',
-    sanitize: true,
-    sanitizeFn: null,
-    allowList: DefaultAllowlist,
-    popperConfig: null,
-  };
-  const Event = {
-    HIDE: `hide${EVENT_KEY}`,
-    HIDDEN: `hidden${EVENT_KEY}`,
-    SHOW: `show${EVENT_KEY}`,
-    SHOWN: `shown${EVENT_KEY}`,
-    INSERTED: `inserted${EVENT_KEY}`,
-    CLICK: `click${EVENT_KEY}`,
-    FOCUSIN: `focusin${EVENT_KEY}`,
-    FOCUSOUT: `focusout${EVENT_KEY}`,
-    MOUSEENTER: `mouseenter${EVENT_KEY}`,
-    MOUSELEAVE: `mouseleave${EVENT_KEY}`,
-  };
-  const CLASS_NAME_FADE = 'fade';
-  const CLASS_NAME_MODAL = 'modal';
-  const CLASS_NAME_SHOW = 'show';
-  const HOVER_STATE_SHOW = 'show';
-  const HOVER_STATE_OUT = 'out';
-  const SELECTOR_TOOLTIP_INNER = '.tooltip-inner';
-  const SELECTOR_MODAL = `.${CLASS_NAME_MODAL}`;
-  const EVENT_MODAL_HIDE = 'hide.bs.modal';
-  const TRIGGER_HOVER = 'hover';
-  const TRIGGER_FOCUS = 'focus';
-  const TRIGGER_CLICK = 'click';
-  const TRIGGER_MANUAL = 'manual';
-  /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
+        this.tip = null;
 
-  class Tooltip extends BaseComponent__default.default {
-    constructor(element, config) {
-      if (typeof Popper__namespace === 'undefined') {
-        throw new TypeError("Bootstrap's tooltips require Popper (https://popper.js.org)");
-      }
+        this._setListeners();
 
-      super(element); // private
-
-      this._isEnabled = true;
-      this._timeout = 0;
-      this._hoverState = '';
-      this._activeTrigger = {};
-      this._popper = null; // Protected
-
-      this._config = this._getConfig(config);
-      this.tip = null;
-
-      this._setListeners();
-    } // Getters
-
-    static get Default() {
-      return Default;
-    }
-
-    static get NAME() {
-      return NAME;
-    }
-
-    static get Event() {
-      return Event;
-    }
-
-    static get DefaultType() {
-      return DefaultType;
-    } // Public
-
-    enable() {
-      this._isEnabled = true;
-    }
-
-    disable() {
-      this._isEnabled = false;
-    }
-
-    toggleEnabled() {
-      this._isEnabled = !this._isEnabled;
-    }
-
-    toggle(event) {
-      if (!this._isEnabled) {
-        return;
-      }
-
-      if (event) {
-        const context = this._initializeOnDelegatedTarget(event);
-
-        context._activeTrigger.click = !context._activeTrigger.click;
-
-        if (context._isWithActiveTrigger()) {
-          context._enter(null, context);
-        } else {
-          context._leave(null, context);
+        if (!this._config.selector) {
+          this._fixTitle();
         }
-      } else {
-        if (this.getTipElement().classList.contains(CLASS_NAME_SHOW)) {
-          this._leave(null, this);
+      } // Getters
+
+      static get Default() {
+        return Default;
+      }
+
+      static get DefaultType() {
+        return DefaultType;
+      }
+
+      static get NAME() {
+        return NAME;
+      } // Public
+
+      enable() {
+        this._isEnabled = true;
+      }
+
+      disable() {
+        this._isEnabled = false;
+      }
+
+      toggleEnabled() {
+        this._isEnabled = !this._isEnabled;
+      }
+
+      toggle() {
+        if (!this._isEnabled) {
+          return;
+        }
+
+        this._activeTrigger.click = !this._activeTrigger.click;
+
+        if (this._isShown()) {
+          this._leave();
 
           return;
         }
 
-        this._enter(null, this);
-      }
-    }
-
-    dispose() {
-      clearTimeout(this._timeout);
-      EventHandler__default.default.off(
-        this._element.closest(SELECTOR_MODAL),
-        EVENT_MODAL_HIDE,
-        this._hideModalHandler
-      );
-
-      if (this.tip) {
-        this.tip.remove();
+        this._enter();
       }
 
-      this._disposePopper();
+      dispose() {
+        clearTimeout(this._timeout);
+        EventHandler__default.default.off(
+          this._element.closest(SELECTOR_MODAL),
+          EVENT_MODAL_HIDE,
+          this._hideModalHandler
+        );
 
-      super.dispose();
-    }
+        if (this.tip) {
+          this.tip.remove();
+        }
 
-    show() {
-      if (this._element.style.display === 'none') {
-        throw new Error('Please use show on visible elements');
-      }
+        if (this._element.getAttribute('data-bs-original-title')) {
+          this._element.setAttribute('title', this._element.getAttribute('data-bs-original-title'));
+        }
 
-      if (!(this.isWithContent() && this._isEnabled)) {
-        return;
-      }
-
-      const showEvent = EventHandler__default.default.trigger(
-        this._element,
-        this.constructor.Event.SHOW
-      );
-      const shadowRoot = findShadowRoot(this._element);
-      const isInTheDom =
-        shadowRoot === null
-          ? this._element.ownerDocument.documentElement.contains(this._element)
-          : shadowRoot.contains(this._element);
-
-      if (showEvent.defaultPrevented || !isInTheDom) {
-        return;
-      } // A trick to recreate a tooltip in case a new title is given by using the NOT documented `data-bs-original-title`
-      // This will be removed later in favor of a `setContent` method
-
-      if (
-        this.constructor.NAME === 'tooltip' &&
-        this.tip &&
-        this.getTitle() !== this.tip.querySelector(SELECTOR_TOOLTIP_INNER).innerHTML
-      ) {
         this._disposePopper();
 
-        this.tip.remove();
-        this.tip = null;
+        super.dispose();
       }
 
-      const tip = this.getTipElement();
-      const tipId = getUID(this.constructor.NAME);
-      tip.setAttribute('id', tipId);
+      show() {
+        if (this._element.style.display === 'none') {
+          throw new Error('Please use show on visible elements');
+        }
 
-      this._element.setAttribute('aria-describedby', tipId);
+        if (!(this._isWithContent() && this._isEnabled)) {
+          return;
+        }
 
-      if (this._config.animation) {
-        tip.classList.add(CLASS_NAME_FADE);
+        const showEvent = EventHandler__default.default.trigger(
+          this._element,
+          this.constructor.eventName(EVENT_SHOW)
+        );
+        const shadowRoot = index.findShadowRoot(this._element);
+
+        const isInTheDom = (shadowRoot || this._element.ownerDocument.documentElement).contains(
+          this._element
+        );
+
+        if (showEvent.defaultPrevented || !isInTheDom) {
+          return;
+        } // todo v6 remove this OR make it optional
+
+        if (this.tip) {
+          this.tip.remove();
+          this.tip = null;
+        }
+
+        const tip = this._getTipElement();
+
+        this._element.setAttribute('aria-describedby', tip.getAttribute('id'));
+
+        const { container } = this._config;
+
+        if (!this._element.ownerDocument.documentElement.contains(this.tip)) {
+          container.append(tip);
+          EventHandler__default.default.trigger(
+            this._element,
+            this.constructor.eventName(EVENT_INSERTED)
+          );
+        }
+
+        if (this._popper) {
+          this._popper.update();
+        } else {
+          this._popper = this._createPopper(tip);
+        }
+
+        tip.classList.add(CLASS_NAME_SHOW); // If this is a touch-enabled device we add extra
+        // empty mouseover listeners to the body's immediate children;
+        // only needed because of broken event delegation on iOS
+        // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+
+        if ('ontouchstart' in document.documentElement) {
+          for (const element of [].concat(...document.body.children)) {
+            EventHandler__default.default.on(element, 'mouseover', index.noop);
+          }
+        }
+
+        const complete = () => {
+          EventHandler__default.default.trigger(
+            this._element,
+            this.constructor.eventName(EVENT_SHOWN)
+          );
+
+          if (this._isHovered === false) {
+            this._leave();
+          }
+
+          this._isHovered = false;
+        };
+
+        this._queueCallback(complete, this.tip, this._isAnimated());
       }
 
-      const placement =
-        typeof this._config.placement === 'function'
-          ? this._config.placement.call(this, tip, this._element)
-          : this._config.placement;
+      hide() {
+        if (!this._isShown()) {
+          return;
+        }
 
-      const attachment = this._getAttachment(placement);
+        const hideEvent = EventHandler__default.default.trigger(
+          this._element,
+          this.constructor.eventName(EVENT_HIDE)
+        );
 
-      this._addAttachmentClass(attachment);
+        if (hideEvent.defaultPrevented) {
+          return;
+        }
 
-      const { container } = this._config;
-      Data__default.default.set(tip, this.constructor.DATA_KEY, this);
+        const tip = this._getTipElement();
 
-      if (!this._element.ownerDocument.documentElement.contains(this.tip)) {
-        container.append(tip);
-        EventHandler__default.default.trigger(this._element, this.constructor.Event.INSERTED);
+        tip.classList.remove(CLASS_NAME_SHOW); // If this is a touch-enabled device we remove the extra
+        // empty mouseover listeners we added for iOS support
+
+        if ('ontouchstart' in document.documentElement) {
+          for (const element of [].concat(...document.body.children)) {
+            EventHandler__default.default.off(element, 'mouseover', index.noop);
+          }
+        }
+
+        this._activeTrigger[TRIGGER_CLICK] = false;
+        this._activeTrigger[TRIGGER_FOCUS] = false;
+        this._activeTrigger[TRIGGER_HOVER] = false;
+        this._isHovered = null; // it is a trick to support manual triggering
+
+        const complete = () => {
+          if (this._isWithActiveTrigger()) {
+            return;
+          }
+
+          if (!this._isHovered) {
+            tip.remove();
+          }
+
+          this._element.removeAttribute('aria-describedby');
+
+          EventHandler__default.default.trigger(
+            this._element,
+            this.constructor.eventName(EVENT_HIDDEN)
+          );
+
+          this._disposePopper();
+        };
+
+        this._queueCallback(complete, this.tip, this._isAnimated());
       }
 
-      if (this._popper) {
-        this._popper.update();
-      } else {
-        this._popper = Popper__namespace.createPopper(
+      update() {
+        if (this._popper) {
+          this._popper.update();
+        }
+      } // Protected
+
+      _isWithContent() {
+        return Boolean(this._getTitle());
+      }
+
+      _getTipElement() {
+        if (!this.tip) {
+          this.tip = this._createTipElement(this._newContent || this._getContentForTemplate());
+        }
+
+        return this.tip;
+      }
+
+      _createTipElement(content) {
+        const tip = this._getTemplateFactory(content).toHtml(); // todo: remove this check on v6
+
+        if (!tip) {
+          return null;
+        }
+
+        tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW); // todo: on v6 the following can be achieved with CSS only
+
+        tip.classList.add(`bs-${this.constructor.NAME}-auto`);
+        const tipId = index.getUID(this.constructor.NAME).toString();
+        tip.setAttribute('id', tipId);
+
+        if (this._isAnimated()) {
+          tip.classList.add(CLASS_NAME_FADE);
+        }
+
+        return tip;
+      }
+
+      setContent(content) {
+        this._newContent = content;
+
+        if (this._isShown()) {
+          this._disposePopper();
+
+          this.show();
+        }
+      }
+
+      _getTemplateFactory(content) {
+        if (this._templateFactory) {
+          this._templateFactory.changeContent(content);
+        } else {
+          this._templateFactory = new TemplateFactory__default.default({
+            ...this._config,
+            // the `content` var has to be after `this._config`
+            // to override config.content in case of popover
+            content,
+            extraClass: this._resolvePossibleFunction(this._config.customClass),
+          });
+        }
+
+        return this._templateFactory;
+      }
+
+      _getContentForTemplate() {
+        return {
+          [SELECTOR_TOOLTIP_INNER]: this._getTitle(),
+        };
+      }
+
+      _getTitle() {
+        return (
+          this._resolvePossibleFunction(this._config.title) ||
+          this._element.getAttribute('data-bs-original-title')
+        );
+      } // Private
+
+      _initializeOnDelegatedTarget(event) {
+        return this.constructor.getOrCreateInstance(
+          event.delegateTarget,
+          this._getDelegateConfig()
+        );
+      }
+
+      _isAnimated() {
+        return this._config.animation || (this.tip && this.tip.classList.contains(CLASS_NAME_FADE));
+      }
+
+      _isShown() {
+        return this.tip && this.tip.classList.contains(CLASS_NAME_SHOW);
+      }
+
+      _createPopper(tip) {
+        const placement =
+          typeof this._config.placement === 'function'
+            ? this._config.placement.call(this, tip, this._element)
+            : this._config.placement;
+        const attachment = AttachmentMap[placement.toUpperCase()];
+        return Popper__namespace.createPopper(
           this._element,
           tip,
           this._getPopperConfig(attachment)
         );
       }
 
-      tip.classList.add(CLASS_NAME_SHOW);
+      _getOffset() {
+        const { offset } = this._config;
 
-      const customClass = this._resolvePossibleFunction(this._config.customClass);
-
-      if (customClass) {
-        tip.classList.add(...customClass.split(' '));
-      } // If this is a touch-enabled device we add extra
-      // empty mouseover listeners to the body's immediate children;
-      // only needed because of broken event delegation on iOS
-      // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
-
-      if ('ontouchstart' in document.documentElement) {
-        [].concat(...document.body.children).forEach((element) => {
-          EventHandler__default.default.on(element, 'mouseover', noop);
-        });
-      }
-
-      const complete = () => {
-        const prevHoverState = this._hoverState;
-        this._hoverState = null;
-        EventHandler__default.default.trigger(this._element, this.constructor.Event.SHOWN);
-
-        if (prevHoverState === HOVER_STATE_OUT) {
-          this._leave(null, this);
+        if (typeof offset === 'string') {
+          return offset.split(',').map((value) => Number.parseInt(value, 10));
         }
-      };
 
-      const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE);
+        if (typeof offset === 'function') {
+          return (popperData) => offset(popperData, this._element);
+        }
 
-      this._queueCallback(complete, this.tip, isAnimated);
-    }
-
-    hide() {
-      if (!this._popper) {
-        return;
+        return offset;
       }
 
-      const tip = this.getTipElement();
+      _resolvePossibleFunction(arg) {
+        return typeof arg === 'function' ? arg.call(this._element) : arg;
+      }
 
-      const complete = () => {
+      _getPopperConfig(attachment) {
+        const defaultBsPopperConfig = {
+          placement: attachment,
+          modifiers: [
+            {
+              name: 'flip',
+              options: {
+                fallbackPlacements: this._config.fallbackPlacements,
+              },
+            },
+            {
+              name: 'offset',
+              options: {
+                offset: this._getOffset(),
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                boundary: this._config.boundary,
+              },
+            },
+            {
+              name: 'arrow',
+              options: {
+                element: `.${this.constructor.NAME}-arrow`,
+              },
+            },
+            {
+              name: 'preSetPlacement',
+              enabled: true,
+              phase: 'beforeMain',
+              fn: (data) => {
+                // Pre-set Popper's placement attribute in order to read the arrow sizes properly.
+                // Otherwise, Popper mixes up the width and height dimensions since the initial arrow style is for top placement
+                this._getTipElement().setAttribute('data-popper-placement', data.state.placement);
+              },
+            },
+          ],
+        };
+        return {
+          ...defaultBsPopperConfig,
+          ...(typeof this._config.popperConfig === 'function'
+            ? this._config.popperConfig(defaultBsPopperConfig)
+            : this._config.popperConfig),
+        };
+      }
+
+      _setListeners() {
+        const triggers = this._config.trigger.split(' ');
+
+        for (const trigger of triggers) {
+          if (trigger === 'click') {
+            EventHandler__default.default.on(
+              this._element,
+              this.constructor.eventName(EVENT_CLICK),
+              this._config.selector,
+              (event) => {
+                const context = this._initializeOnDelegatedTarget(event);
+
+                context.toggle();
+              }
+            );
+          } else if (trigger !== TRIGGER_MANUAL) {
+            const eventIn =
+              trigger === TRIGGER_HOVER
+                ? this.constructor.eventName(EVENT_MOUSEENTER)
+                : this.constructor.eventName(EVENT_FOCUSIN);
+            const eventOut =
+              trigger === TRIGGER_HOVER
+                ? this.constructor.eventName(EVENT_MOUSELEAVE)
+                : this.constructor.eventName(EVENT_FOCUSOUT);
+            EventHandler__default.default.on(
+              this._element,
+              eventIn,
+              this._config.selector,
+              (event) => {
+                const context = this._initializeOnDelegatedTarget(event);
+
+                context._activeTrigger[
+                  event.type === 'focusin' ? TRIGGER_FOCUS : TRIGGER_HOVER
+                ] = true;
+
+                context._enter();
+              }
+            );
+            EventHandler__default.default.on(
+              this._element,
+              eventOut,
+              this._config.selector,
+              (event) => {
+                const context = this._initializeOnDelegatedTarget(event);
+
+                context._activeTrigger[event.type === 'focusout' ? TRIGGER_FOCUS : TRIGGER_HOVER] =
+                  context._element.contains(event.relatedTarget);
+
+                context._leave();
+              }
+            );
+          }
+        }
+
+        this._hideModalHandler = () => {
+          if (this._element) {
+            this.hide();
+          }
+        };
+
+        EventHandler__default.default.on(
+          this._element.closest(SELECTOR_MODAL),
+          EVENT_MODAL_HIDE,
+          this._hideModalHandler
+        );
+      }
+
+      _fixTitle() {
+        const title = this._element.getAttribute('title');
+
+        if (!title) {
+          return;
+        }
+
+        if (!this._element.getAttribute('aria-label') && !this._element.textContent.trim()) {
+          this._element.setAttribute('aria-label', title);
+        }
+
+        this._element.setAttribute('data-bs-original-title', title); // DO NOT USE IT. Is only for backwards compatibility
+
+        this._element.removeAttribute('title');
+      }
+
+      _enter() {
+        if (this._isShown() || this._isHovered) {
+          this._isHovered = true;
+          return;
+        }
+
+        this._isHovered = true;
+
+        this._setTimeout(() => {
+          if (this._isHovered) {
+            this.show();
+          }
+        }, this._config.delay.show);
+      }
+
+      _leave() {
         if (this._isWithActiveTrigger()) {
           return;
         }
 
-        if (this._hoverState !== HOVER_STATE_SHOW) {
-          tip.remove();
-        }
+        this._isHovered = false;
 
-        this._cleanTipClass();
-
-        this._element.removeAttribute('aria-describedby');
-
-        EventHandler__default.default.trigger(this._element, this.constructor.Event.HIDDEN);
-
-        this._disposePopper();
-      };
-
-      const hideEvent = EventHandler__default.default.trigger(
-        this._element,
-        this.constructor.Event.HIDE
-      );
-
-      if (hideEvent.defaultPrevented) {
-        return;
-      }
-
-      tip.classList.remove(CLASS_NAME_SHOW); // If this is a touch-enabled device we remove the extra
-      // empty mouseover listeners we added for iOS support
-
-      if ('ontouchstart' in document.documentElement) {
-        []
-          .concat(...document.body.children)
-          .forEach((element) => EventHandler__default.default.off(element, 'mouseover', noop));
-      }
-
-      this._activeTrigger[TRIGGER_CLICK] = false;
-      this._activeTrigger[TRIGGER_FOCUS] = false;
-      this._activeTrigger[TRIGGER_HOVER] = false;
-      const isAnimated = this.tip.classList.contains(CLASS_NAME_FADE);
-
-      this._queueCallback(complete, this.tip, isAnimated);
-
-      this._hoverState = '';
-    }
-
-    update() {
-      if (this._popper !== null) {
-        this._popper.update();
-      }
-    } // Protected
-
-    isWithContent() {
-      return Boolean(this.getTitle());
-    }
-
-    getTipElement() {
-      if (this.tip) {
-        return this.tip;
-      }
-
-      const element = document.createElement('div');
-      element.innerHTML = this._config.template;
-      const tip = element.children[0];
-      this.setContent(tip);
-      tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW);
-      this.tip = tip;
-      return this.tip;
-    }
-
-    setContent(tip) {
-      this._sanitizeAndSetContent(tip, this.getTitle(), SELECTOR_TOOLTIP_INNER);
-    }
-
-    _sanitizeAndSetContent(template, content, selector) {
-      const templateElement = SelectorEngine__default.default.findOne(selector, template);
-
-      if (!content && templateElement) {
-        templateElement.remove();
-        return;
-      } // we use append for html objects to maintain js events
-
-      this.setElementContent(templateElement, content);
-    }
-
-    setElementContent(element, content) {
-      if (element === null) {
-        return;
-      }
-
-      if (isElement(content)) {
-        content = getElement(content); // content is a DOM node or a jQuery
-
-        if (this._config.html) {
-          if (content.parentNode !== element) {
-            element.innerHTML = '';
-            element.append(content);
+        this._setTimeout(() => {
+          if (!this._isHovered) {
+            this.hide();
           }
-        } else {
-          element.textContent = content.textContent;
-        }
-
-        return;
+        }, this._config.delay.hide);
       }
 
-      if (this._config.html) {
-        if (this._config.sanitize) {
-          content = sanitizeHtml(content, this._config.allowList, this._config.sanitizeFn);
-        }
-
-        element.innerHTML = content;
-      } else {
-        element.textContent = content;
-      }
-    }
-
-    getTitle() {
-      const title = this._element.getAttribute('data-bs-original-title') || this._config.title;
-
-      return this._resolvePossibleFunction(title);
-    }
-
-    updateAttachment(attachment) {
-      if (attachment === 'right') {
-        return 'end';
+      _setTimeout(handler, timeout) {
+        clearTimeout(this._timeout);
+        this._timeout = setTimeout(handler, timeout);
       }
 
-      if (attachment === 'left') {
-        return 'start';
+      _isWithActiveTrigger() {
+        return Object.values(this._activeTrigger).includes(true);
       }
 
-      return attachment;
-    } // Private
+      _getConfig(config) {
+        const dataAttributes = Manipulator__default.default.getDataAttributes(this._element);
 
-    _initializeOnDelegatedTarget(event, context) {
-      return (
-        context ||
-        this.constructor.getOrCreateInstance(event.delegateTarget, this._getDelegateConfig())
-      );
-    }
-
-    _getOffset() {
-      const { offset } = this._config;
-
-      if (typeof offset === 'string') {
-        return offset.split(',').map((val) => Number.parseInt(val, 10));
-      }
-
-      if (typeof offset === 'function') {
-        return (popperData) => offset(popperData, this._element);
-      }
-
-      return offset;
-    }
-
-    _resolvePossibleFunction(content) {
-      return typeof content === 'function' ? content.call(this._element) : content;
-    }
-
-    _getPopperConfig(attachment) {
-      const defaultBsPopperConfig = {
-        placement: attachment,
-        modifiers: [
-          {
-            name: 'flip',
-            options: {
-              fallbackPlacements: this._config.fallbackPlacements,
-            },
-          },
-          {
-            name: 'offset',
-            options: {
-              offset: this._getOffset(),
-            },
-          },
-          {
-            name: 'preventOverflow',
-            options: {
-              boundary: this._config.boundary,
-            },
-          },
-          {
-            name: 'arrow',
-            options: {
-              element: `.${this.constructor.NAME}-arrow`,
-            },
-          },
-          {
-            name: 'onChange',
-            enabled: true,
-            phase: 'afterWrite',
-            fn: (data) => this._handlePopperPlacementChange(data),
-          },
-        ],
-        onFirstUpdate: (data) => {
-          if (data.options.placement !== data.placement) {
-            this._handlePopperPlacementChange(data);
+        for (const dataAttribute of Object.keys(dataAttributes)) {
+          if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
+            delete dataAttributes[dataAttribute];
           }
-        },
-      };
-      return {
-        ...defaultBsPopperConfig,
-        ...(typeof this._config.popperConfig === 'function'
-          ? this._config.popperConfig(defaultBsPopperConfig)
-          : this._config.popperConfig),
-      };
-    }
-
-    _addAttachmentClass(attachment) {
-      this.getTipElement().classList.add(
-        `${this._getBasicClassPrefix()}-${this.updateAttachment(attachment)}`
-      );
-    }
-
-    _getAttachment(placement) {
-      return AttachmentMap[placement.toUpperCase()];
-    }
-
-    _setListeners() {
-      const triggers = this._config.trigger.split(' ');
-
-      triggers.forEach((trigger) => {
-        if (trigger === 'click') {
-          EventHandler__default.default.on(
-            this._element,
-            this.constructor.Event.CLICK,
-            this._config.selector,
-            (event) => this.toggle(event)
-          );
-        } else if (trigger !== TRIGGER_MANUAL) {
-          const eventIn =
-            trigger === TRIGGER_HOVER
-              ? this.constructor.Event.MOUSEENTER
-              : this.constructor.Event.FOCUSIN;
-          const eventOut =
-            trigger === TRIGGER_HOVER
-              ? this.constructor.Event.MOUSELEAVE
-              : this.constructor.Event.FOCUSOUT;
-          EventHandler__default.default.on(this._element, eventIn, this._config.selector, (event) =>
-            this._enter(event)
-          );
-          EventHandler__default.default.on(
-            this._element,
-            eventOut,
-            this._config.selector,
-            (event) => this._leave(event)
-          );
-        }
-      });
-
-      this._hideModalHandler = () => {
-        if (this._element) {
-          this.hide();
-        }
-      };
-
-      EventHandler__default.default.on(
-        this._element.closest(SELECTOR_MODAL),
-        EVENT_MODAL_HIDE,
-        this._hideModalHandler
-      );
-
-      if (this._config.selector) {
-        this._config = { ...this._config, trigger: 'manual', selector: '' };
-      } else {
-        this._fixTitle();
-      }
-    }
-
-    _fixTitle() {
-      const title = this._element.getAttribute('title');
-
-      const originalTitleType = typeof this._element.getAttribute('data-bs-original-title');
-
-      if (title || originalTitleType !== 'string') {
-        this._element.setAttribute('data-bs-original-title', title || '');
-
-        if (title && !this._element.getAttribute('aria-label') && !this._element.textContent) {
-          this._element.setAttribute('aria-label', title);
         }
 
-        this._element.setAttribute('title', '');
-      }
-    }
+        config = { ...dataAttributes, ...(typeof config === 'object' && config ? config : {}) };
+        config = this._mergeConfigObj(config);
+        config = this._configAfterMerge(config);
 
-    _enter(event, context) {
-      context = this._initializeOnDelegatedTarget(event, context);
+        this._typeCheckConfig(config);
 
-      if (event) {
-        context._activeTrigger[event.type === 'focusin' ? TRIGGER_FOCUS : TRIGGER_HOVER] = true;
+        return config;
       }
 
-      if (
-        context.getTipElement().classList.contains(CLASS_NAME_SHOW) ||
-        context._hoverState === HOVER_STATE_SHOW
-      ) {
-        context._hoverState = HOVER_STATE_SHOW;
-        return;
-      }
+      _configAfterMerge(config) {
+        config.container =
+          config.container === false ? document.body : index.getElement(config.container);
 
-      clearTimeout(context._timeout);
-      context._hoverState = HOVER_STATE_SHOW;
-
-      if (!context._config.delay || !context._config.delay.show) {
-        context.show();
-        return;
-      }
-
-      context._timeout = setTimeout(() => {
-        if (context._hoverState === HOVER_STATE_SHOW) {
-          context.show();
+        if (typeof config.delay === 'number') {
+          config.delay = {
+            show: config.delay,
+            hide: config.delay,
+          };
         }
-      }, context._config.delay.show);
-    }
 
-    _leave(event, context) {
-      context = this._initializeOnDelegatedTarget(event, context);
-
-      if (event) {
-        context._activeTrigger[event.type === 'focusout' ? TRIGGER_FOCUS : TRIGGER_HOVER] =
-          context._element.contains(event.relatedTarget);
-      }
-
-      if (context._isWithActiveTrigger()) {
-        return;
-      }
-
-      clearTimeout(context._timeout);
-      context._hoverState = HOVER_STATE_OUT;
-
-      if (!context._config.delay || !context._config.delay.hide) {
-        context.hide();
-        return;
-      }
-
-      context._timeout = setTimeout(() => {
-        if (context._hoverState === HOVER_STATE_OUT) {
-          context.hide();
+        if (typeof config.title === 'number') {
+          config.title = config.title.toString();
         }
-      }, context._config.delay.hide);
-    }
 
-    _isWithActiveTrigger() {
-      for (const trigger in this._activeTrigger) {
-        if (this._activeTrigger[trigger]) {
-          return true;
+        if (typeof config.content === 'number') {
+          config.content = config.content.toString();
         }
+
+        return config;
       }
 
-      return false;
-    }
+      _getDelegateConfig() {
+        const config = {};
 
-    _getConfig(config) {
-      const dataAttributes = Manipulator__default.default.getDataAttributes(this._element);
-      Object.keys(dataAttributes).forEach((dataAttr) => {
-        if (DISALLOWED_ATTRIBUTES.has(dataAttr)) {
-          delete dataAttributes[dataAttr];
+        for (const key in this._config) {
+          if (this.constructor.Default[key] !== this._config[key]) {
+            config[key] = this._config[key];
+          }
         }
-      });
-      config = {
-        ...this.constructor.Default,
-        ...dataAttributes,
-        ...(typeof config === 'object' && config ? config : {}),
-      };
-      config.container = config.container === false ? document.body : getElement(config.container);
 
-      if (typeof config.delay === 'number') {
-        config.delay = {
-          show: config.delay,
-          hide: config.delay,
-        };
+        config.selector = false;
+        config.trigger = 'manual'; // In the future can be replaced with:
+        // const keysWithDifferentValues = Object.entries(this._config).filter(entry => this.constructor.Default[entry[0]] !== this._config[entry[0]])
+        // `Object.fromEntries(keysWithDifferentValues)`
+
+        return config;
       }
 
-      if (typeof config.title === 'number') {
-        config.title = config.title.toString();
-      }
+      _disposePopper() {
+        if (this._popper) {
+          this._popper.destroy();
 
-      if (typeof config.content === 'number') {
-        config.content = config.content.toString();
-      }
-
-      typeCheckConfig(NAME, config, this.constructor.DefaultType);
-
-      if (config.sanitize) {
-        config.template = sanitizeHtml(config.template, config.allowList, config.sanitizeFn);
-      }
-
-      return config;
-    }
-
-    _getDelegateConfig() {
-      const config = {};
-
-      for (const key in this._config) {
-        if (this.constructor.Default[key] !== this._config[key]) {
-          config[key] = this._config[key];
+          this._popper = null;
         }
-      } // In the future can be replaced with:
-      // const keysWithDifferentValues = Object.entries(this._config).filter(entry => this.constructor.Default[entry[0]] !== this._config[entry[0]])
-      // `Object.fromEntries(keysWithDifferentValues)`
+      } // Static
 
-      return config;
-    }
+      static jQueryInterface(config) {
+        return this.each(function () {
+          const data = Tooltip.getOrCreateInstance(this, config);
 
-    _cleanTipClass() {
-      const tip = this.getTipElement();
-      const basicClassPrefixRegex = new RegExp(`(^|\\s)${this._getBasicClassPrefix()}\\S+`, 'g');
-      const tabClass = tip.getAttribute('class').match(basicClassPrefixRegex);
+          if (typeof config !== 'string') {
+            return;
+          }
 
-      if (tabClass !== null && tabClass.length > 0) {
-        tabClass.map((token) => token.trim()).forEach((tClass) => tip.classList.remove(tClass));
-      }
-    }
-
-    _getBasicClassPrefix() {
-      return CLASS_PREFIX;
-    }
-
-    _handlePopperPlacementChange(popperData) {
-      const { state } = popperData;
-
-      if (!state) {
-        return;
-      }
-
-      this.tip = state.elements.popper;
-
-      this._cleanTipClass();
-
-      this._addAttachmentClass(this._getAttachment(state.placement));
-    }
-
-    _disposePopper() {
-      if (this._popper) {
-        this._popper.destroy();
-
-        this._popper = null;
-      }
-    } // Static
-
-    static jQueryInterface(config) {
-      return this.each(function () {
-        const data = Tooltip.getOrCreateInstance(this, config);
-
-        if (typeof config === 'string') {
           if (typeof data[config] === 'undefined') {
             throw new TypeError(`No method named "${config}"`);
           }
 
           data[config]();
-        }
-      });
+        });
+      }
     }
+    /**
+     * jQuery
+     */
+
+    index.defineJQueryPlugin(Tooltip);
+
+    return Tooltip;
   }
-  /**
-   * ------------------------------------------------------------------------
-   * jQuery
-   * ------------------------------------------------------------------------
-   * add .Tooltip to jQuery only if jQuery is present
-   */
-
-  defineJQueryPlugin(Tooltip);
-
-  return Tooltip;
-});
+);
 //# sourceMappingURL=tooltip.js.map

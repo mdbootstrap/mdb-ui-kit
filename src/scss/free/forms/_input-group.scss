@@ -3,6 +3,8 @@
 //
 
 .input-group {
+  flex-wrap: nowrap;
+
   > .form-control {
     min-height: $input-group-min-height;
     height: $input-group-height;

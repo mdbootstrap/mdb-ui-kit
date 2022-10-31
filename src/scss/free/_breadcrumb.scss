@@ -1,22 +1,33 @@
-// Breadcrumb
+//
+// Breadcrumb styles
+//
 
 .navbar {
   .breadcrumb {
+    // scss-docs-start breadcrumb-css-vars
+    --#{$prefix}breadcrumb-item-color: #{$breadcrumb-item-color};
+    --#{$prefix}breadcrumb-item-hover-color: #{$breadcrumb-item-hover-color};
+    --#{$prefix}breadcrumb-item-before-color: #{$breadcrumb-item-before-color};
+    --#{$prefix}breadcrumb-item-transition: #{$breadcrumb-item-transition};
+    // scss-docs-end breadcrumb-css-vars
+
     background-color: transparent;
     margin-bottom: 0;
 
     .breadcrumb-item {
       a {
-        color: $breadcrumb-item-color;
-        transition: $breadcrumb-item-transition;
+        color: var(--#{$prefix}breadcrumb-item-color);
+        transition: var(--#{$prefix}breadcrumb-item-transition);
+
         &:hover,
         &:focus {
-          color: $breadcrumb-item-hover-color;
+          color: var(--#{$prefix}breadcrumb-item-hover-color);
         }
       }
+
       + .breadcrumb-item {
         &:before {
-          color: $breadcrumb-item-before-color;
+          color: var(--#{$prefix}breadcrumb-item-before-color);
         }
       }
     }

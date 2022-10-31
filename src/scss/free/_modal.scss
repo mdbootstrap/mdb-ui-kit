@@ -1,5 +1,12 @@
-// Modal
+//
+// Modal styles
+//
+
 .modal-content {
+  // scss-docs-start modal-css-vars
+  --#{$prefix}modal-box-shadow: #{$modal-box-shadow};
+  // scss-docs-end modal-css-vars
+
   border: 0;
-  box-shadow: $modal-box-shadow;
+  box-shadow: var(--#{$prefix}modal-box-shadow);
 }

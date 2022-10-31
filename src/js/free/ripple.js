@@ -116,8 +116,13 @@ class Ripple {
         this._element = parent;
       } else {
         const shadow = getComputedStyle(this._element).boxShadow;
-
+        const btn = this._element;
         const wrapper = document.createElement('span');
+
+        EventHandler.one(wrapper, 'mouseup', () => {
+          btn.click();
+        });
+
         wrapper.classList.add(CLASSNAME_RIPPLE, CLASSNAME_RIPPLE_WRAPPER);
 
         Manipulator.addStyle(wrapper, {

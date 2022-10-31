@@ -1,52 +1,58 @@
-// List group
+//
+// List group styles
+//
+
+.list-group {
+  --#{$prefix}list-group-item-transition-time: #{$list-group-item-transition-time};
+}
 
 .list-group-item-action {
-  transition: 0.5s;
+  transition: var(--#{$prefix}list-group-item-transition-time);
 
   // Hover state
   &:hover {
-    transition: 0.5s;
+    transition: var(--#{$prefix}list-group-item-transition-time);
   }
 }
 
 .list-group-light {
+  --#{$prefix}list-group-light-item-py: #{$list-group-light-item-py};
+  --#{$prefix}list-group-light-item-border: #{$list-group-light-item-border};
+  --#{$prefix}list-group-light-item-border-width: #{$list-group-light-item-border-width};
+  --#{$prefix}list-group-light-active-border-radius: #{$list-group-light-active-border-radius};
+  --#{$prefix}list-group-light-active-bg: #{$list-group-light-active-bg};
+  --#{$prefix}list-group-light-active-color: #{$list-group-light-active-color};
+
   .list-group-item {
-    padding: $list-group-light-item-py 0;
-    border: $list-group-light-item-border;
+    padding: var(--#{$prefix}list-group-light-item-py) 0;
+    border: var(--#{$prefix}list-group-light-item-border);
   }
   > .list-group-item {
-    border-width: 0 0 $list-group-light-item-border-width;
+    border-width: 0 0 var(--#{$prefix}list-group-light-item-border-width);
     &:last-of-type {
       border: none;
     }
   }
   .active {
     border: none;
-    border-radius: $list-group-light-active-border-radius;
-    background-color: $list-group-light-active-bgc;
-    color: $list-group-light-active-color;
+    border-radius: var(--#{$prefix}list-group-light-active-border-radius);
+    background-color: var(--#{$prefix}list-group-light-active-bg);
+    color: var(--#{$prefix}list-group-light-active-color);
   }
   .list-group-item-action {
     &:hover {
-      border-radius: $list-group-light-active-border-radius;
+      border-radius: var(--#{$prefix}list-group-light-active-border-radius);
     }
     &:focus {
-      border-radius: $list-group-light-active-border-radius;
+      border-radius: var(--#{$prefix}list-group-light-active-border-radius);
     }
   }
 }
 
 .list-group-small {
+  --#{$prefix}list-group-small-item-py: #{$list-group-small-item-py};
   .list-group-item {
-    padding: $list-group-small-item-py 0;
-  }
-}
-
-.list-group-item {
-  &.active {
-    background-color: $list-group-item-active-bgc;
-    color: $list-group-item-active-color;
-    border-color: $list-group-item-active-border-color;
+    padding: var(--#{$prefix}list-group-small-item-py) 0;
   }
 }
 
