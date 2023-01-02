@@ -1,5 +1,5 @@
 /*!
- * Bootstrap tooltip.js v5.2.2 (https://getbootstrap.com/)
+ * Bootstrap tooltip.js v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
@@ -77,7 +77,7 @@
 
     /**
      * --------------------------------------------------------------------------
-     * Bootstrap (v5.2.2): tooltip.js
+     * Bootstrap (v5.2.3): tooltip.js
      * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
      * --------------------------------------------------------------------------
      */
@@ -233,10 +233,6 @@
           this._hideModalHandler
         );
 
-        if (this.tip) {
-          this.tip.remove();
-        }
-
         if (this._element.getAttribute('data-bs-original-title')) {
           this._element.setAttribute('title', this._element.getAttribute('data-bs-original-title'));
         }
@@ -269,10 +265,7 @@
           return;
         } // todo v6 remove this OR make it optional
 
-        if (this.tip) {
-          this.tip.remove();
-          this.tip = null;
-        }
+        this._disposePopper();
 
         const tip = this._getTipElement();
 
@@ -288,12 +281,7 @@
           );
         }
 
-        if (this._popper) {
-          this._popper.update();
-        } else {
-          this._popper = this._createPopper(tip);
-        }
-
+        this._popper = this._createPopper(tip);
         tip.classList.add(CLASS_NAME_SHOW); // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
@@ -357,7 +345,7 @@
           }
 
           if (!this._isHovered) {
-            tip.remove();
+            this._disposePopper();
           }
 
           this._element.removeAttribute('aria-describedby');
@@ -366,8 +354,6 @@
             this._element,
             this.constructor.eventName(EVENT_HIDDEN)
           );
-
-          this._disposePopper();
         };
 
         this._queueCallback(complete, this.tip, this._isAnimated());
@@ -727,6 +713,11 @@
           this._popper.destroy();
 
           this._popper = null;
+        }
+
+        if (this.tip) {
+          this.tip.remove();
+          this.tip = null;
         }
       } // Static
 

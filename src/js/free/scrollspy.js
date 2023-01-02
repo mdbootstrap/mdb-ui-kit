@@ -117,10 +117,10 @@ class ScrollSpy extends BSScrollSpy {
   }
 
   _bindActivateEvent() {
-    EventHandler.on(this._scrollElement, EVENT_ACTIVATE_BS, (e) => {
+    EventHandler.on(this._element, EVENT_ACTIVATE_BS, (e) => {
       this._showSubsection();
       this._hideSubsection();
-      EventHandler.trigger(this._scrollElement, EVENT_ACTIVATE, {
+      EventHandler.trigger(this._element, EVENT_ACTIVATE, {
         relatedTarget: e.relatedTarget,
       });
     });

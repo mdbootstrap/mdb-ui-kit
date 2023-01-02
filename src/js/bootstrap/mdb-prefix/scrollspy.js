@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.2): scrollspy.js
+ * Bootstrap (v5.2.3): scrollspy.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -66,7 +66,7 @@ class ScrollSpy extends BaseComponent {
   constructor(element, config) {
     super(element, config);
 
-    if (!getSelectorFromElement(element)) {
+    if (!this._config.target) {
       return;
     }
 
@@ -166,7 +166,6 @@ class ScrollSpy extends BaseComponent {
       threshold: this._config.threshold,
       rootMargin: this._config.rootMargin,
     };
-
     return new IntersectionObserver((entries) => this._observerCallback(entries), options);
   }
 
@@ -298,11 +297,11 @@ class ScrollSpy extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-  for (const spy of SelectorEngine.find(SELECTOR_DATA_SPY)) {
-    ScrollSpy.getOrCreateInstance(spy);
-  }
-});
+// EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+//   for (const spy of SelectorEngine.find(SELECTOR_DATA_SPY)) {
+//     ScrollSpy.getOrCreateInstance(spy);
+//   }
+// });
 
 /**
  * jQuery
