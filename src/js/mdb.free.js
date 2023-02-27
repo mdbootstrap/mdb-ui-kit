@@ -1,6 +1,5 @@
 // BOOTSTRAP CORE COMPONENTS
 import Button from './free/button';
-import Collapse from './bootstrap/mdb-prefix/collapse';
 import Offcanvas from './bootstrap/mdb-prefix/offcanvas';
 import Alert from './free/alert';
 import Carousel from './free/carousel';
@@ -13,6 +12,7 @@ import Toast from './free/toast';
 
 // MDB FREE COMPONENTS
 import Input from './free/input';
+import Collapse from './free/collapse';
 import Dropdown from './free/dropdown';
 import Ripple from './free/ripple';
 import Range from './free/range';
