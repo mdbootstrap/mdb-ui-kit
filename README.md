@@ -18,7 +18,7 @@ This option is useful for experienced developers it enables bundling, unit testi
  
 ### [>> Install with MDBGO + e-commerce shop integration](https://mdbgo.com/wordpress-shop/)
 One click setup! MDB GO allows you to create a WordPress page with a single click.
-Regardless whether you want to create a Travel Blog or an e-commerce shop to sell your product you can easily do that. You can even combine both into single page.
+Regardless whether you want to create a Travel Blog or an e-commerce shop to sell your product you can easily do that. You can even combine both into a single page.
 
 
 ## About Material Design for Bootstrap 5 & Vanilla JavaScript
