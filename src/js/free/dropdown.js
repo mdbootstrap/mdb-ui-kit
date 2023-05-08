@@ -133,6 +133,7 @@ class Dropdown extends BSDropdown {
 
     // Disable Popper if we have a static display
     if (this._config.display === 'static') {
+      Manipulator.setDataAttribute(this._menu, 'popper', 'static');
       popperConfig.modifiers = [
         {
           name: 'applyStyles',

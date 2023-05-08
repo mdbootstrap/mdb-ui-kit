@@ -1,4 +1,4 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
+import { getjQuery, onDOMContentLoaded, getSelectorFromElement } from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
 import SelectorEngine from '../mdb/dom/selector-engine';
 import BSCollapse from '../bootstrap/mdb-prefix/collapse';
@@ -86,10 +86,12 @@ class Collapse extends BSCollapse {
  */
 
 SelectorEngine.find(SELECTOR_DATA_TOGGLE).forEach((el) => {
-  let instance = Collapse.getInstance(el);
-  if (!instance) {
-    instance = new Collapse(el, { toggle: false });
-  }
+  const selector = getSelectorFromElement(el);
+  const selectorElements = SelectorEngine.find(selector);
+
+  selectorElements.forEach((element) => {
+    Collapse.getOrCreateInstance(element, { toggle: false });
+  });
 });
 
 /**

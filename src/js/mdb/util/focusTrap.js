@@ -73,7 +73,19 @@ class FocusTrap {
   }
 
   _setElements() {
-    this._focusableElements = SelectorEngine.find(this._selector, this._element);
+    const allElements = SelectorEngine.find(this._selector, this._element);
+
+    // filter out elements that are not focusable
+    this._focusableElements = allElements.filter((el) => {
+      const hasDisabledAttribute =
+        el.getAttribute('data-mdb-disabled') === 'true' || el.hasAttribute('disabled');
+      const isDisabled = el.disabled || hasDisabledAttribute;
+
+      if (!isDisabled) {
+        return el;
+      }
+      return null;
+    });
 
     if (this._onlyVisible) {
       this._focusableElements = this._filterVisible(this._focusableElements);
