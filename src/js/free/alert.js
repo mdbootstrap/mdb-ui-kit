@@ -10,14 +10,11 @@ import BSAlert from '../bootstrap/mdb-prefix/alert';
  */
 
 const NAME = 'alert';
-const DATA_KEY = `mdb.${NAME}`;
-const EVENT_KEY = `.${DATA_KEY}`;
 
 const EVENT_CLOSE_BS = 'close.bs.alert';
 const EVENT_CLOSED_BS = 'closed.bs.alert';
 
-const EVENT_CLOSE = `close${EVENT_KEY}`;
-const EVENT_CLOSED = `closed${EVENT_KEY}`;
+const EXTENDED_EVENTS = [{ name: 'close' }, { name: 'closed' }];
 
 const SELECTOR_ALERT = '.alert';
 
@@ -42,20 +39,11 @@ class Alert extends BSAlert {
 
   // Private
   _init() {
-    this._bindCloseEvent();
-    this._bindClosedEvent();
+    this._bindMdbEvents();
   }
 
-  _bindCloseEvent() {
-    EventHandler.on(this._element, EVENT_CLOSE_BS, () => {
-      EventHandler.trigger(this._element, EVENT_CLOSE);
-    });
-  }
-
-  _bindClosedEvent() {
-    EventHandler.on(this._element, EVENT_CLOSED_BS, () => {
-      EventHandler.trigger(this._element, EVENT_CLOSED);
-    });
+  _bindMdbEvents() {
+    EventHandler.extend(this._element, EXTENDED_EVENTS, NAME);
   }
 }
 

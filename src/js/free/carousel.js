@@ -11,14 +11,14 @@ import BSCarousel from '../bootstrap/mdb-prefix/carousel';
  */
 
 const NAME = 'carousel';
-const DATA_KEY = `mdb.${NAME}`;
-const EVENT_KEY = `.${DATA_KEY}`;
 
 const EVENT_SLIDE_BS = 'slide.bs.carousel';
 const EVENT_SLID_BS = 'slid.bs.carousel';
 
-const EVENT_SLIDE = `slide${EVENT_KEY}`;
-const EVENT_SLID = `slid${EVENT_KEY}`;
+const EXTENDED_EVENTS = [
+  { name: 'slide', parametersToCopy: ['relatedTarget', 'direction', 'from', 'to'] },
+  { name: 'slid', parametersToCopy: ['relatedTarget', 'direction', 'from', 'to'] },
+];
 
 const SELECTOR_DATA_RIDE = '[data-mdb-ride="carousel"]';
 
@@ -43,30 +43,11 @@ class Carousel extends BSCarousel {
 
   // Private
   _init() {
-    this._bindSlideEvent();
-    this._bindSlidEvent();
+    this._bindMdbEvents();
   }
 
-  _bindSlideEvent() {
-    EventHandler.on(this._element, EVENT_SLIDE_BS, (e) => {
-      EventHandler.trigger(this._element, EVENT_SLIDE, {
-        relatedTarget: e.relatedTarget,
-        direction: e.direction,
-        from: e.from,
-        to: e.to,
-      });
-    });
-  }
-
-  _bindSlidEvent() {
-    EventHandler.on(this._element, EVENT_SLID_BS, (e) => {
-      EventHandler.trigger(this._element, EVENT_SLID, {
-        relatedTarget: e.relatedTarget,
-        direction: e.direction,
-        from: e.from,
-        to: e.to,
-      });
-    });
+  _bindMdbEvents() {
+    EventHandler.extend(this._element, EXTENDED_EVENTS, NAME);
   }
 }
 

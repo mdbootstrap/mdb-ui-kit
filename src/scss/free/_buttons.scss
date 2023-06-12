@@ -165,6 +165,7 @@
     box-shadow: none;
   }
 }
+
 // scss-docs-end btn-secondary
 
 // scss-docs-start btn-variant-loop
@@ -182,25 +183,22 @@
       map-get($value, 'text-color')
     );
 
+    --#{$prefix}btn-box-shadow-state: #{$btn-contextual-box-shadow-state-first-part
+        rgba(map-get($value, shadow-color), 0.3),
+      $btn-contextual-box-shadow-state-second-part rgba(map-get($value, shadow-color), 0.2)};
+
     :not(.btn-check) + &:hover,
     &:first-child:hover,
     &:focus-visible,
     &:hover {
-      box-shadow: $btn-contextual-box-shadow-state-first-part
-          rgba(map-get($value, shadow-color), 0.3),
-        $btn-contextual-box-shadow-state-second-part rgba(map-get($value, shadow-color), 0.2);
+      box-shadow: var(--#{$prefix}btn-box-shadow-state);
     }
 
     .btn-check:focus-visible + &,
     .btn-check:focus + &,
     &:focus {
-      box-shadow: $btn-contextual-box-shadow-state-first-part
-          rgba(map-get($value, shadow-color), 0.3),
-        $btn-contextual-box-shadow-state-second-part rgba(map-get($value, shadow-color), 0.2);
-      background-color: shade-color(
-        map-get($value, 'background-color'),
-        $btn-focus-bg-shade-amount
-      );
+      box-shadow: var(--#{$prefix}btn-box-shadow-state);
+      background-color: var(--#{$prefix}btn-focus-bg);
     }
 
     .btn-check:checked + &,
@@ -208,31 +206,25 @@
     &:active,
     &.active,
     &.show {
-      box-shadow: $btn-contextual-box-shadow-state-first-part
-          rgba(map-get($value, shadow-color), 0.3),
-        $btn-contextual-box-shadow-state-second-part rgba(map-get($value, shadow-color), 0.2);
+      box-shadow: var(--#{$prefix}btn-box-shadow-state);
 
       &:focus {
-        box-shadow: $btn-contextual-box-shadow-state-first-part
-            rgba(map-get($value, shadow-color), 0.3),
-          $btn-contextual-box-shadow-state-second-part rgba(map-get($value, shadow-color), 0.2);
+        box-shadow: var(--#{$prefix}btn-box-shadow-state);
       }
 
       &:hover {
-        background-color: shade-color(
-          map-get($value, 'background-color'),
-          $btn-active-bg-shade-amount
-        );
+        background-color: var(--#{$prefix}btn-active-bg);
       }
     }
 
     &:disabled,
     &.disabled,
     fieldset:disabled & {
-      box-shadow: $btn-contextual-box-shadow map-get($value, shadow-color);
+      box-shadow: var(--#{$prefix}btn-box-shadow);
     }
   }
 }
+
 // scss-docs-end btn-variant-loop
 
 // scss-docs-start btn-outline-variant-loop
@@ -245,19 +237,29 @@
       shade-color(map-get($value, 'text-color'), $btn-active-bg-shade-amount)
     );
 
-    border-color: map-get(map-get($buttons-outline, $color), 'border-color');
+    --#{$prefix}btn-border-color: #{map-get($value, 'border-color')};
+    --#{$prefix}btn-focus-border-color: #{shade-color(
+        map-get($value, 'border-color'),
+        $btn-focus-bg-shade-amount
+      )};
+    --#{$prefix}btn-hover-border-color: #{shade-color(
+        map-get($value, 'border-color'),
+        $btn-hover-bg-shade-amount
+      )};
+
+    border-color: var(--#{$prefix}btn-border-color);
 
     :not(.btn-check) + &:hover,
     &:first-child:hover,
     &:focus-visible,
     &:hover {
-      border-color: shade-color(map-get($value, 'border-color'), $btn-hover-bg-shade-amount);
+      border-color: var(--#{$prefix}btn-hover-border-color);
     }
 
     .btn-check:focus-visible + &,
     .btn-check:focus + &,
     &:focus {
-      border-color: shade-color(map-get($value, 'border-color'), $btn-focus-bg-shade-amount);
+      border-color: var(--#{$prefix}btn-focus-border-color);
     }
 
     .btn-check:checked + &,
@@ -265,20 +267,21 @@
     &:active,
     &.active,
     &.show {
-      border-color: shade-color(map-get($value, 'border-color'), $btn-active-bg-shade-amount);
+      border-color: var(--#{$prefix}btn-active-border-color);
 
       &:focus {
-        border-color: shade-color(map-get($value, 'border-color'), $btn-focus-bg-shade-amount);
+        border-color: var(--#{$prefix}btn-focus-border-color);
       }
     }
 
     &:disabled,
     &.disabled,
     fieldset:disabled & {
-      border-color: map-get(map-get($buttons-outline, $color), 'border-color');
+      border-color: var(--#{$prefix}btn-border-color);
     }
   }
 }
+
 // scss-docs-end btn-outline-variant-loop
 
 //

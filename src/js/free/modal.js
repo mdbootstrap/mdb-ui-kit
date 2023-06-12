@@ -10,8 +10,6 @@ import BSModal from '../bootstrap/mdb-prefix/modal';
  */
 
 const NAME = 'modal';
-const DATA_KEY = `mdb.${NAME}`;
-const EVENT_KEY = `.${DATA_KEY}`;
 
 const EVENT_HIDE_BS = 'hide.bs.modal';
 const EVENT_HIDE_PREVENTED_BS = 'hidePrevented.bs.modal';
@@ -19,11 +17,13 @@ const EVENT_HIDDEN_BS = 'hidden.bs.modal';
 const EVENT_SHOW_BS = 'show.bs.modal';
 const EVENT_SHOWN_BS = 'shown.bs.modal';
 
-const EVENT_HIDE = `hide${EVENT_KEY}`;
-const EVENT_HIDE_PREVENTED = `hidePrevented${EVENT_KEY}`;
-const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
-const EVENT_SHOW = `show${EVENT_KEY}`;
-const EVENT_SHOWN = `shown${EVENT_KEY}`;
+const EXTENDED_EVENTS = [
+  { name: 'show', parametersToCopy: ['relatedTarget'] },
+  { name: 'shown', parametersToCopy: ['relatedTarget'] },
+  { name: 'hide' },
+  { name: 'hidePrevented' },
+  { name: 'hidden' },
+];
 
 const SELECTOR_DATA_TOGGLE = '[data-mdb-toggle="modal"]';
 
@@ -51,41 +51,11 @@ class Modal extends BSModal {
 
   // Private
   _init() {
-    this._bindShowEvent();
-    this._bindShownEvent();
-    this._bindHideEvent();
-    this._bindHiddenEvent();
-    this._bindHidePreventedEvent();
+    this._bindMdbEvents();
   }
 
-  _bindShowEvent() {
-    EventHandler.on(this._element, EVENT_SHOW_BS, (e) => {
-      EventHandler.trigger(this._element, EVENT_SHOW, { relatedTarget: e.relatedTarget });
-    });
-  }
-
-  _bindShownEvent() {
-    EventHandler.on(this._element, EVENT_SHOWN_BS, (e) => {
-      EventHandler.trigger(this._element, EVENT_SHOWN, { relatedTarget: e.relatedTarget });
-    });
-  }
-
-  _bindHideEvent() {
-    EventHandler.on(this._element, EVENT_HIDE_BS, () => {
-      EventHandler.trigger(this._element, EVENT_HIDE);
-    });
-  }
-
-  _bindHiddenEvent() {
-    EventHandler.on(this._element, EVENT_HIDDEN_BS, () => {
-      EventHandler.trigger(this._element, EVENT_HIDDEN);
-    });
-  }
-
-  _bindHidePreventedEvent() {
-    EventHandler.on(this._element, EVENT_HIDE_PREVENTED_BS, () => {
-      EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED);
-    });
+  _bindMdbEvents() {
+    EventHandler.extend(this._element, EXTENDED_EVENTS, NAME);
   }
 }
 

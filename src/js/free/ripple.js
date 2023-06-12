@@ -165,6 +165,10 @@ class Ripple {
   }
 
   _createRipple(event) {
+    if (this._element === null) {
+      return;
+    }
+
     if (!Manipulator.hasClass(this._element, CLASSNAME_RIPPLE)) {
       Manipulator.addClass(this._element, CLASSNAME_RIPPLE);
     }

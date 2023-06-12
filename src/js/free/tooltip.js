@@ -10,8 +10,6 @@ import SelectorEngine from '../mdb/dom/selector-engine';
  */
 
 const NAME = 'tooltip';
-const DATA_KEY = `mdb.${NAME}`;
-const EVENT_KEY = `.${DATA_KEY}`;
 
 const EVENT_HIDE_BS = 'hide.bs.tooltip';
 const EVENT_HIDDEN_BS = 'hidden.bs.tooltip';
@@ -19,11 +17,13 @@ const EVENT_SHOW_BS = 'show.bs.tooltip';
 const EVENT_SHOWN_BS = 'shown.bs.tooltip';
 const EVENT_INSERTED_BS = 'inserted.bs.tooltip';
 
-const EVENT_HIDE = `hide${EVENT_KEY}`;
-const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
-const EVENT_SHOW = `show${EVENT_KEY}`;
-const EVENT_SHOWN = `shown${EVENT_KEY}`;
-const EVENT_INSERTED = `inserted${EVENT_KEY}`;
+const EXTENDED_EVENTS = [
+  { name: 'show' },
+  { name: 'shown' },
+  { name: 'hide' },
+  { name: 'hidden' },
+  { name: 'inserted' },
+];
 
 const SELECTOR_DATA_TOGGLE = '[data-mdb-toggle="tooltip"]';
 
@@ -51,41 +51,11 @@ class Tooltip extends BSTooltip {
 
   // Private
   _init() {
-    this._bindShowEvent();
-    this._bindShownEvent();
-    this._bindHideEvent();
-    this._bindHiddenEvent();
-    this._bindHidePreventedEvent();
+    this._bindMdbEvents();
   }
 
-  _bindShowEvent() {
-    EventHandler.on(this.element, EVENT_SHOW_BS, () => {
-      EventHandler.trigger(this.element, EVENT_SHOW);
-    });
-  }
-
-  _bindShownEvent() {
-    EventHandler.on(this.element, EVENT_SHOWN_BS, () => {
-      EventHandler.trigger(this.element, EVENT_SHOWN);
-    });
-  }
-
-  _bindHideEvent() {
-    EventHandler.on(this.element, EVENT_HIDE_BS, () => {
-      EventHandler.trigger(this.element, EVENT_HIDE);
-    });
-  }
-
-  _bindHiddenEvent() {
-    EventHandler.on(this.element, EVENT_HIDDEN_BS, () => {
-      EventHandler.trigger(this.element, EVENT_HIDDEN);
-    });
-  }
-
-  _bindHidePreventedEvent() {
-    EventHandler.on(this.element, EVENT_INSERTED_BS, () => {
-      EventHandler.trigger(this.element, EVENT_INSERTED);
-    });
+  _bindMdbEvents() {
+    EventHandler.extend(this._element, EXTENDED_EVENTS, NAME);
   }
 }
 

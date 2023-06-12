@@ -10,18 +10,13 @@ import BSToast from '../bootstrap/mdb-prefix/toast';
  */
 
 const NAME = 'toast';
-const DATA_KEY = `mdb.${NAME}`;
-const EVENT_KEY = `.${DATA_KEY}`;
 
 const EVENT_SHOW_BS = 'show.bs.toast';
 const EVENT_SHOWN_BS = 'shown.bs.toast';
 const EVENT_HIDE_BS = 'hide.bs.toast';
 const EVENT_HIDDEN_BS = 'hidden.bs.toast';
 
-const EVENT_SHOW = `show${EVENT_KEY}`;
-const EVENT_SHOWN = `shown${EVENT_KEY}`;
-const EVENT_HIDE = `hide${EVENT_KEY}`;
-const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
+const EXTENDED_EVENTS = [{ name: 'show' }, { name: 'shown' }, { name: 'hide' }, { name: 'hidden' }];
 
 const SELECTOR_TOAST = '.toast';
 
@@ -48,34 +43,11 @@ class Toast extends BSToast {
 
   // Private
   _init() {
-    this._bindShowEvent();
-    this._bindShownEvent();
-    this._bindHideEvent();
-    this._bindHiddenEvent();
+    this._bindMdbEvents();
   }
 
-  _bindShowEvent() {
-    EventHandler.on(this._element, EVENT_SHOW_BS, () => {
-      EventHandler.trigger(this._element, EVENT_SHOW);
-    });
-  }
-
-  _bindShownEvent() {
-    EventHandler.on(this._element, EVENT_SHOWN_BS, () => {
-      EventHandler.trigger(this._element, EVENT_SHOWN);
-    });
-  }
-
-  _bindHideEvent() {
-    EventHandler.on(this._element, EVENT_HIDE_BS, () => {
-      EventHandler.trigger(this._element, EVENT_HIDE);
-    });
-  }
-
-  _bindHiddenEvent() {
-    EventHandler.on(this._element, EVENT_HIDDEN_BS, () => {
-      EventHandler.trigger(this._element, EVENT_HIDDEN);
-    });
+  _bindMdbEvents() {
+    EventHandler.extend(this._element, EXTENDED_EVENTS, NAME);
   }
 }
 
