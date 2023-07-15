@@ -707,12 +707,12 @@ $border-radius-lg: 0.5rem !default;
 // scss-docs-start box-shadow-variables
 $box-shadow-0: none !default;
 
-$box-shadow-1: 0 0px 2px 0 rgb(0 0 0 / 7%), 0 1px 1px 0 rgb(0 0 0 / 4%) !default;
-$box-shadow-2: 0 0px 3px 0 rgb(0 0 0 / 7%), 0 2px 2px 0 rgb(0 0 0 / 4%) !default;
-$box-shadow-3: 0 2px 6px -1px rgb(0 0 0 / 7%), 0 6px 18px -1px rgb(0 0 0 / 4%) !default;
-$box-shadow-4: 0 2px 15px -3px rgb(0 0 0 / 7%), 0 10px 20px -2px rgb(0 0 0 / 4%) !default;
-$box-shadow-5: 0 2px 25px -5px rgb(0 0 0 / 7%), 0 25px 21px -5px rgb(0 0 0 / 4%) !default;
-$box-shadow-6: 0 2px 35px -12px rgb(0 0 0 / 21%), 0 50px 40px -5px rgb(0 0 0 / 4%) !default;
+$box-shadow-1: 0 0px 2px 0 rgba(0, 0, 0, 0.07), 0 1px 1px 0 rgba(0, 0, 0, 0.04) !default;
+$box-shadow-2: 0 0px 3px 0 rgba(0, 0, 0, 0.07), 0 2px 2px 0 rgba(0, 0, 0, 0.04) !default;
+$box-shadow-3: 0 2px 6px -1px rgba(0, 0, 0, 0.07), 0 6px 18px -1px rgba(0, 0, 0, 0.04) !default;
+$box-shadow-4: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04) !default;
+$box-shadow-5: 0 2px 25px -5px rgba(0, 0, 0, 0.07), 0 25px 21px -5px rgba(0, 0, 0, 0.04) !default;
+$box-shadow-6: 0 2px 35px -12px rgba(0, 0, 0, 0.21), 0 50px 40px -5px rgba(0, 0, 0, 0.04) !default;
 
 $box-shadow-1-soft: 0 1px 5px 0 rgba(0, 0, 0, 0.05) !default;
 $box-shadow-2-soft: 0 2px 10px 0 rgba(0, 0, 0, 0.05) !default;
@@ -721,12 +721,12 @@ $box-shadow-4-soft: 0 10px 20px 0 rgba(0, 0, 0, 0.05) !default;
 $box-shadow-5-soft: 0 15px 30px 0 rgba(0, 0, 0, 0.05) !default;
 $box-shadow-6-soft: 0 20px 40px 0 rgba(0, 0, 0, 0.05) !default;
 
-$box-shadow-1-strong: 0 0px 2px 0 rgb(0 0 0 / 16%), 0 1px 1px 0 rgb(0 0 0 / 10%) !default;
-$box-shadow-2-strong: 0 0px 3px 0 rgb(0 0 0 / 16%), 0 2px 2px 0 rgb(0 0 0 / 10%) !default;
-$box-shadow-3-strong: 0 2px 6px -1px rgb(0 0 0 / 16%), 0 6px 18px -1px rgb(0 0 0 / 10%) !default;
-$box-shadow-4-strong: 0 2px 15px -3px rgb(0 0 0 / 16%), 0 10px 20px -2px rgb(0 0 0 / 10%) !default;
-$box-shadow-5-strong: 0 2px 25px -5px rgb(0 0 0 / 16%), 0 25px 21px -5px rgb(0 0 0 / 10%) !default;
-$box-shadow-6-strong: 0 2px 35px -12px rgb(0 0 0 / 26%), 0 50px 40px -5px rgb(0 0 0 / 10%) !default;
+$box-shadow-1-strong: 0 0px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 1px 0 rgba(0, 0, 0, 0.10) !default;
+$box-shadow-2-strong: 0 0px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.10) !default;
+$box-shadow-3-strong: 0 2px 6px -1px rgba(0, 0, 0, 0.16), 0 6px 18px -1px rgba(0, 0, 0, 0.10) !default;
+$box-shadow-4-strong: 0 2px 15px -3px rgba(0, 0, 0, 0.16), 0 10px 20px -2px rgba(0, 0, 0, 0.10) !default;
+$box-shadow-5-strong: 0 2px 25px -5px rgba(0, 0, 0, 0.16), 0 25px 21px -5px rgba(0, 0, 0, 0.10) !default;
+$box-shadow-6-strong: 0 2px 35px -12px rgba(0, 0, 0, 0.26), 0 50px 40px -5px rgba(0, 0, 0, 0.10) !default;
 
 $box-shadow-3-top: 0 -10px 20px 0 rgba(0, 0, 0, 0.05) !default;
 $box-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06) !default;

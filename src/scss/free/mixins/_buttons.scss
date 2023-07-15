@@ -5,14 +5,14 @@
 
 // scss-docs-start btn-variant-mixin
 @mixin button-variant(
-  $background,
+  $background: transparent,
   $color: color-contrast($background),
-  $shadow,
-  $hover-background,
+  $shadow: none,
+  $hover-background: $background,
   $hover-color: color-contrast($hover-background),
-  $focus-background,
+  $focus-background: $background,
   $focus-color: color-contrast($focus-background),
-  $active-background,
+  $active-background: $background,
   $active-color: color-contrast($active-background)
 ) {
   --#{$prefix}btn-bg: #{$background};
