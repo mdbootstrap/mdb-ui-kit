@@ -241,7 +241,16 @@ const EventHandler = {
             eventParameters[param] = e[param];
           });
         }
-        EventHandler.trigger(element, `${event.name}.mdb.${componentName}`, eventParameters);
+
+        const mdbEvent = EventHandler.trigger(
+          element,
+          `${event.name}.mdb.${componentName}`,
+          eventParameters
+        );
+
+        if (mdbEvent.defaultPrevented) {
+          e.preventDefault();
+        }
       });
     });
   },

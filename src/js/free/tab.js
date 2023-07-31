@@ -66,8 +66,10 @@ class Tab extends BSTab {
     const showEventMdb = EventHandler.trigger(innerElem, EVENT_SHOW, { relatedTarget: active });
 
     if (
-      (showEvent.defaultPrevented && showEventMdb.defaultPrevented) ||
-      (hideEvent && hideEvent.defaultPrevented && hideEventMdb && hideEventMdb.defaultPrevented)
+      showEvent.defaultPrevented ||
+      showEventMdb.defaultPrevented ||
+      (hideEvent && hideEvent.defaultPrevented) ||
+      (hideEventMdb && hideEventMdb.defaultPrevented)
     ) {
       return;
     }
