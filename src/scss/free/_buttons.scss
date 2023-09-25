@@ -434,6 +434,9 @@
   border-radius: var(--#{$prefix}btn-border-radius);
   padding: 0;
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-floating {
