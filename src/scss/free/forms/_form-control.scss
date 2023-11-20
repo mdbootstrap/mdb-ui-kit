@@ -45,6 +45,7 @@
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
+    color: var(--#{$prefix}surface-color);
   }
 
   .form-icon-trailing {
@@ -169,6 +170,19 @@
     &[readonly] {
       background-color: $input-disabled-background-color;
     }
+
+    &:disabled,
+    &.disabled,
+    &[readonly] {
+      ~ .timepicker-toggle-button,
+      ~ .datepicker-toggle-button,
+      ~ .datetimepicker-toggle-button,
+      ~ .select-arrow,
+      ~ .trailing {
+        color: rgba(var(--#{$prefix}surface-color-rgb), 0.5);
+      }
+    }
+
     &.form-control-lg {
       font-size: $input-font-size-lg;
       line-height: $input-line-height-lg;

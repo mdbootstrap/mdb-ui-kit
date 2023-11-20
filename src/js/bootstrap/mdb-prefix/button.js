@@ -1,13 +1,13 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.3): button.js
+ * Bootstrap button.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin } from './util/index';
-import EventHandler from './dom/event-handler';
-import BaseComponent from './base-component';
+import BaseComponent from './base-component.js';
+import EventHandler from './dom/event-handler.js';
+import { defineJQueryPlugin } from './util/index.js';
 
 /**
  * Constants
@@ -54,19 +54,19 @@ class Button extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, (event) => {
-  event.preventDefault();
+// EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, (event) => {
+//   event.preventDefault();
 
-  const button = event.target.closest(SELECTOR_DATA_TOGGLE);
-  const data = Button.getOrCreateInstance(button);
+//   const button = event.target.closest(SELECTOR_DATA_TOGGLE);
+//   const data = Button.getOrCreateInstance(button);
 
-  data.toggle();
-});
+//   data.toggle();
+// });
 
 /**
  * jQuery
  */
 
-defineJQueryPlugin(Button);
+// defineJQueryPlugin(Button);
 
 export default Button;

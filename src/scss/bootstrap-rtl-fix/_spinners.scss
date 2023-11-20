@@ -17,7 +17,7 @@
 // scss-docs-start spinner-border-keyframes
 @keyframes spinner-border {
   to {
-    transform: rotate(360deg) #{'/* rtl:ignore */'};
+    transform: rotate(360deg) #{'/*!rtl:ignore*/'};
   }
 }
 // scss-docs-end spinner-border-keyframes

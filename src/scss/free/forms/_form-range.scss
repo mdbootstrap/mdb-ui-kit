@@ -35,6 +35,7 @@
     height: $form-range-webkit-slider-runnable-track-height;
     border-radius: 0;
     box-shadow: none;
+    background-color: var(--#{$prefix}secondary-bg);
   }
 
   &::-moz-range-thumb {

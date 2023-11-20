@@ -1,7 +1,7 @@
-import { getjQuery, onDOMContentLoaded, getSelectorFromElement } from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
 import BSCollapse from '../bootstrap/mdb-prefix/collapse';
+import Manipulator from '../mdb/dom/manipulator';
+import { bindCallbackEventsIfNeeded } from '../autoinit/init';
 
 /**
  * ------------------------------------------------------------------------
@@ -18,13 +18,13 @@ const EVENT_HIDDEN_BS = 'hidden.bs.collapse';
 
 const EXTENDED_EVENTS = [{ name: 'show' }, { name: 'shown' }, { name: 'hide' }, { name: 'hidden' }];
 
-const SELECTOR_DATA_TOGGLE = '[data-mdb-toggle="collapse"]';
-
 class Collapse extends BSCollapse {
   constructor(element, data = {}) {
     super(element, data);
 
     this._init();
+    Manipulator.setDataAttribute(this._element, `${this.constructor.NAME}-initialized`, true);
+    bindCallbackEventsIfNeeded(this.constructor);
   }
 
   dispose() {
@@ -32,6 +32,7 @@ class Collapse extends BSCollapse {
     EventHandler.off(this._element, EVENT_SHOWN_BS);
     EventHandler.off(this._element, EVENT_HIDE_BS);
     EventHandler.off(this._element, EVENT_HIDDEN_BS);
+    Manipulator.removeDataAttribute(this._element, `${this.constructor.NAME}-initialized`);
 
     super.dispose();
   }
@@ -50,40 +51,5 @@ class Collapse extends BSCollapse {
     EventHandler.extend(this._element, EXTENDED_EVENTS, NAME);
   }
 }
-
-/**
- * ------------------------------------------------------------------------
- * Data Api implementation - auto initialization
- * ------------------------------------------------------------------------
- */
-
-SelectorEngine.find(SELECTOR_DATA_TOGGLE).forEach((el) => {
-  const selector = getSelectorFromElement(el);
-  const selectorElements = SelectorEngine.find(selector);
-
-  selectorElements.forEach((element) => {
-    Collapse.getOrCreateInstance(element, { toggle: false });
-  });
-});
-
-/**
- * ------------------------------------------------------------------------
- * jQuery
- * ------------------------------------------------------------------------
- * add .rating to jQuery only if jQuery is present
- */
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Collapse.jQueryInterface;
-    $.fn[NAME].Constructor = Collapse;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Collapse.jQueryInterface;
-    };
-  }
-});
 
 export default Collapse;

@@ -165,27 +165,64 @@
     box-shadow: none;
   }
 }
-
 // scss-docs-end btn-secondary
 
 // scss-docs-start btn-variant-loop
-@each $color, $value in $buttons {
+@each $color, $value in $theme-colors {
   .btn-#{$color} {
-    @include button-variant(
-      map-get($value, 'background-color'),
-      map-get($value, 'text-color'),
-      $btn-contextual-box-shadow map-get($value, 'shadow-color'),
-      shade-color(map-get($value, 'background-color'), $btn-hover-bg-shade-amount),
-      map-get($value, 'text-color'),
-      shade-color(map-get($value, 'background-color'), $btn-focus-bg-shade-amount),
-      map-get($value, 'text-color'),
-      shade-color(map-get($value, 'background-color'), $btn-active-bg-shade-amount),
-      map-get($value, 'text-color')
-    );
+    @if $color == 'secondary' {
+      @include button-variant(
+        tint-color($primary, $btn-secondary-bg-tint-amount),
+        $value,
+        $color: shade-color($primary, $btn-secondary-color-shade-amount),
+        $hover-background:
+          shade-color(
+            tint-color($primary, $btn-secondary-bg-tint-amount),
+            $btn-hover-bg-shade-amount
+          ),
+        $focus-background:
+          shade-color(
+            tint-color($primary, $btn-secondary-bg-tint-amount),
+            $btn-hover-bg-shade-amount
+          ),
+        $active-background:
+          shade-color(
+            tint-color($primary, $btn-secondary-bg-tint-amount),
+            $btn-hover-bg-shade-amount
+          )
+      );
+    } @else if $color == 'light' {
+      @include button-variant(
+        $light-bg-subtle,
+        $light-border-subtle,
+        $color: $light-text-emphasis,
+        $hover-background: shade-color($light-bg-subtle, $btn-hover-bg-shade-amount),
+        $hover-border: shade-color($light-border-subtle, $btn-hover-border-shade-amount),
+        $active-background: shade-color($light-bg-subtle, $btn-active-bg-shade-amount),
+        $active-border: shade-color($light-border-subtle, $btn-active-border-shade-amount)
+      );
+    } @else if $color == 'dark' {
+      @include button-variant(
+        $dark-bg-subtle,
+        $dark-border-subtle,
+        $color: $dark-text-emphasis,
+        $hover-background: tint-color($dark-bg-subtle, $btn-hover-bg-tint-amount),
+        $hover-border: tint-color($dark-border-subtle, $btn-hover-border-tint-amount),
+        $active-background: tint-color($dark-bg-subtle, $btn-active-bg-tint-amount),
+        $active-border: tint-color($dark-border-subtle, $btn-active-border-tint-amount)
+      );
+    } @else {
+      @include button-variant($value, $value);
+    }
 
-    --#{$prefix}btn-box-shadow-state: #{$btn-contextual-box-shadow-state-first-part
-        rgba(map-get($value, shadow-color), 0.3),
-      $btn-contextual-box-shadow-state-second-part rgba(map-get($value, shadow-color), 0.2)};
+    @if $color == 'secondary' {
+      --#{$prefix}btn-box-shadow-state: transparent;
+    } @else {
+      --#{$prefix}btn-box-shadow-state: #{$btn-contextual-box-shadow-state-first-part
+          rgba(shade-color($value, $btn-hover-bg-shade-amount), 0.3),
+        $btn-contextual-box-shadow-state-second-part
+          rgba(shade-color($value, $btn-hover-bg-shade-amount), 0.2)};
+    }
 
     :not(.btn-check) + &:hover,
     &:first-child:hover,
@@ -223,43 +260,75 @@
       box-shadow: var(--#{$prefix}btn-box-shadow);
     }
   }
+
+  [data-mdb-theme='dark'] .btn-#{$color} {
+    @if $color != 'secondary' {
+      box-shadow: 0 4px 9px -4px rgba($black, 0.35);
+      &:hover,
+      &:active,
+      &:focus {
+        box-shadow: 0 4px 18px -2px rgba($black, 0.7);
+      }
+    }
+  }
 }
 
 // scss-docs-end btn-variant-loop
 
 // scss-docs-start btn-outline-variant-loop
-@each $color, $value in $buttons-outline {
+@each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
-    @include button-outline-variant(
-      map-get($value, 'text-color'),
-      shade-color(map-get($value, 'text-color'), $btn-hover-bg-shade-amount),
-      shade-color(map-get($value, 'text-color'), $btn-focus-bg-shade-amount),
-      shade-color(map-get($value, 'text-color'), $btn-active-bg-shade-amount)
-    );
+    @if $color == 'secondary' {
+      @include button-outline-variant(
+        shade-color($primary, $btn-secondary-color-shade-amount),
+        shade-color($primary, $btn-secondary-color-shade-amount),
+        shade-color($primary, $btn-secondary-color-shade-amount),
+        shade-color($primary, $btn-secondary-color-shade-amount)
+      );
 
-    --#{$prefix}btn-border-color: #{map-get($value, 'border-color')};
-    --#{$prefix}btn-focus-border-color: #{shade-color(
-        map-get($value, 'border-color'),
-        $btn-focus-bg-shade-amount
-      )};
-    --#{$prefix}btn-hover-border-color: #{shade-color(
-        map-get($value, 'border-color'),
-        $btn-hover-bg-shade-amount
-      )};
+      --#{$prefix}btn-outline-border-color: #{tint-color($primary, $btn-secondary-bg-tint-amount)};
+      --#{$prefix}btn-outline-focus-border-color: #{shade-color(
+          tint-color($primary, $btn-secondary-bg-tint-amount),
+          $btn-focus-bg-shade-amount
+        )};
+      --#{$prefix}btn-outline-hover-border-color: #{shade-color(
+          tint-color($primary, $btn-secondary-bg-tint-amount),
+          $btn-hover-bg-shade-amount
+        )};
 
-    border-color: var(--#{$prefix}btn-border-color);
+      border-color: var(--#{$prefix}btn-outline-border-color);
+    } @else {
+      @include button-outline-variant(
+        $value,
+        shade-color($value, $btn-hover-bg-shade-amount),
+        shade-color($value, $btn-focus-bg-shade-amount),
+        shade-color($value, $btn-active-bg-shade-amount)
+      );
+
+      --#{$prefix}btn-outline-border-color: #{$value};
+      --#{$prefix}btn-outline-focus-border-color: #{shade-color(
+          $value,
+          $btn-outline-focus-bg-shade-amount
+        )};
+      --#{$prefix}btn-outline-hover-border-color: #{shade-color(
+          $value,
+          $btn-outline-hover-bg-shade-amount
+        )};
+
+      border-color: var(--#{$prefix}btn-outline-border-color);
+    }
 
     :not(.btn-check) + &:hover,
     &:first-child:hover,
     &:focus-visible,
     &:hover {
-      border-color: var(--#{$prefix}btn-hover-border-color);
+      border-color: var(--#{$prefix}btn-outline-hover-border-color);
     }
 
     .btn-check:focus-visible + &,
     .btn-check:focus + &,
     &:focus {
-      border-color: var(--#{$prefix}btn-focus-border-color);
+      border-color: var(--#{$prefix}btn-outline-focus-border-color);
     }
 
     .btn-check:checked + &,
@@ -267,17 +336,53 @@
     &:active,
     &.active,
     &.show {
-      border-color: var(--#{$prefix}btn-active-border-color);
+      border-color: var(--#{$prefix}btn-outline-active-border-color);
 
       &:focus {
-        border-color: var(--#{$prefix}btn-focus-border-color);
+        border-color: var(--#{$prefix}btn-outline-focus-border-color);
       }
     }
 
     &:disabled,
     &.disabled,
     fieldset:disabled & {
-      border-color: var(--#{$prefix}btn-border-color);
+      border-color: var(--#{$prefix}btn-outline-border-color);
+    }
+  }
+
+  [data-mdb-theme='dark'] .btn-outline-#{$color} {
+    @if $color == 'secondary' {
+      @include button-outline-variant(
+        tint-color($primary, 70%),
+        tint-color($primary, 60%),
+        tint-color($primary, 60%),
+        tint-color($primary, 60%),
+        shade-color($primary, 60%),
+        shade-color($primary, 60%),
+        shade-color($primary, 60%)
+      );
+
+      --#{$prefix}btn-outline-border-color: #{tint-color($primary, 50%)};
+      --#{$prefix}btn-outline-focus-border-color: #{shade-color(
+          tint-color($primary, 50%),
+          $btn-focus-bg-shade-amount
+        )};
+      --#{$prefix}btn-outline-hover-border-color: #{shade-color(
+          tint-color($primary, 50%),
+          $btn-hover-bg-shade-amount
+        )};
+
+      border-color: var(--#{$prefix}btn-outline-border-color);
+    } @else {
+      @include button-outline-variant(
+        tint-color($value, 20%),
+        shade-color($value, $btn-hover-bg-shade-amount),
+        shade-color($value, $btn-focus-bg-shade-amount),
+        shade-color($value, $btn-active-bg-shade-amount),
+        shade-color($value, 70%),
+        shade-color($value, 70%),
+        shade-color($value, 70%)
+      );
     }
   }
 }
@@ -387,6 +492,28 @@
   fieldset:disabled & {
     box-shadow: var(--#{$prefix}btn-box-shadow);
   }
+}
+
+[data-mdb-theme='dark'] .btn-secondary {
+  --#{$prefix}btn-bg: #{tint-color($primary, 60%)};
+  --#{$prefix}btn-hover-bg: #{tint-color($primary, 50%)};
+  --#{$prefix}btn-focus-bg: #{tint-color($primary, 50%)};
+  --#{$prefix}btn-active-bg: #{tint-color($primary, 50%)};
+}
+
+[data-mdb-theme='dark'] .btn-link {
+  --#{$prefix}btn-color: #{$secondary};
+  --#{$prefix}btn-hover-color: #{tint-color($secondary, 30%)};
+  --#{$prefix}btn-hover-bg: #{shade-color($secondary, 60%)};
+  --#{$prefix}btn-focus-color: #{tint-color($secondary, 30%)};
+  --#{$prefix}btn-active-color: #{tint-color($secondary, 30%)};
+}
+
+[data-mdb-theme='dark'] .btn-tertiary {
+  --#{$prefix}btn-color: #{$secondary};
+  --#{$prefix}btn-hover-color: #{tint-color($secondary, 30%)};
+  --#{$prefix}btn-focus-color: #{tint-color($secondary, 30%)};
+  --#{$prefix}btn-active-color: #{tint-color($secondary, 30%)};
 }
 
 //

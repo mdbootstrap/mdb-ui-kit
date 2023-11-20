@@ -26,13 +26,6 @@
   }
 }
 
-.accordion.accordion-borderless,
-.accordion.accordion-flush {
-  --#{$prefix}accordion-bg: transparent;
-
-  background-color: var(--#{$prefix}accordion-bg);
-}
-
 .accordion-borderless {
   --#{$prefix}accordion-borderless-btn-border-radius: #{$accordion-borderless-button-border-radius};
   --#{$prefix}accordion-borderless-btn-bg: #{$accordion-borderless-button-bgc};

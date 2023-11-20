@@ -1,12 +1,12 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.3): popover.js
+ * Bootstrap popover.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin } from './util/index';
-import Tooltip from './tooltip';
+import Tooltip from './tooltip.js';
+import { defineJQueryPlugin } from './util/index.js';
 
 /**
  * Constants
@@ -93,6 +93,6 @@ class Popover extends Tooltip {
  * jQuery
  */
 
-defineJQueryPlugin(Popover);
+// defineJQueryPlugin(Popover);
 
 export default Popover;

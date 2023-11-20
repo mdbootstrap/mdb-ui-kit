@@ -1,9 +1,11 @@
-import { element, getjQuery, onDOMContentLoaded } from '../mdb/util/index';
+import { element, onDOMContentLoaded } from '../mdb/util/index';
 import Data from '../mdb/dom/data';
 import EventHandler from '../mdb/dom/event-handler';
 import Manipulator from '../mdb/dom/manipulator';
 import SelectorEngine from '../mdb/dom/selector-engine';
 import 'detect-autofill';
+import BaseComponent from './base-component';
+import { bindCallbackEventsIfNeeded } from '../autoinit/init';
 
 /**
  * ------------------------------------------------------------------------
@@ -13,7 +15,6 @@ import 'detect-autofill';
 
 const NAME = 'input';
 const DATA_KEY = 'mdb.input';
-const CLASSNAME_WRAPPER = 'form-outline';
 const CLASSNAME_ACTIVE = 'active';
 const CLASSNAME_NOTCH = 'form-notch';
 const CLASSNAME_NOTCH_LEADING = 'form-notch-leading';
@@ -23,8 +24,6 @@ const CLASSNAME_PLACEHOLDER_ACTIVE = 'placeholder-active';
 const CLASSNAME_HELPER = 'form-helper';
 const CLASSNAME_COUNTER = 'form-counter';
 
-const SELECTOR_OUTLINE_INPUT = `.${CLASSNAME_WRAPPER} input`;
-const SELECTOR_OUTLINE_TEXTAREA = `.${CLASSNAME_WRAPPER} textarea`;
 const SELECTOR_NOTCH = `.${CLASSNAME_NOTCH}`;
 const SELECTOR_NOTCH_LEADING = `.${CLASSNAME_NOTCH_LEADING}`;
 const SELECTOR_NOTCH_MIDDLE = `.${CLASSNAME_NOTCH_MIDDLE}`;
@@ -36,9 +35,10 @@ const SELECTOR_HELPER = `.${CLASSNAME_HELPER}`;
  * ------------------------------------------------------------------------
  */
 
-class Input {
+class Input extends BaseComponent {
   constructor(element) {
-    this._element = element;
+    super(element);
+
     this._label = null;
     this._labelWidth = 0;
     this._labelMarginLeft = 0;
@@ -52,8 +52,9 @@ class Input {
     this._maxLength = 0;
     this._leadingIcon = null;
     if (this._element) {
-      Data.setData(element, DATA_KEY, this);
       this.init();
+      Manipulator.setDataAttribute(this._element, `${this.constructor.NAME}-initialized`, true);
+      bindCallbackEventsIfNeeded(this.constructor);
     }
   }
 
@@ -102,9 +103,9 @@ class Input {
 
   dispose() {
     this._removeBorder();
+    Manipulator.removeDataAttribute(this._element, `${this.constructor.NAME}-initialized`);
 
-    Data.removeData(this._element, DATA_KEY);
-    this._element = null;
+    super.dispose();
   }
 
   // Private
@@ -313,131 +314,6 @@ class Input {
       }
     });
   }
-
-  static getInstance(element) {
-    return Data.getData(element, DATA_KEY);
-  }
-
-  static getOrCreateInstance(element, config = {}) {
-    return (
-      this.getInstance(element) || new this(element, typeof config === 'object' ? config : null)
-    );
-  }
 }
-
-EventHandler.on(document, 'focus', SELECTOR_OUTLINE_INPUT, Input.activate(new Input()));
-EventHandler.on(document, 'input', SELECTOR_OUTLINE_INPUT, Input.activate(new Input()));
-EventHandler.on(document, 'blur', SELECTOR_OUTLINE_INPUT, Input.deactivate(new Input()));
-
-EventHandler.on(document, 'focus', SELECTOR_OUTLINE_TEXTAREA, Input.activate(new Input()));
-EventHandler.on(document, 'input', SELECTOR_OUTLINE_TEXTAREA, Input.activate(new Input()));
-EventHandler.on(document, 'blur', SELECTOR_OUTLINE_TEXTAREA, Input.deactivate(new Input()));
-
-EventHandler.on(window, 'shown.bs.modal', (e) => {
-  SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
-    const instance = Input.getInstance(element.parentNode);
-    if (!instance) {
-      return;
-    }
-    instance.update();
-  });
-  SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
-    const instance = Input.getInstance(element.parentNode);
-    if (!instance) {
-      return;
-    }
-    instance.update();
-  });
-});
-
-EventHandler.on(window, 'shown.bs.dropdown', (e) => {
-  const target = e.target.parentNode.querySelector('.dropdown-menu');
-  if (target) {
-    SelectorEngine.find(SELECTOR_OUTLINE_INPUT, target).forEach((element) => {
-      const instance = Input.getInstance(element.parentNode);
-      if (!instance) {
-        return;
-      }
-      instance.update();
-    });
-    SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, target).forEach((element) => {
-      const instance = Input.getInstance(element.parentNode);
-      if (!instance) {
-        return;
-      }
-      instance.update();
-    });
-  }
-});
-
-EventHandler.on(window, 'shown.bs.tab', (e) => {
-  let targetId;
-
-  if (e.target.href) {
-    targetId = e.target.href.split('#')[1];
-  } else {
-    targetId = Manipulator.getDataAttribute(e.target, 'target').split('#')[1];
-  }
-
-  const target = SelectorEngine.findOne(`#${targetId}`);
-  SelectorEngine.find(SELECTOR_OUTLINE_INPUT, target).forEach((element) => {
-    const instance = Input.getInstance(element.parentNode);
-    if (!instance) {
-      return;
-    }
-    instance.update();
-  });
-  SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, target).forEach((element) => {
-    const instance = Input.getInstance(element.parentNode);
-    if (!instance) {
-      return;
-    }
-    instance.update();
-  });
-});
-
-// auto-init
-SelectorEngine.find(`.${CLASSNAME_WRAPPER}`).map((element) => new Input(element));
-
-// form reset handler
-EventHandler.on(window, 'reset', (e) => {
-  SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
-    const instance = Input.getInstance(element.parentNode);
-    if (!instance) {
-      return;
-    }
-    instance.forceInactive();
-  });
-  SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
-    const instance = Input.getInstance(element.parentNode);
-    if (!instance) {
-      return;
-    }
-    instance.forceInactive();
-  });
-});
-
-// auto-fill
-EventHandler.on(window, 'onautocomplete', (e) => {
-  const instance = Input.getInstance(e.target.parentNode);
-  if (!instance || !e.cancelable) {
-    return;
-  }
-  instance.forceActive();
-});
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Input.jQueryInterface;
-    $.fn[NAME].Constructor = Input;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Input.jQueryInterface;
-    };
-  }
-});
 
 export default Input;

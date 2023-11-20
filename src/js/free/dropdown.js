@@ -1,8 +1,8 @@
-import { getjQuery, typeCheckConfig, onDOMContentLoaded } from '../mdb/util/index';
+import { typeCheckConfig } from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
 import Manipulator from '../mdb/dom/manipulator';
 import BSDropdown from '../bootstrap/mdb-prefix/dropdown';
+import { bindCallbackEventsIfNeeded } from '../autoinit/init';
 
 /**
  * ------------------------------------------------------------------------
@@ -13,8 +13,6 @@ import BSDropdown from '../bootstrap/mdb-prefix/dropdown';
 const NAME = 'dropdown';
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
-
-const SELECTOR_EXPAND = '[data-mdb-toggle="dropdown"]';
 
 const Default = {
   offset: [0, 2],
@@ -64,6 +62,8 @@ class Dropdown extends BSDropdown {
     if (this._config.dropdownAnimation === 'on' && !isPrefersReducedMotionSet) {
       this._init();
     }
+    Manipulator.setDataAttribute(this._element, `${this.constructor.NAME}-initialized`, true);
+    bindCallbackEventsIfNeeded(this.constructor);
   }
 
   dispose() {
@@ -71,6 +71,9 @@ class Dropdown extends BSDropdown {
     EventHandler.off(this._parent, EVENT_SHOWN);
     EventHandler.off(this._parent, EVENT_HIDE);
     EventHandler.off(this._parent, EVENT_HIDDEN);
+
+    Manipulator.removeDataAttribute(this._element, `${this.constructor.NAME}-initialized`);
+
     super.dispose();
   }
 
@@ -240,39 +243,5 @@ class Dropdown extends BSDropdown {
     });
   }
 }
-
-/**
- * ------------------------------------------------------------------------
- * Data Api implementation - auto initialization
- * ------------------------------------------------------------------------
- */
-
-SelectorEngine.find(SELECTOR_EXPAND).forEach((el) => {
-  let instance = Dropdown.getInstance(el);
-  if (!instance) {
-    instance = new Dropdown(el);
-  }
-});
-
-/**
- * ------------------------------------------------------------------------
- * jQuery
- * ------------------------------------------------------------------------
- * add .rating to jQuery only if jQuery is present
- */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Dropdown.jQueryInterface;
-    $.fn[NAME].Constructor = Dropdown;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Dropdown.jQueryInterface;
-    };
-  }
-});
 
 export default Dropdown;

@@ -1,11 +1,11 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.3): dom/event-handler.js
+ * Bootstrap dom/event-handler.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { getjQuery } from '../util/index';
+import { getjQuery } from '../util/index.js';
 
 /**
  * Constants
@@ -129,7 +129,7 @@ function findHandler(events, callable, delegationSelector = null) {
 
 function normalizeParameters(originalTypeEvent, handler, delegationFunction) {
   const isDelegated = typeof handler === 'string';
-  // todo: tooltip passes `false` instead of selector, so we need to check
+  // TODO: tooltip passes `false` instead of selector, so we need to check
   const callable = isDelegated ? delegationFunction : handler || delegationFunction;
   let typeEvent = getTypeEvent(originalTypeEvent);
 
@@ -207,9 +207,8 @@ function removeHandler(element, events, typeEvent, handler, delegationSelector) 
 function removeNamespacedHandlers(element, events, typeEvent, namespace) {
   const storeElementEvent = events[typeEvent] || {};
 
-  for (const handlerKey of Object.keys(storeElementEvent)) {
+  for (const [handlerKey, event] of Object.entries(storeElementEvent)) {
     if (handlerKey.includes(namespace)) {
-      const event = storeElementEvent[handlerKey];
       removeHandler(element, events, typeEvent, event.callable, event.delegationSelector);
     }
   }
@@ -261,11 +260,10 @@ const EventHandler = {
       }
     }
 
-    for (const keyHandlers of Object.keys(storeElementEvent)) {
+    for (const [keyHandlers, event] of Object.entries(storeElementEvent)) {
       const handlerKey = keyHandlers.replace(stripUidRegex, '');
 
       if (!inNamespace || originalTypeEvent.includes(handlerKey)) {
-        const event = storeElementEvent[keyHandlers];
         removeHandler(element, events, typeEvent, event.callable, event.delegationSelector);
       }
     }
@@ -294,8 +292,7 @@ const EventHandler = {
       defaultPrevented = jQueryEvent.isDefaultPrevented();
     }
 
-    let evt = new Event(event, { bubbles, cancelable: true });
-    evt = hydrateObj(evt, args);
+    const evt = hydrateObj(new Event(event, { bubbles, cancelable: true }), args);
 
     if (defaultPrevented) {
       evt.preventDefault();
@@ -313,8 +310,8 @@ const EventHandler = {
   },
 };
 
-function hydrateObj(obj, meta) {
-  for (const [key, value] of Object.entries(meta || {})) {
+function hydrateObj(obj, meta = {}) {
+  for (const [key, value] of Object.entries(meta)) {
     try {
       obj[key] = value;
     } catch {

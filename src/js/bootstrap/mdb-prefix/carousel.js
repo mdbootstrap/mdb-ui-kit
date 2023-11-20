@@ -1,24 +1,23 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.3): carousel.js
+ * Bootstrap carousel.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
+import BaseComponent from './base-component.js';
+import EventHandler from './dom/event-handler.js';
+import Manipulator from './dom/manipulator.js';
+import SelectorEngine from './dom/selector-engine.js';
 import {
   defineJQueryPlugin,
-  getElementFromSelector,
   getNextActiveElement,
   isRTL,
   isVisible,
   reflow,
   triggerTransitionEnd,
-} from './util/index';
-import EventHandler from './dom/event-handler';
-import Manipulator from './dom/manipulator';
-import SelectorEngine from './dom/selector-engine';
-import Swipe from './util/swipe';
-import BaseComponent from './base-component';
+} from './util/index.js';
+import Swipe from './util/swipe.js';
 
 /**
  * Constants
@@ -337,7 +336,7 @@ class Carousel extends BaseComponent {
 
     if (!activeElement || !nextElement) {
       // Some weirdness is happening, so we bail
-      // todo: change tests that use empty divs to avoid this check
+      // TODO: change tests that use empty divs to avoid this check
       return;
     }
 
@@ -437,46 +436,46 @@ class Carousel extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_SLIDE, function (event) {
-  const target = getElementFromSelector(this);
+// EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_SLIDE, function (event) {
+//   const target = getElementFromSelector(this);
 
-  if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) {
-    return;
-  }
+//   if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) {
+//     return;
+//   }
 
-  event.preventDefault();
+//   event.preventDefault();
 
-  const carousel = Carousel.getOrCreateInstance(target);
-  const slideIndex = this.getAttribute('data-mdb-slide-to');
+//   const carousel = Carousel.getOrCreateInstance(target);
+//   const slideIndex = this.getAttribute('data-mdb-slide-to');
 
-  if (slideIndex) {
-    carousel.to(slideIndex);
-    carousel._maybeEnableCycle();
-    return;
-  }
+//   if (slideIndex) {
+//     carousel.to(slideIndex);
+//     carousel._maybeEnableCycle();
+//     return;
+//   }
 
-  if (Manipulator.getDataAttribute(this, 'slide') === 'next') {
-    carousel.next();
-    carousel._maybeEnableCycle();
-    return;
-  }
+//   if (Manipulator.getDataAttribute(this, 'slide') === 'next') {
+//     carousel.next();
+//     carousel._maybeEnableCycle();
+//     return;
+//   }
 
-  carousel.prev();
-  carousel._maybeEnableCycle();
-});
+//   carousel.prev();
+//   carousel._maybeEnableCycle();
+// });
 
-EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-  const carousels = SelectorEngine.find(SELECTOR_DATA_RIDE);
+// EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+//   const carousels = SelectorEngine.find(SELECTOR_DATA_RIDE);
 
-  for (const carousel of carousels) {
-    Carousel.getOrCreateInstance(carousel);
-  }
-});
+//   for (const carousel of carousels) {
+//     Carousel.getOrCreateInstance(carousel);
+//   }
+// });
 
 /**
  * jQuery
  */
 
-defineJQueryPlugin(Carousel);
+// defineJQueryPlugin(Carousel);
 
 export default Carousel;

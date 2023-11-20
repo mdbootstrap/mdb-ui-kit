@@ -5,7 +5,9 @@
 // CORE VARIABLES
 @import './custom/variables';
 @import './free/variables';
+@import './free/variables-dark';
 @import './bootstrap-rtl-fix/variables';
+@import './bootstrap-rtl-fix/variables-dark';
 @import './bootstrap-rtl-fix/maps';
 
 // BOOTSTRAP CORE
@@ -30,22 +32,22 @@
 @import './bootstrap-rtl-fix/nav';
 @import './bootstrap-rtl-fix/navbar';
 @import './bootstrap-rtl-fix/card';
+@import './bootstrap-rtl-fix/accordion';
 @import './bootstrap-rtl-fix/breadcrumb';
 @import './bootstrap-rtl-fix/pagination';
 @import './bootstrap-rtl-fix/badge';
 @import './bootstrap-rtl-fix/alert';
-@import './bootstrap-rtl-fix/accordion';
 @import './bootstrap-rtl-fix/progress';
-@import './bootstrap-rtl-fix/placeholders';
 @import './bootstrap-rtl-fix/list-group';
 @import './bootstrap-rtl-fix/close';
 @import './bootstrap-rtl-fix/toasts';
 @import './bootstrap-rtl-fix/modal';
+@import './bootstrap-rtl-fix/tooltip';
 @import './bootstrap-rtl-fix/popover';
 @import './bootstrap-rtl-fix/carousel';
 @import './bootstrap-rtl-fix/spinners';
 @import './bootstrap-rtl-fix/offcanvas';
-@import './bootstrap-rtl-fix/tooltip';
+@import './bootstrap-rtl-fix/placeholders';
 
 // Helpers
 @import './bootstrap-rtl-fix/helpers';

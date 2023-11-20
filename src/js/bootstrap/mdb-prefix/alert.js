@@ -1,14 +1,14 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.3): alert.js
+ * Bootstrap alert.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin } from './util/index';
-import EventHandler from './dom/event-handler';
-import BaseComponent from './base-component';
-import { enableDismissTrigger } from './util/component-functions';
+import BaseComponent from './base-component.js';
+import EventHandler from './dom/event-handler.js';
+import { enableDismissTrigger } from './util/component-functions.js';
+import { defineJQueryPlugin } from './util/index.js';
 
 /**
  * Constants
@@ -76,12 +76,12 @@ class Alert extends BaseComponent {
  * Data API implementation
  */
 
-enableDismissTrigger(Alert, 'close');
+// enableDismissTrigger(Alert, 'close');
 
 /**
  * jQuery
  */
 
-defineJQueryPlugin(Alert);
+// defineJQueryPlugin(Alert);
 
 export default Alert;

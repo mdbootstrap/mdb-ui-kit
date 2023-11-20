@@ -56,13 +56,13 @@
   }
 }
 
-@each $color, $value in $alerts {
+@each $color, $value in $theme-colors {
   .list-group-item-#{$color} {
-    background-color: map-get($value, background-color);
-    color: map-get($value, text-color);
+    background-color: var(--#{$prefix}#{$color}-bg-subtle);
+    color: var(--#{$prefix}#{$color}-text-emphasis);
 
     i {
-      color: map-get($value, icon-color);
+      color: var(--#{$prefix}#{$color}-link-emphasis);
     }
   }
 }

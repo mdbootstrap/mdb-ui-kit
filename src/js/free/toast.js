@@ -1,7 +1,7 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
 import BSToast from '../bootstrap/mdb-prefix/toast';
+import Manipulator from '../mdb/dom/manipulator';
+import { bindCallbackEventsIfNeeded } from '../autoinit/init';
 
 /**
  * ------------------------------------------------------------------------
@@ -18,13 +18,13 @@ const EVENT_HIDDEN_BS = 'hidden.bs.toast';
 
 const EXTENDED_EVENTS = [{ name: 'show' }, { name: 'shown' }, { name: 'hide' }, { name: 'hidden' }];
 
-const SELECTOR_TOAST = '.toast';
-
 class Toast extends BSToast {
   constructor(element, data) {
     super(element, data);
 
     this._init();
+    Manipulator.setDataAttribute(this._element, `${this.constructor.NAME}-initialized`, true);
+    bindCallbackEventsIfNeeded(this.constructor);
   }
 
   dispose() {
@@ -32,6 +32,7 @@ class Toast extends BSToast {
     EventHandler.off(this._element, EVENT_SHOWN_BS);
     EventHandler.off(this._element, EVENT_HIDE_BS);
     EventHandler.off(this._element, EVENT_HIDDEN_BS);
+    Manipulator.removeDataAttribute(this._element, `${this.constructor.NAME}-initialized`);
 
     super.dispose();
   }
@@ -50,39 +51,5 @@ class Toast extends BSToast {
     EventHandler.extend(this._element, EXTENDED_EVENTS, NAME);
   }
 }
-
-/**
- * ------------------------------------------------------------------------
- * Data Api implementation - auto initialization
- * ------------------------------------------------------------------------
- */
-
-SelectorEngine.find(SELECTOR_TOAST).forEach((el) => {
-  let instance = Toast.getInstance(el);
-  if (!instance) {
-    instance = new Toast(el);
-  }
-});
-
-/**
- * ------------------------------------------------------------------------
- * jQuery
- * ------------------------------------------------------------------------
- * add .rating to jQuery only if jQuery is present
- */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Toast.jQueryInterface;
-    $.fn[NAME].Constructor = Toast;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Toast.jQueryInterface;
-    };
-  }
-});
 
 export default Toast;

@@ -81,7 +81,7 @@ hr {
   font-style: $headings-font-style;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: $headings-color;
+  color: var(--#{$prefix}heading-color);
 }
 
 h1 {
@@ -203,6 +203,7 @@ small {
 
 mark {
   padding: $mark-padding;
+  color: var(--#{$prefix}highlight-color);
   background-color: var(--#{$prefix}highlight-bg);
 }
 
@@ -229,11 +230,11 @@ sup {
 // Links
 
 a {
-  color: var(--#{$prefix}link-color);
+  color: rgba(var(--#{$prefix}link-color-rgb), var(--#{$prefix}link-opacity, 1));
   text-decoration: $link-decoration;
 
   &:hover {
-    color: var(--#{$prefix}link-hover-color);
+    --#{$prefix}link-color-rgb: var(--#{$prefix}link-hover-color-rgb);
     text-decoration: $link-hover-decoration;
   }
 }
@@ -422,7 +423,9 @@ select {
 // Remove the dropdown arrow only from text type inputs built with datalists in Chrome.
 // See https://stackoverflow.com/a/54997118
 
-[list]:not([type='date']):not([type='datetime-local']):not([type='month']):not([type='week']):not([type='time'])::-webkit-calendar-picker-indicator {
+[list]:not([type='date']):not([type='datetime-local']):not([type='month']):not([type='week']):not(
+    [type='time']
+  )::-webkit-calendar-picker-indicator {
   display: none !important;
 }
 
@@ -507,15 +510,15 @@ legend {
   height: auto;
 }
 
-// 1. Correct the outline style in Safari.
-// 2. This overrides the extra rounded corners on search inputs in iOS so that our
+// 1. This overrides the extra rounded corners on search inputs in iOS so that our
 //    `.form-control` class can properly style them. Note that this cannot simply
 //    be added to `.form-control` as it's not specific enough. For details, see
 //    https://github.com/twbs/bootstrap/issues/11586.
+// 2. Correct the outline style in Safari.
 
 [type='search'] {
-  outline-offset: -2px; // 1
-  -webkit-appearance: textfield; // 2
+  -webkit-appearance: textfield; // 1
+  outline-offset: -2px; // 2
 }
 
 // 1. A few input types should stay LTR

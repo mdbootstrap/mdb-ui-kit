@@ -1,18 +1,18 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.3): offcanvas.js
+ * Bootstrap offcanvas.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin, getElementFromSelector, isDisabled, isVisible } from './util/index';
-import ScrollBarHelper from './util/scrollbar';
-import EventHandler from './dom/event-handler';
-import BaseComponent from './base-component';
-import SelectorEngine from './dom/selector-engine';
-import Backdrop from './util/backdrop';
-import FocusTrap from './util/focustrap';
-import { enableDismissTrigger } from './util/component-functions';
+import BaseComponent from './base-component.js';
+import EventHandler from './dom/event-handler.js';
+import SelectorEngine from './dom/selector-engine.js';
+import Backdrop from './util/backdrop.js';
+import { enableDismissTrigger } from './util/component-functions.js';
+import FocusTrap from './util/focustrap.js';
+import { defineJQueryPlugin, isDisabled, isVisible } from './util/index.js';
+import ScrollBarHelper from './util/scrollbar.js';
 
 /**
  * Constants
@@ -194,12 +194,12 @@ class Offcanvas extends BaseComponent {
         return;
       }
 
-      if (!this._config.keyboard) {
-        EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED);
+      if (this._config.keyboard) {
+        this.hide();
         return;
       }
 
-      this.hide();
+      EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED);
     });
   }
 
@@ -225,54 +225,54 @@ class Offcanvas extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-  const target = getElementFromSelector(this);
+// EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+//   const target = SelectorEngine.getElementFromSelector(this);
 
-  if (['A', 'AREA'].includes(this.tagName)) {
-    event.preventDefault();
-  }
+//   if (['A', 'AREA'].includes(this.tagName)) {
+//     event.preventDefault();
+//   }
 
-  if (isDisabled(this)) {
-    return;
-  }
+//   if (isDisabled(this)) {
+//     return;
+//   }
 
-  EventHandler.one(target, EVENT_HIDDEN, () => {
-    // focus on trigger when it is closed
-    if (isVisible(this)) {
-      this.focus();
-    }
-  });
+//   EventHandler.one(target, EVENT_HIDDEN, () => {
+//     // focus on trigger when it is closed
+//     if (isVisible(this)) {
+//       this.focus();
+//     }
+//   });
 
-  // avoid conflict when clicking a toggler of an offcanvas, while another is open
-  const alreadyOpen = SelectorEngine.findOne(OPEN_SELECTOR);
-  if (alreadyOpen && alreadyOpen !== target) {
-    Offcanvas.getInstance(alreadyOpen).hide();
-  }
+//   // avoid conflict when clicking a toggler of an offcanvas, while another is open
+//   const alreadyOpen = SelectorEngine.findOne(OPEN_SELECTOR);
+//   if (alreadyOpen && alreadyOpen !== target) {
+//     Offcanvas.getInstance(alreadyOpen).hide();
+//   }
 
-  const data = Offcanvas.getOrCreateInstance(target);
-  data.toggle(this);
-});
+//   const data = Offcanvas.getOrCreateInstance(target);
+//   data.toggle(this);
+// });
 
-EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-  for (const selector of SelectorEngine.find(OPEN_SELECTOR)) {
-    Offcanvas.getOrCreateInstance(selector).show();
-  }
-});
+// EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+//   for (const selector of SelectorEngine.find(OPEN_SELECTOR)) {
+//     Offcanvas.getOrCreateInstance(selector).show();
+//   }
+// });
 
-EventHandler.on(window, EVENT_RESIZE, () => {
-  for (const element of SelectorEngine.find('[aria-modal][class*=show][class*=offcanvas-]')) {
-    if (getComputedStyle(element).position !== 'fixed') {
-      Offcanvas.getOrCreateInstance(element).hide();
-    }
-  }
-});
+// EventHandler.on(window, EVENT_RESIZE, () => {
+//   for (const element of SelectorEngine.find('[aria-modal][class*=show][class*=offcanvas-]')) {
+//     if (getComputedStyle(element).position !== 'fixed') {
+//       Offcanvas.getOrCreateInstance(element).hide();
+//     }
+//   }
+// });
 
-enableDismissTrigger(Offcanvas);
+// enableDismissTrigger(Offcanvas);
 
 /**
  * jQuery
  */
 
-defineJQueryPlugin(Offcanvas);
+// defineJQueryPlugin(Offcanvas);
 
 export default Offcanvas;

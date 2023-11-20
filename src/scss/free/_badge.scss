@@ -39,13 +39,13 @@
 }
 
 // Contextual colors options
-@each $color, $value in $badges {
+@each $color, $value in $theme-colors {
   .badge-#{$color} {
-    background-color: map-get($value, background-color);
-    color: map-get($value, text-color);
+    background-color: var(--#{$prefix}#{$color}-bg-subtle);
+    color: var(--#{$prefix}#{$color}-text-emphasis);
 
     i {
-      color: map-get($value, icon-color);
+      color: var(--#{$prefix}#{$color}-text-emphasis);
     }
   }
 }

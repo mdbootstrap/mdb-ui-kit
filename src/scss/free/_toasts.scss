@@ -8,6 +8,8 @@
   --#{$prefix}toast-btn-close-width: #{$toast-btn-close-width};
   --#{$prefix}toast-btn-close-mr: #{$toast-btn-close-mr};
   --#{$prefix}toast-btn-close-ml: #{$toast-btn-close-ml};
+  --#{$prefix}toast-bg: #{$toast-background-color};
+  --#{$prefix}toast-header-bg: #{$toast-header-background-color};
   // scss-docs-end toast-css-vars
 
   border: 0;
@@ -39,14 +41,14 @@
   z-index: var(--#{$prefix}toast-zindex);
 }
 
-@each $color, $value in $toasts {
+@each $color, $value in $theme-colors {
   .toast-#{$color} {
-    background-color: map-get($value, background-color);
-    color: map-get($value, text-color);
-    border-color: map-get($value, border-color);
+    background-color: var(--#{$prefix}#{$color}-bg-subtle);
+    color: var(--#{$prefix}#{$color}-text-emphasis);
+    border-color: var(--#{$prefix}#{$color}-border-subtle);
 
     i {
-      color: map-get($value, icon-color);
+      color: var(--#{$prefix}#{$color}-text-emphasis);
     }
   }
 }

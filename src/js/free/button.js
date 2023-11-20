@@ -1,10 +1,10 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
 import Data from '../mdb/dom/data';
 import EventHandler from '../mdb/dom/event-handler';
 import Manipulator from '../mdb/dom/manipulator';
 import SelectorEngine from '../mdb/dom/selector-engine';
 
 import BSButton from '../bootstrap/mdb-prefix/button';
+import { bindCallbackEventsIfNeeded } from '../autoinit/init';
 
 const NAME = 'button';
 const DATA_KEY = `mdb.${NAME}`;
@@ -23,8 +23,6 @@ const CLASS_NAME_ACTIVE = 'active';
 const CLASS_NAME_SHOWN = 'shown';
 const CLASS_NAME_FIXED_ACTION_BTN = 'fixed-action-btn';
 
-const SELECTOR_BUTTON = '[data-mdb-toggle="button"]';
-const SELECTOR_FIXED_CONTAINER = '.fixed-action-btn';
 const SELECTOR_ACTION_BUTTON = '.fixed-action-btn:not(.smooth-scroll) > .btn-floating';
 const SELECTOR_LIST_ELEMENT = 'ul .btn';
 const SELECTOR_LIST = 'ul';
@@ -37,6 +35,8 @@ class Button extends BSButton {
     if (this._element) {
       Data.setData(this._element, DATA_KEY, this);
       this._init();
+      Manipulator.setDataAttribute(this._element, `${this.constructor.NAME}-initialized`, true);
+      bindCallbackEventsIfNeeded(this.constructor);
     }
   }
 
@@ -110,6 +110,7 @@ class Button extends BSButton {
       this._actionButton.removeEventListener(EVENT_MOUSEENTER, this._fn.mouseenter);
       this._element.removeEventListener(EVENT_MOUSELEAVE, this._fn.mouseleave);
     }
+    Manipulator.removeDataAttribute(this._element, `${this.constructor.NAME}-initialized`);
 
     super.dispose();
   }
@@ -212,47 +213,5 @@ class Button extends BSButton {
     this._element.style.height = `${this._initialContainerHeight}px`;
   }
 }
-
-/**
- * ------------------------------------------------------------------------
- * Data Api implementation - auto initialization
- * ------------------------------------------------------------------------
- */
-
-SelectorEngine.find(SELECTOR_FIXED_CONTAINER).forEach((element) => {
-  let instance = Button.getInstance(element);
-  if (!instance) {
-    instance = new Button(element);
-  }
-  return instance;
-});
-
-SelectorEngine.find(SELECTOR_BUTTON).forEach((element) => {
-  let instance = Button.getInstance(element);
-  if (!instance) {
-    instance = new Button(element);
-  }
-  return instance;
-});
-
-/**
- * ------------------------------------------------------------------------
- * jQuery
- * ------------------------------------------------------------------------
- */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Button.jQueryInterface;
-    $.fn[NAME].Constructor = Button;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Button.jQueryInterface;
-    };
-  }
-});
 
 export default Button;

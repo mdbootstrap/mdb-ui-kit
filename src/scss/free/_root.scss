@@ -2,7 +2,57 @@
 // Root and body
 //
 
-:root {
+:root,
+[data-mdb-theme='light'] {
   --mdb-font-roboto: #{inspect($font-family-roboto)};
   --mdb-bg-opacity: 1;
+  --mdb-text-hover-opacity: 0.8;
+
+  --#{$prefix}surface-color: #{$surface-color};
+  --#{$prefix}surface-color-rgb: #{to-rgb($surface-color)};
+  --#{$prefix}surface-bg: #{$surface-bg};
+  --#{$prefix}surface-inverted-color: #{$surface-inverted-color};
+  --#{$prefix}surface-inverted-color-rgb: #{to-rgb($surface-inverted-color)};
+  --#{$prefix}surface-inverted-bg: #{$surface-inverted-bg};
+  --#{$prefix}divider-color: #{$divider-color};
+  --#{$prefix}divider-blurry-color: #{$divider-blurry-color};
+  --#{$prefix}highlight-bg-color: #{$highlight-bg-color};
+  --#{$prefix}scrollbar-rail-bg: #{$scrollbar-rail-bg};
+  --#{$prefix}scrollbar-thumb-bg: #{$scrollbar-thumb-bg};
+  --#{$prefix}picker-header-bg: #{$picker-header-bg};
+  --#{$prefix}sidenav-backdrop-opacity: #{$sidenav-backdrop-opacity};
+  --#{$prefix}form-control-border-color: #{$form-control-border-color};
+  --#{$prefix}form-control-label-color: #{$form-control-label-color};
+  --#{$prefix}form-control-disabled-bg: #{$form-control-disabled-bg};
+  --#{$prefix}box-shadow-color: #{$box-shadow-color};
+  --#{$prefix}box-shadow-color-rgb: #{to-rgb($box-shadow-color)};
+  --#{$prefix}stepper-mobile-bg: #{$stepper-mobile-bg};
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark, true) {
+    color-scheme: dark;
+
+    // scss-docs-start root-dark-mode-vars
+    --#{$prefix}surface-color: #{$surface-color-dark};
+    --#{$prefix}surface-color-rgb: #{to-rgb($surface-color-dark)};
+    --#{$prefix}surface-bg: #{$surface-bg-dark};
+    --#{$prefix}surface-inverted-color: #{$surface-inverted-color-dark};
+    --#{$prefix}surface-inverted-color-rgb: #{to-rgb($surface-inverted-color-dark)};
+    --#{$prefix}surface-inverted-bg: #{$surface-inverted-bg-dark};
+    --#{$prefix}divider-color: #{$divider-color-dark};
+    --#{$prefix}divider-blurry-color: #{$divider-blurry-color-dark};
+    --#{$prefix}highlight-bg-color: #{$highlight-bg-color-dark};
+    --#{$prefix}scrollbar-rail-bg: #{$scrollbar-rail-bg-dark};
+    --#{$prefix}scrollbar-thumb-bg: #{$scrollbar-thumb-bg-dark};
+    --#{$prefix}picker-header-bg: #{$picker-header-bg-dark};
+    --#{$prefix}sidenav-backdrop-opacity: #{$sidenav-backdrop-opacity-dark};
+    --#{$prefix}form-control-border-color: #{$form-control-border-color-dark};
+    --#{$prefix}form-control-label-color: #{$form-control-label-color-dark};
+    --#{$prefix}form-control-disabled-bg: #{$form-control-disabled-bg-dark};
+    --#{$prefix}box-shadow-color: #{$box-shadow-color-dark};
+    --#{$prefix}box-shadow-color-rgb: #{to-rgb($box-shadow-color-dark)};
+    --#{$prefix}stepper-mobile-bg: #{$stepper-mobile-bg-dark};
+    // scss-docs-end root-dark-mode-vars
+  }
 }

@@ -93,7 +93,30 @@ const triggerTransitionEnd = (element) => {
   element.dispatchEvent(new Event(TRANSITION_END));
 };
 
-const isElement = (obj) => (obj[0] || obj).nodeType;
+const isElement = (obj) => {
+  if (!obj || typeof obj !== 'object') {
+    return false;
+  }
+
+  if (typeof obj.jquery !== 'undefined') {
+    obj = obj[0];
+  }
+
+  return typeof obj.nodeType !== 'undefined';
+};
+
+const getElement = (obj) => {
+  if (isElement(obj)) {
+    // it's a jQuery object or a node element
+    return obj.jquery ? obj[0] : obj;
+  }
+
+  if (typeof obj === 'string' && obj.length > 0) {
+    return document.querySelector(obj);
+  }
+
+  return null;
+};
 
 const emulateTransitionEnd = (element, duration) => {
   let called = false;
@@ -146,6 +169,22 @@ const isVisible = (element) => {
   }
 
   return false;
+};
+
+const isDisabled = (element) => {
+  if (!element || element.nodeType !== Node.ELEMENT_NODE) {
+    return true;
+  }
+
+  if (element.classList.contains('disabled')) {
+    return true;
+  }
+
+  if (typeof element.disabled !== 'undefined') {
+    return element.disabled;
+  }
+
+  return element.hasAttribute('disabled') && element.getAttribute('disabled') !== 'false';
 };
 
 const findShadowRoot = (element) => {
@@ -203,11 +242,13 @@ const element = (tag) => {
   return document.createElement(tag);
 };
 
-const defineJQueryPlugin = (name, plugin) => {
+const defineJQueryPlugin = (plugin) => {
   onDOMContentLoaded(() => {
     const $ = getjQuery();
+
     /* istanbul ignore if */
     if ($) {
+      const name = plugin.NAME;
       const JQUERY_NO_CONFLICT = $.fn[name];
       $.fn[name] = plugin.jQueryInterface;
       $.fn[name].Constructor = plugin;
@@ -228,9 +269,11 @@ export {
   getTransitionDurationFromElement,
   triggerTransitionEnd,
   isElement,
+  getElement,
   emulateTransitionEnd,
   typeCheckConfig,
   isVisible,
+  isDisabled,
   findShadowRoot,
   noop,
   reflow,

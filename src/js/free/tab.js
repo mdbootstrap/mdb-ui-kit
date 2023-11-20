@@ -1,8 +1,8 @@
-import { getjQuery, getElementFromSelector, onDOMContentLoaded } from '../mdb/util/index';
+import { getElementFromSelector } from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
 import BSTab from '../bootstrap/mdb-prefix/tab';
-
+import Manipulator from '../mdb/dom/manipulator';
+import { bindCallbackEventsIfNeeded } from '../autoinit/init';
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -27,13 +27,18 @@ const CLASS_NAME_ACTIVE = 'active';
 const CLASS_NAME_FADE = 'fade';
 const CLASS_NAME_SHOW = 'show';
 
-const SELECTOR_DATA_TOGGLE =
-  '[data-mdb-toggle="tab"], [data-mdb-toggle="pill"], [data-mdb-toggle="list"]';
-
 class Tab extends BSTab {
+  constructor(element) {
+    super(element);
+
+    Manipulator.setDataAttribute(this._element, `${this.constructor.NAME}-initialized`, true);
+    bindCallbackEventsIfNeeded(this.constructor);
+  }
+
   dispose() {
     EventHandler.off(this._element, EVENT_SHOW_BS);
     EventHandler.off(this._element, EVENT_SHOWN_BS);
+    Manipulator.removeDataAttribute(this._element, `${this.constructor.NAME}-initialized`);
 
     super.dispose();
   }
@@ -134,39 +139,5 @@ class Tab extends BSTab {
     this._queueCallback(complete, element, element.classList.contains(CLASS_NAME_FADE));
   }
 }
-
-/**
- * ------------------------------------------------------------------------
- * Data Api implementation - auto initialization
- * ------------------------------------------------------------------------
- */
-
-SelectorEngine.find(SELECTOR_DATA_TOGGLE).forEach((el) => {
-  let instance = Tab.getInstance(el);
-  if (!instance) {
-    instance = new Tab(el);
-  }
-});
-
-/**
- * ------------------------------------------------------------------------
- * jQuery
- * ------------------------------------------------------------------------
- * add .rating to jQuery only if jQuery is present
- */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Tab.jQueryInterface;
-    $.fn[NAME].Constructor = Tab;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Tab.jQueryInterface;
-    };
-  }
-});
 
 export default Tab;

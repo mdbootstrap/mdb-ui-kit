@@ -1,7 +1,16 @@
 .form-control {
   &[type='file'] {
+    border-color: var(--#{$prefix}form-control-border-color);
     &::-webkit-file-upload-button {
       background-color: transparent;
+    }
+    &:disabled {
+      background-color: var(--#{$prefix}form-control-disabled-bg);
+      color: rgba(var(--#{$prefix}surface-color-rgb), 0.5);
+
+      &::file-selector-button {
+        color: rgba(var(--#{$prefix}surface-color-rgb), 0.5);
+      }
     }
   }
   &:hover {

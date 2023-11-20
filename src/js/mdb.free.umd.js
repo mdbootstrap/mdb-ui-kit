@@ -16,6 +16,27 @@ import Collapse from './free/collapse';
 import Dropdown from './free/dropdown';
 import Ripple from './free/ripple';
 import Range from './free/range';
+import initMDB from './autoinit/index.free';
+
+const mdb = {
+  Alert,
+  Button,
+  Carousel,
+  Collapse,
+  Offcanvas,
+  Dropdown,
+  Input,
+  Modal,
+  Popover,
+  Ripple,
+  ScrollSpy,
+  Tab,
+  Toast,
+  Tooltip,
+  Range,
+};
+
+initMDB(mdb);
 
 export {
   Alert,
@@ -33,4 +54,5 @@ export {
   Toast,
   Tooltip,
   Range,
+  initMDB,
 };

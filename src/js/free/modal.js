@@ -1,7 +1,7 @@
-import { getjQuery, getSelectorFromElement, onDOMContentLoaded } from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
 import BSModal from '../bootstrap/mdb-prefix/modal';
+import Manipulator from '../mdb/dom/manipulator';
+import { bindCallbackEventsIfNeeded } from '../autoinit/init';
 
 /**
  * ------------------------------------------------------------------------
@@ -25,13 +25,13 @@ const EXTENDED_EVENTS = [
   { name: 'hidden' },
 ];
 
-const SELECTOR_DATA_TOGGLE = '[data-mdb-toggle="modal"]';
-
 class Modal extends BSModal {
   constructor(element, data) {
     super(element, data);
 
     this._init();
+    Manipulator.setDataAttribute(this._element, `${this.constructor.NAME}-initialized`, true);
+    bindCallbackEventsIfNeeded(this.constructor);
   }
 
   dispose() {
@@ -40,6 +40,7 @@ class Modal extends BSModal {
     EventHandler.off(this._element, EVENT_HIDE_BS);
     EventHandler.off(this._element, EVENT_HIDDEN_BS);
     EventHandler.off(this._element, EVENT_HIDE_PREVENTED_BS);
+    Manipulator.removeDataAttribute(this._element, `${this.constructor.NAME}-initialized`);
 
     super.dispose();
   }
@@ -58,42 +59,5 @@ class Modal extends BSModal {
     EventHandler.extend(this._element, EXTENDED_EVENTS, NAME);
   }
 }
-
-/**
- * ------------------------------------------------------------------------
- * Data Api implementation - auto initialization
- * ------------------------------------------------------------------------
- */
-
-SelectorEngine.find(SELECTOR_DATA_TOGGLE).forEach((el) => {
-  const selector = getSelectorFromElement(el);
-  const selectorElement = SelectorEngine.findOne(selector);
-
-  let instance = Modal.getInstance(selectorElement);
-  if (!instance) {
-    instance = new Modal(selectorElement);
-  }
-});
-
-/**
- * ------------------------------------------------------------------------
- * jQuery
- * ------------------------------------------------------------------------
- * add .modal to jQuery only if jQuery is present
- */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Modal.jQueryInterface;
-    $.fn[NAME].Constructor = Modal;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Modal.jQueryInterface;
-    };
-  }
-});
 
 export default Modal;

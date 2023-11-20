@@ -13,10 +13,10 @@
   }
 }
 
-@each $color, $value in $note {
+@each $color, $value in $theme-colors {
   .note-#{$color} {
-    background-color: map-get($value, background-color);
-    border-color: map-get($value, border-color);
+    background-color: var(--#{$prefix}#{$color}-bg-subtle);
+    color: var(--#{$prefix}#{$color}-text-emphasis);
   }
 }
 

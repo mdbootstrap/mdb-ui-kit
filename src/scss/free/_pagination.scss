@@ -5,7 +5,6 @@
 .pagination {
   // scss-docs-start pagination-css-vars
   --#{$prefix}pagination-border-radius: #{$pagination-border-radius};
-  --#{$prefix}pagination-active-box-shadow: #{$pagination-active-box-shadow};
   --#{$prefix}pagination-active-transition: #{$pagination-active-transition};
   --#{$prefix}pagination-active-font-weight: #{$pagination-active-font-weight};
   --#{$prefix}pagination-circle-border-radius: #{$pagination-circle-border-radius};
@@ -30,7 +29,6 @@
   &.active,
   .active > & {
     border: 0;
-    box-shadow: var(--#{$prefix}pagination-active-box-shadow);
     transition: var(--#{$prefix}pagination-active-transition);
     font-weight: var(--#{$prefix}pagination-active-font-weight);
   }

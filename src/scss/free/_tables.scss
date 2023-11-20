@@ -36,7 +36,7 @@
 }
 
 .table-group-divider {
-  border-top: (2 * $table-border-width) solid;
+  border-top: calc(2 * $table-border-width) solid;
   border-top-color: inherit;
 }
 

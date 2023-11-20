@@ -1,7 +1,7 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
 import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
 import BSPopover from '../bootstrap/mdb-prefix/popover';
+import Manipulator from '../mdb/dom/manipulator';
+import { bindCallbackEventsIfNeeded } from '../autoinit/init';
 
 /**
  * ------------------------------------------------------------------------
@@ -25,13 +25,13 @@ const EXTENDED_EVENTS = [
   { name: 'inserted' },
 ];
 
-const SELECTOR_DATA_TOGGLE = '[data-mdb-toggle="popover"]';
-
 class Popover extends BSPopover {
   constructor(element, data) {
     super(element, data);
 
     this._init();
+    Manipulator.setDataAttribute(this._element, `${this.constructor.NAME}-initialized`, true);
+    bindCallbackEventsIfNeeded(this.constructor);
   }
 
   dispose() {
@@ -40,6 +40,7 @@ class Popover extends BSPopover {
     EventHandler.off(this.element, EVENT_HIDE_BS);
     EventHandler.off(this.element, EVENT_HIDDEN_BS);
     EventHandler.off(this.element, EVENT_INSERTED_BS);
+    Manipulator.removeDataAttribute(this._element, `${this.constructor.NAME}-initialized`);
 
     super.dispose();
   }
@@ -58,39 +59,5 @@ class Popover extends BSPopover {
     EventHandler.extend(this._element, EXTENDED_EVENTS, NAME);
   }
 }
-
-/**
- * ------------------------------------------------------------------------
- * Data Api implementation - auto initialization
- * ------------------------------------------------------------------------
- */
-
-SelectorEngine.find(SELECTOR_DATA_TOGGLE).forEach((el) => {
-  let instance = Popover.getInstance(el);
-  if (!instance) {
-    instance = new Popover(el);
-  }
-});
-
-/**
- * ------------------------------------------------------------------------
- * jQuery
- * ------------------------------------------------------------------------
- * add .rating to jQuery only if jQuery is present
- */
-
-onDOMContentLoaded(() => {
-  const $ = getjQuery();
-
-  if ($) {
-    const JQUERY_NO_CONFLICT = $.fn[NAME];
-    $.fn[NAME] = Popover.jQueryInterface;
-    $.fn[NAME].Constructor = Popover;
-    $.fn[NAME].noConflict = () => {
-      $.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Popover.jQueryInterface;
-    };
-  }
-});
 
 export default Popover;
