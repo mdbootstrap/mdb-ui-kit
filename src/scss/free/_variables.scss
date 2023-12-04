@@ -728,7 +728,6 @@ $link-active-color: shift-color($link-color, $link-shade-active-percentage) !def
 // Define common box shadow and border and more.
 
 // scss-docs-start border-variables
-$border-color: $gray-400;
 $border-width-alternate: 2px !default;
 $border-style-alternate: solid !default;
 $border-color-alternate: hsl(0, 0%, 96%) !default;
@@ -1675,6 +1674,7 @@ $highlight-bg-color: $gray-200 !default;
 $scrollbar-rail-bg: $gray-200 !default;
 $scrollbar-thumb-bg: $gray-500 !default;
 $picker-header-bg: $primary !default;
+$timepicker-clock-face-bg: var(--#{$prefix}secondary-bg) !default;
 $sidenav-backdrop-opacity: 0.1 !default;
 $form-control-border-color: $gray-400 !default;
 $form-control-label-color: $gray-600 !default;
