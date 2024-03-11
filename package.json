@@ -1,6 +1,6 @@
 {
   "name": "mdb-ui-kit",
-  "version": "7.1.0",
+  "version": "7.2.0",
   "type": "module",
   "main": "./js/mdb.umd.min.js",
   "module": "./js/mdb.es.min.js",

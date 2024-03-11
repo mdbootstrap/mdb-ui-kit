@@ -1101,7 +1101,7 @@ $form-check-input-before-transform: scale(0) !default;
 
 $form-check-input-hover-before-opacity: 0.04 !default;
 $form-check-input-hover-before-box-shadow: 0px 0px 0px 13px
-  rgba(var(--#{$prefix}box-shadow-color-rgb, 0.6)) !default;
+  rgba(var(--#{$prefix}box-shadow-color-rgb), 0.6) !default;
 
 $form-check-input-focus-border-color: $form-check-input-border-color !default;
 $form-check-input-focus-transition: border-color 0.2s !default;
@@ -1611,9 +1611,6 @@ $breadcrumb-item-before-color: $breadcrumb-divider-color !default;
 $carousel-control-prev-icon-bg: none !default;
 $carousel-control-next-icon-bg: none !default;
 $carousel-control-icon-font-size: 1.7rem !default;
-$carousel-dark-indicator-active-bg: $white !default;
-$carousel-dark-caption-color: $white !default;
-$carousel-dark-control-icon-filter: none !default;
 // scss-docs-end carousel-variables
 
 // Scrollspy
