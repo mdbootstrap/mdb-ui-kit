@@ -335,26 +335,26 @@ class Modal extends BaseComponent {
  */
 
 // EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-//   const target = SelectorEngine.getElementFromSelector(this);
+//   const target = SelectorEngine.getElementFromSelector(this)
 
 //   if (['A', 'AREA'].includes(this.tagName)) {
-//     event.preventDefault();
+//     event.preventDefault()
 //   }
 
-//   EventHandler.one(target, EVENT_SHOW, (showEvent) => {
+//   EventHandler.one(target, EVENT_SHOW, showEvent => {
 //     if (showEvent.defaultPrevented) {
 //       // only register focus restorer if modal will actually get shown
-//       return;
+//       return
 //     }
 
 //     EventHandler.one(target, EVENT_HIDDEN, () => {
 //       if (isVisible(this)) {
-//         this.focus();
+//         this.focus()
 //       }
-//     });
-//   });
+//     })
+//   })
 
-//   // avoid conflict when clicking modal toggler while another one is open
+//   // avoid conflict when clicking moddal toggler while another one is open
 //   const allreadyOpenedModals = SelectorEngine.find(OPEN_SELECTOR);
 //   allreadyOpenedModals.forEach((modal) => {
 //     if (!modal.classList.contains('modal-non-invasive-show')) {
@@ -362,17 +362,17 @@ class Modal extends BaseComponent {
 //     }
 //   });
 
-//   const data = Modal.getOrCreateInstance(target);
+//   const data = Modal.getOrCreateInstance(target)
 
-//   data.toggle(this);
-// });
+//   data.toggle(this)
+// })
 
-// enableDismissTrigger(Modal);
+// enableDismissTrigger(Modal)
 
 /**
  * jQuery
  */
 
-// defineJQueryPlugin(Modal);
+// defineJQueryPlugin(Modal)
 
 export default Modal;

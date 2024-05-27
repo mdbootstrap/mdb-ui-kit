@@ -437,45 +437,45 @@ class Carousel extends BaseComponent {
  */
 
 // EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_SLIDE, function (event) {
-//   const target = getElementFromSelector(this);
+//   const target = SelectorEngine.getElementFromSelector(this)
 
 //   if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) {
-//     return;
+//     return
 //   }
 
-//   event.preventDefault();
+//   event.preventDefault()
 
-//   const carousel = Carousel.getOrCreateInstance(target);
-//   const slideIndex = this.getAttribute('data-mdb-slide-to');
+//   const carousel = Carousel.getOrCreateInstance(target)
+//   const slideIndex = this.getAttribute('data-mdb-slide-to')
 
 //   if (slideIndex) {
-//     carousel.to(slideIndex);
-//     carousel._maybeEnableCycle();
-//     return;
+//     carousel.to(slideIndex)
+//     carousel._maybeEnableCycle()
+//     return
 //   }
 
 //   if (Manipulator.getDataAttribute(this, 'slide') === 'next') {
-//     carousel.next();
-//     carousel._maybeEnableCycle();
-//     return;
+//     carousel.next()
+//     carousel._maybeEnableCycle()
+//     return
 //   }
 
-//   carousel.prev();
-//   carousel._maybeEnableCycle();
-// });
+//   carousel.prev()
+//   carousel._maybeEnableCycle()
+// })
 
 // EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-//   const carousels = SelectorEngine.find(SELECTOR_DATA_RIDE);
+//   const carousels = SelectorEngine.find(SELECTOR_DATA_RIDE)
 
 //   for (const carousel of carousels) {
-//     Carousel.getOrCreateInstance(carousel);
+//     Carousel.getOrCreateInstance(carousel)
 //   }
-// });
+// })
 
 /**
  * jQuery
  */
 
-// defineJQueryPlugin(Carousel);
+// defineJQueryPlugin(Carousel)
 
 export default Carousel;

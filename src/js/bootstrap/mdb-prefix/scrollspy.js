@@ -294,14 +294,14 @@ class ScrollSpy extends BaseComponent {
 
 // EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
 //   for (const spy of SelectorEngine.find(SELECTOR_DATA_SPY)) {
-//     ScrollSpy.getOrCreateInstance(spy);
+//     ScrollSpy.getOrCreateInstance(spy)
 //   }
-// });
+// })
 
 /**
  * jQuery
  */
 
-// defineJQueryPlugin(ScrollSpy);
+// defineJQueryPlugin(ScrollSpy)
 
 export default ScrollSpy;

@@ -125,3 +125,38 @@
     }
   }
 }
+
+INPUT,
+SELECT,
+TEXTAREA {
+  &:-webkit-autofill {
+    animation-name: onautofillstart;
+
+    -webkit-background-clip: text;
+    box-shadow: inset 0 0 20px 20px white;
+    -webkit-box-shadow: 0 0 20px 20px white inset !important;
+
+    &:hover,
+    &:focus,
+    &:active {
+      animation-name: onautofillstart;
+
+      -webkit-background-clip: text;
+      box-shadow: inset 0 0 20px 20px white;
+      -webkit-box-shadow: 0 0 20px 20px white inset !important;
+    }
+  }
+
+  &:not(:-webkit-autofill) {
+    animation-name: onautofillcancel;
+  }
+}
+
+@keyframes onautofillstart {
+  from {
+  }
+}
+@keyframes onautofillcancel {
+  from {
+  }
+}

@@ -76,12 +76,12 @@ class Alert extends BaseComponent {
  * Data API implementation
  */
 
-// enableDismissTrigger(Alert, 'close');
+// enableDismissTrigger(Alert, 'close')
 
 /**
  * jQuery
  */
 
-// defineJQueryPlugin(Alert);
+// defineJQueryPlugin(Alert)
 
 export default Alert;

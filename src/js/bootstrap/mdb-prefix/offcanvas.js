@@ -226,53 +226,53 @@ class Offcanvas extends BaseComponent {
  */
 
 // EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-//   const target = SelectorEngine.getElementFromSelector(this);
+//   const target = SelectorEngine.getElementFromSelector(this)
 
 //   if (['A', 'AREA'].includes(this.tagName)) {
-//     event.preventDefault();
+//     event.preventDefault()
 //   }
 
 //   if (isDisabled(this)) {
-//     return;
+//     return
 //   }
 
 //   EventHandler.one(target, EVENT_HIDDEN, () => {
 //     // focus on trigger when it is closed
 //     if (isVisible(this)) {
-//       this.focus();
+//       this.focus()
 //     }
-//   });
+//   })
 
 //   // avoid conflict when clicking a toggler of an offcanvas, while another is open
-//   const alreadyOpen = SelectorEngine.findOne(OPEN_SELECTOR);
+//   const alreadyOpen = SelectorEngine.findOne(OPEN_SELECTOR)
 //   if (alreadyOpen && alreadyOpen !== target) {
-//     Offcanvas.getInstance(alreadyOpen).hide();
+//     Offcanvas.getInstance(alreadyOpen).hide()
 //   }
 
-//   const data = Offcanvas.getOrCreateInstance(target);
-//   data.toggle(this);
-// });
+//   const data = Offcanvas.getOrCreateInstance(target)
+//   data.toggle(this)
+// })
 
 // EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
 //   for (const selector of SelectorEngine.find(OPEN_SELECTOR)) {
-//     Offcanvas.getOrCreateInstance(selector).show();
+//     Offcanvas.getOrCreateInstance(selector).show()
 //   }
-// });
+// })
 
 // EventHandler.on(window, EVENT_RESIZE, () => {
 //   for (const element of SelectorEngine.find('[aria-modal][class*=show][class*=offcanvas-]')) {
 //     if (getComputedStyle(element).position !== 'fixed') {
-//       Offcanvas.getOrCreateInstance(element).hide();
+//       Offcanvas.getOrCreateInstance(element).hide()
 //     }
 //   }
-// });
+// })
 
-// enableDismissTrigger(Offcanvas);
+// enableDismissTrigger(Offcanvas)
 
 /**
  * jQuery
  */
 
-// defineJQueryPlugin(Offcanvas);
+// defineJQueryPlugin(Offcanvas)
 
 export default Offcanvas;

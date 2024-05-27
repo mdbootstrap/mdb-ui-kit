@@ -296,28 +296,28 @@ class Tab extends BaseComponent {
 
 // EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
 //   if (['A', 'AREA'].includes(this.tagName)) {
-//     event.preventDefault();
+//     event.preventDefault()
 //   }
 
 //   if (isDisabled(this)) {
-//     return;
+//     return
 //   }
 
-//   Tab.getOrCreateInstance(this).show();
-// });
+//   Tab.getOrCreateInstance(this).show()
+// })
 
 /**
  * Initialize on focus
  */
 // EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
 //   for (const element of SelectorEngine.find(SELECTOR_DATA_TOGGLE_ACTIVE)) {
-//     Tab.getOrCreateInstance(element);
+//     Tab.getOrCreateInstance(element)
 //   }
-// });
+// })
 /**
  * jQuery
  */
 
-// defineJQueryPlugin(Tab);
+// defineJQueryPlugin(Tab)
 
 export default Tab;

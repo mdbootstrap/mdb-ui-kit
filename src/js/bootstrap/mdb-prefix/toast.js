@@ -214,12 +214,12 @@ class Toast extends BaseComponent {
  * Data API implementation
  */
 
-// enableDismissTrigger(Toast);
+// enableDismissTrigger(Toast)
 
 /**
  * jQuery
  */
 
-// defineJQueryPlugin(Toast);
+// defineJQueryPlugin(Toast)
 
 export default Toast;

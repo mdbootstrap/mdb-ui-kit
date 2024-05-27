@@ -131,15 +131,14 @@
 .offcanvas-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: var(--#{$prefix}offcanvas-padding-y) var(--#{$prefix}offcanvas-padding-x);
 
   .btn-close {
     padding: calc(var(--#{$prefix}offcanvas-padding-y) * 0.5)
       calc(var(--#{$prefix}offcanvas-padding-x) * 0.5);
-    margin-top: calc(-0.5 * var(--#{$prefix}offcanvas-padding-y));
-    margin-right: calc(-0.5 * var(--#{$prefix}offcanvas-padding-x));
-    margin-bottom: calc(-0.5 * var(--#{$prefix}offcanvas-padding-y));
+    margin: calc(-0.5 * var(--#{$prefix}offcanvas-padding-y))
+      calc(-0.5 * var(--#{$prefix}offcanvas-padding-x))
+      calc(-0.5 * var(--#{$prefix}offcanvas-padding-y)) auto;
   }
 }
 

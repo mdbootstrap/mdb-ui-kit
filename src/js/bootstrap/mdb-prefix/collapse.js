@@ -278,22 +278,19 @@ class Collapse extends BaseComponent {
 
 // EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
 //   // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
-//   if (
-//     event.target.tagName === 'A' ||
-//     (event.delegateTarget && event.delegateTarget.tagName === 'A')
-//   ) {
-//     event.preventDefault();
+//   if (event.target.tagName === 'A' || (event.delegateTarget && event.delegateTarget.tagName === 'A')) {
+//     event.preventDefault()
 //   }
 
 //   for (const element of SelectorEngine.getMultipleElementsFromSelector(this)) {
-//     Collapse.getOrCreateInstance(element, { toggle: false }).toggle();
+//     Collapse.getOrCreateInstance(element, { toggle: false }).toggle()
 //   }
-// });
+// })
 
 /**
  * jQuery
  */
 
-// defineJQueryPlugin(Collapse);
+// defineJQueryPlugin(Collapse)
 
 export default Collapse;

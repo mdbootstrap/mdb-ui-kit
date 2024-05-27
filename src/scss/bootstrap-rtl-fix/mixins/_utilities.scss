@@ -65,7 +65,7 @@
 
     @if $value != null {
       @if $is-rtl == false {
-        /* rtl:begin:remove */
+        /*!rtl:begin:remove*/
       }
 
       @if $is-css-var {
@@ -105,7 +105,7 @@
       }
 
       @if $is-rtl == false {
-        /* rtl:end:remove */
+        /*!rtl:end:remove*/
       }
     }
   }

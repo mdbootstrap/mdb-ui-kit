@@ -58,7 +58,7 @@
   }
 }
 
-/* rtl:begin:ignore */
+/*!rtl:begin:ignore*/
 .bs-tooltip-end .tooltip-arrow {
   left: calc(
     -1 * var(--#{$prefix}tooltip-arrow-height)
@@ -74,7 +74,7 @@
   }
 }
 
-/* rtl:end:ignore */
+/*!rtl:end:ignore*/
 
 .bs-tooltip-bottom .tooltip-arrow {
   top: calc(
@@ -89,7 +89,7 @@
   }
 }
 
-/* rtl:begin:ignore */
+/*!rtl:begin:ignore*/
 .bs-tooltip-start .tooltip-arrow {
   right: calc(
     -1 * var(--#{$prefix}tooltip-arrow-height)
@@ -105,7 +105,7 @@
   }
 }
 
-/* rtl:end:ignore */
+/*!rtl:end:ignore*/
 
 .bs-tooltip-auto {
   &[data-popper-placement^='top'] {
