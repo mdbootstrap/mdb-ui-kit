@@ -703,6 +703,28 @@ $enable-negative-margins: true !default;
 $variable-prefix: mdb- !default;
 $prefix: $variable-prefix !default;
 
+// Global MDB light theme variables
+
+// scss-docs-start mdb-global-light-theme-variables
+$surface-color: $gray-800 !default;
+$surface-bg: $white !default;
+$surface-inverted-color: $white !default;
+$surface-inverted-bg: #6d6d6d !default;
+$divider-color: $gray-100 !default;
+$divider-blurry-color: hsl(0, 0%, 40%) !default;
+$highlight-bg-color: $gray-200 !default;
+$scrollbar-rail-bg: $gray-200 !default;
+$scrollbar-thumb-bg: $gray-500 !default;
+$picker-header-bg: $primary !default;
+$timepicker-clock-face-bg: var(--#{$prefix}secondary-bg) !default;
+$sidenav-backdrop-opacity: 0.1 !default;
+$form-control-border-color: $gray-400 !default;
+$form-control-label-color: $gray-600 !default;
+$form-control-disabled-bg: $gray-300 !default;
+$box-shadow-color: $black !default;
+$stepper-mobile-bg: $gray-50 !default;
+// scss-docs-start mdb-global-light-theme-variables
+
 // Body
 //
 // Settings for the `<body>` element.
@@ -1052,9 +1074,9 @@ $form-label-transition: all 0.2s ease-out !default;
 $form-label-color: var(--#{$prefix}form-control-label-color) !default;
 
 $input-focus-active-label-transform: translateY(-1rem) translateY(0.1rem) scale(0.8) !default;
-$input-focus-label-color: $primary !default;
+$input-focus-label-color: var(--#{$prefix}input-focus-label-color) !default;
 $input-focus-border-width: 0.125rem !default;
-$input-focus-border-color: $primary !default;
+$input-focus-border-color: var(--#{$prefix}input-focus-border-color) !default;
 $input-disabled-background-color: var(--#{$prefix}form-control-disabled-bg) !default;
 
 $input-font-size-lg: 1rem !default;
@@ -1451,7 +1473,7 @@ $accordion-flush-item-border-bottom: 2px solid var(--#{$prefix}divider-color) !d
 $accordion-borderless-button-border-radius: 0.5rem !default;
 $accordion-borderless-button-bgc: var(--#{$prefix}primary-bg-subtle) !default;
 $accordion-borderless-button-color: var(--#{$prefix}primary-text-emphasis) !default;
-$accordion-icon-color: var(--#{$prefix}surface-color) !default;
+$accordion-icon-color: $surface-color !default;
 $accordion-icon-active-color: $primary !default;
 // scss-docs-end accordion-variables
 
@@ -1657,25 +1679,3 @@ $divider-blurry-vr-bg-image: linear-gradient(
 ) !default;
 $divider-blurry-vr-width: 1px !default;
 // scss-docs-end divider-variables
-
-// Global MDB light theme variables
-
-// scss-docs-start mdb-global-light-theme-variables
-$surface-color: $gray-800 !default;
-$surface-bg: $white !default;
-$surface-inverted-color: $white !default;
-$surface-inverted-bg: #6d6d6d !default;
-$divider-color: $gray-100 !default;
-$divider-blurry-color: hsl(0, 0%, 40%) !default;
-$highlight-bg-color: $gray-200 !default;
-$scrollbar-rail-bg: $gray-200 !default;
-$scrollbar-thumb-bg: $gray-500 !default;
-$picker-header-bg: $primary !default;
-$timepicker-clock-face-bg: var(--#{$prefix}secondary-bg) !default;
-$sidenav-backdrop-opacity: 0.1 !default;
-$form-control-border-color: $gray-400 !default;
-$form-control-label-color: $gray-600 !default;
-$form-control-disabled-bg: $gray-300 !default;
-$box-shadow-color: $black !default;
-$stepper-mobile-bg: $gray-50 !default;
-// scss-docs-start mdb-global-light-theme-variables

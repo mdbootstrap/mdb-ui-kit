@@ -22,6 +22,8 @@
   --#{$prefix}picker-header-bg: #{$picker-header-bg};
   --#{$prefix}timepicker-clock-face-bg: #{$timepicker-clock-face-bg};
   --#{$prefix}sidenav-backdrop-opacity: #{$sidenav-backdrop-opacity};
+  --#{$prefix}input-focus-border-color: var(--#{$prefix}primary);
+  --#{$prefix}input-focus-label-color: var(--#{$prefix}primary);
   --#{$prefix}form-control-border-color: #{$form-control-border-color};
   --#{$prefix}form-control-label-color: #{$form-control-label-color};
   --#{$prefix}form-control-disabled-bg: #{$form-control-disabled-bg};

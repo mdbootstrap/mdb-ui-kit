@@ -222,7 +222,7 @@ const inputCallback = (component, initSelector) => {
   });
 
   // auto-init
-  SelectorEngine.find(SELECTOR_DATA_INIT).map((element) => new Input(element));
+  SelectorEngine.find(SELECTOR_DATA_INIT).map((element) => Input.getOrCreateInstance(element));
 
   // form reset handler
   EventHandler.on(window, 'reset', (e) => {

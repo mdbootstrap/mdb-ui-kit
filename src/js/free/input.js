@@ -169,9 +169,10 @@ class Input extends BaseComponent {
   }
 
   _toggleDefaultDatePlaceholder(input = this.input) {
-    const isTypeDate = input.getAttribute('type') === 'date';
+    const type = input.getAttribute('type');
+    const typesWithPlaceholder = ['date', 'time', 'datetime-local', 'month', 'week'];
 
-    if (!isTypeDate) {
+    if (!typesWithPlaceholder.includes(type)) {
       return;
     }
 
@@ -245,6 +246,11 @@ class Input extends BaseComponent {
   _activate(event) {
     onDOMContentLoaded(() => {
       this._getElements(event);
+
+      if (!this._element) {
+        return;
+      }
+
       const input = event ? event.target : this.input;
 
       if (input.value !== '') {
@@ -255,9 +261,19 @@ class Input extends BaseComponent {
   }
 
   _getElements(event) {
+    let initialized;
     if (event) {
       this._element = event.target.parentNode;
       this._label = SelectorEngine.findOne('label', this._element);
+
+      initialized = Manipulator.getDataAttribute(
+        this._element,
+        `${this.constructor.NAME}-initialized`
+      );
+    }
+
+    if (!initialized) {
+      return;
     }
 
     if (event && this._label) {

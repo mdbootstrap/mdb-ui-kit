@@ -38,7 +38,9 @@ const initComponent = (component, manualInit = false) => {
     return;
   }
 
-  InitializedComponents.set(component.NAME);
+  if (!manualInit) {
+    InitializedComponents.set(component.NAME);
+  }
 
   const thisComponent = _defaultInitSelectors[component.NAME] || null;
   const isToggler = thisComponent?.isToggler || false;
