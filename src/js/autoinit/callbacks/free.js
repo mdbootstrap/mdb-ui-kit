@@ -9,10 +9,15 @@ import {
 } from '../../mdb/util';
 import { enableDismissTrigger } from '../../bootstrap/mdb-prefix/util/component-functions';
 
+const callbackInitState = new Map();
+
 const alertCallback = (component, initSelector) => {
   const Alert = component;
 
-  enableDismissTrigger(Alert, 'close');
+  if (!callbackInitState.has(component.name)) {
+    enableDismissTrigger(Alert);
+    callbackInitState.set(component.name, true);
+  }
 
   // MDB init
   SelectorEngine.find(initSelector).forEach((element) => {
@@ -24,15 +29,18 @@ const buttonCallback = (component, initSelector) => {
   const Button = component;
   const EVENT_CLICK_DATA_API = `click.bs.${component.name}.data-api`;
 
-  // BS init
-  EventHandler.on(document, EVENT_CLICK_DATA_API, initSelector, (event) => {
-    event.preventDefault();
+  if (!callbackInitState.has(component.name)) {
+    // BS init
+    EventHandler.on(document, EVENT_CLICK_DATA_API, initSelector, (event) => {
+      event.preventDefault();
 
-    const button = event.target.closest(initSelector);
-    const data = Button.getOrCreateInstance(button);
+      const button = event.target.closest(initSelector);
+      const data = Button.getOrCreateInstance(button);
 
-    data.toggle();
-  });
+      data.toggle();
+    });
+    callbackInitState.set(component.name, true);
+  }
 
   // MDB init
   SelectorEngine.find(initSelector).forEach((element) => {
@@ -41,6 +49,10 @@ const buttonCallback = (component, initSelector) => {
 };
 
 const carouselCallback = (component, initSelector) => {
+  if (callbackInitState.has(component.name)) {
+    return;
+  }
+
   const EVENT_CLICK_DATA_API = `click.bs.${component.name}.data-api`;
   const SELECTOR_DATA_SLIDE = '[data-mdb-slide], [data-mdb-slide-to]';
   const CLASS_NAME_CAROUSEL = 'carousel';
@@ -83,6 +95,8 @@ const carouselCallback = (component, initSelector) => {
       Carousel.getOrCreateInstance(carousel);
     });
   });
+
+  callbackInitState.set(component.name, true);
 };
 
 const collapseCallback = (component, initSelector) => {
@@ -90,22 +104,26 @@ const collapseCallback = (component, initSelector) => {
   const SELECTOR_DATA_TOGGLE = initSelector;
   const Collapse = component;
 
-  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-    // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
-    if (
-      event.target.tagName === 'A' ||
-      (event.delegateTarget && event.delegateTarget.tagName === 'A')
-    ) {
-      event.preventDefault();
-    }
+  if (!callbackInitState.has(component.name)) {
+    EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+      // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
+      if (
+        event.target.tagName === 'A' ||
+        (event.delegateTarget && event.delegateTarget.tagName === 'A')
+      ) {
+        event.preventDefault();
+      }
 
-    const selector = getSelectorFromElement(this);
-    const selectorElements = SelectorEngine.find(selector);
+      const selector = getSelectorFromElement(this);
+      const selectorElements = SelectorEngine.find(selector);
 
-    selectorElements.forEach((element) => {
-      Collapse.getOrCreateInstance(element, { toggle: false }).toggle();
+      selectorElements.forEach((element) => {
+        Collapse.getOrCreateInstance(element, { toggle: false }).toggle();
+      });
     });
-  });
+
+    callbackInitState.set(component.name, true);
+  }
 
   SelectorEngine.find(SELECTOR_DATA_TOGGLE).forEach((el) => {
     const selector = getSelectorFromElement(el);
@@ -125,19 +143,28 @@ const dropdownCallback = (component, initSelector) => {
   const SELECTOR_DATA_TOGGLE = `[data-mdb-${component.NAME}-initialized]`;
   const Dropdown = component;
 
-  EventHandler.on(
-    document,
-    EVENT_KEYDOWN_DATA_API,
-    SELECTOR_DATA_TOGGLE,
-    Dropdown.dataApiKeydownHandler
-  );
-  EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
-  EventHandler.on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
-  EventHandler.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
-  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-    event.preventDefault();
-    Dropdown.getOrCreateInstance(this).toggle();
-  });
+  if (!callbackInitState.has(component.name)) {
+    EventHandler.on(
+      document,
+      EVENT_KEYDOWN_DATA_API,
+      SELECTOR_DATA_TOGGLE,
+      Dropdown.dataApiKeydownHandler
+    );
+    EventHandler.on(
+      document,
+      EVENT_KEYDOWN_DATA_API,
+      SELECTOR_MENU,
+      Dropdown.dataApiKeydownHandler
+    );
+    EventHandler.on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
+    EventHandler.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
+    EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+      event.preventDefault();
+      Dropdown.getOrCreateInstance(this).toggle();
+    });
+  }
+
+  callbackInitState.set(component.name, true);
 
   SelectorEngine.find(initSelector).forEach((el) => {
     Dropdown.getOrCreateInstance(el);
@@ -150,34 +177,62 @@ const inputCallback = (component, initSelector) => {
   const SELECTOR_OUTLINE_TEXTAREA = `${SELECTOR_DATA_INIT} textarea`;
   const Input = component;
 
-  EventHandler.on(document, 'focus', SELECTOR_OUTLINE_INPUT, Input.activate(new Input()));
-  EventHandler.on(document, 'input', SELECTOR_OUTLINE_INPUT, Input.activate(new Input()));
-  EventHandler.on(document, 'blur', SELECTOR_OUTLINE_INPUT, Input.deactivate(new Input()));
+  if (!callbackInitState.has(component.name)) {
+    EventHandler.on(document, 'focus', SELECTOR_OUTLINE_INPUT, Input.activate(new Input()));
+    EventHandler.on(document, 'input', SELECTOR_OUTLINE_INPUT, Input.activate(new Input()));
+    EventHandler.on(document, 'blur', SELECTOR_OUTLINE_INPUT, Input.deactivate(new Input()));
 
-  EventHandler.on(document, 'focus', SELECTOR_OUTLINE_TEXTAREA, Input.activate(new Input()));
-  EventHandler.on(document, 'input', SELECTOR_OUTLINE_TEXTAREA, Input.activate(new Input()));
-  EventHandler.on(document, 'blur', SELECTOR_OUTLINE_TEXTAREA, Input.deactivate(new Input()));
+    EventHandler.on(document, 'focus', SELECTOR_OUTLINE_TEXTAREA, Input.activate(new Input()));
+    EventHandler.on(document, 'input', SELECTOR_OUTLINE_TEXTAREA, Input.activate(new Input()));
+    EventHandler.on(document, 'blur', SELECTOR_OUTLINE_TEXTAREA, Input.deactivate(new Input()));
 
-  EventHandler.on(window, 'shown.bs.modal', (e) => {
-    SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
-      const instance = Input.getInstance(element.parentNode);
-      if (!instance) {
-        return;
-      }
-      instance.update();
+    EventHandler.on(window, 'shown.bs.modal', (e) => {
+      SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
+        const instance = Input.getInstance(element.parentNode);
+        if (!instance) {
+          return;
+        }
+        instance.update();
+      });
+      SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
+        const instance = Input.getInstance(element.parentNode);
+        if (!instance) {
+          return;
+        }
+        instance.update();
+      });
     });
-    SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
-      const instance = Input.getInstance(element.parentNode);
-      if (!instance) {
-        return;
-      }
-      instance.update();
-    });
-  });
 
-  EventHandler.on(window, 'shown.bs.dropdown', (e) => {
-    const target = e.target.parentNode.querySelector('.dropdown-menu');
-    if (target) {
+    EventHandler.on(window, 'shown.bs.dropdown', (e) => {
+      const target = e.target.parentNode.querySelector('.dropdown-menu');
+      if (target) {
+        SelectorEngine.find(SELECTOR_OUTLINE_INPUT, target).forEach((element) => {
+          const instance = Input.getInstance(element.parentNode);
+          if (!instance) {
+            return;
+          }
+          instance.update();
+        });
+        SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, target).forEach((element) => {
+          const instance = Input.getInstance(element.parentNode);
+          if (!instance) {
+            return;
+          }
+          instance.update();
+        });
+      }
+    });
+
+    EventHandler.on(window, 'shown.bs.tab', (e) => {
+      let targetId;
+
+      if (e.target.href) {
+        targetId = e.target.href.split('#')[1];
+      } else {
+        targetId = Manipulator.getDataAttribute(e.target, 'target').split('#')[1];
+      }
+
+      const target = SelectorEngine.findOne(`#${targetId}`);
       SelectorEngine.find(SELECTOR_OUTLINE_INPUT, target).forEach((element) => {
         const instance = Input.getInstance(element.parentNode);
         if (!instance) {
@@ -192,64 +247,40 @@ const inputCallback = (component, initSelector) => {
         }
         instance.update();
       });
-    }
-  });
+    });
 
-  EventHandler.on(window, 'shown.bs.tab', (e) => {
-    let targetId;
+    // form reset handler
+    EventHandler.on(window, 'reset', (e) => {
+      SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
+        const instance = Input.getInstance(element.parentNode);
+        if (!instance) {
+          return;
+        }
+        instance.forceInactive();
+      });
+      SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
+        const instance = Input.getInstance(element.parentNode);
+        if (!instance) {
+          return;
+        }
+        instance.forceInactive();
+      });
+    });
 
-    if (e.target.href) {
-      targetId = e.target.href.split('#')[1];
-    } else {
-      targetId = Manipulator.getDataAttribute(e.target, 'target').split('#')[1];
-    }
-
-    const target = SelectorEngine.findOne(`#${targetId}`);
-    SelectorEngine.find(SELECTOR_OUTLINE_INPUT, target).forEach((element) => {
-      const instance = Input.getInstance(element.parentNode);
-      if (!instance) {
+    // auto-fill
+    EventHandler.on(window, 'onautocomplete', (e) => {
+      const instance = Input.getInstance(e.target.parentNode);
+      if (!instance || !e.cancelable) {
         return;
       }
-      instance.update();
+      instance.forceActive();
     });
-    SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, target).forEach((element) => {
-      const instance = Input.getInstance(element.parentNode);
-      if (!instance) {
-        return;
-      }
-      instance.update();
-    });
-  });
+
+    callbackInitState.set(component.name, true);
+  }
 
   // auto-init
   SelectorEngine.find(SELECTOR_DATA_INIT).map((element) => Input.getOrCreateInstance(element));
-
-  // form reset handler
-  EventHandler.on(window, 'reset', (e) => {
-    SelectorEngine.find(SELECTOR_OUTLINE_INPUT, e.target).forEach((element) => {
-      const instance = Input.getInstance(element.parentNode);
-      if (!instance) {
-        return;
-      }
-      instance.forceInactive();
-    });
-    SelectorEngine.find(SELECTOR_OUTLINE_TEXTAREA, e.target).forEach((element) => {
-      const instance = Input.getInstance(element.parentNode);
-      if (!instance) {
-        return;
-      }
-      instance.forceInactive();
-    });
-  });
-
-  // auto-fill
-  EventHandler.on(window, 'onautocomplete', (e) => {
-    const instance = Input.getInstance(e.target.parentNode);
-    if (!instance || !e.cancelable) {
-      return;
-    }
-    instance.forceActive();
-  });
 };
 
 const modalCallback = (component, initSelector) => {
@@ -259,40 +290,43 @@ const modalCallback = (component, initSelector) => {
   const EVENT_SHOW = `show.bs.${component.name}`;
   const EVENT_HIDDEN = `hidden.bs.${component.name}`;
 
-  EventHandler.on(document, EVENT_CLICK_DATA_API, initSelector, function (event) {
-    const target = getElementFromSelector(this);
+  if (!callbackInitState.has(component.name)) {
+    EventHandler.on(document, EVENT_CLICK_DATA_API, initSelector, function (event) {
+      const target = getElementFromSelector(this);
 
-    if (['A', 'AREA'].includes(this.tagName)) {
-      event.preventDefault();
-    }
-
-    EventHandler.one(target, EVENT_SHOW, (showEvent) => {
-      if (showEvent.defaultPrevented) {
-        // only register focus restorer if modal will actually get shown
-        return;
+      if (['A', 'AREA'].includes(this.tagName)) {
+        event.preventDefault();
       }
 
-      EventHandler.one(target, EVENT_HIDDEN, () => {
-        if (isVisible(this)) {
-          this.focus();
+      EventHandler.one(target, EVENT_SHOW, (showEvent) => {
+        if (showEvent.defaultPrevented) {
+          // only register focus restorer if modal will actually get shown
+          return;
+        }
+
+        EventHandler.one(target, EVENT_HIDDEN, () => {
+          if (isVisible(this)) {
+            this.focus();
+          }
+        });
+      });
+
+      // avoid conflict when clicking modal toggler while another one is open
+      const alreadyOpenedModals = SelectorEngine.find(OPEN_SELECTOR);
+      alreadyOpenedModals.forEach((modal) => {
+        if (!modal.classList.contains('modal-non-invasive-show')) {
+          Modal.getInstance(modal).hide();
         }
       });
+
+      const data = Modal.getOrCreateInstance(target);
+
+      data.toggle(this);
     });
 
-    // avoid conflict when clicking modal toggler while another one is open
-    const alreadyOpenedModals = SelectorEngine.find(OPEN_SELECTOR);
-    alreadyOpenedModals.forEach((modal) => {
-      if (!modal.classList.contains('modal-non-invasive-show')) {
-        Modal.getInstance(modal).hide();
-      }
-    });
-
-    const data = Modal.getOrCreateInstance(target);
-
-    data.toggle(this);
-  });
-
-  enableDismissTrigger(Modal);
+    enableDismissTrigger(Modal);
+    callbackInitState.set(component.name, true);
+  }
 
   SelectorEngine.find(initSelector).forEach((el) => {
     const selector = getSelectorFromElement(el);
@@ -312,6 +346,10 @@ const popoverCallback = (component, initSelector) => {
 };
 
 const offcanvasCallback = (component, initSelector) => {
+  if (callbackInitState.has(component.name)) {
+    return;
+  }
+
   const EVENT_CLICK_DATA_API = `click.bs.${component.name}.data-api`;
   const OPEN_SELECTOR = '.offcanvas.show';
   const Offcanvas = component;
@@ -362,9 +400,14 @@ const offcanvasCallback = (component, initSelector) => {
   });
 
   enableDismissTrigger(Offcanvas);
+  callbackInitState.set(component.name, true);
 };
 
 const scrollspyCallback = (component, initSelector) => {
+  if (callbackInitState.has(component.name)) {
+    return;
+  }
+
   const EVENT_LOAD_DATA_API = `load.bs.${component.name}.data-api`;
   const ScrollSpy = component;
 
@@ -373,6 +416,8 @@ const scrollspyCallback = (component, initSelector) => {
       ScrollSpy.getOrCreateInstance(el);
     });
   });
+
+  callbackInitState.set(component.name, true);
 };
 
 const tabCallback = (component, initSelector) => {
@@ -382,29 +427,36 @@ const tabCallback = (component, initSelector) => {
   const SELECTOR_DATA_TOGGLE_ACTIVE = `.${CLASS_NAME_ACTIVE}[data-mdb-tab-init], .${CLASS_NAME_ACTIVE}[data-mdb-pill-init], .${CLASS_NAME_ACTIVE}[data-mdb-toggle="list"]`;
   const Tab = component;
 
-  EventHandler.on(document, EVENT_CLICK_DATA_API, initSelector, function (event) {
-    if (['A', 'AREA'].includes(this.tagName)) {
-      event.preventDefault();
-    }
+  if (!callbackInitState.has(component.name)) {
+    EventHandler.on(document, EVENT_CLICK_DATA_API, initSelector, function (event) {
+      if (['A', 'AREA'].includes(this.tagName)) {
+        event.preventDefault();
+      }
 
-    if (isDisabled(this)) {
-      return;
-    }
+      if (isDisabled(this)) {
+        return;
+      }
 
-    Tab.getOrCreateInstance(this).show();
-  });
-
-  EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-    SelectorEngine.find(SELECTOR_DATA_TOGGLE_ACTIVE).forEach((element) => {
-      Tab.getOrCreateInstance(element);
+      Tab.getOrCreateInstance(this).show();
     });
-  });
+
+    EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+      SelectorEngine.find(SELECTOR_DATA_TOGGLE_ACTIVE).forEach((element) => {
+        Tab.getOrCreateInstance(element);
+      });
+    });
+
+    callbackInitState.set(component.name, true);
+  }
 };
 
 const toastCallback = (component, initSelector) => {
   const Toast = component;
 
-  enableDismissTrigger(Toast);
+  if (!callbackInitState.has(component.name)) {
+    enableDismissTrigger(Toast);
+    callbackInitState.set(component.name, true);
+  }
 
   // MDB init
   SelectorEngine.find(initSelector).forEach((element) => {
@@ -415,7 +467,10 @@ const toastCallback = (component, initSelector) => {
 const rippleCallback = (component, initSelector) => {
   const Ripple = component;
 
-  EventHandler.one(document, 'mousedown', initSelector, Ripple.autoInitial(new Ripple()));
+  if (!callbackInitState.has(component.name)) {
+    EventHandler.one(document, 'mousedown', initSelector, Ripple.autoInitial(new Ripple()));
+    callbackInitState.set(component.name, true);
+  }
 };
 
 export {
