@@ -26,10 +26,13 @@ Regardless whether you want to create a Travel Blog or an e-commerce shop to sel
 <p>Created by <a href="https://mdbootstrap.com"><img height="30" src="https://mdbootstrap.com/img/Marketing/general/logo/medium/mdb-r.png"></a>  
 <a href="https://npmcharts.com/compare/mdbootstrap?minimal=true"> <img src="https://img.shields.io/npm/dm/mdbootstrap.svg?label=NPM%20Downloads" alt="Downloads"></a>
 <a href="https://github.com/mdbootstrap/bootstrap-material-design/blob/master/License.pdf"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License"></a>
-<a href="https://twitter.com/intent/tweet/?text=Thanks+@mdbootstrap+for+creating+amazing+and+free+Material+Design+for+Bootstrap+5+UI+KIT%20https://mdbootstrap.com/docs/jquery/&hashtags=javascript,code,webdesign,bootstrap"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Let%20us%20know%20you%20were%20here%21&"></a>
-<a href="https://www.youtube.com/watch?v=c9B4TPnak1A"><img alt="YouTube Video Views" src="https://img.shields.io/youtube/views/c9B4TPnak1A?label=Bootstrap%205%20Tutorial%20Views&style=social"></a></p>
+<a href="https://x.com/intent/post?text=Thanks+%40mdbootstrap+for+creating+amazing+and+free+Material+Design+for+Bootstrap+5+UI+KIT+https%3A%2F%2Fmdbootstrap.com%2Fdocs%2Fjquery%2F&hashtags=javascript%2Ccode%2Cwebdesign%2Cbootstrap"><img src="https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Let%20us%20know%20you%20were%20here%21&"></a>
+<a href="https://mdbootstrap.com/learn/mdb-foundations/basics/introduction/">
+  <img src="https://img.shields.io/static/v1?label=MDBootstrap&message=Tutorial&labelColor=007bff&color=ffffff&logoColor=007bff&textColor=000000" alt="MDBootstrap tutorial">
+</a></p>
 
-Trusted by <b>2 000 000+</b> developers & designers. Used by companies & institutions like
+
+Trusted by <b>3 000 000+</b> developers & designers. Used by companies & institutions like
 <table>
   <tbody>
     <tr>
@@ -78,37 +81,37 @@ ___
 
 # Bootstrap 5 tutorial
 
-**[>> Learn more about Bootstrap 5](https://mdbootstrap.com/docs/standard/bootstrap-5/)**
+**[>> Learn more about Bootstrap 5](https://mdbootstrap.com/docs/standard/)**
 
 
-**[>> Bootstrap 5 Tutorial](https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/)**
+**[>> Bootstrap 5 Tutorial](https://mdbootstrap.com/learn/mdb-foundations/basics/introduction/)**
 
-**[>> Subscribe to our YouTube channel with dozens of Bootstrap tutorials](https://www.youtube.com/c/Mdbootstrap?sub_confirmation=1)**
+**[>> Subscribe to our YouTube channel with dozens of Bootstrap tutorials](https://www.youtube.com/c/Mdbootstrap)**
 
 <table>
   <tbody>
     <tr>
       <td align="center">
-         <a href="https://mdbootstrap.com/docs/standard/getting-started/" alt="Bootstrap Tutorials" rel="dofollow">
+         <a href="https://mdbootstrap.com/learn/mdb-foundations/basics/introduction/" alt="Bootstrap Tutorials" rel="dofollow">
           		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/learnmore-1.png">
           </a>
       </td>
       <td>
-          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
-          		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/cover-bootstrap-5-1.png">
+          <a href="https://mdbootstrap.com/learn/mdb-foundations/basics/introduction/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          		<img src="https://mdbootstrap.com/learn/mdb-foundations/basics/introduction/assets/featured-image.png">
           </a>
       </td>
     </tr>
      <tr>
         <td align="center">
           <p align="center"><b>Start learning from Basics</b></p>
-          <a href="https://mdbootstrap.com/docs/standard/getting-started/" alt="Bootstrap 5" rel="dofollow">
+          <a href="https://mdbootstrap.com/learn/mdb-foundations/basics/introduction/" alt="Bootstrap 5" rel="dofollow">
           		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/Screenshot_26.png">
           </a>
          </td>
         <td align="center">
           <p align="center"><b>Learn Bootstrap 5 | Crash Course for Beginners in 1.5H</b></p>
-          <a href="https://mdbootstrap.com/docs/standard/bootstrap-5-tutorial/#section-beginner" alt="Bootstrap 5" rel="dofollow">
+          <a href="https://mdbootstrap.com/learn/mdb-foundations/basics/introduction/#section-beginner" alt="Bootstrap 5" rel="dofollow">
           		<img src="https://mdbootstrap.com/wp-content/uploads/2020/12/Screenshot_26.png">
           </a>
          </td>
