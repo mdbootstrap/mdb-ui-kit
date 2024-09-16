@@ -54,6 +54,7 @@
 
 .nav-pills {
   margin-left: -$nav-pills-margin;
+  margin-right: -$nav-pills-margin;
 
   .nav-link {
     --#{$prefix}nav-pills-link-border-radius: #{$nav-pills-link-border-radius};

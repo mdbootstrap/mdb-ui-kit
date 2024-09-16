@@ -89,9 +89,11 @@
           box-shadow: 0 1px 0 0 $color;
         }
         &:focus ~ .form-notch .form-notch-leading {
+          border-color: $color;
           box-shadow: -1px 0 0 0 $color, 0 1px 0 0 $color, 0 -1px 0 0 $color;
         }
         &:focus ~ .form-notch .form-notch-trailing {
+          border-color: $color;
           box-shadow: 1px 0 0 0 $color, 0 -1px 0 0 $color, 0 1px 0 0 $color;
         }
 

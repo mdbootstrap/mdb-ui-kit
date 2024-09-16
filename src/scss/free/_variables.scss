@@ -1561,6 +1561,8 @@ $alert-border-radius: $border-radius-lg !default;
 // scss-docs-start progress-variables
 $progress-height: 4px !default;
 $progress-bar-color: color-contrast($primary) !default;
+$progress-circular-size: 48px !default;
+$progress-circular-bar-width: 4px !default;
 // scss-docs-end progress-variables
 
 // Range

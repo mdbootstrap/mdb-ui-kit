@@ -1,4 +1,3 @@
-/* eslint-disable */
 import updateGeometry from '../update-geometry';
 import cls from '../lib/class-names';
 import * as CSS from '../lib/css';
@@ -11,6 +10,13 @@ export default function (i) {
 
   const element = i.element;
 
+  const state = {
+    startOffset: {},
+    startTime: 0,
+    speed: {},
+    easingLoop: null,
+  };
+
   function shouldPrevent(deltaX, deltaY) {
     const scrollTop = Math.floor(element.scrollTop);
     const scrollLeft = element.scrollLeft;
@@ -18,18 +24,13 @@ export default function (i) {
     const magnitudeY = Math.abs(deltaY);
 
     if (magnitudeY > magnitudeX) {
-      // user is perhaps trying to swipe up/down the page
-
       if (
         (deltaY < 0 && scrollTop === i.contentHeight - i.containerHeight) ||
         (deltaY > 0 && scrollTop === 0)
       ) {
-        // set prevent for mobile Chrome refresh
         return window.scrollY === 0 && deltaY > 0 && env.isChrome;
       }
     } else if (magnitudeX > magnitudeY) {
-      // user is perhaps trying to swipe left/right across the page
-
       if (
         (deltaX < 0 && scrollLeft === i.contentWidth - i.containerWidth) ||
         (deltaX > 0 && scrollLeft === 0)
@@ -48,21 +49,18 @@ export default function (i) {
     updateGeometry(i);
   }
 
-  let startOffset = {};
-  let startTime = 0;
-  let speed = {};
-  let easingLoop = null;
-
   function getTouch(e) {
     if (e.targetTouches) {
       return e.targetTouches[0];
-    } else {
-      // Maybe IE pointer
-      return e;
     }
+    // Maybe IE pointer
+    return e;
   }
 
   function shouldHandle(e) {
+    if (e.target === i.scrollbarX || e.target === i.scrollbarY) {
+      return false;
+    }
     if (e.pointerType && e.pointerType === 'pen' && e.buttons === 0) {
       return false;
     }
@@ -82,13 +80,13 @@ export default function (i) {
 
     const touch = getTouch(e);
 
-    startOffset.pageX = touch.pageX;
-    startOffset.pageY = touch.pageY;
+    state.startOffset.pageX = touch.pageX;
+    state.startOffset.pageY = touch.pageY;
 
-    startTime = new Date().getTime();
+    state.startTime = new Date().getTime();
 
-    if (easingLoop !== null) {
-      clearInterval(easingLoop);
+    if (state.easingLoop !== null) {
+      clearInterval(state.easingLoop);
     }
   }
 
@@ -143,53 +141,57 @@ export default function (i) {
 
       const currentOffset = { pageX: touch.pageX, pageY: touch.pageY };
 
-      const differenceX = currentOffset.pageX - startOffset.pageX;
-      const differenceY = currentOffset.pageY - startOffset.pageY;
+      const differenceX = currentOffset.pageX - state.startOffset.pageX;
+      const differenceY = currentOffset.pageY - state.startOffset.pageY;
 
       if (shouldBeConsumedByChild(e.target, differenceX, differenceY)) {
         return;
       }
 
       applyTouchMove(differenceX, differenceY);
-      startOffset = currentOffset;
+      state.startOffset = currentOffset;
 
       const currentTime = new Date().getTime();
 
-      const timeGap = currentTime - startTime;
+      const timeGap = currentTime - state.startTime;
       if (timeGap > 0) {
-        speed.x = differenceX / timeGap;
-        speed.y = differenceY / timeGap;
-        startTime = currentTime;
+        state.speed.x = differenceX / timeGap;
+        state.speed.y = differenceY / timeGap;
+        state.startTime = currentTime;
       }
 
       if (shouldPrevent(differenceX, differenceY)) {
-        e.preventDefault();
+        // Prevent the default behavior if the event is cancelable
+        if (e.cancelable) {
+          e.preventDefault();
+        }
       }
     }
   }
+
   function touchEnd() {
     if (i.settings.swipeEasing) {
-      clearInterval(easingLoop);
-      easingLoop = setInterval(function () {
+      clearInterval(state.easingLoop);
+      state.easingLoop = setInterval(() => {
         if (i.isInitialized) {
-          clearInterval(easingLoop);
+          clearInterval(state.easingLoop);
           return;
         }
 
-        if (!speed.x && !speed.y) {
-          clearInterval(easingLoop);
+        if (!state.speed.x && !state.speed.y) {
+          clearInterval(state.easingLoop);
           return;
         }
 
-        if (Math.abs(speed.x) < 0.01 && Math.abs(speed.y) < 0.01) {
-          clearInterval(easingLoop);
+        if (Math.abs(state.speed.x) < 0.01 && Math.abs(state.speed.y) < 0.01) {
+          clearInterval(state.easingLoop);
           return;
         }
 
-        applyTouchMove(speed.x * 30, speed.y * 30);
+        applyTouchMove(state.speed.x * 30, state.speed.y * 30);
 
-        speed.x *= 0.8;
-        speed.y *= 0.8;
+        state.speed.x *= 0.8;
+        state.speed.y *= 0.8;
       }, 10);
     }
   }

@@ -1,23 +1,9 @@
-/* eslint-disable */
-
-import * as CSS from '../lib/css';
-import * as DOM from '../lib/dom';
 import cls, { addScrollingClass, removeScrollingClass } from '../lib/class-names';
 import updateGeometry from '../update-geometry';
-import { toInt } from '../lib/util';
 
-export default function (i) {
-  bindMouseScrollHandler(i, [
-    'containerWidth',
-    'contentWidth',
-    'pageX',
-    'railXWidth',
-    'scrollbarX',
-    'scrollbarXWidth',
-    'scrollLeft',
-    'x',
-    'scrollbarXRail',
-  ]);
+let activeSlider = null; // Variable to track the currently active slider
+
+export default function setupScrollHandlers(i) {
   bindMouseScrollHandler(i, [
     'containerHeight',
     'contentHeight',
@@ -29,70 +15,96 @@ export default function (i) {
     'y',
     'scrollbarYRail',
   ]);
+
+  bindMouseScrollHandler(i, [
+    'containerWidth',
+    'contentWidth',
+    'pageX',
+    'railXWidth',
+    'scrollbarX',
+    'scrollbarXWidth',
+    'scrollLeft',
+    'x',
+    'scrollbarXRail',
+  ]);
 }
 
 function bindMouseScrollHandler(
   i,
   [
-    containerHeight,
-    contentHeight,
-    pageY,
-    railYHeight,
-    scrollbarY,
-    scrollbarYHeight,
-    scrollTop,
-    y,
-    scrollbarYRail,
+    containerDimension,
+    contentDimension,
+    pageAxis,
+    railDimension,
+    scrollbarAxis,
+    scrollbarDimension,
+    scrollAxis,
+    axis,
+    scrollbarRail,
   ]
 ) {
   const element = i.element;
-
-  let startingScrollTop = null;
-  let startingMousePageY = null;
+  let startingScrollPosition = null;
+  let startingMousePagePosition = null;
   let scrollBy = null;
 
-  function mouseMoveHandler(e) {
+  function moveHandler(e) {
     if (e.touches && e.touches[0]) {
-      e[pageY] = e.touches[0].pageY;
+      e[pageAxis] = e.touches[0][`page${axis.toUpperCase()}`];
     }
-    element[scrollTop] = startingScrollTop + scrollBy * (e[pageY] - startingMousePageY);
-    addScrollingClass(i, y);
-    updateGeometry(i);
 
-    e.stopPropagation();
-    e.preventDefault();
-  }
+    // Only move if the active slider is the one we started with
+    if (activeSlider === scrollbarAxis) {
+      element[scrollAxis] =
+        startingScrollPosition + scrollBy * (e[pageAxis] - startingMousePagePosition);
+      addScrollingClass(i, axis);
+      updateGeometry(i);
 
-  function mouseUpHandler() {
-    removeScrollingClass(i, y);
-    i[scrollbarYRail].classList.remove(cls.state.clicking);
-    i.event.unbind(i.ownerDocument, 'mousemove', mouseMoveHandler);
-  }
-
-  function bindMoves(e, touchMode) {
-    startingScrollTop = element[scrollTop];
-    if (touchMode && e.touches) {
-      e[pageY] = e.touches[0].pageY;
-    }
-    startingMousePageY = e[pageY];
-    scrollBy = (i[contentHeight] - i[containerHeight]) / (i[railYHeight] - i[scrollbarYHeight]);
-    if (!touchMode) {
-      i.event.bind(i.ownerDocument, 'mousemove', mouseMoveHandler);
-      i.event.once(i.ownerDocument, 'mouseup', mouseUpHandler);
+      e.stopPropagation();
       e.preventDefault();
-    } else {
-      i.event.bind(i.ownerDocument, 'touchmove', mouseMoveHandler);
     }
-
-    i[scrollbarYRail].classList.add(cls.state.clicking);
-
-    e.stopPropagation();
   }
 
-  i.event.bind(i[scrollbarY], 'mousedown', (e) => {
-    bindMoves(e);
-  });
-  i.event.bind(i[scrollbarY], 'touchstart', (e) => {
-    bindMoves(e, true);
-  });
+  function endHandler() {
+    removeScrollingClass(i, axis);
+    i[scrollbarRail].classList.remove(cls.state.clicking);
+    document.removeEventListener('mousemove', moveHandler);
+    document.removeEventListener('mouseup', endHandler);
+    document.removeEventListener('touchmove', moveHandler);
+    document.removeEventListener('touchend', endHandler);
+    activeSlider = null; // Reset active slider when interaction ends
+  }
+
+  function bindMoves(e) {
+    if (activeSlider === null) {
+      // Only bind if no slider is currently active
+      activeSlider = scrollbarAxis; // Set current slider as active
+
+      startingScrollPosition = element[scrollAxis];
+      if (e.touches) {
+        e[pageAxis] = e.touches[0][`page${axis.toUpperCase()}`];
+      }
+      startingMousePagePosition = e[pageAxis];
+      scrollBy =
+        (i[contentDimension] - i[containerDimension]) / (i[railDimension] - i[scrollbarDimension]);
+
+      if (!e.touches) {
+        document.addEventListener('mousemove', moveHandler);
+        document.addEventListener('mouseup', endHandler);
+      } else {
+        document.addEventListener('touchmove', moveHandler, { passive: false });
+        document.addEventListener('touchend', endHandler);
+      }
+
+      i[scrollbarRail].classList.add(cls.state.clicking);
+    }
+
+    e.stopPropagation();
+    if (e.cancelable) {
+      e.preventDefault();
+    }
+  }
+
+  i[scrollbarAxis].addEventListener('mousedown', bindMoves);
+  i[scrollbarAxis].addEventListener('touchstart', bindMoves);
 }
