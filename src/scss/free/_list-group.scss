@@ -6,6 +6,16 @@
   --#{$prefix}list-group-item-transition-time: #{$list-group-item-transition-time};
 }
 
+.list-group-item {
+  --#{$prefix}list-group-item-active-margin-top: #{$list-group-active-margin-top};
+
+  & + .list-group-item {
+    &.active {
+      margin-top: var(--#{$prefix}list-group-item-active-margin-top);
+    }
+  }
+}
+
 .list-group-item-action {
   transition: var(--#{$prefix}list-group-item-transition-time);
 

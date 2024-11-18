@@ -1602,6 +1602,7 @@ $list-group-light-active-border-radius: 0.5rem !default;
 $list-group-light-active-bg: var(--#{$prefix}primary-bg-subtle) !default;
 $list-group-light-active-color: var(--#{$prefix}primary-text-emphasis) !default;
 
+$list-group-active-margin-top: 0 !default;
 $list-group-small-item-py: 0.5rem !default;
 // scss-docs-end list-group-variables
 
