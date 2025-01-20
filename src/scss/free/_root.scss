@@ -30,6 +30,7 @@
   --#{$prefix}box-shadow-color: #{$box-shadow-color};
   --#{$prefix}box-shadow-color-rgb: #{to-rgb($box-shadow-color)};
   --#{$prefix}stepper-mobile-bg: #{$stepper-mobile-bg};
+  --#{$prefix}datepicker-cell-in-range-background-color: #{$datepicker-cell-in-range-background-color};
 }
 
 @if $enable-dark-mode {
@@ -57,6 +58,7 @@
     --#{$prefix}box-shadow-color: #{$box-shadow-color-dark};
     --#{$prefix}box-shadow-color-rgb: #{to-rgb($box-shadow-color-dark)};
     --#{$prefix}stepper-mobile-bg: #{$stepper-mobile-bg-dark};
+    --#{$prefix}datepicker-cell-in-range-background-color: #{$datepicker-cell-in-range-bg-dark};
     // scss-docs-end root-dark-mode-vars
   }
 }

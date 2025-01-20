@@ -16,7 +16,6 @@ const EVENT_KEY = `.${DATA_KEY}`;
 
 const Default = {
   offset: [0, 2],
-  flip: true,
   boundary: 'clippingParents',
   reference: 'toggle',
   display: 'dynamic',
@@ -26,7 +25,6 @@ const Default = {
 
 const DefaultType = {
   offset: '(array|string|function)',
-  flip: 'boolean',
   boundary: '(string|element)',
   reference: '(string|element|object)',
   display: 'string',
@@ -121,7 +119,6 @@ class Dropdown extends BSDropdown {
         {
           name: 'preventOverflow',
           options: {
-            altBoundary: this._config.flip,
             boundary: this._config.boundary,
           },
         },
