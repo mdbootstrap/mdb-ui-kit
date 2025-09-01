@@ -1,6 +1,6 @@
 /*!
 * MDB5
-* Version: FREE 9.1.0
+* Version: FREE 9.2.0
 *
 *
 * Copyright: Material Design for Bootstrap
